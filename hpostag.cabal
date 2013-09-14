@@ -1,0 +1,43 @@
+name:                hpostag
+version:             0.0.0.1
+synopsis:            A simple POS tagger library
+description:         <<<description>>>
+category:            Tools
+license:             BSD3
+License-file:        LICENSE
+author:              Rogan Creswick
+maintainer:          creswick@gmail.com
+Cabal-Version:       >=1.8.0.6
+build-type:          Simple
+
+Flag tests
+   Description:    Build the tests
+   Default:        False
+
+Library
+   hs-source-dirs:   src
+
+   Build-depends:    base       >= 4       && < 6
+
+   ghc-options:      -Wall
+
+Executable hpostag
+   Main-Is:          Main.hs
+   hs-source-dirs:   appsrc
+
+   Build-depends:    hpostag,
+                     base       >= 4       && < 6
+
+   ghc-options:      -Wall
+
+Executable test-hpostag
+   Main-Is:          Main.hs
+   hs-source-dirs:   tests/src
+
+   if !flag(tests)
+      Buildable:              False
+
+   Build-depends:    hpostag,
+                     base       >= 4       && < 6
+
+   ghc-options:      -Wall
