@@ -17,7 +17,13 @@ Flag tests
 Library
    hs-source-dirs:   src
 
-   Build-depends:    base       >= 4       && < 6
+   Exposed-modules:  NLP.POS
+                     NLP.POS.AvgPerceptron
+                     NLP.Types
+                     NLP.Corpora.Parsing
+
+   Build-depends:    base >= 4,
+                     text
 
    ghc-options:      -Wall
 
@@ -26,7 +32,7 @@ Executable hpostag
    hs-source-dirs:   appsrc
 
    Build-depends:    hpostag,
-                     base       >= 4       && < 6
+                     base       >= 4
 
    ghc-options:      -Wall
 
@@ -38,6 +44,6 @@ Executable test-hpostag
       Buildable:              False
 
    Build-depends:    hpostag,
-                     base       >= 4       && < 6
+                     base       >= 4
 
    ghc-options:      -Wall
