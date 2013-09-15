@@ -44,6 +44,12 @@ Executable test-hpostag
       Buildable:              False
 
    Build-depends:    hpostag,
-                     base       >= 4
+                     base       >= 4,
+                     text,
+                     HUnit,
+                     test-framework,
+                     test-framework-quickcheck2,
+                     test-framework-hunit,
+                     QuickCheck < 2.6
 
    ghc-options:      -Wall
