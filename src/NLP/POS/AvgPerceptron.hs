@@ -74,22 +74,22 @@ getFeatureWeight p f = Map.findWithDefault Map.empty f (weights p)
 -- >     # Do a secondary alphabetic sort, for stability
 -- >     return max(self.classes, key=lambda label: (scores[label], label))
 --
-predict :: Perceptron -> Map Feature Weight -> Maybe Class
-predict per features = -- now find highest ranked score in scores
+predict :: Perceptron -> Map Feature Int -> Maybe Class
+predict per features = -- find highest ranked score in finalScores:
     headMay (map fst $ sortBy (compare `on` fst) $ Map.toList finalScores)
     where
       finalScores :: Map Class Weight
       finalScores = foldr fn Map.empty (Map.toList features)
 
-      fn :: (Feature, Weight) -> Map Class Weight -> Map Class Weight
+      fn :: (Feature, Int) -> Map Class Weight -> Map Class Weight
       fn (f, 0) scores = scores
       fn (f, v) scores = case Map.lookup f (weights per) of
          Nothing  -> scores
          Just vec -> foldr (doProd v) scores (Map.toList vec)
 
-      doProd :: Weight -> (Class, Weight) -> Map Class Weight -> Map Class Weight
+      doProd :: Int -> (Class, Weight) -> Map Class Weight -> Map Class Weight
       doProd value (label, weight) scores =
-        Map.alter (updater (weight * value)) label scores
+        Map.alter (updater (weight * (fromIntegral value))) label scores
 
       updater :: Weight -> Maybe Weight -> Maybe Weight
       updater newVal Nothing  = Just newVal
@@ -181,4 +181,57 @@ averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
 -- | round a fractional number to a specified decimal place.
 roundTo :: RealFrac a => Int -> a -> a
 roundTo n f = (fromInteger $ round $ f * (10^n)) / (10.0^^n)
+
+
+-- | Train a model from sentences, and save it at save_loc. nr_iter
+-- controls the number of Perceptron training iterations.
+--
+-- :param sentences: A list of (words, tags) tuples.
+-- :param save_loc: If not ``None``, saves a pickled model in this location.
+-- :param nr_iter: Number of training iterations.
+--
+-- Ported from Python:
+-- > def train(self, sentences, save_loc=None, nr_iter=5):
+-- >     self._make_tagdict(sentences)
+-- >     self.model.classes = self.classes
+-- >     prev, prev2 = START
+-- >     for iter_ in range(nr_iter):
+-- >         c = 0
+-- >         n = 0
+-- >         for words, tags in sentences:
+-- >             context = START + [self._normalize(w) for w in words] + END
+-- >             for i, word in enumerate(words):
+-- >                 guess = self.tagdict.get(word)
+-- >                 if not guess:
+-- >                     feats = self._get_features(i, word, context, prev, prev2)
+-- >                     guess = self.model.predict(feats)
+-- >                     self.model.update(tags[i], guess, feats)
+-- >                 prev2 = prev; prev = guess
+-- >                 c += guess == tags[i]
+-- >                 n += 1
+-- >         random.shuffle(sentences)
+-- >         logging.info("Iter {0}: {1}/{2}={3}".format(iter_, c, n, _pc(c, n)))
+-- >     self.model.average_weights()
+-- >     # Pickle as a binary file
+-- >     if save_loc is not None:
+-- >         pickle.dump((self.model.weights, self.tagdict, self.classes),
+-- >                      open(save_loc, 'wb'), -1)
+-- >     return None
+trainTagger :: [(Text, Tag)] -> Perceptron
+trainTagger examples = undefined
+
+-- Train a perceptron
+--
+-- Ported from Python:
+-- > def train(nr_iter, examples):
+-- >     model = Perceptron()
+-- >     for i in range(nr_iter):
+-- >         random.shuffle(examples)
+-- >         for features, class_ in examples:
+-- >             scores = model.predict(features)
+-- >             guess, score = max(scores.items(), key=lambda i: i[1])
+-- >             if guess != class_:
+-- >                 model.update(class_, guess, features)
+-- >     model.average_weights()
+-- >     return model
 
