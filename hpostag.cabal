@@ -23,7 +23,9 @@ Library
                      NLP.Corpora.Parsing
 
    Build-depends:    base >= 4,
-                     text
+                     text,
+                     containers,
+                     safe
 
    ghc-options:      -Wall
 
