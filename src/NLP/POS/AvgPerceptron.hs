@@ -18,19 +18,24 @@ import Data.Set (Set)
 -- Perceptron code:
 --  https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py
 --
-type Feature = String
-type Class = String
+newtype Feature = Feat String
+    deriving (Read, Show, Eq, Ord)
+
+newtype Class = Class String
+    deriving (Read, Show, Eq, Ord)
+
+type Weight = Double
 
 data Perceptron = Perceptron {
     -- | Each feature gets its own weight vector, so weights is a
     -- dict-of-dicts
-    weights :: Map Feature (Map Class Int)
+    weights :: Map Feature (Map Class Weight)
 
     , classes :: Set Class
 
     -- | The accumulated values, for the averaging. These will be
     -- keyed by feature/clas tuples
-    , totals :: Map (Feature, Class) Int
+    , totals :: Map (Feature, Class) Weight
 
     -- | The last time the feature was changed, for the averaging. Also
     -- keyed by feature/clas tuples
@@ -47,10 +52,10 @@ incrementInstances p = p { instances = 1 + (instances p) }
 getTimestamp :: Perceptron -> (Feature, Class) -> Int
 getTimestamp p param = Map.findWithDefault 0 param (tstamps p)
 
-getTotal :: Perceptron -> (Feature, Class) -> Int
+getTotal :: Perceptron -> (Feature, Class) -> Weight
 getTotal p param = Map.findWithDefault 0 param (totals p)
 
-getFeatureWeight :: Perceptron -> Feature -> Map Class Int
+getFeatureWeight :: Perceptron -> Feature -> Map Class Weight
 getFeatureWeight p f = Map.findWithDefault Map.empty f (weights p)
 
 
@@ -69,24 +74,24 @@ getFeatureWeight p f = Map.findWithDefault Map.empty f (weights p)
 -- >     # Do a secondary alphabetic sort, for stability
 -- >     return max(self.classes, key=lambda label: (scores[label], label))
 --
-predict :: Perceptron -> Map Feature Int -> Maybe Class
+predict :: Perceptron -> Map Feature Weight -> Maybe Class
 predict per features = -- now find highest ranked score in scores
     headMay (map fst $ sortBy (compare `on` fst) $ Map.toList finalScores)
     where
-      finalScores :: Map Class Int
+      finalScores :: Map Class Weight
       finalScores = foldr fn Map.empty (Map.toList features)
 
-      fn :: (Feature, Int) -> Map Class Int -> Map Class Int
+      fn :: (Feature, Weight) -> Map Class Weight -> Map Class Weight
       fn (f, 0) scores = scores
       fn (f, v) scores = case Map.lookup f (weights per) of
          Nothing  -> scores
          Just vec -> foldr (doProd v) scores (Map.toList vec)
 
-      doProd :: Int -> (Class, Int) -> Map Class Int -> Map Class Int
+      doProd :: Weight -> (Class, Weight) -> Map Class Weight -> Map Class Weight
       doProd value (label, weight) scores =
         Map.alter (updater (weight * value)) label scores
 
-      updater :: Int -> Maybe Int -> Maybe Int
+      updater :: Weight -> Maybe Weight -> Maybe Weight
       updater newVal Nothing  = Just newVal
       updater newVal (Just v) = Just (v + newVal)
 
@@ -120,12 +125,13 @@ update per truth guess features
 -- >           self._totals[param] += (self.i - self._tstamps[param]) * w
 -- >           self._tstamps[param] = self.i
 -- >           self.weights[f][c] = w + v
-upd_feat :: Class -> Class -> Int -> Int -> Perceptron -> Perceptron
+upd_feat :: Class -> Feature -> Weight -> Weight -> Perceptron -> Perceptron
 upd_feat c f w v p = let
     newInstances = 1 + (instances p) -- increment the instance counter.
 
     -- self._totals[param] += (self.i - self._tstamps[param]) * w
-    tmpTotal  = (getTotal p (f, c)) + ((newInstances - getTimestamp p (f, c)) * w)
+    paramTstamp = newInstances - getTimestamp p (f, c)
+    tmpTotal  = (getTotal p (f, c)) + ((fromIntegral paramTstamp) * w)
     newTotals = Map.insert (f, c) tmpTotal (totals p)
 
     -- self._tstamps[param] = self.i
@@ -137,3 +143,42 @@ upd_feat c f w v p = let
     in p { totals = newTotals
          , tstamps = newTstamps
          , weights = newWeights }
+
+
+-- | Average the weights?
+--
+-- Ported from Python:
+-- > def average_weights(self):
+-- >     for feat, weights in self.weights.items():
+-- >         new_feat_weights = {}
+-- >         for clas, weight in weights.items():
+-- >             param = (feat, clas)
+-- >             total = self._totals[param]
+-- >             total += (self.i - self._tstamps[param]) * weight
+-- >             averaged = round(total / float(self.i), 3)
+-- >             if averaged:
+-- >                 new_feat_weights[clas] = averaged
+-- >         self.weights[feat] = new_feat_weights
+-- >     return None
+averageWeights :: Perceptron -> Perceptron
+averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
+  where
+    avgWeights :: Feature -> Map Class Weight -> Map Class Weight
+    avgWeights feat weights = Map.foldrWithKey (doAvg feat) Map.empty weights
+
+    doAvg :: Feature -> Class -> Weight -> Map Class Weight -> Map Class Weight
+    doAvg f c w acc = let
+      param = (f, c)
+      paramTotal = instances per - getTimestamp per param
+
+      total :: Weight
+      total = (getTotal per param) + ((fromIntegral paramTotal) * w)
+      averaged = roundTo 3 (total / (fromIntegral $ instances per))
+      in if 0 == averaged
+           then acc
+           else Map.insert c averaged acc
+
+-- | round a fractional number to a specified decimal place.
+roundTo :: RealFrac a => Int -> a -> a
+roundTo n f = (fromInteger $ round $ f * (10^n)) / (10.0^^n)
+
