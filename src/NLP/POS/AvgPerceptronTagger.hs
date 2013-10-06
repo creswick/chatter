@@ -16,6 +16,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 
 type Sentence = [Text]
+type TaggedSentence = [(Text, Class)]
 
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.
@@ -27,6 +28,44 @@ startToks = ["-START-", "-START2-"]
 endToks :: [Text]
 endToks = ["-END-", "-END2-"]
 
+
+-- > def tag(self, corpus, tokenize=True):
+-- >     '''Tags a string `corpus`.'''
+-- >     # Assume untokenized corpus has \n between sentences and ' ' between words
+-- >     s_split = nltk.sent_tokenize if tokenize else lambda t: t.split('\n')
+-- >     w_split = nltk.word_tokenize if tokenize else lambda s: s.split()
+-- >     def split_sents(corpus):
+-- >         for s in s_split(corpus):
+-- >             yield w_split(s)
+-- >      prev, prev2 = self.START
+-- >     tokens = []
+-- >     for words in split_sents(corpus):
+-- >         context = self.START + [self._normalize(w) for w in words] + self.END
+-- >         for i, word in enumerate(words):
+-- >             tag = self.tagdict.get(word)
+-- >             if not tag:
+-- >                 features = self._get_features(i, word, context, prev, prev2)
+-- >                 tag = self.model.predict(features)
+-- >             tokens.append((word, tag))
+-- >             prev2 = prev
+-- >             prev = tag
+-- >     return tokens
+tag :: Perceptron -> [Sentence] -> [TaggedSentence]
+tag per corpus = map (tagSentence per) corpus
+
+tagSentence :: Perceptron -> Sentence -> TaggedSentence
+tagSentence per sent = let
+  context = startToks ++ sent ++ endToks
+
+  tags = (map (Class . T.unpack) startToks) ++ map (predictPos per) features
+
+  features = [ getFeatures context i word prev1 prev2 |
+             i <- [0..]
+             , word <- sent
+             , prev1 <- tail tags
+             , prev2 <- tags
+             ]
+  in zip sent (drop 2 tags)
 
 -- | Train a model from sentences, and save it at save_loc. nr_iter
 -- controls the number of Perceptron training iterations.
@@ -102,10 +141,13 @@ trainSentence per (sent, ts) = let
 
   fn :: Perceptron -> (Map Feature Int, Class) -> Perceptron
   fn model (feats, truth) = let
-    guess = fromMaybe (Class "Unk") $ predict model feats
+    guess = predictPos model feats
     in update model truth guess $ Map.keys feats
 
   in foldl fn per (zip features ts)
+
+predictPos :: Perceptron -> Map Feature Int -> Class
+predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
 
 -- | Default feature set
 --
