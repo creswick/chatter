@@ -19,6 +19,7 @@ Library
 
    Exposed-modules:  NLP.POS
                      NLP.POS.AvgPerceptron
+                     NLP.POS.AvgPerceptronTagger
                      NLP.Types
                      NLP.Corpora.Parsing
 

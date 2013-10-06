@@ -164,7 +164,7 @@ averageWeights :: Perceptron -> Perceptron
 averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
   where
     avgWeights :: Feature -> Map Class Weight -> Map Class Weight
-    avgWeights feat weights = Map.foldrWithKey (doAvg feat) Map.empty weights
+    avgWeights feat ws = Map.foldrWithKey (doAvg feat) Map.empty ws
 
     doAvg :: Feature -> Class -> Weight -> Map Class Weight -> Map Class Weight
     doAvg f c w acc = let
@@ -182,43 +182,6 @@ averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
 roundTo :: RealFrac a => Int -> a -> a
 roundTo n f = (fromInteger $ round $ f * (10^n)) / (10.0^^n)
 
-
--- | Train a model from sentences, and save it at save_loc. nr_iter
--- controls the number of Perceptron training iterations.
---
--- :param sentences: A list of (words, tags) tuples.
--- :param save_loc: If not ``None``, saves a pickled model in this location.
--- :param nr_iter: Number of training iterations.
---
--- Ported from Python:
--- > def train(self, sentences, save_loc=None, nr_iter=5):
--- >     self._make_tagdict(sentences)
--- >     self.model.classes = self.classes
--- >     prev, prev2 = START
--- >     for iter_ in range(nr_iter):
--- >         c = 0
--- >         n = 0
--- >         for words, tags in sentences:
--- >             context = START + [self._normalize(w) for w in words] + END
--- >             for i, word in enumerate(words):
--- >                 guess = self.tagdict.get(word)
--- >                 if not guess:
--- >                     feats = self._get_features(i, word, context, prev, prev2)
--- >                     guess = self.model.predict(feats)
--- >                     self.model.update(tags[i], guess, feats)
--- >                 prev2 = prev; prev = guess
--- >                 c += guess == tags[i]
--- >                 n += 1
--- >         random.shuffle(sentences)
--- >         logging.info("Iter {0}: {1}/{2}={3}".format(iter_, c, n, _pc(c, n)))
--- >     self.model.average_weights()
--- >     # Pickle as a binary file
--- >     if save_loc is not None:
--- >         pickle.dump((self.model.weights, self.tagdict, self.classes),
--- >                      open(save_loc, 'wb'), -1)
--- >     return None
-trainTagger :: [(Text, Tag)] -> Perceptron
-trainTagger examples = undefined
 
 -- Train a perceptron
 --

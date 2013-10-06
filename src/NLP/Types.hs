@@ -69,9 +69,9 @@ data POSTag = CC -- ^ Coordinating conjunction
 -- Other "VBX-$"
 parseTag :: Text -> POSTag
 parseTag txt = let
-  mod = readMaybe (T.unpack $ T.toUpper $ T.replace "$" "S" txt)
+  alt = readMaybe (T.unpack $ T.toUpper $ T.replace "$" "S" txt)
   raw = readMaybe (T.unpack $ T.toUpper txt)
-  in case (mod, raw) of
+  in case (alt, raw) of
      (_      , Just tag) -> tag
      (Just tag, _      ) -> tag
      _                   -> Other txt
