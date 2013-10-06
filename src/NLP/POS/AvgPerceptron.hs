@@ -10,6 +10,8 @@ import Data.Map (Map)
 import qualified Data.Set as Set
 import Data.Set (Set)
 
+import Data.Text (Text)
+
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation:
 --
@@ -18,7 +20,7 @@ import Data.Set (Set)
 -- Perceptron code:
 --  https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py
 --
-newtype Feature = Feat String
+newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord)
 
 newtype Class = Class String
