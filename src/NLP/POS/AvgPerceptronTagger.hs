@@ -102,7 +102,9 @@ tagSentence per sent = let
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
 train :: Int -> Perceptron -> [[(Text, POSTag)]] -> Perceptron
-train itr per examples = trainCls itr per $ toClassLst $ map unzip examples
+train itr per examples = let
+  rawPer = trainCls itr per $ toClassLst $ map unzip examples
+  in averageWeights rawPer
 
 toClassLst ::  [(Sentence, [POSTag])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . show) y)) tagged
