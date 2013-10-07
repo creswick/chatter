@@ -102,15 +102,13 @@ tagSentence per sent = let
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
 train :: Int -> Perceptron -> [[(Text, POSTag)]] -> Perceptron
-train itr per examples = let
-  rawPer = trainCls itr per $ toClassLst $ map unzip examples
-  in averageWeights rawPer
+train itr per examples = trainCls itr per $ toClassLst $ map unzip examples
 
 toClassLst ::  [(Sentence, [POSTag])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . show) y)) tagged
 
 trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> Perceptron
-trainCls itr per examples = foldl trainSentence per $ trainingSet
+trainCls itr per examples = averageWeights $ foldl trainSentence per $ trainingSet
   where
     -- | TODO need to shuffle these randomly, instead of just repeating
     trainingSet = concat $ take itr $ repeat examples
