@@ -28,6 +28,13 @@ newtype Class = Class String
 
 type Weight = Double
 
+emptyPerceptron :: Perceptron
+emptyPerceptron = Perceptron { weights = Map.empty
+                             , classes = Set.empty
+                             , totals = Map.empty
+                             , tstamps = Map.empty
+                             , instances = 0 }
+
 data Perceptron = Perceptron {
     -- | Each feature gets its own weight vector, so weights is a
     -- dict-of-dicts
