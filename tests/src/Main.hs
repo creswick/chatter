@@ -20,8 +20,11 @@ main = defaultMain tests
 tests :: [Test]
 tests = [testGroup "readPOS" $
           map readPOSTest
-           [ ("Basic corpora test", "Dear/jj Sirs/nns :/: Let/vb"
+           [ ("Basic corpora test 1", "Dear/jj Sirs/nns :/: Let/vb"
              , [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)])
+
+           , ("Basic corpora test 2", "the/DT dog/NN jumped/VB"
+             , [("the",DT),("dog",NN),("jumped",VB)])
 
            , ("More whitespace", " Dear/jj  Sirs/nns   :/: Let/vb   "
              , [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)])

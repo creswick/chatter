@@ -51,8 +51,6 @@ data POSTag = CC -- ^ Coordinating conjunction
             | Other Text
               deriving (Read, Show, Eq)
 
-
-
 -- | Parse a text string into a POSTag.  This assumes input that is
 -- amenable to 'read'.  For example:
 --
