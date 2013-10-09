@@ -11,7 +11,7 @@ import qualified Data.Text as T
 itterations :: Int
 itterations = 5
 
-train :: Text -> Perceptron
+train :: Text -> IO Perceptron
 train rawCorpus = do
   let corpora = map readPOS $ T.lines rawCorpus
   Per.train itterations emptyPerceptron corpora

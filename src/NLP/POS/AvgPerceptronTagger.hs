@@ -15,6 +15,8 @@ import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 
+import System.Random.Shuffle (shuffleM)
+
 type Sentence = [Text]
 type TaggedSentence = [(Text, Class)]
 
@@ -101,17 +103,17 @@ tagSentence per sent = let
 -- >         pickle.dump((self.model.weights, self.tagdict, self.classes),
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
-train :: Int -> Perceptron -> [[(Text, POSTag)]] -> Perceptron
+train :: Int -> Perceptron -> [[(Text, Tag)]] -> IO Perceptron
 train itr per examples = trainCls itr per $ toClassLst $ map unzip examples
 
-toClassLst ::  [(Sentence, [POSTag])] -> [(Sentence, [Class])]
-toClassLst tagged = map (\(x, y)->(x, map (Class . show) y)) tagged
+toClassLst ::  [(Sentence, [Tag])] -> [(Sentence, [Class])]
+toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged
 
-trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> Perceptron
-trainCls itr per examples = averageWeights $ foldl trainSentence per $ trainingSet
-  where
-    -- | TODO need to shuffle these randomly, instead of just repeating
-    trainingSet = concat $ take itr $ repeat examples
+trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> IO Perceptron
+trainCls itr per examples = do
+  trainingSet <- shuffleM $ concat $ take itr $ repeat examples
+  return $ averageWeights $ foldl trainSentence per trainingSet
+
 
 -- | Train on one sentence
 --

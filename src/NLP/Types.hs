@@ -8,6 +8,16 @@ import Data.Text (Text)
 
 import Text.Read (readMaybe)
 
+newtype Tag = Tag { fromTag :: Text
+                  } deriving (Ord, Eq, Read, Show)
+
+parseTag :: Text -> Tag
+parseTag t = Tag t
+
+-- | Constant tag for "unknown"
+tagUNK :: Tag
+tagUNK = Tag "Unk"
+
 -- | Part of Speech tags as defined by the Penn Treebank corpora, but
 -- with the addition of an "Other" tag that takes an unconstrained
 -- Text value.
@@ -65,8 +75,8 @@ data POSTag = CC -- ^ Coordinating conjunction
 --
 -- > parseTag "VBX-$"
 -- Other "VBX-$"
-parseTag :: Text -> POSTag
-parseTag txt = let
+parsePOSTag :: Text -> POSTag
+parsePOSTag txt = let
   alt = readMaybe (T.unpack $ T.toUpper $ T.replace "$" "S" txt)
   raw = readMaybe (T.unpack $ T.toUpper txt)
   in case (alt, raw) of
