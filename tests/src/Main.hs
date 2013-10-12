@@ -1,58 +1,68 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import Data.Text (Text)
 import qualified Data.Text as T
 
-import Test.HUnit      ( (@=?) )
+import Test.HUnit      ( (@=?), Assertion )
 import Test.QuickCheck ( Arbitrary(..), Property, (==>), elements )
 import Test.QuickCheck.Property ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Providers.HUnit
+import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework ( testGroup, Test, defaultMain )
 
-import NLP.Types (POSTag(..), parseTag)
+
 import NLP.Corpora.Parsing (readPOS)
+import NLP.Types (POSTag(..), Tag(..), tagUNK, parsePOSTag, parseTag)
+import NLP.POS (tagStr, train)
+
+
+import Corpora
 
 main :: IO ()
 main = defaultMain tests
 
 
 tests :: [Test]
-tests = [testGroup "readPOS" $
+tests = [ testGroup "readPOS" $
           map readPOSTest
            [ ("Basic corpora test 1", "Dear/jj Sirs/nns :/: Let/vb"
-             , [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)])
+             , [("Dear", Tag "jj"),("Sirs", Tag "nns"),(":", Tag ":"),("Let", Tag "vb")])
 
            , ("Basic corpora test 2", "the/DT dog/NN jumped/VB"
-             , [("the",DT),("dog",NN),("jumped",VB)])
+             , [("the", Tag "DT"),("dog", Tag "NN"),("jumped", Tag "VB")])
 
            , ("More whitespace", " Dear/jj  Sirs/nns   :/: Let/vb   "
-             , [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)])
+             , [("Dear", Tag "jj"),("Sirs", Tag "nns"),(":", Tag ":"),("Let", Tag "vb")])
 
            , ("Failure scenario: no tags", "Dear Sirs : Let"
-             , [("Dear",UNK),("Sirs",UNK),(":",UNK),("Let",UNK)])
+             , [("Dear", tagUNK),("Sirs", tagUNK),(":", tagUNK),("Let", tagUNK)])
 
            , ("Empty string", "", [])
           ]
 
         , testGroup "parseTag" $
            map parseTagTest
-            [ ("$-sign on known tag", "WP$", WPS)
-            , ("Unknown tag", "NP-S", Other "NP-S")
-            , ("$ on unknown", "VBX-$", Other "VBX-$")
+            [ ("$-sign on known tag", "WP$", Tag "WP$")
+            , ("Unknown tag", "NP-S", Tag "NP-S")
+            , ("$ on unknown", "VBX-$", Tag "VBX-$")
            ]
-          ++ [
-           testProperty "round-trip from data type" prop_parseTag
-          ]
+        , testGroup "Train and tag" $
+           map (trainAndTagTest miniCorpora1)
+             [ ("the dog jumped", "the/DT dog/NN jumped/VB") ]
         ]
 
+trainAndTagTest :: Text -> (Text, Text) -> Test
+trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
+  tagger <- train corpora
+  oracle @=? tagStr tagger input
 
 parseTagTest = genTest parseTag
 
-prop_parseTag tag = case tag of
-  Other str -> tag == parseTag str
-  _         -> tag == parseTag (T.pack $ show tag)
-    where types = tag :: POSTag
+-- prop_parsePOSTag tag = case tag of
+--   Other str -> tag == parsePOSTag str
+--   _         -> tag == parsePOSTag (T.pack $ show tag)
+--     where types = tag :: POSTag
 
 readPOSTest = genTest readPOS
 

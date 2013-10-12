@@ -85,7 +85,7 @@ getFeatureWeight p f = Map.findWithDefault Map.empty f (weights p)
 --
 predict :: Perceptron -> Map Feature Int -> Maybe Class
 predict per features = -- find highest ranked score in finalScores:
-    headMay (map fst $ sortBy (compare `on` fst) $ Map.toList finalScores)
+    headMay (map fst $ sortBy (compare `on` snd) $ Map.toList finalScores)
     where
       finalScores :: Map Class Weight
       finalScores = foldr fn Map.empty (Map.toList features)
