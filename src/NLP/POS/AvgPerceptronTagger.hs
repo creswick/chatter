@@ -17,6 +17,8 @@ import qualified Data.Text as T
 
 import System.Random.Shuffle (shuffleM)
 
+import Debug.Trace
+
 type Sentence = [Text]
 type TaggedSentence = [(Text, Class)]
 
@@ -57,20 +59,27 @@ tag per corpus = map (tagSentence per) corpus
 
 tagSentence :: Perceptron -> Sentence -> TaggedSentence
 tagSentence per sent = let
-  context = startToks ++ sent ++ endToks
+--  context = startToks ++ sent ++ endToks
 
   tags = (map (Class . T.unpack) startToks) ++ map (predictPos per) features
 
-  features = [ getFeatures context i word prev1 prev2 |
-             i <- [0..]
-             , word <- sent
-             , prev1 <- tail tags
-             , prev2 <- tags
-             ]
+  -- features = [ getFeatures sent i word prev1 prev2 |
+  --            i <- [0..]
+  --            , word <- sent
+  --            , prev1 <- tail tags
+  --            , prev2 <- tags
+  --            ]
+  features = zipWith4 (getFeatures sent)
+             [0..]
+             sent
+             (tail tags)
+             tags
+
   in zip sent (drop 2 tags)
 
--- | Train a model from sentences, and save it at save_loc. nr_iter
--- controls the number of Perceptron training iterations.
+-- | Train a model from sentences.
+--
+-- nr_iter controls the number of Perceptron training iterations.
 --
 -- :param sentences: A list of (words, tags) tuples.
 -- :param save_loc: If not ``None``, saves a pickled model in this location.
@@ -131,11 +140,10 @@ trainCls itr per examples = do
 -- >                 n += 1
 trainSentence :: Perceptron -> (Sentence, [Class]) -> Perceptron
 trainSentence per (sent, ts) = let
-  context = startToks ++ sent ++ endToks
 
   tags = (map (Class . T.unpack) startToks) ++ ts ++ (map (Class . T.unpack) endToks)
 
-  features = zipWith4 (getFeatures context)
+  features = zipWith4 (getFeatures sent)
                          [0..] -- index
                          sent  -- words
                          (tail tags) -- prev1
@@ -192,22 +200,22 @@ getFeatures ctx idx word prev prev2 = let
   increment (Just w) = Just (w + 1)
 
   features :: [[Text]]
-  features = [ ["bias", ""]
-             , ["i suffix", suffix word ]
-             , ["i pref1", T.take 1 word ]
-             , ["i-1 tag", T.pack $ show prev ]
-             , ["i-2 tag", T.pack $ show prev2 ]
-             , ["i tag+i-2 tag", T.pack $ show prev, T.pack $ show prev2 ]
-             , ["i word", context!!i ]
-             , ["i-1 tag+i word", T.pack $ show prev, context!!i ]
-             , ["i-1 word", context!!(i-1) ]
-             , ["i-1 suffix", suffix (context!!(i-1)) ]
-             , ["i-2 word", context!!(i-2) ]
-             , ["i+1 word", context!!(i+1) ]
-             , ["i+1 suffix", suffix (context!!(i+1)) ]
-             , ["i+2 word", context!!(i+2) ]
+  features = [ -- ["bias", ""]
+             -- , ["i suffix", suffix word ]
+             -- , ["i pref1", T.take 1 word ]
+             -- , ["i-1 tag", T.pack $ show prev ]
+             -- , ["i-2 tag", T.pack $ show prev2 ]
+             -- , ["i tag+i-2 tag", T.pack $ show prev, T.pack $ show prev2 ]
+             ["i word", context!!i ]
+             -- , ["i-1 tag+i word", T.pack $ show prev, context!!i ]
+             -- , ["i-1 word", context!!(i-1) ]
+             -- , ["i-1 suffix", suffix (context!!(i-1)) ]
+             -- , ["i-2 word", context!!(i-2) ]
+             -- , ["i+1 word", context!!(i+1) ]
+             -- , ["i+1 suffix", suffix (context!!(i+1)) ]
+             -- , ["i+2 word", context!!(i+2) ]
              ]
-
+  -- in trace ("getFeatures: "++show (ctx, idx, word, prev, prev2)) $
   in foldl add Map.empty features
 
 

@@ -3,14 +3,15 @@ module Main where
 
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.IO as T
 
 import Test.HUnit      ( (@=?), Assertion )
 import Test.QuickCheck ( Arbitrary(..), Property, (==>), elements )
 import Test.QuickCheck.Property ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Providers.HUnit (testCase)
-import Test.Framework ( testGroup, Test, defaultMain )
-
+import Test.Framework ( buildTest, testGroup, Test, defaultMain )
+import Test.Framework.Skip (skip)
 
 import NLP.Corpora.Parsing (readPOS)
 import NLP.Types (POSTag(..), Tag(..), tagUNK, parsePOSTag, parseTag)
@@ -47,10 +48,32 @@ tests = [ testGroup "readPOS" $
             , ("Unknown tag", "NP-S", Tag "NP-S")
             , ("$ on unknown", "VBX-$", Tag "VBX-$")
            ]
-        , testGroup "Train and tag" $
-           map (trainAndTagTest miniCorpora1)
-             [ ("the dog jumped", "the/DT dog/NN jumped/VB") ]
+        , testGroup "Train and tag"
+          [ testGroup "miniCorpora1" $
+            map (trainAndTagTest miniCorpora1)
+             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+          , testGroup "miniCorpora2" $
+            map (trainAndTagTest miniCorpora1)
+             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+          , testGroup "brown CA01" $
+            map (trainAndTagTestFileCorpus brownCA01)
+             [ ("the dog jumped .", "the/at dog/Unk jumped/Unk ./.") ]
+          , testGroup "brown CA" $
+            map (trainAndTagTestIO brownCA)
+             [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
+          ]
         ]
+
+
+trainAndTagTestFileCorpus :: FilePath -> (Text, Text) -> Test
+trainAndTagTestFileCorpus file args = buildTest $ do
+  corpus <- T.readFile file
+  return $ trainAndTagTest corpus args
+
+trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
+trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
+  tagger <- train =<< corpora
+  oracle @=? tagStr tagger input
 
 trainAndTagTest :: Text -> (Text, Text) -> Test
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do

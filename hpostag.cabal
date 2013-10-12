@@ -55,8 +55,10 @@ test-suite tests
                      text,
                      HUnit,
                      test-framework,
+                     test-framework-skip,
                      test-framework-quickcheck2,
                      test-framework-hunit,
-                     QuickCheck < 2.6
+                     QuickCheck < 2.6,
+                     filepath
 
    ghc-options:      -Wall
