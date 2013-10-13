@@ -8,7 +8,7 @@ module NLP.POS.AvgPerceptronTagger where
 import NLP.POS.AvgPerceptron
 import NLP.Types
 
-import Data.List (zipWith4)
+import Data.List (zipWith4, foldl')
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Maybe (fromMaybe)
@@ -121,7 +121,7 @@ toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagge
 trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> IO Perceptron
 trainCls itr per examples = do
   trainingSet <- shuffleM $ concat $ take itr $ repeat examples
-  return $ averageWeights $ foldl trainSentence per trainingSet
+  return $ averageWeights $ foldl' trainSentence per trainingSet
 
 
 -- | Train on one sentence
@@ -154,7 +154,7 @@ trainSentence per (sent, ts) = let
     guess = predictPos model feats
     in update model truth guess $ Map.keys feats
 
-  in foldl fn per (zip features ts)
+  in foldl' fn per (zip features ts)
 
 predictPos :: Perceptron -> Map Feature Int -> Class
 predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
@@ -216,7 +216,7 @@ getFeatures ctx idx word prev prev2 = let
              , ["i+2 word", context!!(i+2) ]
              ]
   -- in trace ("getFeatures: "++show (ctx, idx, word, prev, prev2)) $
-  in foldl add Map.empty features
+  in foldl' add Map.empty features
 
 
 suffix :: Text -> Text

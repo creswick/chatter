@@ -39,9 +39,11 @@ Executable hpostag
    hs-source-dirs:   appsrc
 
    Build-depends:    hpostag,
+                     filepath,
+                     text,
                      base       >= 4
 
-   ghc-options:      -Wall
+   ghc-options:      -Wall -O2 -rtsopts -prof
 
 Executable bench
    default-language: Haskell2010

@@ -3,7 +3,7 @@ module NLP.POS.AvgPerceptron where
 import Safe (headMay)
 
 import Data.Function (on)
-import Data.List (sortBy)
+import Data.List (sortBy, foldl')
 import qualified Data.Map as Map
 import Data.Map (Map)
 
@@ -93,16 +93,16 @@ predict per features = -- find highest ranked score in finalScores:
       sortedScores = reverse $ sortBy (compare `on` snd) $ Map.toList finalScores
 
       finalScores :: Map Class Weight
-      finalScores = foldr fn Map.empty (Map.toList features)
+      finalScores = foldl' fn Map.empty (Map.toList features)
 
-      fn :: (Feature, Int) -> Map Class Weight -> Map Class Weight
-      fn (f, 0) scores = scores
-      fn (f, v) scores = case Map.lookup f (weights per) of
+      fn :: Map Class Weight -> (Feature, Int) -> Map Class Weight
+      fn scores (f, 0) = scores
+      fn scores (f, v) = case Map.lookup f (weights per) of
          Nothing  -> scores
-         Just vec -> foldr (doProd v) scores (Map.toList vec)
+         Just vec -> foldl' (doProd v) scores (Map.toList vec)
 
-      doProd :: Int -> (Class, Weight) -> Map Class Weight -> Map Class Weight
-      doProd value (label, weight) scores =
+      doProd :: Int -> Map Class Weight -> (Class, Weight) -> Map Class Weight
+      doProd value scores (label, weight) =
         Map.alter (updater (weight * (fromIntegral value))) label scores
 
       updater :: Weight -> Maybe Weight -> Maybe Weight
@@ -178,10 +178,10 @@ averageWeights :: Perceptron -> Perceptron
 averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
   where
     avgWeights :: Feature -> Map Class Weight -> Map Class Weight
-    avgWeights feat ws = Map.foldrWithKey (doAvg feat) Map.empty ws
+    avgWeights feat ws = Map.foldlWithKey' (doAvg feat) Map.empty ws
 
-    doAvg :: Feature -> Class -> Weight -> Map Class Weight -> Map Class Weight
-    doAvg f c w acc = let
+    doAvg :: Feature -> Map Class Weight -> Class -> Weight -> Map Class Weight
+    doAvg f acc c w = let
       param = (f, c)
       paramTotal = instances per - getTimestamp per param
 
