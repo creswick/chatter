@@ -43,6 +43,20 @@ Executable hpostag
 
    ghc-options:      -Wall
 
+Executable bench
+   default-language: Haskell2010
+   Main-Is:          Bench.hs
+   hs-source-dirs:   tests/src
+
+   Build-depends:    hpostag,
+                     criterion,
+                     filepath,
+                     text,
+                     base       >= 4
+
+   ghc-options:      -Wall -main-is Bench
+
+
 test-suite tests
    default-language: Haskell2010
    type: exitcode-stdio-1.0

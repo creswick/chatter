@@ -20,13 +20,16 @@ miniCorpora2 = T.unlines [ "the/DT dog/NN jumped/VB ./."
 brownCorporaDir :: FilePath
 brownCorporaDir = "/home/creswick/nltk_data/corpora/brown"
 
-brownCA01 = brownCorporaDir </> "ca01"
+brownCA01 = brownCAFiles!!0
 
 brownCA :: IO Text
 brownCA = do
-  let files = map (\n->brownCorporaDir </> (brownFile "ca" n)) [1..44]
+  let files = brownCAFiles
   contents <- mapM T.readFile files
   return $ T.unlines contents
 
 brownFile :: String -> Int -> String
 brownFile cat num = printf (cat++"%02d") num
+
+brownCAFiles :: [FilePath]
+brownCAFiles = map (\n->brownCorporaDir </> (brownFile "ca" n)) [1..44]

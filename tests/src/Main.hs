@@ -48,6 +48,7 @@ tests = [ testGroup "readPOS" $
             , ("Unknown tag", "NP-S", Tag "NP-S")
             , ("$ on unknown", "VBX-$", Tag "VBX-$")
            ]
+
         , testGroup "Train and tag"
           [ testGroup "miniCorpora1" $
             map (trainAndTagTest miniCorpora1)
