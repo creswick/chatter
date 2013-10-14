@@ -15,9 +15,8 @@ input = "the dog jumped"
 
 main :: IO ()
 main = do
-  ca01 <- T.readFile brownCA01
-  ca02 <- T.readFile (brownCAFiles!!1)
-  let corpus = T.unlines [ca01, ca02]
+  fileContents <- mapM T.readFile $ take 3 brownCAFiles
+  let corpus = T.unlines fileContents
   tagger <- train corpus
   T.putStrLn $ tagStr tagger input
 
