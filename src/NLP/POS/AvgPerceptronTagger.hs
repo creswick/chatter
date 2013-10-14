@@ -9,8 +9,8 @@ import NLP.POS.AvgPerceptron
 import NLP.Types
 
 import Data.List (zipWith4, foldl')
-import Data.Map (Map)
-import qualified Data.Map as Map
+import qualified Data.Map.Strict as Map
+import Data.Map.Strict (Map)
 import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
