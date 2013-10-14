@@ -193,7 +193,7 @@ getFeatures ctx idx word prev prev2 = let
   i = idx + length startToks
 
   add :: Map Feature Int -> [Text] -> Map Feature Int
-  add m args = Map.alter increment (Feat $ T.intercalate " " args) m
+  add m args = Map.alter increment (mkFeature $ T.intercalate " " args) m
 
   increment :: Maybe Int -> Maybe Int
   increment Nothing  = Just 1
@@ -218,6 +218,8 @@ getFeatures ctx idx word prev prev2 = let
   -- in trace ("getFeatures: "++show (ctx, idx, word, prev, prev2)) $
   in foldl' add Map.empty features
 
+mkFeature :: Text -> Feature
+mkFeature txt = Feat $ T.copy txt
 
 suffix :: Text -> Text
 suffix str | T.length str <= 3 = str

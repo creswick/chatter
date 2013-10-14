@@ -29,9 +29,25 @@ Library
                      containers,
                      safe,
                      random-shuffle,
-                     MonadRandom
+                     MonadRandom,
+                     cereal
 
    ghc-options:      -Wall
+
+
+Executable train
+   default-language: Haskell2010
+   Main-Is:          Trainer.hs
+   hs-source-dirs:   appsrc
+
+   Build-depends:    hpostag,
+                     filepath,
+                     text,
+                     base       >= 4,
+                     bytestring,
+                     cereal
+
+   ghc-options:      -Wall -main-is Trainer -O2 -rtsopts -prof
 
 Executable hpostag
    default-language: Haskell2010
@@ -43,7 +59,7 @@ Executable hpostag
                      text,
                      base       >= 4
 
-   ghc-options:      -Wall -O2 -rtsopts -prof
+   ghc-options:      -Wall -O2 -rtsopts -prof -auto-all
 
 Executable bench
    default-language: Haskell2010

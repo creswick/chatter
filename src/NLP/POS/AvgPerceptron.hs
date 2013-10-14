@@ -1,16 +1,20 @@
+{-# LANGUAGE DeriveGeneric #-}
 module NLP.POS.AvgPerceptron where
 
 import Safe (headMay)
 
 import Data.Function (on)
-import Data.List (sortBy, foldl')
+import Data.List (sortBy)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
-
+import Data.Serialize (Serialize)
 import qualified Data.Set as Set
 import Data.Set (Set)
 
 import Data.Text (Text)
+import qualified Data.Foldable as F
+
+import GHC.Generics
 
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation:
@@ -21,16 +25,20 @@ import Data.Text (Text)
 --  https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py
 --
 newtype Feature = Feat Text
-    deriving (Read, Show, Eq, Ord)
+    deriving (Read, Show, Eq, Ord, Generic)
+-- instance Serialize Feature
 
 newtype Class = Class String
-    deriving (Read, Show, Eq, Ord)
+    deriving (Read, Show, Eq, Ord, Generic)
+-- instance Serialize Class
 
 type Weight = Double
 
+infinity :: Weight
+infinity = recip 0
+
 emptyPerceptron :: Perceptron
 emptyPerceptron = Perceptron { weights = Map.empty
-                             , classes = Set.empty
                              , totals = Map.empty
                              , tstamps = Map.empty
                              , instances = 0 }
@@ -39,8 +47,6 @@ data Perceptron = Perceptron {
     -- | Each feature gets its own weight vector, so weights is a
     -- dict-of-dicts
     weights :: Map Feature (Map Class Weight)
-
-    , classes :: Set Class
 
     -- | The accumulated values, for the averaging. These will be
     -- keyed by feature/clas tuples
@@ -53,7 +59,9 @@ data Perceptron = Perceptron {
 
     -- | Number of instances seen
     , instances :: Int
-    } deriving (Read, Show, Eq)
+    } deriving (Read, Show, Eq, Generic)
+
+-- instance Serialize Perceptron
 
 incrementInstances :: Perceptron -> Perceptron
 incrementInstances p = p { instances = 1 + (instances p) }
@@ -87,22 +95,30 @@ predict :: Perceptron -> Map Feature Int -> Maybe Class
 predict per features = -- find highest ranked score in finalScores:
     -- trace ("features: "++ show features ++ "\n") $
     -- trace ("finalScores: "++ show sortedScores ++ "\n") $
-    headMay (map fst $ sortedScores)
+    sortedScores
     where
-      sortedScores :: [(Class, Weight)]
-      sortedScores = reverse $ sortBy (compare `on` snd) $ Map.toList finalScores
+      sortedScores :: Maybe Class
+      sortedScores = fst $ Map.foldlWithKey ranker (Nothing, negate infinity) finalScores
+
+      ranker r@(j, ow) nc nw | nw > ow   = (Just nc, nw)
+                             | otherwise = r
+
+-- fmap fst (Map.lookupLE infinity finalScores)
+
+--      sortedScores = reverse $ sortBy (compare `on` snd) $ Map.toList finalScores
 
       finalScores :: Map Class Weight
-      finalScores = foldl' fn Map.empty (Map.toList features)
+      finalScores = Map.foldlWithKey fn Map.empty features
 
-      fn :: Map Class Weight -> (Feature, Int) -> Map Class Weight
-      fn scores (f, 0) = scores
-      fn scores (f, v) = case Map.lookup f (weights per) of
-         Nothing  -> scores
-         Just vec -> foldl' (doProd v) scores (Map.toList vec)
+      fn :: Map Class Weight -> Feature -> Int -> Map Class Weight
+      fn scores f  v
+         | v > 0 = case Map.lookup f (weights per) of
+                     Just vec -> Map.foldlWithKey (doProd v) scores vec
+                     Nothing  -> scores
+         | otherwise = scores
 
-      doProd :: Int -> Map Class Weight -> (Class, Weight) -> Map Class Weight
-      doProd value scores (label, weight) =
+      doProd :: Int -> Map Class Weight -> Class -> Weight -> Map Class Weight
+      doProd value scores label weight =
         Map.alter (updater (weight * (fromIntegral value))) label scores
 
       updater :: Weight -> Maybe Weight -> Maybe Weight
@@ -178,7 +194,7 @@ averageWeights :: Perceptron -> Perceptron
 averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
   where
     avgWeights :: Feature -> Map Class Weight -> Map Class Weight
-    avgWeights feat ws = Map.foldlWithKey' (doAvg feat) Map.empty ws
+    avgWeights feat ws = Map.foldlWithKey (doAvg feat) Map.empty ws
 
     doAvg :: Feature -> Map Class Weight -> Class -> Weight -> Map Class Weight
     doAvg f acc c w = let

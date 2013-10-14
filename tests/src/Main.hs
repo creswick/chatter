@@ -15,7 +15,7 @@ import Test.Framework.Skip (skip)
 
 import NLP.Corpora.Parsing (readPOS)
 import NLP.Types (POSTag(..), Tag(..), tagUNK, parsePOSTag, parseTag)
-import NLP.POS (tagStr, train)
+import NLP.POS (tagStr, trainNew)
 
 
 import Corpora
@@ -73,12 +73,12 @@ trainAndTagTestFileCorpus file args = buildTest $ do
 
 trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
 trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
-  tagger <- train =<< corpora
+  tagger <- trainNew =<< corpora
   oracle @=? tagStr tagger input
 
 trainAndTagTest :: Text -> (Text, Text) -> Test
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
-  tagger <- train corpora
+  tagger <- trainNew corpora
   oracle @=? tagStr tagger input
 
 parseTagTest = genTest parseTag

@@ -21,10 +21,13 @@ itterations = 5
 -- For example, the input:
 -- > "The/DT dog/NN jumped/VB ./.\nThe/DT cat/NN slept/VB ./."
 -- defines two training sentences.
-train :: Text -> IO Perceptron
-train rawCorpus = do
+trainNew :: Text -> IO Perceptron
+trainNew rawCorpus = train emptyPerceptron rawCorpus
+
+train :: Perceptron -> Text -> IO Perceptron
+train per rawCorpus = do
   let corpora = map readPOS $ T.lines rawCorpus
-  Per.train itterations emptyPerceptron corpora
+  Per.train itterations per corpora
 
 tag :: Perceptron -> Text -> [Per.TaggedSentence]
 tag per str = Per.tag per $ map T.words $ T.lines str

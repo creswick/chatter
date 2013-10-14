@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import Control.Monad (foldM)
+
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
@@ -8,6 +10,8 @@ import qualified Data.Text.IO as T
 import System.FilePath ((</>))
 import Text.Printf (printf)
 
+import qualified NLP.POS.AvgPerceptron as Per
+import NLP.POS.AvgPerceptron (Perceptron)
 import NLP.POS (tagStr, train)
 
 input :: Text
@@ -15,12 +19,16 @@ input = "the dog jumped"
 
 main :: IO ()
 main = do
-  fileContents <- mapM T.readFile $ take 10 brownCAFiles
-  let corpus = T.unlines fileContents
-  tagger <- train corpus
+  -- fileContents <- mapM T.readFile $ take 3 brownCAFiles
+  -- let corpus = T.unlines fileContents
+  let step :: Perceptron -> FilePath -> IO Perceptron
+      step per path = do
+        content <- T.readFile path
+        train per content
+
+  tagger <- foldM step Per.emptyPerceptron $ take 3 brownCAFiles
+  -- tagger <- train corpus
   T.putStrLn $ tagStr tagger input
-
-
 
 brownCorporaDir :: FilePath
 brownCorporaDir = "/home/creswick/nltk_data/corpora/brown"
