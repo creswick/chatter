@@ -105,6 +105,9 @@ test-suite tests
                      test-framework-quickcheck2,
                      test-framework-hunit,
                      QuickCheck < 2.6,
-                     filepath
+                     filepath,
+                     cereal,
+                     quickcheck-instances,
+                     containers
 
    ghc-options:      -Wall

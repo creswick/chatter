@@ -1,22 +1,19 @@
 {-# LANGUAGE DeriveGeneric #-}
 module NLP.POS.AvgPerceptron where
 
-import Safe (headMay)
-
 import Data.Function (on)
 import Data.List (sortBy)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
 import Data.Serialize (Serialize, getByteString, putByteString, remaining)
-import qualified Data.Set as Set
 import Data.Set (Set)
 
+import Data.Serialize (put, get)
 import Data.Text (Text)
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import qualified Data.Foldable as F
 
 import GHC.Generics
-import Data.Serialize
 
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation:

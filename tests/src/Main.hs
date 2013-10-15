@@ -17,7 +17,7 @@ import NLP.Corpora.Parsing (readPOS)
 import NLP.Types (POSTag(..), Tag(..), tagUNK, parsePOSTag, parseTag)
 import NLP.POS (tagStr, trainNew)
 
-
+import qualified AvgPerceptronTests as APT
 import Corpora
 
 main :: IO ()
@@ -59,10 +59,11 @@ tests = [ testGroup "readPOS" $
           , skip $ testGroup "brown CA01" $
             map (trainAndTagTestFileCorpus brownCA01)
              [ ("the dog jumped .", "the/at dog/nn jumped/Unk ./.") ]
-          , skip $ testGroup "brown CA" $ -- OOM :(
+          , skip $ testGroup "brown CA" $
             map (trainAndTagTestIO brownCA)
              [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
           ]
+        , APT.tests
         ]
 
 
