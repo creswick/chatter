@@ -35,6 +35,20 @@ Library
    ghc-options:      -Wall
 
 
+Executable tag
+   default-language: Haskell2010
+   Main-Is:          Tagger.hs
+   hs-source-dirs:   appsrc
+
+   Build-depends:    hpostag,
+                     filepath,
+                     text,
+                     base       >= 4,
+                     bytestring,
+                     cereal
+
+   ghc-options:      -Wall -main-is Tagger -O2 -rtsopts -prof -auto-all
+
 Executable train
    default-language: Haskell2010
    Main-Is:          Trainer.hs
@@ -47,7 +61,7 @@ Executable train
                      bytestring,
                      cereal
 
-   ghc-options:      -Wall -main-is Trainer -O2 -rtsopts -prof
+   ghc-options:      -Wall -main-is Trainer -O2 -rtsopts -prof -auto-all
 
 Executable hpostag
    default-language: Haskell2010

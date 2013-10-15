@@ -2,7 +2,6 @@
 module Main where
 
 import Control.Monad (foldM)
-
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
@@ -19,15 +18,12 @@ input = "the dog jumped"
 
 main :: IO ()
 main = do
-  -- fileContents <- mapM T.readFile $ take 3 brownCAFiles
-  -- let corpus = T.unlines fileContents
   let step :: Perceptron -> FilePath -> IO Perceptron
       step per path = do
         content <- T.readFile path
         train per content
 
-  tagger <- foldM step Per.emptyPerceptron $ take 3 brownCAFiles
-  -- tagger <- train corpus
+  tagger <- foldM step Per.emptyPerceptron $ take 15 brownCAFiles
   T.putStrLn $ tagStr tagger input
 
 brownCorporaDir :: FilePath

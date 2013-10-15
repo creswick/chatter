@@ -1,9 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Trainer where
+module Tagger where
 
 import Control.Monad (foldM)
 import qualified Data.ByteString as BS
-import Data.Serialize (encode)
+import Data.Serialize (decode)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
@@ -20,13 +20,9 @@ import NLP.POS.AvgPerceptron (Perceptron)
 main :: IO ()
 main = do
   args <- getArgs
-  let output = last args
-      corpora = init args
-
-      step :: Perceptron -> FilePath -> IO Perceptron
-      step per path = do
-        content <- T.readFile path
-        train per content
-
-  tagger <- foldM step Per.emptyPerceptron corpora
-  BS.writeFile output $ encode tagger
+  let model = args!!0
+      sentence = args!!1
+  model <- BS.readFile model
+  case decode model of
+    Left err -> putStrLn ("Could not load model: "++err)
+    Right tagger -> T.putStrLn $ tagStr tagger (T.pack sentence)

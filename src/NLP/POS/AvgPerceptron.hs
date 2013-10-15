@@ -7,14 +7,16 @@ import Data.Function (on)
 import Data.List (sortBy)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
-import Data.Serialize (Serialize)
+import Data.Serialize (Serialize, getByteString, putByteString, remaining)
 import qualified Data.Set as Set
 import Data.Set (Set)
 
 import Data.Text (Text)
+import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import qualified Data.Foldable as F
 
 import GHC.Generics
+import Data.Serialize
 
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation:
@@ -26,11 +28,16 @@ import GHC.Generics
 --
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
--- instance Serialize Feature
+
+instance Serialize Feature where
+  get = do str <- getByteString =<< remaining
+           return $ Feat (decodeUtf8 str)
+  put = \(Feat txt)->putByteString $ encodeUtf8 txt
 
 newtype Class = Class String
     deriving (Read, Show, Eq, Ord, Generic)
--- instance Serialize Class
+
+instance Serialize Class
 
 type Weight = Double
 
@@ -61,7 +68,7 @@ data Perceptron = Perceptron {
     , instances :: Int
     } deriving (Read, Show, Eq, Generic)
 
--- instance Serialize Perceptron
+instance Serialize Perceptron
 
 incrementInstances :: Perceptron -> Perceptron
 incrementInstances p = p { instances = 1 + (instances p) }
