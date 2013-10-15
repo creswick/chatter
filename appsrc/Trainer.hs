@@ -9,7 +9,7 @@ import qualified Data.Text.IO as T
 
 import System.Environment (getArgs)
 
-import NLP.POS (train)
+import NLP.POS (trainOnFiles)
 import qualified NLP.POS.AvgPerceptron as Per
 import NLP.POS.AvgPerceptron (Perceptron)
 
@@ -19,11 +19,6 @@ main = do
   args <- getArgs
   let output = last args
       corpora = init args
-
-      step :: Perceptron -> FilePath -> IO Perceptron
-      step per path = do
-        content <- T.readFile path
-        train per content
-
-  tagger <- foldM step Per.emptyPerceptron corpora
+  tagger <- trainOnFiles corpora
   BS.writeFile output $ encode tagger
+

@@ -24,6 +24,19 @@ itterations = 5
 trainNew :: Text -> IO Perceptron
 trainNew rawCorpus = train emptyPerceptron rawCorpus
 
+-- | Train on a corpus of files.
+trainOnFiles :: [FilePath] -> IO Perceptron
+trainOnFiles corpora = foldM step Per.emptyPerceptron corpora
+  where
+    step :: Perceptron -> FilePath -> IO Perceptron
+    step per path = do
+      content <- T.readFile path
+      train per content
+
+-- | Add training examples to a perceptron.
+--
+-- If you're using multiple input files, this can be useful to improve
+-- performance (by folding over the files).  For example, see `trainOnFiles`
 train :: Perceptron -> Text -> IO Perceptron
 train per rawCorpus = do
   let corpora = map readPOS $ T.lines rawCorpus
@@ -32,8 +45,20 @@ train per rawCorpus = do
 tag :: Perceptron -> Text -> [Per.TaggedSentence]
 tag per str = Per.tag per $ map T.words $ T.lines str
 
-tagStr :: Perceptron -> Text -> Text
-tagStr per str = T.intercalate " " $ map toTaggedTok taggedSents
+-- | Tag the tokens in a string.
+--
+-- Returns a space-separated string of tokens, each token suffixed
+-- with the part of speech.  For example:
+--
+-- > tag tagger "the dog jumped ."
+-- "the/at dog/nn jumped/vbd ./."
+--
+tagStr :: Perceptron -> String -> String
+tagStr = T.unpack . tagText . T.pack
+
+-- | Text version of tagStr
+tagText :: Perceptron -> Text -> Text
+tagText per str = T.intercalate " " $ map toTaggedTok taggedSents
   where
     taggedSents = concat $ tag per str
 
