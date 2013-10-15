@@ -1,17 +1,12 @@
 {-# LANGUAGE DeriveGeneric #-}
 module NLP.POS.AvgPerceptron where
 
-import Data.Function (on)
-import Data.List (sortBy)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
-import Data.Serialize (Serialize, getByteString, putByteString, remaining)
-import Data.Set (Set)
+import Data.Serialize (Serialize, put, get)
 
-import Data.Serialize (put, get)
 import Data.Text (Text)
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
-import qualified Data.Foldable as F
 
 import GHC.Generics
 
@@ -26,13 +21,13 @@ import GHC.Generics
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
 
-instance Serialize Text where
-  put txt = put $ encodeUtf8 txt
-  get     = fmap decodeUtf8 get
-
 instance Serialize Feature where
   put (Feat txt) = put txt
   get            = fmap Feat get
+
+instance Serialize Text where
+  put txt = put $ encodeUtf8 txt
+  get     = fmap decodeUtf8 get
 
 newtype Class = Class String
     deriving (Read, Show, Eq, Ord, Generic)
@@ -107,12 +102,8 @@ predict per features = -- find highest ranked score in finalScores:
       sortedScores :: Maybe Class
       sortedScores = fst $ Map.foldlWithKey ranker (Nothing, negate infinity) finalScores
 
-      ranker r@(j, ow) nc nw | nw > ow   = (Just nc, nw)
+      ranker r@(_, ow) nc nw | nw > ow   = (Just nc, nw)
                              | otherwise = r
-
--- fmap fst (Map.lookupLE infinity finalScores)
-
---      sortedScores = reverse $ sortBy (compare `on` snd) $ Map.toList finalScores
 
       finalScores :: Map Class Weight
       finalScores = Map.foldlWithKey fn Map.empty features
@@ -132,16 +123,19 @@ predict per features = -- find highest ranked score in finalScores:
       updater newVal Nothing  = Just newVal
       updater newVal (Just v) = Just (v + newVal)
 
--- update(self, truth, guess, features)
---    ...
---         self.i += 1
---         if truth == guess:
---             return None
---         for f in features:
---             weights = self.weights.setdefault(f, {}) -- setdefault is Map.findWithDefault, and destructive.
---             upd_feat(truth, f, weights.get(truth, 0.0), 1.0)
---             upd_feat(guess, f, weights.get(guess, 0.0), -1.0)
---         return None
+-- | Update the perceptron with a new example.
+--
+-- > update(self, truth, guess, features)
+-- >    ...
+-- >         self.i += 1
+-- >         if truth == guess:
+-- >             return None
+-- >         for f in features:
+-- >             weights = self.weights.setdefault(f, {}) -- setdefault is Map.findWithDefault, and destructive.
+-- >             upd_feat(truth, f, weights.get(truth, 0.0), 1.0)
+-- >             upd_feat(guess, f, weights.get(guess, 0.0), -1.0)
+-- >         return None
+--
 update :: Perceptron -> Class -> Class -> [Feature] -> Perceptron
 update per truth guess features
   | truth == guess = incrementInstances per
