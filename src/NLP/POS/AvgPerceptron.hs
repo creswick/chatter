@@ -26,10 +26,13 @@ import GHC.Generics
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
 
+instance Serialize Text where
+  put txt = put $ encodeUtf8 txt
+  get     = fmap decodeUtf8 get
+
 instance Serialize Feature where
-  get = do str <- getByteString =<< remaining
-           return $ Feat (decodeUtf8 str)
-  put = \(Feat txt)->putByteString $ encodeUtf8 txt
+  put (Feat txt) = put txt
+  get            = fmap Feat get
 
 newtype Class = Class String
     deriving (Read, Show, Eq, Ord, Generic)
