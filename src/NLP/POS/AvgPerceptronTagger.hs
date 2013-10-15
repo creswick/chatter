@@ -17,8 +17,6 @@ import qualified Data.Text as T
 
 import System.Random.Shuffle (shuffleM)
 
-import Debug.Trace
-
 type Sentence = [Text]
 type TaggedSentence = [(Text, Class)]
 

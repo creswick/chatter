@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Trainer where
 
+import Control.Monad (foldM)
 import qualified Data.ByteString as BS
 import Data.Serialize (encode)
 import qualified Data.Text as T
