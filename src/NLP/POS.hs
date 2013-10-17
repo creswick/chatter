@@ -1,14 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POS where
 
-import NLP.Corpora.Parsing
-import qualified NLP.POS.AvgPerceptronTagger as Per
-import NLP.POS.AvgPerceptron (emptyPerceptron, Perceptron)
 
 import NLP.Types (TaggedSentence, Tag(..), POSTagger(..)
                  , tagUNK, Sentence)
 
-import Control.Monad (foldM)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T

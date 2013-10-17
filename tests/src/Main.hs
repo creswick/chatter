@@ -20,6 +20,8 @@ import NLP.POS (tagText)
 import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
 
 import qualified AvgPerceptronTests as APT
+import qualified BackoffTaggerTests as Backoff
+
 import Corpora
 
 main :: IO ()
@@ -66,6 +68,7 @@ tests = [ testGroup "readPOS" $
              [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
           ]
         , APT.tests
+        , Backoff.tests
         ]
 
 
