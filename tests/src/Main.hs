@@ -1,12 +1,13 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 module Main where
 
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-import Test.HUnit      ( (@=?), Assertion )
-import Test.QuickCheck ( Arbitrary(..), Property, (==>), elements )
+import Test.HUnit      ( (@=?) )
+import Test.QuickCheck ( Arbitrary(..), elements )
 import Test.QuickCheck.Property ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Providers.HUnit (testCase)
@@ -14,8 +15,8 @@ import Test.Framework ( buildTest, testGroup, Test, defaultMain )
 import Test.Framework.Skip (skip)
 
 import NLP.Corpora.Parsing (readPOS)
-import NLP.Types (POSTag(..), Tag(..), tagUNK, parsePOSTag, parseTag)
-import NLP.POS (tagStr, trainNew)
+import NLP.Types (POSTag(..), Tag(..), tagUNK, parseTag)
+import NLP.POS (tagText, trainNew)
 
 import qualified AvgPerceptronTests as APT
 import Corpora
@@ -75,20 +76,17 @@ trainAndTagTestFileCorpus file args = buildTest $ do
 trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
 trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
   tagger <- trainNew =<< corpora
-  oracle @=? tagStr tagger input
+  oracle @=? tagText tagger input
 
 trainAndTagTest :: Text -> (Text, Text) -> Test
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
   tagger <- trainNew corpora
-  oracle @=? tagStr tagger input
+  oracle @=? tagText tagger input
 
+parseTagTest :: (String, Text, Tag) -> Test
 parseTagTest = genTest parseTag
 
--- prop_parsePOSTag tag = case tag of
---   Other str -> tag == parsePOSTag str
---   _         -> tag == parsePOSTag (T.pack $ show tag)
---     where types = tag :: POSTag
-
+readPOSTest :: (String, Text, [(Text, Tag)]) -> Test
 readPOSTest = genTest readPOS
 
 

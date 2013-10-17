@@ -17,9 +17,6 @@ import qualified Data.Text as T
 
 import System.Random.Shuffle (shuffleM)
 
-type Sentence = [Text]
-type TaggedSentence = [(Text, Class)]
-
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.
 startToks :: [Text]
@@ -73,7 +70,7 @@ tagSentence per sent = let
              (tail tags)
              tags
 
-  in zip sent (drop 2 tags)
+  in zip sent (map (\(Class c) ->Tag $ T.pack c) $ drop 2 tags)
 
 -- | Train a model from sentences.
 --

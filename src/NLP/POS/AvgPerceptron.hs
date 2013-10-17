@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.POS.AvgPerceptron where
 
 import qualified Data.Map.Strict as Map

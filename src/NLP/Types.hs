@@ -8,6 +8,9 @@ import Data.Text (Text)
 
 import Text.Read (readMaybe)
 
+type Sentence = [Text]
+type TaggedSentence = [(Text, Tag)]
+
 newtype Tag = Tag { fromTag :: Text
                   } deriving (Ord, Eq, Read, Show)
 

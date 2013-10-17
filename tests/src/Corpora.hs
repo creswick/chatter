@@ -20,6 +20,7 @@ miniCorpora2 = T.unlines [ "the/DT dog/NN jumped/VB ./."
 brownCorporaDir :: FilePath
 brownCorporaDir = "/home/creswick/nltk_data/corpora/brown"
 
+brownCA01 :: FilePath
 brownCA01 = brownCAFiles!!0
 
 brownCA :: IO Text

@@ -2,12 +2,20 @@
 module NLP.POS where
 
 import NLP.Corpora.Parsing
-import NLP.POS.AvgPerceptron (Class(..))
 import qualified NLP.POS.AvgPerceptronTagger as Per
 import NLP.POS.AvgPerceptron (emptyPerceptron, Perceptron)
 
+import NLP.Types (TaggedSentence, Tag(..))
+
+import Control.Monad (foldM)
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.IO as T
+
+data POSTagger = POSTagger
+    { tagger  :: Text -> [TaggedSentence] -- ^ The initial part-of-speech tagger.
+    , backoff :: Maybe POSTagger   -- ^ A tagger to invoke on unknown tokens.
+    }
 
 itterations :: Int
 itterations = 5
@@ -26,7 +34,7 @@ trainNew rawCorpus = train emptyPerceptron rawCorpus
 
 -- | Train on a corpus of files.
 trainOnFiles :: [FilePath] -> IO Perceptron
-trainOnFiles corpora = foldM step Per.emptyPerceptron corpora
+trainOnFiles corpora = foldM step emptyPerceptron corpora
   where
     step :: Perceptron -> FilePath -> IO Perceptron
     step per path = do
@@ -42,7 +50,7 @@ train per rawCorpus = do
   let corpora = map readPOS $ T.lines rawCorpus
   Per.train itterations per corpora
 
-tag :: Perceptron -> Text -> [Per.TaggedSentence]
+tag :: Perceptron -> Text -> [TaggedSentence]
 tag per str = Per.tag per $ map T.words $ T.lines str
 
 -- | Tag the tokens in a string.
@@ -54,7 +62,7 @@ tag per str = Per.tag per $ map T.words $ T.lines str
 -- "the/at dog/nn jumped/vbd ./."
 --
 tagStr :: Perceptron -> String -> String
-tagStr = T.unpack . tagText . T.pack
+tagStr per = T.unpack . tagText per . T.pack
 
 -- | Text version of tagStr
 tagText :: Perceptron -> Text -> Text
@@ -62,5 +70,5 @@ tagText per str = T.intercalate " " $ map toTaggedTok taggedSents
   where
     taggedSents = concat $ tag per str
 
-    toTaggedTok :: (Text, Class) -> Text
-    toTaggedTok (tok, Class c) = tok `T.append` (T.pack ('/':c))
+    toTaggedTok :: (Text, Tag) -> Text
+    toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)

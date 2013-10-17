@@ -8,7 +8,7 @@ import qualified Data.Text.IO as T
 
 import System.Environment (getArgs)
 
-import NLP.POS (tagStr)
+import NLP.POS (tagText)
 
 main :: IO ()
 main = do
@@ -18,4 +18,4 @@ main = do
   model <- BS.readFile modelFile
   case decode model of
     Left err -> putStrLn ("Could not load model: "++err)
-    Right tagger -> T.putStrLn $ tagStr tagger (T.pack sentence)
+    Right tagger -> T.putStrLn $ tagText tagger (T.pack sentence)

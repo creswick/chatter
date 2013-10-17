@@ -8,9 +8,10 @@ import qualified Data.Text.IO as T
 import Criterion.Main (defaultMain)
 import Criterion (bench)
 
-import NLP.POS (tagStr, trainNew)
+import NLP.POS (tagText, trainNew)
 import Corpora
 
+main :: IO ()
 main = do
   ca01 <- T.readFile brownCA01
   ca02 <- T.readFile (brownCAFiles!!1)
@@ -28,5 +29,5 @@ main = do
 trainAndTag :: Text -> Text -> IO Text
 trainAndTag corpus input = do
   tagger <- trainNew corpus
-  return $ tagStr tagger input
+  return $ tagText tagger input
 
