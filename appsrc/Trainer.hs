@@ -5,7 +5,7 @@ import qualified Data.ByteString as BS
 import Data.Serialize (encode)
 import System.Environment (getArgs)
 
-import NLP.POS (trainOnFiles)
+import NLP.POS.AvgPerceptronTagger (trainOnFiles)
 
 main :: IO ()
 main = do

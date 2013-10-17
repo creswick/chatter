@@ -16,7 +16,8 @@ import Test.Framework.Skip (skip)
 
 import NLP.Corpora.Parsing (readPOS)
 import NLP.Types (POSTag(..), Tag(..), tagUNK, parseTag)
-import NLP.POS (tagText, trainNew)
+import NLP.POS (tagText)
+import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
 
 import qualified AvgPerceptronTests as APT
 import Corpora
@@ -76,12 +77,12 @@ trainAndTagTestFileCorpus file args = buildTest $ do
 trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
 trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
   tagger <- trainNew =<< corpora
-  oracle @=? tagText tagger input
+  oracle @=? tagText (mkTagger tagger Nothing) input
 
 trainAndTagTest :: Text -> (Text, Text) -> Test
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
   tagger <- trainNew corpora
-  oracle @=? tagText tagger input
+  oracle @=? tagText (mkTagger tagger Nothing) input
 
 parseTagTest :: (String, Text, Tag) -> Test
 parseTagTest = genTest parseTag
