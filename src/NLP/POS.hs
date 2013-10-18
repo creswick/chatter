@@ -1,57 +1,35 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POS where
 
-import NLP.Corpora.Parsing
-import qualified NLP.POS.AvgPerceptronTagger as Per
-import NLP.POS.AvgPerceptron (emptyPerceptron, Perceptron)
 
-import NLP.Types (TaggedSentence, Tag(..))
+import NLP.Types (TaggedSentence, Tag(..), POSTagger(..)
+                 , tagUNK, Sentence)
 
-import Control.Monad (foldM)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-data POSTagger = POSTagger
-    { tagger  :: Text -> [TaggedSentence] -- ^ The initial part-of-speech tagger.
-    , backoff :: Maybe POSTagger   -- ^ A tagger to invoke on unknown tokens.
-    }
 
-itterations :: Int
-itterations = 5
+tag :: POSTagger -> Text -> [TaggedSentence]
+tag posTagger txt = let tokens   = tokenize txt
+                        priority = (tagger posTagger) tokens
+                    in case backoff posTagger of
+                         Nothing  -> priority
+                         Just tgr -> combine priority (tag tgr txt)
 
--- | Train a new perceptron
---
--- The training corpus should be a collection
--- of sentences, one sentence on each line, and with each token tagged
--- with a part of speech.
---
--- For example, the input:
--- > "The/DT dog/NN jumped/VB ./.\nThe/DT cat/NN slept/VB ./."
--- defines two training sentences.
-trainNew :: Text -> IO Perceptron
-trainNew rawCorpus = train emptyPerceptron rawCorpus
+combine :: [TaggedSentence] -> [TaggedSentence] -> [TaggedSentence]
+combine xs ys = zipWith combineSentences xs ys
 
--- | Train on a corpus of files.
-trainOnFiles :: [FilePath] -> IO Perceptron
-trainOnFiles corpora = foldM step emptyPerceptron corpora
-  where
-    step :: Perceptron -> FilePath -> IO Perceptron
-    step per path = do
-      content <- T.readFile path
-      train per content
+combineSentences :: TaggedSentence -> TaggedSentence -> TaggedSentence
+combineSentences xs ys = zipWith pickTag xs ys
 
--- | Add training examples to a perceptron.
---
--- If you're using multiple input files, this can be useful to improve
--- performance (by folding over the files).  For example, see `trainOnFiles`
-train :: Perceptron -> Text -> IO Perceptron
-train per rawCorpus = do
-  let corpora = map readPOS $ T.lines rawCorpus
-  Per.train itterations per corpora
+pickTag :: (Text, Tag) -> (Text, Tag) -> (Text, Tag)
+pickTag (txt1, t1) (txt2, t2) | txt1 /= txt2 = error "Text does not match"
+                              | t1 /= tagUNK = (txt1, t1)
+                              | otherwise    = (txt1, t2)
 
-tag :: Perceptron -> Text -> [TaggedSentence]
-tag per str = Per.tag per $ map T.words $ T.lines str
+tokenize :: Text -> [Sentence]
+tokenize txt = map T.words $ T.lines txt
 
 -- | Tag the tokens in a string.
 --
@@ -61,14 +39,14 @@ tag per str = Per.tag per $ map T.words $ T.lines str
 -- > tag tagger "the dog jumped ."
 -- "the/at dog/nn jumped/vbd ./."
 --
-tagStr :: Perceptron -> String -> String
-tagStr per = T.unpack . tagText per . T.pack
+tagStr :: POSTagger -> String -> String
+tagStr tgr = T.unpack . tagText tgr . T.pack
 
 -- | Text version of tagStr
-tagText :: Perceptron -> Text -> Text
-tagText per str = T.intercalate " " $ map toTaggedTok taggedSents
+tagText :: POSTagger -> Text -> Text
+tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
   where
-    taggedSents = concat $ tag per str
+    taggedSents = concat $ tag tgr str
 
     toTaggedTok :: (Text, Tag) -> Text
     toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)

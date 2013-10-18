@@ -5,17 +5,59 @@
 --  * https://github.com/sloria/textblob-aptagger/blob/master/textblob_aptagger/taggers.py
 module NLP.POS.AvgPerceptronTagger where
 
+import NLP.Corpora.Parsing (readPOS)
 import NLP.POS.AvgPerceptron
 import NLP.Types
 
+import Control.Monad (foldM)
 import Data.List (zipWith4, foldl')
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
 import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.IO as T
 
 import System.Random.Shuffle (shuffleM)
+
+-- | Create an Averaged Perceptron Tagger using the specified back-off
+-- tagger as a fall-back, if one is specified.
+mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
+mkTagger per mTgr = POSTagger { tagger  = tag per
+                              , backoff = mTgr }
+
+itterations :: Int
+itterations = 5
+
+-- | Train a new perceptron
+--
+-- The training corpus should be a collection
+-- of sentences, one sentence on each line, and with each token tagged
+-- with a part of speech.
+--
+-- For example, the input:
+-- > "The/DT dog/NN jumped/VB ./.\nThe/DT cat/NN slept/VB ./."
+-- defines two training sentences.
+trainNew :: Text -> IO Perceptron
+trainNew rawCorpus = train emptyPerceptron rawCorpus
+
+-- | Train on a corpus of files.
+trainOnFiles :: [FilePath] -> IO Perceptron
+trainOnFiles corpora = foldM step emptyPerceptron corpora
+  where
+    step :: Perceptron -> FilePath -> IO Perceptron
+    step per path = do
+      content <- T.readFile path
+      train per content
+
+-- | Add training examples to a perceptron.
+--
+-- If you're using multiple input files, this can be useful to improve
+-- performance (by folding over the files).  For example, see `trainOnFiles`
+train :: Perceptron -> Text -> IO Perceptron
+train per rawCorpus = do
+  let corpora = map readPOS $ T.lines rawCorpus
+  trainInt itterations per corpora
 
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.
@@ -107,8 +149,8 @@ tagSentence per sent = let
 -- >         pickle.dump((self.model.weights, self.tagdict, self.classes),
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
-train :: Int -> Perceptron -> [[(Text, Tag)]] -> IO Perceptron
-train itr per examples = trainCls itr per $ toClassLst $ map unzip examples
+trainInt :: Int -> Perceptron -> [[(Text, Tag)]] -> IO Perceptron
+trainInt itr per examples = trainCls itr per $ toClassLst $ map unzip examples
 
 toClassLst ::  [(Sentence, [Tag])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged

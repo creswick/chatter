@@ -9,6 +9,7 @@ import qualified Data.Text.IO as T
 import System.Environment (getArgs)
 
 import NLP.POS (tagText)
+import NLP.POS.AvgPerceptronTagger (mkTagger)
 
 main :: IO ()
 main = do
@@ -18,4 +19,5 @@ main = do
   model <- BS.readFile modelFile
   case decode model of
     Left err -> putStrLn ("Could not load model: "++err)
-    Right tagger -> T.putStrLn $ tagText tagger (T.pack sentence)
+    Right per -> do let tagger = mkTagger per Nothing
+                    T.putStrLn $ tagText tagger (T.pack sentence)
