@@ -1,4 +1,4 @@
-name:                hpostag
+name:                chatter
 version:             0.0.0.1
 synopsis:            A simple POS tagger library
 description:         Part of speech tagging with Averaged Perceptrons.
@@ -39,7 +39,7 @@ Executable tag
    Main-Is:          Tagger.hs
    hs-source-dirs:   appsrc
 
-   Build-depends:    hpostag,
+   Build-depends:    chatter,
                      filepath,
                      text,
                      base       >= 4,
@@ -53,7 +53,7 @@ Executable train
    Main-Is:          Trainer.hs
    hs-source-dirs:   appsrc
 
-   Build-depends:    hpostag,
+   Build-depends:    chatter,
                      filepath,
                      text,
                      base       >= 4,
@@ -67,7 +67,7 @@ Executable bench
    Main-Is:          Bench.hs
    hs-source-dirs:   tests/src
 
-   Build-depends:    hpostag,
+   Build-depends:    chatter,
                      criterion,
                      filepath,
                      text,
@@ -83,7 +83,7 @@ test-suite tests
    Main-Is:          Main.hs
    hs-source-dirs:   tests/src
 
-   Build-depends:    hpostag,
+   Build-depends:    chatter,
                      base       >= 4,
                      text,
                      HUnit,
