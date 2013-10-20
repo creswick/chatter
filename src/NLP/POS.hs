@@ -7,8 +7,6 @@ import NLP.Types (TaggedSentence, Tag(..), POSTagger(..)
 
 import Data.Text (Text)
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
-
 
 tag :: POSTagger -> Text -> [TaggedSentence]
 tag posTagger txt = let tokens   = tokenize txt

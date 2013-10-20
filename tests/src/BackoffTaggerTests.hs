@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module BackoffTaggerTests where
 
-import Test.HUnit      ( (@=?) )
+import Test.HUnit      ( (@=?), Assertion )
 import Test.Framework ( testGroup, Test )
 import Test.Framework.Providers.HUnit (testCase)
 
@@ -25,6 +25,7 @@ tagCat = Map.fromList [("cat", Tag "CAT")]
 tagAnimals :: Map Text Tag
 tagAnimals = Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]
 
+testLiteralBackoff :: Assertion
 testLiteralBackoff = let
   tgr = LT.mkTagger tagCat (Just $ LT.mkTagger tagAnimals Nothing)
   actual = tag tgr "cat dog"
