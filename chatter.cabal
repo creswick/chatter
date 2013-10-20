@@ -29,7 +29,8 @@ Library
                      safe,
                      random-shuffle,
                      MonadRandom,
-                     cereal
+                     cereal,
+                     fullstop
 
    ghc-options:      -Wall
 

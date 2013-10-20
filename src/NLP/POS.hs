@@ -1,16 +1,18 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POS where
 
-
 import NLP.Types (TaggedSentence, Tag(..), POSTagger(..)
-                 , tagUNK, Sentence)
+                 , tagUNK)
 
 import Data.Text (Text)
 import qualified Data.Text as T
 
+-- | Tag a chunk of input text with part-of-speech tags, using the
+-- sentence splitter, tokenizer, and tagger contained in the POSTager.
 tag :: POSTagger -> Text -> [TaggedSentence]
-tag posTagger txt = let tokens   = tokenize txt
-                        priority = (tagger posTagger) tokens
+tag posTagger txt = let sentences = (sentSplitter posTagger) txt
+                        tokens    = map (tokenizer posTagger) sentences
+                        priority  = (tagger posTagger) tokens
                     in case backoff posTagger of
                          Nothing  -> priority
                          Just tgr -> combine priority (tag tgr txt)
@@ -25,9 +27,6 @@ pickTag :: (Text, Tag) -> (Text, Tag) -> (Text, Tag)
 pickTag (txt1, t1) (txt2, t2) | txt1 /= txt2 = error "Text does not match"
                               | t1 /= tagUNK = (txt1, t1)
                               | otherwise    = (txt1, t2)
-
-tokenize :: Text -> [Sentence]
-tokenize txt = map T.words $ T.lines txt
 
 -- | Tag the tokens in a string.
 --

@@ -18,13 +18,19 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
+import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
 
 -- | Create an Averaged Perceptron Tagger using the specified back-off
 -- tagger as a fall-back, if one is specified.
+--
+-- This uses `Data.Text.words` for a tokenizer, and Erik Kow's
+-- fullstop sentence segmenter as a sentence splitter.
 mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
 mkTagger per mTgr = POSTagger { tagger  = tag per
-                              , backoff = mTgr }
+                              , backoff = mTgr
+                              , tokenizer = T.words -- TODO replace with better tokenizer.
+                              , sentSplitter = (map T.pack) . segment . T.unpack}
 
 itterations :: Int
 itterations = 5
