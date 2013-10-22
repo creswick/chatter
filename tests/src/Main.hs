@@ -19,12 +19,12 @@ import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
 
 import qualified AvgPerceptronTests as APT
 import qualified BackoffTaggerTests as Backoff
+import qualified NLP.Similarity.VectorSimTests as Vec
 
 import Corpora
 
 main :: IO ()
 main = defaultMain tests
-
 
 tests :: [Test]
 tests = [ testGroup "parseTag" $
@@ -45,6 +45,7 @@ tests = [ testGroup "parseTag" $
           ]
         , APT.tests
         , Backoff.tests
+        , Vec.tests
         ]
 
 
