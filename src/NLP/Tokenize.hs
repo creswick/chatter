@@ -41,11 +41,11 @@ newtype EitherList a b =  E { unE :: [Either a b] }
 
 -- | Split string into words using the default tokenizer pipeline 
 tokenize :: Text -> [Text]
-tokenize  = run defaultTokenizer
+tokenize = run defaultTokenizer
 
 -- | Run a tokenizer
 run :: Tokenizer -> (Text -> [Text])
-run f = map unwrap . unE . f
+run f = \txt -> map T.copy $ (map unwrap . unE . f) txt
 
 defaultTokenizer :: Tokenizer
 defaultTokenizer =     whitespace 
