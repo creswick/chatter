@@ -11,17 +11,25 @@ import Data.List (elemIndices)
 
 -- | Document corpus.
 --
--- Functions we'll need:
---  * length
---  * number of documents containing <term>
--- type Corpus = [[Text]]
-
-data Corpus = Corpus { corpLength :: Int
+-- This is a simple hashed corpus, the document content is not stored.
+data Corpus = Corpus { corpLength     :: Int
+                     -- ^ The number of documents in the corpus.
                      , corpTermCounts :: Map Text Int
+                     -- ^ A count of the number of documents each term occurred in.
                      } deriving (Read, Show, Eq, Ord)
 
+-- | Get the number of documents that a term occurred in.
 termCounts :: Corpus -> Text -> Int
 termCounts corpus term = Map.findWithDefault 0 term $ corpTermCounts corpus
+
+-- | Add a document to the corpus.
+--
+-- This can be dangerous if the documents are pre-processed
+-- differently.  All corpus-related functions assume that the
+-- documents have all been tokenized and the tokens normalized, in the
+-- same way.
+addDocument :: Corpus -> [Text] -> Corpus
+addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
 
 -- | Create a corpus from a list of documents, represented by
 -- normalized tokens.
@@ -42,8 +50,6 @@ addTerm m term = Map.alter increment term m
     increment Nothing  = Just 1
     increment (Just i) = Just (i + 1)
 
-addDocument :: Corpus -> [Text] -> Corpus
-addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
 
 -- | Invokes similarity on full strings, using `T.words` for
 -- tokenization, and no stemming.
@@ -61,6 +67,19 @@ sim corpus doc1 doc2 = similarity corpus (T.words doc1) (T.words doc2)
 similarity :: Corpus -> [Text] -> [Text] -> Double
 similarity corpus doc1 doc2 = let
   terms = Set.toList $ Set.fromList (doc1 ++ doc2)
+
+  -- we should be able to re-use the vectors; however, that will
+  -- require expanding each vector when comparing documents to account
+  -- for terms in the other documents.  We can't do *that* without
+  -- using a Map instead of a list for the vector type, since the
+  -- indices are our current term identifiers, and that's pretty
+  -- critical.
+  --
+  -- An implementation of cosVec that expanded the incoming vectors
+  -- (and which had the type:
+  -- cosVec :: Hashable a => Map a Double -> Map a Double -> Double)
+  -- would work.  IntMap may be better - need an actual Vector type 
+  -- wrapper.
   vec1 = map (\t->tf_idf t doc1 corpus) terms
   vec2 = map (\t->tf_idf t doc2 corpus) terms
   cos = cosVec vec1 vec2
@@ -102,6 +121,7 @@ cosVec vec1 vec2 = let
   mag = (magnitude vec1 * magnitude vec2)
   in dp / mag
 
+-- | Calculate the magnitude of a vector.
 magnitude :: [Double] -> Double
 magnitude v = sqrt $ foldl acc 0 v
   where
