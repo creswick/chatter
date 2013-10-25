@@ -14,6 +14,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Similarity.VectorSim
+import NLP.Types (mkCorpus)
 
 tests :: Test
 tests = testGroup "Vector Sim"
@@ -141,7 +142,6 @@ prop_similarity_isANum strCorp d1 d2 = strCorp /= [] &&
   doc1 = map T.pack d1
   doc2 = map T.pack d2
   in not $ isNaN $ similarity corpus doc1 doc2
-
 
 assertApproxEquals :: String  -- ^ The message prefix
                   -> Double  -- ^ The maximum difference between expected and actual

@@ -24,6 +24,7 @@ Library
                      NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Similarity.VectorSim
+                     Data.DefaultMap
 
    Build-depends:    base >= 4,
                      text,

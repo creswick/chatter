@@ -1,5 +1,7 @@
 module NLP.Similarity.VectorSim where
 
+import Data.DefaultMap (DefaultMap)
+import qualified Data.DefaultMap as DM
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Set (Set)
@@ -8,47 +10,16 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Data.List (elemIndices)
 
+import NLP.Types
 
--- | Document corpus.
---
--- This is a simple hashed corpus, the document content is not stored.
-data Corpus = Corpus { corpLength     :: Int
-                     -- ^ The number of documents in the corpus.
-                     , corpTermCounts :: Map Text Int
-                     -- ^ A count of the number of documents each term occurred in.
-                     } deriving (Read, Show, Eq, Ord)
+-- | An efficient (ish) representation for documents in the "bag of
+-- words" sense.
+type TermVector = DefaultMap Text Double
 
--- | Get the number of documents that a term occurred in.
-termCounts :: Corpus -> Text -> Int
-termCounts corpus term = Map.findWithDefault 0 term $ corpTermCounts corpus
-
--- | Add a document to the corpus.
---
--- This can be dangerous if the documents are pre-processed
--- differently.  All corpus-related functions assume that the
--- documents have all been tokenized and the tokens normalized, in the
--- same way.
-addDocument :: Corpus -> [Text] -> Corpus
-addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
-
--- | Create a corpus from a list of documents, represented by
--- normalized tokens.
-mkCorpus :: [[Text]] -> Corpus
-mkCorpus docs =
-  let docSets = map Set.fromList docs
-  in Corpus { corpLength     = length docs
-            , corpTermCounts = foldl addTerms Map.empty docSets
-            }
-
-addTerms :: Map Text Int -> Set Text -> Map Text Int
-addTerms m terms = Set.foldl addTerm m terms
-
-addTerm :: Map Text Int -> Text -> Map Text Int
-addTerm m term = Map.alter increment term m
-  where
-    increment :: Maybe Int -> Maybe Int
-    increment Nothing  = Just 1
-    increment (Just i) = Just (i + 1)
+-- | Generate a `TermVector` from a tokenized document.
+mkVector :: Corpus -> [Text] -> TermVector
+mkVector corpus doc = DM.fromList 0 $ Set.toList $
+                        Set.map (\t->(t, tf_idf t doc corpus)) (Set.fromList doc)
 
 
 -- | Invokes similarity on full strings, using `T.words` for
@@ -63,26 +34,25 @@ sim corpus doc1 doc2 = similarity corpus (T.words doc1) (T.words doc2)
 -- This function assumes that each document has been tokenized and (if
 -- desired) stemmed/case-normalized.
 --
+-- This is a wrapper around `tvSim`, which is a *much* more efficient
+-- implementation.  If you need to run similarity against any single
+-- document more than once, then you should create `TermVector`s for
+-- each of your documents and use `tvSim` instead of `similarity`.
+--
 -- There *must* be at least one document in the corpus.
 similarity :: Corpus -> [Text] -> [Text] -> Double
 similarity corpus doc1 doc2 = let
-  terms = Set.toList $ Set.fromList (doc1 ++ doc2)
+  vec1 = mkVector corpus doc1
+  vec2 = mkVector corpus doc2
+  in tvSim corpus vec1 vec2
 
-  -- we should be able to re-use the vectors; however, that will
-  -- require expanding each vector when comparing documents to account
-  -- for terms in the other documents.  We can't do *that* without
-  -- using a Map instead of a list for the vector type, since the
-  -- indices are our current term identifiers, and that's pretty
-  -- critical.
-  --
-  -- An implementation of cosVec that expanded the incoming vectors
-  -- (and which had the type:
-  -- cosVec :: Hashable a => Map a Double -> Map a Double -> Double)
-  -- would work.  IntMap may be better - need an actual Vector type 
-  -- wrapper.
-  vec1 = map (\t->tf_idf t doc1 corpus) terms
-  vec2 = map (\t->tf_idf t doc2 corpus) terms
-  cos = cosVec vec1 vec2
+-- | Determine how similar two documents are.
+--
+-- Calculates the similarity between two documents, represented as
+-- `TermVectors`
+tvSim :: Corpus -> TermVector -> TermVector -> Double
+tvSim corpus doc1 doc2 = let
+  cos = cosVec doc1 doc2
   in if isNaN cos then 0 else cos
 
 -- | Return the raw frequency of a term in a body of text.
@@ -112,25 +82,21 @@ tf_idf term doc corp = let
          | otherwise = (fromIntegral freq) * idf term corpus
   in result
 
--- | Find the cosine of the angle between two vectors.
---
--- The vectors must be the same length!
-cosVec :: [Double] -> [Double] -> Double
+cosVec :: TermVector -> TermVector -> Double
 cosVec vec1 vec2 = let
   dp = dotProd vec1 vec2
   mag = (magnitude vec1 * magnitude vec2)
   in dp / mag
 
 -- | Calculate the magnitude of a vector.
-magnitude :: [Double] -> Double
-magnitude v = sqrt $ foldl acc 0 v
+magnitude :: TermVector -> Double
+magnitude v = sqrt $ DM.foldl acc 0 v
   where
     acc :: Double -> Double -> Double
     acc cur new = cur + (new ** 2)
 
 -- | find the dot product of two vectors.
---
--- Vectors must be the same length! If they are not, the longer vector
--- will be truncated.
-dotProd :: [Double] -> [Double] -> Double
-dotProd xs ys = sum $ zipWith (*) xs ys
+dotProd :: TermVector -> TermVector -> Double
+dotProd xs ys = let
+  terms = Set.fromList (DM.keys xs) `Set.union` Set.fromList (DM.keys ys)
+  in Set.foldl (+) 0 (Set.map (\t -> (DM.lookup t xs) * (DM.lookup t ys)) terms)
