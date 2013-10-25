@@ -5,12 +5,13 @@ import Data.List.Split (splitWhen)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
-import Criterion (bench, whnf )
+import Criterion (bench, whnf, Benchmark)
 
 import NLP.Tokenize (tokenize)
 import NLP.Similarity.VectorSim
 import NLP.Types (mkCorpus, Corpus)
 
+benchmarks :: [[Text]] -> [[Text]] -> [Benchmark]
 benchmarks docs testDocs = let
   corpus = mkCorpus docs
   in [ bench "Doc 1-2 vs 3-4" $ whnf (similarity corpus (concat $ take 2 testDocs))
@@ -29,13 +30,13 @@ docsRunAllPairs corpus (d:ds) = let
    in firstRow + (docsRunAllPairs corpus ds)
 
 tvDocsRunAllPairs :: Corpus -> [[Text]] -> Double
-tvDocsRunAllPairs corpus ds = runVectors corpus (map (mkVector corpus) ds)
+tvDocsRunAllPairs corpus docs = runVectors (map (mkVector corpus) docs)
   where
-    runVectors :: Corpus -> [TermVector] -> Double
-    runVectors _ [] = 0
-    runVectors corpus (d:ds) = let
-      firstRow = foldl (\v doc -> v + tvSim corpus d doc) 0 ds
-      in firstRow + (runVectors corpus ds)
+    runVectors :: [TermVector] -> Double
+    runVectors [] = 0
+    runVectors (d:ds) = let
+      firstRow = foldl (\v doc -> v + tvSim d doc) 0 ds
+      in firstRow + (runVectors ds)
 
 
 readMucCorpus :: String -> IO [[Text]]

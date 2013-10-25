@@ -6,8 +6,8 @@ import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
 import Criterion.Main
-import Criterion.Config
-import Criterion (bench, bgroup)
+import Criterion.Config (defaultConfig, Config(..), ljust)
+import Criterion (bench, bgroup, Benchmark)
 
 import NLP.POS (tagText)
 import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
@@ -15,6 +15,7 @@ import Corpora
 
 import qualified NLP.Similarity.VectorSimBench as VS
 
+myConfig :: Config
 myConfig = defaultConfig {
               -- Always GC between runs.
               cfgPerformGC = ljust True
@@ -31,7 +32,7 @@ main = do
        , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
        ]
 
-
+posTagging :: IO [Benchmark]
 posTagging = do
   ca01 <- T.readFile brownCA01
   ca02 <- T.readFile (brownCAFiles!!1)

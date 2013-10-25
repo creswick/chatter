@@ -19,10 +19,8 @@ module NLP.Tokenize
 where
 
 import qualified Data.Char as Char
-import Data.List
 import Data.Maybe
-import Control.Monad.Instances
-import Data.List.Split
+import Control.Monad.Instances ()
 import Control.Monad
 
 import Data.Text (Text)
@@ -59,7 +57,7 @@ defaultTokenizer =     whitespace
 uris :: Tokenizer
 uris x | isUri x = E [Left x]
        | True    = E [Right x]
-    where isUri x = any (`T.isPrefixOf` x) ["http://","ftp://","mailto:"]
+    where isUri u = any (`T.isPrefixOf` u) ["http://","ftp://","mailto:"]
 
 -- | Split off initial and final punctuation
 punctuation :: Tokenizer 
@@ -121,6 +119,7 @@ unwrap :: Either a a -> a
 unwrap (Left x) = x
 unwrap (Right x) = x
 
+examples :: [Text]
 examples = 
     ["This shouldn't happen."
     ,"Some 'quoted' stuff"

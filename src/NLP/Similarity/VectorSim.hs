@@ -2,9 +2,6 @@ module NLP.Similarity.VectorSim where
 
 import Data.DefaultMap (DefaultMap)
 import qualified Data.DefaultMap as DM
-import Data.Map (Map)
-import qualified Data.Map as Map
-import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -44,16 +41,16 @@ similarity :: Corpus -> [Text] -> [Text] -> Double
 similarity corpus doc1 doc2 = let
   vec1 = mkVector corpus doc1
   vec2 = mkVector corpus doc2
-  in tvSim corpus vec1 vec2
+  in tvSim vec1 vec2
 
 -- | Determine how similar two documents are.
 --
 -- Calculates the similarity between two documents, represented as
 -- `TermVectors`
-tvSim :: Corpus -> TermVector -> TermVector -> Double
-tvSim corpus doc1 doc2 = let
-  cos = cosVec doc1 doc2
-  in if isNaN cos then 0 else cos
+tvSim :: TermVector -> TermVector -> Double
+tvSim doc1 doc2 = let
+  theCos = cosVec doc1 doc2
+  in if isNaN theCos then 0 else theCos
 
 -- | Return the raw frequency of a term in a body of text.
 --
