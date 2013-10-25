@@ -21,6 +21,7 @@ Library
                      NLP.POS.AvgPerceptronTagger
                      NLP.POS.LiteralTagger
                      NLP.Types
+                     NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Similarity.VectorSim
 
@@ -31,7 +32,8 @@ Library
                      random-shuffle,
                      MonadRandom,
                      cereal,
-                     fullstop
+                     fullstop,
+                     split
 
    ghc-options:      -Wall
 
@@ -73,7 +75,8 @@ Executable bench
                      criterion,
                      filepath,
                      text,
-                     base       >= 4
+                     base       >= 4,
+                     split
 
    ghc-options:      -Wall -main-is Bench
 

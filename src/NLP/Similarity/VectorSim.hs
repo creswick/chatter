@@ -1,11 +1,45 @@
 module NLP.Similarity.VectorSim where
 
+import Data.Map (Map)
+import qualified Data.Map as Map
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.List (elemIndices)
 
+
+-- | Document corpus.
+--
+-- Functions we'll need:
+--  * length
+--  * number of documents containing <term>
 type Corpus = [[Text]]
+
+-- data Corpus = Corpus { corpLength :: Int
+--                      , corpTermCounts :: Map Text Int
+--                      } deriving (Read, Show, Ord)
+
+-- -- | Create a corpus from a list of documents, represented by
+-- -- normalized tokens.
+-- mkCorpus :: [[Text]] -> Corpus
+-- mkCorpus docs =
+--   let docSets = map Set.fromList docs
+--   Corpus { corpLength     = length docs
+--          , corpTermCounts = Set.foldl addTerms Map.empty docSets
+--          }
+
+-- addTerms :: Map Text Int -> Set Text -> Map Text Int
+-- addTerms m terms = Set.foldl addTerm m terms
+
+-- addTerm :: Map Text Int -> Text -> Map Text Int
+-- addTerm m term = Map.alter increment term m
+--   where
+--     increment :: Maybe Int -> Maybe Int
+--     increment Nothing  = Just 1
+--     increment (Just i) = Just (i + 1)
+
+-- addDocument :: Corpus -> [Text] -> Corpus
+-- addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
 
 -- | Invokes similarity on full strings, using `T.words` for
 -- tokenization, and no stemming.
@@ -39,7 +73,7 @@ tf term doc = length $ elemIndices term doc
 -- | Calculate the inverse document frequency.
 --
 -- The IDF is, roughly speaking, a measure of how popular a term is.
-idf ::Eq a => a -> [[a]] -> Double
+idf :: Eq a => a -> [[a]] -> Double
 idf term corpus = let
   docCount = length corpus
   containedInCount = 1 + (length $ filter (elem term) corpus)
