@@ -1,0 +1,83 @@
+
+Format of material at the beginning of each message
+---------------------------------------------------
+
+The following information is being provided to help you produce a
+grammar to parse the formatted information that appears at the
+beginning of each message.  Beth was never a computer science major;
+thus, you must take this variation on Backus-Naur Form with a sizable
+grain of salt and forgive any deviations from the proper definition
+language.
+
+If you find texts that differ substantially from the forms defined
+here, please send them in.  Either the BNFs or the messages will be
+modified, as appropriate.
+
+key: items in angled brackets are nonterminals
+     items in double quotes are terminals
+     | means or
+     {} means optional
+
+1.  Each message starts with a dateline.  Here are the BNF definitions
+for the format that was used to capture that information, which was
+either present in the original message or was generated based on
+information in the message header lines:
+
+<DATELINE> ::= <PLACE> "," <DATE> {<SOURCE>} "--"
+<PLACE> ::= <CITY> {<COUNTRY>} | "CLANDESTINE" | "NO CITY" {<COUNTRY>}
+<CITY> ::= <STRING1>
+<COUNTRY> ::= "(" <STRING2> ")"
+<DATE> ::= <DD> <MMM> {<YY>} | "NO DATE"
+<DD> ::= <STRING3>
+<MMM> ::= <STRING4>
+<YY> ::= <STRING5>
+<SOURCE> ::= "(" <STRING6> ")"
+<STRING1> ::= a city name off the set list for the LOCATION slot or
+              a synonym for one of those city names
+<STRING2> ::= a country name off the set list for FOREIGN NATION slot or
+              a synonym for one of those country names
+<STRING3> ::= one or two digits
+<STRING4> ::= three letters
+<STRING5> ::= two digits
+<STRING6> ::= the name of a newswire service, TV/radio station/network,
+              magazine, etc.
+
+Note: COUNTRY is omitted after CITY unless CITY is not in one of the 9
+      countries of interest
+
+2.  Some of the original messages contained background about the text
+type and identification of the writers, speakers, and/or organizations
+involved in the message.  Here are the BNF definitions for the format
+that was used to capture that information, which was originally in the
+body of the message and/or in message header lines:
+
+<BACKGROUND> ::= {<SPECIFIC>} <GENERAL>
+<SPECIFIC> ::= <SPECIFIC1> {"[" <ID> "]"}
+<SPECIFIC> ::= "[INTERVIEW WITH" <ID> {"BY" <ID>} "]"
+<SPECIFIC> ::= "[NEWS CONFERENCE WITH" <ID> {"BY" <ID>} "]"
+<SPECIFIC1> ::= "[STATEMENT]" | "[SPEECH]" | "[EDITORIAL REPORT]" |
+                "[EDITORIAL]" | "[ARTICLE]" | "[COMMENTARY]" |
+                "[STATION COMMENTARY]" | "[COMMUNIQUE]" | "[REPORT]" |
+                "[BULLETIN]"
+<ID> ::= <STRING7> {", IN PROGRESS"}
+<STRING7> ::= a name and/or description of a person and/or organization
+<GENERAL> ::= "[TEXT]" | "[SUMMARY]" | "[EXCERPT]" | "[EXCERPTS]"
+
+Note:  When following SPECIFIC1, ID refers to the author/speaker or
+       reporter.
+
+
+3.  The items enumerated in the definition for <GENERAL>, above, serve
+to demarcate the boundary between the "header" information and the
+body of the text. However, the body itself may begin with additional
+bracketed material.  You will have to examine the corpus to determine
+exactly what bracketed material may appear in the body.  However, in
+the case where the message is a continuation of an earlier message,
+NOSC has inserted some bracketed information of their own at the
+beginning of the body or added it to what was already there.  This
+bracketed information has the following format:
+
+<CONTINUATION> ::= "[CONTINUED]" {"[BEGIN RECORDING]" "[" <ID> "]"}
+<CONTINUATION> ::= "[CONTINUED]" {"[" <ID> "]"}
+<ID> ::= STRING7 {", IN PROGRESS"}
+<STRING7> ::= a name and/or description of a person and/or organization

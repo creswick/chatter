@@ -1,0 +1,4017 @@
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0401 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 30 AUG 89
+3.  INCIDENT: LOCATION              ? COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "LIBERAL LEADER": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0402 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  28 AUG 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "VICTOR ALFONSO POMAS"
+19. HUM TGT: DESCRIPTION            "FORMER LAW STUDENT": "VICTOR ALFONSO POMAS"
+20. HUM TGT: TYPE                   CIVILIAN: "VICTOR ALFONSO POMAS"
+21. HUM TGT: NUMBER                 1: "VICTOR ALFONSO POMAS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "VICTOR ALFONSO POMAS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0402 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  - 30 AUG 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "UNIVERSITY STUDENTS"
+20. HUM TGT: TYPE                   CIVILIAN: "UNIVERSITY STUDENTS"
+21. HUM TGT: NUMBER                 7: "UNIVERSITY STUDENTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 4 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0402 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  - 30 AUG 89
+3.  INCIDENT: LOCATION              GUATEMALA: SAN CRISTOBAL VERAPAZ (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "MILITARY PATROL"
+11. PERP: ORGANIZATION CONFIDENCE   CLAIMED OR ADMITTED: "MILITARY PATROL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEASANTS" / "MEMBERS OF THE CIVIL SELF-DEFENSE PATROLS"
+20. HUM TGT: TYPE                   CIVILIAN: "PEASANTS" / "MEMBERS OF THE CIVIL SELF-DEFENSE PATROLS"
+21. HUM TGT: NUMBER                 9: "PEASANTS" / "MEMBERS OF THE CIVIL SELF-DEFENSE PATROLS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PEASANTS" / "MEMBERS OF THE CIVIL SELF-DEFENSE PATROLS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0403 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 30 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: CORDOBA (DEPARTMENT): AYAPEL (MUNICIPALITY)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "MAOIST PEOPLE'S LIBERATION ARMY" / "EPL"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED / POSSIBLE: "MAOIST PEOPLE'S LIBERATION ARMY" / "EPL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LIBERTO GUTIERREZ MARQUEZ"
+19. HUM TGT: DESCRIPTION            "CATTLEMAN": "LIBERTO GUTIERREZ MARQUEZ"
+20. HUM TGT: TYPE                   CIVILIAN: "LIBERTO GUTIERREZ MARQUEZ"
+21. HUM TGT: NUMBER                 1: "LIBERTO GUTIERREZ MARQUEZ"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LIBERTO GUTIERREZ MARQUEZ"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0404 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 13 AUG 89
+3.  INCIDENT: LOCATION              ARGENTINA: BUENOS AIRES (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "GENERAL CARLOS PRATS"
+19. HUM TGT: DESCRIPTION            "HEAD OF THE ARMY UNDER PRESIDENT ALLENDE": "GENERAL CARLOS PRATS"
+20. HUM TGT: TYPE                   FORMER ACTIVE MILITARY: "GENERAL CARLOS PRATS"
+21. HUM TGT: NUMBER                 1: "GENERAL CARLOS PRATS"
+22. HUM TGT: FOREIGN NATION         CHILE: "GENERAL CARLOS PRATS"
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "GENERAL CARLOS PRATS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0405 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 31 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "ALVARO DELGADO"
+                                    "JORGE ANDRES CANAVERAL"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "LIBERAL PARTY CANDIDATE": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0406 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  18 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN SARMIENTO"
+19. HUM TGT: DESCRIPTION            "SENATOR": "LUIS CARLOS GALAN SARMIENTO"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL: "LUIS CARLOS GALAN SARMIENTO"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN SARMIENTO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN SARMIENTO"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0407 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  31 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): SAN DIEGO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "ROCKET" / "BOMB SET IN AN ICE CREAM CART"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE / VEHICLE BOMB: "ROCKET" / "BOMB SET IN AN ICE CREAM CART"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "PINTUCO PAINT FACTORY"
+                                    "BUILDINGS"
+                                    "CAR DEALERSHIPS"
+13. PHYS TGT: TYPE                  COMMERCIAL: "CAR DEALERSHIPS"
+                                    OTHER: "BUILDINGS"
+                                    COMMERCIAL: "PINTUCO PAINT FACTORY"
+14. PHYS TGT: NUMBER                1: "PINTUCO PAINT FACTORY"
+                                    PLURAL: "BUILDINGS"
+                                    PLURAL: "CAR DEALERSHIPS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "CAR DEALERSHIPS"
+                                    SOME DAMAGE: "BUILDINGS"
+                                    SOME DAMAGE: "PINTUCO PAINT FACTORY"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEOPLE"
+20. HUM TGT: TYPE                   CIVILIAN: "PEOPLE"
+21. HUM TGT: NUMBER                 4: "PEOPLE"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PEOPLE"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0408 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0409 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0410 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  30 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "ECOPETROL FUEL STORAGE TANKS" / "ECOPETROL [COLOMBIAN PETROLEUM ENTERPRISE] FUEL STORAGE TANKS"
+13. PHYS TGT: TYPE                  ENERGY: "ECOPETROL FUEL STORAGE TANKS" / "ECOPETROL [COLOMBIAN PETROLEUM ENTERPRISE] FUEL STORAGE TANKS"
+14. PHYS TGT: NUMBER                PLURAL: "ECOPETROL FUEL STORAGE TANKS" / "ECOPETROL [COLOMBIAN PETROLEUM ENTERPRISE] FUEL STORAGE TANKS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "ECOPETROL FUEL STORAGE TANKS" / "ECOPETROL [COLOMBIAN PETROLEUM ENTERPRISE] FUEL STORAGE TANKS"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0410 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  30 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "COUNTRY CLUB"
+13. PHYS TGT: TYPE                  COMMERCIAL / OTHER: "COUNTRY CLUB"
+14. PHYS TGT: NUMBER                1: "COUNTRY CLUB"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "COUNTRY CLUB"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0411 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  22 AUG 89
+3.  INCIDENT: LOCATION              EL SALVADOR: SAN SALVADOR (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             "SOLDIERS"
+                                    "OFFICER" / "LIEUTENANT, SERGEANT, OR WHOMEVER"
+10. PERP: ORGANIZATION ID           "ATLACATL BATTALION"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "ATLACATL BATTALION"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "MIGUEL ERNESTO MIRANDA REINA"
+19. HUM TGT: DESCRIPTION            "MECHANICS STUDENT": "MIGUEL ERNESTO MIRANDA REINA"
+20. HUM TGT: TYPE                   CIVILIAN: "MIGUEL ERNESTO MIRANDA REINA"
+21. HUM TGT: NUMBER                 1: "MIGUEL ERNESTO MIRANDA REINA"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "MIGUEL ERNESTO MIRANDA REINA"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 1 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0412 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 01 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+                                    TORTURE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "BODIES"
+20. HUM TGT: TYPE                   CIVILIAN: "BODIES"
+21. HUM TGT: NUMBER                 2: "BODIES"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "BODIES"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0412 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 01 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "UNIVERSITY STUDENTS"
+20. HUM TGT: TYPE                   CIVILIAN: "UNIVERSITY STUDENTS"
+21. HUM TGT: NUMBER                 7: "UNIVERSITY STUDENTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0412 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  - 01 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "HECTOR SALVATIERRA"
+19. HUM TGT: DESCRIPTION            "STUDENT" / "NATIONAL UNIVERSITY STUDENT OF JOURNALISM": "HECTOR SALVATIERRA"
+20. HUM TGT: TYPE                   CIVILIAN: "HECTOR SALVATIERRA"
+21. HUM TGT: NUMBER                 1: "HECTOR SALVATIERRA"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0413 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  02 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TRUCK BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       VEHICLE BOMB: "TRUCK BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "EL ESPECTADOR NEWSPAPER"
+                                    "GAS STATION"
+                                    "BUSES"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "EL ESPECTADOR NEWSPAPER"
+                                    COMMERCIAL: "GAS STATION"
+                                    TRANSPORT VEHICLE: "BUSES"
+14. PHYS TGT: NUMBER                1: "EL ESPECTADOR NEWSPAPER"
+                                    1: "GAS STATION"
+                                    1-2: "BUSES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "EL ESPECTADOR NEWSPAPER"
+                                    DESTROYED: "GAS STATION"
+                                    DESTROYED: "BUSES"
+17. PHYS TGT: TOTAL NUMBER          3-4
+18. HUM TGT: NAME                   "HERIBERTO LOPEZ GONZALEZ"
+                                    "JAIME ORLANDO SUAREZ"
+                                    "NORALBA BELTRAN"
+                                    "GLORIA CARRANZA"
+                                    "LEON ALVARO VITORINO"
+                                    "DANIEL MANTILLA"
+                                    "MARITZA MARTINEZ"
+                                    "GLADYS PAEZ"
+                                    "PEDRO ORTIZ"
+                                    "ABEL PORTILLO"
+                                    "CARMEN ROSA GUTIERREZ"
+19. HUM TGT: DESCRIPTION            "YOUNG MAN"
+20. HUM TGT: TYPE                   CIVILIAN: "YOUNG MAN"
+                                    CIVILIAN: "CARMEN ROSA GUTIERREZ"
+                                    CIVILIAN: "ABEL PORTILLO"
+                                    CIVILIAN: "PEDRO ORTIZ"
+                                    CIVILIAN: "GLADYS PAEZ"
+                                    CIVILIAN: "MARITZA MARTINEZ"
+                                    CIVILIAN: "DANIEL MANTILLA"
+                                    CIVILIAN: "LEON ALVARO VITORINO"
+                                    CIVILIAN: "GLORIA CARRANZA"
+                                    CIVILIAN: "NORALBA BELTRAN"
+                                    CIVILIAN: "JAIME ORLANDO SUAREZ"
+                                    CIVILIAN: "HERIBERTO LOPEZ GONZALEZ"
+21. HUM TGT: NUMBER                 1: "HERIBERTO LOPEZ GONZALEZ"
+                                    1: "JAIME ORLANDO SUAREZ"
+                                    1: "NORALBA BELTRAN"
+                                    1: "GLORIA CARRANZA"
+                                    1: "LEON ALVARO VITORINO"
+                                    1: "DANIEL MANTILLA"
+                                    1: "MARITZA MARTINEZ"
+                                    1: "GLADYS PAEZ"
+                                    1: "PEDRO ORTIZ"
+                                    1: "ABEL PORTILLO"
+                                    1: "CARMEN ROSA GUTIERREZ"
+                                    1: "YOUNG MAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "HERIBERTO LOPEZ GONZALEZ"
+                                    INJURY: "JAIME ORLANDO SUAREZ"
+                                    INJURY: "NORALBA BELTRAN"
+                                    INJURY: "GLORIA CARRANZA"
+                                    INJURY: "LEON ALVARO VITORINO"
+                                    INJURY: "DANIEL MANTILLA"
+                                    INJURY: "MARITZA MARTINEZ"
+                                    INJURY: "GLADYS PAEZ"
+                                    INJURY: "PEDRO ORTIZ"
+                                    INJURY: "ABEL PORTILLO"
+                                    INJURY: "CARMEN ROSA GUTIERREZ"
+                                    DEATH: "YOUNG MAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0414 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  02 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "EXTRADITABLES"
+11. PERP: ORGANIZATION CONFIDENCE   CLAIMED OR ADMITTED: "EXTRADITABLES"
+12. PHYS TGT: ID                    "NEWSPAPER EL ESPECTADOR FACILITIES"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "NEWSPAPER EL ESPECTADOR FACILITIES"
+14. PHYS TGT: NUMBER                1: "NEWSPAPER EL ESPECTADOR FACILITIES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "NEWSPAPER EL ESPECTADOR FACILITIES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0414 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 02 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: ROSARIO ISLAND (ISLAND)
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "VACATION CABINS"
+13. PHYS TGT: TYPE                  OTHER / CIVILIAN RESIDENCE: "VACATION CABINS"
+14. PHYS TGT: NUMBER                PLURAL: "VACATION CABINS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "VACATION CABINS"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "WATCHMAN"
+20. HUM TGT: TYPE                   SECURITY GUARD: "WATCHMAN"
+21. HUM TGT: NUMBER                 1: "WATCHMAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "WATCHMAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0415 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  02 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TRUCK BOMB"
+                                    "DYNAMITE" / "ALMOST 200 KG OF DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       VEHICLE BOMB: "TRUCK BOMB"
+                                    DYNAMITE: "DYNAMITE" / "ALMOST 20 KG OF DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "NEWSPAPER EL ESPECTADOR FACILITIES"
+                                    "GAS STATION"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "NEWSPAPER EL ESPECTADOR FACILITIES"
+                                    COMMERCIAL: "GAS STATION"
+14. PHYS TGT: NUMBER                1: "NEWSPAPER EL ESPECTADOR FACILITIES"
+                                    1: "GAS STATION"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "NEWSPAPER EL ESPECTADOR FACILITIES"
+                                    SOME DAMAGE: "GAS STATION"
+17. PHYS TGT: TOTAL NUMBER          2
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSON"
+                                    "OTHERS" / "PERSON"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSON"
+                                    CIVILIAN: "OTHERS" / "PERSON"
+21. HUM TGT: NUMBER                 1: "PERSON"
+                                    86: "OTHERS" / "PERSON"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "OTHERS" / "PERSON"
+                                    DEATH: "PERSON"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0416 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0417 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0418 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  03 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: ITAGUI (MUNICIPALITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BRANCH OF BANCO POPULAR"
+                                    "NEARBY BUSINESSES"
+                                    "SEVERAL AREA RESIDENCES"
+13. PHYS TGT: TYPE                  FINANCIAL: "BRANCH OF BANCO POPULAR"
+                                    COMMERCIAL: "NEARBY BUSINESSES"
+                                    CIVILIAN RESIDENCE: "SEVERAL AREA RESIDENCES"
+14. PHYS TGT: NUMBER                1: "BRANCH OF BANCO POPULAR"
+                                    PLURAL: "NEARBY BUSINESSES"
+                                    PLURAL: "SEVERAL AREA RESIDENCES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "BRANCH OF BANCO POPULAR"
+                                    SOME DAMAGE: "NEARBY BUSINESSES"
+                                    SOME DAMAGE: "SEVERAL AREA RESIDENCES"
+17. PHYS TGT: TOTAL NUMBER          3- / PLURAL
+18. HUM TGT: NAME                   "ROBINSON RAMIREZ"
+                                    "ROBERTO ARCESIO PABON"
+                                    "HUGO MORALES"
+19. HUM TGT: DESCRIPTION            "UNIDENTIFIED INDIVIDUALS" / "OTHER UNIDENTIFIED INDIVIDUALS"
+20. HUM TGT: TYPE                   CIVILIAN: "UNIDENTIFIED INDIVIDUALS" / "OTHER UNIDENTIFIED INDIVIDUALS"
+                                    CIVILIAN: "HUGO MORALES"
+                                    CIVILIAN: "ROBERTO ARCESIO PABON"
+                                    CIVILIAN: "ROBINSON RAMIREZ"
+21. HUM TGT: NUMBER                 1: "ROBINSON RAMIREZ"
+                                    1: "ROBERTO ARCESIO PABON"
+                                    1: "HUGO MORALES"
+                                    2: "UNIDENTIFIED INDIVIDUALS" / "OTHER UNIDENTIFIED INDIVIDUALS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "UNIDENTIFIED INDIVIDUALS" / "OTHER UNIDENTIFIED INDIVIDUALS"
+                                    INJURY: "HUGO MORALES"
+                                    INJURY: "ROBERTO ARCESIO PABON"
+                                    INJURY: "ROBINSON RAMIREZ"
+24. HUM TGT: TOTAL NUMBER           5
+
+0.  MESSAGE: ID                     DEV-MUC3-0419 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: RIONEGRO (MUNICIPALITY): JOSE MARIA CORDOBA AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "SEVERAL MEN" / "ONE OF THEM" / "ONE OF THEM, WEARING COLOMBIAN ARMY FATIGUES"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEOPLE" / "PERSON"
+                                    "PEOPLE"
+                                    "POLICE" / "MEMBERS OF THE ANTIOQUIA POLICE"
+20. HUM TGT: TYPE                   CIVILIAN: "PEOPLE" / "PERSON"
+                                    CIVILIAN: "PEOPLE"
+                                    LAW ENFORCEMENT: "POLICE" / "MEMBERS OF THE ANTIOQUIA POLICE"
+21. HUM TGT: NUMBER                 1: "PEOPLE" / "PERSON"
+                                    12: "PEOPLE"
+                                    3: "POLICE" / "MEMBERS OF THE ANTIOQUIA POLICE"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "POLICE" / "MEMBERS OF THE ANTIOQUIA POLICE"
+                                    INJURY: "PEOPLE"
+                                    DEATH: "PEOPLE" / "PERSON"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0419 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: RIONEGRO (MUNICIPALITY): JOSE MARIA CORDOBA AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "EXPLOSIVE DEVICE"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "EXPLOSIVE DEVICE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    ? "JOSE MARIA CORDOBA AIRPORT"
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    ? NO DAMAGE: "JOSE MARIA CORDOBA AIRPORT"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0420 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MONTERIA (CITY): LOS GARZONES AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "DYNAMITE CHARGE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "DYNAMITE CHARGE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "DRUG TRAFFICKING GANGS"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "DRUG TRAFFICKING GANGS"
+12. PHYS TGT: ID                    "C-123 HERCULES PLANE"
+13. PHYS TGT: TYPE                  TRANSPORT VEHICLE: "C-123 HERCULES PLANE"
+14. PHYS TGT: NUMBER                1: "C-123 HERCULES PLANE"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "C-123 HERCULES PLANE"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0421 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0422 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: PEREIRA (CITY) - MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "CHARGE OF DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "CHARGE OF DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "AVIANCA 727 PLANE"
+13. PHYS TGT: TYPE                  TRANSPORT VEHICLE: "AVIANCA 727 PLANE"
+14. PHYS TGT: NUMBER                1: "AVIANCA 727 PLANE"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "AVIANCA 727 PLANE"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PASSENGERS"
+20. HUM TGT: TYPE                   CIVILIAN: "PASSENGERS"
+21. HUM TGT: NUMBER                 180: "PASSENGERS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "PASSENGERS"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0422 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): JOSE MARIA CORDOBA AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "MACHINEGUN"
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "MACHINEGUN"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "MAN" / "MAN DRESSED IN A CAMOUFLAGE MILITARY UNIFORM"
+10. PERP: ORGANIZATION ID           ? "DRUG-TRAFFICKING ORGANIZATIONS"
+11. PERP: ORGANIZATION CONFIDENCE   ? POSSIBLE: "DRUG-TRAFFICKING ORGANIZATIONS"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSON"
+                                    "OTHERS" / "PEOPLE"
+20. HUM TGT: TYPE                   CIVILIAN: "OTHERS" / "PEOPLE"
+                                    CIVILIAN: "PERSON"
+21. HUM TGT: NUMBER                 1: "PERSON"
+                                    13: "OTHERS" / "PEOPLE"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "OTHERS" / "PEOPLE"
+                                    DEATH: "PERSON"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 3 (redundant with 2)
+
+0.  MESSAGE: ID                     DEV-MUC3-0423 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "EXPLOSIVE DEVICE"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "EXPLOSIVE DEVICE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "TWO MEN" / "MEN" / "TWO MEN RIDING ON A MOTORCYCLE"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "POLICE POST" / "IMMEDIATE ATTENTION CENTER" / "CAI"
+                                    "VEHICLE"
+13. PHYS TGT: TYPE                  LAW ENFORCEMENT FACILITY: "POLICE POST" / "IMMEDIATE ATTENTION CENTER" / "CAI"
+                                    TRANSPORT VEHICLE: "VEHICLE"
+14. PHYS TGT: NUMBER                1: "POLICE POST" / "IMMEDIATE ATTENTION CENTER" / "CAI"
+                                    1: "VEHICLE"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "POLICE POST" / "IMMEDIATE ATTENTION CENTER" / "CAI"
+                                    SOME DAMAGE: "VEHICLE"
+17. PHYS TGT: TOTAL NUMBER          2
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "POLICEMEN"
+                                    "CIVILIANS"
+                                    "WOMAN"
+20. HUM TGT: TYPE                   LAW ENFORCEMENT: "POLICEMEN"
+                                    CIVILIAN: "CIVILIANS"
+                                    CIVILIAN: "WOMAN"
+21. HUM TGT: NUMBER                 3: "POLICEMEN"
+                                    2: "CIVILIANS"
+                                    1: "WOMAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "WOMAN"
+                                    NO INJURY OR DEATH: "CIVILIANS"
+                                    NO INJURY OR DEATH: "POLICEMEN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0423 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  04 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "CAI" / "POLICE POST" / "IMMEDIATE ATTENTION CENTER"
+13. PHYS TGT: TYPE                  LAW ENFORCEMENT FACILITY: "CAI" / "POLICE POST" / "IMMEDIATE ATTENTION CENTER"
+14. PHYS TGT: NUMBER                1: "CAI" / "POLICE POST" / "IMMEDIATE ATTENTION CENTER"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "CAI" / "POLICE POST" / "IMMEDIATE ATTENTION CENTER"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0423 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): JOSE MARIA CORDOBA AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "MAN" / "GUNMAN"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "YOUNG MAN"
+                                    "PERSONS"
+                                    "POLICEMEN"
+20. HUM TGT: TYPE                   CIVILIAN: "YOUNG MAN"
+                                    CIVILIAN: "PERSONS"
+                                    LAW ENFORCEMENT: "POLICEMEN"
+21. HUM TGT: NUMBER                 1: "YOUNG MAN"
+                                    10: "PERSONS"
+                                    3: "POLICEMEN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PERSONS"
+                                    INJURY: "POLICEMEN"
+                                    DEATH: "YOUNG MAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 4 (redundant with 3)
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0424 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "GROUP OF UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "ANGELA DE GUERRERO"
+19. HUM TGT: DESCRIPTION            "WIFE OF COLONEL CARLOS GUERRERO": "ANGELA DE GUERRERO"
+20. HUM TGT: TYPE                   CIVILIAN: "ANGELA DE GUERRERO"
+21. HUM TGT: NUMBER                 1: "ANGELA DE GUERRERO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "ANGELA DE GUERRERO"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0425 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  04 SEP 89
+3.  INCIDENT: LOCATION              CHILE: SANTIAGO (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TWO AUTOMATIC WEAPONS" / "A 7.65 MM AND A 9-MM"
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "TWO AUTOMATIC WEAPONS" / "A 7.65 MM AND A 9-MM"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "GROUP OF ARMED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "JECAR ANTONIO NEGHME CRISTI"
+19. HUM TGT: DESCRIPTION            "POLITICAL LEADER OF THE MOVEMENT OF THE REVOLUTIONARY LEFT, MIR": "JECAR ANTONIO NEGHME CRISTI"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "JECAR ANTONIO NEGHME CRISTI"
+21. HUM TGT: NUMBER                 1: "JECAR ANTONIO NEGHME CRISTI"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "JECAR ANTONIO NEGHME CRISTI"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0426 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0427 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 04 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR: USULUTAN (DEPARTMENT)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "AIR FORCE"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "AIR FORCE"
+12. PHYS TGT: ID                    "SANTA ELENA CHURCH"
+13. PHYS TGT: TYPE                  OTHER: "SANTA ELENA CHURCH"
+14. PHYS TGT: NUMBER                1: "SANTA ELENA CHURCH"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0428 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0429 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0430 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0431 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0432 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "RIFLE-TOTING YOUTHS"
+10. PERP: ORGANIZATION ID           "THE EXTRADITABLES" / "EXTRADITABLES"
+11. PERP: ORGANIZATION CONFIDENCE   CLAIMED OR ADMITTED: "THE EXTRADITABLES" / "EXTRADITABLES"
+12. PHYS TGT: ID                    "RESTAURANT"
+13. PHYS TGT: TYPE                  COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "RESTAURANT"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0432 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): MEDELLIN AIRPORT (AIRPORT)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "AUTOMATIC RIFLE"
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "AUTOMATIC RIFLE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "SHARPSHOOTER" / "MAN DRESSED IN COMBAT GEAR"
+10. PERP: ORGANIZATION ID           "THE EXTRADITABLES" / "EXTRADITABLES"
+11. PERP: ORGANIZATION CONFIDENCE   CLAIMED OR ADMITTED: "THE EXTRADITABLES" / "EXTRADITABLES"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSON"
+                                    "INDUSTRIALISTS AND BUSINESSMEN" / "OTHERS"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSON"
+                                    CIVILIAN: "INDUSTRIALISTS AND BUSINESSMEN" / "OTHERS"
+21. HUM TGT: NUMBER                 1: "PERSON"
+                                    12: "INDUSTRIALISTS AND BUSINESSMEN" / "OTHERS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PERSON"
+                                    INJURY: "INDUSTRIALISTS AND BUSINESSMEN" / "OTHERS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 3 (redundant with 2)
+
+;;; gk converted murder 4 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0432 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  - 05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "PRESIDENTIAL CANDIDATE": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0433 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "MEDIUM-INTENSITY BOMB" / "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "MEDIUM-INTENSITY BOMB" / "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "COUPLE"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "RESTAURANT"
+13. PHYS TGT: TYPE                  COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "BERNARDETTE PARDO"
+                                    "CARLOS CORRALES"
+                                    "JORGE SAENZ"
+19. HUM TGT: DESCRIPTION            "U.S. JOURNALIST": "BERNARDETTE PARDO"
+                                    "CAMERAMAN": "CARLOS CORRALES"
+                                    "MOVIE ACTOR": "JORGE SAENZ"
+20. HUM TGT: TYPE                   CIVILIAN: "JORGE SAENZ"
+                                    CIVILIAN: "CARLOS CORRALES"
+                                    CIVILIAN: "BERNARDETTE PARDO"
+21. HUM TGT: NUMBER                 1: "BERNARDETTE PARDO"
+                                    1: "CARLOS CORRALES"
+                                    1: "JORGE SAENZ"
+22. HUM TGT: FOREIGN NATION         UNITED STATES: "BERNARDETTE PARDO"
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "BERNARDETTE PARDO"
+                                    INJURY: "CARLOS CORRALES"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0433 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  03 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TWO BOMBS" / "BOMBS"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "TWO BOMBS" / "BOMBS"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "HOTEL"
+13. PHYS TGT: TYPE                  COMMERCIAL: "HOTEL"
+14. PHYS TGT: NUMBER                1: "HOTEL"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "FOREIGN JOURNALISTS"
+20. HUM TGT: TYPE                   CIVILIAN: "FOREIGN JOURNALISTS"
+21. HUM TGT: NUMBER                 PLURAL: "FOREIGN JOURNALISTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY: "FOREIGN JOURNALISTS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 3 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0433 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "COLOMBIAN JOURNALISTS"
+20. HUM TGT: TYPE                   CIVILIAN: "COLOMBIAN JOURNALISTS"
+21. HUM TGT: NUMBER                 PLURAL: "COLOMBIAN JOURNALISTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0433 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TWO BOMBS" / "BOMBS"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "TWO BOMBS" / "BOMBS"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "NARCOTICS-TRAFFICKING ORGANIZATION" / "MEDELLIN CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "NARCOTICS-TRAFFICKING ORGANIZATION" / "MEDELLIN CARTEL"
+12. PHYS TGT: ID                    "FINANCIAL INSTITUTIONS"
+13. PHYS TGT: TYPE                  FINANCIAL: "FINANCIAL INSTITUTIONS"
+14. PHYS TGT: NUMBER                PLURAL: "FINANCIAL INSTITUTIONS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0433 (LSI)
+1.  MESSAGE: TEMPLATE               5
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "NARCOTICS-TRAFFICKING ORGANIZATION" / "MEDELLIN CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "NARCOTICS-TRAFFICKING ORGANIZATION" / "MEDELLIN CARTEL"
+12. PHYS TGT: ID                    "RESTAURANT"
+13. PHYS TGT: TYPE                  COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "RESTAURANT"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0434 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "TELEPHONE BOOTH"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "TELEPHONE BOOTH"
+14. PHYS TGT: NUMBER                1: "TELEPHONE BOOTH"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "TELEPHONE BOOTH"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0435 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BANK BUILDINGS"
+                                    "RESTAURANT"
+13. PHYS TGT: TYPE                  FINANCIAL: "BANK BUILDINGS"
+                                    COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                2: "BANK BUILDINGS"
+                                    1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "BANK BUILDINGS"
+                                    SOME DAMAGE: "RESTAURANT"
+17. PHYS TGT: TOTAL NUMBER          3
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEOPLE"
+                                    "JOURNALISTS"
+                                    "TELEVISION CAMERA CREW"
+20. HUM TGT: TYPE                   CIVILIAN: "TELEVISION CAMERA CREW"
+                                    CIVILIAN: "JOURNALISTS"
+                                    CIVILIAN: "PEOPLE"
+21. HUM TGT: NUMBER                 5-: "PEOPLE"
+                                    PLURAL: "JOURNALISTS"
+                                    PLURAL: "TELEVISION CAMERA CREW"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "TELEVISION CAMERA CREW"
+                                    INJURY: "JOURNALISTS"
+                                    INJURY: "PEOPLE"
+24. HUM TGT: TOTAL NUMBER           5-
+
+0.  MESSAGE: ID                     DEV-MUC3-0436 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0437 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BANK BRANCHES"
+                                    "RESTAURANT"
+13. PHYS TGT: TYPE                  FINANCIAL: "BANK BRANCHES"
+                                    COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                2: "BANK BRANCHES"
+                                    1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          3
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0437 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "RESTAURANT"
+13. PHYS TGT: TYPE                  COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "RESTAURANT"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0438 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "PRESIDENTIAL HOPEFUL": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0439 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY): POLO CLUB (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "9-MM GUN"
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "9-MM GUN"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "YOUNG MAN"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUZ AMPARO GOMEZ SERNA"
+19. HUM TGT: DESCRIPTION            "LA GRAN COLOMBIA UNIVERSITY LAWYER": "LUZ AMPARO GOMEZ SERNA"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "LUZ AMPARO GOMEZ SERNA"
+21. HUM TGT: NUMBER                 1: "LUZ AMPARO GOMEZ SERNA"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUZ AMPARO GOMEZ SERNA"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0440 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  05 SEP 89 / 07 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): GUAYABAL (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BRANCH OF THE STATE-OWNED CENTRAL MORTGAGE BANK"
+13. PHYS TGT: TYPE                  FINANCIAL: "BRANCH OF THE STATE-OWNED CENTRAL MORTGAGE BANK"
+14. PHYS TGT: NUMBER                1: "BRANCH OF THE STATE-OWNED CENTRAL MORTGAGE BANK"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "BRANCH OF THE STATE-OWNED CENTRAL MORTGAGE BANK"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0440 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: ITAGUI (MUNICIPALITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "DEVICE MADE UP OF 10 KG OF DYNAMITE" / "DYNAMITE" / "DEVICE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "DEVICE MADE UP OF 10 KG OF DYNAMITE" / "DYNAMITE" / "DEVICE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "STATE-OWNED AGRARIAN FUND"
+13. PHYS TGT: TYPE                  FINANCIAL: "STATE-OWNED AGRARIAN FUND"
+14. PHYS TGT: NUMBER                1: "STATE-OWNED AGRARIAN FUND"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "STATE-OWNED AGRARIAN FUND"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0441 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  07 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: NATIONAL UNIVERSITY (UNIVERSITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "-"
+                                    GUN: "-"
+                                    FIRE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "THIRTY MEN WITH HOODS" / "STUDENTS"
+10. PERP: ORGANIZATION ID           "ARMY OF NATIONAL LIBERATION" / "ELN"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "ARMY OF NATIONAL LIBERATION" / "ELN"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0442 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): BELEN (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "DYNAMITE CHARGE"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "DYNAMITE CHARGE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "A BRANCH OF THE CENTRAL MORTGAGE BANK"
+13. PHYS TGT: TYPE                  FINANCIAL: "A BRANCH OF THE CENTRAL MORTGAGE BANK"
+14. PHYS TGT: NUMBER                1: "A BRANCH OF THE CENTRAL MORTGAGE BANK"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "A BRANCH OF THE CENTRAL MORTGAGE BANK"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0442 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  06 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: ITAGUI (MUNICIPALITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "DYNAMITE CHARGE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "DYNAMITE CHARGE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "SOCIAL SAVINGS BANK"
+13. PHYS TGT: TYPE                  FINANCIAL: "SOCIAL SAVINGS BANK"
+14. PHYS TGT: NUMBER                1: "SOCIAL SAVINGS BANK"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "SOCIAL SAVINGS BANK"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0442 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  05 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    ? "RESTAURANT"
+13. PHYS TGT: TYPE                  ? COMMERCIAL: "RESTAURANT"
+14. PHYS TGT: NUMBER                ? 1: "RESTAURANT"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "BERNARDETTE PARDO"
+19. HUM TGT: DESCRIPTION            "JOURNALIST": "BERNARDETTE PARDO"
+                                    "CAMERAMAN"
+20. HUM TGT: TYPE                   CIVILIAN: "CAMERAMAN"
+                                    CIVILIAN: "BERNARDETTE PARDO"
+21. HUM TGT: NUMBER                 1: "BERNARDETTE PARDO"
+                                    1: "CAMERAMAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "BERNARDETTE PARDO"
+                                    INJURY: "CAMERAMAN"
+24. HUM TGT: TOTAL NUMBER           2
+
+0.  MESSAGE: ID                     DEV-MUC3-0443 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 07 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: NATIONAL UNIVERSITY (UNIVERSITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "DEVICES" / "TWO DEVICES"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "DEVICES" / "TWO DEVICES"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "SEVERAL HOODED MEN" / "INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "NATIONAL UNIVERSITY OF COLOMBIA"
+13. PHYS TGT: TYPE                  OTHER: "NATIONAL UNIVERSITY OF COLOMBIA"
+14. PHYS TGT: NUMBER                1: "NATIONAL UNIVERSITY OF COLOMBIA"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "STUDENTS"
+20. HUM TGT: TYPE                   CIVILIAN: "STUDENTS"
+21. HUM TGT: NUMBER                 2: "STUDENTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "STUDENTS"
+24. HUM TGT: TOTAL NUMBER           -
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0444 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+                                    *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0445 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+;;; gk converted murder 1 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0446 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  18 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "NICOLAS GONZALEZ CARDONA"
+                                    "GERMAN GONZALEZ RAMIREZ"
+10. PERP: ORGANIZATION ID           "MEDELLIN CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED BY AUTHORITIES: "MEDELLIN CARTEL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "COLONEL VALDEMAR FRANKLIN QUINTERO"
+20. HUM TGT: TYPE                   ACTIVE MILITARY: "COLONEL VALDEMAR FRANKLIN QUINTERO"
+21. HUM TGT: NUMBER                 1: "COLONEL VALDEMAR FRANKLIN QUINTERO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "COLONEL VALDEMAR FRANKLIN QUINTERO"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0446 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  -
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "JAIME VALENCIA MARTINEZ"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN SARMIENTO"
+19. HUM TGT: DESCRIPTION            "SENATOR": "LUIS CARLOS GALAN SARMIENTO"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL: "LUIS CARLOS GALAN SARMIENTO"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN SARMIENTO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0447 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0448 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 08 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "DRUG TRAFFICKERS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "EL ESPECTADOR NEWSPAPER OFFICES"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "EL ESPECTADOR NEWSPAPER OFFICES"
+14. PHYS TGT: NUMBER                PLURAL / 1: "EL ESPECTADOR NEWSPAPER OFFICES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "EL ESPECTADOR NEWSPAPER OFFICES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0449 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  02 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "EL ESPECTADOR'S OFFICES"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "EL ESPECTADOR'S OFFICES"
+14. PHYS TGT: NUMBER                1: "EL ESPECTADOR'S OFFICES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "EL ESPECTADOR'S OFFICES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0450 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  09 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR: METAPAN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "GUERRILLA COLUMN"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "FRANCISCO MERINO"
+19. HUM TGT: DESCRIPTION            "VICE PRESIDENT": "FRANCISCO MERINO"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL: "FRANCISCO MERINO"
+21. HUM TGT: NUMBER                 1: "FRANCISCO MERINO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "FRANCISCO MERINO"
+24. HUM TGT: TOTAL NUMBER           1
+
+0.  MESSAGE: ID                     DEV-MUC3-0451 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  08 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB / VEHICLE BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "TELEPHONE EXCHANGE"
+                                    "PUBLIC BUILDING"
+                                    "CAR"
+                                    "NUMEROUS MANSIONS"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "TELEPHONE EXCHANGE"
+                                    TRANSPORT VEHICLE: "CAR"
+                                    OTHER: "PUBLIC BUILDING"
+                                    CIVILIAN RESIDENCE / OTHER: "NUMEROUS MANSIONS"
+14. PHYS TGT: NUMBER                1: "TELEPHONE EXCHANGE"
+                                    1: "PUBLIC BUILDING"
+                                    1: "CAR"
+                                    PLURAL: "NUMEROUS MANSIONS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "TELEPHONE EXCHANGE"
+                                    SOME DAMAGE: "PUBLIC BUILDING"
+                                    DESTROYED: "CAR"
+                                    SOME DAMAGE: "NUMEROUS MANSIONS"
+17. PHYS TGT: TOTAL NUMBER          ? 4-
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEOPLE"
+                                    "CHILD"
+20. HUM TGT: TYPE                   CIVILIAN: "CHILD"
+                                    CIVILIAN: "PEOPLE"
+21. HUM TGT: NUMBER                 3: "PEOPLE"
+                                    1: "CHILD"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "CHILD"
+                                    INJURY: "PEOPLE"
+24. HUM TGT: TOTAL NUMBER           4
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0452 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: CORDOBA (DEPARTMENT)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "LUIS FERNANDO GALEANO BERRIO"
+10. PERP: ORGANIZATION ID           "MEDELLIN CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED BY AUTHORITIES: "MEDELLIN CARTEL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "COUNCILMAN"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL: "COUNCILMAN"
+21. HUM TGT: NUMBER                 1: "COUNCILMAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "COUNCILMAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 1 (OPTIONAL) to attack
+0.  MESSAGE: ID                     DEV-MUC3-0453 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "FERNANDO GALEANO BERRIO"
+10. PERP: ORGANIZATION ID           "MEDELLIN DRUG CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   POSSIBLE: "MEDELLIN DRUG CARTEL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "LEFTIST POLITICAL LEADERS"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LEFTIST POLITICAL LEADERS"
+21. HUM TGT: NUMBER                 PLURAL: "LEFTIST POLITICAL LEADERS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LEFTIST POLITICAL LEADERS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 2 (OPTIONAL) to attack
+0.  MESSAGE: ID                     DEV-MUC3-0453 (LSI)
+1.  MESSAGE: TEMPLATE               2 (OPTIONAL)
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: URABA (REGION)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-" 
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "GUNMEN"
+10. PERP: ORGANIZATION ID           "MAFIA"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "MAFIA"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEASANTS"
+20. HUM TGT: TYPE                   CIVILIAN: "PEASANTS"
+21. HUM TGT: NUMBER                 PLURAL: "PEASANTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PEASANTS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 3 (OPTIONAL) to attack
+0.  MESSAGE: ID                     DEV-MUC3-0453 (LSI)
+1.  MESSAGE: TEMPLATE               3 (OPTIONAL)
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "LOVE FOR MEDELLIN"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "LOVE FOR MEDELLIN"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PROSTITUTES"
+                                    "HOMOSEXUALS"
+                                    "BEGGARS"
+20. HUM TGT: TYPE                   CIVILIAN: "BEGGARS"
+                                    CIVILIAN: "HOMOSEXUALS"
+                                    CIVILIAN: "PROSTITUTES"
+21. HUM TGT: NUMBER                 PLURAL: "PROSTITUTES"
+                                    PLURAL: "HOMOSEXUALS"
+                                    PLURAL: "BEGGARS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "BEGGARS"
+                                    DEATH: "HOMOSEXUALS"
+                                    DEATH: "PROSTITUTES"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0453 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "CAR BOMB"
+                                    "DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       VEHICLE BOMB: "CAR BOMB"
+                                    DYNAMITE: "DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "LOVE FOR MEDELLIN"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "LOVE FOR MEDELLIN"
+12. PHYS TGT: ID                    "MEDELLIN TELEPHONE COMPANY"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "MEDELLIN TELEPHONE COMPANY"
+14. PHYS TGT: NUMBER                1: "MEDELLIN TELEPHONE COMPANY"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "MEDELLIN TELEPHONE COMPANY"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PEDESTRIANS"
+20. HUM TGT: TYPE                   CIVILIAN: "PEDESTRIANS"
+21. HUM TGT: NUMBER                 5: "PEDESTRIANS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PEDESTRIANS"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0453 (LSI)
+1.  MESSAGE: TEMPLATE               5
+2.  INCIDENT: DATE                  09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: ITAGUI (MUNICIPALITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "EXPLOSIVE DEVICE" / "DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "EXPLOSIVE DEVICE" / "DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "PRIVATE FACTORY"
+13. PHYS TGT: TYPE                  COMMERCIAL / OTHER: "PRIVATE FACTORY"
+14. PHYS TGT: NUMBER                1: "PRIVATE FACTORY"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0454 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0455 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "JAIME VALENCIA MARTINEZ"
+                                    "ALBERTO JUBIS HAZVUMB"
+                                    "ARMANDO BERNAL ACOSTA"
+                                    "NORBERTO MURILLO CHALARCA"
+                                    "PEDRO ZAMBRANO DELGADO"
+                                    "LUIS ALFREDO GONZALEZ CHACON"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "LIBERAL PRESIDENTIAL CANDIDATE": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0456 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 10 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "MAFIA"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "MAFIA"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY DRUG TRAFFICKER THAT IS EXTRADITED"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY DRUG TRAFFICKER THAT IS EXTRADITED"
+21. HUM TGT: NUMBER                 10: "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY DRUG TRAFFICKER THAT IS EXTRADITED"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0457 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  09 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "ARMY DISSIDENTS"
+                                    "EXTREME RIGHT-WINGERS"
+                                    "PRIVATE ENTERPRISES"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "PUBLIC BUILDING"
+                                    "BUSINESS ESTABLISHMENTS"
+13. PHYS TGT: TYPE                  COMMERCIAL: "BUSINESS ESTABLISHMENTS"
+                                    GOVERNMENT OFFICE OR RESIDENCE / OTHER: "PUBLIC BUILDING"
+14. PHYS TGT: NUMBER                1: "PUBLIC BUILDING"
+                                    13: "BUSINESS ESTABLISHMENTS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "PUBLIC BUILDING"
+                                    DESTROYED: "BUSINESS ESTABLISHMENTS"
+17. PHYS TGT: TOTAL NUMBER          14
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "POLICEMEN"
+20. HUM TGT: TYPE                   LAW ENFORCEMENT: "POLICEMEN"
+21. HUM TGT: NUMBER                 2: "POLICEMEN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "POLICEMEN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0457 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  09 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "GRENADE"
+7.  INCIDENT: INSTRUMENT TYPE       EXPLOSIVE: "GRENADE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED MEN"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "CAMINO REAL HOTEL"
+13. PHYS TGT: TYPE                  COMMERCIAL: "CAMINO REAL HOTEL"
+14. PHYS TGT: NUMBER                1: "CAMINO REAL HOTEL"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "CAMINO REAL HOTEL"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 2 AND 3)
+0.  MESSAGE: ID                     DEV-MUC3-0458 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  23 AUG 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "DEATH SQUADS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "SILVIA MARIA AZURDIA"
+                                    "VICTOR HUGO RODRIGUEZ"
+                                    "CARLOS HUMBERTO CABRERA"
+19. HUM TGT: DESCRIPTION            "STUDENT": "SILVIA MARIA AZURDIA"
+                                    "STUDENT": "VICTOR HUGO RODRIGUEZ"
+                                    "TEACHER LEADER": "CARLOS HUMBERTO CABRERA"
+20. HUM TGT: TYPE                   CIVILIAN: "CARLOS HUMBERTO CABRERA"
+                                    CIVILIAN: "VICTOR HUGO RODRIGUEZ"
+                                    CIVILIAN: "SILVIA MARIA AZURDIA"
+21. HUM TGT: NUMBER                 1: "SILVIA MARIA AZURDIA"
+                                    1: "VICTOR HUGO RODRIGUEZ"
+                                    1: "CARLOS HUMBERTO CABRERA"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "CARLOS HUMBERTO CABRERA"
+                                    DEATH: "VICTOR HUGO RODRIGUEZ"
+                                    DEATH: "SILVIA MARIA AZURDIA"
+24. HUM TGT: TOTAL NUMBER           3
+
+0.  MESSAGE: ID                     DEV-MUC3-0458 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  08 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "DEATH SQUADS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "LEONEL CHUTA CAMEY"
+19. HUM TGT: DESCRIPTION            "STUDENT": "LEONEL CHUTA CAMEY"
+20. HUM TGT: TYPE                   CIVILIAN: "LEONEL CHUTA CAMEY"
+21. HUM TGT: NUMBER                 1: "LEONEL CHUTA CAMEY"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LEONEL CHUTA CAMEY"
+24. HUM TGT: TOTAL NUMBER           -
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0459 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  10 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: SEVILLA (MUNICIPALITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "APPROXIMATELY FIVE INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "FARM" / "FARM OWNED BY CARLOS OSSA"
+13. PHYS TGT: TYPE                  OTHER: "FARM" / "FARM OWNED BY CARLOS OSSA"
+14. PHYS TGT: NUMBER                1: "FARM" / "FARM OWNED BY CARLOS OSSA"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "FARM" / "FARM OWNED BY CARLOS OSSA"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "CARLOS OSSA"
+19. HUM TGT: DESCRIPTION            "MANAGER OF THE COLOMBIAN INSTITUTE OF AGRARIAN REFORM (INCORA)": "CARLOS OSSA"
+                                    "WATCHMAN"
+20. HUM TGT: TYPE                   CIVILIAN / GOVERNMENT OFFICIAL: "CARLOS OSSA"
+                                    SECURITY GUARD: "WATCHMAN"
+21. HUM TGT: NUMBER                 1: "CARLOS OSSA"
+                                    1: "WATCHMAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH: "CARLOS OSSA"
+                                    DEATH: "WATCHMAN"
+24. HUM TGT: TOTAL NUMBER           2
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0459 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  10 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: SEVILLA (MUNICIPALITY)
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "FARM" / "FARM OWNED BY CARLOS OSSA"
+13. PHYS TGT: TYPE                  OTHER: "FARM" / "FARM OWNED BY CARLOS OSSA"
+14. PHYS TGT: NUMBER                1: "FARM" / "FARM OWNED BY CARLOS OSSA"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "FARM" / "FARM OWNED BY CARLOS OSSA"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 4 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0459 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  18 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN"
+19. HUM TGT: DESCRIPTION            "SENATOR AND PRESIDENTIAL CANDIDATE": "LUIS CARLOS GALAN"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL / POLITICAL FIGURE: "LUIS CARLOS GALAN"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0459 (LSI)
+1.  MESSAGE: TEMPLATE               5
+2.  INCIDENT: DATE                  09 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "SEVERAL MEN"
+10. PERP: ORGANIZATION ID           "MAFIAS"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "MAFIAS"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "MARIA VICTORIA GALAN"
+                                    "JAVIER VELASCO"
+19. HUM TGT: DESCRIPTION            "SISTER OF GALAN": "MARIA VICTORIA GALAN"
+                                    "WATCHMAN": "JAVIER VELASCO"
+20. HUM TGT: TYPE                   CIVILIAN: "MARIA VICTORIA GALAN"
+                                    SECURITY GUARD: "JAVIER VELASCO"
+21. HUM TGT: NUMBER                 1: "MARIA VICTORIA GALAN"
+                                    1: "JAVIER VELASCO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "JAVIER VELASCO"
+24. HUM TGT: TOTAL NUMBER           2
+
+;;; gk converted murder 6 (OPTIONAL) to attack
+0.  MESSAGE: ID                     DEV-MUC3-0459 (LSI)
+1.  MESSAGE: TEMPLATE               6 (OPTIONAL)
+2.  INCIDENT: DATE                  - 10 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "MAFIA"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "MAFIA"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY MAFIA CHIEF WHO IS EXTRADITED"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY MAFIA CHIEF WHO IS EXTRADITED"
+21. HUM TGT: NUMBER                 10: "JUDGES" / "10 COLOMBIAN JUDGES FOR EVERY MAFIA CHIEF WHO IS EXTRADITED"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0460 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: VALLE DEL CAUCA (DEPARTMENT): TULUA (CITY): NARINO CORREGIMIENTO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED PERSONS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "WILSON RENGIFO"
+19. HUM TGT: DESCRIPTION            "NATIONAL POLICEMAN": "WILSON RENGIFO"
+                                    "SON" / "THE AGENT'S 2-YEAR-OLD SON"
+20. HUM TGT: TYPE                   GOVERNMENT OFFICIAL: "WILSON RENGIFO"
+                                    CIVILIAN: "SON" / "THE AGENT'S 2-YEAR-OLD SON"
+21. HUM TGT: NUMBER                 1: "WILSON RENGIFO"
+                                    1: "SON" / "THE AGENT'S 2-YEAR-OLD SON"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "WILSON RENGIFO"
+                                    DEATH: "SON" / "THE AGENT'S 2-YEAR-OLD SON"
+24. HUM TGT: TOTAL NUMBER           2
+
+0.  MESSAGE: ID                     DEV-MUC3-0461 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: ANTIOQUIA (DEPARTMENT): RIO NEGRO (MUNICIPALITY)
+4.  INCIDENT: TYPE                  ARSON
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "DIEGO LEON OROZCO"
+                                    "ERNESTO GONZALEZ"
+                                    "THIRD TERRORIST"
+                                    "FOURTH ONE"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "ANTIOQUIA DEPARTMENT DUMPTRUCK"
+                                    "NATIONAL GOVERNMENT ISUZU DUMPTRUCK"
+13. PHYS TGT: TYPE                  TRANSPORT VEHICLE: "NATIONAL GOVERNMENT ISUZU DUMPTRUCK"
+                                    TRANSPORT VEHICLE: "ANTIOQUIA DEPARTMENT DUMPTRUCK"
+14. PHYS TGT: NUMBER                1: "ANTIOQUIA DEPARTMENT DUMPTRUCK"
+                                    1: "NATIONAL GOVERNMENT ISUZU DUMPTRUCK"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "NATIONAL GOVERNMENT ISUZU DUMPTRUCK"
+                                    SOME DAMAGE: "ANTIOQUIA DEPARTMENT DUMPTRUCK"
+17. PHYS TGT: TOTAL NUMBER          2
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0462 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "PABLO PELAEZ GONZALEZ"
+19. HUM TGT: DESCRIPTION            "FORMER MAYOR OF MEDELLIN": "PABLO PELAEZ GONZALEZ"
+20. HUM TGT: TYPE                   FORMER GOVERNMENT OFFICIAL: "PABLO PELAEZ GONZALEZ"
+21. HUM TGT: NUMBER                 1: "PABLO PELAEZ GONZALEZ"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PABLO PELAEZ GONZALEZ"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 1 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0463 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: MEDELLIN (CITY): EL POBLADO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "AT LEAST THREE UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           "DRUG MAFIAS"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "DRUG MAFIAS"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "PABLO PELAEZ GONZALES"
+19. HUM TGT: DESCRIPTION            "FORMER MAYOR OF MEDELLIN": "PABLO PELAEZ GONZALES"
+                                    "DRIVER"
+20. HUM TGT: TYPE                   FORMER GOVERNMENT OFFICIAL: "PABLO PELAEZ GONZALES"
+                                    CIVILIAN: "DRIVER"
+21. HUM TGT: NUMBER                 1: "PABLO PELAEZ GONZALES"
+                                    1: "DRIVER"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PABLO PELAEZ GONZALES"
+                                    DEATH: "DRIVER"
+24. HUM TGT: TOTAL NUMBER           2
+
+;;; gk converted murder 2 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0463 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  18 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "COLONEL WALDEMAR FRANKLIN QUINTERO"
+20. HUM TGT: TYPE                   LAW ENFORCEMENT: "COLONEL WALDEMAR FRANKLIN QUINTERO"
+21. HUM TGT: NUMBER                 1: "COLONEL WALDEMAR FRANKLIN QUINTERO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "COLONEL WALDEMAR FRANKLIN QUINTERO"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted murder 3 (OPTIONAL) to attack
+0.  MESSAGE: ID                     DEV-MUC3-0463 (LSI)
+1.  MESSAGE: TEMPLATE               3 (OPTIONAL)
+2.  INCIDENT: DATE                  24 AUG 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "EXTRADITABLES" / "MEDELLIN CARTEL"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "EXTRADITABLES" / "MEDELLIN CARTEL"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "POLITICIANS"
+                                    "JUDGES"
+                                    "JUSTICES"
+                                    "UNION AND COMPANY PRESIDENTS"
+                                    "JOURNALISTS"
+                                    "THE OLIGARCHY"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "POLITICIANS"
+                                    LEGAL OR JUDICIAL: "JUDGES"
+                                    LEGAL OR JUDICIAL: "JUSTICES"
+                                    CIVILIAN: "UNION AND COMPANY PRESIDENTS"
+                                    CIVILIAN: "JOURNALISTS"
+                                    GOVERNMENT OFFICIAL: "THE OLIGARCHY"
+21. HUM TGT: NUMBER                 PLURAL: "POLITICIANS"
+                                    PLURAL: "JUDGES"
+                                    PLURAL: "JUSTICES"
+                                    PLURAL: "UNION AND COMPANY PRESIDENTS"
+                                    PLURAL: "JOURNALISTS"
+                                    PLURAL: "THE OLIGARCHY"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0464 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "PABLO PELAEZ GONZALEZ"
+19. HUM TGT: DESCRIPTION            "PRESIDENT OF THE HOLASA COMPANY" / "MEDELLIN MAYOR": "PABLO PELAEZ GONZALEZ"
+20. HUM TGT: TYPE                   FORMER GOVERNMENT OFFICIAL / CIVILIAN: "PABLO PELAEZ GONZALEZ" 
+21. HUM TGT: NUMBER                 1: "PABLO PELAEZ GONZALEZ"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "PABLO PELAEZ GONZALEZ" 
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0465 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  11 SEP 89
+3.  INCIDENT: LOCATION              CHILE: SANTIAGO (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             ? "TWO PEOPLE" 
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "STATE-OWNED CHILEAN TELEVISION FACILITIES" / "TELEVISION FACILITIES"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "STATE-OWNED CHILEAN TELEVISION FACILITIES" / "TELEVISION FACILITIES"
+14. PHYS TGT: NUMBER                1: "STATE-OWNED CHILEAN TELEVISION FACILITIES" / "TELEVISION FACILITIES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "STATE-OWNED CHILEAN TELEVISION FACILITIES" / "TELEVISION FACILITIES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0466 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0467 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 11 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: CALI (CITY): FLORALIA (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "FOUR HEAVILY ARMED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "ORLANDO CUELLER OSORIO"
+19. HUM TGT: DESCRIPTION            "COURT PROCESS SERVER": "ORLANDO CUELLER OSORIO"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "ORLANDO CUELLER OSORIO"
+21. HUM TGT: NUMBER                 1: "ORLANDO CUELLER OSORIO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+
+;;; gk converted murder 1 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0468 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 10 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       TORTURE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             PRESIDENT VINICIO CEREZO
+10. PERP: ORGANIZATION ID           "DEATH SQUADS" / "THE SECRET SERVICE OF THE ARMY (G-2)"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "DEATH SQUADS" / "THE SECRET SERVICE OF THE ARMY (G-2)"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "SILVIA AZURDIA"
+                                    "VICTOR HUGO RODRIGUEZ"
+                                    "CARLOS HUMBERTO CABRERA"
+19. HUM TGT: DESCRIPTION            "HER HUSBAND" / "SILVIA'S HUSBAND": "VICTOR HUGO RODRIGUEZ"
+                                    "UNIVERSITY STUDENT": "SILVIA AZURDIA"
+                                    "UNIVERSITY STUDENT": "CARLOS HUMBERTO CABRERA"
+                                    "UNIVERSITY STUDENTS" / "UNIVERSITY STUDENT"
+20. HUM TGT: TYPE                   CIVILIAN: "UNIVERSITY STUDENTS" / "UNIVERSITY STUDENT"
+                                    CIVILIAN: "CARLOS HUMBERTO CABRERA"
+                                    CIVILIAN: "VICTOR HUGO RODRIGUEZ"
+                                    CIVILIAN: "SILVIA AZURDIA"
+21. HUM TGT: NUMBER                 1: "VICTOR HUGO RODRIGUEZ"
+                                    1: "CARLOS HUMBERTO CABRERA"
+                                    1: "SILVIA AZURDIA"
+                                    1: "UNIVERSITY STUDENTS" / "UNIVERSITY STUDENT"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "UNIVERSITY STUDENTS" / "UNIVERSITY STUDENT"
+                                    DEATH: "CARLOS HUMBERTO CABRERA"
+                                    DEATH: "VICTOR HUGO RODRIGUEZ"
+                                    DEATH: "SILVIA AZURDIA"
+24. HUM TGT: TOTAL NUMBER           4
+
+0.  MESSAGE: ID                     DEV-MUC3-0468 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 12 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "DEATH SQUADS"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "DEATH SQUADS"
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "STUDENTS"
+20. HUM TGT: TYPE                   CIVILIAN: "STUDENTS"
+21. HUM TGT: NUMBER                 7: "STUDENTS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0468 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  - 10 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA: GUATEMALA CITY (CITY)
+4.  INCIDENT: TYPE                  KIDNAPPING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       TORTURE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "EIGHT MEN IN CIVILIAN CLOTHES"
+10. PERP: ORGANIZATION ID           "DEATH SQUADS"
+11. PERP: ORGANIZATION CONFIDENCE   SUSPECTED OR ACCUSED: "DEATH SQUADS"
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   "SILVIA AZURDIA"
+                                    "VICTOR HUGO RODRIGUEZ"
+19. HUM TGT: DESCRIPTION            "UNIVERSITY STUDENT": "SILVIA AZURDIA"
+                                    "HER HUSBAND" / "SILVIA's HUSBAND": "VICTOR HUGO RODRIGUEZ" 
+20. HUM TGT: TYPE                   CIVILIAN: "VICTOR HUGO RODRIGUEZ"
+                                    CIVILIAN: "SILVIA AZURDIA"
+21. HUM TGT: NUMBER                 1: "VICTOR HUGO RODRIGUEZ"
+                                    1: "SILVIA AZURDIA"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           2
+
+;;; gk converted murder 4 to attack
+0.  MESSAGE: ID                     DEV-MUC3-0468 (LSI)
+1.  MESSAGE: TEMPLATE               4
+2.  INCIDENT: DATE                  - 11 SEP 89
+3.  INCIDENT: LOCATION              GUATEMALA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+                                    TORTURE: "-"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "UNIDENTIFIED GUATEMALANS"
+20. HUM TGT: TYPE                   CIVILIAN: "UNIDENTIFIED GUATEMALANS"
+21. HUM TGT: NUMBER                 3: "UNIDENTIFIED GUATEMALANS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "UNIDENTIFIED GUATEMALANS"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0469 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0470 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  03 SEP 89
+3.  INCIDENT: LOCATION              BOLIVIA: SUCRE (CITY): BANCARIO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "MOLOTOV COCKTAIL"
+7.  INCIDENT: INSTRUMENT TYPE       MOLOTOV COCKTAIL: "MOLOTOV COCKTAIL"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED INDIVIDUALS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "STUDIOS OF THE CHANNEL 6 TELEVISION STATION" / "THE CHANNEL 6 TELEVISION STATION" / "TELEVISION STATION"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "STUDIOS OF THE CHANNEL 6 TELEVISION STATION" / "THE CHANNEL 6 TELEVISION STATION" / "TELEVISION STATION"
+14. PHYS TGT: NUMBER                1: "STUDIOS OF THE CHANNEL 6 TELEVISION STATION" / "THE CHANNEL 6 TELEVISION STATION" / "TELEVISION STATION"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "STUDIOS OF THE CHANNEL 6 TELEVISION STATION" / "THE CHANNEL 6 TELEVISION STATION" / "TELEVISION STATION"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0470 (LSI)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 03 SEP 89 / (28 AUG 92 - 03 SEP 89)
+3.  INCIDENT: LOCATION              BOLIVIA: SUCRE (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "FACILITIES OF THE REGIONAL DEVELOPMENT CORPORATION" / "REGIONAL DEVELOPMENT CORPORATION"
+13. PHYS TGT: TYPE                  GOVERNMENT OFFICE OR RESIDENCE: "FACILITIES OF THE REGIONAL DEVELOPMENT CORPORATION" / "REGIONAL DEVELOPMENT CORPORATION"
+14. PHYS TGT: NUMBER                1: "FACILITIES OF THE REGIONAL DEVELOPMENT CORPORATION" / "REGIONAL DEVELOPMENT CORPORATION"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0470 (LSI)
+1.  MESSAGE: TEMPLATE               3
+2.  INCIDENT: DATE                  31 AUG 89
+3.  INCIDENT: LOCATION              BOLIVIA
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "DYNAMITE STICKS"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "DYNAMITE STICKS"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "YPFB'S GUALBERTO VILLAROEL REFINERY" / "YPFB'S [BOLIVIAN GOVERNMENT OIL DEPOSITS] GUALBERTO VILLAROEL REFINERY"
+13. PHYS TGT: TYPE                  ENERGY: "YPFB'S GUALBERTO VILLAROEL REFINERY" / "YPFB'S [BOLIVIAN GOVERNMENT OIL DEPOSITS] GUALBERTO VILLAROEL REFINERY"
+14. PHYS TGT: NUMBER                1: "YPFB'S GUALBERTO VILLAROEL REFINERY" / "YPFB'S [BOLIVIAN GOVERNMENT OIL DEPOSITS] GUALBERTO VILLAROEL REFINERY"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0471 (LSI)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0472 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 13 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           ? "DEATH SQUADS"
+11. PERP: ORGANIZATION CONFIDENCE   ? POSSIBLE: "DEATH SQUADS"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "OSCAR ARNULFO ROMERO"
+19. HUM TGT: DESCRIPTION            "MONSIGNOR": "OSCAR ARNULFO ROMERO"
+20. HUM TGT: TYPE                   CIVILIAN: "OSCAR ARNULFO ROMERO"
+21. HUM TGT: NUMBER                 1: "OSCAR ARNULFO ROMERO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "OSCAR ARNULFO ROMERO"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0473 (LSI)
+1.  MESSAGE: TEMPLATE               1 (OPTIONAL)
+2.  INCIDENT: DATE                  - 13 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "OSCAR ARNULFO ROMERO"
+19. HUM TGT: DESCRIPTION            "MSGR": "OSCAR ARNULFO ROMERO"
+20. HUM TGT: TYPE                   CIVILIAN: "OSCAR ARNULFO ROMERO"
+21. HUM TGT: NUMBER                 1: "OSCAR ARNULFO ROMERO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "OSCAR ARNULFO ROMERO"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0474 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  13 SEP 89
+3.  INCIDENT: LOCATION              ECUADOR: GUAYAQUIL (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "SEVERAL DYNAMITE STICKS"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "SEVERAL DYNAMITE STICKS"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "UNIDENTIFIED MEN" / "UNIDENTIFIED MEN IN A LUXURY CAR"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "RESIDENCE OF ECUADORAN FELIPE COSTA" / "RESIDENCE OF ECUADORAN FELIPE COSTA, CANADA'S HONORARY CONSUL"
+                                    "AUTOMOBILE" / "THE HONORARY CONSUL'S AUTOMOBILE"
+13. PHYS TGT: TYPE                  DIPLOMAT OFFICE OR RESIDENCE: "RESIDENCE OF ECUADORAN FELIPE COSTA" / "RESIDENCE OF ECUADORAN FELIPE COSTA, CANADA'S HONORARY CONSUL"
+                                    TRANSPORT VEHICLE: "AUTOMOBILE" / "THE HONORARY CONSUL'S AUTOMOBILE"
+14. PHYS TGT: NUMBER                1: "RESIDENCE OF ECUADORAN FELIPE COSTA" / "RESIDENCE OF ECUADORAN FELIPE COSTA, CANADA'S HONORARY CONSUL"
+15. PHYS TGT: FOREIGN NATION        ? CANADA: "RESIDENCE OF ECUADORAN FELIPE COSTA" / "RESIDENCE OF ECUADORAN FELIPE COSTA, CANADA'S HONORARY CONSUL"
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "RESIDENCE OF ECUADORAN FELIPE COSTA" / "RESIDENCE OF ECUADORAN FELIPE COSTA, CANADA'S HONORARY CONSUL"
+                                    SOME DAMAGE: "AUTOMOBILE" / "THE HONORARY CONSUL'S AUTOMOBILE"
+17. PHYS TGT: TOTAL NUMBER          2
+18. HUM TGT: NAME                   "FELIPE COSTA"
+19. HUM TGT: DESCRIPTION            "CANADA'S HONORARY CONSUL": "FELIPE COSTA"
+20. HUM TGT: TYPE                   DIPLOMAT: "FELIPE COSTA"
+21. HUM TGT: NUMBER                 1: "FELIPE COSTA"
+22. HUM TGT: FOREIGN NATION         ? CANADA: "FELIPE COSTA"
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY: "FELIPE COSTA"
+24. HUM TGT: TOTAL NUMBER           -
+
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0475 (LSI)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  12 SEP 89 - 13 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR: MORAZAN (DEPARTMENT): PERQUIN (CITY) / SAN SALVADOR: MORAZAN (DEPARTMENT): PERKIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "HELICOPTER GUNSHIPS"
+                                    "C-47 AIRCRAFT"
+                                    "ARTILLERY"
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "HELICOPTER GUNSHIPS"
+                                    GUN: "C-47 AIRCRAFT"
+                                    GUN: "ARTILLERY"
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             "ARCE BATTALION" / "3D BRIGADE COMMANDER COLONEL MAURICIO VARGAS"
+10. PERP: ORGANIZATION ID           "AIR FORCE"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "AIR FORCE"
+12. PHYS TGT: ID                    "HOUSES"
+13. PHYS TGT: TYPE                  CIVILIAN RESIDENCE: "HOUSES"
+14. PHYS TGT: NUMBER                PLURAL: "HOUSES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "HOUSES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "JULIO RODRIGUEZ"
+19. HUM TGT: DESCRIPTION            "ELDERELY MAN": "JULIO RODRIGUEZ"
+20. HUM TGT: TYPE                   CIVILIAN: "JULIO RODRIGUEZ"
+21. HUM TGT: NUMBER                 1: "JULIO RODRIGUEZ"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "JULIO RODRIGUEZ"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk deleted murder 2 (redundant with 1)
+
+0.  MESSAGE: ID                     DEV-MUC3-0476 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0477 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0478 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+;;; number of threatened judges is 0/10/20/...
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0479 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 14 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "DRUG-TRAFFICKING MAFIAS"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "DRUG-TRAFFICKING MAFIAS"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "JUDGES"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "JUDGES"
+21. HUM TGT: NUMBER                 10 / 10- / PLURAL: "JUDGES"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0480 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 14 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR: PERQUIN (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       AERIAL BOMB: "-"
+                                    MACHINE GUN: "-"
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "ARMED FORCES"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "ARMED FORCES"
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERQUIN CIVILIANS" / "CIVILIANS"
+20. HUM TGT: TYPE                   CIVILIAN: "PERQUIN CIVILIANS" / "CIVILIANS"
+21. HUM TGT: NUMBER                 PLURAL: "PERQUIN CIVILIANS" / "CIVILIANS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PERQUIN CIVILIANS" / "CIVILIANS"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0481 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0482 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  13 SEP 89 - 14 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: PUERTO BOYACA (MUNICIPALITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           "ARMY OF NATIONAL LIBERATION" / "ELN"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "ARMY OF NATIONAL LIBERATION" / "ELN"
+12. PHYS TGT: ID                    "TECA - VASCONIA OIL PIPELINE" / "OIL PIPELINE"
+13. PHYS TGT: TYPE                  ENERGY: "TECA - VASCONIA OIL PIPELINE" / "OIL PIPELINE"
+14. PHYS TGT: NUMBER                1: "TECA - VASCONIA OIL PIPELINE" / "OIL PIPELINE"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE /DESTROYED: "TECA - VASCONIA OIL PIPELINE" / "OIL PIPELINE"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0483 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 14 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "UZI SUBMACHINEGUN" / "SUBMACHINEGUN" / "MACHINEGUN"
+7.  INCIDENT: INSTRUMENT TYPE       MACHINE GUN: "UZI SUBMACHINEGUN" / "SUBMACHINEGUN" / "MACHINEGUN"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "NORBERTO HERNANDEZ ROMERO"
+                                    "RAFAEL RIVERA ALARCON"
+                                    "JAIME DE JESUS VALENCIA MARTINEZ"
+                                    "LUIS ALFREDO GONZALEZ CHACON"
+                                    "PEDRO ZAMBRANO DELGADO"
+                                    "NORBERTO MURRILLO CHALARCA"
+                                    "ARMANDO BERNAL ACOSTA"
+                                    "HECTOR MANUEL ZEPEDA QUINTERO"
+                                    "ALBERTO JUBIS HASZVUMB"
+                                    ? "LUIS FELIPE TORRES"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   "LUIS CARLOS GALAN SARMIENTO"
+19. HUM TGT: DESCRIPTION            "LIBERAL PARTY LEADER": "LUIS CARLOS GALAN SARMIENTO"
+20. HUM TGT: TYPE                   POLITICAL FIGURE: "LUIS CARLOS GALAN SARMIENTO"
+21. HUM TGT: NUMBER                 1: "LUIS CARLOS GALAN SARMIENTO"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     DEATH: "LUIS CARLOS GALAN SARMIENTO"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; gk converted single murder to attack
+0.  MESSAGE: ID                     DEV-MUC3-0484 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 14 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    THREATENED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       -
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "DRUG TRAFFICKERS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "JUDGES"
+20. HUM TGT: TYPE                   LEGAL OR JUDICIAL: "JUDGES"
+21. HUM TGT: NUMBER                 10 / 10- / PLURAL: "JUDGES"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0485 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0486 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0487 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  16 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY): PALO QUEMAO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "17 KG OF DYNAMITE" / "TWO DYNAMITE CHARGES" / "DYNAMITE CHARGES" / "DYNAMITE"
+                                    "TWO BOMBS" / "BOMBS" 
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "17 KG OF DYNAMITE" /"TWO DYNAMITE CHARGES" / "DYNAMITE CHARGES" / "DYNAMITE"
+                                    BOMB: "TWO BOMBS" / "BOMBS" 
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BANCO POPULAR"
+                                    "BANCO SANTANDER"
+                                    "STORES"
+13. PHYS TGT: TYPE                  FINANCIAL: "BANCO POPULAR"
+                                    FINANCIAL: "BANCO SANTANDER"
+                                    COMMERCIAL: "STORES"
+14. PHYS TGT: NUMBER                1: "BANCO POPULAR"
+                                    1: "BANCO SANTANDER"
+                                    20: "STORES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "BANCO POPULAR"
+                                    DESTROYED: "BANCO SANTANDER"
+                                    SOME DAMAGE: "STORES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSONS"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSONS"
+21. HUM TGT: NUMBER                 2: "PERSONS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PERSONS"
+24. HUM TGT: TOTAL NUMBER           -
+
+;;; story says "several banks" but only specifies two
+0.  MESSAGE: ID                     DEV-MUC3-0488 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  15 SEP 89 - 16 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: VALLE DEL CAUCA (DEPARTMENT): CALI (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "SEVERAL CHARGES OF DYNAMITE" / "CHARGES OF DYNAMITE" / "DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "SEVERAL CHARGES OF DYNAMITE" / "CHARGES OF DYNAMITE" / "DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BANCO DE SANTANDER"
+                                    "LA VIVIENDA CORPORATION"
+13. PHYS TGT: TYPE                  FINANCIAL: "LA VIVIENDA CORPORATION"
+                                    FINANCIAL: "BANCO DE SANTANDER"
+14. PHYS TGT: NUMBER                1: "BANCO DE SANTANDER"
+                                    1: "LA VIVIENDA CORPORATION"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "LA VIVIENDA CORPORATION"
+                                    SOME DAMAGE: "BANCO DE SANTANDER"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSONS"
+                                    "MILITARY SECURITY OFFICERS"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSONS"
+                                    ACTIVE MILITARY: "MILITARY SECURITY OFFICERS"
+21. HUM TGT: NUMBER                 9: "PERSONS"
+                                    2: "MILITARY SECURITY OFFICERS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "MILITARY SECURITY OFFICERS"
+                                    INJURY: "PERSONS"
+24. HUM TGT: TOTAL NUMBER           9
+
+0.  MESSAGE: ID                     DEV-MUC3-0489 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0490 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  17 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY): CHAPINERO (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "TWO BOMBS" / "BOMBS" / "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "TWO BOMBS" / "BOMBS" / "BOMB"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "BRANCH OFFICE OF THE COLMENA CORPORATION" / "CONAVI [NATIONAL SAVINGS AND HOUSING CORPORATION] BRANCH" / "CONAVI BRANCH"
+                                    "BANK BRANCH"
+                                    "STORES"
+13. PHYS TGT: TYPE                  FINANCIAL: "BRANCH OFFICE OF THE COLMENA CORPORATION" / "CONAVI [NATIONAL SAVINGS AND HOUSING CORPORATION] BRANCH" / "CONAVI BRANCH"
+                                    FINANCIAL: "BANK BRANCH"
+                                    COMMERCIAL: "STORES"
+14. PHYS TGT: NUMBER                1: "BRANCH OFFICE OF THE COLMENA CORPORATION" / "CONAVI [NATIONAL SAVINGS AND HOUSING CORPORATION] BRANCH" / "CONAVI BRANCH"
+                                    1: "BANK BRANCH"
+                                    20-: "STORES"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    DESTROYED: "BRANCH OFFICE OF THE COLMENA CORPORATION" / "CONAVI [NATIONAL SAVINGS AND HOUSING CORPORATION] BRANCH" / "CONAVI BRANCH"
+                                    SOME DAMAGE: "BANK BRANCH"
+                                    SOME DAMAGE: "STORES"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSON"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSON"
+21. HUM TGT: NUMBER                 1: "PERSON"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PERSON"
+24. HUM TGT: TOTAL NUMBER           -
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0491 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  17 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ATTEMPTED
+6.  INCIDENT: INSTRUMENT ID         "HOMEMADE ROCKET" / "ROCKET"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "HOMEMADE ROCKET" / "ROCKET"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             "PERSONS IN THE SERVICE OF THE DRUG LORDS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "HEADQUARTERS OF THE U.S. EMBASSY" / "U.S. EMBASSY"
+13. PHYS TGT: TYPE                  DIPLOMAT OFFICE OR RESIDENCE: "HEADQUARTERS OF THE U.S. EMBASSY" / "U.S. EMBASSY"
+14. PHYS TGT: NUMBER                1: "HEADQUARTERS OF THE U.S. EMBASSY" / "U.S. EMBASSY"
+15. PHYS TGT: FOREIGN NATION        UNITED STATES: "HEADQUARTERS OF THE U.S. EMBASSY" / "U.S. EMBASSY"
+16. PHYS TGT: EFFECT OF INCIDENT    NO DAMAGE: "HEADQUARTERS OF THE U.S. EMBASSY" / "U.S. EMBASSY"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     NO INJURY OR DEATH / NO INJURY: "-"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0491 (UMASS)
+1.  MESSAGE: TEMPLATE               2
+2.  INCIDENT: DATE                  - 17 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "DYNAMITE"
+7.  INCIDENT: INSTRUMENT TYPE       DYNAMITE: "DYNAMITE"
+8.  PERP: INCIDENT CATEGORY         TERRORIST ACT
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "LOCALS"
+13. PHYS TGT: TYPE                  OTHER: "LOCALS"
+14. PHYS TGT: NUMBER                30: "LOCALS"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "LOCALS"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "PERSON"
+20. HUM TGT: TYPE                   CIVILIAN: "PERSON"
+21. HUM TGT: NUMBER                 1: "PERSON"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "PERSON"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0492 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0493 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+0.  MESSAGE: ID                     DEV-MUC3-0494 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  18 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY): NORMANDY (NEIGHBORHOOD)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         -
+9.  PERP: INDIVIDUAL ID             "ATTACKERS"
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    "TELEPHONE COMPANY SUBSTATION"
+13. PHYS TGT: TYPE                  COMMUNICATIONS: "TELEPHONE COMPANY SUBSTATION"
+14. PHYS TGT: NUMBER                1: "TELEPHONE COMPANY SUBSTATION"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0494 (UMASS)
+1.  MESSAGE: TEMPLATE               2 (OPTIONAL)
+2.  INCIDENT: DATE                  18 SEP 89
+3.  INCIDENT: LOCATION              COLOMBIA: BOGOTA (CITY)
+4.  INCIDENT: TYPE                  BOMBING
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         "BOMB"
+7.  INCIDENT: INSTRUMENT TYPE       BOMB: "BOMB"
+8.  PERP: INCIDENT CATEGORY         -
+9.  PERP: INDIVIDUAL ID             -
+10. PERP: ORGANIZATION ID           -
+11. PERP: ORGANIZATION CONFIDENCE   -
+12. PHYS TGT: ID                    -
+13. PHYS TGT: TYPE                  -
+14. PHYS TGT: NUMBER                -
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    -
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            -
+20. HUM TGT: TYPE                   -
+21. HUM TGT: NUMBER                 -
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     -
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0495 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0496 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0497 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+
+;;; "tear gas" fits no existing slot-filler
+0.  MESSAGE: ID                     DEV-MUC3-0498 (UMASS)
+1.  MESSAGE: TEMPLATE               1
+2.  INCIDENT: DATE                  - 20 SEP 89
+3.  INCIDENT: LOCATION              EL SALVADOR: SAN SALVADOR (CITY)
+4.  INCIDENT: TYPE                  ATTACK
+5.  INCIDENT: STAGE OF EXECUTION    ACCOMPLISHED
+6.  INCIDENT: INSTRUMENT ID         -
+7.  INCIDENT: INSTRUMENT TYPE       GUN: "-"
+8.  PERP: INCIDENT CATEGORY         STATE-SPONSORED VIOLENCE
+9.  PERP: INDIVIDUAL ID             "SPECIAL POLICE UNITS" / "POLICE UNITS" / "POLICEMEN" / "POLICE"
+10. PERP: ORGANIZATION ID           "SALVADORAN POLICE" / "POLICE"
+11. PERP: ORGANIZATION CONFIDENCE   REPORTED AS FACT: "SALVADORAN POLICE" / "POLICE"
+12. PHYS TGT: ID                    "CATHEDRAL"
+13. PHYS TGT: TYPE                  OTHER: "CATHEDRAL"
+14. PHYS TGT: NUMBER                1: "CATHEDRAL"
+15. PHYS TGT: FOREIGN NATION        -
+16. PHYS TGT: EFFECT OF INCIDENT    SOME DAMAGE: "CATHEDRAL"
+17. PHYS TGT: TOTAL NUMBER          -
+18. HUM TGT: NAME                   -
+19. HUM TGT: DESCRIPTION            "DEMONSTRATORS"
+20. HUM TGT: TYPE                   CIVILIAN: "DEMONSTRATORS"
+21. HUM TGT: NUMBER                 ~60 / ~100: "DEMONSTRATORS"
+22. HUM TGT: FOREIGN NATION         -
+23. HUM TGT: EFFECT OF INCIDENT     INJURY: "DEMONSTRATORS"
+24. HUM TGT: TOTAL NUMBER           -
+
+0.  MESSAGE: ID                     DEV-MUC3-0499 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
+
+0.  MESSAGE: ID                     DEV-MUC3-0500 (UMASS)
+1.  MESSAGE: TEMPLATE               *
+2.  INCIDENT: DATE                  *
+3.  INCIDENT: LOCATION              *
+4.  INCIDENT: TYPE                  *
+5.  INCIDENT: STAGE OF EXECUTION    *
+6.  INCIDENT: INSTRUMENT ID         *
+7.  INCIDENT: INSTRUMENT TYPE       *
+8.  PERP: INCIDENT CATEGORY         *
+9.  PERP: INDIVIDUAL ID             *
+10. PERP: ORGANIZATION ID           *
+11. PERP: ORGANIZATION CONFIDENCE   *
+12. PHYS TGT: ID                    *
+13. PHYS TGT: TYPE                  *
+14. PHYS TGT: NUMBER                *
+15. PHYS TGT: FOREIGN NATION        *
+16. PHYS TGT: EFFECT OF INCIDENT    *
+17. PHYS TGT: TOTAL NUMBER          *
+18. HUM TGT: NAME                   *
+19. HUM TGT: DESCRIPTION            *
+20. HUM TGT: TYPE                   *
+21. HUM TGT: NUMBER                 *
+22. HUM TGT: FOREIGN NATION         *
+23. HUM TGT: EFFECT OF INCIDENT     *
+24. HUM TGT: TOTAL NUMBER           *
