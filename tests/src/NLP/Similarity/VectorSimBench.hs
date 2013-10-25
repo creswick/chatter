@@ -20,11 +20,6 @@ benchmarks docs testDocs = let
      , bench "all pairs of 1-5" $ whnf (docsRunAllPairs corpus) (take 5 testDocs)
 
      , bench "TV all pairs of 1-5" $ whnf (tvDocsRunAllPairs corpus) (take 5 testDocs)
-
-     , bench "TV Doc 1-2 vs 3-4" $ whnf (TV.similarity corpus (concat $ take 2 testDocs))
-                                                        ((testDocs!!2) ++ (testDocs!!3))
-     , bench "TV Doc 1-5 vs 6-10" $ whnf (TV.similarity corpus (concat $ take 5 testDocs))
-                                                        (concat $ take 5 $ drop 5 testDocs)
      ]
 
 docsRunAllPairs :: Corpus -> [[Text]] -> Double

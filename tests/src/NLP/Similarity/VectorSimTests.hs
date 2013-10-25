@@ -18,23 +18,23 @@ import NLP.Types (mkCorpus)
 
 tests :: Test
 tests = testGroup "Vector Sim"
-        [ testGroup "Dot Products" $ map (genTestF2 dotProd)
-          [ ("3-4-5", [1,3,-5], [4, -2, -1], 3)
-          , ("identical", [1], [1], 1.0)
-          , ("orthogonal", [1,0], [0,1], 0)
-          ]
-        , testGroup "cosines" $ map (genTestF2 cosVec)
-          -- ("identical", [0], [0], NaN) -- can't determine the angle.
-          [ ("identical", [1], [1], 1.0)
-          , ("identical", [1,2], [1,2], 1.0)
-          , ("orthogonal", [1,0], [0,1], 0)
-          ]
-        , testGroup "Magnitude tests" $ map (genTest magnitude)
-          [ ("3-4-5", [3,4], 5)
-          , ("empty", [], 0)
-          , ("single", [1], 1)
-          ]
-        , testGroup "tf tests" $ map (genTest2 tf)
+        [ -- testGroup "Dot Products" $ map (genTestF2 dotProd)
+        --   [ ("3-4-5", [1,3,-5], [4, -2, -1], 3)
+        --   , ("identical", [1], [1], 1.0)
+        --   , ("orthogonal", [1,0], [0,1], 0)
+        --   ]
+        -- , testGroup "cosines" $ map (genTestF2 cosVec)
+        --   -- ("identical", [0], [0], NaN) -- can't determine the angle.
+        --   [ ("identical", [1], [1], 1.0)
+        --   , ("identical", [1,2], [1,2], 1.0)
+        --   , ("orthogonal", [1,0], [0,1], 0)
+        --   ]
+        -- , testGroup "Magnitude tests" $ map (genTest magnitude)
+        --   [ ("3-4-5", [3,4], 5)
+        --   , ("empty", [], 0)
+        --   , ("single", [1], 1)
+        --   ]
+         testGroup "tf tests" $ map (genTest2 tf)
           [ ("", "test", ["test"], 1)
           , ("", "a", ["a", "test"], 1)
           , ("", "a", ["test"], 0)
@@ -73,9 +73,6 @@ tests = testGroup "Vector Sim"
                     ]
         , testProperty "idf /= NaN" prop_idfIsANum
         , testProperty "tf_idf /= NaN" prop_tf_idfIsANum
-        , testProperty "dotProd /= NaN" prop_dotProd_isANum
-        , testProperty "cosVec /= NaN" prop_cosVec_isANum
-        , testProperty "magnitude /= NaN" prop_magnitude_isANum
         , testProperty "similarity /= NaN" prop_similarity_isANum
         ]
 
@@ -123,16 +120,6 @@ prop_tf_idfIsANum term doc docs = not $ isNaN $ tf_idf termTxt docTxt $ mkCorpus
     termTxt = T.pack term
     docTxt = map T.pack doc
     docsTxt = map (map T.pack) docs
-
-prop_dotProd_isANum :: [Double] -> [Double] -> Bool
-prop_dotProd_isANum xs ys = not $ isNaN $ dotProd xs ys
-
-prop_cosVec_isANum :: [Double] -> [Double] -> Property
-prop_cosVec_isANum xs ys = (xs /= []) && (ys /= []) ==>
-  not $ isNaN $ cosVec xs ys
-
-prop_magnitude_isANum :: [Double] -> Bool
-prop_magnitude_isANum xs = not $ isNaN $ magnitude xs
 
 prop_similarity_isANum :: [[String]] -> [String] -> [String] -> Property
 prop_similarity_isANum strCorp d1 d2 = strCorp /= [] &&
