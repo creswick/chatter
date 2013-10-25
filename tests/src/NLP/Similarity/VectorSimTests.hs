@@ -39,20 +39,20 @@ tests = testGroup "Vector Sim"
           , ("", "a", ["test"], 0)
           ]
         , testGroup "idf tests" $ map (genTestF2 idf)
-          [ ("", "test", [["test"]], log(1/2))
-          , ("", "a", [["test"]], log(1))
-          , ("", "a", [["a", "test"],["test"]], log(2/2))
+          [ ("", "test", mkCorpus [["test"]], log(1/2))
+          , ("", "a", mkCorpus [["test"]], log(1))
+          , ("", "a", mkCorpus [["a", "test"],["test"]], log(2/2))
           ]
         , testGroup "tf_idf tests" $ map (genTestF3 tf_idf)
-          [ ("", "test", ["test"], [["test"]], log(2/3))
-          , ("", "a", ["a", "test"], [["some"], ["test"]], 0.40546)
-          , ("", "foo", ["foo"], [["test"]], 0)
-          , ("", "foo", ["foo"], [["foo"],["test"]], 0)
-          , ("", "bar", ["foo"], [["test"]], 0)
-          , ("", "bar", ["foo"], [["foo"],["test"]], 0)
+          [ ("", "test", ["test"], mkCorpus [["test"]], log(2/3))
+          , ("", "a", ["a", "test"], mkCorpus [["some"], ["test"]], 0.40546)
+          , ("", "foo", ["foo"], mkCorpus [["test"]], 0)
+          , ("", "foo", ["foo"], mkCorpus [["foo"],["test"]], 0)
+          , ("", "bar", ["foo"], mkCorpus [["test"]], 0)
+          , ("", "bar", ["foo"], mkCorpus [["foo"],["test"]], 0)
           ]
         , testGroup "Similarity tests, trivial corpus" $
-            map (genTest2 $ sim [["test"]])
+            map (genTest2 $ sim $ mkCorpus [["test"]])
                     [ ("same doc", "test", "test", 1)
                       -- This next test is invalid becausse the
                       -- initial smoothing causes funny results (this
@@ -62,10 +62,10 @@ tests = testGroup "Vector Sim"
                     , ("No match", "foo", "bar", 0.0)
                     ]
         , testGroup "Similarity tests, minor corpus" $
-            map (genTestF2 $ sim [ ["a", "sample"]
-                                , ["the", "test"]
-                                , ["big", "example"]
-                                , ["more", "terms"]])
+            map (genTestF2 $ sim $ mkCorpus [ ["a", "sample"]
+                                            , ["the", "test"]
+                                            , ["big", "example"]
+                                            , ["more", "terms"]])
                     [ ("same doc", "test", "test", 1)
                     , ("one off", "a test", "the test", 0.5)
                     , ("No match", "foo", "bar", 0.0)
@@ -111,10 +111,17 @@ genTest fn (descr, input, oracle) =
         where assert = oracle @=? fn input
 
 prop_idfIsANum :: String -> [[String]] -> Bool
-prop_idfIsANum term corpus = not (isNaN (idf term corpus))
+prop_idfIsANum term docs = not (isNaN (idf termTxt $ mkCorpus docsTxt))
+  where
+    termTxt = T.pack term
+    docsTxt = map (map T.pack) docs
 
 prop_tf_idfIsANum :: String -> [String] -> [[String]] -> Bool
-prop_tf_idfIsANum term doc corpus = not $ isNaN $ tf_idf term doc corpus
+prop_tf_idfIsANum term doc docs = not $ isNaN $ tf_idf termTxt docTxt $ mkCorpus docsTxt
+  where
+    termTxt = T.pack term
+    docTxt = map T.pack doc
+    docsTxt = map (map T.pack) docs
 
 prop_dotProd_isANum :: [Double] -> [Double] -> Bool
 prop_dotProd_isANum xs ys = not $ isNaN $ dotProd xs ys
@@ -130,7 +137,7 @@ prop_similarity_isANum :: [[String]] -> [String] -> [String] -> Property
 prop_similarity_isANum strCorp d1 d2 = strCorp /= [] &&
                                        (concat d1 /= []) &&
                                        (concat d2 /= [])==> let
-  corpus = map (map T.pack) strCorp
+  corpus = mkCorpus $ map (map T.pack) strCorp
   doc1 = map T.pack d1
   doc2 = map T.pack d2
   in not $ isNaN $ similarity corpus doc1 doc2

@@ -27,8 +27,8 @@ main = do
   muc3_2 <- VS.muc3_02
   muc3_3 <- VS.muc3_03
   defaultMainWith myConfig (return ())
-       [ bgroup "POS Tagging" postagBench
---              , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
+       [ bgroup "POS Tagging" [] -- postagBench
+       , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
        ]
 
 

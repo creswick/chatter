@@ -2,6 +2,7 @@ module NLP.Similarity.VectorSim where
 
 import Data.Map (Map)
 import qualified Data.Map as Map
+import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -13,33 +14,36 @@ import Data.List (elemIndices)
 -- Functions we'll need:
 --  * length
 --  * number of documents containing <term>
-type Corpus = [[Text]]
+-- type Corpus = [[Text]]
 
--- data Corpus = Corpus { corpLength :: Int
---                      , corpTermCounts :: Map Text Int
---                      } deriving (Read, Show, Ord)
+data Corpus = Corpus { corpLength :: Int
+                     , corpTermCounts :: Map Text Int
+                     } deriving (Read, Show, Eq, Ord)
 
--- -- | Create a corpus from a list of documents, represented by
--- -- normalized tokens.
--- mkCorpus :: [[Text]] -> Corpus
--- mkCorpus docs =
---   let docSets = map Set.fromList docs
---   Corpus { corpLength     = length docs
---          , corpTermCounts = Set.foldl addTerms Map.empty docSets
---          }
+termCounts :: Corpus -> Text -> Int
+termCounts corpus term = Map.findWithDefault 0 term $ corpTermCounts corpus
 
--- addTerms :: Map Text Int -> Set Text -> Map Text Int
--- addTerms m terms = Set.foldl addTerm m terms
+-- | Create a corpus from a list of documents, represented by
+-- normalized tokens.
+mkCorpus :: [[Text]] -> Corpus
+mkCorpus docs =
+  let docSets = map Set.fromList docs
+  in Corpus { corpLength     = length docs
+            , corpTermCounts = foldl addTerms Map.empty docSets
+            }
 
--- addTerm :: Map Text Int -> Text -> Map Text Int
--- addTerm m term = Map.alter increment term m
---   where
---     increment :: Maybe Int -> Maybe Int
---     increment Nothing  = Just 1
---     increment (Just i) = Just (i + 1)
+addTerms :: Map Text Int -> Set Text -> Map Text Int
+addTerms m terms = Set.foldl addTerm m terms
 
--- addDocument :: Corpus -> [Text] -> Corpus
--- addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
+addTerm :: Map Text Int -> Text -> Map Text Int
+addTerm m term = Map.alter increment term m
+  where
+    increment :: Maybe Int -> Maybe Int
+    increment Nothing  = Just 1
+    increment (Just i) = Just (i + 1)
+
+addDocument :: Corpus -> [Text] -> Corpus
+addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
 
 -- | Invokes similarity on full strings, using `T.words` for
 -- tokenization, and no stemming.
@@ -73,17 +77,17 @@ tf term doc = length $ elemIndices term doc
 -- | Calculate the inverse document frequency.
 --
 -- The IDF is, roughly speaking, a measure of how popular a term is.
-idf :: Eq a => a -> [[a]] -> Double
+idf :: Text -> Corpus -> Double
 idf term corpus = let
-  docCount = length corpus
-  containedInCount = 1 + (length $ filter (elem term) corpus)
+  docCount = corpLength corpus
+  containedInCount = 1 + termCounts corpus term
   in log (fromIntegral docCount / fromIntegral containedInCount)
 
 -- | Calculate the tf*idf measure for a term given a document and a
 -- corpus.
-tf_idf :: Eq a => a -> [a] -> [[a]] -> Double
+tf_idf :: Text -> [Text] -> Corpus -> Double
 tf_idf term doc corp = let
-  corpus = doc:corp
+  corpus = addDocument corp doc
   freq = tf term doc
   result | freq == 0 = 0
          | otherwise = (fromIntegral freq) * idf term corpus
