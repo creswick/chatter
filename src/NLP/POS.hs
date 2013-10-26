@@ -15,11 +15,12 @@ module NLP.POS
   ( tag
   , tagStr
   , tagText
+  , eval
   )
 where
 
 import NLP.Types (TaggedSentence, Tag(..)
-                 , POSTagger(..), tagUNK)
+                 , POSTagger(..), tagUNK, stripTags)
 
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -64,3 +65,21 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
 
     toTaggedTok :: (Text, Tag) -> Text
     toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)
+
+
+-- | Evaluate a 'POSTager'.
+--
+-- Measures accuracy over all tags in the test corpus.
+--
+-- Accuracy is calculated as:
+--
+-- > |tokens tagged correctly| / |all tokens|
+--
+eval :: POSTagger -> [TaggedSentence] -> Double
+eval tgr oracle = let
+  sentences = map stripTags oracle
+  results = (tagger tgr) sentences
+  totalTokens = fromIntegral $ sum $ map length oracle
+  isMatch (_, rTag) (_, oTag) | rTag == oTag = 1
+                              | otherwise    = 0
+  in (fromIntegral $ sum $ zipWith isMatch (concat results) (concat oracle)) / totalTokens

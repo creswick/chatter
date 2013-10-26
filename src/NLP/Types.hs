@@ -20,8 +20,15 @@ data POSTagger = POSTagger
 type Sentence = [Text]
 type TaggedSentence = [(Text, Tag)]
 
-newtype Tag = Tag { fromTag :: Text
-                  } deriving (Ord, Eq, Read, Show)
+-- | Remove the tags from a tagged sentence
+stripTags :: TaggedSentence -> Sentence
+stripTags = map fst
+
+newtype Tag = Tag Text
+  deriving (Ord, Eq, Read, Show)
+
+fromTag :: Tag -> Text
+fromTag (Tag t) = t
 
 parseTag :: Text -> Tag
 parseTag t = Tag t

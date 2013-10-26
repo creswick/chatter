@@ -16,6 +16,8 @@ import qualified Data.Text as T
 import NLP.Similarity.VectorSim
 import NLP.Types (mkCorpus)
 
+import TestUtils
+
 tests :: Test
 tests = testGroup "Vector Sim"
         [ -- testGroup "Dot Products" $ map (genTestF2 dotProd)
@@ -76,38 +78,6 @@ tests = testGroup "Vector Sim"
         , testProperty "similarity /= NaN" prop_similarity_isANum
         ]
 
-genTestF2 :: (Show a, Show b) => (a -> b -> Double) -> (String, a, b, Double) -> Test
-genTestF2 fn (descr, in1, in2, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
-        where assert = assertApproxEquals "" 0.001 oracle $ fn in1 in2
-
-genTest3 :: (Show a, Show b, Show c, Show d, Eq d)
-         => (a -> b -> c -> d)
-         -> (String, a, b, c, d)
-         -> Test
-genTest3 fn (descr, in1, in2, in3, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"," ++show in3++"]") assert
-        where assert = oracle @=? fn in1 in2 in3
-
-
-genTestF3 :: (Show a, Show b, Show c)
-         => (a -> b -> c -> Double)
-         -> (String, a, b, c, Double)
-         -> Test
-genTestF3 fn (descr, in1, in2, in3, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"," ++show in3++"]") assert
-        where assert = assertApproxEquals "" 0.001 oracle $ fn in1 in2 in3
-
-genTest2 :: (Show a, Show b, Show c, Eq c) => (a -> b -> c) -> (String, a, b, c) -> Test
-genTest2 fn (descr, in1, in2, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
-        where assert = oracle @=? fn in1 in2
-
-genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> Test
-genTest fn (descr, input, oracle) =
-    testCase (descr++" [input: "++show input++"]") assert
-        where assert = oracle @=? fn input
-
 prop_idfIsANum :: String -> [[String]] -> Bool
 prop_idfIsANum term docs = not (isNaN (idf termTxt $ mkCorpus docsTxt))
   where
@@ -129,13 +99,3 @@ prop_similarity_isANum strCorp d1 d2 = strCorp /= [] &&
   doc1 = map T.pack d1
   doc2 = map T.pack d2
   in not $ isNaN $ similarity corpus doc1 doc2
-
-assertApproxEquals :: String  -- ^ The message prefix
-                  -> Double  -- ^ The maximum difference between expected and actual
-                  -> Double  -- ^ The expected value
-                  -> Double  -- ^ The actual value
-                  -> Assertion
-assertApproxEquals preface delta expected actual =
-  unless (abs (expected - actual) < delta) (assertFailure msg)
- where msg = (if null preface then "" else preface ++ "\n") ++
-             "expected: " ++ show expected ++ "\n but got: " ++ show actual
