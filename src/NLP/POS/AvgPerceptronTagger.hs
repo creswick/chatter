@@ -2,17 +2,30 @@
 -- | Avegeraged Perceptron Tagger
 --
 -- Adapted from the python implementation found here:
---  * https://github.com/sloria/textblob-aptagger/blob/master/textblob_aptagger/taggers.py
-module NLP.POS.AvgPerceptronTagger where
+--
+--  * <https://github.com/sloria/textblob-aptagger/blob/master/textblob_aptagger/taggers.py>
+--
+module NLP.POS.AvgPerceptronTagger
+  ( mkTagger
+  , trainNew
+  , trainOnFiles
+  , train
+  , trainInt
+  , tag
+  , tagSentence
+  )
+where
 
 import NLP.Corpora.Parsing (readPOS)
-import NLP.POS.AvgPerceptron
+import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
+                             , Class(..), predict, update
+                             , emptyPerceptron, averageWeights)
 import NLP.Types
 
 import Control.Monad (foldM)
 import Data.List (zipWith4, foldl')
-import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
+import qualified Data.Map.Strict as Map
 import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -25,7 +38,9 @@ import System.Random.Shuffle (shuffleM)
 -- tagger as a fall-back, if one is specified.
 --
 -- This uses `Data.Text.words` for a tokenizer, and Erik Kow's
--- fullstop sentence segmenter as a sentence splitter.
+-- fullstop sentence segmenter
+-- (<http://hackage.haskell.org/package/fullstop>) as a sentence
+-- splitter.
 mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
 mkTagger per mTgr = POSTagger { tagger  = tag per
                               , backoff = mTgr
@@ -35,19 +50,26 @@ mkTagger per mTgr = POSTagger { tagger  = tag per
 itterations :: Int
 itterations = 5
 
--- | Train a new perceptron
+-- | Train a new 'Perceptron'.
 --
--- The training corpus should be a collection
--- of sentences, one sentence on each line, and with each token tagged
--- with a part of speech.
+-- The training corpus should be a collection of sentences, one
+-- sentence on each line, and with each token tagged with a part of
+-- speech.
 --
 -- For example, the input:
+--
 -- > "The/DT dog/NN jumped/VB ./.\nThe/DT cat/NN slept/VB ./."
+--
 -- defines two training sentences.
+--
+-- >>> tagger <- trainNew "Dear/jj Sirs/nns :/: Let/vb\nUs/nn begin/vb\n"
+-- >>> tag tagger $ map T.words $ T.lines "Dear sir"
+-- "Dear/jj Sirs/nns :/: Let/vb"
+--
 trainNew :: Text -> IO Perceptron
 trainNew rawCorpus = train emptyPerceptron rawCorpus
 
--- | Train on a corpus of files.
+-- | Train a new 'Perceptron' on a corpus of files.
 trainOnFiles :: [FilePath] -> IO Perceptron
 trainOnFiles corpora = foldM step emptyPerceptron corpora
   where
@@ -58,9 +80,18 @@ trainOnFiles corpora = foldM step emptyPerceptron corpora
 
 -- | Add training examples to a perceptron.
 --
+-- >>> tagger <- train emptyPerceptron "Dear/jj Sirs/nns :/: Let/vb\nUs/nn begin/vb\n"
+-- >>> tag tagger $ map T.words $ T.lines "Dear sir"
+-- "Dear/jj Sirs/nns :/: Let/vb"
+--
 -- If you're using multiple input files, this can be useful to improve
 -- performance (by folding over the files).  For example, see `trainOnFiles`
-train :: Perceptron -> Text -> IO Perceptron
+--
+train :: Perceptron -- ^ The inital model.
+      -> Text       -- ^ Training data; formatted with one sentence
+                    -- per line, and standard POS tags after each
+                    -- space-delimeted token.
+      -> IO Perceptron
 train per rawCorpus = do
   let corpora = map readPOS $ T.lines rawCorpus
   trainInt itterations per corpora
@@ -75,7 +106,11 @@ startToks = ["-START-", "-START2-"]
 endToks :: [Text]
 endToks = ["-END-", "-END2-"]
 
-
+-- | Tag a document (represented as a list of 'Sentence's) with a
+-- trained 'Perceptron'
+--
+-- Ported from Python:
+--
 -- > def tag(self, corpus, tokenize=True):
 -- >     '''Tags a string `corpus`.'''
 -- >     # Assume untokenized corpus has \n between sentences and ' ' between words
@@ -97,21 +132,16 @@ endToks = ["-END-", "-END2-"]
 -- >             prev2 = prev
 -- >             prev = tag
 -- >     return tokens
+--
 tag :: Perceptron -> [Sentence] -> [TaggedSentence]
 tag per corpus = map (tagSentence per) corpus
 
+-- | Tag a single sentence.
 tagSentence :: Perceptron -> Sentence -> TaggedSentence
 tagSentence per sent = let
---  context = startToks ++ sent ++ endToks
 
   tags = (map (Class . T.unpack) startToks) ++ map (predictPos per) features
 
-  -- features = [ getFeatures sent i word prev1 prev2 |
-  --            i <- [0..]
-  --            , word <- sent
-  --            , prev1 <- tail tags
-  --            , prev2 <- tags
-  --            ]
   features = zipWith4 (getFeatures sent)
              [0..]
              sent
@@ -122,13 +152,8 @@ tagSentence per sent = let
 
 -- | Train a model from sentences.
 --
--- nr_iter controls the number of Perceptron training iterations.
---
--- :param sentences: A list of (words, tags) tuples.
--- :param save_loc: If not ``None``, saves a pickled model in this location.
--- :param nr_iter: Number of training iterations.
---
 -- Ported from Python:
+--
 -- > def train(self, sentences, save_loc=None, nr_iter=5):
 -- >     self._make_tagdict(sentences)
 -- >     self.model.classes = self.classes
@@ -155,7 +180,14 @@ tagSentence per sent = let
 -- >         pickle.dump((self.model.weights, self.tagdict, self.classes),
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
-trainInt :: Int -> Perceptron -> [[(Text, Tag)]] -> IO Perceptron
+--
+trainInt :: Int -- ^ The number of times to iterate over the training
+                -- data, randomly shuffling after each iteration. (@5@
+                -- is a reasonable choice.)
+         -> Perceptron -- ^ The 'Perceptron' to train.
+         -> [TaggedSentence] -- ^ The training data. (A list of @[(Text, Tag)]@'s)
+         -> IO Perceptron    -- ^ A trained perceptron.  IO is needed
+                             -- for randomization.
 trainInt itr per examples = trainCls itr per $ toClassLst $ map unzip examples
 
 toClassLst ::  [(Sentence, [Tag])] -> [(Sentence, [Class])]
@@ -167,7 +199,7 @@ trainCls itr per examples = do
   return $ averageWeights $ foldl' trainSentence per trainingSet
 
 
--- | Train on one sentence
+-- | Train on one sentence.
 --
 -- Adapted from this portion of the Python train method:
 --
@@ -199,10 +231,12 @@ trainSentence per (sent, ts) = let
 
   in foldl' fn per (zip features ts)
 
+-- | Predict a Part of Speech, defaulting to the @Unk@ tag, if no
+-- classification is found.
 predictPos :: Perceptron -> Map Feature Int -> Class
 predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
 
--- | Default feature set
+-- | Default feature set.
 --
 -- > def _get_features(self, i, word, context, prev, prev2):
 -- >     '''Map tokens into a feature representation, implemented as a
@@ -229,6 +263,7 @@ predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
 -- >     add('i+1 suffix', context[i+1][-3:])
 -- >     add('i+2 word', context[i+2])
 -- >     return features
+--
 getFeatures :: [Text] -> Int -> Text -> Class -> Class -> Map Feature Int
 getFeatures ctx idx word prev prev2 = let
   context = startToks ++ ctx ++ endToks

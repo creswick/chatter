@@ -1,6 +1,25 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
-module NLP.POS.AvgPerceptron where
+-- | Average Perceptron implementation of Part of speech tagging,
+-- adapted for Haskell from this python implementation, which is described on the blog post:
+--
+--  * <http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/>
+--
+-- The Perceptron code can be found on github:
+--
+--  * <https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py>
+--
+module NLP.POS.AvgPerceptron
+  ( Perceptron(..)
+  , Class(..)
+  , Weight
+  , Feature(..)
+  , emptyPerceptron
+  , predict
+  , update
+  , averageWeights
+  )
+where
 
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
@@ -11,14 +30,6 @@ import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 
 import GHC.Generics
 
--- | Average Perceptron implementation of Part of speech tagging,
--- adapted for Haskell from this python implementation:
---
--- http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/
---
--- Perceptron code:
---  https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py
---
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
 
@@ -30,22 +41,32 @@ instance Serialize Text where
   put txt = put $ encodeUtf8 txt
   get     = fmap decodeUtf8 get
 
+-- | The classes that the perceptron assigns are represnted with a
+-- newtype-wrapped String.
+--
+-- Eventually, I think this should become a typeclass, so the classes
+-- can be defined by the users of the Perceptron (such as custom POS
+-- tag ADTs, or more complex classes).
 newtype Class = Class String
     deriving (Read, Show, Eq, Ord, Generic)
 
 instance Serialize Class
 
+-- | Typedef for doubles to make the code easier to read, and to make
+-- this simple to change if necessary.
 type Weight = Double
 
 infinity :: Weight
 infinity = recip 0
 
+-- | An empty perceptron, used to start training.
 emptyPerceptron :: Perceptron
 emptyPerceptron = Perceptron { weights = Map.empty
                              , totals = Map.empty
                              , tstamps = Map.empty
                              , instances = 0 }
 
+-- | The perceptron model.
 data Perceptron = Perceptron {
     -- | Each feature gets its own weight vector, so weights is a
     -- dict-of-dicts
@@ -78,10 +99,10 @@ getTotal p param = Map.findWithDefault 0 param (totals p)
 getFeatureWeight :: Perceptron -> Feature -> Map Class Weight
 getFeatureWeight p f = Map.findWithDefault Map.empty f (weights p)
 
-
 -- | Predict a class given a feature vector.
 --
 -- Ported from python:
+--
 -- > def predict(self, features):
 -- >     '''Dot-product the features and current weights and return the best label.'''
 -- >     scores = defaultdict(float)
@@ -150,6 +171,7 @@ update per truth guess features
              (upd_feat truth f (cweight truth) 1 p)
 
 -- | ported from python:
+--
 -- > def update(self, truth, guess, features):
 -- >        '''Update the feature weights.'''
 -- >        def upd_feat(c, f, w, v):
@@ -177,9 +199,10 @@ upd_feat c f w v p = let
          , weights = newWeights }
 
 
--- | Average the weights?
+-- | Average the weights
 --
 -- Ported from Python:
+--
 -- > def average_weights(self):
 -- >     for feat, weights in self.weights.items():
 -- >         new_feat_weights = {}
@@ -192,6 +215,7 @@ upd_feat c f w v p = let
 -- >                 new_feat_weights[clas] = averaged
 -- >         self.weights[feat] = new_feat_weights
 -- >     return None
+--
 averageWeights :: Perceptron -> Perceptron
 averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
   where
@@ -211,6 +235,10 @@ averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
            else Map.insert c averaged acc
 
 -- | round a fractional number to a specified decimal place.
+--
+-- >>> roundTo 2 3.1459
+-- 3.15
+--
 roundTo :: RealFrac a => Int -> a -> a
 roundTo n f = (fromInteger $ round $ f * (10^n)) / (10.0^^n)
 

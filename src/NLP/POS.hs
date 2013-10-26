@@ -1,14 +1,19 @@
 {-# LANGUAGE OverloadedStrings #-}
-module NLP.POS where
+module NLP.POS
+  ( tag
+  , tagStr
+  , tagText
+  )
+where
 
-import NLP.Types (TaggedSentence, Tag(..), POSTagger(..)
-                 , tagUNK)
+import NLP.Types (TaggedSentence, Tag(..)
+                 , POSTagger(..), tagUNK)
 
 import Data.Text (Text)
 import qualified Data.Text as T
 
 -- | Tag a chunk of input text with part-of-speech tags, using the
--- sentence splitter, tokenizer, and tagger contained in the POSTager.
+-- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: POSTagger -> Text -> [TaggedSentence]
 tag posTagger txt = let sentences = (sentSplitter posTagger) txt
                         tokens    = map (tokenizer posTagger) sentences
@@ -33,7 +38,7 @@ pickTag (txt1, t1) (txt2, t2) | txt1 /= txt2 = error "Text does not match"
 -- Returns a space-separated string of tokens, each token suffixed
 -- with the part of speech.  For example:
 --
--- > tag tagger "the dog jumped ."
+-- >>> tag tagger "the dog jumped ."
 -- "the/at dog/nn jumped/vbd ./."
 --
 tagStr :: POSTagger -> String -> String

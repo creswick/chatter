@@ -1,9 +1,20 @@
 name:                chatter
 version:             0.0.0.1
-synopsis:            A simple POS tagger library
-description:         Part of speech tagging with Averaged Perceptrons.
-                     Based on the Python implementation by Matthew Honnibal:
-                     * http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/
+synopsis:            A library of simple NLP algorithms.
+description:         chatter is a collection of simple Natural Language
+                     Processing algorithms.
+                     .
+                     Chatter supports:
+                     .
+                     * Part of speech tagging with Averaged
+                       Perceptrons. Based on the Python implementation
+                       by Matthew Honnibal:
+                       (<http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/>)
+                     .
+                     * Document similarity based on cosine similarity of
+                       bag-of-words weighted with the tf-idf ranking of each term
+homepage:            http://github.com/creswick/chatter
+Bug-Reports:         http://github.com/creswick/chatter/issues
 category:            Tools
 license:             BSD3
 License-file:        LICENSE
@@ -11,6 +22,10 @@ author:              Rogan Creswick
 maintainer:          creswick@gmail.com
 Cabal-Version:       >=1.10
 build-type:          Simple
+
+source-repository head
+  type:     git
+  location: git://github.com/creswick/chatter.git
 
 Library
    default-language: Haskell2010

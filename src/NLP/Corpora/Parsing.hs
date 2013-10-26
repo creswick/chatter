@@ -4,14 +4,15 @@ module NLP.Corpora.Parsing where
 import qualified Data.Text as T
 import Data.Text (Text)
 
-import NLP.Types (Tag(..), parseTag, tagUNK)
+import NLP.Types (Tag(..), parseTag, tagUNK, TaggedSentence)
 
 -- | Read a POS-tagged corpus out of a Text string of the form:
--- "token/tag token/tag..."
+-- "token\/tag token\/tag..."
 --
--- > readPOS "Dear/jj Sirs/nns :/: Let/vb"
+-- >>> readPOS "Dear/jj Sirs/nns :/: Let/vb"
 -- [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)]
-readPOS :: Text -> [(Text, Tag)]
+--
+readPOS :: Text -> TaggedSentence
 readPOS str = map toTagged $ T.words str
     where
       toTagged :: Text -> (Text, Tag)
