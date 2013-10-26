@@ -1,4 +1,16 @@
 {-# LANGUAGE OverloadedStrings #-}
+-- | This module aims to make tagging text with parts of speech
+-- trivially easy.  If you're new to 'chatter' and POS-tagging, then I
+-- suggest you simply try:
+--
+-- >>> tagStr defaultTagger "This is a sample sentence"
+--
+-- Note that you used 'tagStr', instead of 'tag'.  Many people don't
+-- (yet!) use "Data.Text" by default, so there is a wrapper around
+-- 'tag' that packs and unpacks the 'String'.  This is innefficient,
+-- but it's just to get you started, and 'tagStr' can be very handy
+-- when you're debugging an tagger in ghci (or cabal repl).
+--
 module NLP.POS
   ( tag
   , tagStr

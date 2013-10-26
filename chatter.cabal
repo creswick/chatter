@@ -9,10 +9,10 @@ description:         chatter is a collection of simple Natural Language
                      * Part of speech tagging with Averaged
                        Perceptrons. Based on the Python implementation
                        by Matthew Honnibal:
-                       (<http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/>)
+                       (<http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/>) See 'NLP.POS' for the details of part-of-speech tagging with chatter.
                      .
-                     * Document similarity based on cosine similarity of
-                       bag-of-words weighted with the tf-idf ranking of each term
+                     * Document similarity; A cosine-based similarity measure, and TF-IDF calculations,
+                       are available in the 'NLP.Similarity.VectorSim' module.
 homepage:            http://github.com/creswick/chatter
 Bug-Reports:         http://github.com/creswick/chatter/issues
 category:            Tools
