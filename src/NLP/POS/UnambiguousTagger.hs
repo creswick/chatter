@@ -1,3 +1,13 @@
+-- | Unambiguous POS Tagger.  This POS tagger deterministically tags
+-- tokens.  However, if it ever sees multiple tags for the same token,
+-- it will forget the tag it has learned.  This is useful for creating
+-- taggers that have very high precision, but very low recall.
+--
+-- Unambiguous taggers are also useful when defined with a
+-- non-deterministic backoff tagger, such as an
+-- "NLP.POS.AveragedPerceptronTagger", since the high-confidence tags
+-- will be applied first, followed by the more non-deterministic
+-- results of the backoff tagger.
 module NLP.POS.UnambiguousTagger where
 
 import Data.Map (Map)
@@ -9,7 +19,8 @@ import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT
 
-
+-- | Create an unambiguous tagger, using the supplied 'Map' as a
+-- source of tags.
 mkTagger :: Map Text Tag -> Maybe POSTagger -> POSTagger
 mkTagger table mTgr = let
   litTagger = LT.mkTagger table mTgr
@@ -21,6 +32,7 @@ mkTagger table mTgr = let
 
   in litTagger { posTrainer = trainer }
 
+-- | Trainer method for unambiguous taggers.
 train :: Map Text Tag -> [TaggedSentence] -> Map Text Tag
 train table exs = let
   pairs :: [(Text, Tag)]
