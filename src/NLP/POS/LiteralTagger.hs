@@ -20,10 +20,11 @@ import NLP.Types ( tagUNK, Sentence, TaggedSentence
 -- This defaults to using `Data.Text.words` for a tokenizer, and Erik
 -- Kow's fullstop sentence segmenter as a sentence splitter.
 mkTagger :: Map Text Tag -> Maybe POSTagger -> POSTagger
-mkTagger table mTgr = POSTagger { tagger  = tag table
-                                , backoff = mTgr
-                                , tokenizer = T.words -- TODO replace with better tokenizer.
-                                , sentSplitter = (map T.pack) . segment . T.unpack
+mkTagger table mTgr = POSTagger { posTagger  = tag table
+                                , posTrainer = \_ -> return $ mkTagger table mTgr
+                                , posBackoff = mTgr
+                                , posTokenizer = T.words -- TODO replace with better tokenizer.
+                                , posSplitter = (map T.pack) . segment . T.unpack
                                 }
 
 tag :: Map Text Tag -> [Sentence] -> [TaggedSentence]

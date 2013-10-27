@@ -13,6 +13,7 @@ module NLP.POS.AvgPerceptronTagger
   , trainInt
   , tag
   , tagSentence
+  , emptyPerceptron
   )
 where
 
@@ -42,10 +43,14 @@ import System.Random.Shuffle (shuffleM)
 -- (<http://hackage.haskell.org/package/fullstop>) as a sentence
 -- splitter.
 mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
-mkTagger per mTgr = POSTagger { tagger  = tag per
-                              , backoff = mTgr
-                              , tokenizer = T.words -- TODO replace with better tokenizer.
-                              , sentSplitter = (map T.pack) . segment . T.unpack}
+mkTagger per mTgr = POSTagger { posTagger  = tag per
+                              , posTrainer = \exs -> do
+                                  newPer <- trainInt itterations per exs
+                                  return $ mkTagger newPer mTgr
+                              , posBackoff = mTgr
+                              , posTokenizer = T.words -- TODO replace with better tokenizer.
+                              , posSplitter = (map T.pack) . segment . T.unpack
+                              }
 
 itterations :: Int
 itterations = 5

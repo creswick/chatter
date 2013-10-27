@@ -15,6 +15,7 @@ module NLP.POS
   ( tag
   , tagStr
   , tagText
+  , train
   , eval
   )
 where
@@ -28,12 +29,12 @@ import qualified Data.Text as T
 -- | Tag a chunk of input text with part-of-speech tags, using the
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: POSTagger -> Text -> [TaggedSentence]
-tag posTagger txt = let sentences = (sentSplitter posTagger) txt
-                        tokens    = map (tokenizer posTagger) sentences
-                        priority  = (tagger posTagger) tokens
-                    in case backoff posTagger of
-                         Nothing  -> priority
-                         Just tgr -> combine priority (tag tgr txt)
+tag p txt = let sentences = (posSplitter p) txt
+                tokens    = map (posTokenizer p) sentences
+                priority  = (posTagger p) tokens
+            in case posBackoff p of
+                 Nothing  -> priority
+                 Just tgr -> combine priority (tag tgr txt)
 
 combine :: [TaggedSentence] -> [TaggedSentence] -> [TaggedSentence]
 combine xs ys = zipWith combineSentences xs ys
@@ -67,6 +68,35 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
     toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)
 
 
+-- | Train a 'POSTagger' on a corpus of sentences.
+--
+-- This will recurse through the 'POSTagger' stack, training all the
+-- backoff taggers as well.  In order to do that, this function has to
+-- be generic to the kind of taggers used, so it is not possible to
+-- train up a new POSTagger from nothing: 'train' wouldn't know what
+-- tagger to create.
+--
+-- To get around that restriction, you can use the various 'mkTagger'
+-- implementations, such as 'NLP.POS.LiteralTagger.mkTagger' or
+-- NLP.POS.AvgPerceptronTagger.mkTagger'.  For example:
+--
+-- > import NLP.POS.AvgPerceptronTagger as APT
+-- >
+-- > let newTagger = APT.mkTagger APT.emptyPerceptron Nothing
+-- > posTgr <- train newTagger trainingExamples
+--
+train :: POSTagger -> [TaggedSentence] -> IO POSTagger
+train p exs = do
+  let
+    trainBackoff = case posBackoff p of
+                     Nothing -> return $ Nothing
+                     Just b  -> do tgr <- train b exs
+                                   return $ Just tgr
+    trainer = posTrainer p
+  newTgr <- trainer exs
+  newBackoff <- trainBackoff
+  return (newTgr { posBackoff = newBackoff })
+
 -- | Evaluate a 'POSTager'.
 --
 -- Measures accuracy over all tags in the test corpus.
@@ -78,8 +108,10 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
 eval :: POSTagger -> [TaggedSentence] -> Double
 eval tgr oracle = let
   sentences = map stripTags oracle
-  results = (tagger tgr) sentences
+  results = (posTagger tgr) sentences
   totalTokens = fromIntegral $ sum $ map length oracle
+
+  isMatch :: (Text, Tag) -> (Text, Tag) -> Double
   isMatch (_, rTag) (_, oTag) | rTag == oTag = 1
                               | otherwise    = 0
-  in (fromIntegral $ sum $ zipWith isMatch (concat results) (concat oracle)) / totalTokens
+  in (sum $ zipWith isMatch (concat results) (concat oracle)) / totalTokens

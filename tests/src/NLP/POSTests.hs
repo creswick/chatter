@@ -20,10 +20,11 @@ tests = testGroup "NLP.POS"
         [ testGroup "Evaluation" $ map (genTestF $ eval animalTagger)
              [ ("Half", [ [ ("the", Tag "DT"), ("cat", Tag "NN")]
                         , [ ("the", Tag "DT"), ("dog", Tag "NN")] ], 0.5)
-             , ("All ",  [ [ ("dog", Tag "NN"), ("cat", Tag "NN")] ], 1.0)
+             , ("All ", [ [ ("dog", Tag "NN"), ("cat", Tag "NN")] ], 1.0)
              , ("None", [ [ ("the", Tag "DT"), ("couch", Tag "NN")] ], 0)
              ]
         ]
 
 animalTagger :: POSTagger
 animalTagger = LT.mkTagger (Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]) Nothing
+
