@@ -16,9 +16,12 @@ module NLP.POS
   , tagStr
   , tagText
   , train
+  , trainText
   , eval
   )
 where
+
+import NLP.Corpora.Parsing (readPOS)
 
 import NLP.Types (TaggedSentence, Tag(..)
                  , POSTagger(..), tagUNK, stripTags)
@@ -67,6 +70,8 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
     toTaggedTok :: (Text, Tag) -> Text
     toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)
 
+trainText :: POSTagger -> Text -> IO POSTagger
+trainText p exs = train p (map readPOS $ T.words exs)
 
 -- | Train a 'POSTagger' on a corpus of sentences.
 --

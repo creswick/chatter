@@ -22,6 +22,7 @@ import qualified AvgPerceptronTests as APT
 import qualified BackoffTaggerTests as Backoff
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.POSTests as POS
+import qualified NLP.POS.UnambiguousTaggerTests as UT
 
 import Corpora
 
@@ -55,6 +56,7 @@ tests = [ testGroup "parseTag" $
         , Backoff.tests
         , Vec.tests
         , POS.tests
+        , UT.tests
         ]
 
 

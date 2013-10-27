@@ -35,6 +35,7 @@ Library
                      NLP.POS.AvgPerceptron
                      NLP.POS.AvgPerceptronTagger
                      NLP.POS.LiteralTagger
+                     NLP.POS.UnambiguousTagger
                      NLP.Types
                      NLP.Tokenize
                      NLP.Corpora.Parsing
