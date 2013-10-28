@@ -1,7 +1,7 @@
--- | Unambiguous POS Tagger.  This POS tagger deterministically tags
--- tokens.  However, if it ever sees multiple tags for the same token,
--- it will forget the tag it has learned.  This is useful for creating
--- taggers that have very high precision, but very low recall.
+-- | This POS tagger deterministically tags tokens.  However, if it
+-- ever sees multiple tags for the same token, it will forget the tag
+-- it has learned.  This is useful for creating taggers that have very
+-- high precision, but very low recall.
 --
 -- Unambiguous taggers are also useful when defined with a
 -- non-deterministic backoff tagger, such as an
