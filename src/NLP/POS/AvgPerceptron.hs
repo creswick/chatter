@@ -16,18 +16,20 @@ module NLP.POS.AvgPerceptron
   , Feature(..)
   , emptyPerceptron
   , predict
+  , train
   , update
   , averageWeights
   )
 where
 
+import Data.List (foldl')
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
+import Data.Maybe (fromMaybe)
 import Data.Serialize (Serialize, put, get)
-
 import Data.Text (Text)
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
-
+import System.Random.Shuffle (shuffleM)
 import GHC.Generics
 
 newtype Feature = Feat Text
@@ -257,4 +259,12 @@ roundTo n f = (fromInteger $ round $ f * (10^n)) / (10.0^^n)
 -- >                 model.update(class_, guess, features)
 -- >     model.average_weights()
 -- >     return model
+train :: Int -> Perceptron -> [(Map Feature Int, Class)] -> IO Perceptron
+train itr model exs = do
+  trainingSet <- shuffleM $ concat $ take itr $ repeat exs
+  return $ averageWeights $ foldl' trainEx model trainingSet
 
+trainEx :: Perceptron -> (Map Feature Int, Class) -> Perceptron
+trainEx model (feats, truth) = let
+  guess = fromMaybe (Class "Unk") $ predict model feats
+  in update model truth guess $ Map.keys feats

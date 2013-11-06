@@ -8,6 +8,9 @@ import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
 
+type Sentence = [Text]
+type TaggedSentence = [(Text, Tag)]
+
 data POSTagger = POSTagger
     { posTagger  :: [Sentence] -> [TaggedSentence] -- ^ The initial part-of-speech tagger.
     , posTrainer :: [TaggedSentence] -> IO POSTagger -- ^ Training function to train the immediate POS tagger.
@@ -17,9 +20,6 @@ data POSTagger = POSTagger
                                     -- one sentence per line, then use `Data.Text.lines`,
                                     -- otherwise try Erik Kow's fullstop library.
     }
-
-type Sentence = [Text]
-type TaggedSentence = [(Text, Tag)]
 
 -- | Remove the tags from a tagged sentence
 stripTags :: TaggedSentence -> Sentence
