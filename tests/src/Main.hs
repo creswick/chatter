@@ -45,12 +45,12 @@ tests = [ testGroup "parseTag" $
           , testGroup "miniCorpora2 - POSTagger train" $
             map (trainAndTagTestVTrainer miniCorpora1)
              [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          , skip $ testGroup "brown CA01" $
-            map (trainAndTagTestFileCorpus brownCA01)
-             [ ("the dog jumped .", "the/at dog/nn jumped/Unk ./.") ]
-          , skip $ testGroup "brown CA" $
-            map (trainAndTagTestIO brownCA)
-             [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
+          -- , skip $ testGroup "brown CA01" $
+          --   map (trainAndTagTestFileCorpus brownCA01)
+          --    [ ("the dog jumped .", "the/at dog/nn jumped/Unk ./.") ]
+          -- , skip $ testGroup "brown CA" $
+          --   map (trainAndTagTestIO brownCA)
+          --    [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
           ]
         , APT.tests
         , Backoff.tests

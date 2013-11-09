@@ -67,7 +67,7 @@ Executable tag
                      bytestring,
                      cereal
 
-   ghc-options:      -Wall -main-is Tagger -O2 -rtsopts -prof -auto-all
+   ghc-options:      -Wall -main-is Tagger -O2
 
 Executable train
    default-language: Haskell2010
@@ -81,7 +81,7 @@ Executable train
                      bytestring,
                      cereal
 
-   ghc-options:      -Wall -main-is Trainer -O2 -rtsopts -prof -auto-all
+   ghc-options:      -Wall -main-is Trainer -O2
 
 Executable bench
    default-language: Haskell2010
