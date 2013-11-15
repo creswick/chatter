@@ -24,6 +24,7 @@ import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
 import NLP.Types
 
 import Control.Monad (foldM)
+import Data.ByteString.Char8 (pack)
 import Data.List (zipWith4, foldl')
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
@@ -50,6 +51,8 @@ mkTagger per mTgr = POSTagger { posTagger  = tag per
                               , posBackoff = mTgr
                               , posTokenizer = T.words -- TODO replace with better tokenizer.
                               , posSplitter = (map T.pack) . segment . T.unpack
+                              , posSerialize = return $ pack "<empty>"
+                              , posID = pack "NLP.POS.AvgPerceptronTagger"
                               }
 
 itterations :: Int

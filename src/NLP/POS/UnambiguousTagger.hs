@@ -10,6 +10,7 @@
 -- results of the backoff tagger.
 module NLP.POS.UnambiguousTagger where
 
+import Data.ByteString.Char8 (pack)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Text (Text)
@@ -30,7 +31,10 @@ mkTagger table mTgr = let
     let newTable = train table exs
     return $ mkTagger newTable mTgr
 
-  in litTagger { posTrainer = trainer }
+  in litTagger { posTrainer = trainer
+               , posSerialize = return $ pack "<empty>"
+               , posID = pack "NLP.POS.UnambiguousTagger"
+               }
 
 -- | Trainer method for unambiguous taggers.
 train :: Map Text Tag -> [TaggedSentence] -> Map Text Tag

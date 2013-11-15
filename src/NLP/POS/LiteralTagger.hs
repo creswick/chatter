@@ -4,6 +4,7 @@ module NLP.POS.LiteralTagger
     , mkTagger )
 where
 
+import Data.ByteString.Char8 (pack)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
 import Data.Text (Text)
@@ -25,6 +26,8 @@ mkTagger table mTgr = POSTagger { posTagger  = tag table
                                 , posBackoff = mTgr
                                 , posTokenizer = T.words -- TODO replace with better tokenizer.
                                 , posSplitter = (map T.pack) . segment . T.unpack
+                                , posSerialize = return $ pack "<empty>"
+                                , posID = pack "NLP.POS.LiteralTagger"
                                 }
 
 tag :: Map Text Tag -> [Sentence] -> [TaggedSentence]

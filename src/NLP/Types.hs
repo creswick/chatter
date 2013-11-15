@@ -2,6 +2,8 @@
 module NLP.Types
 where
 
+import Data.ByteString (ByteString)
+import qualified Data.ByteString as BS
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Set (Set)
@@ -19,6 +21,14 @@ data POSTagger = POSTagger
     , posSplitter :: Text -> [Text] -- ^ A sentence splitter.  If your input is formatted as
                                     -- one sentence per line, then use `Data.Text.lines`,
                                     -- otherwise try Erik Kow's fullstop library.
+
+  -- TODO: these fields are not yet used.
+    , posSerialize :: IO ByteString -- ^ Store this POS tagger to a
+                                    -- bytestring.  This does /not/
+                                    -- serialize the backoff taggers.
+    , posID :: ByteString -- ^ A unique id that will identify the
+                          -- algorithm used for this POS Tagger.  This
+                          -- is used in deserialization
     }
 
 -- | Remove the tags from a tagged sentence
