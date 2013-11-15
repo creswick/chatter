@@ -13,6 +13,7 @@ module NLP.POS.UnambiguousTagger where
 import Data.ByteString.Char8 (pack)
 import Data.Map (Map)
 import qualified Data.Map as Map
+import Data.Serialize (encode)
 import Data.Text (Text)
 import qualified Data.Text as T
 
@@ -32,7 +33,7 @@ mkTagger table mTgr = let
     return $ mkTagger newTable mTgr
 
   in litTagger { posTrainer = trainer
-               , posSerialize = return $ pack "<empty>"
+               , posSerialize = encode table
                , posID = pack "NLP.POS.UnambiguousTagger"
                }
 

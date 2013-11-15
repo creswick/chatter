@@ -6,6 +6,7 @@ where
 
 import Data.ByteString.Char8 (pack)
 import qualified Data.Map.Strict as Map
+import Data.Serialize (encode)
 import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -26,7 +27,7 @@ mkTagger table mTgr = POSTagger { posTagger  = tag table
                                 , posBackoff = mTgr
                                 , posTokenizer = T.words -- TODO replace with better tokenizer.
                                 , posSplitter = (map T.pack) . segment . T.unpack
-                                , posSerialize = return $ pack "<empty>"
+                                , posSerialize = encode table
                                 , posID = pack "NLP.POS.LiteralTagger"
                                 }
 

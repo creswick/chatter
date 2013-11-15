@@ -1,5 +1,4 @@
 {-# LANGUAGE DeriveGeneric #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation, which is described on the blog post:
 --
@@ -28,9 +27,10 @@ import Data.Map.Strict (Map)
 import Data.Maybe (fromMaybe)
 import Data.Serialize (Serialize, put, get)
 import Data.Text (Text)
-import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import System.Random.Shuffle (shuffleM)
 import GHC.Generics
+
+import NLP.Types ()
 
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
@@ -38,10 +38,6 @@ newtype Feature = Feat Text
 instance Serialize Feature where
   put (Feat txt) = put txt
   get            = fmap Feat get
-
-instance Serialize Text where
-  put txt = put $ encodeUtf8 txt
-  get     = fmap decodeUtf8 get
 
 -- | The classes that the perceptron assigns are represnted with a
 -- newtype-wrapped String.

@@ -29,6 +29,7 @@ import Data.List (zipWith4, foldl')
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import Data.Maybe (fromMaybe)
+import Data.Serialize (encode)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
@@ -51,7 +52,7 @@ mkTagger per mTgr = POSTagger { posTagger  = tag per
                               , posBackoff = mTgr
                               , posTokenizer = T.words -- TODO replace with better tokenizer.
                               , posSplitter = (map T.pack) . segment . T.unpack
-                              , posSerialize = return $ pack "<empty>"
+                              , posSerialize = encode per
                               , posID = pack "NLP.POS.AvgPerceptronTagger"
                               }
 

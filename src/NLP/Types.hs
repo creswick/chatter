@@ -1,4 +1,6 @@
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.Types
 where
 
@@ -6,9 +8,12 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
 import Data.Map (Map)
 import qualified Data.Map as Map
+import Data.Serialize (Serialize, put, get)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
+import Data.Text.Encoding (encodeUtf8, decodeUtf8)
+import GHC.Generics
 
 type Sentence = [Text]
 type TaggedSentence = [(Text, Tag)]
@@ -21,11 +26,9 @@ data POSTagger = POSTagger
     , posSplitter :: Text -> [Text] -- ^ A sentence splitter.  If your input is formatted as
                                     -- one sentence per line, then use `Data.Text.lines`,
                                     -- otherwise try Erik Kow's fullstop library.
-
-  -- TODO: these fields are not yet used.
-    , posSerialize :: IO ByteString -- ^ Store this POS tagger to a
-                                    -- bytestring.  This does /not/
-                                    -- serialize the backoff taggers.
+    , posSerialize :: ByteString -- ^ Store this POS tagger to a
+                                 -- bytestring.  This does /not/
+                                 -- serialize the backoff taggers.
     , posID :: ByteString -- ^ A unique id that will identify the
                           -- algorithm used for this POS Tagger.  This
                           -- is used in deserialization
@@ -36,7 +39,9 @@ stripTags :: TaggedSentence -> Sentence
 stripTags = map fst
 
 newtype Tag = Tag Text
-  deriving (Ord, Eq, Read, Show)
+  deriving (Ord, Eq, Read, Show, Generic)
+
+instance Serialize Tag
 
 fromTag :: Tag -> Text
 fromTag (Tag t) = t
@@ -48,6 +53,9 @@ parseTag t = Tag t
 tagUNK :: Tag
 tagUNK = Tag "Unk"
 
+instance Serialize Text where
+  put txt = put $ encodeUtf8 txt
+  get     = fmap decodeUtf8 get
 
 -- | Document corpus.
 --
