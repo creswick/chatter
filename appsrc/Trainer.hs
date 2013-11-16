@@ -21,7 +21,7 @@ main = do
       avgPerTagger = Avg.mkTagger Avg.emptyPerceptron Nothing
       initTagger   = UT.mkTagger Map.empty (Just avgPerTagger)
   rawCorpus <- mapM T.readFile corpora
-  let taggedCorpora = (map readPOS $ concatMap T.lines $ rawCorpus)
+  let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
   tagger <- train initTagger taggedCorpora
   saveTagger tagger output
 

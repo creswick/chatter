@@ -21,8 +21,6 @@ main = do
   tagger <- loadTagger modelFile
   putStrLn "...model loaded."
   rawCorpus <- mapM T.readFile corpora
-  let taggedCorpora = (map readPOS $ concatMap T.lines $ rawCorpus)
+  let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
       result = eval tagger taggedCorpora
   putStrLn ("Result: " ++ show result)
-
---  T.putStrLn $ tagText tagger (T.pack sentence)

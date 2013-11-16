@@ -20,8 +20,3 @@ main = do
   tagger <- loadTagger modelFile
   putStrLn "...model loaded."
   T.putStrLn $ tagText tagger (T.pack sentence)
-
-  -- case decode model of
-  --   Left err -> putStrLn ("Could not load model: "++err)
-  --   Right per -> do let tagger = mkTagger per Nothing
-  --                   T.putStrLn $ tagText tagger (T.pack sentence)

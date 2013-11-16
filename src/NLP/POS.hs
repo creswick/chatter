@@ -43,6 +43,10 @@ import qualified NLP.POS.LiteralTagger as LT
 import qualified NLP.POS.UnambiguousTagger as UT
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 
+-- | The default table of tagger IDs to readTagger functions.  Each
+-- tagger packaged with Chatter should have an entry here.  By
+-- convention, the IDs use are the fully qualified module name of the
+-- tagger package.
 taggerTable :: Map ByteString (ByteString -> Maybe POSTagger -> Either String POSTagger)
 taggerTable = Map.fromList
   [ (LT.taggerID, LT.readTagger)
@@ -50,6 +54,7 @@ taggerTable = Map.fromList
   , (UT.taggerID, UT.readTagger)
   ]
 
+-- | Store a `POSTager' to a file.
 saveTagger :: POSTagger -> FilePath -> IO ()
 saveTagger tagger file = BS.writeFile file (serialize tagger)
 
@@ -130,8 +135,17 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
     toTaggedTok :: (Text, Tag) -> Text
     toTaggedTok (tok, Tag c) = tok `T.append` (T.cons '/' c)
 
+-- | Train a tagger on string input in the standard form for POS
+-- tagged corpora:
+--
+-- > trainStr tagger "the/at dog/nn jumped/vbd ./."
+--
+trainStr :: POSTagger -> String -> IO POSTagger
+trainStr tgr = T.unpack . trainText tgr . T.pack
+
+-- | The `Text` version of `trainStr`
 trainText :: POSTagger -> Text -> IO POSTagger
-trainText p exs = train p (map readPOS $ T.words exs)
+trainText p exs = train p (map readPOS $ (posTokenizer p) exs)
 
 -- | Train a 'POSTagger' on a corpus of sentences.
 --
