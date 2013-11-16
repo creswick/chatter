@@ -16,7 +16,9 @@ main = do
   args <- getArgs
   let modelFile = args!!0
       sentence  = args!!1
+  putStrLn "Loading model..."
   tagger <- loadTagger modelFile
+  putStrLn "...model loaded."
   T.putStrLn $ tagText tagger (T.pack sentence)
 
   -- case decode model of

@@ -68,7 +68,7 @@ Executable tag
                      bytestring,
                      cereal
 
-   ghc-options:      -Wall -main-is Tagger -O2
+   ghc-options:      -Wall -main-is Tagger -O2 -rtsopts
 
 Executable train
    default-language: Haskell2010
@@ -83,7 +83,22 @@ Executable train
                      cereal,
                      containers
 
-   ghc-options:      -Wall -main-is Trainer -O2
+   ghc-options:      -Wall -main-is Trainer -O2 -rtsopts
+
+Executable eval
+   default-language: Haskell2010
+   Main-Is:          Evaluate.hs
+   hs-source-dirs:   appsrc
+
+   Build-depends:    chatter,
+                     filepath,
+                     text,
+                     base       >= 4,
+                     bytestring,
+                     cereal,
+                     containers
+
+   ghc-options:      -Wall -main-is Evaluate -O2 -rtsopts
 
 Executable bench
    default-language: Haskell2010
