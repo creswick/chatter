@@ -21,7 +21,6 @@ tests = testGroup "AvgPerceptron"
           ]
         ]
 
-
 prop_mapOfFeaturesRoundTrips :: Map Feature Class -> Bool
 prop_mapOfFeaturesRoundTrips aMap =
   case (decode . encode) aMap of

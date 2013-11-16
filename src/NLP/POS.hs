@@ -18,16 +18,72 @@ module NLP.POS
   , train
   , trainText
   , eval
+  , serialize
+  , deserialize
+  , taggerTable
+  , saveTagger
+  , loadTagger
   )
 where
+
+import Data.ByteString (ByteString)
+import qualified Data.ByteString as BS
+import Data.Map (Map)
+import qualified Data.Map as Map
+import Data.Text (Text)
+import qualified Data.Text as T
+import Data.Serialize (encode, decode)
 
 import NLP.Corpora.Parsing (readPOS)
 
 import NLP.Types (TaggedSentence, Tag(..)
                  , POSTagger(..), tagUNK, stripTags)
 
-import Data.Text (Text)
-import qualified Data.Text as T
+import qualified NLP.POS.LiteralTagger as LT
+import qualified NLP.POS.UnambiguousTagger as UT
+import qualified NLP.POS.AvgPerceptronTagger as Avg
+
+taggerTable :: Map ByteString (ByteString -> Maybe POSTagger -> Either String POSTagger)
+taggerTable = Map.fromList
+  [ (LT.taggerID, LT.readTagger)
+  , (Avg.taggerID, Avg.readTagger)
+  , (UT.taggerID, UT.readTagger)
+  ]
+
+saveTagger :: POSTagger -> FilePath -> IO ()
+saveTagger tagger file = BS.writeFile file (serialize tagger)
+
+-- | Load a tagger, using the interal `taggerTable`.  If you need to
+-- specify your own mappings for new composite taggers, you should use
+-- `deserialize`.
+loadTagger :: FilePath -> IO POSTagger
+loadTagger file = do
+  content <- BS.readFile file
+  case deserialize taggerTable content of
+    Left err -> error err
+    Right tgr -> return tgr
+
+serialize :: POSTagger -> ByteString
+serialize tagger =
+  let backoff = case posBackoff tagger of
+                  Nothing -> Nothing
+                  Just btgr -> Just $ serialize btgr
+  in encode ( posID tagger
+            , posSerialize tagger
+            , backoff
+            )
+
+deserialize :: Map ByteString (ByteString -> Maybe POSTagger -> Either String POSTagger)
+            -> ByteString
+            -> Either String POSTagger
+deserialize table bs = do
+  (theID, theTgr, mBackoff) <- decode bs
+  backoff <- case mBackoff of
+               Nothing  -> Right Nothing
+               Just str -> Just `fmap` (deserialize table str)
+  case Map.lookup theID table of
+    Nothing -> Left ("Could not find ID in POSTagger function map: " ++ show theID)
+    Just fn -> fn theTgr backoff
 
 -- | Tag a chunk of input text with part-of-speech tags, using the
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
@@ -39,16 +95,20 @@ tag p txt = let sentences = (posSplitter p) txt
                  Nothing  -> priority
                  Just tgr -> combine priority (tag tgr txt)
 
+-- | Combine the results of POS taggers, using the second param to
+-- fill in 'tagUNK' entries, where possible.
 combine :: [TaggedSentence] -> [TaggedSentence] -> [TaggedSentence]
 combine xs ys = zipWith combineSentences xs ys
 
 combineSentences :: TaggedSentence -> TaggedSentence -> TaggedSentence
 combineSentences xs ys = zipWith pickTag xs ys
 
+-- | Returns the first param, unless it is tagged 'tagUNK'.
+-- Throws an error if the text does not match.
 pickTag :: (Text, Tag) -> (Text, Tag) -> (Text, Tag)
-pickTag (txt1, t1) (txt2, t2) | txt1 /= txt2 = error "Text does not match"
-                              | t1 /= tagUNK = (txt1, t1)
-                              | otherwise    = (txt1, t2)
+pickTag a@(txt1, t1) b@(txt2, t2) | txt1 /= txt2 = error ("Text does not match: "++ show a ++ " " ++ show b)
+                                  | t1 /= tagUNK = (txt1, t1)
+                                  | otherwise    = (txt1, t2)
 
 -- | Tag the tokens in a string.
 --

@@ -80,7 +80,8 @@ Executable train
                      text,
                      base       >= 4,
                      bytestring,
-                     cereal
+                     cereal,
+                     containers
 
    ghc-options:      -Wall -main-is Trainer -O2
 

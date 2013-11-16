@@ -14,6 +14,9 @@ module NLP.POS.AvgPerceptronTagger
   , tag
   , tagSentence
   , emptyPerceptron
+  , taggerID
+  , readTagger
+  , emptyPerceptron
   )
 where
 
@@ -24,18 +27,27 @@ import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
 import NLP.Types
 
 import Control.Monad (foldM)
+import Data.ByteString (ByteString)
 import Data.ByteString.Char8 (pack)
 import Data.List (zipWith4, foldl')
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import Data.Maybe (fromMaybe)
-import Data.Serialize (encode)
+import Data.Serialize (encode, decode)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
 import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
+
+taggerID :: ByteString
+taggerID = pack "NLP.POS.AvgPerceptronTagger"
+
+readTagger :: ByteString -> Maybe POSTagger -> Either String POSTagger
+readTagger bs backoff = do
+  model <- decode bs
+  return $ mkTagger model backoff
 
 -- | Create an Averaged Perceptron Tagger using the specified back-off
 -- tagger as a fall-back, if one is specified.
@@ -51,9 +63,9 @@ mkTagger per mTgr = POSTagger { posTagger  = tag per
                                   return $ mkTagger newPer mTgr
                               , posBackoff = mTgr
                               , posTokenizer = T.words -- TODO replace with better tokenizer.
-                              , posSplitter = (map T.pack) . segment . T.unpack
+                              , posSplitter = (map T.pack) . lines . T.unpack
                               , posSerialize = encode per
-                              , posID = pack "NLP.POS.AvgPerceptronTagger"
+                              , posID = taggerID
                               }
 
 itterations :: Int

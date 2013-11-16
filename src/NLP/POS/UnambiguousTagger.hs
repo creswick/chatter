@@ -10,16 +10,25 @@
 -- results of the backoff tagger.
 module NLP.POS.UnambiguousTagger where
 
+import Data.ByteString (ByteString)
 import Data.ByteString.Char8 (pack)
 import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.Serialize (encode)
+import Data.Serialize (encode, decode)
 import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT
+
+taggerID :: ByteString
+taggerID = pack "NLP.POS.UnambiguousTagger"
+
+readTagger :: ByteString -> Maybe POSTagger -> Either String POSTagger
+readTagger bs backoff = do
+  model <- decode bs
+  return $ mkTagger model backoff
 
 -- | Create an unambiguous tagger, using the supplied 'Map' as a
 -- source of tags.
@@ -34,7 +43,7 @@ mkTagger table mTgr = let
 
   in litTagger { posTrainer = trainer
                , posSerialize = encode table
-               , posID = pack "NLP.POS.UnambiguousTagger"
+               , posID = taggerID
                }
 
 -- | Trainer method for unambiguous taggers.
