@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.0.0.1
+version:             0.0.0.2
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -112,6 +112,9 @@ Executable bench
    Main-Is:          Bench.hs
    hs-source-dirs:   tests/src
 
+   Other-modules:    NLP.Similarity.VectorSimBench
+                     Corpora
+
    Build-depends:    chatter,
                      criterion,
                      filepath,
@@ -128,6 +131,14 @@ test-suite tests
 
    Main-Is:          Main.hs
    hs-source-dirs:   tests/src
+
+   Other-modules:    AvgPerceptronTests
+                     BackoffTaggerTests
+                     NLP.Similarity.VectorSimTests
+                     NLP.POSTests
+                     NLP.POS.UnambiguousTaggerTests
+                     Corpora
+                     TestUtils
 
    Build-depends:    chatter,
                      base       >= 4 && <= 6,
