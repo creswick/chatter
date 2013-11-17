@@ -47,6 +47,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Serialize (encode, decode)
 import Codec.Compression.GZip (decompress)
+import System.FilePath ((</>))
 
 import NLP.Corpora.Parsing (readPOS)
 
@@ -57,9 +58,12 @@ import qualified NLP.POS.LiteralTagger as LT
 import qualified NLP.POS.UnambiguousTagger as UT
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 
+import Paths_chatter
+
 defaultTagger :: IO POSTagger
 defaultTagger = do
-  loadTagger "brown-train.model" -- TODO: make this path depend on Cabal Paths; and pull down during install.
+  dir <- getDataDir
+  loadTagger (dir </> "data" </> "models" </> "brown-train.model.gz")
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By
@@ -91,8 +95,8 @@ loadTagger file = do
     Right tgr -> return tgr
   where
     getContent :: FilePath -> IO ByteString
-    getContent file | ".gz" `isSuffixOf` file = fmap (LBS.toStrict . decompress) $ LBS.readFile file
-                    | otherwise               = BS.readFile file
+    getContent f | ".gz" `isSuffixOf` file = fmap (LBS.toStrict . decompress) $ LBS.readFile f
+                 | otherwise               = BS.readFile f
 
 serialize :: POSTagger -> ByteString
 serialize tagger =

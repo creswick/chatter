@@ -1,10 +1,10 @@
 
 
-brown-train.perceptron & brown-train.unambiguous:
+brown-train.model.gz
 ---------------------------------------------------------------------
 
-Averaged Perceptron model trained on most of the Brown corpus; the
-following files were held out for testing:
+Averaged Perceptron tagger and Unambiguous Tagger trained on most of
+the Brown corpus; the following files were held out for testing:
 
   ca01 ca03 cb02 cc01 cc03 cd02 ce01 ce03 cf02 cg01 cg03 ch02 cj01 cj03
   ck02 cl01 cl03 cm02 cn01 cn03 cp02 cr01 cr03 ca02 cb01 cb03 cc02 cd01
@@ -12,6 +12,3 @@ following files were held out for testing:
   cp01 cp03 cr02
 
 The remainder of the Brown corpus was used to train this model.
-
-brown-train.unambiguous is a `Map Text Tag` of the terms in the same
-training corpus with unambigous tags.
