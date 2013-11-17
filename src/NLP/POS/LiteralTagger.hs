@@ -15,6 +15,7 @@ import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
 
+import NLP.Tokenize (tokenize)
 import NLP.FullStop (segment)
 import NLP.Types ( tagUNK, Sentence, TaggedSentence
                  , Tag, POSTagger(..))
@@ -25,13 +26,14 @@ taggerID = pack "NLP.POS.LiteralTagger"
 -- | Create a Literal Tagger using the specified back-off tagger as a
 -- fall-back, if one is specified.
 --
--- This defaults to using `Data.Text.words` for a tokenizer, and Erik
--- Kow's fullstop sentence segmenter as a sentence splitter.
+-- This uses a tokenizer adapted from the 'tokenize' package for a
+-- tokenizer, and Erik Kow's fullstop sentence segmenter as a sentence
+-- splitter.
 mkTagger :: Map Text Tag -> Maybe POSTagger -> POSTagger
 mkTagger table mTgr = POSTagger { posTagger  = tag table
                                 , posTrainer = \_ -> return $ mkTagger table mTgr
                                 , posBackoff = mTgr
-                                , posTokenizer = T.words -- TODO replace with better tokenizer.
+                                , posTokenizer = tokenize
                                 , posSplitter = (map T.pack) . segment . T.unpack
                                 , posSerialize = encode table
                                 , posID = taggerID

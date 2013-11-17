@@ -5,7 +5,6 @@ module NLP.Types
 where
 
 import Data.ByteString (ByteString)
-import qualified Data.ByteString as BS
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Serialize (Serialize, put, get)

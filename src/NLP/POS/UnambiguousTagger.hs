@@ -16,7 +16,6 @@ import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
-import qualified Data.Text as T
 
 import NLP.Types
 

@@ -1,8 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Evaluate where
 
-import qualified Data.ByteString as BS
-import Data.Serialize (decode)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
@@ -10,7 +8,6 @@ import System.Environment (getArgs)
 
 import NLP.Corpora.Parsing
 import NLP.POS (eval, loadTagger)
-import NLP.POS.AvgPerceptronTagger (mkTagger)
 
 main :: IO ()
 main = do
@@ -24,3 +21,4 @@ main = do
   let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
       result = eval tagger taggedCorpora
   putStrLn ("Result: " ++ show result)
+  putStrLn ("Tokens tagged: "++(show $ length $ concat taggedCorpora))

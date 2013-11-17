@@ -1,21 +1,30 @@
 {-# LANGUAGE OverloadedStrings #-}
 -- | This module aims to make tagging text with parts of speech
--- trivially easy.  If you're new to 'chatter' and POS-tagging, then I
+-- trivially easy.
+--
+-- If you're new to 'chatter' and POS-tagging, then I
 -- suggest you simply try:
 --
--- >>> tagStr defaultTagger "This is a sample sentence"
+-- >>> tagger <- defaultTagger
+-- >>> tagStr tagger "This is a sample sentence."
+-- "This/dt is/bez a/at sample/nn sentence/nn ./."
 --
--- Note that you used 'tagStr', instead of 'tag'.  Many people don't
--- (yet!) use "Data.Text" by default, so there is a wrapper around
--- 'tag' that packs and unpacks the 'String'.  This is innefficient,
--- but it's just to get you started, and 'tagStr' can be very handy
--- when you're debugging an tagger in ghci (or cabal repl).
+-- Note that we used 'tagStr', instead of 'tag', or 'tagText'.  Many
+-- people don't (yet!) use "Data.Text" by default, so there is a
+-- wrapper around 'tag' that packs and unpacks the 'String'.  This is
+-- innefficient, but it's just to get you started, and 'tagStr' can be
+-- very handy when you're debugging an tagger in ghci (or cabal repl).
+--
+-- 'tag' exposes more details of the tokenization and tagging, since
+-- it returns a list of `TaggedSentence`s, but it doesn't print
+-- results as nicely.
 --
 module NLP.POS
   ( tag
   , tagStr
   , tagText
   , train
+  , trainStr
   , trainText
   , eval
   , serialize
@@ -23,6 +32,7 @@ module NLP.POS
   , taggerTable
   , saveTagger
   , loadTagger
+  , defaultTagger
   )
 where
 
@@ -42,6 +52,10 @@ import NLP.Types (TaggedSentence, Tag(..)
 import qualified NLP.POS.LiteralTagger as LT
 import qualified NLP.POS.UnambiguousTagger as UT
 import qualified NLP.POS.AvgPerceptronTagger as Avg
+
+defaultTagger :: IO POSTagger
+defaultTagger = do
+  loadTagger "brown-train.model" -- TODO: make this path depend on Cabal Paths; and pull down during install.
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By
@@ -141,7 +155,7 @@ tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
 -- > trainStr tagger "the/at dog/nn jumped/vbd ./."
 --
 trainStr :: POSTagger -> String -> IO POSTagger
-trainStr tgr = T.unpack . trainText tgr . T.pack
+trainStr tgr = trainText tgr . T.pack
 
 -- | The `Text` version of `trainStr`
 trainText :: POSTagger -> Text -> IO POSTagger

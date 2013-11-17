@@ -16,7 +16,6 @@ module NLP.POS.AvgPerceptronTagger
   , emptyPerceptron
   , taggerID
   , readTagger
-  , emptyPerceptron
   )
 where
 
@@ -38,6 +37,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
+import NLP.Tokenize (tokenize)
 import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
 
@@ -52,8 +52,8 @@ readTagger bs backoff = do
 -- | Create an Averaged Perceptron Tagger using the specified back-off
 -- tagger as a fall-back, if one is specified.
 --
--- This uses `Data.Text.words` for a tokenizer, and Erik Kow's
--- fullstop sentence segmenter
+-- This uses a tokenizer adapted from the 'tokenize' package for a
+-- tokenizer, and Erik Kow's fullstop sentence segmenter
 -- (<http://hackage.haskell.org/package/fullstop>) as a sentence
 -- splitter.
 mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
@@ -62,8 +62,8 @@ mkTagger per mTgr = POSTagger { posTagger  = tag per
                                   newPer <- trainInt itterations per exs
                                   return $ mkTagger newPer mTgr
                               , posBackoff = mTgr
-                              , posTokenizer = T.words -- TODO replace with better tokenizer.
-                              , posSplitter = (map T.pack) . lines . T.unpack
+                              , posTokenizer = tokenize
+                              , posSplitter = (map T.pack) . segment . T.unpack
                               , posSerialize = encode per
                               , posID = taggerID
                               }

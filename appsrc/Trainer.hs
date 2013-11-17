@@ -1,9 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Trainer where
 
-import qualified Data.ByteString as BS
 import qualified Data.Map as Map
-import Data.Serialize (encode)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import System.Environment (getArgs)
