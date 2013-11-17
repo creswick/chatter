@@ -36,13 +36,17 @@ module NLP.POS
   )
 where
 
+
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
+import qualified Data.ByteString.Lazy as LBS
+import Data.List (isSuffixOf)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Serialize (encode, decode)
+import Codec.Compression.GZip (decompress)
 
 import NLP.Corpora.Parsing (readPOS)
 
@@ -75,12 +79,20 @@ saveTagger tagger file = BS.writeFile file (serialize tagger)
 -- | Load a tagger, using the interal `taggerTable`.  If you need to
 -- specify your own mappings for new composite taggers, you should use
 -- `deserialize`.
+--
+-- This function checks the filename to determine if the content
+-- should be decompressed.  If the file ends with ".gz", then we
+-- assume it is a gziped model.
 loadTagger :: FilePath -> IO POSTagger
 loadTagger file = do
-  content <- BS.readFile file
+  content <- getContent file
   case deserialize taggerTable content of
     Left err -> error err
     Right tgr -> return tgr
+  where
+    getContent :: FilePath -> IO ByteString
+    getContent file | ".gz" `isSuffixOf` file = fmap (LBS.toStrict . decompress) $ LBS.readFile file
+                    | otherwise               = BS.readFile file
 
 serialize :: POSTagger -> ByteString
 serialize tagger =

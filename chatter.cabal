@@ -51,7 +51,8 @@ Library
                      cereal,
                      fullstop,
                      split,
-                     bytestring
+                     bytestring,
+                     zlib
 
    ghc-options:      -Wall
 
