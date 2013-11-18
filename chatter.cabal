@@ -15,7 +15,7 @@ description:         chatter is a collection of simple Natural Language
                        are available in the 'NLP.Similarity.VectorSim' module.
 homepage:            http://github.com/creswick/chatter
 Bug-Reports:         http://github.com/creswick/chatter/issues
-category:            Tools
+category:            Natural language processing
 license:             BSD3
 License-file:        LICENSE
 author:              Rogan Creswick
