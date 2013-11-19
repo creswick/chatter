@@ -1,0 +1,5248 @@
+From rowlett at cloud85.net  Wed Sep  5 05:45:35 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Wed, 05 Sep 2012 07:45:35 -0500
+Subject: [PLUG] Linux, a path to literate engineers?
+Message-ID: <5047496F.6060108@cloud85.net>
+
+Maybe the subject line could have been, "Linux 
+documentation, a training ground for engineers learning to 
+write well".
+
+While slogging through Linux documentation (sic, or should 
+that be sick ;<), I've been recalling what the chairman of 
+the freshman English program said of my writing ability 50 
+years ago - "Hopeless".
+
+What is the feasibility of editing current first time 
+installer documentation as a semester (or longer) project? 
+I'm thinking this could could be done with either high 
+school seniors or college freshmen.
+
+Comments? TIA
+
+
+
+
+From rshepard at appl-ecosys.com  Wed Sep  5 06:07:57 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Wed, 5 Sep 2012 06:07:57 -0700 (PDT)
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <5047496F.6060108@cloud85.net>
+References: <5047496F.6060108@cloud85.net>
+Message-ID: <alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+
+On Wed, 5 Sep 2012, Richard Owlett wrote:
+
+> While slogging through Linux documentation (sic, or should that be sick
+> ;<), I've been recalling what the chairman of the freshman English program
+> said of my writing ability 50 years ago - "Hopeless".
+
+> Comments? TIA
+
+   Two truisms that might actually be true are that scientists make poor
+programmers (see old FORTRAN code) and that programmers can't write good
+documentation. The latter may come from being too close to the application.
+
+   There's no reason why any of us cannot clean up and clarify documentation
+for any open source tool ... including the OS. I've done this on several of
+the critical applications I use (e.g., LyX, GRASS) and no one's offended by
+my offerings.
+
+   Unfortunately, poor writing skills are endemic in the broader business
+world, too. And let's not go into the results of our local school systems
+...
+
+Rich
+
+
+
+From rsteff at comcast.net  Wed Sep  5 07:17:30 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 05 Sep 2012 07:17:30 -0700
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+Message-ID: <50475EFA.1080402@comcast.net>
+
+On 09/05/2012 06:07 AM, Rich Shepard wrote:
+> Two truisms that might actually be true are that scientists make poor 
+> programmers (see old FORTRAN code) and that programmers can't write 
+> good documentation. The latter may come from being too close to the 
+> application. There's no reason why any of us cannot clean up and 
+> clarify documentation for any open source tool ... including the OS. 
+> I've done this on several of the critical applications I use (e.g., 
+> LyX, GRASS) and no one's offended by my offerings. Unfortunately, poor 
+> writing skills are endemic in the broader business world, too. And 
+> let's not go into the results of our local school systems ...
+
+In my transcription work I find many occasions where there is evidence 
+of change in spoken English (I think that's how John would think of it 
+-- I think of it as people who don't know the correct usage). For 
+example, it appears that the article "an" is no long used by many 
+people. And the understanding of when to use "take" versus "bring" seems 
+to have been lost. I suspect this general change in spoken English is 
+contributing to the quality issue in written documentation.
+
+When I have some free time, I'd consider contributing some of it to a 
+documentation editing effort. Is there a proper way to do this? Does it 
+vary from program to program? Does one simply take some sentences that 
+should be shot and rehabilitate them and offer them to the keeper of the 
+documentation? And how does one find out who the keeper of the 
+documentation is?
+
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From rshepard at appl-ecosys.com  Wed Sep  5 07:30:34 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Wed, 5 Sep 2012 07:30:34 -0700 (PDT)
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <50475EFA.1080402@comcast.net>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+	<50475EFA.1080402@comcast.net>
+Message-ID: <alpine.LNX.2.00.1209050728300.8484@salmo.appl-ecosys.com>
+
+On Wed, 5 Sep 2012, Richard C. Steffens wrote:
+
+> When I have some free time, I'd consider contributing some of it to a
+> documentation editing effort. Is there a proper way to do this? Does it
+> vary from program to program? Does one simply take some sentences that
+> should be shot and rehabilitate them and offer them to the keeper of the
+> documentation? And how does one find out who the keeper of the
+> documentation is?
+
+Dick,
+
+   Each application varies. A look at the Web site may tell you there is a
+documentation project associated with it. If not, an e-mail to the devs can
+point you in the right direction. I've not found a project that rejects
+help. :-)
+
+Rich
+
+
+
+From rsteff at comcast.net  Wed Sep  5 07:57:31 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 05 Sep 2012 07:57:31 -0700
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <alpine.LNX.2.00.1209050728300.8484@salmo.appl-ecosys.com>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+	<50475EFA.1080402@comcast.net>
+	<alpine.LNX.2.00.1209050728300.8484@salmo.appl-ecosys.com>
+Message-ID: <5047685B.9080006@comcast.net>
+
+On 09/05/2012 07:30 AM, Rich Shepard wrote:
+> On Wed, 5 Sep 2012, Richard C. Steffens wrote:
+>
+>> When I have some free time, I'd consider contributing some of it to a
+>> documentation editing effort. Is there a proper way to do this? Does it
+>> vary from program to program? Does one simply take some sentences that
+>> should be shot and rehabilitate them and offer them to the keeper of the
+>> documentation? And how does one find out who the keeper of the
+>> documentation is?
+> Dick,
+>
+>     Each application varies. A look at the Web site may tell you there is a
+> documentation project associated with it. If not, an e-mail to the devs can
+> point you in the right direction. I've not found a project that rejects
+> help. :-)
+>
+
+Makes sense. Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From johnxj at comcast.net  Wed Sep  5 08:01:31 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 5 Sep 2012 08:01:31 -0700
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <50475EFA.1080402@comcast.net>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+	<50475EFA.1080402@comcast.net>
+Message-ID: <20120905080131.1be7f0d2@mailhost.pdx.edu>
+
+On Wed, 05 Sep 2012 07:17:30 -0700
+"Richard C. Steffens" <rsteff at comcast.net> dijo:
+
+>On 09/05/2012 06:07 AM, Rich Shepard wrote:
+>> Two truisms that might actually be true are that scientists make
+>> poor programmers (see old FORTRAN code) and that programmers can't
+>> write good documentation. The latter may come from being too close
+>> to the application. There's no reason why any of us cannot clean up
+>> and clarify documentation for any open source tool ... including the
+>> OS. I've done this on several of the critical applications I use
+>> (e.g., LyX, GRASS) and no one's offended by my offerings.
+>> Unfortunately, poor writing skills are endemic in the broader
+>> business world, too. And let's not go into the results of our local
+>> school systems ...
+
+One of my pet peeves is the use of an ellipsis to end a sentence
+instead of a period. :)
+
+>In my transcription work I find many occasions where there is evidence 
+>of change in spoken English (I think that's how John would think of it 
+>-- I think of it as people who don't know the correct usage). For 
+>example, it appears that the article "an" is no long used by many 
+>people. And the understanding of when to use "take" versus "bring"
+>seems to have been lost. I suspect this general change in spoken
+>English is contributing to the quality issue in written documentation.
+
+The use of 'a' before a word starting with a consonant (pronounced
+[??], with the glottal stop instead of [n]) is simply a historical
+development in a particular dialect. In fact, Anglo-Saxon had no
+articles at all. The present day indefinite article developed from a?n
+'one' (that's a? with a macron, denoting a doubled vowel). 
+Prescriptivists have succeeded in proscribing this pronunciation so
+well that people with this dialect are considered uneducated and not
+fit for polite company. 
+
+As for 'take' and 'bring,' what you complain of is nothing more than
+semantic drift, a diachronic change that has always existed in all
+languages and always will. The favorite example of semantic drift is
+the English 'black,' which many, including me, believe is
+derived from a word that originally meant 'white.' Cf the Oxford
+English Dictionary:
+
+Etymology:  Cognate with Middle Dutch blac ink, Old Saxon blac ink
+(Middle Low German blak ink, black dye, black colour), Old High German
+blah- (only in blah-faro of the colour of ink, blah-m?l niello
+decoration (Middle High German blach-m?l ), blah-m?l?n to decorate with
+niello); further etymology uncertain; on formal grounds the word could
+be from a base related to the Germanic bases of blank adj. and the
+various forms discussed at blik v., but since this would give an
+expected meaning ?shining, white? there is an obvious semantic
+difficulty; many have sought to resolve this by hypothesizing that the
+word meaning ?black? originated as a past participle (with the meaning
+?burnt, blackened?) of a verb meaning ?to burn (brightly)? derived from
+this base; this verb may perhaps be reflected by Middle Dutch blaken
+(Dutch blaken) to flame, to burn.
+
+>When I have some free time, I'd consider contributing some of it to a 
+>documentation editing effort. Is there a proper way to do this? Does
+>it vary from program to program? Does one simply take some sentences
+>that should be shot and rehabilitate them and offer them to the keeper
+>of the documentation? And how does one find out who the keeper of the 
+>documentation is?
+
+Professor Susan Conrad of the PSU Department of Applied Linguistics
+(together with others) has been instrumental in developing classes
+designed to teach English academic writing. So far most of the effort
+has been targeted at foreign students, but she has also worked to teach
+English writing skills to engineers (her husband is an engineer). If
+anyone is interested in developing classes to teach skills in writing
+computer documentation she would be a good contact person.
+
+
+From rshepard at appl-ecosys.com  Wed Sep  5 08:13:58 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Wed, 5 Sep 2012 08:13:58 -0700 (PDT)
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <20120905080131.1be7f0d2@mailhost.pdx.edu>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+	<50475EFA.1080402@comcast.net>
+	<20120905080131.1be7f0d2@mailhost.pdx.edu>
+Message-ID: <alpine.LNX.2.00.1209050806160.8484@salmo.appl-ecosys.com>
+
+On Wed, 5 Sep 2012, John Jason Jordan wrote:
+
+> The favorite example of semantic drift is the English 'black,' which many,
+> including me, believe is derived from a word that originally meant
+> 'white.' Cf the Oxford English Dictionary:
+
+   That's politics at work.
+
+> Professor Susan Conrad of the PSU Department of Applied Linguistics
+> (together with others) has been instrumental in developing classes
+> designed to teach English academic writing. So far most of the effort has
+> been targeted at foreign students, but she has also worked to teach
+> English writing skills to engineers (her husband is an engineer). If
+> anyone is interested in developing classes to teach skills in writing
+> computer documentation she would be a good contact person.
+
+   Academic writing is not necessarily a desired outcome. It's too often
+written by academics for other academics and frequently intended to show off
+the writer's superiority. Similar to legalese designed to obfuscate ideas so
+one is required to pay a lawyer (by the hour, too) to translate it so it's
+understandable to those not in the guild.
+
+   Clear and effective writing can be learned. I used to write long, complex
+sentences (that was the style taught until a very few decades ago). When I
+escaped academia I had to teach myself how to write short, clear, effective
+sentences. Frequently, my first editing pass turned one sentence into three
+new ones that were much clearer.
+
+   Application developers cannot write good documentation because they know
+exactly what's going on under the hood, how things are supposed to work, and
+how they designed the application to be used. Give the application to an end
+user and watch what they do. That elucidates how he sees the application and
+is quite frequently completely different from how the developer sees it.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |   Integrity - Credibility - Innovation
+Applied Ecosystem Services, Inc.   |    Helping Ensure Our Clients' Futures
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+
+From johnxj at comcast.net  Wed Sep  5 08:59:13 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 5 Sep 2012 08:59:13 -0700
+Subject: [PLUG] Linux, a path to literate engineers?
+In-Reply-To: <alpine.LNX.2.00.1209050806160.8484@salmo.appl-ecosys.com>
+References: <5047496F.6060108@cloud85.net>
+	<alpine.LNX.2.00.1209050602380.8484@salmo.appl-ecosys.com>
+	<50475EFA.1080402@comcast.net>
+	<20120905080131.1be7f0d2@mailhost.pdx.edu>
+	<alpine.LNX.2.00.1209050806160.8484@salmo.appl-ecosys.com>
+Message-ID: <20120905085913.59307dcb@mailhost.pdx.edu>
+
+On Wed, 5 Sep 2012 08:13:58 -0700 (PDT)
+Rich Shepard <rshepard at appl-ecosys.com> dijo:
+
+>> Professor Susan Conrad of the PSU Department of Applied Linguistics
+>> (together with others) has been instrumental in developing classes
+>> designed to teach English academic writing. So far most of the
+>> effort has been targeted at foreign students, but she has also
+>> worked to teach English writing skills to engineers (her husband is
+>> an engineer). If anyone is interested in developing classes to teach
+>> skills in writing computer documentation she would be a good contact
+>> person.
+>
+>Academic writing is not necessarily a desired outcome. It's too often
+>written by academics for other academics and frequently intended to
+>show off the writer's superiority. Similar to legalese designed to
+>obfuscate ideas so one is required to pay a lawyer (by the hour, too)
+>to translate it so it's understandable to those not in the guild.
+
+I guess my writing skills failed me here. I was trying to point out
+that if one can teach academic writing one can teach any kind of
+writing. It's just a question of defining the target.
+
+> Application developers cannot write good documentation because they know
+>exactly what's going on under the hood, how things are supposed to
+>work, and how they designed the application to be used. Give the
+>application to an end user and watch what they do. That elucidates how
+>he sees the application and is quite frequently completely different
+>from how the developer sees it.
+
+The engineers have exactly the same problem. And the classes Professor
+Conrad developed have been successful in making them much better
+writers of technical documents required in their field. In fact, their
+basic problem was not in communicating with other engineers, but in
+expressing themselves in writing to the public and non-engineer
+government officials. That sounds to me like exactly the same problem
+that software developers have in writing documentation.
+
+Or to look at it another way, some software developers are able to
+write effective documentation. How do they do it when (apparently) the
+majority of software developers do a lousy job of documenting their
+software? Susan Conrad is into discourse analysis, and she would use
+the tools of that discipline to extract the methods used by successful
+writers of software documentation. While I agree that discourse analysis
+would be a good approach, I would start by just asking the successful
+writers how they do it.
+
+
+From dexter at ambidexter.com  Wed Sep  5 12:01:56 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Wed, 05 Sep 2012 12:01:56 -0700
+Subject: [PLUG] Reminder: September PLUG Meeting: The Joy of Logical Volumes
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5047A1A4.7000708@ambidexter.com>
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Brian P. Martin
+What: The Joy of Logical Volumes
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, September 6th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Brian will give a short introduction on getting started with the Linux
+Logical Volume Manager. A demonstration will follow, showing how
+to get up and running with LVM in three simple commands. Bring
+your laptop prepared with either an empty partition or an empty
+flash key and get on LVM yourself during the demo.
+
+There is also the possibility that a guest speaker will talk about ZFS.
+
+Calagator Page: http://calagator.org/events/1250462787
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+
+From johnxj at comcast.net  Wed Sep  5 15:05:16 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 5 Sep 2012 15:05:16 -0700
+Subject: [PLUG] Reminder: September PLUG Meeting: The Joy of Logical
+ Volumes
+In-Reply-To: <5047A1A4.7000708@ambidexter.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5047A1A4.7000708@ambidexter.com>
+Message-ID: <20120905150516.278eac3a@mailhost.pdx.edu>
+
+On Wed, 05 Sep 2012 12:01:56 -0700
+Michael Dexter <dexter at ambidexter.com> dijo:
+
+>Brian will give a short introduction on getting started with the Linux
+>Logical Volume Manager. A demonstration will follow, showing how
+>to get up and running with LVM in three simple commands. Bring
+>your laptop prepared with either an empty partition or an empty
+>flash key and get on LVM yourself during the demo.
+
+Will Brian be able to explain how to shrink a partition inside a
+logical volume?
+
+
+From kd7vvk at gmail.com  Wed Sep  5 17:02:36 2012
+From: kd7vvk at gmail.com (Bruce Kilpatrick)
+Date: Wed, 05 Sep 2012 17:02:36 -0700
+Subject: [PLUG] System tray icon
+Message-ID: <5047E81C.1010504@gmail.com>
+
+I took the plunge and upgraded Kubuntu from 11.10 to 12.04.  So far, the 
+only malfunction I can find in the process is RadioTray using the wrong 
+icon in the system tray.  My Google syntax is getting me nowhere.
+
+I know where the proper icon resides, just haven't figured out how to 
+point RadioTray to the proper icon.
+
+Any ideas?
+
+Thanks,
+
+Bruce
+
+
+From website.reader3 at gmail.com  Wed Sep  5 17:25:13 2012
+From: website.reader3 at gmail.com (website reader)
+Date: Wed, 5 Sep 2012 17:25:13 -0700
+Subject: [PLUG] strange timestamp problem on Ubuntu 12.04 system question
+Message-ID: <CAJeYwHfaum4OBXCQCNwgrkW=d42-U81y3VEyybfbvJ5RVf170w@mail.gmail.com>
+
+I have noticed that my Ubuntu 12.04 linux system is not correctly
+logging a timestamp while writing to a flat csv file.  Occasionally
+the timestamps will have a backwards glitch, such as
+
+34817.57976
+34817.00157
+34819.37487
+
+(values are in seconds + decimal fraction)
+
+If the middle value of 34817.00157 is changed to 34818.00157 then
+things are okay.  This error occasionally happens about once per
+thousand timestamps and always appears to be right when the time has
+rolled to the next second.
+
+I am using the sys/time.h header and compiled C code with the -lrt
+(real time library) but the _tp struct is acting like the tv_sec did
+NOT get updated when the tv_nsec rolled over > 10e9.
+
+I am also running a ntp client, but just now enabled the loopstats
+option in the ntp.conf file.  I believe ntpd is running just fine.
+
+Could ntp be making minor adjustments to system time?  Or should I
+look somewhere else?
+
+This timestamp problem needs to be fixed before I can move to other
+pressing problems.
+
+Any ideas?
+
+
+From galens at seitzassoc.com  Wed Sep  5 18:06:15 2012
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Wed, 05 Sep 2012 18:06:15 -0700
+Subject: [PLUG] strange timestamp problem on Ubuntu 12.04 system question
+In-Reply-To: <CAJeYwHfaum4OBXCQCNwgrkW=d42-U81y3VEyybfbvJ5RVf170w@mail.gmail.com>
+References: <CAJeYwHfaum4OBXCQCNwgrkW=d42-U81y3VEyybfbvJ5RVf170w@mail.gmail.com>
+Message-ID: <5047F707.800@seitzassoc.com>
+
+On 09/05/2012 05:25 PM, website reader wrote:
+> I have noticed that my Ubuntu 12.04 linux system is not correctly
+> logging a timestamp while writing to a flat csv file.  Occasionally
+> the timestamps will have a backwards glitch, such as
+> 
+> 34817.57976
+> 34817.00157
+> 34819.37487
+> 
+> (values are in seconds + decimal fraction)
+> 
+> If the middle value of 34817.00157 is changed to 34818.00157 then
+> things are okay.  This error occasionally happens about once per
+> thousand timestamps and always appears to be right when the time has
+> rolled to the next second.
+> 
+> I am using the sys/time.h header and compiled C code with the -lrt
+> (real time library) but the _tp struct is acting like the tv_sec did
+> NOT get updated when the tv_nsec rolled over > 10e9.
+
+What function are you calling to fill the _tp struct?  Where is this
+struct defined?
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+
+From website.reader3 at gmail.com  Wed Sep  5 18:43:23 2012
+From: website.reader3 at gmail.com (website reader)
+Date: Wed, 5 Sep 2012 18:43:23 -0700
+Subject: [PLUG] PROBLEM SOLVED - Re: strange timestamp problem on Ubuntu
+ 12.04 system question
+Message-ID: <CAJeYwHdOJCCgctXO0rDtJivStLFkH_MZMkgPBa3okEB-vFrwSQ@mail.gmail.com>
+
+Okay, I found the problem, it was actually caused by the true time
+(NIST) being just right to cause the seconds digit to increment
+between two time calls that I made
+
+First  I did a time(_tp) call first to get time in the customary hr :
+min : sec format.
+then did a second call to clock_gettime(_tv) in order to get 2 long
+words for the time tv_sec and tv_nsec.
+
+The amount of time between the 2 calls coincided with the time change
+on the seconds, as it apparently took about 2 to 4 milleseconds
+between these 2 calls.
+
+I am going to have to take only one time call to clock_gettime(_tv)
+and then figure out how to get the normal hrs:min:secs.decimal from
+those 2 values.
+
+Thanks Galen for your question, but I have resolved the issue now,
+after dumping both types of time into an archive file and watching the
+time stamping going on.
+
+
+From plugng3 at martinconsulting.com  Thu Sep  6 13:27:29 2012
+From: plugng3 at martinconsulting.com (plugng3 at martinconsulting.com)
+Date: Thu, 6 Sep 2012 13:27:29 -0700
+Subject: [PLUG] Reminder: September PLUG Meeting: The Joy of Logical
+	Volumes
+Message-ID: <008e01cd8c6e$09adf8e0$1d09eaa0$@martinconsulting.com>
+
+> Will Brian be able to explain how to shrink a partition inside a
+> logical volume?
+
+I'd be happy to talk about that.  The answer is that it's either pretty easy
+or usually impossible, depending on what file system you're using.
+
+                          -B.
+
+
+
+From johnxj at comcast.net  Thu Sep  6 15:58:51 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 6 Sep 2012 15:58:51 -0700
+Subject: [PLUG] Reminder: September PLUG Meeting: The Joy of Logical
+ Volumes
+In-Reply-To: <008e01cd8c6e$09adf8e0$1d09eaa0$@martinconsulting.com>
+References: <008e01cd8c6e$09adf8e0$1d09eaa0$@martinconsulting.com>
+Message-ID: <20120906155851.623abefb@mailhost.pdx.edu>
+
+On Thu, 6 Sep 2012 13:27:29 -0700
+<plugng3 at martinconsulting.com> dijo:
+
+>> Will Brian be able to explain how to shrink a partition inside a
+>> logical volume?
+>
+>I'd be happy to talk about that.  The answer is that it's either
+>pretty easy or usually impossible, depending on what file system
+>you're using.
+
+Sadly, at the last minute I will not be able to attend tonight's
+meeting. 
+
+Shrinking the partition is not a critical matter. I'll figure it out
+later. 
+
+As for the filesystem, it is a bit confusing. When I look at the disk
+with Palimpsest it says the drive (320 GB) is ext3. But it is divided
+into two partitions, 6 GB and 314 GB. It says the 6 GB is swap and the
+314 GB is ext4. I'm pretty sure it is ext4. I have no idea where
+Palimpsest gets the notion that the drive itself is ext3.
+
+
+From rsteff at comcast.net  Fri Sep  7 07:32:01 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 07 Sep 2012 07:32:01 -0700
+Subject: [PLUG] Surge Protector Ratings
+Message-ID: <504A0561.7020006@comcast.net>
+
+We bought a used TV yesterday from a couple of brothers getting their 
+business started. They recommended that we get a surge protector rated 
+for 3200 joules. Their point was that ordinary surge protectors wear out 
+quickly, and after catching one or two surges are no longer able to 
+catch the next big one that comes along. I Googled and found that there 
+are such beasts, starting around $20 on Amazon. The one I looked at is 
+18" x 6" x 2" and has 10 outlets, hence the mention of beasts. I don't 
+find a joule rating on any of the surge protectors we have in the house.
+
+So, the question is, are they correct? Are all the surge protectors in 
+the house probably shot? Is a rating of 3200 joules necessary?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From plug at the-wes.com  Fri Sep  7 07:33:42 2012
+From: plug at the-wes.com (wes)
+Date: Fri, 7 Sep 2012 07:33:42 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <504A0561.7020006@comcast.net>
+References: <504A0561.7020006@comcast.net>
+Message-ID: <CAA1wLOmvRrOm6vcq1CT5XbKGWE985Sfvy-REWx0GFysVDU4uLg@mail.gmail.com>
+
+I've heard this before, but never any evidence to substantiate it. I think
+the most salient point for us is that we don't get a lot of surges in our
+area. We're not exactly a hotbed for lightning and the BPA has things
+pretty well regulated.
+
+-wes
+
+On Fri, Sep 7, 2012 at 7:32 AM, Richard C. Steffens <rsteff at comcast.net>wrote:
+
+> We bought a used TV yesterday from a couple of brothers getting their
+> business started. They recommended that we get a surge protector rated
+> for 3200 joules. Their point was that ordinary surge protectors wear out
+> quickly, and after catching one or two surges are no longer able to
+> catch the next big one that comes along. I Googled and found that there
+> are such beasts, starting around $20 on Amazon. The one I looked at is
+> 18" x 6" x 2" and has 10 outlets, hence the mention of beasts. I don't
+> find a joule rating on any of the surge protectors we have in the house.
+>
+> So, the question is, are they correct? Are all the surge protectors in
+> the house probably shot? Is a rating of 3200 joules necessary?
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From rsteff at comcast.net  Fri Sep  7 08:40:07 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 07 Sep 2012 08:40:07 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <CAA1wLOmvRrOm6vcq1CT5XbKGWE985Sfvy-REWx0GFysVDU4uLg@mail.gmail.com>
+References: <504A0561.7020006@comcast.net>
+	<CAA1wLOmvRrOm6vcq1CT5XbKGWE985Sfvy-REWx0GFysVDU4uLg@mail.gmail.com>
+Message-ID: <504A1557.8010304@comcast.net>
+
+On 09/07/2012 07:33 AM, wes wrote:
+> I've heard this before, but never any evidence to substantiate it. I think
+> the most salient point for us is that we don't get a lot of surges in our
+> area. We're not exactly a hotbed for lightning and the BPA has things
+> pretty well regulated.
+>
+
+Good points. I guess the next question is how can you tell if an older 
+surge protector is still any good?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From seniorr at aracnet.com  Fri Sep  7 10:56:50 2012
+From: seniorr at aracnet.com (Russell Senior)
+Date: Fri, 07 Sep 2012 10:56:50 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <504A1557.8010304@comcast.net> (Richard C. Steffens's message of
+	"Fri\, 07 Sep 2012 08\:40\:07 -0700")
+References: <504A0561.7020006@comcast.net>
+	<CAA1wLOmvRrOm6vcq1CT5XbKGWE985Sfvy-REWx0GFysVDU4uLg@mail.gmail.com>
+	<504A1557.8010304@comcast.net>
+Message-ID: <86bohhwwbh.fsf@coulee.tdb.com>
+
+>>>>> "Richard" == Richard C Steffens <rsteff at comcast.net> writes:
+
+wes> I've heard this before, but never any evidence to substantiate
+wes> it. I think the most salient point for us is that we don't get a
+wes> lot of surges in our area. We're not exactly a hotbed for
+wes> lightning and the BPA has things pretty well regulated.
+
+Richard> Good points. I guess the next question is how can you tell if
+Richard> an older surge protector is still any good?
+
+Plug in sensitive equipment, and then hit it with surges until it
+stops working.  Then you know the surge protector doesn't work
+anymore.
+
+
+-- 
+Russell Senior         ``I have nine fingers; you have ten.''
+seniorr at aracnet.com
+
+
+From dexter at ambidexter.com  Fri Sep  7 15:01:14 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Fri, 07 Sep 2012 15:01:14 -0700
+Subject: [PLUG] Announcement: September PLUG Advanced Topics: Embedded Linux
+ and GPL compliance
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <504A6EAA.1070500@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Beth Flanagan, Intel
+What: Embedded Linux and GPL compliance
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, September 18th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+Embedded Linux and GPL compliance. How not to make a mess of things.
+
+As Linux becomes more and more common in the consumer device market,
+the number of GPL violations found by various compliance
+organizations have increased dramatically. We'll discuss how
+violations occur, what to do if you find yourself in violation and how
+the Yocto Project and OpenEmbedded-Core helps you to avoid a costly
+GPL violation action.
+
+
+Beth 'pidge' Flanagan is the maintainer of the licensing
+infrastructure for the Yocto Project and OpenEmbedded-Core, maintainer
+of the yocto-autobuilder and build and release engineer for the Yocto
+Project. She has spoken on a wide range of topics over the years, from
+GPL compliance in the embedded world to open source firearms. She
+works full time on the Yocto Project and OpenEmbedded-Core for Intel's
+Open Source Technologies Center.
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250462831
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From louisk at cryptomonkeys.org  Fri Sep  7 15:28:05 2012
+From: louisk at cryptomonkeys.org (Louis Kowolowski)
+Date: Fri, 7 Sep 2012 15:28:05 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <504A0561.7020006@comcast.net>
+References: <504A0561.7020006@comcast.net>
+Message-ID: <D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+
+
+On Sep 7, 2012, at 7:32 AM, Richard C. Steffens <rsteff at comcast.net> wrote:
+
+> We bought a used TV yesterday from a couple of brothers getting their 
+> business started. They recommended that we get a surge protector rated 
+> for 3200 joules. Their point was that ordinary surge protectors wear out 
+> quickly, and after catching one or two surges are no longer able to 
+> catch the next big one that comes along. I Googled and found that there 
+> are such beasts, starting around $20 on Amazon. The one I looked at is 
+> 18" x 6" x 2" and has 10 outlets, hence the mention of beasts. I don't 
+> find a joule rating on any of the surge protectors we have in the house.
+> 
+> So, the question is, are they correct? Are all the surge protectors in 
+> the house probably shot? Is a rating of 3200 joules necessary?
+> 
+I replace surge protectors once they've been hit.  I don't know of any way to determine that they are still good, and they are not expensive.
+
+
+--
+Louis Kowolowski                                louisk at cryptomonkeys.org
+Cryptomonkeys:                      http://www.cryptomonkeys.org/~louisk
+
+Making life more interesting for people since 1977
+
+
+
+From russ at dimstar.net  Fri Sep  7 15:48:09 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Fri, 7 Sep 2012 15:48:09 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+References: <504A0561.7020006@comcast.net>
+	<D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+Message-ID: <0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+
+
+On Sep 7, 2012, at 3:28 PM, Louis Kowolowski <louisk at cryptomonkeys.org> wrote:
+
+> I replace surge protectors once they've been hit.  I don't know of any way to determine that they are still good, and they are not expensive.
+
+How do you determine that they have been hit? Short of a lightning strike, it's not like a power surge announces itself. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From plug at the-wes.com  Fri Sep  7 15:56:44 2012
+From: plug at the-wes.com (wes)
+Date: Fri, 7 Sep 2012 15:56:44 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+References: <504A0561.7020006@comcast.net>
+	<D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+	<0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+Message-ID: <CAA1wLOnSOO1MsTnQ_o1Ef4VpDwi_TXnX_weo9kQkLAMonVt6OA@mail.gmail.com>
+
+On Fri, Sep 7, 2012 at 3:48 PM, Russell Johnson <russ at dimstar.net> wrote:
+
+>
+> On Sep 7, 2012, at 3:28 PM, Louis Kowolowski <louisk at cryptomonkeys.org>
+> wrote:
+>
+> > I replace surge protectors once they've been hit.  I don't know of any
+> way to determine that they are still good, and they are not expensive.
+>
+> How do you determine that they have been hit? Short of a lightning strike,
+> it's not like a power surge announces itself.
+>
+>
+maybe once the breaker trips? "reset" for him means "replace"?
+
+-wes
+
+
+From johnxj at comcast.net  Fri Sep  7 16:53:03 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 7 Sep 2012 16:53:03 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <CAA1wLOnSOO1MsTnQ_o1Ef4VpDwi_TXnX_weo9kQkLAMonVt6OA@mail.gmail.com>
+References: <504A0561.7020006@comcast.net>
+	<D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+	<0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+	<CAA1wLOnSOO1MsTnQ_o1Ef4VpDwi_TXnX_weo9kQkLAMonVt6OA@mail.gmail.com>
+Message-ID: <20120907165303.5977e42e@mailhost.pdx.edu>
+
+On Fri, 7 Sep 2012 15:56:44 -0700
+wes <plug at the-wes.com> dijo:
+
+At one time PGE offered me a whole house surge protector that would be
+installed under the meter. I didn't go for it, but I thought about it.
+Wonder if they still offer it and what kind of warranty it comes with.
+
+
+From chaz at bctonline.com  Fri Sep  7 16:53:47 2012
+From: chaz at bctonline.com (Chaz Sliger)
+Date: Fri, 7 Sep 2012 16:53:47 -0700
+Subject: [PLUG] Laptop Repair: Gateway NV53A74u Power Connector
+Message-ID: <00fb01cd8d54$05ed27d0$11c77770$@com>
+
+This computer's power jack is does not work.
+
+My daughter says it can get power briefly if she wiggles it a lot.
+
+I've tried to take it apart but can't figure out how to get the two halves
+to release.
+
+I did get it open enough to see that the molded brackets holding the jack
+had broken allowing the jack to slide back into the case when attempting to
+insert the power plug.  I wedged some paper behind the jack to prevent it
+from retreating but still no power.
+
+I believe that the jack has probably broken one of its power leads and needs
+to be re-soldered.
+
+Any recommendations as to where/who I can turn to would be greatly
+appreciated.
+
+~chaz
+
+chaz at bctonline.com
+
+ 
+
+
+
+From rshepard at appl-ecosys.com  Fri Sep  7 17:09:27 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 7 Sep 2012 17:09:27 -0700 (PDT)
+Subject: [PLUG] Laptop Repair: Gateway NV53A74u Power Connector
+In-Reply-To: <00fb01cd8d54$05ed27d0$11c77770$@com>
+References: <00fb01cd8d54$05ed27d0$11c77770$@com>
+Message-ID: <alpine.LNX.2.00.1209071708050.1089@salmo.appl-ecosys.com>
+
+On Fri, 7 Sep 2012, Chaz Sliger wrote:
+
+> Any recommendations as to where/who I can turn to would be greatly
+> appreciated.
+
+chaz,
+
+   When I needed laptop repairs in the past I took them to Northwest Computer
+Support in southeast Beaverton. Had good results with them. If they're still
+there, that's where I'd take a portable now.
+
+Rich
+
+
+
+From keithl at gate.kl-ic.com  Fri Sep  7 19:59:37 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 7 Sep 2012 19:59:37 -0700
+Subject: [PLUG] detecting flaky drives with LVM
+Message-ID: <20120908025937.GA5140@gate.kl-ic.com>
+
+Brian Martin gave an (as always) excellent talk about LVM
+Thursday night.  As I get older and more cynical, I look at
+software that seems very nice and wonder "what happens if
+this goes wrong?  How do I debug it?"
+
+My concerns about LVM are about rapidly dealing with mistakes
+and hardware failure in stressful situations (ever had a 
+laptop drive go flaky 4 hours before a presentation?  And
+successfully copied the presentation to a live spare with
+minutes to spare?).  Brian gave the example of moving data
+from a failed drive to a working drive in the same volume
+group.  But if all you have for checking data integrity is
+fsck at the file system level, and a file system is spread
+across many drives in a volume group, how do you tell
+which block errors correspond to which drive - quickly?  
+
+For those of us with file systems smaller than the largest
+drives available, there is something to be said for buying
+a drive that is 3x larger than the current data set, and
+buying a new and larger drive when we fill the current drive
+to 80% or more.  For those of us using laptops, adding a
+second drive usually isn't practical.  So for many situations,
+LVM doesn't sound practical.   OTOH, if one needs a 20TB file
+system on a server class machine, and assuming there are simple
+ways to identify starting-to-fail drives, then LVM sounds great.
+
+I run Redhat-derived distros, but bypass the default LVM setup
+of the disks and use bare metal partitions instead.  It sounds 
+like I should keep doing that until I cannot fit my system on
+one drive.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From nsedell at gmail.com  Fri Sep  7 20:39:49 2012
+From: nsedell at gmail.com (Neal)
+Date: Fri, 7 Sep 2012 20:39:49 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <20120907165303.5977e42e@mailhost.pdx.edu>
+References: <504A0561.7020006@comcast.net>
+	<D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+	<0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+	<CAA1wLOnSOO1MsTnQ_o1Ef4VpDwi_TXnX_weo9kQkLAMonVt6OA@mail.gmail.com>
+	<20120907165303.5977e42e@mailhost.pdx.edu>
+Message-ID: <CAKxTfCPv=eZrJ7VDUFUi=HSZde0m5jfExwAota=gsVnY-ab3wQ@mail.gmail.com>
+
+Unless it has an LED or other indicator of unknown veracity the only
+thing that might tip you off it's bad is if the power strip is warmer
+than ambient temperature. If it is get rid of it ASAP.
+
+Here's some light reading:
+http://www.iaei.org/magazine/2004/03/metal-oxide-varistor-degradation/
+
+NealS
+
+
+From nsedell at gmail.com  Fri Sep  7 20:42:23 2012
+From: nsedell at gmail.com (Neal)
+Date: Fri, 7 Sep 2012 20:42:23 -0700
+Subject: [PLUG] Surge Protector Ratings
+In-Reply-To: <CAKxTfCPv=eZrJ7VDUFUi=HSZde0m5jfExwAota=gsVnY-ab3wQ@mail.gmail.com>
+References: <504A0561.7020006@comcast.net>
+	<D0A8609D-8272-428F-9F3C-CD48AEC61B66@cryptomonkeys.org>
+	<0BC86F94-11D7-49A3-92C3-BB0B12CD85FE@dimstar.net>
+	<CAA1wLOnSOO1MsTnQ_o1Ef4VpDwi_TXnX_weo9kQkLAMonVt6OA@mail.gmail.com>
+	<20120907165303.5977e42e@mailhost.pdx.edu>
+	<CAKxTfCPv=eZrJ7VDUFUi=HSZde0m5jfExwAota=gsVnY-ab3wQ@mail.gmail.com>
+Message-ID: <CAKxTfCNA3u7fRvgyY95LAUQQhnTq7q3r_ZT0uq9xJZKMem6wcg@mail.gmail.com>
+
+> http://www.iaei.org/magazine/2004/03/metal-oxide-varistor-degradation/
+
+One more thought, having glimpsed photo 1 at the link above again --
+get a power strip with a metal case. Hopefully nothing in the rest of
+the article contradicts this advice, but it sure seems like a little
+more insurance to notice it's getting hot before igniting the case, if
+that's the failure mode. :)
+
+NealS
+
+
+From nsedell at gmail.com  Fri Sep  7 20:48:47 2012
+From: nsedell at gmail.com (Neal)
+Date: Fri, 7 Sep 2012 20:48:47 -0700
+Subject: [PLUG] Laptop Repair: Gateway NV53A74u Power Connector
+In-Reply-To: <00fb01cd8d54$05ed27d0$11c77770$@com>
+References: <00fb01cd8d54$05ed27d0$11c77770$@com>
+Message-ID: <CAKxTfCOOAfcFBpc7WYsPn8=b=C=GmKGsn3AAiezAc6ZKtKvTpQ@mail.gmail.com>
+
+On Fri, Sep 7, 2012 at 4:53 PM, Chaz Sliger <chaz at bctonline.com> wrote:
+> This computer's power jack is does not work.
+>
+> My daughter says it can get power briefly if she wiggles it a lot.
+
+Not to insult anyone's intelligence but are you sure it's not the
+power cable? Trying a spare charger could save a lot of time & money
+just to be sure.
+
+I've fixed several laptops with intermittent charging issues and only
+one had a bad jack. The cables haven't looked like there was anything
+amiss before cutting the end off and soldering on a new connector.
+
+You could verify the charger output with a voltmeter while wiggling
+the cable near the connector. Best done with three or four hands.
+
+Good luck.
+
+NealS
+
+
+From keithl at gate.kl-ic.com  Fri Sep  7 22:38:55 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 7 Sep 2012 22:38:55 -0700
+Subject: [PLUG] Laptop Repair: Gateway NV53A74u Power Connector
+In-Reply-To: <00fb01cd8d54$05ed27d0$11c77770$@com>
+References: <00fb01cd8d54$05ed27d0$11c77770$@com>
+Message-ID: <20120908053855.GB5140@gate.kl-ic.com>
+
+On Fri, Sep 07, 2012 at 04:53:47PM -0700, Chaz Sliger wrote:
+> I did get it open enough to see that the molded brackets holding the jack
+> had broken allowing the jack to slide back into the case when attempting to
+> insert the power plug.  I wedged some paper behind the jack to prevent it
+> from retreating but still no power.
+> 
+> I believe that the jack has probably broken one of its power leads and needs
+> to be re-soldered.
+
+That is likely the problem, I've seen a few laptops fail that
+way.  I use docking stations around the house and office, so
+I don't wear out the power and ethernet jacks.  
+
+I don't know whether Gateway puts hardware manuals online 
+anywhere - one of the advantages of IBM and Lenovo Thinkpads
+is that the manuals are (or at least were) available.  If worst
+comes to shove, you might learn how the IBMs come apart and do
+the same for your Gateway (hint - keep very careful track of
+the parts!).  Laptops are held together with about a zillion
+screws, so it takes a while to disassemble and reassemble
+(assuming you carefully keep track of each part).  That
+suggests that a repair outfit will charge a lot to do so.
+To get at it, you will probably remove the keyboard first
+(screws on the bottom) then the top bezel that surrounds it. 
+Sometimes the power connectors are buried pretty deeply,
+sometimes they are accessable with just the bezel removed.
+
+I've used acsparts.com for replacement parts, but they are 
+offline right now.  A web search reveals this $29 "refurb"
+(ha!) part:  
+
+DC-IN CABLE-65W Part #: 50.WJ802.010
+
+http://www.partstore.com/Part/Gateway/Gateway/NV53A74U/Gateway/Gateway/50WJ802010/Refurbished.aspx
+
+And from the part number, here's the part on eBay for $6.34:
+
+http://www.ebay.com/itm/NEW-GATEWAY-50-WJ802-010-NV53-NV59-AC-DC-IN-POWER-JACK-CABLE-HARNESS-WIRE-CJ50-/110692593697
+
+That looks like the right cable - and you are in luck, because
+you aren't replacing a whole board.  That ebay part ships from
+New York.  It is cheaper direct from China, but add another week
+for shipping.  Things are more complicated if you also broke
+some case plastic.  
+
+If you are ambitious, and with some hints from Thinkpad and HP
+hardware maintenance manuals, you might be able to figure out
+how to fix your laptop for $6+ and a lot of careful work. 
+Since this failure is quite common, I suggest you buy TWO cables
+and keep a spare around.  That might also be a good idea if you
+take the laptop to a repair shop - they may still charge an arm
+and a leg to fix your laptop, but you will have the part they
+need to do so, saving some time and avoiding a refurb part.
+
+Good luck.  I like fixing my own hardware, but that isn't for
+everyone.  You don't own laptops, you borrow them from the
+repair shop, so it is wise to develop a good relationship
+with whoever repairs it for you.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+
+From eehouse at eehouse.org  Sat Sep  8 12:44:40 2012
+From: eehouse at eehouse.org (Eric House)
+Date: Sat, 8 Sep 2012 12:44:40 -0700
+Subject: [PLUG] Seeking current netbook recommendations
+Message-ID: <20120908194440.GD28982@eehouse.org>
+
+My daughter's looking for a new netbook.  It'll run Ubuntu because
+they have the best support for her adopted language Catalan (and
+because she grew up in a Linux household. :-) I'm happy with my
+Samsung, but it's three years old.  Looking now there's a dizzying
+array of model numbers and specs and nothing helpful under google
+searches like "best netbook for ubuntu".
+
+Anybody running Ubuntu (or other linux) on a recently purchased
+netbook and delighted with it?  What's the model and where'd you get
+it?  BTW, her preference is for something closer to 10" than 14".
+
+Thanks,
+
+--Eric
+-- 
+******************************************************************************
+* From the desktop of: Eric House, eehouse at eehouse.org                       *
+*       Crosswords for Android now in beta: via the Market or xwords.sf.net  *
+******************************************************************************
+
+
+From jason.barnett71 at gmail.com  Sat Sep  8 17:06:32 2012
+From: jason.barnett71 at gmail.com (Jason Barnett)
+Date: Sat, 8 Sep 2012 17:06:32 -0700
+Subject: [PLUG] Seeking current netbook recommendations
+In-Reply-To: <20120908194440.GD28982@eehouse.org>
+References: <20120908194440.GD28982@eehouse.org>
+Message-ID: <CA+PcUTN4_sjP1AqUdmgncHBy+6nyAcMPDYeOq_00ZzXUC86H4g@mail.gmail.com>
+
+Look here for a list of Ubuntu Certified netbooks:
+ http://www.ubuntu.com/certification/desktop/models/?release=12.04%20LTS&category=Netbook<http://www.ubuntu.com/certification/desktop/models/?release=12.04%20LTS&category=Netbook>
+Here is a list of netbooks with user submitted details about ubuntu
+support: https://wiki.ubuntu.com/HardwareSupport/Machines/Netbooks
+
+I would recommend bringing a USB drive with a live image of Ubuntu on it
+and test it out on the display models in the store. I have done this on
+several occasions and so long as you ask permission first, I have never had
+anyone complain. In fact, I have found a number of employees that have used
+linux and were either helpful or at least interested in what I was doing.
+
+- Jason
+
+On Sat, Sep 8, 2012 at 12:44 PM, Eric House <eehouse at eehouse.org> wrote:
+
+> My daughter's looking for a new netbook.  It'll run Ubuntu because
+> they have the best support for her adopted language Catalan (and
+> because she grew up in a Linux household. :-) I'm happy with my
+> Samsung, but it's three years old.  Looking now there's a dizzying
+> array of model numbers and specs and nothing helpful under google
+> searches like "best netbook for ubuntu".
+>
+> Anybody running Ubuntu (or other linux) on a recently purchased
+> netbook and delighted with it?  What's the model and where'd you get
+> it?  BTW, her preference is for something closer to 10" than 14".
+>
+> Thanks,
+>
+> --Eric
+> --
+>
+> ******************************************************************************
+> * From the desktop of: Eric House, eehouse at eehouse.org
+>     *
+> *       Crosswords for Android now in beta: via the Market or
+> xwords.sf.net  *
+>
+> ******************************************************************************
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From joeniski at easystreet.net  Sat Sep  8 17:10:25 2012
+From: joeniski at easystreet.net (Joe Shisei Niski)
+Date: Sat, 08 Sep 2012 17:10:25 -0700
+Subject: [PLUG] Seeking current netbook recommendations
+In-Reply-To: <20120908194440.GD28982@eehouse.org>
+References: <20120908194440.GD28982@eehouse.org>
+Message-ID: <504BDE71.2060007@easystreet.net>
+
+my wife has a System76 Startling that we both love, but alas they don't 
+make anything in that size range (7" screen) any more.
+
+My next laptop will likely be a System76 or a ZaReason. ZaReason offers 
+a 10" display in their Teo Pro, but unfortunately (like the little model 
+from Asus) it tops out a 2GB ram.
+
+________________________________________
+Joe Shisei Niski
+Portland, Oregon, USA
+??
+
+On 09/08/2012 12:44 PM, Eric House wrote:
+> My daughter's looking for a new netbook.  It'll run Ubuntu because
+> they have the best support for her adopted language Catalan (and
+> because she grew up in a Linux household. :-) I'm happy with my
+> Samsung, but it's three years old.  Looking now there's a dizzying
+> array of model numbers and specs and nothing helpful under google
+> searches like "best netbook for ubuntu".
+>
+> Anybody running Ubuntu (or other linux) on a recently purchased
+> netbook and delighted with it?  What's the model and where'd you get
+> it?  BTW, her preference is for something closer to 10" than 14".
+>
+> Thanks,
+>
+> --Eric
+
+
+From jhg at jhmg.net  Sun Sep  9 11:36:39 2012
+From: jhg at jhmg.net (Jim Garrison)
+Date: Sun, 09 Sep 2012 11:36:39 -0700
+Subject: [PLUG] Seeking current netbook recommendations
+In-Reply-To: <504BDE71.2060007@easystreet.net>
+References: <20120908194440.GD28982@eehouse.org>
+	<504BDE71.2060007@easystreet.net>
+Message-ID: <504CE1B7.1070406@jhmg.net>
+
+On 9/8/2012 5:10 PM, Joe Shisei Niski wrote:
+> my wife has a System76 Startling that we both love, but alas they don't 
+> make anything in that size range (7" screen) any more.
+> 
+> My next laptop will likely be a System76 or a ZaReason. ZaReason offers 
+> a 10" display in their Teo Pro, but unfortunately (like the little model 
+> from Asus) it tops out a 2GB ram.
+
+For a netbook running Linux, I would think 2GB was way more than enough.
+It's not like you can really expect to run Gimp on 30 megapixel images.
+or a huge MySQL server :-)
+
+
+-- 
+Jim Garrison (jhg at acm.org)
+PGP Keys at http://www.jhmg.net RSA 0x04B73B7F DH 0x70738D88
+
+
+From pm at nellump.net  Sun Sep  9 17:31:40 2012
+From: pm at nellump.net (Paul Mullen)
+Date: Sun, 9 Sep 2012 17:31:40 -0700
+Subject: [PLUG] detecting flaky drives with LVM
+In-Reply-To: <20120908025937.GA5140@gate.kl-ic.com>
+References: <20120908025937.GA5140@gate.kl-ic.com>
+Message-ID: <20120910003140.GI25636@saturn.nellump.net>
+
+On Fri, Sep 07, 2012 at 07:59:37PM -0700, Keith Lofstrom wrote:
+> I run Redhat-derived distros, but bypass the default LVM setup of
+> the disks and use bare metal partitions instead.  It sounds like I
+> should keep doing that until I cannot fit my system on one drive.
+
+LVM on a single disk still has its benefits.  It's nice to be able to
+re-allot drive space amongst partitions when you find out down the
+road that your initial assumptions were faulty.  LVM is also handy if
+you plan on implementing full-disk encryption and only wish to deal
+with one key for all of your drive's partitions.
+
+-- 
+Paul
+
+
+From rowlett at cloud85.net  Mon Sep 10 07:25:16 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Mon, 10 Sep 2012 09:25:16 -0500
+Subject: [PLUG] bug in PLUG mailing list software?
+Message-ID: <504DF84C.2070902@cloud85.net>
+
+I've had some _occasional_ problems replying to *THIS* list.
+If I send To:
+      plug at lists.pdxlinux.org
+I do not believe I've ever seen a problem.
+
+However, if I hit "Reply" and the "To:" comes up as
+General Linux/UNIX discussion and help; civil and on-topic 
+<plug at lists.pdxlinux.org>
+I generally get a error message.
+
+Some experimentation suggests the semicolon is the culprit.
+
+I use
+User agent: Mozilla/5.0 (Windows NT 5.1; rv:15.0) 
+Gecko/20120826 Firefox/15.0 SeaMonkey/2.12
+Build identifier: 20120826214753
+
+My OS is WinXP Pro SP3 -- yes I'm in process of moving to a 
+real OS ;)
+
+Comments?
+
+
+
+
+
+
+
+From nathan at nathanewilliams.com  Mon Sep 10 07:26:55 2012
+From: nathan at nathanewilliams.com (Nathan Williams)
+Date: Mon, 10 Sep 2012 07:26:55 -0700
+Subject: [PLUG] bug in PLUG mailing list software?
+In-Reply-To: <504DF84C.2070902@cloud85.net>
+References: <504DF84C.2070902@cloud85.net>
+Message-ID: <1347287215.21955.0.camel@listhappen.hillsboro.corp.yahoo.com>
+
+On Mon, 2012-09-10 at 09:25 -0500, Richard Owlett wrote:
+> I've had some _occasional_ problems replying to *THIS* list.
+> If I send To:
+>       plug at lists.pdxlinux.org
+> I do not believe I've ever seen a problem.
+> 
+> However, if I hit "Reply" and the "To:" comes up as
+> General Linux/UNIX discussion and help; civil and on-topic 
+> <plug at lists.pdxlinux.org>
+> I generally get a error message.
+> 
+> Some experimentation suggests the semicolon is the culprit.
+> 
+> I use
+> User agent: Mozilla/5.0 (Windows NT 5.1; rv:15.0) 
+> Gecko/20120826 Firefox/15.0 SeaMonkey/2.12
+> Build identifier: 20120826214753
+> 
+> My OS is WinXP Pro SP3 -- yes I'm in process of moving to a 
+> real OS ;)
+> 
+> Comments?
+> 
+> 
+> 
+
+yeah, i've encountered the same thing, and found the same solution.
+
+cheers,
+
+nathan w
+
+
+
+
+From dexter at ambidexter.com  Mon Sep 10 09:59:17 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 10 Sep 2012 09:59:17 -0700
+Subject: [PLUG] bug in PLUG mailing list software?
+In-Reply-To: <1347287215.21955.0.camel@listhappen.hillsboro.corp.yahoo.com>
+References: <504DF84C.2070902@cloud85.net>
+	<1347287215.21955.0.camel@listhappen.hillsboro.corp.yahoo.com>
+Message-ID: <504E1C65.8040106@ambidexter.com>
+
+On 9/10/12 7:26 AM, Nathan Williams wrote:
+>> However, if I hit "Reply" and the "To:" comes up as
+>> >General Linux/UNIX discussion and help; civil and on-topic
+>> ><plug at lists.pdxlinux.org>
+>> >I generally get a error message.
+
+> yeah, i've encountered the same thing, and found the same solution.
+
+Same here. It's on the TODO list.
+
+Michael
+
+
+
+From db at kavod.com  Mon Sep 10 10:16:12 2012
+From: db at kavod.com (Daniel Browning)
+Date: Mon, 10 Sep 2012 10:16:12 -0700
+Subject: [PLUG] Hello from a Linux guy in Vancouver
+Message-ID: <201209101016.12702.db@kavod.com>
+
+[Re-send from the correct e-mail address.]
+
+Hello everyone, I'd like to introduce myself. I'm a Perl/PostgreSQL 
+developer who also does the stuff underneath (Linux sysadmin, hardware, 
+etc.).
+
+Last Thursday, I subscribed to this list and went to my first PLUG meeting.  
+Sorry for being a little bit of a know-it-all blowhard -- I'm taking pills 
+for it. :D Even so, I learned a lot about LVM and enjoyed a lot of good 
+discussion.
+
+--
+DB
+
+
+From rshepard at appl-ecosys.com  Mon Sep 10 17:26:49 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 10 Sep 2012 17:26:49 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+Message-ID: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+
+   The hard drive in an external case I used for system backups appeared to
+fail with I/O errors. I replaced it with a new WD hard drive (sent as a
+warranty replacement months ago), and WD replaced the failed drive.
+
+   Only a few weeks later, I'm seeing the same errors on the new drive. One
+day last week the console was filled with journal recovery errors. The next
+few days everything worked just fine. This morning's report of the dirvish
+backup cron job showed that 3 of the 6 partitions were backed up, then the
+process failed:
+
+>From root at appl-ecosys.com Mon Sep 10 00:37:34 2012
+Date: Mon, 10 Sep 2012 00:37:34 -0700 (PDT)
+From: root at appl-ecosys.com
+To: root at appl-ecosys.com
+Subject: cron for user root /root/dirvish-backup.sh
+
+salmo-usr:default:20120909-2200: cannot open log file /media/hd0/salmo-usr/20120909-2200/log
+cannot open config file: default.conf
+cannot open config file: default.conf
+
+   Just now I tried mounting the drive to see if I could figure out what's
+going on. Could not mount it:
+
+[root at salmo ~]# mount /media/hd0 
+mount: wrong fs type, bad option, bad superblock on /dev/sdb,
+        missing codepage or helper program, or other error
+        In some cases useful info is found in syslog - try
+        dmesg | tail  or so
+
+Taking the advice:
+
+[root at salmo ~]# dmesg | tail
+EXT3-fs (sdb): error loading journal
+sd 318:0:0:0: [sdb] Unhandled sense code
+sd 318:0:0:0: [sdb] Result: hostbyte=0x00 driverbyte=0x08
+sd 318:0:0:0: [sdb] Sense Key : 0x3 [current] 
+sd 318:0:0:0: [sdb] ASC=0x11 ASCQ=0x0
+sd 318:0:0:0: [sdb] CDB: cdb[0]=0x28: 28 00 1d 1b 72 b8 00 00 f0 00
+end_request: I/O error, dev sdb, sector 488338104
+JBD: Failed to read block at offset 27704
+JBD: recovery failed
+EXT3-fs (sdb): error loading journal
+
+   I've had very good experiences with WD drives over the years. To have
+issues with two of them in the same role after a couple of years of flawless
+operation is highly unusual.
+
+   Your advice, suggestions, and recommendations are needed. I want to get my
+nighly backups running reliably again. If it's the iMicro enclosure (with a
+USB2 connection and separate power supply), suggest an alternative. If it's
+a software issue, advise me on how to resolve it or further diagnose what's
+going on.
+
+TIA,
+
+Rich
+
+
+
+From kens at cad2cam.com  Mon Sep 10 18:32:47 2012
+From: kens at cad2cam.com (Ken Stephens)
+Date: Mon, 10 Sep 2012 18:32:47 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+Message-ID: <504E94BF.4080404@cad2cam.com>
+
+Rich Shepard wrote:
+>     The hard drive in an external case I used for system backups appeared to
+> fail with I/O errors. I replaced it with a new WD hard drive (sent as a
+> warranty replacement months ago), and WD replaced the failed drive.
+>
+>     Only a few weeks later, I'm seeing the same errors on the new drive. One
+> day last week the console was filled with journal recovery errors. The next
+> few days everything worked just fine. This morning's report of the dirvish
+> backup cron job showed that 3 of the 6 partitions were backed up, then the
+> process failed:
+>
+> >From root at appl-ecosys.com Mon Sep 10 00:37:34 2012
+> Date: Mon, 10 Sep 2012 00:37:34 -0700 (PDT)
+> From: root at appl-ecosys.com
+> To: root at appl-ecosys.com
+> Subject: cron for user root /root/dirvish-backup.sh
+>
+> salmo-usr:default:20120909-2200: cannot open log file /media/hd0/salmo-usr/20120909-2200/log
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+>
+>     Just now I tried mounting the drive to see if I could figure out what's
+> going on. Could not mount it:
+>
+> [root at salmo ~]# mount /media/hd0
+> mount: wrong fs type, bad option, bad superblock on /dev/sdb,
+>          missing codepage or helper program, or other error
+>          In some cases useful info is found in syslog - try
+>          dmesg | tail  or so
+>
+> Taking the advice:
+>
+> [root at salmo ~]# dmesg | tail
+> EXT3-fs (sdb): error loading journal
+> sd 318:0:0:0: [sdb] Unhandled sense code
+> sd 318:0:0:0: [sdb] Result: hostbyte=0x00 driverbyte=0x08
+> sd 318:0:0:0: [sdb] Sense Key : 0x3 [current]
+> sd 318:0:0:0: [sdb] ASC=0x11 ASCQ=0x0
+> sd 318:0:0:0: [sdb] CDB: cdb[0]=0x28: 28 00 1d 1b 72 b8 00 00 f0 00
+> end_request: I/O error, dev sdb, sector 488338104
+> JBD: Failed to read block at offset 27704
+> JBD: recovery failed
+> EXT3-fs (sdb): error loading journal
+>
+>     I've had very good experiences with WD drives over the years. To have
+> issues with two of them in the same role after a couple of years of flawless
+> operation is highly unusual.
+>
+>     Your advice, suggestions, and recommendations are needed. I want to get my
+> nighly backups running reliably again. If it's the iMicro enclosure (with a
+> USB2 connection and separate power supply), suggest an alternative. If it's
+> a software issue, advise me on how to resolve it or further diagnose what's
+> going on.
+>
+> TIA,
+>
+> Rich
+>
+Rich,
+
+Check your cables, pull and reinsert them a couple of times.  The 5 volt 
+signal levels can degrade after years because of corrosion and relaxing 
+contact pressure.  The cable may be broken.  Somewhere it goes over a 
+sharp edge and gets pulled.  I have tripped over cables and caused 
+failures.  As a sysadmin I seen weirder stuff.
+
+Ken
+
+
+
+From kens at cad2cam.com  Mon Sep 10 18:32:47 2012
+From: kens at cad2cam.com (Ken Stephens)
+Date: Mon, 10 Sep 2012 18:32:47 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+Message-ID: <504E94BF.4080404@cad2cam.com>
+
+Rich Shepard wrote:
+>     The hard drive in an external case I used for system backups appeared to
+> fail with I/O errors. I replaced it with a new WD hard drive (sent as a
+> warranty replacement months ago), and WD replaced the failed drive.
+>
+>     Only a few weeks later, I'm seeing the same errors on the new drive. One
+> day last week the console was filled with journal recovery errors. The next
+> few days everything worked just fine. This morning's report of the dirvish
+> backup cron job showed that 3 of the 6 partitions were backed up, then the
+> process failed:
+>
+> >From root at appl-ecosys.com Mon Sep 10 00:37:34 2012
+> Date: Mon, 10 Sep 2012 00:37:34 -0700 (PDT)
+> From: root at appl-ecosys.com
+> To: root at appl-ecosys.com
+> Subject: cron for user root /root/dirvish-backup.sh
+>
+> salmo-usr:default:20120909-2200: cannot open log file /media/hd0/salmo-usr/20120909-2200/log
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+>
+>     Just now I tried mounting the drive to see if I could figure out what's
+> going on. Could not mount it:
+>
+> [root at salmo ~]# mount /media/hd0
+> mount: wrong fs type, bad option, bad superblock on /dev/sdb,
+>          missing codepage or helper program, or other error
+>          In some cases useful info is found in syslog - try
+>          dmesg | tail  or so
+>
+> Taking the advice:
+>
+> [root at salmo ~]# dmesg | tail
+> EXT3-fs (sdb): error loading journal
+> sd 318:0:0:0: [sdb] Unhandled sense code
+> sd 318:0:0:0: [sdb] Result: hostbyte=0x00 driverbyte=0x08
+> sd 318:0:0:0: [sdb] Sense Key : 0x3 [current]
+> sd 318:0:0:0: [sdb] ASC=0x11 ASCQ=0x0
+> sd 318:0:0:0: [sdb] CDB: cdb[0]=0x28: 28 00 1d 1b 72 b8 00 00 f0 00
+> end_request: I/O error, dev sdb, sector 488338104
+> JBD: Failed to read block at offset 27704
+> JBD: recovery failed
+> EXT3-fs (sdb): error loading journal
+>
+>     I've had very good experiences with WD drives over the years. To have
+> issues with two of them in the same role after a couple of years of flawless
+> operation is highly unusual.
+>
+>     Your advice, suggestions, and recommendations are needed. I want to get my
+> nighly backups running reliably again. If it's the iMicro enclosure (with a
+> USB2 connection and separate power supply), suggest an alternative. If it's
+> a software issue, advise me on how to resolve it or further diagnose what's
+> going on.
+>
+> TIA,
+>
+> Rich
+>
+Rich,
+
+Check your cables, pull and reinsert them a couple of times.  The 5 volt 
+signal levels can degrade after years because of corrosion and relaxing 
+contact pressure.  The cable may be broken.  Somewhere it goes over a 
+sharp edge and gets pulled.  I have tripped over cables and caused 
+failures.  As a sysadmin I seen weirder stuff.
+
+Ken
+
+
+
+From kingbeowulf at gmail.com  Mon Sep 10 23:59:00 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Mon, 10 Sep 2012 23:59:00 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <504E94BF.4080404@cad2cam.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com>
+Message-ID: <504EE134.1050008@gmail.com>
+
+On 09/10/2012 06:32 PM, Ken Stephens wrote:
+> Rich Shepard wrote:
+>>      The hard drive in an external case I used for system backups appeared to
+>> fail with I/O errors. I replaced it with a new WD hard drive (sent as a
+>> warranty replacement months ago), and WD replaced the failed drive.
+>>
+>> .....
+>>
+>>      I've had very good experiences with WD drives over the years. To have
+>> issues with two of them in the same role after a couple of years of flawless
+>> operation is highly unusual.
+>>
+>>      Your advice, suggestions, and recommendations are needed. I want to get my
+>> nighly backups running reliably again. If it's the iMicro enclosure (with a
+>> USB2 connection and separate power supply), suggest an alternative. If it's
+>> a software issue, advise me on how to resolve it or further diagnose what's
+>> going on.
+>>
+>> TIA,
+>>
+>> Rich
+>>
+> Rich,
+>
+> Check your cables, pull and reinsert them a couple of times.  The 5 volt
+> signal levels can degrade after years because of corrosion and relaxing
+> contact pressure.  The cable may be broken.  Somewhere it goes over a
+> sharp edge and gets pulled.  I have tripped over cables and caused
+> failures.  As a sysadmin I seen weirder stuff.
+>
+> Ken
+>
+>
+I concur.  I had something similar happen with a WD Passport USB2 
+powered drive.  The short USB cable started to go at the micro-USB 
+connector to the drive.  All sorts of errors as it was wiggled during 
+use - and it was about 2 years old.  Also, in my case the micro-USB 
+connecter, also getting worn/loose,  is soldered to the drive PCB.  The 
+case is just a protective enclosure.  As a "road warrior" my portable 
+electronics takes quite a beating!
+
+I am not familiar with your iMicro enclosure, but the main failure points:
+
+1.  bad USB cable or connectors
+2.  USB connector on the drive enclosure.
+3.  bad power cable, connectors
+4.  bad case electronics - if the drive is SATA or PATA, there will be a 
+small PCB to convert that to USB and to route the DC power.
+
+Since this is your second drive, I would try a new compatible enclosure 
+and new cables.
+
+Ed
+
+
+
+
+From rshepard at appl-ecosys.com  Tue Sep 11 06:03:44 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 11 Sep 2012 06:03:44 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <504EE134.1050008@gmail.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+Message-ID: <alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+
+On Mon, 10 Sep 2012, King Beowulf wrote:
+
+> Since this is your second drive, I would try a new compatible enclosure
+> and new cables.
+
+Ed,
+
+   Gotcha'. Will do. I cannot believe the WD drives are failing when the
+common factor is the enclosure.
+
+   A visit to ENU this afternoon should eliminate this possibility.
+
+Thanks all!
+
+Rich
+
+
+
+From keithl at gate.kl-ic.com  Tue Sep 11 13:58:04 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Tue, 11 Sep 2012 13:58:04 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+	<alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+Message-ID: <20120911205804.GA16704@gate.kl-ic.com>
+
+On Tue, Sep 11, 2012 at 06:03:44AM -0700, Rich Shepard wrote:
+>   Gotcha'. Will do. I cannot believe the WD drives are failing when the
+> common factor is the enclosure.
+
+Sadly, there are many poorly designed bridge chipsets in external
+enclosures.  Linux adheres to standards, and goes fast.  Windows
+is slower, and often has tweaks or vendor-supplied drivers that
+are nonstandard, but patch over flaws in the chipsets.
+
+I had similar problems with some brands of USB2-to-IDE enclosures,
+years ago.  See http://wiki.dirvish.org/USB2Drives  
+
+I can only speculate why, but perhaps the interface chip designer
+did not put in enough buffering between the clock domain of the
+drive and the clock domain of the USB interface.  A small fraction
+of the data transfers will line up wrong, and some of the bits of
+a byte will transfer on clock cycle N and some on clock cycle N+1.
+There are known ways to add buffering to reduce this problem to
+infinitesimal error rates, but many inept digital designers don't
+know about them, or how to do the analysis and the testing.  
+
+Rsync-based dirvish keeps hard drives very busy.  So does an
+external "write a lot / read a lot " program, which might be a
+good way to test out the enclosures and their interface chips
+without risking your backups.
+
+Different kernels may have different error recovery behavior;
+some smart USB driver programmer might add a retry patch for
+one version of the kernel, and a subsequent clueless programmer
+might improve average performance by a fraction of a percent in
+a subsequent driver by taking the patch back out again.  Sadly,
+there is a lot of "cruelty free" (untested) design out there.
+
+So, find out what chipset the enclosure uses with "lsusb", and
+try an enclosure with a different chipset, and report your 
+findings here and on the dirvish wiki.  Sometimes, the only
+way to deal with this stuff is to carefully document our
+problems on the web so our Linux brethren can avoid them.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From rshepard at appl-ecosys.com  Tue Sep 11 14:56:32 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 11 Sep 2012 14:56:32 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <20120911205804.GA16704@gate.kl-ic.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+	<alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+	<20120911205804.GA16704@gate.kl-ic.com>
+Message-ID: <alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+
+On Tue, 11 Sep 2012, Keith Lofstrom wrote:
+
+> So, find out what chipset the enclosure uses with "lsusb", and try an
+> enclosure with a different chipset, and report your findings here and on
+> the dirvish wiki.
+
+Keith,
+
+[root at salmo ~]# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 003 Device 002: ID 058f:9254 Alcor Micro Corp. Hub
+Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 006 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 007 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+
+   I don't know if the Alcor Micro is the 4-port hub (seems reasonable) or
+/dev/sdb (the external drive).
+
+   lsusb -D /dev/sdb returns nothing.
+
+   Any suggestions on currently available external housings?
+
+Rich
+
+
+
+
+From rshepard at appl-ecosys.com  Tue Sep 11 15:17:13 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 11 Sep 2012 15:17:13 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+	<alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+	<20120911205804.GA16704@gate.kl-ic.com>
+	<alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+Message-ID: <alpine.LNX.2.00.1209111514430.7836@salmo.appl-ecosys.com>
+
+On Tue, 11 Sep 2012, Rich Shepard wrote:
+
+>   Any suggestions on currently available external housings?
+
+   Moot. I just ordered a Vantec NexStar 3 3.5" IDE to USB 2.0 External Hard
+Drive Enclosure from newegg.com. It was the only one to show 5 stars (based
+on 160 reviews). They describe the bright blue case as a positive; I'd
+prefer black but as long as it works I don't care.
+
+   Not sure how to test it for the dirvish wiki other than to use it. If you
+have suggestions, Keith, please share them with me.
+
+Rich
+
+
+
+From kingbeowulf at gmail.com  Tue Sep 11 16:46:16 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Tue, 11 Sep 2012 16:46:16 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+	<alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+	<20120911205804.GA16704@gate.kl-ic.com>
+	<alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+Message-ID: <504FCD48.3010108@gmail.com>
+
+On 09/11/2012 02:56 PM, Rich Shepard wrote:
+>
+> Keith,
+>
+> [root at salmo ~]# lsusb
+> Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+> Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+> Bus 003 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+> Bus 003 Device 002: ID 058f:9254 Alcor Micro Corp. Hub
+> Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+> Bus 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+> Bus 006 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+> Bus 007 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+>
+>     I don't know if the Alcor Micro is the 4-port hub (seems reasonable) or
+> /dev/sdb (the external drive).
+>
+>     lsusb -D /dev/sdb returns nothing.
+>
+>     Any suggestions on currently available external housings?
+>
+> Rich
+>
+>
+  I happen to have one of those Alcor hubs in a box: it a USB 1.1 
+device, and it is crap. A really cheap discount chipset often included 
+in many device or computer cases to provide a extra usb exposed SD card 
+etc ports on the motherboard.  Crap.  I say toss it.
+
+$ lsusb | grep Alcor
+Bus 004 Device 004: ID 058f:9254 Alcor Micro Corp. Hub
+$ lsusb -vd 058f:9254 |grep USB
+Couldn't open device, some information will be missing
+  bcdUSB               1.10
+
+As opposed to a desktop/laptop drive IDE to USB adapter I use:
+
+$ lsusb -vd 14cd:6600 |grep USB
+Couldn't open device, some information will be missing
+Bus 001 Device 006: ID 14cd:6600 Super Top USB 2.0 IDE DEVICE
+   bcdUSB               2.00
+   idProduct          0x6600 USB 2.0 IDE DEVICE
+
+Ed
+
+
+
+From rshepard at appl-ecosys.com  Tue Sep 11 17:35:10 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 11 Sep 2012 17:35:10 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <504FCD48.3010108@gmail.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com> <504EE134.1050008@gmail.com>
+	<alpine.LNX.2.00.1209110602250.7836@salmo.appl-ecosys.com>
+	<20120911205804.GA16704@gate.kl-ic.com>
+	<alpine.LNX.2.00.1209111453560.7836@salmo.appl-ecosys.com>
+	<504FCD48.3010108@gmail.com>
+Message-ID: <alpine.LNX.2.00.1209111733350.7836@salmo.appl-ecosys.com>
+
+On Tue, 11 Sep 2012, King Beowulf wrote:
+
+>  I happen to have one of those Alcor hubs in a box: it a USB 1.1 device,
+> and it is crap. A really cheap discount chipset often included in many
+> device or computer cases to provide a extra usb exposed SD card etc ports
+> on the motherboard.  Crap.  I say toss it.
+
+Ed,
+
+   So, the Alcor is the external hard drive enclosure. I ordered a
+replacement from Newegg that was highly rated by users. It'll get here in a
+few days.
+
+Thanks,
+
+Rich
+
+
+
+From dfhubbard at freegeek.org  Fri Sep 14 10:57:35 2012
+From: dfhubbard at freegeek.org (dfhubbard at freegeek.org)
+Date: Fri, 14 Sep 2012 10:57:35 -0700
+Subject: [PLUG] Sunday Clinic?
+Message-ID: <e9aac12bc5eaba8aaad8bc27dd34cc8e.squirrel@mail.freegeek.org>
+
+Hey
+
+I just received the email below from Vagrant.  Will this effect Sunday's
+Linux Clinic?
+
+Thanks
+Debra
+
+
+
+
+Subject:   	[freegeek-regulars] Server downtime Sunday, September 16th,
+11am till 7pm
+From:   	"Vagrant Cascadian" <vagrant at freegeek.org>
+Date:   	Fri, September 14, 2012 9:21 am
+To:   	regulars at lists.freegeek.org
+
+
+>From noon to 6pm, We'll be working on recabling and other general server
+maintenance. Some of our services may down intermittantly during this time
+while we adjust cabling in the server room.
+
+We will also be rebooting several of our servers for a routine security
+update.
+The following services will be down for hopefully brief periods during that
+time:
+
+  mail.freegeek.org, sales.freegeek.org, wiki.freegeek.org,
+lists.freegeek.org,
+  todo.freegeek.org
+
+The main website (www.freegeek.org) should remain unaffected, but other 
+freegeek.org servers may also experience brief downtimes.
+
+see http://status.freegeek.org for status updates.
+
+
+live well,
+  vagrant
+___________
+
+
+
+
+
+
+From keithl at gate.kl-ic.com  Fri Sep 14 15:35:54 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 14 Sep 2012 15:35:54 -0700
+Subject: [PLUG] Clinic memories, Sunday August 16, 1pm at Free Geek
+Message-ID: <20120914223554.GB27247@gate.kl-ic.com>
+
+Debra passes on the news that the free geek team will be doing
+maintenance Sunday:
+
+> From noon to 6pm, We'll be working on recabling and other general server
+> maintenance. Some of our services may down intermittantly during this time
+> while we adjust cabling in the server room.
+
+They've done this before on Clinic day - I do not remember any
+major problems, and they may appreciate our presence as guinea
+pigs and beta testers.  
+
+But that is my memory - without a parity bit.  If your memory
+(RAM, Disk, or neuronal) is also getting flakey, bring your 
+machine and brain down to the Linux clinic and we will fsck and
+brainck to clear the cobwebs.  We will erase your nightmarish
+digital memories of Windows, replacing them with linux on
+your disk and linux skills in your head.
+
+The clinic meets at Free Geek, 1731 SE 10th, 3 blocks south of
+Hawthorne,  every third sunday from 1 pm to 5 pm.  We have 
+wired and wireless ethernet (I hope), keyboards, monitors and
+mice, distros, and so-called expert advice based on what little
+we can remember from our own linux newbie days.  We may have
+coffee, if I don't forget to bring coffee filters.  Forget
+about that diet - somebody will probably bring crackers and
+cookies, perhaps chocolate.  Remember, gigantic is the new
+normal.
+
+Your brain will never be the same.  Ours aren't.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From dexter at ambidexter.com  Fri Sep 14 15:39:58 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Fri, 14 Sep 2012 15:39:58 -0700
+Subject: [PLUG] Reminder: September PLUG Advanced Topics: Embedded Linux and
+ GPL compliance
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5053B23E.9020803@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Beth Flanagan, Intel
+What: Embedded Linux and GPL compliance
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, September 18th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+Embedded Linux and GPL compliance. How not to make a mess of things.
+
+As Linux becomes more and more common in the consumer device market,
+the number of GPL violations found by various compliance
+organizations have increased dramatically. We'll discuss how
+violations occur, what to do if you find yourself in violation and how
+the Yocto Project and OpenEmbedded-Core helps you to avoid a costly
+GPL violation action.
+
+
+Beth 'pidge' Flanagan is the maintainer of the licensing
+infrastructure for the Yocto Project and OpenEmbedded-Core, maintainer
+of the yocto-autobuilder and build and release engineer for the Yocto
+Project. She has spoken on a wide range of topics over the years, from
+GPL compliance in the embedded world to open source firearms. She
+works full time on the Yocto Project and OpenEmbedded-Core for Intel's
+Open Source Technologies Center.
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250462831
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From mkosmal at gmail.com  Fri Sep 14 20:16:18 2012
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Fri, 14 Sep 2012 20:16:18 -0700
+Subject: [PLUG] Clinic memories, Sunday August 16, 1pm at Free Geek
+In-Reply-To: <20120914223554.GB27247@gate.kl-ic.com>
+References: <20120914223554.GB27247@gate.kl-ic.com>
+Message-ID: <CADKOhKe8r5=S9K4Q3C0FRjkm0bP3D3W9SOuJ8G3jBc7X9mNrgg@mail.gmail.com>
+
+On Fri, Sep 14, 2012 at 3:35 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+> Debra passes on the news that the free geek team will be doing
+> maintenance Sunday:
+>
+>> From noon to 6pm, We'll be working on recabling and other general server
+>> maintenance. Some of our services may down intermittantly during this time
+>> while we adjust cabling in the server room.
+>
+> They've done this before on Clinic day - I do not remember any
+> major problems, and they may appreciate our presence as guinea
+> pigs and beta testers.
+>
+> But that is my memory - without a parity bit.  If your memory
+> (RAM, Disk, or neuronal) is also getting flakey, bring your
+> machine and brain down to the Linux clinic and we will fsck and
+> brainck to clear the cobwebs.  We will erase your nightmarish
+> digital memories of Windows, replacing them with linux on
+> your disk and linux skills in your head.
+>
+> The clinic meets at Free Geek, 1731 SE 10th, 3 blocks south of
+> Hawthorne,  every third sunday from 1 pm to 5 pm.  We have
+> wired and wireless ethernet (I hope), keyboards, monitors and
+> mice, distros, and so-called expert advice based on what little
+> we can remember from our own linux newbie days.  We may have
+> coffee, if I don't forget to bring coffee filters.  Forget
+> about that diet - somebody will probably bring crackers and
+> cookies, perhaps chocolate.  Remember, gigantic is the new
+> normal.
+>
+> Your brain will never be the same.  Ours aren't.
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+> Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+Is this Linux time travel to August?
+
+YMMV
+
+Marvin
+
+
+From keithl at gate.kl-ic.com  Fri Sep 14 22:39:29 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 14 Sep 2012 22:39:29 -0700
+Subject: [PLUG] Clinic memories, Sunday August 16, 1pm at Free Geek
+In-Reply-To: <CADKOhKe8r5=S9K4Q3C0FRjkm0bP3D3W9SOuJ8G3jBc7X9mNrgg@mail.gmail.com>
+References: <20120914223554.GB27247@gate.kl-ic.com>
+	<CADKOhKe8r5=S9K4Q3C0FRjkm0bP3D3W9SOuJ8G3jBc7X9mNrgg@mail.gmail.com>
+Message-ID: <20120915053929.GB27653@gate.kl-ic.com>
+
+> On Fri, Sep 14, 2012 at 3:35 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+> > But that is my memory - without a parity bit.  If your memory
+> > (RAM, Disk, or neuronal) is also getting flakey, bring your
+
+On Fri, Sep 14, 2012 at 08:16:18PM -0700, Marvin Kosmal wrote:
+> Is this Linux time travel to August?
+
+My point exactly.  What month is it?  What year is it?  I can't
+remember.  Show up at for the Clinic and find out!
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From johnxj at comcast.net  Sat Sep 15 06:39:13 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 15 Sep 2012 06:39:13 -0700
+Subject: [PLUG] Clinic memories, Sunday August 16, 1pm at Free Geek
+In-Reply-To: <20120915053929.GB27653@gate.kl-ic.com>
+References: <20120914223554.GB27247@gate.kl-ic.com>
+	<CADKOhKe8r5=S9K4Q3C0FRjkm0bP3D3W9SOuJ8G3jBc7X9mNrgg@mail.gmail.com>
+	<20120915053929.GB27653@gate.kl-ic.com>
+Message-ID: <20120915063913.38ea7103@mailhost.pdx.edu>
+
+On Fri, 14 Sep 2012 22:39:29 -0700
+Keith Lofstrom <keithl at gate.kl-ic.com> dijo:
+
+>> On Fri, Sep 14, 2012 at 3:35 PM, Keith Lofstrom
+>> <keithl at gate.kl-ic.com> wrote:
+>> > But that is my memory - without a parity bit.  If your memory
+>> > (RAM, Disk, or neuronal) is also getting flakey, bring your
+>
+>On Fri, Sep 14, 2012 at 08:16:18PM -0700, Marvin Kosmal wrote:
+>> Is this Linux time travel to August?
+>
+>My point exactly.  What month is it?  What year is it?  I can't
+>remember.  Show up at for the Clinic and find out!
+
+To assist the memory functions there will be coffee. I have acquired a
+new coffee maker for the Clinic. This one is stainless steel, including
+the pot. And the filters that we already have will fit it.
+
+
+From dexter at ambidexter.com  Mon Sep 17 13:11:44 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 17 Sep 2012 13:11:44 -0700
+Subject: [PLUG] Reminder: September PLUG Advanced Topics: Embedded Linux and
+ GPL compliance
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <50578400.9000800@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Beth Flanagan, Intel
+What: Embedded Linux and GPL compliance
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, September 18th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+Embedded Linux and GPL compliance. How not to make a mess of things.
+
+As Linux becomes more and more common in the consumer device market,
+the number of GPL violations found by various compliance
+organizations have increased dramatically. We'll discuss how
+violations occur, what to do if you find yourself in violation and how
+the Yocto Project and OpenEmbedded-Core helps you to avoid a costly
+GPL violation action.
+
+
+Beth 'pidge' Flanagan is the maintainer of the licensing
+infrastructure for the Yocto Project and OpenEmbedded-Core, maintainer
+of the yocto-autobuilder and build and release engineer for the Yocto
+Project. She has spoken on a wide range of topics over the years, from
+GPL compliance in the embedded world to open source firearms. She
+works full time on the Yocto Project and OpenEmbedded-Core for Intel's
+Open Source Technologies Center.
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250462831
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From dexter at ambidexter.com  Mon Sep 17 13:20:19 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 17 Sep 2012 13:20:19 -0700
+Subject: [PLUG] Announcement: October PLUG Meeting: UEFI Secure Boot and
+	Open Source
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <50578603.3080705@ambidexter.com>
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Vincent Zimmer, Intel
+What: UEFI Secure Boot and Open Source. It's not a 'general war against 
+computation.'
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, October 4th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+As 2012 platform firmware embraces UEFI 2.3.1 and ACPI5.0 support, the 
+ability to interoperate with UEFI Secure Boot is imperative. This poses 
+a unique challenge for open software that may not come pre-installed on 
+the platform. With UEFI Secure Boot, though, infrastructure has been put 
+in place to preserve openness, owner choice and control in addition to 
+mitigating concerns of malware targeting the platform. This talk will 
+provide a history of UEFI Secure Boot, an overview of the 
+implementation, deployment practices, and details on the engagement with 
+the open source community.
+
+Vincent Zimmer is a Principal Engineer with Intel Corporation. He has 
+been working on various platform, networking, trusted computing and 
+security technologies around EFI since 1999 and platform firmware since 
+1992. Vincent has spoken in various forums on this topic, co-authored 3 
+books, 10 papers, and several specifications in this area.
+
+Calagator Page: http://calagator.org/events/1250462851
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+
+From dexter at ambidexter.com  Tue Sep 18 13:02:51 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Tue, 18 Sep 2012 13:02:51 -0700
+Subject: [PLUG] Any FreeSWITCH users out there?
+Message-ID: <5058D36B.2060005@ambidexter.com>
+
+
+Hello all,
+
+With the FreePBX talking being such a hit, are there any FreeSWITCH 
+users out there who would to enlighten us about this "Asterisk rewrite"?
+
+Note the recent FLOSS Weekly episode about Kazoo, which is based on 
+FreeSWITCH: http://twit.tv/show/floss-weekly/220
+
+Michael
+
+
+From fredjame at fredjame.cnc.net  Thu Sep 20 12:11:40 2012
+From: fredjame at fredjame.cnc.net (Fred James)
+Date: Thu, 20 Sep 2012 15:11:40 -0400
+Subject: [PLUG] OT: chrome
+Message-ID: <505B6A6C.6010504@fredjame.cnc.net>
+
+OT: google chrome
+(a) Any experience running the chrome browser, good/bad/indifferent?
+(b) their web site says: "For Linux (Debian/Ubuntu/Fedora/openSUSE)"
+(b.1) Mandriva and Mageia (so far) seem to be OK with most Red 
+Hat/Fedora/RPM stuff ... any comment specifically as relates those 2 
+distros and chrome?
+Thanks
+Regards
+Fred James
+
+
+From plug at the-wes.com  Thu Sep 20 12:50:46 2012
+From: plug at the-wes.com (wes)
+Date: Thu, 20 Sep 2012 12:50:46 -0700
+Subject: [PLUG] OT: chrome
+In-Reply-To: <505B6A6C.6010504@fredjame.cnc.net>
+References: <505B6A6C.6010504@fredjame.cnc.net>
+Message-ID: <CAA1wLO=XRAiJaE2rzyDKVgvUONqvNhBaeqvZfr++2oJxsBZHwg@mail.gmail.com>
+
+(a) I run chrome a lot and am generally happy with it. not enough to make
+it my exclusive browser. not sure that could ever be the case.
+
+(b) those are just examples.
+
+(b.1) not _specifically_ specific, but you "should" be able to compile
+Chrome (or Chromium) to work on pretty much any distro out there. it just
+depends on how much work you are willing to put into it, vs how much work
+it will take to get it to compile and run.
+
+that's the beauty of linux!
+
+-wes
+
+On Thu, Sep 20, 2012 at 12:11 PM, Fred James <fredjame at fredjame.cnc.net>wrote:
+
+> OT: google chrome
+> (a) Any experience running the chrome browser, good/bad/indifferent?
+> (b) their web site says: "For Linux (Debian/Ubuntu/Fedora/openSUSE)"
+> (b.1) Mandriva and Mageia (so far) seem to be OK with most Red
+> Hat/Fedora/RPM stuff ... any comment specifically as relates those 2
+> distros and chrome?
+> Thanks
+> Regards
+> Fred James
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From dexter at ambidexter.com  Thu Sep 20 13:42:12 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 20 Sep 2012 13:42:12 -0700
+Subject: [PLUG] OT: chrome
+In-Reply-To: <505B6A6C.6010504@fredjame.cnc.net>
+References: <505B6A6C.6010504@fredjame.cnc.net>
+Message-ID: <505B7FA4.1060801@ambidexter.com>
+
+On 9/20/12 12:11 PM, Fred James wrote:
+> (a) Any experience running the chrome browser, good/bad/indifferent?
+
+I, and seemingly others have had it rupture under high load on Mac OS X. 
+Lots of pages, lots of tabs. Not a good practice often necessary.
+
+Michael
+
+
+From dexter at ambidexter.com  Thu Sep 20 13:55:32 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 20 Sep 2012 13:55:32 -0700
+Subject: [PLUG] PLUG Hosting
+Message-ID: <505B82C4.3070809@ambidexter.com>
+
+
+Hello all,
+
+Here's an update on the PLUG server/services move:
+
+OSU-OSL is out.
+PSU is out.
+Free Geek is out and is reconsidering their own options.
+
+NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't 
+very Portland-y.
+
+Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it options?
+
+Key criteria:
+
+1. Free of charge
+2. Staying power
+3. Basic security updates
+4. Multiple humans
+
+Quite a few of us could host it but it should be trusted to an entity 
+with multiple points of contact and administrators. NYC*BUG would meet 
+all of those requirements but something local would also be a plus.
+
+Michael
+
+
+From sechrest at gmail.com  Thu Sep 20 15:24:49 2012
+From: sechrest at gmail.com (John Sechrest)
+Date: Thu, 20 Sep 2012 15:24:49 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <505B82C4.3070809@ambidexter.com>
+References: <505B82C4.3070809@ambidexter.com>
+Message-ID: <CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+
+I talked to the folks at Peak Internet Services and they are willing to
+sponsor the site.
+
+
+Talk to
+
+Bobby Samai | Director of Marketing
+541.738.4968 | 800.731.4871 | Fax 541.738.4950
+bobby.samai at peakinternet.com
+www.peakinternet.com
+
+And he will get you set up with a web service for PLUG.
+
+Let me know if there is anything that I can do that will make this work
+better.
+
+-- johns
+
+
+On Thu, Sep 20, 2012 at 1:55 PM, Michael Dexter <dexter at ambidexter.com>wrote:
+
+>
+> Hello all,
+>
+> Here's an update on the PLUG server/services move:
+>
+> OSU-OSL is out.
+> PSU is out.
+> Free Geek is out and is reconsidering their own options.
+>
+> NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't
+> very Portland-y.
+>
+> Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it options?
+>
+> Key criteria:
+>
+> 1. Free of charge
+> 2. Staying power
+> 3. Basic security updates
+> 4. Multiple humans
+>
+> Quite a few of us could host it but it should be trusted to an entity
+> with multiple points of contact and administrators. NYC*BUG would meet
+> all of those requirements but something local would also be a plus.
+>
+> Michael
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+John Sechrest          .
+                                       .
+                                             .
+                                                     .
+
+                                                               .
+           sechrest at gmail.com
+                                                                          .
+                             @sechrest  <http://www.twitter.com/sechrest>
+
+             .
+        http://www.oomaat.com
+               .
+
+
+From russell at personaltelco.net  Thu Sep 20 15:37:26 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 20 Sep 2012 15:37:26 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <505B82C4.3070809@ambidexter.com> (Michael Dexter's message of
+	"Thu\, 20 Sep 2012 13\:55\:32 -0700")
+References: <505B82C4.3070809@ambidexter.com>
+Message-ID: <86ehlw723d.fsf@coulee.tdb.com>
+
+>>>>> "Michael" == Michael Dexter <dexter at ambidexter.com> writes:
+
+Michael> Hello all,
+
+Michael> Here's an update on the PLUG server/services move:
+
+Michael> OSU-OSL is out.  PSU is out.  Free Geek is out and is
+Michael> reconsidering their own options.
+
+Michael> NYC*BUG (New York City *BSD User's Group) is in, but
+Michael> obviously isn't very Portland-y.
+
+Michael> Can anyone suggest other
+Michael> no-question-they-can-do-it-and-WILL-do-it options?
+
+Michael> Key criteria:
+
+Michael> 1. Free of charge 2. Staying power 3. Basic security updates
+Michael> 4. Multiple humans
+
+Integra Telecom hosts one of our Personal Telco boxes.  That all
+happened before I got involved, so I'm not sure who you would talk to
+about it.  There is a colo out near OGI (where Integra came from)
+where there is a "community" rack (or that's what it was once
+called).
+
+Our other box is hosted by Stephouse Networks.  I can't speak for them
+and their willingness or physical capacity to host PLUG, but they were
+very nice to PTP (clearly, because we are awesome).  Stephouse is in
+the Pittock Building.  Particularly topical since I was just there
+fixing a boot problem (supergrub CD, yay!) after a RAID1 disk
+failure.
+
+Stephouse is very Portland-y.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From dexter at ambidexter.com  Thu Sep 20 15:37:20 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 20 Sep 2012 15:37:20 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+References: <505B82C4.3070809@ambidexter.com>
+	<CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+Message-ID: <505B9AA0.5040401@ambidexter.com>
+
+
+Thanks. I will drop them a line.
+
+I hope you mentioned the mailing lists, our top priority.
+
+Michael
+
+On 9/20/12 3:24 PM, John Sechrest wrote:
+> I talked to the folks at Peak Internet Services and they are willing to
+> sponsor the site.
+>
+>
+> Talk to
+>
+> Bobby Samai | Director of Marketing
+> 541.738.4968 | 800.731.4871 | Fax 541.738.4950
+> bobby.samai at peakinternet.com
+> www.peakinternet.com
+>
+> And he will get you set up with a web service for PLUG.
+>
+> Let me know if there is anything that I can do that will make this work
+> better.
+>
+> -- johns
+>
+>
+> On Thu, Sep 20, 2012 at 1:55 PM, Michael Dexter <dexter at ambidexter.com>wrote:
+>
+>>
+>> Hello all,
+>>
+>> Here's an update on the PLUG server/services move:
+>>
+>> OSU-OSL is out.
+>> PSU is out.
+>> Free Geek is out and is reconsidering their own options.
+>>
+>> NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't
+>> very Portland-y.
+>>
+>> Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it options?
+>>
+>> Key criteria:
+>>
+>> 1. Free of charge
+>> 2. Staying power
+>> 3. Basic security updates
+>> 4. Multiple humans
+>>
+>> Quite a few of us could host it but it should be trusted to an entity
+>> with multiple points of contact and administrators. NYC*BUG would meet
+>> all of those requirements but something local would also be a plus.
+>>
+>> Michael
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+>
+
+
+
+From dexter at ambidexter.com  Thu Sep 20 16:10:47 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 20 Sep 2012 16:10:47 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <86ehlw723d.fsf@coulee.tdb.com>
+References: <505B82C4.3070809@ambidexter.com> <86ehlw723d.fsf@coulee.tdb.com>
+Message-ID: <505BA277.5030300@ambidexter.com>
+
+On 9/20/12 3:37 PM, Russell Senior wrote:
+> Stephouse is very Portland-y.
+
+A small update:
+
+Peak sounds just fine, albeit in a Corvallis-y way. :)
+
+Integra's PBX dropped my call and a redial gave me a very noisy line. 
+Waited awhile on the third try but gave up. Gotta work on that.
+
+Stephouse quickly escalated me to a tech and the lead techs will get 
+back to me soon. One tech wears his PTP t-shirt now and then...
+
+Michael
+
+
+From sechrest at gmail.com  Thu Sep 20 17:04:19 2012
+From: sechrest at gmail.com (John Sechrest)
+Date: Thu, 20 Sep 2012 17:04:19 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <505B9AA0.5040401@ambidexter.com>
+References: <505B82C4.3070809@ambidexter.com>
+	<CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+	<505B9AA0.5040401@ambidexter.com>
+Message-ID: <CAAJscQMNJXpeDzL_SSbQdvZL7N+NmT3DnAahsq=SG3OgvpkSZQ@mail.gmail.com>
+
+They support mailman, that is where I have my lists.
+They also have majordomo, but are wishing people would switch.
+
+So I believe they have all the tools that you need.
+
+I look forward to seeing how it goes.
+
+
+
+On Thu, Sep 20, 2012 at 3:37 PM, Michael Dexter <dexter at ambidexter.com>wrote:
+
+>
+> Thanks. I will drop them a line.
+>
+> I hope you mentioned the mailing lists, our top priority.
+>
+> Michael
+>
+> On 9/20/12 3:24 PM, John Sechrest wrote:
+> > I talked to the folks at Peak Internet Services and they are willing to
+> > sponsor the site.
+> >
+> >
+> > Talk to
+> >
+> > Bobby Samai | Director of Marketing
+> > 541.738.4968 | 800.731.4871 | Fax 541.738.4950
+> > bobby.samai at peakinternet.com
+> > www.peakinternet.com
+> >
+> > And he will get you set up with a web service for PLUG.
+> >
+> > Let me know if there is anything that I can do that will make this work
+> > better.
+> >
+> > -- johns
+> >
+> >
+> > On Thu, Sep 20, 2012 at 1:55 PM, Michael Dexter <dexter at ambidexter.com
+> >wrote:
+> >
+> >>
+> >> Hello all,
+> >>
+> >> Here's an update on the PLUG server/services move:
+> >>
+> >> OSU-OSL is out.
+> >> PSU is out.
+> >> Free Geek is out and is reconsidering their own options.
+> >>
+> >> NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't
+> >> very Portland-y.
+> >>
+> >> Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it
+> options?
+> >>
+> >> Key criteria:
+> >>
+> >> 1. Free of charge
+> >> 2. Staying power
+> >> 3. Basic security updates
+> >> 4. Multiple humans
+> >>
+> >> Quite a few of us could host it but it should be trusted to an entity
+> >> with multiple points of contact and administrators. NYC*BUG would meet
+> >> all of those requirements but something local would also be a plus.
+> >>
+> >> Michael
+> >> _______________________________________________
+> >> PLUG mailing list
+> >> PLUG at lists.pdxlinux.org
+> >> http://lists.pdxlinux.org/mailman/listinfo/plug
+> >>
+> >
+> >
+> >
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+John Sechrest          .
+                                       .
+                                             .
+                                                     .
+
+                                                               .
+           sechrest at gmail.com
+                                                                          .
+                             @sechrest  <http://www.twitter.com/sechrest>
+
+             .
+        http://www.oomaat.com
+               .
+
+
+From creswick at gmail.com  Thu Sep 20 17:34:35 2012
+From: creswick at gmail.com (Rogan Creswick)
+Date: Thu, 20 Sep 2012 17:34:35 -0700
+Subject: [PLUG] OT: chrome
+In-Reply-To: <505B6A6C.6010504@fredjame.cnc.net>
+References: <505B6A6C.6010504@fredjame.cnc.net>
+Message-ID: <CAHjep=xrDm3kZ2aPDz7KypEnw8kUzNfeVxtkJm950E1LBuDAiA@mail.gmail.com>
+
+On Thu, Sep 20, 2012 at 12:11 PM, Fred James <fredjame at fredjame.cnc.net> wrote:
+> OT: google chrome
+> (a) Any experience running the chrome browser, good/bad/indifferent?
+
+I highly recommend it.
+
+It's been my primary browser for close to three years - no significant
+problems, and I find Firefox frustratingly slow and counter intuitive
+on the occasions I've gone back (usually to test something, or get
+around a rare user agent check).
+
+I wish there were a long-term support version, though.
+
+--Rogan
+
+> (b) their web site says: "For Linux (Debian/Ubuntu/Fedora/openSUSE)"
+> (b.1) Mandriva and Mageia (so far) seem to be OK with most Red
+> Hat/Fedora/RPM stuff ... any comment specifically as relates those 2
+> distros and chrome?
+> Thanks
+> Regards
+> Fred James
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From teknotus at gmail.com  Thu Sep 20 18:43:01 2012
+From: teknotus at gmail.com (Daniel Johnson)
+Date: Thu, 20 Sep 2012 18:43:01 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <505B82C4.3070809@ambidexter.com>
+References: <505B82C4.3070809@ambidexter.com>
+Message-ID: <CA+nDE0gk=1BNdNyFR-9oEjfQNorw7uRngYd3P35+i7kzOQad5A@mail.gmail.com>
+
+> Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it
+options?
+>
+> Key criteria:
+>
+> 1. Free of charge
+> 2. Staying power
+> 3. Basic security updates
+> 4. Multiple humans
+
+http://www.networkredux.com/
+
+Sponsors many legion of tech resources, and a few well known free software
+projects.
+
+
+From chaz at bctonline.com  Thu Sep 20 20:45:11 2012
+From: chaz at bctonline.com (Chaz Sliger)
+Date: Thu, 20 Sep 2012 20:45:11 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+References: <505B82C4.3070809@ambidexter.com>
+	<CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+Message-ID: <008801cd97ab$8109b030$831d1090$@com>
+
+John!
+How are you?  Long time, no see.
+It made me smile just seeing your name pop up on my screen.
+~chaz
+chaz at bctonline.com
+
+
+-----Original Message-----
+From: plug-bounces at lists.pdxlinux.org
+[mailto:plug-bounces at lists.pdxlinux.org] On Behalf Of John Sechrest
+Sent: Thursday, September 20, 2012 3:25 PM
+To: General Linux/UNIX discussion and help, civil and on-topic
+Cc: bobby.samai at peakinternet.com
+Subject: Re: [PLUG] PLUG Hosting
+
+I talked to the folks at Peak Internet Services and they are willing to
+sponsor the site.
+
+
+Talk to
+
+Bobby Samai | Director of Marketing
+541.738.4968 | 800.731.4871 | Fax 541.738.4950 bobby.samai at peakinternet.com
+www.peakinternet.com
+
+And he will get you set up with a web service for PLUG.
+
+Let me know if there is anything that I can do that will make this work
+better.
+
+-- johns
+
+
+On Thu, Sep 20, 2012 at 1:55 PM, Michael Dexter
+<dexter at ambidexter.com>wrote:
+
+>
+> Hello all,
+>
+> Here's an update on the PLUG server/services move:
+>
+> OSU-OSL is out.
+> PSU is out.
+> Free Geek is out and is reconsidering their own options.
+>
+> NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't 
+> very Portland-y.
+>
+> Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it
+options?
+>
+> Key criteria:
+>
+> 1. Free of charge
+> 2. Staying power
+> 3. Basic security updates
+> 4. Multiple humans
+>
+> Quite a few of us could host it but it should be trusted to an entity 
+> with multiple points of contact and administrators. NYC*BUG would meet 
+> all of those requirements but something local would also be a plus.
+>
+> Michael
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+John Sechrest          .
+                                       .
+                                             .
+                                                     .
+
+                                                               .
+           sechrest at gmail.com
+                                                                          .
+                             @sechrest  <http://www.twitter.com/sechrest>
+
+             .
+        http://www.oomaat.com
+               .
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+
+From sechrest at gmail.com  Fri Sep 21 08:30:29 2012
+From: sechrest at gmail.com (John Sechrest)
+Date: Fri, 21 Sep 2012 08:30:29 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <008801cd97ab$8109b030$831d1090$@com>
+References: <505B82C4.3070809@ambidexter.com>
+	<CAAJscQNXMcuNzCcaWDC=POKaxL7-eahLa2HLZR9ejUADYGJ+jw@mail.gmail.com>
+	<008801cd97ab$8109b030$831d1090$@com>
+Message-ID: <CAAJscQP2j4CpwF7KB-XkmVeCqKK_K5jrZ5hVNQk5K_PCwrhAuQ@mail.gmail.com>
+
+thanks chaz
+
+I am doing OK
+
+I am up in Seattle these days
+so I don't get to pdx as often
+ On Sep 20, 2012 8:45 PM, "Chaz Sliger" <chaz at bctonline.com> wrote:
+
+> John!
+> How are you?  Long time, no see.
+> It made me smile just seeing your name pop up on my screen.
+> ~chaz
+> chaz at bctonline.com
+>
+>
+> -----Original Message-----
+> From: plug-bounces at lists.pdxlinux.org
+> [mailto:plug-bounces at lists.pdxlinux.org] On Behalf Of John Sechrest
+> Sent: Thursday, September 20, 2012 3:25 PM
+> To: General Linux/UNIX discussion and help, civil and on-topic
+> Cc: bobby.samai at peakinternet.com
+> Subject: Re: [PLUG] PLUG Hosting
+>
+> I talked to the folks at Peak Internet Services and they are willing to
+> sponsor the site.
+>
+>
+> Talk to
+>
+> Bobby Samai | Director of Marketing
+> 541.738.4968 | 800.731.4871 | Fax 541.738.4950
+> bobby.samai at peakinternet.com
+> www.peakinternet.com
+>
+> And he will get you set up with a web service for PLUG.
+>
+> Let me know if there is anything that I can do that will make this work
+> better.
+>
+> -- johns
+>
+>
+> On Thu, Sep 20, 2012 at 1:55 PM, Michael Dexter
+> <dexter at ambidexter.com>wrote:
+>
+> >
+> > Hello all,
+> >
+> > Here's an update on the PLUG server/services move:
+> >
+> > OSU-OSL is out.
+> > PSU is out.
+> > Free Geek is out and is reconsidering their own options.
+> >
+> > NYC*BUG (New York City *BSD User's Group) is in, but obviously isn't
+> > very Portland-y.
+> >
+> > Can anyone suggest other no-question-they-can-do-it-and-WILL-do-it
+> options?
+> >
+> > Key criteria:
+> >
+> > 1. Free of charge
+> > 2. Staying power
+> > 3. Basic security updates
+> > 4. Multiple humans
+> >
+> > Quite a few of us could host it but it should be trusted to an entity
+> > with multiple points of contact and administrators. NYC*BUG would meet
+> > all of those requirements but something local would also be a plus.
+> >
+> > Michael
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+> >
+>
+>
+>
+> --
+> John Sechrest          .
+>                                        .
+>                                              .
+>                                                      .
+>
+>                                                                .
+>            sechrest at gmail.com
+>                                                                           .
+>                              @sechrest  <http://www.twitter.com/sechrest>
+>
+>              .
+>         http://www.oomaat.com
+>                .
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From dexter at ambidexter.com  Fri Sep 21 11:38:48 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Fri, 21 Sep 2012 11:38:48 -0700
+Subject: [PLUG] PLUG Hosting
+In-Reply-To: <CA+nDE0gk=1BNdNyFR-9oEjfQNorw7uRngYd3P35+i7kzOQad5A@mail.gmail.com>
+References: <505B82C4.3070809@ambidexter.com>
+	<CA+nDE0gk=1BNdNyFR-9oEjfQNorw7uRngYd3P35+i7kzOQad5A@mail.gmail.com>
+Message-ID: <505CB438.6030301@ambidexter.com>
+
+On 9/20/12 6:43 PM, Daniel Johnson wrote:
+> http://www.networkredux.com/
+>
+> Sponsors many legion of tech resources, and a few well known free software
+> projects.
+
+Nice: http://www.networkredux.com/about/sponsorships
+
+Added to the list and I've made first contact.
+
+Thank you Daniel.
+
+Michael
+
+
+
+From russell at personaltelco.net  Fri Sep 21 16:11:49 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Fri, 21 Sep 2012 16:11:49 -0700
+Subject: [PLUG] LVM-induced hosage
+Message-ID: <867grnotsa.fsf@coulee.tdb.com>
+
+
+After the excellent presentation on LVM by Brian at PLUG earlier this
+month, and after our recent disk failure/recovery this week, I was
+working on reorganizing our PVs.  I had created a new pv on a new
+RAID1 array (md5) and was loving the idea of moving the logical
+volumes over from (md4, on a single-disk degraded RAID1 array) to the
+new array, with pvmove.  So, I made some backups of files using rsync,
+and this morning after that had finished, I fired off:
+
+ # pvmove -v -i10 /dev/md4
+
+And it commenced to, I presume, do the right thing.  After about 17%,
+I got some messages (which regrettable I did not preserve) about
+suspending (??) the pvmove, and my connection to the machine froze
+(done remotely over the network, no console available).  A few hours
+later, I got down to the colo and looked at the console.  There was a
+login prompt, which I could type at, but I never got a password
+prompt.  So, I rebooted and it came back up fine, but the pvmove had
+clearly not succeeded.  Googling about, I found this, which looks like
+what I saw:
+
+  http://www.novell.com/support/kb/doc.php?id=7004393
+
+In brief, it suggests that you don't do a pvmove affecting a logical
+volume that holds /var and/or /var/run.  Ouch, and:
+WHY-IS-THIS-NOT-IN-A-MUCH-LARGER-FONT???
+
+Has anybody else run into this?
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 08:49:30 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 08:49:30 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <504E94BF.4080404@cad2cam.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com>
+Message-ID: <alpine.LNX.2.00.1209220846030.26183@salmo.appl-ecosys.com>
+
+On Mon, 10 Sep 2012, Ken Stephens wrote:
+
+> Check your cables, pull and reinsert them a couple of times.  The 5 volt
+> signal levels can degrade after years because of corrosion and relaxing
+> contact pressure.  The cable may be broken.  Somewhere it goes over a
+> sharp edge and gets pulled.  I have tripped over cables and caused
+> failures.  As a sysadmin I seen weirder stuff.
+
+   I need to admit that I'm quite discouraged. The new external case arrived
+yesterday and I mounted the new hard drive (that worked for a few days in
+the old case) and got everything set up. Still see the same errors:
+
+[root at salmo ~]# ./dirvish-backup.sh &
+[1] 27195
+[root at salmo ~]# mount: wrong fs type, bad option, bad superblock on
+/dev/sdb,
+        missing codepage or helper program, or other error
+        In some cases useful info is found in syslog - try
+        dmesg | tail  or so
+
+cannot open config file: default.conf
+cannot open config file: default.conf
+cannot open config file: default.conf
+cannot open config file: default.conf
+cannot open config file: default.conf
+cannot open config file: default.conf
+umount: /media/hd0: not mounted
+
+   When I try to mount it manually,
+
+[root at salmo ~]# mount /media/hd0 
+mount: wrong fs type, bad option, bad superblock on /dev/sdb,
+        missing codepage or helper program, or other error
+        In some cases useful info is found in syslog - try
+        dmesg | tail  or so
+
+[root at salmo ~]# dmesg | tail
+EXT3-fs (sdb): error loading journal
+sd 319:0:0:0: [sdb] Unhandled sense code
+sd 319:0:0:0: [sdb] Result: hostbyte=0x00 driverbyte=0x08
+sd 319:0:0:0: [sdb] Sense Key : 0x3 [current] 
+sd 319:0:0:0: [sdb] ASC=0x11 ASCQ=0x0
+sd 319:0:0:0: [sdb] CDB: cdb[0]=0x28: 28 00 1d 1b 72 b8 00 00 f0 00
+end_request: I/O error, dev sdb, sector 488338104
+JBD: Failed to read block at offset 27704
+JBD: recovery failed
+EXT3-fs (sdb): error loading journal
+
+   This is a new case, new cables, new drive. What am I missing here? It's
+been about 3 weeks with no daily backups and I really need to get this
+working once again.
+
+Rich
+
+
+
+From galens at seitzassoc.com  Sat Sep 22 09:22:24 2012
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Sat, 22 Sep 2012 09:22:24 -0700
+Subject: [PLUG] LVM-induced hosage
+In-Reply-To: <867grnotsa.fsf@coulee.tdb.com>
+References: <867grnotsa.fsf@coulee.tdb.com>
+Message-ID: <505DE5C0.5080609@seitzassoc.com>
+
+On 09/21/2012 04:11 PM, Russell Senior wrote:
+> 
+> After the excellent presentation on LVM by Brian at PLUG earlier this
+> month, and after our recent disk failure/recovery this week, I was
+> working on reorganizing our PVs.  I had created a new pv on a new
+> RAID1 array (md5) and was loving the idea of moving the logical
+> volumes over from (md4, on a single-disk degraded RAID1 array) to the
+> new array, with pvmove.  So, I made some backups of files using rsync,
+> and this morning after that had finished, I fired off:
+> 
+>  # pvmove -v -i10 /dev/md4
+> 
+> And it commenced to, I presume, do the right thing.  After about 17%,
+> I got some messages (which regrettable I did not preserve) about
+> suspending (??) the pvmove, and my connection to the machine froze
+> (done remotely over the network, no console available).  A few hours
+> later, I got down to the colo and looked at the console.  There was a
+> login prompt, which I could type at, but I never got a password
+> prompt.  So, I rebooted and it came back up fine, but the pvmove had
+> clearly not succeeded.  Googling about, I found this, which looks like
+> what I saw:
+> 
+>   http://www.novell.com/support/kb/doc.php?id=7004393
+> 
+> In brief, it suggests that you don't do a pvmove affecting a logical
+> volume that holds /var and/or /var/run.  Ouch, and:
+> WHY-IS-THIS-NOT-IN-A-MUCH-LARGER-FONT???
+> 
+> Has anybody else run into this?
+
+What distribution and what version of kernel and lvm?  Based on my
+searches, I think it should be possible, but it looks like there are
+multiple opportunities for deadlocks.
+
+<http://sources.redhat.com/lvm2/wiki/FrequentlyAskedQuestions>
+
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 09:49:31 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 09:49:31 -0700 (PDT)
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+ [FIXED]
+In-Reply-To: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+Message-ID: <alpine.LNX.2.00.1209220948490.26183@salmo.appl-ecosys.com>
+
+On Mon, 10 Sep 2012, Rich Shepard wrote:
+
+> EXT3-fs (sdb): error loading journal
+
+   Sigh. fsck fixed the problem.
+
+Rich
+
+
+
+From ddsnell at frontier.com  Sat Sep 22 09:45:20 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sat, 22 Sep 2012 09:45:20 -0700
+Subject: [PLUG] Issues With New External Hard Drive: Need SysAdmin Help
+In-Reply-To: <alpine.LNX.2.00.1209220846030.26183@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209101717170.28452@salmo.appl-ecosys.com>
+	<504E94BF.4080404@cad2cam.com>
+	<alpine.LNX.2.00.1209220846030.26183@salmo.appl-ecosys.com>
+Message-ID: <20120922094520.605dca23@zothique.localnet>
+
+On Sat, 22 Sep 2012 08:49:30 -0700 (PDT)
+Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+> On Mon, 10 Sep 2012, Ken Stephens wrote:
+> 
+> > Check your cables, pull and reinsert them a couple of times.  The 5
+> > volt signal levels can degrade after years because of corrosion and
+> > relaxing contact pressure.  The cable may be broken.  Somewhere it
+> > goes over a sharp edge and gets pulled.  I have tripped over cables
+> > and caused failures.  As a sysadmin I seen weirder stuff.
+> 
+>    I need to admit that I'm quite discouraged. The new external case
+> arrived yesterday and I mounted the new hard drive (that worked for a
+> few days in the old case) and got everything set up. Still see the
+> same errors:
+> 
+> [root at salmo ~]# ./dirvish-backup.sh &
+> [1] 27195
+> [root at salmo ~]# mount: wrong fs type, bad option, bad superblock on
+> /dev/sdb,
+>         missing codepage or helper program, or other error
+>         In some cases useful info is found in syslog - try
+>         dmesg | tail  or so
+> 
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+> cannot open config file: default.conf
+> umount: /media/hd0: not mounted
+> 
+>    When I try to mount it manually,
+> 
+> [root at salmo ~]# mount /media/hd0 
+> mount: wrong fs type, bad option, bad superblock on /dev/sdb,
+>         missing codepage or helper program, or other error
+>         In some cases useful info is found in syslog - try
+>         dmesg | tail  or so
+> 
+> [root at salmo ~]# dmesg | tail
+> EXT3-fs (sdb): error loading journal
+> sd 319:0:0:0: [sdb] Unhandled sense code
+> sd 319:0:0:0: [sdb] Result: hostbyte=0x00 driverbyte=0x08
+> sd 319:0:0:0: [sdb] Sense Key : 0x3 [current] 
+> sd 319:0:0:0: [sdb] ASC=0x11 ASCQ=0x0
+> sd 319:0:0:0: [sdb] CDB: cdb[0]=0x28: 28 00 1d 1b 72 b8 00 00 f0 00
+> end_request: I/O error, dev sdb, sector 488338104
+> JBD: Failed to read block at offset 27704
+> JBD: recovery failed
+> EXT3-fs (sdb): error loading journal
+> 
+>    This is a new case, new cables, new drive. What am I missing here?
+> It's been about 3 weeks with no daily backups and I really need to
+> get this working once again.
+
+
+Rich,
+
+Does fdisk see the drive?  Can it read the partition table?  If yes,
+you could try mounting the drive using one of the spare superblocks
+using the "sb=n" option to mount.  My first inclination, though, would
+be to run fsck on that partition.  It sounds to me like your old case
+or cables must have trashed something on your new drive, and you need
+to clean that up.  Given that mount can't find the first superblock,
+you'll probably need to provide e2fsck with the block number of one of
+the spares (the -b option).  For example,
+
+    # e2fsck -b 8193 -fpC 0 /dev/sdb1
+
+will use the spare superblock at 8193, force (-f) e2fsck to run, and
+give you a pretty progress bar (-C 0) while it "preens" (-p) the
+partition.  You want the -f option because e2fsck will return without
+doing anything if the partition isn't marked as "dirty".
+
+As an aside, since this is a new drive, without much on it, and it's
+hooked up via USB, I would seriously consider using ext4 instead of
+ext3.  Among its other advantages is that fsck runs far, FAR faster.
+I have a 500Gig WD MyBook that I use for backups, attached via USB.
+Originally I had it set up with ext3, and it took most of a day to
+run.  I switched it over to ext4 and it now runs in about half an
+hour.  The first pass through took a long time, since it had to
+convert the data structures in the filesystem, but after that it's
+been quite speedy.  Since you have little or nothing on the drive, it
+shouldn't take long.
+
+Which brings up another thought.  Do you actually have anything on
+that drive you want or need to save?  If not, simply reformat it.
+Probably the simplest way to go, rather than tearing your hair out
+over this.  Again, I'd use an ext4 filesystem, but that's up to you.
+(I've heard good things about btrfs, but last I heard it still doesn't
+have an fsck.  I refuse to use it until I know I can clean the
+filesystem if something goes wrong.  And it it will, guaranteed.
+Murphy lives!)
+
+Anyway, I hope this helps, and I wish you luck!
+
+--Dale
+
+--
+"Don't touch that dial!  You're tuned to The Commercial Channel!
+All commercials, all the time!  An eternity of useless products to
+rot your skeevy little mind... forever."  -- Mike the TV
+
+
+From russell at personaltelco.net  Sat Sep 22 13:54:13 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 22 Sep 2012 13:54:13 -0700
+Subject: [PLUG] LVM-induced hosage
+In-Reply-To: <505DE5C0.5080609@seitzassoc.com> (Galen Seitz's message of "Sat\,
+	22 Sep 2012 09\:22\:24 -0700")
+References: <867grnotsa.fsf@coulee.tdb.com> <505DE5C0.5080609@seitzassoc.com>
+Message-ID: <86ipb5kccq.fsf@coulee.tdb.com>
+
+>>>>> "Galen" == Galen Seitz <galens at seitzassoc.com> writes:
+
+Russell> # pvmove -v -i10 /dev/md4
+
+Russell> And it commenced to, I presume, do the right thing.  After
+Russell> about 17%, I got some messages (which regrettable I did not
+Russell> preserve) about suspending (??) the pvmove, and my connection
+Russell> to the machine froze (done remotely over the network, no
+Russell> console available).  A few hours later, I got down to the
+Russell> colo and looked at the console.  There was a login prompt,
+Russell> which I could type at, but I never got a password prompt.
+Russell> So, I rebooted and it came back up fine, but the pvmove had
+Russell> clearly not succeeded.  Googling about, I found this, which
+Russell> looks like what I saw:
+
+Russell> http://www.novell.com/support/kb/doc.php?id=7004393
+ 
+Russell> In brief, it suggests that you don't do a pvmove affecting a
+Russell> logical volume that holds /var and/or /var/run.  Ouch, and:
+Russell> WHY-IS-THIS-NOT-IN-A-MUCH-LARGER-FONT???
+
+Galen> What distribution and what version of kernel and lvm?  Based on
+Galen> my searches, I think it should be possible, but it looks like
+Galen> there are multiple opportunities for deadlocks.
+
+Galen> <http://sources.redhat.com/lvm2/wiki/FrequentlyAskedQuestions>
+
+It's Gentoo.
+
+# uname -a
+Linux iris 2.6.30.4 #3 SMP Mon Aug 10 09:22:09 PDT 2009 i686 Genuine Intel(R) CPU @ 2.83GHz GenuineIntel GNU/Linux
+
+# pvmove --version
+  LVM version:     2.02.73(2) (2010-09-18)
+  Library version: 1.02.54 (2010-08-18)
+  Driver version:  4.14.0
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 13:54:18 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 13:54:18 -0700 (PDT)
+Subject: [PLUG] Web Site Access: Route Broken
+Message-ID: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+
+   For the past couple of days I've not been able to connect to my bank's web
+site. Running traceroute shows me that once I get to an AT&T server in San
+Francisco nothing more happens:
+
+13  cr1.sffca.ip.att.net (12.122.86.198)  118.554 ms  74.705 ms  108.925 ms
+14  cr1.sc1ca.ip.att.net (12.122.30.121)  77.138 ms  79.549 ms  74.979 ms
+15  cr2.sc1ca.ip.att.net (12.122.30.126)  77.261 ms  74.054 ms  79.671 ms
+16  cr2.slkut.ip.att.net (12.122.30.114)  81.892 ms  82.523 ms  88.599 ms
+17  12.122.81.137 (12.122.81.137)  78.268 ms  77.561 ms  73.155 ms
+18  * * *
+19  * * *
+
+and the attempt stops at 30 hops.
+
+   Is there a way to force the connection to take a different route? I wrote
+to all the e-mail addresses at att.net that whois provides. Of course I can
+wait for Monday and see if the company plugs in the next step but I'd like
+to see if a client wired a payment yesterday.
+
+Rich
+
+
+
+From plug at the-wes.com  Sat Sep 22 14:37:22 2012
+From: plug at the-wes.com (wes)
+Date: Sat, 22 Sep 2012 14:37:22 -0700
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+
+On Sat, Sep 22, 2012 at 1:54 PM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    For the past couple of days I've not been able to connect to my bank's
+> web
+> site. Running traceroute shows me that once I get to an AT&T server in San
+> Francisco nothing more happens:
+>
+>
+unfortunately traceroute does not give a reliable indication of the
+existence or non-existence of a problem. many routers and other network
+devices are configured to drop or otherwise mangle ping and traceroute
+traffic. see if your distro's package repository includes a utility named
+tcptraceroute, which will more closely resemble the real traffic your web
+browser generates and be more likely to represent the path that traffic
+takes.
+
+
+> 13  cr1.sffca.ip.att.net (12.122.86.198)  118.554 ms  74.705 ms  108.925
+> ms
+> 14  cr1.sc1ca.ip.att.net (12.122.30.121)  77.138 ms  79.549 ms  74.979 ms
+> 15  cr2.sc1ca.ip.att.net (12.122.30.126)  77.261 ms  74.054 ms  79.671 ms
+> 16  cr2.slkut.ip.att.net (12.122.30.114)  81.892 ms  82.523 ms  88.599 ms
+> 17  12.122.81.137 (12.122.81.137)  78.268 ms  77.561 ms  73.155 ms
+> 18  * * *
+> 19  * * *
+>
+
+12.122.81.137 is also an AT&T IP, so there's no real useful data here. this
+would be more useful if compared to a traceroute from a working machine. if
+you provided the bank's URL, more of us could try it and see how our
+results compare to yours.
+
+
+> and the attempt stops at 30 hops.
+>
+
+typical.
+
+
+>
+>    Is there a way to force the connection to take a different route? I
+> wrote
+> to all the e-mail addresses at att.net that whois provides. Of course I
+> can
+> wait for Monday and see if the company plugs in the next step but I'd like
+> to see if a client wired a payment yesterday.
+>
+
+force? short of changing ISPs, no. there are tricks people can do to
+"suggest" a router behave differently. these work about as well as voodoo
+and hocus pocus. try running a continuous ping to the bank's web server.
+try changing the packet sizes larger and smaller.
+
+in my experience AT&T is very unlikely to respond. you may also try
+contacting your ISP's support. also unlikely to help.
+
+
+one other possible idea would be to proxy your traffic through somewhere
+else. there are many anonymizing proxies available out there. the downside
+of this approach is that the owners of such proxies would then be privy to
+your banking info. if you know how, you can proxy through your own server
+if you have one. I have a virtual server at SliceHost and use it for this
+purpose when needed.
+
+-wes
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 14:47:00 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 14:47:00 -0700 (PDT)
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+
+On Sat, 22 Sep 2012, wes wrote:
+
+> ... see if your distro's package repository includes a utility named
+> tcptraceroute, which will more closely resemble the real traffic your web
+> browser generates and be more likely to represent the path that traffic
+> takes.
+
+Wes,
+
+   There's only /usr/doc/traceroute-2.0.14/wrappers/tcptraceroute which is a
+shell wrapper. Slackbuilds.org does not have a package for tcptraceroute.
+
+> 12.122.81.137 is also an AT&T IP, so there's no real useful data here.
+> this would be more useful if compared to a traceroute from a working
+> machine. if you provided the bank's URL, more of us could try it and see
+> how our results compare to yours.
+
+   I'm sure it will work for others: https://www.key.com/
+
+> in my experience AT&T is very unlikely to respond. you may also try
+> contacting your ISP's support. also unlikely to help.
+
+   Well, it worked until yesterday afternoon.
+
+> one other possible idea would be to proxy your traffic through somewhere
+> else. there are many anonymizing proxies available out there. the downside
+> of this approach is that the owners of such proxies would then be privy to
+> your banking info. if you know how, you can proxy through your own server
+> if you have one. I have a virtual server at SliceHost and use it for this
+> purpose when needed.
+
+   A long time ago I had a proxy set up here; don't know if it's still there.
+If so, probably well out of date.
+
+Thanks,
+
+Rich
+
+
+
+From plug at the-wes.com  Sat Sep 22 14:58:18 2012
+From: plug at the-wes.com (wes)
+Date: Sat, 22 Sep 2012 14:58:18 -0700
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+
+On Sat, Sep 22, 2012 at 2:47 PM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Sat, 22 Sep 2012, wes wrote:
+>
+> > ... see if your distro's package repository includes a utility named
+> > tcptraceroute, which will more closely resemble the real traffic your web
+> > browser generates and be more likely to represent the path that traffic
+> > takes.
+>
+> Wes,
+>
+>    There's only /usr/doc/traceroute-2.0.14/wrappers/tcptraceroute which is
+> a
+> shell wrapper. Slackbuilds.org does not have a package for tcptraceroute.
+>
+
+*shrug* may be worth looking into.
+
+
+> > 12.122.81.137 is also an AT&T IP, so there's no real useful data here.
+> > this would be more useful if compared to a traceroute from a working
+> > machine. if you provided the bank's URL, more of us could try it and see
+> > how our results compare to yours.
+>
+>    I'm sure it will work for others: https://www.key.com/
+
+
+it works for me, and my traceroute stops in approximately the same place:
+ 13    56 ms    54 ms    57 ms  cr1.sffca.ip.att.net [12.122.86.198]
+ 14    56 ms    54 ms    57 ms  cr1.sc1ca.ip.att.net [12.122.30.121]
+ 15    56 ms    57 ms    54 ms  cr2.sc1ca.ip.att.net [12.122.30.126]
+ 16    56 ms    54 ms    51 ms  cr2.slkut.ip.att.net [12.122.30.114]
+ 17    52 ms    69 ms    52 ms  12.122.212.1
+ 18     *        *        *     Request timed out.
+
+I'm on Frontier FIOS.
+
+
+> > in my experience AT&T is very unlikely to respond. you may also try
+> > contacting your ISP's support. also unlikely to help.
+>
+>    Well, it worked until yesterday afternoon.
+>
+
+most likely, it will just start working again soon. could be hours, could
+be days. just depends on how long it takes someone to notice the broken
+route and fix it.
+
+not sure what else to tell you. maybe run to the library and use one of
+their computers to check? or a smartphone if you have one (turn off wifi)?
+for some reason I imagine you to be the non-smart-phone type. :)
+
+-wes
+
+
+From plug at the-wes.com  Sat Sep 22 14:58:18 2012
+From: plug at the-wes.com (wes)
+Date: Sat, 22 Sep 2012 14:58:18 -0700
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+
+On Sat, Sep 22, 2012 at 2:47 PM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Sat, 22 Sep 2012, wes wrote:
+>
+> > ... see if your distro's package repository includes a utility named
+> > tcptraceroute, which will more closely resemble the real traffic your web
+> > browser generates and be more likely to represent the path that traffic
+> > takes.
+>
+> Wes,
+>
+>    There's only /usr/doc/traceroute-2.0.14/wrappers/tcptraceroute which is
+> a
+> shell wrapper. Slackbuilds.org does not have a package for tcptraceroute.
+>
+
+*shrug* may be worth looking into.
+
+
+> > 12.122.81.137 is also an AT&T IP, so there's no real useful data here.
+> > this would be more useful if compared to a traceroute from a working
+> > machine. if you provided the bank's URL, more of us could try it and see
+> > how our results compare to yours.
+>
+>    I'm sure it will work for others: https://www.key.com/
+
+
+it works for me, and my traceroute stops in approximately the same place:
+ 13    56 ms    54 ms    57 ms  cr1.sffca.ip.att.net [12.122.86.198]
+ 14    56 ms    54 ms    57 ms  cr1.sc1ca.ip.att.net [12.122.30.121]
+ 15    56 ms    57 ms    54 ms  cr2.sc1ca.ip.att.net [12.122.30.126]
+ 16    56 ms    54 ms    51 ms  cr2.slkut.ip.att.net [12.122.30.114]
+ 17    52 ms    69 ms    52 ms  12.122.212.1
+ 18     *        *        *     Request timed out.
+
+I'm on Frontier FIOS.
+
+
+> > in my experience AT&T is very unlikely to respond. you may also try
+> > contacting your ISP's support. also unlikely to help.
+>
+>    Well, it worked until yesterday afternoon.
+>
+
+most likely, it will just start working again soon. could be hours, could
+be days. just depends on how long it takes someone to notice the broken
+route and fix it.
+
+not sure what else to tell you. maybe run to the library and use one of
+their computers to check? or a smartphone if you have one (turn off wifi)?
+for some reason I imagine you to be the non-smart-phone type. :)
+
+-wes
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 15:22:25 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 15:22:25 -0700 (PDT)
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+	<CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1209221516390.507@salmo.appl-ecosys.com>
+
+On Sat, 22 Sep 2012, wes wrote:
+
+> it works for me, and my traceroute stops in approximately the same place:
+> 13    56 ms    54 ms    57 ms  cr1.sffca.ip.att.net [12.122.86.198]
+> 14    56 ms    54 ms    57 ms  cr1.sc1ca.ip.att.net [12.122.30.121]
+> 15    56 ms    57 ms    54 ms  cr2.sc1ca.ip.att.net [12.122.30.126]
+> 16    56 ms    54 ms    51 ms  cr2.slkut.ip.att.net [12.122.30.114]
+> 17    52 ms    69 ms    52 ms  12.122.212.1
+> 18     *        *        *     Request timed out.
+>
+> I'm on Frontier FIOS.
+
+   Huh! I'm on Frontier copper and they change my IP address 3-45 times per
+day.
+
+> most likely, it will just start working again soon. could be hours, could
+> be days. just depends on how long it takes someone to notice the broken
+> route and fix it.
+
+   Probably days.
+
+> not sure what else to tell you. maybe run to the library and use one of
+> their computers to check? or a smartphone if you have one (turn off wifi)?
+> for some reason I imagine you to be the non-smart-phone type. :)
+
+   I'll wait.  Monday I'll call my banker and she'll look it up for me.
+
+   I have an intelligent phone (Treo 700p with the invaluable Palm PIM), not
+a so-called "smart" phone. After seeing what so many users do with these
+palm-size computers I'm glad that at least the phone is smart. The
+talking/texting drivers are, IMNSHO, quite dumb.
+
+Rich
+
+
+
+From johnxj at comcast.net  Sat Sep 22 15:56:05 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 22 Sep 2012 15:56:05 -0700
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+	<CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+Message-ID: <20120922155605.705833f3@mailhost.pdx.edu>
+
+>On Sat, Sep 22, 2012 at 2:47 PM, Rich Shepard
+><rshepard at appl-ecosys.com>wrote:
+
+>    I'm sure it will work for others: https://www.key.com/
+
+Worked fine for me, that is, the Key Bank login page popped right up
+in Firefox. I'm on Comcast in Portland.
+
+You could come over to my house to connect.
+
+
+From rshepard at appl-ecosys.com  Sat Sep 22 16:50:52 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Sep 2012 16:50:52 -0700 (PDT)
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <20120922155605.705833f3@mailhost.pdx.edu>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+	<CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+	<20120922155605.705833f3@mailhost.pdx.edu>
+Message-ID: <alpine.LNX.2.00.1209221648380.507@salmo.appl-ecosys.com>
+
+On Sat, 22 Sep 2012, John Jason Jordan wrote:
+
+> Worked fine for me,
+
+   Of course. You're not trying to get a route from here to the bank's Web
+server in Cleveland (or wherever they have it).
+
+> You could come over to my house to connect.
+
+   It'll keep. Caught me unawares because I've not had a single-site failure
+before. Either access is down to everything or it's up for all
+sites.
+
+Rich
+
+
+
+From rshepard at appl-ecosys.com  Sun Sep 23 15:30:33 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 23 Sep 2012 15:30:33 -0700 (PDT)
+Subject: [PLUG] /etc/sudoers Syntax
+Message-ID: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+
+   I read the sudoers man page and look at the examples and still don't grok
+how to make a simple entry: I want to allow username 'pamela' to run a shell
+script in her home directory as root because the script runs two commands
+that need root permission.
+
+   Do I need to set up an alias for this, then assign her to that alias?
+
+   In essence, I'd like something like this in /etc/sudoers:
+
+ 	pamela  /home/pamela/shell-scripts/iface.sh root
+ 	(username)	(command)		    (as root)
+
+A clue would be very nice,
+
+Rich
+
+
+
+From russ at dimstar.net  Sun Sep 23 16:06:47 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Sun, 23 Sep 2012 16:06:47 -0700
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+Message-ID: <F05B8B30-2367-40EF-B0D9-7D7B141A963E@dimstar.net>
+
+I didn't test these, but I believe the lines are correct.
+
+To do what you want, the line would be:
+
+pamela ALL= /full/path/to/script
+
+However, if you do this, and Pamela were to edit that file, or worse, someone else were to edit that file, and Pamela runs it, the whole thing is running as root, and that could be bad. Add a 'rm -rf /' to the file, and root just wiped out the system. 
+
+I suggest allowing Pamela to run the two commands she needs to as root. Which would look like this:
+
+pamela ALL= /path/to/cmd1,/path/to/cmd2
+
+If you want her to be able to run those two commands without being prompted for a password, put NOPASSWD: in front of the commands:
+
+pamela ALL= NOPASSWD:/path/to/cmd1,/path/to/cmd2
+
+Finally, you'll need to put 'sudo' in front of the command in the script. 
+
+
+On Sep 23, 2012, at 3:30 PM, Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+>   I read the sudoers man page and look at the examples and still don't grok
+> how to make a simple entry: I want to allow username 'pamela' to run a shell
+> script in her home directory as root because the script runs two commands
+> that need root permission.
+> 
+>   Do I need to set up an alias for this, then assign her to that alias?
+> 
+>   In essence, I'd like something like this in /etc/sudoers:
+> 
+> 	pamela  /home/pamela/shell-scripts/iface.sh root
+> 	(username)	(command)		    (as root)
+> 
+> A clue would be very nice,
+> 
+> Rich
+> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From kens at cad2cam.com  Sun Sep 23 16:19:26 2012
+From: kens at cad2cam.com (Ken Stephens)
+Date: Sun, 23 Sep 2012 16:19:26 -0700
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+Message-ID: <505F98FE.1090907@cad2cam.com>
+
+Rich Shepard wrote:
+>     I read the sudoers man page and look at the examples and still don't grok
+> how to make a simple entry: I want to allow username 'pamela' to run a shell
+> script in her home directory as root because the script runs two commands
+> that need root permission.
+>
+>     Do I need to set up an alias for this, then assign her to that alias?
+>
+>     In essence, I'd like something like this in /etc/sudoers:
+>
+>   	pamela  /home/pamela/shell-scripts/iface.sh root
+>   	(username)	(command)		    (as root)
+>
+> A clue would be very nice,
+>
+> Rich
+Rich,
+
+Cmnd_Alias HERCOMMAND = /home/her/command
+
+Then you can say:
+pamela    her_machine=HERCOMMAND
+
+It is almost that simple  or without command alias
+
+pamela her_machine=/home/pamela/first_command /home/pamela/second_command
+
+Russell Johnson beat me to it.  The only thing I could add is to use 
+visudo as your editor.
+
+Ken
+
+
+
+From jhg at jhmg.net  Sun Sep 23 16:34:40 2012
+From: jhg at jhmg.net (Jim Garrison)
+Date: Sun, 23 Sep 2012 16:34:40 -0700
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <505F98FE.1090907@cad2cam.com>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<505F98FE.1090907@cad2cam.com>
+Message-ID: <505F9C90.9010406@jhmg.net>
+
+Whatever you do, DO NOT
+
+    sudo vi /etc/sudoers
+
+Do instead
+
+    sudo visudo
+
+With the first, if you make a bad enough mistake in syntax you can
+lock yourself out.  With the second, visudo will syntax-check your
+changes and give you a chance to exit before committing if there's
+a problem.
+
+-- 
+Jim Garrison (jhg at acm.org)
+PGP Keys at http://www.jhmg.net RSA 0x04B73B7F DH 0x70738D88
+
+
+From rshepard at appl-ecosys.com  Sun Sep 23 16:56:09 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 23 Sep 2012 16:56:09 -0700 (PDT)
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <F05B8B30-2367-40EF-B0D9-7D7B141A963E@dimstar.net>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<F05B8B30-2367-40EF-B0D9-7D7B141A963E@dimstar.net>
+Message-ID: <alpine.LNX.2.00.1209231653480.12032@salmo.appl-ecosys.com>
+
+On Sun, 23 Sep 2012, Russell Johnson wrote:
+
+> pamela ALL= /full/path/to/script
+
+   Thanks, RUssell.
+
+> However, if you do this, and Pamela were to edit that file, or worse,
+> someone else were to edit that file, and Pamela runs it, the whole thing
+> is running as root, and that could be bad. Add a 'rm -rf /' to the file,
+> and root just wiped out the system.
+
+   A) she's not going to edit the script and 2) no one else has access to her
+portable.
+
+> I suggest allowing Pamela to run the two commands she needs to as root.
+> Which would look like this:
+>
+> pamela ALL= /path/to/cmd1,/path/to/cmd2
+
+   This is not practical because the appropriate commad depends on the
+results of a test.
+
+> pamela ALL= NOPASSWD:/path/to/cmd1,/path/to/cmd2
+
+   I thought that's were NOPASSWD went; thanks again.
+
+> Finally, you'll need to put 'sudo' in front of the command in the script.
+
+   To run the entire script?
+
+Rich
+
+
+
+From rshepard at appl-ecosys.com  Sun Sep 23 16:57:49 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 23 Sep 2012 16:57:49 -0700 (PDT)
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <505F98FE.1090907@cad2cam.com>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<505F98FE.1090907@cad2cam.com>
+Message-ID: <alpine.LNX.2.00.1209231656370.12032@salmo.appl-ecosys.com>
+
+On Sun, 23 Sep 2012, Ken Stephens wrote:
+
+> Russell Johnson beat me to it.  The only thing I could add is to use
+> visudo as your editor.
+
+Ken,
+
+   Thanks. The /etc/sudoers file warns that visudo is required. Fortunately,
+I know just enough vi to do this. :-)
+
+Rich
+
+
+
+From rshepard at appl-ecosys.com  Sun Sep 23 16:58:34 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 23 Sep 2012 16:58:34 -0700 (PDT)
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <505F9C90.9010406@jhmg.net>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<505F98FE.1090907@cad2cam.com> <505F9C90.9010406@jhmg.net>
+Message-ID: <alpine.LNX.2.00.1209231658120.12032@salmo.appl-ecosys.com>
+
+On Sun, 23 Sep 2012, Jim Garrison wrote:
+
+> Do instead
+>
+>    sudo visudo
+>
+> With the first, if you make a bad enough mistake in syntax you can
+> lock yourself out.  With the second, visudo will syntax-check your
+> changes and give you a chance to exit before committing if there's
+> a problem.
+
+   Good to knoow, Jim. Thanks.
+
+Rich
+
+
+
+From russ at dimstar.net  Sun Sep 23 17:40:01 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Sun, 23 Sep 2012 17:40:01 -0700
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <alpine.LNX.2.00.1209231653480.12032@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<F05B8B30-2367-40EF-B0D9-7D7B141A963E@dimstar.net>
+	<alpine.LNX.2.00.1209231653480.12032@salmo.appl-ecosys.com>
+Message-ID: <E4002790-34DF-4F1F-9F47-7E501FE3B7A5@dimstar.net>
+
+
+On Sep 23, 2012, at 4:56 PM, Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+>> Finally, you'll need to put 'sudo' in front of the command in the script.
+> 
+>   To run the entire script?
+
+If you add the script in the sudoers file, then she will have to type 'sudo /path/to/script' to run the script.
+
+If you add the commands that need root to the sudoers file, then the you put sudo in the script, in front of the command. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From woodbrian77 at gmail.com  Sun Sep 23 19:03:27 2012
+From: woodbrian77 at gmail.com (Brian Wood)
+Date: Sun, 23 Sep 2012 22:03:27 -0400
+Subject: [PLUG] Approach to sin_zero
+Message-ID: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+
+Shalom
+
+Is the memset below needed?  Stevens says sin_zero is
+not used.  Others on the newsgroups say clearing the field
+is needed on a few platforms.  I've left the memset in just
+to be on the safe side.
+
+sock_type cmw::udp_server (uint32_t port)
+{
+  sock_type sd = getSocket(SOCK_DGRAM);
+  sockaddr_in si_me;
+  si_me.sin_family = AF_INET;
+  si_me.sin_port = htons(port);
+  si_me.sin_addr.s_addr = htonl(INADDR_ANY);
+  ::std::memset(&si_me.sin_zero, 0, sizeof(si_me.sin_zero));
+  if (::bind(sd, (sockaddr*) &si_me, sizeof(si_me))==-1) {
+    throw failure("udp Bind errno: ") << GetError();
+  }
+  return sd;
+}
+
+
+Ebenezer Enterprises
+http://webEbenezer.net
+
+
+From rshepard at appl-ecosys.com  Mon Sep 24 06:07:52 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 24 Sep 2012 06:07:52 -0700 (PDT)
+Subject: [PLUG] /etc/sudoers Syntax
+In-Reply-To: <E4002790-34DF-4F1F-9F47-7E501FE3B7A5@dimstar.net>
+References: <alpine.LNX.2.00.1209231525450.8021@salmo.appl-ecosys.com>
+	<F05B8B30-2367-40EF-B0D9-7D7B141A963E@dimstar.net>
+	<alpine.LNX.2.00.1209231653480.12032@salmo.appl-ecosys.com>
+	<E4002790-34DF-4F1F-9F47-7E501FE3B7A5@dimstar.net>
+Message-ID: <alpine.LNX.2.00.1209240607330.18061@salmo.appl-ecosys.com>
+
+On Sun, 23 Sep 2012, Russell Johnson wrote:
+
+> If you add the commands that need root to the sudoers file, then the you
+> put sudo in the script, in front of the command.
+
+Russell,
+
+   Thank you.
+
+Rich
+
+
+
+From guy1656 at opusnet.com  Mon Sep 24 05:47:12 2012
+From: guy1656 at opusnet.com (Guy Letourneau)
+Date: Mon, 24 Sep 2012 05:47:12 -0700
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for Linux
+	Users?
+In-Reply-To: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+References: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+Message-ID: <50605650.4060508@opusnet.com>
+
+Hello:
+
+I am about due to upgrade my home DSL router and now is also the time to 
+shop around for a new ISP maybe.
+
+I don't like Comcast's business paractices and I have heard horror 
+stories on items not relevant to Linus.
+
+Are folks here using CenturyLink or Centurytel (which used to be Qwest.)
+How is there dervice to Linux users?
+
+Public comments and private messages welcome,
+
+- GLL
+
+
+From tonyr42 at gmail.com  Mon Sep 24 11:05:04 2012
+From: tonyr42 at gmail.com (Tony Rick)
+Date: Mon, 24 Sep 2012 11:05:04 -0700
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for
+ Linux Users?
+In-Reply-To: <50605650.4060508@opusnet.com>
+References: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+	<50605650.4060508@opusnet.com>
+Message-ID: <CADgmxUnBYZ6Mq7BRDc63QgeGvdrsoc9hnkjyhqPShPafX8Abjw@mail.gmail.com>
+
+I've been using  CenturyLink/.Qwest for a bunch of years, but only as the
+line provider.  My ISP is Hevanet. who made all of the original
+arrangements.  My DSL modem is currently a Qwest M1000 that I got at Best
+Buy off the shelf.  I think both Hevanet and Qwest had moved on to newer
+models at the time, but it was still acceptable at that time.  Hevanet
+Support  has always had a knowledgeable human answering the phone, and
+responds to a message left after regular hours and on weekends.
+
+- tony
+"I come from the nowhere, I go to the noplace, und here I am!"
+Aladdin and His Wonderful Lamp (Popeye, 1939)
+
+-- 
+- tony
+"I come from the nowhere, I go to the noplace, und here I am!"
+Aladdin and His Wonderful Lamp (Popeye, 1939)
+
+On Mon, Sep 24, 2012 at 5:47 AM, Guy Letourneau <guy1656 at opusnet.com> wrote:
+
+> Hello:
+>
+> I am about due to upgrade my home DSL router and now is also the time to
+> shop around for a new ISP maybe.
+>
+> I don't like Comcast's business paractices and I have heard horror
+> stories on items not relevant to Linus.
+>
+> Are folks here using CenturyLink or Centurytel (which used to be Qwest.)
+> How is there dervice to Linux users?
+>
+> Public comments and private messages welcome,
+>
+> - GLL
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+- tony
+"I come from the nowhere, I go to the noplace, und here I am!"
+Aladdin and His Wonderful Lamp (Popeye, 1939)
+
+
+From joeniski at easystreet.net  Mon Sep 24 11:13:42 2012
+From: joeniski at easystreet.net (Joe Niski)
+Date: Mon, 24 Sep 2012 11:13:42 -0700
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for
+ Linux Users?
+In-Reply-To: <CADgmxUnBYZ6Mq7BRDc63QgeGvdrsoc9hnkjyhqPShPafX8Abjw@mail.gmail.com>
+Message-ID: <CC85EF99.17758%joeniski@easystreet.net>
+
+Similar situation for me: CenturyLink/Qwest for > 10 yrs, local Easystreet
+as my ISP, got a deal on the ActionTec modem from Qwest, it's old but
+functional.
+
+Qwest's customer support was abysmally awfully terribly horrid. Easystreet
+is great, they've even helped diagnose obscure incompatibilities between a
+prior DSL modem and a cheap ethernet switch in out outbuilding. Haven't
+had to deal with CenturyLink yet.
+
+My biggest complaint is the telco's apparent unwillingness to upgrade
+their copper - i keep getting breathless promotions about 7mbps service,
+but my queries into when i'll have anything above 1.5 go into a black
+hole. Still, it's less offensive than having Comcast's tendrils in my
+house.
+________________________________________
+Joe Shisei Niski
+Portland, Oregon, USA
+??
+
+
+
+
+On 9/24/12 11:05 AM, "Tony Rick" <tonyr42 at gmail.com> wrote:
+
+>I've been using  CenturyLink/.Qwest for a bunch of years, but only as the
+>line provider.  My ISP is Hevanet. who made all of the original
+>arrangements.  My DSL modem is currently a Qwest M1000 that I got at Best
+>Buy off the shelf.  I think both Hevanet and Qwest had moved on to newer
+>models at the time, but it was still acceptable at that time.  Hevanet
+>Support  has always had a knowledgeable human answering the phone, and
+>responds to a message left after regular hours and on weekends.
+
+
+
+
+From rndll.gra at gmail.com  Mon Sep 24 11:59:33 2012
+From: rndll.gra at gmail.com (Randall Gray)
+Date: Mon, 24 Sep 2012 11:59:33 -0700
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for
+ Linux Users?
+In-Reply-To: <CC85EF99.17758%joeniski@easystreet.net>
+References: <CADgmxUnBYZ6Mq7BRDc63QgeGvdrsoc9hnkjyhqPShPafX8Abjw@mail.gmail.com>
+	<CC85EF99.17758%joeniski@easystreet.net>
+Message-ID: <CABUdRFLKj=WOJpvA0uFh4KPO8i7T06LHxb71sDjQKWVEAugOOg@mail.gmail.com>
+
+Likewise for me, I've had CenturyLink/Qwest for many years now.  A
+standalone DSL line from them and Infinity Internet (iinet.com) for my
+ISP.
+I believe they're based in Vancouver (WA) but have a colo'd datacenter in
+Portland.  Have had good luck with both with the (very few) times I've
+actually
+had to speak to a human.  Modem is a Dlink DSL-2640B which replaced
+a crappy old Actiontec.  Have 1.5 Mb currently but can up that for only
+$10 a month more -- that speed varies, of course, depending on location.
+Hope that helps!
+Randall
+
+On Mon, Sep 24, 2012 at 11:13 AM, Joe Niski <joeniski at easystreet.net> wrote:
+
+> Similar situation for me: CenturyLink/Qwest for > 10 yrs, local Easystreet
+> as my ISP, got a deal on the ActionTec modem from Qwest, it's old but
+> functional.
+>
+> Qwest's customer support was abysmally awfully terribly horrid. Easystreet
+> is great, they've even helped diagnose obscure incompatibilities between a
+> prior DSL modem and a cheap ethernet switch in out outbuilding. Haven't
+> had to deal with CenturyLink yet.
+>
+> My biggest complaint is the telco's apparent unwillingness to upgrade
+> their copper - i keep getting breathless promotions about 7mbps service,
+> but my queries into when i'll have anything above 1.5 go into a black
+> hole. Still, it's less offensive than having Comcast's tendrils in my
+> house.
+> ________________________________________
+> Joe Shisei Niski
+> Portland, Oregon, USA
+> ??
+>
+>
+>
+>
+> On 9/24/12 11:05 AM, "Tony Rick" <tonyr42 at gmail.com> wrote:
+>
+> >I've been using  CenturyLink/.Qwest for a bunch of years, but only as the
+> >line provider.  My ISP is Hevanet. who made all of the original
+> >arrangements.  My DSL modem is currently a Qwest M1000 that I got at Best
+> >Buy off the shelf.  I think both Hevanet and Qwest had moved on to newer
+> >models at the time, but it was still acceptable at that time.  Hevanet
+> >Support  has always had a knowledgeable human answering the phone, and
+> >responds to a message left after regular hours and on weekends.
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From keithl at gate.kl-ic.com  Mon Sep 24 13:01:22 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 24 Sep 2012 13:01:22 -0700
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for
+	Linux Users?
+In-Reply-To: <50605650.4060508@opusnet.com>
+References: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+	<50605650.4060508@opusnet.com>
+Message-ID: <20120924200122.GC3970@gate.kl-ic.com>
+
+On Mon, Sep 24, 2012 at 05:47:12AM -0700, Guy Letourneau wrote:
+> Are folks here using CenturyLink or Centurytel (which used to be Qwest.)
+> How is there dervice to Linux users?
+
+My wife's office is in CenturyLink territory, a 60 year old building
+in Northwest Portland with ancient wiring (cable? fiber? Oh, you 
+mean the mechanical stuff they add to keep the building facade from
+falling off).  CenturyLink is only marginally competent, and their
+copper is slowly turning to mush, but they are losing customers
+faster, so they can still provide replacement pairs.  We have
+4 lines, 3 voice plus a combined FAX/DSL line.  We have had four
+problems requiring line or switch maintenance over the last year.
+
+With the DSL connection, we don't have a routable IP address - they
+NAT us.  That is actually the way we like it.  We punch outbound
+VPN connections to our offsite servers and the home network.  We
+bought our own DSL modem, rather than their suggested models.  The
+modem was chosen for Linux compatability.  I don't recall the brand
+and model (I will document it on my next visit).  The main reason
+for our choice was so that our ALIX firewall could handle internal
+routing, VPN termination, address assignment, etc. without a "more
+helpful" modem interfering.  Unless your setup is very simple, you
+probably want a similar arrangement.
+
+We have our servers offsite for a reason - virtuals with Rimuhosting
+and Linode.  If those get hammered/slashdotted/baidu'ed, we still
+have internet, and we don't have to worry about address assignment
+and Terms of Service hijinks from C.L.  
+
+Other than the fussy setup, and the hardware failures at their end,
+it works OK.  It is not blazingly fast like Frontier FIOS at home
+in the burbs, but it works well enough to connect a couple of IP
+phones, which means we can use the office phone system from home.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From joey at q7.com  Mon Sep 24 13:55:25 2012
+From: joey at q7.com (Joe Pruett)
+Date: Mon, 24 Sep 2012 13:55:25 -0700
+Subject: [PLUG] LVM-induced hosage
+In-Reply-To: <867grnotsa.fsf@coulee.tdb.com>
+References: <867grnotsa.fsf@coulee.tdb.com>
+Message-ID: <5060C8BD.4050002@q7.com>
+
+there are known issues with a pvmove of a filesystem that lvm has
+lock/control files in. i think it can bite you with /etc as well. it
+made me cry as well.
+
+On 09/21/2012 04:11 PM, Russell Senior wrote:
+> After the excellent presentation on LVM by Brian at PLUG earlier this
+> month, and after our recent disk failure/recovery this week, I was
+> working on reorganizing our PVs.  I had created a new pv on a new
+> RAID1 array (md5) and was loving the idea of moving the logical
+> volumes over from (md4, on a single-disk degraded RAID1 array) to the
+> new array, with pvmove.  So, I made some backups of files using rsync,
+> and this morning after that had finished, I fired off:
+>
+>  # pvmove -v -i10 /dev/md4
+>
+> And it commenced to, I presume, do the right thing.  After about 17%,
+> I got some messages (which regrettable I did not preserve) about
+> suspending (??) the pvmove, and my connection to the machine froze
+> (done remotely over the network, no console available).  A few hours
+> later, I got down to the colo and looked at the console.  There was a
+> login prompt, which I could type at, but I never got a password
+> prompt.  So, I rebooted and it came back up fine, but the pvmove had
+> clearly not succeeded.  Googling about, I found this, which looks like
+> what I saw:
+>
+>   http://www.novell.com/support/kb/doc.php?id=7004393
+>
+> In brief, it suggests that you don't do a pvmove affecting a logical
+> volume that holds /var and/or /var/run.  Ouch, and:
+> WHY-IS-THIS-NOT-IN-A-MUCH-LARGER-FONT???
+>
+> Has anybody else run into this?
+>
+>
+
+
+
+From alan at clueserver.org  Mon Sep 24 23:20:25 2012
+From: alan at clueserver.org (alan at clueserver.org)
+Date: Mon, 24 Sep 2012 23:20:25 -0700 (PDT)
+Subject: [PLUG] Any problems with Quest / Centurylink / Centurytel for
+ Linux Users?
+In-Reply-To: <20120924200122.GC3970@gate.kl-ic.com>
+References: <CABWFOjts_k8PXnWbUdK-TnVaUz5F5Fo9uKWAG9UpmRFNEBsDfA@mail.gmail.com>
+	<50605650.4060508@opusnet.com> <20120924200122.GC3970@gate.kl-ic.com>
+Message-ID: <55377.134.134.139.70.1348554025.squirrel@clueserver.org>
+
+> On Mon, Sep 24, 2012 at 05:47:12AM -0700, Guy Letourneau wrote:
+>> Are folks here using CenturyLink or Centurytel (which used to be Qwest.)
+>> How is there dervice to Linux users?
+
+I have a fixed IP with CenturyLink.  Getting a fixed IP was a bitch, but
+using Linux actually helped get to the right people to get it done.  (I
+told them I run my own mail server. Had to turn on port 25 on their web
+page config and everything worked fine.)
+
+The problem i have with them is they started capping service.  As of
+February you will get nastygrams if you use "too much" bandwidth. (They
+just cut and pasted what Comcast did with their service.)  They have the
+same bandwidth cap for 12mbs as it is for 40mbs.  I calculated that at
+40mbs you could reach your bandwidth restriction for the month in 14
+hours.  (I cut my service back to 12mbs when I found that out. Not going
+to pay $50+ a month for little or no benefit.)
+
+Buying your own modem is a good idea. My Q1000 overheats too often.
+
+
+
+From jeffm at jetexpedited.com  Mon Sep 24 16:35:10 2012
+From: jeffm at jetexpedited.com (Jeff Maher)
+Date: Mon, 24 Sep 2012 16:35:10 -0700
+Subject: [PLUG] Web Site Access: Route Broken
+In-Reply-To: <alpine.LNX.2.00.1209221648380.507@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+	<CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+	<20120922155605.705833f3@mailhost.pdx.edu>
+	<alpine.LNX.2.00.1209221648380.507@salmo.appl-ecosys.com>
+Message-ID: <5060EE2E.9050809@jetexpedited.com>
+
+Just an FYI
+
+Banks Warned to be Alert for Cyber attacks (09/19/2012)
+The Financial Services Information Sharing and Analysis Center (FS-ISAC) 
+has issued a warning to US financial institutions to be alert for cyber 
+attacks following outages on the public websites of Bank of America and 
+JP Morgan Chase. There are reports that several banks are being targeted 
+by distributed denial-of-service (DDoS) attacks, but the others have not 
+been named.
+
+See following for details
+http://in.reuters.com/article/2012/09/20/us-jpmorganchase-website-idINBRE88I16M20120920
+
+Regards,
+
+Jeff
+
+On 09/22/12 4:50 PM, Rich Shepard wrote:
+> On Sat, 22 Sep 2012, John Jason Jordan wrote:
+>
+>> Worked fine for me,
+>     Of course. You're not trying to get a route from here to the bank's Web
+> server in Cleveland (or wherever they have it).
+>
+>> You could come over to my house to connect.
+>     It'll keep. Caught me unawares because I've not had a single-site failure
+> before. Either access is down to everything or it's up for all
+> sites.
+>
+> Rich
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+From michael at jamhome.us  Tue Sep 25 13:13:23 2012
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Tue, 25 Sep 2012 13:13:23 -0700
+Subject: [PLUG] Web Site Access: Route Broken - Bank DDOS
+In-Reply-To: <5060EE2E.9050809@jetexpedited.com>
+References: <alpine.LNX.2.00.1209221350120.26183@salmo.appl-ecosys.com>
+	<CAA1wLOnat+jmFEiK3Gkvo5Uyp9p=GcBk8YAr0KHph+zCYpXSVA@mail.gmail.com>
+	<alpine.LNX.2.00.1209221443150.507@salmo.appl-ecosys.com>
+	<CAA1wLOn+FDg-9eM5BTHjbNPD-iw9MOhju8A3_ysbbRVDRr+Row@mail.gmail.com>
+	<20120922155605.705833f3@mailhost.pdx.edu>
+	<alpine.LNX.2.00.1209221648380.507@salmo.appl-ecosys.com>
+	<5060EE2E.9050809@jetexpedited.com>
+Message-ID: <08f8968c64344d8fb1e4a95ddff2b40e@post.michaelsnet.us>
+
+On 2012-09-24 16:35, Jeff Maher wrote:
+> Just an FYI
+>
+> Banks Warned to be Alert for Cyber attacks (09/19/2012)
+> The Financial Services Information Sharing and Analysis Center 
+> (FS-ISAC)
+> has issued a warning to US financial institutions to be alert for 
+> cyber
+> attacks following outages on the public websites of Bank of America 
+> and
+> JP Morgan Chase. There are reports that several banks are being 
+> targeted
+> by distributed denial-of-service (DDoS) attacks, but the others have 
+> not
+> been named.
+>
+> See following for details
+> 
+> http://in.reuters.com/article/2012/09/20/us-jpmorganchase-website-idINBRE88I16M20120920
+
+Or this, http://pastebin.com/yftgau9w
+pastebin is used for more than IRC code samples
+The DDOS, aside from making online banking a pita to use, seem to be a 
+diversion ploy
+
+-- 
+      Michael Rasmussen
+    http://www.jamhome.us/
+Be Appropriate && Follow Your Curiosity
+
+
+From chrishandy at gmail.com  Thu Sep 27 13:01:43 2012
+From: chrishandy at gmail.com (Chris Handy)
+Date: Thu, 27 Sep 2012 13:01:43 -0700
+Subject: [PLUG] AXUS RAID for sale
+Message-ID: <CAAu3_1T0_=VrDFPbeQddDQZsj45O6boRnyqkLSSeg_NpE9+eog@mail.gmail.com>
+
+Hi all!
+
+I've got a RAID unit for sale on Craigslist if anyone is interested.
+
+You can check the link for a couple images.
+http://portland.craigslist.org/mlt/sys/3296230818.html
+
+It was bought for a project but was used briefly before things were
+merged to a larger system. It's been unused since.
+Very reliable unit, I've had these on all of our Oracle servers under
+heavy use and never had an issue.
+-------------
+
+AXUS YI-08SAEU4
+
+8 x 400GB SATA II drives (ST3400633AS)
+
+RAID Engine	Intel Xscale i80331 at 667Mhz
+Controller#	1
+RAID Levels	0,1,0+1,3,5,,6,30,50,NRAID and JBOD
+Cache Support
+(Write back)	Up to 2GB of 64-bit DDR 333 SDRAM
+System Type	Rack mountable 2U	Rack mountable 3U
+Host Interface	Dual Ultra 320 SCSI Channels
+Disk Interface	SATA II
+Host Transfer Rate	320MB/sec per channel
+Disk Channel	8 of SATAII (3Gb)
+LCD Display	2 Lines by 16 characters
+Hot Swap and redundant	Yes (Power Supply, Hard Disk Drive & Fan)
+Hot Spare	Yes (Disk Down)
+Battery Back-Up Module	Optional, Supporting 72 hours battery back-up time
+LAN	Web browser-based RAID manager via build in 10/100 Ethernet port
+Array Management Support	Yes.
+Automatic Bad-Sector & Error Recovery	Yes.
+Automatic Drive Rebuilds	Yes. Automatic Data rebuilds.
+Audible Alarm, Pager and Fax Notification	Yes
+Remote Terminal Configuration	Yes. Through RS-232 or 10/100 Ethernet port
+Operating Systems	OS independent and transparent
+Power Supply	Redundant by Dual 375W Power modules with PFC feature,
+Loading Sharing type and cable-less design.	Redundant by Dual 460W
+Power modules with PFC feature, Loading Sharing type and cable-less
+design.
+Electrical	     AC Voltage 110-230 VAC/AC Frequency 50-60Hz
+Temperature	      Operating Temperature : 10 to 35 degree C.
+Relative Humidity	20% to 80% non-condensing
+Dimensions	446.4(W) x 88.8(H) x 527(D)	446.4mm(W) x 132.4mm(H) x 482mm(D)
+
+
+From russell at personaltelco.net  Fri Sep 28 00:09:38 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Fri, 28 Sep 2012 00:09:38 -0700
+Subject: [PLUG] LVM-induced hosage
+In-Reply-To: <86ipb5kccq.fsf@coulee.tdb.com> (Russell Senior's message of
+	"Sat\, 22 Sep 2012 13\:54\:13 -0700")
+References: <867grnotsa.fsf@coulee.tdb.com> <505DE5C0.5080609@seitzassoc.com>
+	<86ipb5kccq.fsf@coulee.tdb.com>
+Message-ID: <86d3164o99.fsf@coulee.tdb.com>
+
+>>>>> "Russell" == Russell Senior <russell at personaltelco.net> writes:
+
+Russell> # pvmove -v -i10 /dev/md4
+
+Russell> And it commenced to, I presume, do the right thing.  After
+Russell> about 17%, I got some messages (which regrettable I did not
+Russell> preserve) about suspending (??) the pvmove, and my connection
+Russell> to the machine froze (done remotely over the network, no
+Russell> console available).  A few hours later, I got down to the
+Russell> colo and looked at the console.  There was a login prompt,
+Russell> which I could type at, but I never got a password prompt.
+Russell> So, I rebooted and it came back up fine, but the pvmove had
+Russell> clearly not succeeded.  Googling about, I found this, which
+Russell> looks like what I saw:
+
+Russell> http://www.novell.com/support/kb/doc.php?id=7004393
+ 
+Russell> In brief, it suggests that you don't do a pvmove affecting a
+Russell> logical volume that holds /var and/or /var/run.  Ouch, and:
+Russell> WHY-IS-THIS-NOT-IN-A-MUCH-LARGER-FONT???
+
+Galen> What distribution and what version of kernel and lvm?  Based on
+Galen> my searches, I think it should be possible, but it looks like
+Galen> there are multiple opportunities for deadlocks.
+
+Galen> <http://sources.redhat.com/lvm2/wiki/FrequentlyAskedQuestions>
+
+Russell> It's Gentoo.
+
+Russell> # uname -a Linux iris 2.6.30.4 #3 SMP Mon Aug 10 09:22:09 PDT
+Russell> 2009 i686 Genuine Intel(R) CPU @ 2.83GHz GenuineIntel
+Russell> GNU/Linux
+
+Russell> # pvmove --version LVM version: 2.02.73(2) (2010-09-18)
+Russell> Library version: 1.02.54 (2010-08-18) Driver version: 4.14.0
+
+Just to follow up, some combination of updating lvm2 to something more
+recent:
+
+root at iris russell # pvmove --version
+  LVM version:     2.02.97(2) (2012-08-07)
+  Library version: 1.02.76 (2012-08-07)
+  Driver version:  4.14.0
+
+and running pvmove on individual logical volumes allowed me to move
+them off of the degraded physical volume with no further
+freezes/deadlocks.  Yay!
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From rsteff at comcast.net  Fri Sep 28 17:24:14 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 28 Sep 2012 17:24:14 -0700
+Subject: [PLUG] Thunderbird progress bar
+Message-ID: <50663FAE.80409@comcast.net>
+
+At the bottom of the T-bird window, near the right hand corner, there is 
+a progress bar that, as far as I know, shows me that T-bird is still 
+trying to download some part of an e-mail. This usually relates to 
+something with an attachment.
+
+Is there some way to figure out what specific e-mail is still waiting to 
+finish downloading something? I've been watching that little lack of 
+progress indicator for half the afternoon. I've read and deleted most of 
+the e-mail that came in this afternoon, and don't find anything suspicious.
+
+On a possibly related note, I did allow an upgrade to T-bird today 
+(Ubuntu, 10.04).
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From kingbeowulf at gmail.com  Fri Sep 28 18:27:33 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Fri, 28 Sep 2012 18:27:33 -0700
+Subject: [PLUG] Thunderbird progress bar
+In-Reply-To: <50663FAE.80409@comcast.net>
+References: <50663FAE.80409@comcast.net>
+Message-ID: <50664E85.7020009@gmail.com>
+
+On 09/28/2012 05:24 PM, Richard C. Steffens wrote:
+> At the bottom of the T-bird window, near the right hand corner, there is
+> a progress bar that, as far as I know, shows me that T-bird is still
+> trying to download some part of an e-mail. This usually relates to
+> something with an attachment.
+>
+> Is there some way to figure out what specific e-mail is still waiting to
+> finish downloading something? I've been watching that little lack of
+> progress indicator for half the afternoon. I've read and deleted most of
+> the e-mail that came in this afternoon, and don't find anything suspicious.
+>
+> On a possibly related note, I did allow an upgrade to T-bird today
+> (Ubuntu, 10.04).
+>
+You can try emptying your mail trash and compacting the mail folders. 
+Not doing that regularly can slow things up a bit. Also, you "temp" 
+directory could use trimming.  Usually located under "/tmp"
+
+After updating, did you restart your Desktop Environment (log out then 
+back in, usually.) How t do that depends on with DE/WM and if you are 
+using a graphical login.
+
+
+From rsteff at comcast.net  Fri Sep 28 19:01:57 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 28 Sep 2012 19:01:57 -0700
+Subject: [PLUG] Resolved:  Thunderbird progress bar
+In-Reply-To: <50664E85.7020009@gmail.com>
+References: <50663FAE.80409@comcast.net> <50664E85.7020009@gmail.com>
+Message-ID: <50665695.8000302@comcast.net>
+
+On 09/28/2012 06:27 PM, King Beowulf wrote:
+> On 09/28/2012 05:24 PM, Richard C. Steffens wrote:
+>> At the bottom of the T-bird window, near the right hand corner, there is
+>> a progress bar that, as far as I know, shows me that T-bird is still
+>> trying to download some part of an e-mail. This usually relates to
+>> something with an attachment.
+>>
+>> Is there some way to figure out what specific e-mail is still waiting to
+>> finish downloading something? I've been watching that little lack of
+>> progress indicator for half the afternoon. I've read and deleted most of
+>> the e-mail that came in this afternoon, and don't find anything suspicious.
+>>
+>> On a possibly related note, I did allow an upgrade to T-bird today
+>> (Ubuntu, 10.04).
+>>
+> You can try emptying your mail trash and compacting the mail folders.
+> Not doing that regularly can slow things up a bit.
+
+Done. Didn't make any difference.
+
+> Also, you "temp"
+> directory could use trimming.  Usually located under "/tmp"
+
+Under 100 Mb in use. Nothing obvious to trim.
+
+>
+> After updating, did you restart your Desktop Environment (log out then
+> back in, usually.) How t do that depends on with DE/WM and if you are
+> using a graphical login.
+
+I restarted T-Bird, but didn't log out and back in. Have just done that, 
+and the progress bar has disappeared. Thanks for the tip. That seems bad 
+form for a Linux tool, though.
+
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From sgarman at zenlinux.com  Fri Sep 28 21:13:29 2012
+From: sgarman at zenlinux.com (Scott Garman)
+Date: Fri, 28 Sep 2012 21:13:29 -0700
+Subject: [PLUG] Thunderbird progress bar
+In-Reply-To: <50663FAE.80409@comcast.net>
+References: <50663FAE.80409@comcast.net>
+Message-ID: <50667569.4020208@zenlinux.com>
+
+On 09/28/2012 05:24 PM, Richard C. Steffens wrote:
+> At the bottom of the T-bird window, near the right hand corner, there is
+> a progress bar that, as far as I know, shows me that T-bird is still
+> trying to download some part of an e-mail. This usually relates to
+> something with an attachment.
+>
+> Is there some way to figure out what specific e-mail is still waiting to
+> finish downloading something? I've been watching that little lack of
+> progress indicator for half the afternoon. I've read and deleted most of
+> the e-mail that came in this afternoon, and don't find anything suspicious.
+
+I'm a heavy Thunderbird user and I get this all the time. In particular 
+I seem to get the eternal progress bar after going into offline mode 
+after it has downloaded my email. That happens about 50% of the time I 
+go into offline mode, and if I leave it this way, Tbird will eat up some 
+CPU continuously. If I close and then restart it, things stay quiet as 
+expected.
+
+I have the feeling it's just some buggy interaction between Thunderbird 
+and the mail server.
+
+It sure would be nice to get some info on what Thunderbird thinks it's 
+doing, though - would make it helpful to develop a meaningful bug report 
+for it.
+
+Scott
+
+
+
+From kingbeowulf at gmail.com  Sat Sep 29 14:28:19 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sat, 29 Sep 2012 14:28:19 -0700
+Subject: [PLUG] Thunderbird progress bar
+In-Reply-To: <50667569.4020208@zenlinux.com>
+References: <50663FAE.80409@comcast.net> <50667569.4020208@zenlinux.com>
+Message-ID: <506767F3.1040408@gmail.com>
+
+On 09/28/2012 09:13 PM, Scott Garman wrote:
+> On 09/28/2012 05:24 PM, Richard C. Steffens wrote:
+>> At the bottom of the T-bird window, near the right hand corner, there is
+>> a progress bar that, as far as I know, shows me that T-bird is still
+>> trying to download some part of an e-mail. This usually relates to
+>> something with an attachment.
+>>
+>> Is there some way to figure out what specific e-mail is still waiting to
+>> finish downloading something? I've been watching that little lack of
+>> progress indicator for half the afternoon. I've read and deleted most of
+>> the e-mail that came in this afternoon, and don't find anything suspicious.
+> I'm a heavy Thunderbird user and I get this all the time. In particular
+> I seem to get the eternal progress bar after going into offline mode
+> after it has downloaded my email. That happens about 50% of the time I
+> go into offline mode, and if I leave it this way, Tbird will eat up some
+> CPU continuously. If I close and then restart it, things stay quiet as
+> expected.
+>
+> I have the feeling it's just some buggy interaction between Thunderbird
+> and the mail server.
+>
+> It sure would be nice to get some info on what Thunderbird thinks it's
+> doing, though - would make it helpful to develop a meaningful bug report
+> for it.
+>
+> Scott
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+Thunderbird hasn't glitched like this for me in a long time, or after 
+"on the fly" upgrades. But then, I use Xfce and Slackware ;-)
+
+One trick is to start Thunderbird via the CLI (xterm or whichever). That 
+way you might get some error console output.
+
+
+
+
+From website.reader3 at gmail.com  Sat Sep 29 17:37:51 2012
+From: website.reader3 at gmail.com (website reader)
+Date: Sat, 29 Sep 2012 17:37:51 -0700
+Subject: [PLUG] Question on efficiently searching large files for a simple
+	text match
+Message-ID: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+
+To all:
+
+This is a question on efficiently searching for text items in a large
+file > 1 gigabyte in size.
+
+I have a list of about 2 to 5 thousand items where an item is a couple
+of text words such as "Side 2050" and S is always in the starting
+column, and have to search a large file around 24 gigabytes in size
+for these items.  The file is a simple text file, delineated by line
+feeds.
+
+Using the typical shell grep command script such as:
+
+grep "Side 2050"
+grep "Side 2061"
+etc.
+
+results in a very slow execution time, since the 24 gig file has to be
+searched for each line of the script and I am finding this to be very
+laborious and time consuming, not to mention all the hits on the hard
+drive as the script grinds through each line.
+
+I am aware of combining the grep into a pattern set, but then run into
+command line length limitations.  Is it best to go this way?
+
+What is the quickest way to do this type of search, when large files (
+> 1 gig ) are involved?
+
+Thanks for your tips, or suggestions.
+
+- Randall
+
+
+From mkosmal at gmail.com  Sat Sep 29 17:46:06 2012
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Sat, 29 Sep 2012 17:46:06 -0700
+Subject: [PLUG] Question on efficiently searching large files for a
+ simple text match
+In-Reply-To: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+References: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+Message-ID: <CADKOhKcT_nGwxdkvenTK4ynK4Nb-CNLusocRevdsSqRFSRDOYg@mail.gmail.com>
+
+On Sat, Sep 29, 2012 at 5:37 PM, website reader
+<website.reader3 at gmail.com> wrote:
+> To all:
+>
+> This is a question on efficiently searching for text items in a large
+> file > 1 gigabyte in size.
+>
+> I have a list of about 2 to 5 thousand items where an item is a couple
+> of text words such as "Side 2050" and S is always in the starting
+> column, and have to search a large file around 24 gigabytes in size
+> for these items.  The file is a simple text file, delineated by line
+> feeds.
+>
+> Using the typical shell grep command script such as:
+>
+> grep "Side 2050"
+> grep "Side 2061"
+> etc.
+>
+> results in a very slow execution time, since the 24 gig file has to be
+> searched for each line of the script and I am finding this to be very
+> laborious and time consuming, not to mention all the hits on the hard
+> drive as the script grinds through each line.
+>
+> I am aware of combining the grep into a pattern set, but then run into
+> command line length limitations.  Is it best to go this way?
+>
+> What is the quickest way to do this type of search, when large files (
+>> 1 gig ) are involved?
+>
+> Thanks for your tips, or suggestions.
+>
+> - Randall
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+HI
+
+Can  you just grep for S and save that in a file?
+
+Then grep the new/smaller file for the rest?
+
+HTH
+
+Marvin
+
+
+From ddsnell at frontier.com  Sat Sep 29 18:49:33 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sat, 29 Sep 2012 18:49:33 -0700
+Subject: [PLUG] Question on efficiently searching large files for a
+ simple text match
+In-Reply-To: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+References: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+Message-ID: <20120929184933.57e07a81@zothique.localnet>
+
+On Sat, 29 Sep 2012 17:37:51 -0700
+website reader <website.reader3 at gmail.com> wrote:
+
+> To all:
+> 
+> This is a question on efficiently searching for text items in a large
+> file > 1 gigabyte in size.
+> 
+> I have a list of about 2 to 5 thousand items where an item is a couple
+> of text words such as "Side 2050" and S is always in the starting
+> column, and have to search a large file around 24 gigabytes in size
+> for these items.  The file is a simple text file, delineated by line
+> feeds.
+> 
+> Using the typical shell grep command script such as:
+> 
+> grep "Side 2050"
+> grep "Side 2061"
+> etc.
+> 
+> results in a very slow execution time, since the 24 gig file has to be
+> searched for each line of the script and I am finding this to be very
+> laborious and time consuming, not to mention all the hits on the hard
+> drive as the script grinds through each line.
+> 
+> I am aware of combining the grep into a pattern set, but then run into
+> command line length limitations.  Is it best to go this way?
+> 
+> What is the quickest way to do this type of search, when large files (
+> > 1 gig ) are involved?
+> 
+> Thanks for your tips, or suggestions.
+> 
+> - Randall
+
+How about something like this:
+
+    $ grep -E "^Side" really_big_file
+
+The caret (^) will anchor the search to the beginning of the line.
+That way grep will only have to check out the first word.  Without
+the anchor, grep will scan the entire line for the search string,
+which would take more time.
+
+There are some programs (e.g., Stringi or Hyper Estraier) that are
+claimed to be extremely fast at searching text files.  I've never
+used any of them, but from what I've been able to see, many of
+them are meant to be part of a web site.  They also need to
+pre-scan the text files in order to build an index, which probably
+takes a while.  OTOH, if you have to scan the same set of files
+over and over, this may not be a limitation.  (Stringi in
+particular is supposed to have high-speed replacements for find
+and grep.)
+
+--Dale
+
+--
+"I've measured it from side to side;
+Tis three feet long and two feet wide."
+    -- William Wordsworth, describing a pond
+
+
+From enobacon at gmail.com  Sat Sep 29 19:36:36 2012
+From: enobacon at gmail.com (Eric Wilhelm)
+Date: Sat, 29 Sep 2012 19:36:36 -0700
+Subject: [PLUG] Question on efficiently searching large files for a
+	simple text match
+In-Reply-To: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+References: <CAJeYwHe0T59Y-8pYunnJ8hZJtk=fdd1KMMk3UesdbFbaTAbOxg@mail.gmail.com>
+Message-ID: <201209291936.36478.enobacon@gmail.com>
+
+# from website reader on Saturday 29 September 2012:
+>I have a list of about 2 to 5 thousand items where an item is a couple
+>of text words such as "Side 2050" and S is always in the starting
+>column, and have to search a large file around 24 gigabytes in size
+>for these items.  The file is a simple text file, delineated by line
+>feeds.
+
+If the file won't fit in ram and you're searching from start to finish 
+for each item, you'll have to pay for the disk reads 2-5k times.  Much 
+better to read through the file once and check your matches as you go.  
+If you don't know Perl, I think this is a really good time to read the 
+`man perlintro` document.
+
+You could go through the file line-by-line and check all of your items 
+on each line
+
+  while(my $line = <>) {
+    foreach my $item (@items) {
+      print $line if m/^$item/
+	}
+  }
+
+And that might get it done in less time than it takes to optimize it, 
+but I'm guessing you could easily compile all of your items into one 
+regexp (`man perlre`) and save a lot of time with the inner loop.
+
+Maybe also try reading chunks of e.g. 100 lines and applying a regexp 
+with appropriate anchoring + captures, which might get you more speed by 
+moving some of the outer loop down into the regexp engine.
+
+For advanced parallelization, read whatever number of whatever size 
+chunks memory allows and farm-out to however many cores are available.
+
+--Eric
+-- 
+---------------------------------------------------
+    http://scratchcomputing.com
+---------------------------------------------------
+
+
+From ramunro at speakeasy.net  Sun Sep 30 12:53:48 2012
+From: ramunro at speakeasy.net (Robert Munro)
+Date: Sun, 30 Sep 2012 12:53:48 -0700
+Subject: [PLUG] Question on efficiently searching large files for a
+ simple text match
+In-Reply-To: <mailman.5.1349031602.23406.plug@lists.pdxlinux.org>
+References: <mailman.5.1349031602.23406.plug@lists.pdxlinux.org>
+Message-ID: <5068A34C.6080701@speakeasy.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sat, 29 Sep 2012 19:36:36 -0700 Eric Wilhelm wrote:
+> # from website reader on Saturday 29 September 2012:
+>>> I have a list of about 2 to 5 thousand items ...
+<snip>
+> If you don't know Perl, I think this is a really good time to read
+> the `man perlintro` document.
+
+I suspect that Randall Schwartz has just encountered the downside of
+posting at PLUG using an alias that hides his identity.
+
+R
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAlBoo0sACgkQ+qYMIUkNJCyr5ACgseacePHY10AgDdepZ4RKq9bm
+EaMAniw4WHHV69HNeSCrHzdbgnzHeoku
+=vPa3
+-----END PGP SIGNATURE-----
+
+
+From epheph at gmail.com  Sun Sep 30 14:50:08 2012
+From: epheph at gmail.com (Scott Bigelow)
+Date: Sun, 30 Sep 2012 14:50:08 -0700
+Subject: [PLUG] Question on efficiently searching large files for a
+ simple text match
+In-Reply-To: <5068A34C.6080701@speakeasy.net>
+References: <mailman.5.1349031602.23406.plug@lists.pdxlinux.org>
+	<5068A34C.6080701@speakeasy.net>
+Message-ID: <CANdpE5Xp0jM6gvMJKx2J=oY-OqJDmctNrQnkCo-a63Jj-55KbA@mail.gmail.com>
+
+How about just:
+
+grep -f /tmp/sides.txt bigfile.txt
+
+Where sides.txt is a list of all items you'd like to search for, one per
+line.
+
+On Sun, Sep 30, 2012 at 12:53 PM, Robert Munro <ramunro at speakeasy.net>wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On Sat, 29 Sep 2012 19:36:36 -0700 Eric Wilhelm wrote:
+> > # from website reader on Saturday 29 September 2012:
+> >>> I have a list of about 2 to 5 thousand items ...
+> <snip>
+> > If you don't know Perl, I think this is a really good time to read
+> > the `man perlintro` document.
+>
+> I suspect that Randall Schwartz has just encountered the downside of
+> posting at PLUG using an alias that hides his identity.
+>
+> R
+>
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.12 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+>
+> iEYEARECAAYFAlBoo0sACgkQ+qYMIUkNJCyr5ACgseacePHY10AgDdepZ4RKq9bm
+> EaMAniw4WHHV69HNeSCrHzdbgnzHeoku
+> =vPa3
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From website.reader3 at gmail.com  Sun Sep 30 21:05:42 2012
+From: website.reader3 at gmail.com (website reader)
+Date: Sun, 30 Sep 2012 21:05:42 -0700
+Subject: [PLUG] reply to suggestions on searching a big file > 1 gig
+Message-ID: <CAJeYwHcR4Mxy-c-P0J7x-pDghU96VX0MrqDgBOdUxUTct0ekzw@mail.gmail.com>
+
+Thanks for the suggestions, I will make some comments here.
+
+I see that I did not provide nearly enough context again, sorry about that.
+
+To start, almost all records in the file start with ^S.  There are
+1,053,062,790 records in the file so  I simply cannot grep for "^S"
+because over a billion records will be retrieved.
+
+Secondly I do NOT have 24+ gigs of memory, to load the file into RAM
+and search that way.
+
+Scott's suggestion:
+
+   grep -f /tmp/sides.txt bigfile.txt
+
+   Where sides.txt is a list of all items you'd like to search for,
+one per line.
+
+might work, I will give it a try and see how well it executes.
+
+I am thinking of setting up multiple grep commands, using about a
+1,000 patterns to match in each grep command.
+
+Once again, thanks for the tips.
+
+
+From mkosmal at gmail.com  Sun Sep 30 21:17:30 2012
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Sun, 30 Sep 2012 21:17:30 -0700
+Subject: [PLUG] reply to suggestions on searching a big file > 1 gig
+In-Reply-To: <CAJeYwHcR4Mxy-c-P0J7x-pDghU96VX0MrqDgBOdUxUTct0ekzw@mail.gmail.com>
+References: <CAJeYwHcR4Mxy-c-P0J7x-pDghU96VX0MrqDgBOdUxUTct0ekzw@mail.gmail.com>
+Message-ID: <CADKOhKcaWYMe0-k93urk3NHSn4va57PonOP7cQ8B2aSjyD=G_g@mail.gmail.com>
+
+On Sun, Sep 30, 2012 at 9:05 PM, website reader
+<website.reader3 at gmail.com> wrote:
+> Thanks for the suggestions, I will make some comments here.
+>
+> I see that I did not provide nearly enough context again, sorry about that.
+>
+> To start, almost all records in the file start with ^S.  There are
+> 1,053,062,790 records in the file so  I simply cannot grep for "^S"
+> because over a billion records will be retrieved.
+>
+> Secondly I do NOT have 24+ gigs of memory, to load the file into RAM
+> and search that way.
+>
+> Scott's suggestion:
+>
+>    grep -f /tmp/sides.txt bigfile.txt
+>
+>    Where sides.txt is a list of all items you'd like to search for,
+> one per line.
+>
+> might work, I will give it a try and see how well it executes.
+>
+> I am thinking of setting up multiple grep commands, using about a
+> 1,000 patterns to match in each grep command.
+>
+> Once again, thanks for the tips.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+
+I would suggest redirect into a file..  Takes A LOT of time to print..
+
+something like
+
+  grep -f /tmp/sides.txt bigfile.txt > new.text.file
+
+YMMV
+
+Marvin
+
+

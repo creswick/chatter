@@ -1,0 +1,30 @@
+From revans at e-z.net  Wed Feb  6 03:43:13 2002
+From: revans at e-z.net (Russell Evans)
+Date: Wed,  6 Feb 2002 03:43:13 -0800
+Subject: [PLUG] Cups Printing Sharing
+In-Reply-To: <64995.12.231.181.15.1031414816.squirrel@mail.parkrose.k12.or.us>
+References: <64995.12.231.181.15.1031414816.squirrel@mail.parkrose.k12.or.us>
+Message-ID: <20020907161459.MUIZ9751.sccrmhc01.attbi.com@dhcp-320-212>
+
+Why did you choose to use windows shares instead of using IPP, technical
+issues, user issues, or political?
+
+Thank you
+Russell
+
+On Sat, 7 Sep 2002 09:06:56 -0700 (PDT), Dan Young said:
+
+>  
+>  This is all that is printer-related in my smb.conf, though I believe the
+>  printcap reference is superfluous w/ CUPS.
+>  
+>  My cupsd.conf is near stock, as it should listen on localhost by default.
+>  
+>  One thing that was faily maddening was that PCL Windows drivers for the
+>  printers wouldn't work until the "application/octet-stream" lines were
+>  uncommented in both /etc/cups/mime.convs and /etc/cups/mime.types.
+
+
+
+
+

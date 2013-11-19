@@ -44,6 +44,7 @@ Library
                      NLP.Types
                      NLP.Tokenize
                      NLP.Corpora.Parsing
+                     NLP.Corpora.Email
                      NLP.Similarity.VectorSim
                      Data.DefaultMap
 
@@ -58,7 +59,9 @@ Library
                      split,
                      bytestring,
                      zlib,
-                     filepath
+                     filepath,
+                     directory,
+                     mbox
 
    ghc-options:      -Wall
 
@@ -120,7 +123,9 @@ Executable bench
                      filepath,
                      text,
                      base       >= 4 && <= 6,
-                     split
+                     split,
+                     tokenize,
+                     deepseq
 
    ghc-options:      -Wall -main-is Bench
 

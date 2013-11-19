@@ -1,0 +1,4130 @@
+From dexter at ambidexter.com  Wed Aug  1 00:43:29 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Wed, 01 Aug 2012 00:43:29 -0700
+Subject: [PLUG] Reminder: August PLUG Meeting: OSCON Feedback and General
+	Questions
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5018DE21.9080106@ambidexter.com>
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: You!
+What: OSCON Feedback and General Questions
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, August 2nd, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+John Jordan suggested a discussion about OSCON and David has the first 
+batch of books from O'Reilly Media to share including an Asterisk book. 
+General questions will probably arise along the way and alas, I cannot 
+attend.
+
+I was able to come up with two "hack... four letter word" shirts but 
+they are size small. Sorry! David should have these with him.
+
+Have fun!
+
+
+Calagator Page: http://calagator.org/events/1250462655
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...  Beer
+             The Lucky Lab Northwest Beer Hall
+             1945 NW Quimby
+             Portland, Oregon
+
+Follow PLUG on Twitter: @pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+
+From michael at jamhome.us  Wed Aug  1 06:32:46 2012
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Wed, 1 Aug 2012 06:32:46 -0700
+Subject: [PLUG] Verizon now required to allow tethering w/3rd party apps
+Message-ID: <20120801133246.GA11668@jamhome.us>
+
+Which means without paying them for the privledge.
+http://consumerist.com/2012/08/verizon-must-pay-fcc-1-25-million-fine-let-android-users-tether-for-free.html
+additional links in the story
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+      Other Adventures: http://www.jamhome.us/ or http://westy.saunter.us/
+Fortune Cookie Fortune du courrier:
+Don?t let the noise of other?s opinions drown out your own inner voice. 
+    ~ Steve Jobs
+
+
+From rsteff at comcast.net  Wed Aug  1 12:41:22 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 01 Aug 2012 12:41:22 -0700
+Subject: [PLUG] Where a program stores temporary files
+Message-ID: <50198662.2040505@comcast.net>
+
+I use a program called transcribe. It's a python program for playing 
+back audio files for transcription purposes. The company from which I 
+get assignments requires that I delete the audio files when I've 
+finished the work, since the material is usually confidential. I do this 
+by deleting the audio file from the directory in which I had stored it, 
+and then deleting it from the Trash folder.
+
+Sometimes this program (transcribe) gets confused. I start playing a new 
+audio file, and I hear an old one along with the one. I discovered that 
+when I closed transcribe "yesterday" the program did not completely 
+quit. I use ps ax | grep transcribe and discover three entries (one of 
+which is the grep process). So, I shut down the instance of transcribe I 
+can see, and then use kill to shut down the other instance. Running ps 
+ax | grep transcribe returns the reference to itself.
+
+My question relates to the audio source for the errant instance of 
+transcribe.
+
+How do I go about locating that file? Was it even a file, or was it 
+buffered in memory somewhere, and killing the instance removed it?
+
+This is mostly so I can affirm that I have deleted the audio completely 
+from my computer.
+
+Thanks for any clues.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From plug at the-wes.com  Wed Aug  1 12:57:01 2012
+From: plug at the-wes.com (wes)
+Date: Wed, 1 Aug 2012 12:57:01 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <50198662.2040505@comcast.net>
+References: <50198662.2040505@comcast.net>
+Message-ID: <CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+
+>
+>
+> How do I go about locating that file? Was it even a file, or was it
+> buffered in memory somewhere, and killing the instance removed it?
+>
+>
+it is very possible it was all in memory. /tmp is a popular place for
+programs to store temporary files (which are not always deleted). if you're
+interested, you can also dig in by using tools like strace and /proc.
+
+use ps to find the pid of the transcription program. then, in a terminal,
+do:
+
+ls -la /proc/(pid goes here)/fd
+
+that should give you a list of the files currently open by that process.
+
+-wes
+
+
+From rsteff at comcast.net  Wed Aug  1 14:07:32 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 01 Aug 2012 14:07:32 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+Message-ID: <50199A94.3020505@comcast.net>
+
+On 08/01/2012 12:57 PM, wes wrote:
+>> How do I go about locating that file? Was it even a file, or was it
+>> buffered in memory somewhere, and killing the instance removed it?
+> it is very possible it was all in memory. /tmp is a popular place for
+> programs to store temporary files (which are not always deleted). if you're
+> interested, you can also dig in by using tools like strace and /proc.
+>
+> use ps to find the pid of the transcription program. then, in a terminal,
+> do:
+>
+> ls -la /proc/(pid goes here)/fd
+>
+> that should give you a list of the files currently open by that process.
+
+I see some interesting possibilities in /tmp. IIRC, transcribe uses 
+pulse audio. There are two directories in /tmp that start with pulse-. 
+When I have some time I'll dig into them. One of them is locked. I also 
+see some files whose names I recognize. It doesn't make sense for at 
+least one of them to be there. It's locked. It's an rtf file that opens 
+with Wine Wordpad. I know where the original copy of that file is. No 
+idea why this one would be here and be locked. Maybe a Wine thing. But, 
+other than the two pulse- directories, nothing obviously related to a 
+sound file.
+
+In /proc, I see mostly pipes and sockets. I also see inotify, /dev/nul, 
+/home/rsteff.xsession-errors twice, and the file on which I am currently 
+working.
+
+Next time I have an issue with multiple files playing back at the same 
+time, I'll try this again and see what's different.
+
+Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From ddsnell at frontier.com  Wed Aug  1 14:29:54 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Wed, 1 Aug 2012 14:29:54 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <50199A94.3020505@comcast.net>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+Message-ID: <20120801142954.3423271a@zothique.localnet>
+
+On Wed, 01 Aug 2012 14:07:32 -0700
+"Richard C. Steffens" <rsteff at comcast.net> wrote:
+
+> On 08/01/2012 12:57 PM, wes wrote:
+> >> How do I go about locating that file? Was it even a file, or was it
+> >> buffered in memory somewhere, and killing the instance removed it?
+> > it is very possible it was all in memory. /tmp is a popular place
+> > for programs to store temporary files (which are not always
+> > deleted). if you're interested, you can also dig in by using tools
+> > like strace and /proc.
+> >
+> > use ps to find the pid of the transcription program. then, in a
+> > terminal, do:
+> >
+> > ls -la /proc/(pid goes here)/fd
+> >
+> > that should give you a list of the files currently open by that
+> > process.
+> 
+> I see some interesting possibilities in /tmp. IIRC, transcribe uses 
+> pulse audio. There are two directories in /tmp that start with
+> pulse-. When I have some time I'll dig into them. One of them is
+> locked. I also see some files whose names I recognize. It doesn't
+> make sense for at least one of them to be there. It's locked. It's an
+> rtf file that opens with Wine Wordpad. I know where the original copy
+> of that file is. No idea why this one would be here and be locked.
+> Maybe a Wine thing. But, other than the two pulse- directories,
+> nothing obviously related to a sound file.
+> 
+> In /proc, I see mostly pipes and sockets. I also see
+> inotify, /dev/nul, /home/rsteff.xsession-errors twice, and the file
+> on which I am currently working.
+> 
+> Next time I have an issue with multiple files playing back at the
+> same time, I'll try this again and see what's different.
+> 
+> Thanks.
+> 
+
+
+Dick,
+
+You might try starting your transcription program with strace, to
+see what files the program normally opens.  Something like this:
+
+    $ strace -e trace=file transcribe [options]
+
+strace will spew a lot of stuff to the terminal, and it can be a
+pain to wade through.  But there are times when it's invaluable.
+You'll probably want to consult the man page for strace(1) for all
+the gory details.
+
+Hope this helps.  If not, remember that it's worth every penny you
+paid for it.  :-)  (Yes, I'm in a strange mood today.  Moo.)
+
+--Dale
+
+--
+Pessimist:  The glass is half empty.
+Optimist:   The glass is half full.
+Engineer:   The glass is twice as big as it needs to be.
+
+
+From russell at personaltelco.net  Wed Aug  1 14:41:46 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 01 Aug 2012 14:41:46 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	(plug@the-wes.com's message of "Wed\,
+	1 Aug 2012 12\:57\:01 -0700")
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+Message-ID: <86lihyb885.fsf@coulee.tdb.com>
+
+>>>>> "wes" == wes  <plug at the-wes.com> writes:
+
+>> How do I go about locating that file? Was it even a file, or was it
+>> buffered in memory somewhere, and killing the instance removed it?
+
+wes> it is very possible it was all in memory. /tmp is a popular place
+wes> for programs to store temporary files (which are not always
+wes> deleted). if you're interested, you can also dig in by using
+wes> tools like strace and /proc.
+
+wes> use ps to find the pid of the transcription program. then, in a
+wes> terminal, do:
+
+wes> ls -la /proc/(pid goes here)/fd
+
+wes> that should give you a list of the files currently open by that
+wes> process.
+
+lsof is another option.  It should tell you what files each process
+has open.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From eduncliffe at gmail.com  Wed Aug  1 17:35:49 2012
+From: eduncliffe at gmail.com (eduncliffe at gmail.com)
+Date: Thu, 2 Aug 2012 00:35:49 +0000
+Subject: [PLUG] local linux certification
+In-Reply-To: <1343783384.11285.69.camel@kauai>
+References: <50175B08.2080400@nathanewilliams.com>
+	<801578062-1343708181-cardhu_decombobulator_blackberry.rim.net-834556841-@b4.c16.bise6.blackberry>
+	<50176085.20708@nathanewilliams.com>
+	<1343783384.11285.69.camel@kauai>
+Message-ID: <501991677-1343867752-cardhu_decombobulator_blackberry.rim.net-1221808396-@b4.c16.bise6.blackberry>
+
+Wow, Mike - what a great offer. Thank you so much. I expect to take my first LPI exam when I finish up my CCNA in September. I'll be sure to keep you updated.
+
+Again, thanks so much. I've read a lot of technical books in the last year and I've never had an author make that offer.
+-Eamonn
+Sent via BlackBerry from T-Mobile
+
+-----Original Message-----
+From: MJang <mike at linuxexam.com>
+Sender: plug-bounces at lists.pdxlinux.org
+Date: Tue, 31 Jul 2012 18:09:44 
+To: General Linux/UNIX discussion and help;	civil and on-topic<plug at lists.pdxlinux.org>
+Reply-To: "General Linux/UNIX discussion and help;
+	civil and on-topic" <plug at lists.pdxlinux.org>
+Subject: Re: [PLUG] local linux certification
+
+On Mon, 2012-07-30 at 21:35 -0700, Nathan Williams wrote:
+> On 07/30/2012 09:16 PM, eduncliffe at gmail.com wrote:
+> > "all my searches seem to indicate
+> > that I'll need to travel to Seattle to actually take the test. Is this
+> > accurate?"
+> >
+> > I believe that's accurate. I know that this was the case when I looked into it last summer.
+> 
+> darn. it seems a mite surprising that this would be the case, but I 
+> suppose it's not the end of the world.
+> >
+> > "Alternately accepting general cert/study recommendations if there's
+> > anything I should know ahead of time?"
+> >
+> > I don't. I fantasize about finding work abroad and decided to focus on LPI certificates. But, I am curious about what kind of lab you set up for you RHCSA study.
+> my "lab" is a fluctuating number of CentOS KVM guests based on how 
+> functional any of them are at a given time. The minimum number of rhel 
+> images you can get away with is about 3. I've just been working through 
+> chapters 1-9 of Michael Jang's "RHCSA/RHCE Red Hat Linux Certification 
+> Study Guide".
+
+Dear Nathan, Eamonn, 
+
+Assuming the indulgence of the group, you're welcome to ask questions
+here (or privately by email) if you run into book related issues.
+(Nathan, your lab sounds fine.)
+
+Thanks,
+Mike
+
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From russ at dimstar.net  Wed Aug  1 20:05:59 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Wed, 1 Aug 2012 20:05:59 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <20120801142954.3423271a@zothique.localnet>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+Message-ID: <DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+
+
+On Aug 1, 2012, at 2:29 PM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> Pessimist:  The glass is half empty.
+> Optimist:   The glass is half full.
+> Engineer:   The glass is twice as big as it needs to be.
+
+I prefer, the glass is at half capacity. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From rlengland at frontier.com  Wed Aug  1 20:55:36 2012
+From: rlengland at frontier.com (Richard England)
+Date: Wed, 01 Aug 2012 20:55:36 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <86lihyb885.fsf@coulee.tdb.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<86lihyb885.fsf@coulee.tdb.com>
+Message-ID: <5019FA38.7080208@frontier.com>
+
+On 08/01/2012 02:41 PM, Russell Senior wrote:
+>>>>>> "wes" == wes  <plug at the-wes.com> writes:
+>>> How do I go about locating that file? Was it even a file, or was it
+>>> buffered in memory somewhere, and killing the instance removed it?
+> wes> it is very possible it was all in memory. /tmp is a popular place
+> wes> for programs to store temporary files (which are not always
+> wes> deleted). if you're interested, you can also dig in by using
+> wes> tools like strace and /proc.
+>
+> wes> use ps to find the pid of the transcription program. then, in a
+> wes> terminal, do:
+>
+> wes> ls -la /proc/(pid goes here)/fd
+>
+> wes> that should give you a list of the files currently open by that
+> wes> process.
+>
+> lsof is another option.  It should tell you what files each process
+> has open.
+>
+>
+Or isn't possible that it is still on the disk temporarily?  If a 
+process still has the file open, even if you remove it doesn't it keep 
+the data around until all the inode references are freed? That would 
+mean that killing the last of the processes found using lsof, for 
+instance, should finally remove the file. Or am I still living in the 
+last century?
+
+~~R
+
+
+From danielmyoung at gmail.com  Wed Aug  1 21:35:39 2012
+From: danielmyoung at gmail.com (Dan Young)
+Date: Wed, 1 Aug 2012 21:35:39 -0700
+Subject: [PLUG] local linux certification
+In-Reply-To: <50175B08.2080400@nathanewilliams.com>
+References: <50175B08.2080400@nathanewilliams.com>
+Message-ID: <CAC3p8+p=_q5r5184=+6KMcR6cankB6hvf=F0w=EB+pHHdiLu+A@mail.gmail.com>
+
+On Mon, Jul 30, 2012 at 9:11 PM, Nathan Williams
+<nathan at nathanewilliams.com> wrote:
+> I've been studying for the RHCSA, but all my searches seem to indicate
+> that I'll need to travel to Seattle to actually take the test. Is this
+> accurate? If not, could you point out how my google-fu is failing?
+> Alternately accepting general cert/study recommendations if there's
+> anything I should know ahead of time?
+
+I tried for quite some time to actually take the RHCSA exam in Seattle
+and had it cancelled three times for low enrollment. Major bummer...
+Finally flew to San Francisco to take it as "guaranteed to run" exam.
+
+I found that the exam objectives do in fact cover exactly what you
+need to be able to do. If you're comfortable with doing those things,
+you're in pretty good shape:
+http://www.redhat.com/training/courses/ex200/examobjective
+
+During the exam you have access to any resources normally installed,
+so knowing where to find documentation (man pages, READMEs, etc) can
+be helpful.
+
+Good luck!
+
+-- 
+Dan Young
+
+
+From russell at personaltelco.net  Wed Aug  1 22:27:01 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 01 Aug 2012 22:27:01 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net> (Russell
+	Johnson's message of "Wed\, 1 Aug 2012 20\:05\:59 -0700")
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+	<DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+Message-ID: <86lihxamoq.fsf@coulee.tdb.com>
+
+>>>>> "RJ" == Russell Johnson <russ at dimstar.net> writes:
+
+RJ> On Aug 1, 2012, at 2:29 PM, Dale Snell <ddsnell at frontier.com>
+RJ> wrote:
+
+>> Pessimist: The glass is half empty.  Optimist: The glass is half
+>> full.  Engineer: The glass is twice as big as it needs to be.
+
+RJ> I prefer, the glass is at half capacity.
+
+When I was in engineer school that whole metaphor totally baffled me...
+
+  Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+
+I still don't quite understand what it's trying to imply.  Use better
+metaphors, people! 
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From lnxknight at gmail.com  Thu Aug  2 03:24:33 2012
+From: lnxknight at gmail.com (Matt McKenzie)
+Date: Thu, 2 Aug 2012 03:24:33 -0700
+Subject: [PLUG] Optimist/Pessimist (was Re: Where a program stores temporary
+	files)
+Message-ID: <CAKJipLQ1vEwjZ5PYX8rZpmPkRJJ_59gJFtobpaJBSe71Yr8T-g@mail.gmail.com>
+
+On Wed, Aug 1, 2012 at 10:27 PM, Russell Senior
+<russell at personaltelco.net>wrote:
+
+> >>>>> "RJ" == Russell Johnson <russ at dimstar.net> writes:
+>
+> RJ> On Aug 1, 2012, at 2:29 PM, Dale Snell <ddsnell at frontier.com>
+> RJ> wrote:
+>
+> >> Pessimist: The glass is half empty.  Optimist: The glass is half
+> >> full.  Engineer: The glass is twice as big as it needs to be.
+>
+> RJ> I prefer, the glass is at half capacity.
+>
+> When I was in engineer school that whole metaphor totally baffled me...
+>
+>   Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+>
+> I still don't quite understand what it's trying to imply.  Use better
+> metaphors, people!
+>
+>
+>
+I still like this one:
+[picture a note, next to an empty glass]
+
+"While the Optimist and Pessimist were arguing over whether the glass was
+half full or half empty, I just came along and drank it.
+Sincerely, the Opportunist"
+
+Carpe Diem!
+
+----------
+Matt M.
+LinuxKnight
+
+
+From guy1656 at opusnet.com  Thu Aug  2 05:32:39 2012
+From: guy1656 at opusnet.com (Guy Letourneau)
+Date: Thu, 02 Aug 2012 05:32:39 -0700
+Subject: [PLUG] Optimist/Pessimist
+In-Reply-To: <CAKJipLQ1vEwjZ5PYX8rZpmPkRJJ_59gJFtobpaJBSe71Yr8T-g@mail.gmail.com>
+References: <CAKJipLQ1vEwjZ5PYX8rZpmPkRJJ_59gJFtobpaJBSe71Yr8T-g@mail.gmail.com>
+Message-ID: <501A7367.9040205@opusnet.com>
+
+
+>>
+>>>> Pessimist: The glass is half empty.  Optimist: The glass is half
+>>>> full.  Engineer: The glass is twice as big as it needs to be.
+>>
+>> RJ>  I prefer, the glass is at half capacity.
+>>
+
+I heard it as "You're using too much glass."
+
+
+
+From plug at the-wes.com  Thu Aug  2 07:05:36 2012
+From: plug at the-wes.com (wes)
+Date: Thu, 2 Aug 2012 07:05:36 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <5019FA38.7080208@frontier.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<86lihyb885.fsf@coulee.tdb.com> <5019FA38.7080208@frontier.com>
+Message-ID: <CAA1wLO=pbaz1jKXV7b4oeGhFHQJuaZbAjSkTv2xSe5HhCihKtw@mail.gmail.com>
+
+>
+>
+> Or isn't possible that it is still on the disk temporarily?  If a
+> process still has the file open, even if you remove it doesn't it keep
+> the data around until all the inode references are freed? That would
+> mean that killing the last of the processes found using lsof, for
+> instance, should finally remove the file. Or am I still living in the
+> last century?
+>
+> ~~R
+>
+>
+while this is true, it does not particularly impact the specific scenario
+laid out by the original poster. in the context of "not keeping data
+around" due to privacy or confidentiality concerns, the data can be
+considered "deleted" just by removing the reference to it in the file
+system (rm). If we were discussing issues related to disk space usage or
+another applicable topic, this detail would become a factor.
+
+If the data were extraordinarily sensitive, or if there was a serious
+threat of compromise, we could be more aggressive about wiping the data
+away. Even after the last process to hold an open file handle on a file
+closes that handle, the data is still on the disk until that spot on the
+disk has new data written to it by some future process.
+
+-wes
+
+
+From ronabop at gmail.com  Thu Aug  2 09:26:11 2012
+From: ronabop at gmail.com (Ronald Chmara)
+Date: Thu, 2 Aug 2012 09:26:11 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <86lihxamoq.fsf@coulee.tdb.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+	<DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+	<86lihxamoq.fsf@coulee.tdb.com>
+Message-ID: <CAFWS2+HL--XDrfW_cMQZ-wyUbd-0YfBEOxcJ_ykM_mvPL0w3eg@mail.gmail.com>
+
+On Wed, Aug 1, 2012 at 10:27 PM, Russell Senior
+<russell at personaltelco.net> wrote:
+>>> Pessimist: The glass is half empty.  Optimist: The glass is half
+>>> full.  Engineer: The glass is twice as big as it needs to be.
+> RJ> I prefer, the glass is at half capacity.
+> When I was in engineer school that whole metaphor totally baffled me...
+>   Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+
+The glass is half full of air, half full of water, therefore, the
+glass is completely full.
+
+-Ronabop
+
+
+From dfhubbard at freegeek.org  Thu Aug  2 10:49:07 2012
+From: dfhubbard at freegeek.org (dfhubbard at freegeek.org)
+Date: Thu, 2 Aug 2012 10:49:07 -0700
+Subject: [PLUG] Optimist/Pessimist
+In-Reply-To: <mailman.15.1343916388.16667.plug@lists.pdxlinux.org>
+References: <mailman.15.1343916388.16667.plug@lists.pdxlinux.org>
+Message-ID: <7703bce5c1e05500b34de99337164923.squirrel@mail.freegeek.org>
+
+
+
+
+The nice part about being a pessimist is that you are constantly being
+either proven right or pleasantly surprised.
+George Will
+
+I'm a professional pessimist!
+
+Peace
+Debra
+
+
+>    5. Optimist/Pessimist (was Re: Where a program stores temporary
+>       files) (Matt McKenzie)
+>    6. Re: Optimist/Pessimist (Guy Letourneau)
+>
+>
+> Message: 4
+> Date: Wed, 01 Aug 2012 22:27:01 -0700
+> From: Russell Senior <russell at personaltelco.net>
+> Subject: Re: [PLUG] Where a program stores temporary files
+> To: "General Linux/UNIX discussion and help;	civil and on-topic"
+> 	<plug at lists.pdxlinux.org>
+> Message-ID: <86lihxamoq.fsf at coulee.tdb.com>
+> Content-Type: text/plain; charset=us-ascii
+>
+>>>>>> "RJ" == Russell Johnson <russ at dimstar.net> writes:
+>
+> RJ> On Aug 1, 2012, at 2:29 PM, Dale Snell <ddsnell at frontier.com>
+> RJ> wrote:
+>
+>>> Pessimist: The glass is half empty.  Optimist: The glass is half
+>>> full.  Engineer: The glass is twice as big as it needs to be.
+>
+> RJ> I prefer, the glass is at half capacity.
+>
+> When I was in engineer school that whole metaphor totally baffled me...
+>
+>   Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+>
+> I still don't quite understand what it's trying to imply.  Use better
+> metaphors, people!
+>
+>
+> --
+> Russell Senior, President
+> russell at personaltelco.net
+>
+>
+> ------------------------------
+>
+> Message: 5
+> Date: Thu, 2 Aug 2012 03:24:33 -0700
+> From: Matt McKenzie <lnxknight at gmail.com>
+> Subject: [PLUG] Optimist/Pessimist (was Re: Where a program stores
+> 	temporary	files)
+> To: "General Linux/UNIX discussion and help,	civil and on-topic"
+> 	<plug at lists.pdxlinux.org>
+> Message-ID:
+> 	<CAKJipLQ1vEwjZ5PYX8rZpmPkRJJ_59gJFtobpaJBSe71Yr8T-g at mail.gmail.com>
+> Content-Type: text/plain; charset=ISO-8859-1
+>
+> On Wed, Aug 1, 2012 at 10:27 PM, Russell Senior
+> <russell at personaltelco.net>wrote:
+>
+>> >>>>> "RJ" == Russell Johnson <russ at dimstar.net> writes:
+>>
+>> RJ> On Aug 1, 2012, at 2:29 PM, Dale Snell <ddsnell at frontier.com>
+>> RJ> wrote:
+>>
+>> >> Pessimist: The glass is half empty.  Optimist: The glass is half
+>> >> full.  Engineer: The glass is twice as big as it needs to be.
+>>
+>> RJ> I prefer, the glass is at half capacity.
+>>
+>> When I was in engineer school that whole metaphor totally baffled me...
+>>
+>>   Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+>>
+>> I still don't quite understand what it's trying to imply.  Use better
+>> metaphors, people!
+>>
+>>
+>>
+> I still like this one:
+> [picture a note, next to an empty glass]
+>
+> "While the Optimist and Pessimist were arguing over whether the glass was
+> half full or half empty, I just came along and drank it.
+> Sincerely, the Opportunist"
+>
+> Carpe Diem!
+>
+> ----------
+> Matt M.
+> LinuxKnight
+>
+>
+> ------------------------------
+>
+> Message: 6
+> Date: Thu, 02 Aug 2012 05:32:39 -0700
+> From: Guy Letourneau <guy1656 at opusnet.com>
+> Subject: Re: [PLUG] Optimist/Pessimist
+> To: PLUG at lists.pdxlinux.org
+> Message-ID: <501A7367.9040205 at opusnet.com>
+> Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+>
+>
+>>>
+>>>>> Pessimist: The glass is half empty.  Optimist: The glass is half
+>>>>> full.  Engineer: The glass is twice as big as it needs to be.
+>>>
+>>> RJ>  I prefer, the glass is at half capacity.
+>>>
+>
+> I heard it as "You're using too much glass."
+>
+>
+ruth. You cannot forgive what you do not know. Archbishop Tutu
+
+
+
+From russ at dimstar.net  Thu Aug  2 11:10:29 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Thu, 2 Aug 2012 11:10:29 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <86lihxamoq.fsf@coulee.tdb.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+	<DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+	<86lihxamoq.fsf@coulee.tdb.com>
+Message-ID: <2BFF6895-BD92-45F3-9771-DC1691A07F60@dimstar.net>
+
+
+On Aug 1, 2012, at 10:27 PM, Russell Senior <russell at personaltelco.net> wrote:
+
+> Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+
+In quantity, yes. However, it's the perspective that's the subject of the exercise, not the water. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From ramunro at speakeasy.net  Thu Aug  2 12:02:50 2012
+From: ramunro at speakeasy.net (Robert Munro)
+Date: Thu, 02 Aug 2012 12:02:50 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <mailman.15.1343916388.16667.plug@lists.pdxlinux.org>
+References: <mailman.15.1343916388.16667.plug@lists.pdxlinux.org>
+Message-ID: <501ACEDA.6040307@speakeasy.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Thu, 2 Aug 2012 07:05:36 -0700 wes <plug at the-wes.com> wrote:
+>>> 
+>>> Or isn't possible that it is still on the disk temporarily?
+<snip>
+> while this is true, it does not particularly impact the specific
+> scenario laid out by the original poster.
+<snip>
+> If the data were extraordinarily sensitive, or if there was a
+> serious threat of compromise, we could be more aggressive about
+> wiping the data away. Even after the last process to hold an open
+> file handle on a file closes that handle, the data is still on the
+> disk until that spot on the disk has new data written to it by some
+> future process.
+
+True, once you've deleted the target file, you can make certain it's
+no longer recoverable by using scrub or another disk wiping package. I
+use scrub v2.2 occasionally on my /home partition to obliterate all
+deleted files with a one-line script called scrubit, as follows:
+
+#!/bin/sh
+scrub -XS /home/scratch && rm -rf /home/scratch && exit 0
+
+It writes random data over all free space on my /home partition, in
+two passes I think, then one pass of binary zeros followed by a verify
+pass.
+
+You can also set up /tmp as a ramdisk in /etc/fstab using the line:
+
+none /tmp tmpfs defaults 0 0
+
+That will rebuild /tmp in memory at every reboot, for those who reboot.
+
+And if you're leery of Adobe Flash Player, you can clear that out, too:
+
+cd ~
+rm -rf ./.adobe/Flash_Player/AssetCache/*
+rm -rf ./.macromedia/Flash_Player/#SharedObjects/*
+
+HTH,
+Robert
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAlAaztoACgkQ+qYMIUkNJCyZJACgr4ggNULWmpQwdJwZU/14a+Oa
+DLsAn3dCqJ7YgXHswmMeBxa0sCEvJk06
+=71Ok
+-----END PGP SIGNATURE-----
+
+
+From rowlett at cloud85.net  Tue Aug  7 03:40:32 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Tue, 07 Aug 2012 05:40:32 -0500
+Subject: [PLUG] [OT?] Setting up to do repetitive installs on ONE machine
+	(cf BabelBox)
+Message-ID: <5020F0A0.7080104@cloud85.net>
+
+[I posted this to two Debian lists - the silence was deafening.
+Can anyone comment on the logic of my approach?
+Anyone doing something related on any Debian related 
+distribution?
+Thank you]
+
+
+I have two objectives:
+    1. Define, by experimentation, optimal installation 
+parameters to meet my
+       idiosyncratic concept of a "minimal install".
+    2. Determine if there are bugs in Debian Installer, the 
+instructions for
+       the installer, or MY reading of those instructions.
+
+I've bought the 8 DVD set of Debian 6.0.5 and have set aside 
+a laptop as a testbed. I would divvy up the 80GB drive with 
+8-10GB for a quasi-static Debian install [some other 
+experiments, possible supervisor for these tests] and ~40GB 
+for DVD content [possibly some additional packages]. The 
+rest would be for the resulting test install and possibly 
+preserving some log files.
+
+"Debian GNU/Linux Installation Guide" (particularly sections 
+4 & 5 and appendix B) give some indication that what I want 
+to do is feasible. BabelBox 
+{http://wiki.debian.org/DebianInstaller/BabelBox} indicates 
+that something quite _similar_ has been done.
+
+
+Open questions about BabelBox and its suitability for my goals:
+
+BabelBox is apparently aimed at a fully scripted fully 
+automated repetitive install install dependent only on the 
+first DVD of a release [e.g. "When you get to partitioning, 
+create a Linux partition on /dev/sda1 ( *_about 1.5 to 4GB_* 
+depending on which media you want to use as installation 
+media)..." {EMPHASIS added}].
+
+I will, initially, be doing only manual installs using 
+preseeding to avoid entering fixed data - keyboard, time 
+zone, user name/password, no networking etc.
+
+Can I simply copy all 8 DVD's to the root of my supervising 
+Debian install?
+After an install will I be able to do apt-get to access the 
+DVD content now residing on the hard drive?
+Am I missing something?
+Are there other routes to my goals I should investigate?
+
+TIA
+
+
+
+
+From johnxj at comcast.net  Tue Aug  7 07:40:26 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 7 Aug 2012 07:40:26 -0700
+Subject: [PLUG] Can the OS or a program change the BIOS?
+Message-ID: <20120807074026.241e3eac@mailhost.pdx.edu>
+
+When I bought my Thinkpad T61 almost five years ago I started by wiping
+Windows and installing Ubuntu (currrently Fedora 16, x86_64). The next
+thing I did was go into the BIOS and disable the touchpad because I use
+an external mouse and the touchpad drives me nuts. OK, I'm already
+nuts, but no point in becoming nuttier.
+
+Imagine my surprise yesterday to discover that the touchpad was
+working. I rebooted and went into the BIOS (for the first time in
+nearly five years). Sure enough, the touchpad was enabled. I disabled
+it again, and all is back to normal.
+
+I have never heard of an operating system or program that can alter
+BIOS settings. Is this possible? OK, evidently it is possible, since it
+definitely happened. But what could have changed the BIOS setting? And
+why?
+
+
+From plug at the-wes.com  Tue Aug  7 08:13:30 2012
+From: plug at the-wes.com (wes)
+Date: Tue, 7 Aug 2012 08:13:30 -0700
+Subject: [PLUG] Can the OS or a program change the BIOS?
+In-Reply-To: <20120807074026.241e3eac@mailhost.pdx.edu>
+References: <20120807074026.241e3eac@mailhost.pdx.edu>
+Message-ID: <CAA1wLOkr7rD1msWExqvSAd1WC+4teHdUPjGWRBoEa1sXYEuQXQ@mail.gmail.com>
+
+>
+>
+> I have never heard of an operating system or program that can alter
+> BIOS settings. Is this possible? OK, evidently it is possible, since it
+> definitely happened. But what could have changed the BIOS setting? And
+> why?
+>
+
+Sure, it's possible. It is generally not done.
+
+BIOS settings are maintained by a battery. Could yours be going out?
+
+-wes
+
+
+From larry.brigman at gmail.com  Tue Aug  7 09:15:22 2012
+From: larry.brigman at gmail.com (Larry Brigman)
+Date: Tue, 7 Aug 2012 09:15:22 -0700
+Subject: [PLUG] Can the OS or a program change the BIOS?
+In-Reply-To: <CAA1wLOkr7rD1msWExqvSAd1WC+4teHdUPjGWRBoEa1sXYEuQXQ@mail.gmail.com>
+References: <20120807074026.241e3eac@mailhost.pdx.edu>
+	<CAA1wLOkr7rD1msWExqvSAd1WC+4teHdUPjGWRBoEa1sXYEuQXQ@mail.gmail.com>
+Message-ID: <CAJEEjpbqqhKU-xufv1Pmzpnc+=pB_fTp3jeqBcwtBNk7ofUCQA@mail.gmail.com>
+
+On Tue, Aug 7, 2012 at 8:13 AM, wes <plug at the-wes.com> wrote:
+
+> >
+> >
+> > I have never heard of an operating system or program that can alter
+> > BIOS settings. Is this possible? OK, evidently it is possible, since it
+> > definitely happened. But what could have changed the BIOS setting? And
+> > why?
+> >
+>
+> Sure, it's possible. It is generally not done.
+>
+> BIOS settings are maintained by a battery. Could yours be going out?
+>
+> I have IBM machines that we use a utility provide by them that allows this
+type
+of operation.
+
+There are also tools from this site: http://flashrom.org/Flashrom
+
+Also the new BIOS have the ability to go online themselves to check for
+updates which might reset the settings.
+
+
+From mike at linuxexam.com  Tue Aug  7 19:33:37 2012
+From: mike at linuxexam.com (MJang)
+Date: Tue, 07 Aug 2012 19:33:37 -0700
+Subject: [PLUG] [OT?] Setting up to do repetitive installs on ONE
+ machine (cf BabelBox)
+In-Reply-To: <5020F0A0.7080104@cloud85.net>
+References: <5020F0A0.7080104@cloud85.net>
+Message-ID: <1344393217.3614.1342.camel@kauai>
+
+On Tue, 2012-08-07 at 05:40 -0500, Richard Owlett 
+> 
+> "Debian GNU/Linux Installation Guide" (particularly sections 
+> 4 & 5 and appendix B) give some indication that what I want 
+> to do is feasible. BabelBox 
+> {http://wiki.debian.org/DebianInstaller/BabelBox} indicates 
+> that something quite _similar_ has been done.
+> 
+> 
+> Open questions about BabelBox and its suitability for my goals:
+
+Richard,
+
+I don't know BabelBox -- but assume it's some form of automated
+installation instructions similar to FAI or Red Hat's Kickstart.
+
+In general, there are excellent reasons to set up a local repo based on
+available packages, and I think (it's been a few years) that one step is
+copying all Debian disks to a dedicated directory (which then can be
+shared via NFS/FTP/HTTP for local apt* installs/updates). You'll need to
+set up a database for those updates, I forget the apt* command that sets
+it up in some fashion, I gather the latest relates to the repropro
+package.
+
+As for the installs -- one option is to just mirror some "gold" minimal
+install, once you're satisfied with the config. 
+
+I know that Ubuntu was working with Kickstart for some automated
+installs -- don't know if that has been ported back to Debian.
+
+Thanks,
+Mike
+
+
+
+From rowlett at cloud85.net  Wed Aug  8 06:36:51 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Wed, 08 Aug 2012 08:36:51 -0500
+Subject: [PLUG] [OT?] Setting up to do repetitive installs on ONE
+ machine (cf BabelBox)
+In-Reply-To: <1344393217.3614.1342.camel@kauai>
+References: <5020F0A0.7080104@cloud85.net> <1344393217.3614.1342.camel@kauai>
+Message-ID: <50226B73.8050206@cloud85.net>
+
+MJang wrote:
+> On Tue, 2012-08-07 at 05:40 -0500, Richard Owlett
+>>
+>> "Debian GNU/Linux Installation Guide" (particularly sections
+>> 4&  5 and appendix B) give some indication that what I want
+>> to do is feasible. BabelBox
+>> {http://wiki.debian.org/DebianInstaller/BabelBox} indicates
+>> that something quite _similar_ has been done.
+>>
+>>
+>> Open questions about BabelBox and its suitability for my goals:
+>
+> Richard,
+>
+> I don't know BabelBox -- but assume it's some form of automated
+> installation instructions similar to FAI or Red Hat's Kickstart.
+
+BabelBox runs completely on a single machine. I gather from 
+comments on the site that the original motivation Debian 
+installs, perhaps at a show.
+
+
+>
+> In general, there are excellent reasons to set up a local repo based on
+> available packages, and I think (it's been a few years) that one step is
+> copying all Debian disks to a dedicated directory (which then can be
+> shared via NFS/FTP/HTTP for local apt* installs/updates). You'll need to
+> set up a database for those updates, I forget the apt* command that sets
+> it up in some fashion, I gather the latest relates to the repropro
+> package.
+>
+> As for the installs -- one option is to just mirror some "gold" minimal
+> install, once you're satisfied with the config.
+
+Part of my method/motivation is doing multiple installs. One 
+result is refining my personal definition of an optimal 
+install. It will also allow me to document a perceived 
+glitch/bug/undocumented feature in the install procedure. 
+It's possible the bug is the operator at the keyboard.
+
+>
+> I know that Ubuntu was working with Kickstart for some automated
+> installs -- don't know if that has been ported back to Debian.
+
+A Google search for "Ubuntu + Kickstart" gives an 
+interesting initial hits, including one which apparently 
+compares Kickstart's method and Debian's preseeding.
+
+Thanks
+
+
+
+
+From ddsnell at frontier.com  Wed Aug  8 09:24:21 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Wed, 8 Aug 2012 09:24:21 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <CAFWS2+HL--XDrfW_cMQZ-wyUbd-0YfBEOxcJ_ykM_mvPL0w3eg@mail.gmail.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+	<DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+	<86lihxamoq.fsf@coulee.tdb.com>
+	<CAFWS2+HL--XDrfW_cMQZ-wyUbd-0YfBEOxcJ_ykM_mvPL0w3eg@mail.gmail.com>
+Message-ID: <20120808092421.235b462f@zothique.localnet>
+
+On Thu, 2 Aug 2012 09:26:11 -0700
+Ronald Chmara <ronabop at gmail.com> wrote:
+
+> On Wed, Aug 1, 2012 at 10:27 PM, Russell Senior
+> <russell at personaltelco.net> wrote:
+> >>> Pessimist: The glass is half empty.  Optimist: The glass is half
+> >>> full.  Engineer: The glass is twice as big as it needs to be.
+> > RJ> I prefer, the glass is at half capacity.
+> > When I was in engineer school that whole metaphor totally baffled
+> > me... Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+> 
+> The glass is half full of air, half full of water, therefore, the
+> glass is completely full.
+> 
+
+Unless, of course, the glass is half full of water, and the rest is a
+vacuum.  For your amusement and edification, here is Randall Munroe's
+analysis of the situation:  <http://what-if.xkcd.com/6/>.  Enjoy!
+
+--Dale (who never expected his sig to cause such a stir!)
+
+--
+One man's "magic" is another man's engineering.  "Supernatural" is
+a null word.
+		-- Robert Heinlein
+
+
+From tim at wescottdesign.com  Wed Aug  8 08:30:20 2012
+From: tim at wescottdesign.com (Tim Wescott)
+Date: Wed, 08 Aug 2012 08:30:20 -0700
+Subject: [PLUG] Old Ubuntu Iso?
+Message-ID: <1344439820.1933.9.camel@Servo-2>
+
+Does anyone know where to get previous-version Ubuntu iso images?  I
+went looking on the Ubuntu website and their "alternate and previous
+version" site only had alternates -- no previouses.
+
+I've got a problem that is either hardware or software, I'd like try the
+hardware out on 10.04 (on which I know it works, on another machine)
+before I go and do anything really expensive.
+
+TIA.
+
+-- 
+
+Tim Wescott
+www.wescottdesign.com
+Control & Communications systems, circuit & software design.
+
+
+
+From russ at dimstar.net  Wed Aug  8 09:40:58 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Wed, 8 Aug 2012 09:40:58 -0700
+Subject: [PLUG] Old Ubuntu Iso?
+In-Reply-To: <1344439820.1933.9.camel@Servo-2>
+References: <1344439820.1933.9.camel@Servo-2>
+Message-ID: <543318B4-8EB7-4C1D-89C5-EB3C639AC1A9@dimstar.net>
+
+
+On Aug 8, 2012, at 8:30 AM, Tim Wescott <tim at wescottdesign.com> wrote:
+
+> Does anyone know where to get previous-version Ubuntu iso images?  I
+> went looking on the Ubuntu website and their "alternate and previous
+> version" site only had alternates -- no previouses.
+> 
+> I've got a problem that is either hardware or software, I'd like try the
+> hardware out on 10.04 (on which I know it works, on another machine)
+> before I go and do anything really expensive.
+
+Try here: ftp://ftp.osuosl.org/pub/ubuntu-releases/
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From kingbeowulf at gmail.com  Wed Aug  8 10:01:29 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Wed, 8 Aug 2012 10:01:29 -0700
+Subject: [PLUG] Old Ubuntu Iso?
+In-Reply-To: <1344439820.1933.9.camel@Servo-2>
+References: <1344439820.1933.9.camel@Servo-2>
+Message-ID: <CAPiArqMHeqhp2zuyeK+FZij2UsCnXPSGd=Oas1ePzvUSyxnkNg@mail.gmail.com>
+
+Did you check any mirrors? OSU OSL? I'm offline atm so can't look it
+up, memory being what it is.
+
+If you are local (ie near Portland OR) Free Geek should have copies.
+Also, I'll rummage about in the old distro box. I can post a D/L link
+for you if I find one later today.
+
+Btw, if its a possible hardware issue, you can also try another distro
+(Slackwas FTW! - shameless "plug").
+
+-Ed
+
+
+On 8/8/12, Tim Wescott <tim at wescottdesign.com> wrote:
+> Does anyone know where to get previous-version Ubuntu iso images?  I
+> went looking on the Ubuntu website and their "alternate and previous
+> version" site only had alternates -- no previouses.
+>
+> I've got a problem that is either hardware or software, I'd like try the
+> hardware out on 10.04 (on which I know it works, on another machine)
+> before I go and do anything really expensive.
+>
+> TIA.
+>
+> --
+>
+> Tim Wescott
+> www.wescottdesign.com
+> Control & Communications systems, circuit & software design.
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+
+From johnxj at comcast.net  Wed Aug  8 10:10:17 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 8 Aug 2012 10:10:17 -0700
+Subject: [PLUG] Old Ubuntu Iso?
+In-Reply-To: <1344439820.1933.9.camel@Servo-2>
+References: <1344439820.1933.9.camel@Servo-2>
+Message-ID: <20120808101017.36835b6d@mailhost.pdx.edu>
+
+On Wed, 08 Aug 2012 08:30:20 -0700
+Tim Wescott <tim at wescottdesign.com> dijo:
+
+>Does anyone know where to get previous-version Ubuntu iso images?  I
+>went looking on the Ubuntu website and their "alternate and previous
+>version" site only had alternates -- no previouses.
+>
+>I've got a problem that is either hardware or software, I'd like try
+>the hardware out on 10.04 (on which I know it works, on another
+>machine) before I go and do anything really expensive.
+
+I have all versions of 10.04, 10.10, 11.04, 11.10 and 12.04. "All
+versions" means desktop, server and alternate, in 32- and 64-bit.
+I also have most of the Lubuntu, Xubuntu, Kubuntu, Mythbuntu, Ubuntu
+Studio, and the Edubuntu add-ons, for the same versions.
+
+I can burn a CD or whatever else works for you.
+
+
+From tim at wescottdesign.com  Wed Aug  8 12:34:30 2012
+From: tim at wescottdesign.com (tim at wescottdesign.com)
+Date: Wed, 08 Aug 2012 12:34:30 -0700
+Subject: [PLUG] =?utf-8?q?Old_Ubuntu_Iso=3F?=
+In-Reply-To: <543318B4-8EB7-4C1D-89C5-EB3C639AC1A9@dimstar.net>
+References: <1344439820.1933.9.camel@Servo-2>
+	<543318B4-8EB7-4C1D-89C5-EB3C639AC1A9@dimstar.net>
+Message-ID: <071117967762e282825778d75547c48f@wescottdesign.com>
+
+On 2012-08-08 09:40, Russell Johnson wrote:
+> On Aug 8, 2012, at 8:30 AM, Tim Wescott <tim at wescottdesign.com> 
+> wrote:
+>
+>> Does anyone know where to get previous-version Ubuntu iso images?  I
+>> went looking on the Ubuntu website and their "alternate and previous
+>> version" site only had alternates -- no previouses.
+>>
+>> I've got a problem that is either hardware or software, I'd like try 
+>> the
+>> hardware out on 10.04 (on which I know it works, on another machine)
+>> before I go and do anything really expensive.
+>
+> Try here: ftp://ftp.osuosl.org/pub/ubuntu-releases/
+>
+> Russell Johnson
+> russ at dimstar.net
+
+Thanks.  Downloading now.
+
+To everyone else:  Thanks for the offers.  I'm on travel right now or 
+I'd just try the suspect hardware on my office machine (which is running 
+10.04).  The hardware in question is a USB JTAG debugger for ARM 
+processors, not the PC itself -- it worked quite recently on my office 
+machine, but that doesn't mean it hasn't broken in some subtle way.
+
+If I can get OpenOCD to talk to it on a virtual machine on this laptop, 
+running 10.04, then I know it's a software or setup issue -- and if it's 
+a setup issue, there may be enough clues in the different installations 
+so that I can fix it.
+
+
+From p.j.timlick at ieee.org  Wed Aug  8 14:02:07 2012
+From: p.j.timlick at ieee.org (Patrick J. Timlick)
+Date: Wed, 8 Aug 2012 14:02:07 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <20120808092421.235b462f@zothique.localnet>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+	<50199A94.3020505@comcast.net>
+	<20120801142954.3423271a@zothique.localnet>
+	<DB0BD1BF-E213-444F-8F86-ACAD0A557445@dimstar.net>
+	<86lihxamoq.fsf@coulee.tdb.com>
+	<CAFWS2+HL--XDrfW_cMQZ-wyUbd-0YfBEOxcJ_ykM_mvPL0w3eg@mail.gmail.com>
+	<20120808092421.235b462f@zothique.localnet>
+Message-ID: <CABv3eFfcLVLZrFcDDR=D1_tz9NpenPJq_bQJP5vbRumEtO50sA@mail.gmail.com>
+
+Yet another idea, if none of the above is enough.  Set up a virtual
+machine, install all the software you need on it and take a snapshot of it.
+ Then do your confidential work on the virtual machine.  When the project
+is done, the product is shipped and accepted, restore the virtual machine
+from the snapshot.
+
+-- Pat
+
+On Wed, Aug 8, 2012 at 9:24 AM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> On Thu, 2 Aug 2012 09:26:11 -0700
+> Ronald Chmara <ronabop at gmail.com> wrote:
+>
+> > On Wed, Aug 1, 2012 at 10:27 PM, Russell Senior
+> > <russell at personaltelco.net> wrote:
+> > >>> Pessimist: The glass is half empty.  Optimist: The glass is half
+> > >>> full.  Engineer: The glass is twice as big as it needs to be.
+> > > RJ> I prefer, the glass is at half capacity.
+> > > When I was in engineer school that whole metaphor totally baffled
+> > > me... Half-full is *EXACTLY* *THE* *SAME* has half-empty!!!
+> >
+> > The glass is half full of air, half full of water, therefore, the
+> > glass is completely full.
+> >
+>
+> Unless, of course, the glass is half full of water, and the rest is a
+> vacuum.  For your amusement and edification, here is Randall Munroe's
+> analysis of the situation:  <http://what-if.xkcd.com/6/>.  Enjoy!
+>
+> --Dale (who never expected his sig to cause such a stir!)
+>
+> --
+> One man's "magic" is another man's engineering.  "Supernatural" is
+> a null word.
+>                 -- Robert Heinlein
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+p.j.timlick at ieee.org
+www.timlick.com
+503-476-3119
+10990 NE Paren Springs Rd.
+Dundee OR 97115
+
+
+From rshepard at appl-ecosys.com  Fri Aug 10 07:36:14 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 10 Aug 2012 07:36:14 -0700 (PDT)
+Subject: [PLUG] Apparent RBL Server Failure
+Message-ID: <alpine.LNX.2.00.1208100732040.21944@salmo.appl-ecosys.com>
+
+   This morning I discovered that there were no incoming messages since some
+time last evening. When I looked at the mail log I saw that list.dsbl.org
+rejected all sender IP addresses, mostly topic-specific mail lists. Very
+strange and hasn't happened before. I commented out that check in postfix's
+main.cf and mail's dribbling in once again. The only upside is not getting
+the usual does of cleverly-shrouded spam that escapes all the filters.
+
+   Has anyone else encountered this? What RBLs are you checking in mail.cf?
+
+Rich
+
+
+
+
+From michael at jamhome.us  Fri Aug 10 07:59:58 2012
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Fri, 10 Aug 2012 07:59:58 -0700
+Subject: [PLUG] Apparent RBL Server Failure
+In-Reply-To: <alpine.LNX.2.00.1208100732040.21944@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1208100732040.21944@salmo.appl-ecosys.com>
+Message-ID: <20120810145958.GA21612@jamhome.us>
+
+On Fri, Aug 10, 2012 at 07:36:14AM -0700, Rich Shepard wrote:
+>    This morning I discovered that there were no incoming messages since some
+> time last evening. When I looked at the mail log I saw that list.dsbl.org
+> rejected all sender IP addresses, mostly topic-specific mail lists. Very
+> strange and hasn't happened before. I commented out that check in postfix's
+> main.cf and mail's dribbling in once again. The only upside is not getting
+> the usual does of cleverly-shrouded spam that escapes all the filters.
+> 
+>    Has anyone else encountered this? What RBLs are you checking in mail.cf?
+
+To quote:
+DSBL is GONE - from http://dsbl.org/
+and they've been gone for three years.
+
+I'm using sbl-xbl.spamhaus.org.
+
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+      Other Adventures: http://www.jamhome.us/ or http://westy.saunter.us/
+Fortune Cookie Fortune du courrier:
+Weird people are to life what scent is to flowers.
+    ~ http://someoneoncetoldme.com/gallery/04022008
+
+
+From rshepard at appl-ecosys.com  Fri Aug 10 08:20:28 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 10 Aug 2012 08:20:28 -0700 (PDT)
+Subject: [PLUG] Apparent RBL Server Failure
+In-Reply-To: <20120810145958.GA21612@jamhome.us>
+References: <alpine.LNX.2.00.1208100732040.21944@salmo.appl-ecosys.com>
+	<20120810145958.GA21612@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1208100818170.21944@salmo.appl-ecosys.com>
+
+On Fri, 10 Aug 2012, Michael Rasmussen wrote:
+
+> To quote:
+> DSBL is GONE - from http://dsbl.org/
+> and they've been gone for three years.
+
+Michael,
+
+   Huh! I was not aware of this.
+
+> I'm using sbl-xbl.spamhaus.org.
+
+   I have also been using zen.spamhaus.org.
+
+   Suppose I should check the status of these more often.
+
+Thanks,
+
+Rich
+
+
+
+From cberry at davistl.com  Fri Aug 10 10:17:27 2012
+From: cberry at davistl.com (Chris Berry)
+Date: Fri, 10 Aug 2012 10:17:27 -0700
+Subject: [PLUG] Where a program stores temporary files
+In-Reply-To: <CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+References: <50198662.2040505@comcast.net>
+	<CAA1wLOkkmnX=9OCOisF83zdkQK559xvFKZCoohWgY7d7a9JSYw@mail.gmail.com>
+Message-ID: <5024DFB7020000700000EDB0@mail.davistl.com>
+
+
+Although it's generally safe to delete items in /tmp, not all applications are well designed.  For example, the Groupwise email server has flat file databases that depend on files in /tmp and will become significantly corrupted if you delete items from there.
+
+
+Chris Berry
+Linux Systems Administrator
+Davis Tool
+x521
+
+>>> wes <plug at the-wes.com> 8/1/2012 12:57 PM >>>
+>
+>it is very possible it was all in memory. /tmp is a popular place for 
+>programs to store temporary files (which are not always deleted). 
+
+
+From rsteff at comcast.net  Fri Aug 10 15:59:48 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 10 Aug 2012 15:59:48 -0700
+Subject: [PLUG] Java on Ubuntu 10.04
+Message-ID: <50259264.9090103@comcast.net>
+
+Which version of Java should I be trying to use?
+
+It's been said here on several occasions, "The great thing about 
+standards is that there are so many to chose from." I seem to be 
+floundering in a small sea of them.
+
+I've discovered that at some point, probably one of the last Firefox 
+upgrades, that I no longer have Java support in Firefox. I want to 
+upload a photo to Costco's photo web site, which I successfully did back 
+in December, 2011, and found that the uploader didn't work. The 
+recommendation was to go get the current version of Java.
+
+After spending some time looking at 
+http://java.com/en/download/linux_manual.jsp?locale=en I finally found a 
+link to https://help.ubuntu.com/community/Java which tells me that 
+"Oracle (Sun) Java 6 is no longer available to be distributed by Ubuntu, 
+because of license issues." As I look in Synaptic I see that Sun Java 6 
+is what I have. I also see on the above mentioned Ubuntu help page that 
+I can download and install Oracle Java 7, but that there are no .deb 
+packages available. I can install the JRE from a script or the entire 
+Java development version from the command line, and that there are 
+instructions that I can follow.
+
+My main concern is that LibreOffice continues to run after going through 
+all the uninstall and install steps. That's one reason why I have Ubuntu 
+10.04 installed on both my laptop and my desktop. This lets me test an 
+install on the laptop before committing to it on the desktop. While not 
+perfect it seems to work reasonably well. So, I started by completely 
+removing Sun Java 6, using Synaptic. Selecting that also selected 
+LibreOffice. I went ahead and uninstalled. After finishing, LibreOffice 
+still works. Also, after rebooting, LibreOffice still works. I don't 
+know what that implies.
+
+I looked at the LibreOffice site and saw that it is happy with OpenJDK. 
+On the OpenJDK site I saw that I can install openjdk-7-jre with apt-get. 
+But, when I try running
+
+$ sudo apt-get install openjdk-7-jre
+
+I get an error message that says, "Package openjdk-7-jre is not 
+available, bit is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source.
+E: Package openjdk-7-jre has no installation candidate"
+
+I also note that on the OpenJDK site there are also JDK 6 and JDK 8 
+versions. JDK 8 appears to be very much in a development state. And on 
+openjdk.java.net/projects/jdk6/ there is a chart under the heading 
+"Genealogy" that only adds to my confusion.
+
+I also find openjdk-6-jre in Synaptic, but there are three different 
+versions, openjdk-6-jre-headless, openjdk-6-jre and openjdk-6-jre-zero. 
+The first two use Hotspot JIT and the  second uses Zero/Shark.
+
+So, I'm confused. How do I decide which version to use?
+
+TIA for any recommendations.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From johnxj at comcast.net  Fri Aug 10 17:40:29 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 10 Aug 2012 17:40:29 -0700
+Subject: [PLUG] Java on Ubuntu 10.04
+In-Reply-To: <50259264.9090103@comcast.net>
+References: <50259264.9090103@comcast.net>
+Message-ID: <20120810174029.3801afba@mailhost.pdx.edu>
+
+On Fri, 10 Aug 2012 15:59:48 -0700
+"Richard C. Steffens" <rsteff at comcast.net> dijo:
+
+>Which version of Java should I be trying to use?
+
+You can have various Javas installed simultaneously. In LibreOffice you
+can select which one it should use. There is also a command line tool
+(since forgotten) that allows you to set one as the default. I
+currently have four Javas installed, although I don't know which is the
+default. Everything is working, so I haven't fussed with it.
+
+Also, if a .deb is not available, but there is an .rpm, you can convert
+the .rpm to .deb with alien at the command line. Alien comes as
+standard equipment on Ubuntus, at least as far as 10.04.
+
+
+From rsteff at comcast.net  Fri Aug 10 17:47:37 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 10 Aug 2012 17:47:37 -0700
+Subject: [PLUG] Java on Ubuntu 10.04
+In-Reply-To: <20120810174029.3801afba@mailhost.pdx.edu>
+References: <50259264.9090103@comcast.net>
+	<20120810174029.3801afba@mailhost.pdx.edu>
+Message-ID: <5025ABA9.8000002@comcast.net>
+
+On 08/10/2012 05:40 PM, John Jason Jordan wrote:
+> On Fri, 10 Aug 2012 15:59:48 -0700
+> "Richard C. Steffens" <rsteff at comcast.net> dijo:
+>
+>> Which version of Java should I be trying to use?
+> You can have various Javas installed simultaneously. In LibreOffice you
+> can select which one it should use. There is also a command line tool
+> (since forgotten) that allows you to set one as the default. I
+> currently have four Javas installed, although I don't know which is the
+> default. Everything is working, so I haven't fussed with it.
+>
+> Also, if a .deb is not available, but there is an .rpm, you can convert
+> the .rpm to .deb with alien at the command line. Alien comes as
+> standard equipment on Ubuntus, at least as far as 10.04.
+
+Thanks, John. I'll just pick one and give it a try. I see that Alien is 
+installed on my machine, so I'll try that, too.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From joeniski at easystreet.net  Sat Aug 11 13:10:07 2012
+From: joeniski at easystreet.net (Joe Shisei Niski)
+Date: Sat, 11 Aug 2012 13:10:07 -0700
+Subject: [PLUG] Java on Ubuntu 10.04
+In-Reply-To: <20120810174029.3801afba@mailhost.pdx.edu>
+References: <50259264.9090103@comcast.net>
+	<20120810174029.3801afba@mailhost.pdx.edu>
+Message-ID: <5026BC1F.2050105@easystreet.net>
+
+On 08/10/2012 05:40 PM, John Jason Jordan wrote:
+> You can have various Javas installed simultaneously. In LibreOffice you
+> can select which one it should use. There is also a command line tool
+> (since forgotten) that allows you to set one as the default. I
+> currently have four Javas installed, although I don't know which is the
+> default. Everything is working, so I haven't fussed with it.
+i suspect the tool youre referring to is "update-alternatives"
+
+________________________________________
+Joe Shisei Niski
+Portland, Oregon, USA
+??
+
+
+
+
+From rsteff at comcast.net  Sat Aug 11 14:45:31 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Sat, 11 Aug 2012 14:45:31 -0700
+Subject: [PLUG] Resolved:  Java on Ubuntu 10.04
+In-Reply-To: <5025ABA9.8000002@comcast.net>
+References: <50259264.9090103@comcast.net>
+	<20120810174029.3801afba@mailhost.pdx.edu>
+	<5025ABA9.8000002@comcast.net>
+Message-ID: <5026D27B.7030300@comcast.net>
+
+On 08/10/2012 05:47 PM, Richard C. Steffens wrote:
+> On 08/10/2012 05:40 PM, John Jason Jordan wrote:
+>> On Fri, 10 Aug 2012 15:59:48 -0700
+>> "Richard C. Steffens" <rsteff at comcast.net> dijo:
+>>
+>>> Which version of Java should I be trying to use?
+>> You can have various Javas installed simultaneously.
+
+I installed openjdk-6-jre using Synaptic. Then, with Firefox, I went to 
+a Java test page:
+
+http://javatester.org/version.html
+
+Firefox displayed a bar above the content of the page that said a 
+plug-in was needed to display the some of the content on the page. At 
+that point, there was a box a little below that said something to the 
+effect that Java wasn't working or not installed. I clicked on the 
+button in the bar above and iced-tea installed itself in Firefox. After 
+that, the box a little below showed a pink rectangle telling me that 
+Java Version: 1.6.0_24 from Sun Microsystems Inc." is installed.
+
+I can now successfully access the Costco photo upload page.
+
+>> In LibreOffice you
+>> can select which one it should use.
+
+Yes. I found it under Tools/Options. In the first section there is a 
+list with Java at the bottom. Clicking on that changes what is displayed 
+on the right to the Java options panel. I now have the choice of two 
+environments. I changed from the version at location:
+
+  /use/lib/jvm/java-6-sun-1.6.0.26/jre
+
+to the version at location:
+
+  usr/libljvm/java-6-openjdk/jre
+
+LibreOffice Writer appears to be working normally.
+
+Thanks to all who responded.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From joseph at f1forhelp.net  Sun Aug 12 13:59:12 2012
+From: joseph at f1forhelp.net (Joseph Hume)
+Date: Sun, 12 Aug 2012 13:59:12 -0700
+Subject: [PLUG] HD recovery services
+In-Reply-To: <4FFB7945.9070703@gmail.com>
+References: <4FFB7945.9070703@gmail.com>
+Message-ID: <50281920.10500@f1forhelp.net>
+
+On 07/09/2012 05:37 PM, Roderick A. Anderson wrote:
+> I've taken on a client (as per my previous message about Mac OS X
+> Servers) and part of the job is trying to recover some data on a drive
+> that was connected to a MB when it blew.  Story has it all the caps on
+> the board went.
+>
+> I've tested the drive and get the same clicking the previous tech
+> mentioned when the OS tries to access it.  I used an IDE to USB adapter
+> and tried the old freeze the drive trick.  Powers up just fine but no
+> joy beyond that.
+>
+> So I went Googling for a data recovery service and so far am looking at
+> Gillware Data Recovery.  I like the look because they only charge if
+> they recover the data.  Anyone have experience with this company?  Any
+> other recommendations?
+>
+>
+> \\||/
+> Rod
+Rod,
+
+We have recommended The Data Recovery Room out of Seattle before 
+(206.575.7773 http://recoroom.com) with reasonable results.  I met with 
+a guy in Hayden that is offering some data recovery services, Ben Keele 
+of QualityByte Computers (208.714.4221 http://www.qualitybyte.com) but I 
+haven't heard of anyone using his services.
+
+Joseph Hume
+F1 for HELP
+
+
+From fgwilliams at ymail.com  Sun Aug 12 20:14:10 2012
+From: fgwilliams at ymail.com (Fred Williams)
+Date: Sun, 12 Aug 2012 20:14:10 -0700 (PDT)
+Subject: [PLUG] HD recovery services
+In-Reply-To: <50281920.10500@f1forhelp.net>
+References: <4FFB7945.9070703@gmail.com> <50281920.10500@f1forhelp.net>
+Message-ID: <1344827650.89310.YahooMailNeo@web160304.mail.bf1.yahoo.com>
+
+I am here in Happy Valley and can schedule a pickup this week.? My base price for a hardrive in the condition you have described would be $460.? Please feel free to contact me for further information.
+
+Fred Williams
+fgwilliams.com
+
+-- Smile, it feels good.
+
+
+________________________________
+ From: Joseph Hume <joseph at f1forhelp.net>
+To: plug at lists.pdxlinux.org 
+Sent: Sunday, August 12, 2012 1:59 PM
+Subject: Re: [PLUG] HD recovery services
+ 
+On 07/09/2012 05:37 PM, Roderick A. Anderson wrote:
+> I've taken on a client (as per my previous message about Mac OS X
+> Servers) and part of the job is trying to recover some data on a drive
+> that was connected to a MB when it blew.? Story has it all the caps on
+> the board went.
+>
+> I've tested the drive and get the same clicking the previous tech
+> mentioned when the OS tries to access it.? I used an IDE to USB adapter
+> and tried the old freeze the drive trick.? Powers up just fine but no
+> joy beyond that.
+>
+> So I went Googling for a data recovery service and so far am looking at
+> Gillware Data Recovery.? I like the look because they only charge if
+> they recover the data.? Anyone have experience with this company?? Any
+> other recommendations?
+>
+>
+> \\||/
+> Rod
+Rod,
+
+We have recommended The Data Recovery Room out of Seattle before 
+(206.575.7773 http://recoroom.com) with reasonable results.? I met with 
+a guy in Hayden that is offering some data recovery services, Ben Keele 
+of QualityByte Computers (208.714.4221 http://www.qualitybyte.com) but I 
+haven't heard of anyone using his services.
+
+Joseph Hume
+F1 for HELP
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From wevl at pacifier.com  Mon Aug 13 13:00:26 2012
+From: wevl at pacifier.com (Wayne E. Van Loon Sr.)
+Date: Mon, 13 Aug 2012 13:00:26 -0700
+Subject: [PLUG] Touch screen experience
+Message-ID: <50295CDA.9000202@pacifier.com>
+
+Anybody out there had any experience using a touch screen as a 
+replacement for mechanical pushbutton switches?
+
+This would be a touch screen upon which an operator would press one of 
+several on-screen "buttons" depending upon the quality / grade of 
+products in an inspection area.
+
+Thanks
+Wayne
+
+
+
+From wevl at pacifier.com  Tue Aug 14 08:37:19 2012
+From: wevl at pacifier.com (Wayne E. Van Loon Sr.)
+Date: Tue, 14 Aug 2012 08:37:19 -0700
+Subject: [PLUG] Touch screen experience
+Message-ID: <502A70AF.6040206@pacifier.com>
+
+Anybody successfully or unsuccessfully interfaced a touch screen to a 
+Linux box (non laptop).
+Wayne
+
+
+
+From keithl at gate.kl-ic.com  Mon Aug 13 14:32:36 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 13 Aug 2012 14:32:36 -0700
+Subject: [PLUG] Backups: Re:  HD recovery services
+In-Reply-To: <50281920.10500@f1forhelp.net>
+References: <4FFB7945.9070703@gmail.com> <50281920.10500@f1forhelp.net>
+Message-ID: <20120813213236.GA13218@gate.kl-ic.com>
+
+A reminder: the $400+ needed to recover a hard drive is a lot
+slower and more expensive than backing up to another hard drive. 
+Prices have started down again.  See http://dirvish.org for one
+way to get a lot of backups on one backup drive.
+
+If you don't have two copies, you may end up with zero copies.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From aaron at bavariati.org  Mon Aug 13 14:49:40 2012
+From: aaron at bavariati.org (Aaron Burt)
+Date: Mon, 13 Aug 2012 17:49:40 -0400
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <50295CDA.9000202@pacifier.com>
+References: <50295CDA.9000202@pacifier.com>
+Message-ID: <20120813214940.GA22778@aaron-acer>
+
+On Mon, Aug 13, 2012 at 01:00:26PM -0700, Wayne E. Van Loon Sr. wrote:
+> Anybody out there had any experience using a touch screen as a 
+> replacement for mechanical pushbutton switches?
+> 
+> This would be a touch screen upon which an operator would press one of 
+> several on-screen "buttons" depending upon the quality / grade of 
+> products in an inspection area.
+
+Sounds like a typical touchscreen HMI setup.  Sorry, didn't get that far in
+my Industrial Controls training, and I don't have contact info handy for my
+old instructor.
+
+The impression I get (from reading lots of engineering magazines) is that
+touch screens are used for occasional inputs, or ones that can be repeated
+if the touch screen fails to register-- e.g. selecting info screens,
+tweaking parameters or starting a process.
+
+This would make sense, given the limited wear-resistance of touchscreens
+as well as their poor performance with gloves and dirty hands.
+
+For high-use and/or high-importance inputs, physical switches still rule.
+
+
+
+From raanders42 at gmail.com  Tue Aug 14 09:00:03 2012
+From: raanders42 at gmail.com (Roderick A. Anderson)
+Date: Tue, 14 Aug 2012 09:00:03 -0700
+Subject: [PLUG] Distributions for an ASUS eeePC 1000
+Message-ID: <502A7603.1020902@gmail.com>
+
+I'm ready to move on from the customized Fedora 12 install I've been 
+using on my eeePC (with SSD drives and upgraded to 2Gbyte RAM).
+
+I've been fiddling with a F17-spins - LXDE, and XFCE - but feel my years 
+of working with Redhat based distributions starting with Redhat (3.0.3), 
+Fedora (Core 1), and CentOS (3?) might be limiting my experience. :-)
+
+Anyone have recommendations for distributions they've used or are using 
+on a eeePC?
+
+
+TIA,
+Rod
+-- 
+
+
+From russell at personaltelco.net  Tue Aug 14 09:29:56 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Tue, 14 Aug 2012 09:29:56 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <502A70AF.6040206@pacifier.com> (Wayne E. Van Loon,
+	Sr.'s message of "Tue\, 14 Aug 2012 08\:37\:19 -0700")
+References: <502A70AF.6040206@pacifier.com>
+Message-ID: <86393p1lob.fsf@coulee.tdb.com>
+
+>>>>> "Wayne" == Wayne E Van Loon <wevl at pacifier.com> writes:
+
+Wayne> Anybody successfully or unsuccessfully interfaced a touch
+Wayne> screen to a Linux box (non laptop).
+
+I am sure *someone* has, since all android phones are non-laptop linux
+boxes.  ;-)
+
+Which touch screen are you looking at?
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From michael at jamhome.us  Wed Aug 15 04:05:56 2012
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Wed, 15 Aug 2012 04:05:56 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <86393p1lob.fsf@coulee.tdb.com>
+References: <502A70AF.6040206@pacifier.com> <86393p1lob.fsf@coulee.tdb.com>
+Message-ID: <20120815110556.GA32426@jamhome.us>
+
+On Tue, Aug 14, 2012 at 09:29:56AM -0700, Russell Senior wrote:
+> >>>>> "Wayne" == Wayne E Van Loon <wevl at pacifier.com> writes:
+> 
+> Wayne> Anybody successfully or unsuccessfully interfaced a touch
+> Wayne> screen to a Linux box (non laptop).
+> 
+> I am sure *someone* has, since all android phones are non-laptop linux
+> boxes.  ;-)
+ 
+Can you really call it a linux box if the owner doesn't have root access?
+(serious question)
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+      Other Adventures: http://www.jamhome.us/ or http://westy.saunter.us/
+Fortune Cookie Fortune du courrier:
+You become seven times fatter than we do before it occurs to you that you are fat.
+    ~ Marie Mutsuki Mockett quoting Japanese friend
+
+
+From russ at dimstar.net  Wed Aug 15 08:23:30 2012
+From: russ at dimstar.net (Russell Johnson)
+Date: Wed, 15 Aug 2012 08:23:30 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <20120815110556.GA32426@jamhome.us>
+References: <502A70AF.6040206@pacifier.com> <86393p1lob.fsf@coulee.tdb.com>
+	<20120815110556.GA32426@jamhome.us>
+Message-ID: <049EC373-DC2A-4BE2-806A-FBFA1C339F9F@dimstar.net>
+
+These are all personal opinions.
+
+On Aug 15, 2012, at 4:05 AM, Michael Rasmussen <michael at jamhome.us> wrote:
+
+> Can you really call it a linux box if the owner doesn't have root access?
+> (serious question)
+
+I don't think what the owner is doing really defines the box. If that were the case, many of the computers I've helped administrate over the years were not DOS boxes, or Windows boxes. They were rolodexes. Personal opinion, we shouldn't be that pedantic and narrow in our definitions. 
+
+The important part is what kernel is the device in question running? If it's a linux kernel, then it's a linux box.
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+
+From gently at gmail.com  Wed Aug 15 08:49:14 2012
+From: gently at gmail.com (chris (fool) mccraw)
+Date: Wed, 15 Aug 2012 08:49:14 -0700
+Subject: [PLUG] Distributions for an ASUS eeePC 1000
+In-Reply-To: <502A7603.1020902@gmail.com>
+References: <502A7603.1020902@gmail.com>
+Message-ID: <CACKgb8QoMckqwJd5TwR6Ud5qqckZRghTzyJFrA7mO+gRyhu91A@mail.gmail.com>
+
+On Tue, Aug 14, 2012 at 9:00 AM, Roderick A. Anderson
+<raanders42 at gmail.com> wrote:
+> I'm ready to move on from the customized Fedora 12 install I've been
+> using on my eeePC (with SSD drives and upgraded to 2Gbyte RAM).
+>
+> I've been fiddling with a F17-spins - LXDE, and XFCE - but feel my years
+> of working with Redhat based distributions starting with Redhat (3.0.3),
+> Fedora (Core 1), and CentOS (3?) might be limiting my experience. :-)
+>
+> Anyone have recommendations for distributions they've used or are using
+> on a eeePC?
+
+I use xubuntu on mine (also upgraded to 2g, but no SSD.  still runs a
+windows VM or two acceptably) with a lighter weight WM than XFCE
+(ratpoison--this is a great machine not to use the trackpad on!).  But
+then, i tend to put something on and stick with it forever, and you're
+clearly feeling the wanderlust, so maybe you should go with something
+totally wacky like chromeos?
+
+
+From russell at personaltelco.net  Wed Aug 15 08:57:42 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 15 Aug 2012 08:57:42 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <20120815110556.GA32426@jamhome.us> (Michael Rasmussen's message
+	of "Wed\, 15 Aug 2012 04\:05\:56 -0700")
+References: <502A70AF.6040206@pacifier.com> <86393p1lob.fsf@coulee.tdb.com>
+	<20120815110556.GA32426@jamhome.us>
+Message-ID: <86ipcktafd.fsf@coulee.tdb.com>
+
+>>>>> "Michael" == Michael Rasmussen <michael at jamhome.us> writes:
+
+Russell> I am sure *someone* has, since all android phones are
+Russell> non-laptop linux boxes.  ;-)
+ 
+Michael> Can you really call it a linux box if the owner doesn't have
+Michael> root access?  (serious question)
+
+Define "owner" ? ;-)
+
+Also, your question implies that the end-user doesn't have root
+access, which is not necessarily the case.  
+
+It also implies that having root access means you haven't been
+compromised by some other more devious means (e.g. keylogging
+bootloader or hardware or something).
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From sgarman at zenlinux.com  Wed Aug 15 09:29:44 2012
+From: sgarman at zenlinux.com (Scott Garman)
+Date: Wed, 15 Aug 2012 09:29:44 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <502A70AF.6040206@pacifier.com>
+References: <502A70AF.6040206@pacifier.com>
+Message-ID: <502BCE78.2010300@zenlinux.com>
+
+On 08/14/2012 08:37 AM, Wayne E. Van Loon Sr. wrote:
+> Anybody successfully or unsuccessfully interfaced a touch screen to a
+> Linux box (non laptop).
+> Wayne
+
+While this article is pretty dated (2005), it gives a broad overview of 
+some things you'll want to consider:
+
+http://www.ibm.com/developerworks/linux/library/l-playscreen/
+
+It also has a ton of useful links in the Resources section.
+
+Basically you will want to get a touchscreen controller that interfaces 
+over an RS232 serial port or USB to the host computer, and an LCD 
+touchscreen that works with that controller.
+
+Scott
+
+
+
+From wevl at pacifier.com  Wed Aug 15 10:19:13 2012
+From: wevl at pacifier.com (Wayne E. Van Loon Sr.)
+Date: Wed, 15 Aug 2012 10:19:13 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <86393p1lob.fsf@coulee.tdb.com>
+References: <502A70AF.6040206@pacifier.com> <86393p1lob.fsf@coulee.tdb.com>
+Message-ID: <502BDA11.6010303@pacifier.com>
+
+Russell Senior wrote:
+>>>>>> "Wayne" == Wayne E Van Loon <wevl at pacifier.com> writes:
+>>>>>>             
+>
+> Wayne> Anybody successfully or unsuccessfully interfaced a touch
+> Wayne> screen to a Linux box (non laptop).
+>
+> I am sure *someone* has, since all android phones are non-laptop linux
+> boxes.  ;-)
+>
+> Which touch screen are you looking at?
+>   
+I have not selected one yet. My thought was to see if there was one that 
+someone was able to get working without too much of a hassle or what 
+problems kept them from getting it to work.
+
+I would kind of like to keep my screen resolution up in the range of 
+previous projects, 1920 x 1080. I see that Newegg has a few, Planar, HP, 
+and Viewsonic. None of them claim to be LED backlit. I've had the 
+florescent backlit screens die and hope that LED backlit would have much 
+longer life.
+
+I'm still working on the big picture. There is a kernel module??? Some 
+sort of changes in xorg.conf??? Most of the information I've come upon 
+utilizes the UART serial port and XFree86 , I would guess that is out of 
+date.
+
+I'd love to know physically how the touch-screen works - what happens 
+when the screen is touched - what data is transmitted through the USB 
+connection, etc.  Still googling around looking.
+
+Just saw the response from Scott Garman. Will check that out.
+
+Thanks
+Wayne
+
+>
+>   
+
+
+
+From raanders42 at gmail.com  Wed Aug 15 14:20:01 2012
+From: raanders42 at gmail.com (Roderick A. Anderson)
+Date: Wed, 15 Aug 2012 14:20:01 -0700
+Subject: [PLUG] Distributions for an ASUS eeePC 1000
+In-Reply-To: <CACKgb8QoMckqwJd5TwR6Ud5qqckZRghTzyJFrA7mO+gRyhu91A@mail.gmail.com>
+References: <502A7603.1020902@gmail.com>
+	<CACKgb8QoMckqwJd5TwR6Ud5qqckZRghTzyJFrA7mO+gRyhu91A@mail.gmail.com>
+Message-ID: <502C1281.70505@gmail.com>
+
+On 08/15/2012 08:49 AM, chris (fool) mccraw wrote:
+> On Tue, Aug 14, 2012 at 9:00 AM, Roderick A. Anderson
+> <raanders42 at gmail.com>  wrote:
+>> I'm ready to move on from the customized Fedora 12 install I've been
+>> using on my eeePC (with SSD drives and upgraded to 2Gbyte RAM).
+>>
+>> I've been fiddling with a F17-spins - LXDE, and XFCE - but feel my years
+>> of working with Redhat based distributions starting with Redhat (3.0.3),
+>> Fedora (Core 1), and CentOS (3?) might be limiting my experience. :-)
+>>
+>> Anyone have recommendations for distributions they've used or are using
+>> on a eeePC?
+>
+> I use xubuntu on mine (also upgraded to 2g, but no SSD.  still runs a
+> windows VM or two acceptably) with a lighter weight WM than XFCE
+> (ratpoison--this is a great machine not to use the trackpad on!).  But
+> then, i tend to put something on and stick with it forever, and you're
+> clearly feeling the wanderlust, so maybe you should go with something
+> totally wacky like chromeos?
+
+Thanks Chris.  Not feeling whacky, feeling left alone since Fedora 12 is 
+no longer supported.  I've been thinking of running some VMs (the last 
+time was a _*long*_ time ago with VMware.
+
+I'll give xubuntu a look.
+
+
+Rod
+-- 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From gently at gmail.com  Wed Aug 15 14:34:15 2012
+From: gently at gmail.com (chris (fool) mccraw)
+Date: Wed, 15 Aug 2012 14:34:15 -0700
+Subject: [PLUG] Distributions for an ASUS eeePC 1000
+In-Reply-To: <502C1281.70505@gmail.com>
+References: <502A7603.1020902@gmail.com>
+	<CACKgb8QoMckqwJd5TwR6Ud5qqckZRghTzyJFrA7mO+gRyhu91A@mail.gmail.com>
+	<502C1281.70505@gmail.com>
+Message-ID: <CACKgb8ShJA4gqpBajbvE9b+kVpR39UtXVpMUfKpQLMaGBnYbOw@mail.gmail.com>
+
+On Wed, Aug 15, 2012 at 2:20 PM, Roderick A. Anderson
+<raanders42 at gmail.com> wrote:
+
+> Thanks Chris.  Not feeling whacky, feeling left alone since Fedora 12 is
+> no longer supported.  I've been thinking of running some VMs (the last
+> time was a _*long*_ time ago with VMware.
+>
+> I'll give xubuntu a look.
+
+I use xubuntu on my eeepc (it's maybe an "HE" model?  less than 2
+years old) and the performance of the VM's is acceptable, though not
+stellar.  Then again, the "native" windows install that came with it
+is pretty sluggish too.
+
+Definitely would prefer xubuntu to ubuntu on this (though I haven't
+tried ubuntu 12.04 to see if things have improved with Ubuntu's
+desktop manager), since there's a ton less associated overhead with
+running a simple WM rather than a desktop manager.
+
+
+From kd7vvk at gmail.com  Wed Aug 15 16:49:00 2012
+From: kd7vvk at gmail.com (Bruce)
+Date: Wed, 15 Aug 2012 16:49:00 -0700
+Subject: [PLUG] Touch screen experience
+Message-ID: <502C356C.5000605@gmail.com>
+
+  Anybody successfully or unsuccessfully interfaced a touch screen to a Linux box (non laptop).
+
+While far from a Linux application...
+
+We use a touchscreen for a time clock application.  In the few years we have been using it (5-6 drivers per shift, 2 shifts per day, 7 days per week, we have replaced one screen already.
+
+I am the guy that gets the phone call (it affects the on board recorders/electronic log books) when the screen doesn't really accept the input of the driver.  I get those phone calls pretty regularly.  The drivers that use the keyboard for input call me much less often than the ones that make use of the screen.
+
+Hope that's helpful.
+
+Bruce
+
+
+
+From fgwilliams at ymail.com  Wed Aug 15 19:27:07 2012
+From: fgwilliams at ymail.com (Fred Williams)
+Date: Wed, 15 Aug 2012 19:27:07 -0700 (PDT)
+Subject: [PLUG] HD recovery services
+In-Reply-To: <50281920.10500@f1forhelp.net>
+References: <4FFB7945.9070703@gmail.com> <50281920.10500@f1forhelp.net>
+Message-ID: <1345084027.29946.YahooMailNeo@web160304.mail.bf1.yahoo.com>
+
+1) Always keep backups
+2) Never put your HD into the freezer - that trick has high risks
+3) One time disk repairs should NEVER cost a penny unless you get data back
+3a) Only businesses with large volume of HD to repair, ever pay fees for disks with no data and they always get volume discounts.
+
+?
+Fred Williams, CISA
+fgwilliams.com
+
+
+-- Smile, it feels good.
+
+
+________________________________
+ From: Joseph Hume <joseph at f1forhelp.net>
+To: plug at lists.pdxlinux.org 
+Sent: Sunday, August 12, 2012 1:59 PM
+Subject: Re: [PLUG] HD recovery services
+ 
+On 07/09/2012 05:37 PM, Roderick A. Anderson wrote:
+> I've taken on a client (as per my previous message about Mac OS X
+> Servers) and part of the job is trying to recover some data on a drive
+> that was connected to a MB when it blew.? Story has it all the caps on
+> the board went.
+>
+> I've tested the drive and get the same clicking the previous tech
+> mentioned when the OS tries to access it.? I used an IDE to USB adapter
+> and tried the old freeze the drive trick.? Powers up just fine but no
+> joy beyond that.
+>
+> So I went Googling for a data recovery service and so far am looking at
+> Gillware Data Recovery.? I like the look because they only charge if
+> they recover the data.? Anyone have experience with this company?? Any
+> other recommendations?
+>
+>
+> \\||/
+> Rod
+Rod,
+
+We have recommended The Data Recovery Room out of Seattle before 
+(206.575.7773 http://recoroom.com) with reasonable results.? I met with 
+a guy in Hayden that is offering some data recovery services, Ben Keele 
+of QualityByte Computers (208.714.4221 http://www.qualitybyte.com) but I 
+haven't heard of anyone using his services.
+
+Joseph Hume
+F1 for HELP
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From dfhubbard at freegeek.org  Wed Aug 15 21:49:46 2012
+From: dfhubbard at freegeek.org (dfhubbard at freegeek.org)
+Date: Wed, 15 Aug 2012 21:49:46 -0700
+Subject: [PLUG] e-readers
+In-Reply-To: <mailman.5.1345057203.18413.plug@lists.pdxlinux.org>
+References: <mailman.5.1345057203.18413.plug@lists.pdxlinux.org>
+Message-ID: <b5cff28b1107cc7028a9a1159ee5e513.squirrel@mail.freegeek.org>
+
+
+What is the GOOD news about Linux and e-readers?
+
+and
+
+What is the GOOD news about Linux and smart phones?
+
+
+I am eagerly awaiting all the wonderful GOOD news!
+
+Thanks
+Debra
+
+
+
+From ali.corbin at gmail.com  Thu Aug 16 16:32:21 2012
+From: ali.corbin at gmail.com (Ali Corbin)
+Date: Thu, 16 Aug 2012 16:32:21 -0700
+Subject: [PLUG] Touch screen experience
+In-Reply-To: <502BDA11.6010303@pacifier.com>
+References: <502A70AF.6040206@pacifier.com> <86393p1lob.fsf@coulee.tdb.com>
+	<502BDA11.6010303@pacifier.com>
+Message-ID: <CANoB_cqG1=C-yWm5OOMqeyY2G7CULHRgk+2+ekJi-kzeVKkkFQ@mail.gmail.com>
+
+On Wed, Aug 15, 2012 at 10:19 AM, Wayne E. Van Loon Sr.
+<wevl at pacifier.com>wrote:
+
+> Russell Senior wrote:
+> >>>>>> "Wayne" == Wayne E Van Loon <wevl at pacifier.com> writes:
+> >>>>>>
+> >
+> > Wayne> Anybody successfully or unsuccessfully interfaced a touch
+> > Wayne> screen to a Linux box (non laptop).
+> >
+> > I am sure *someone* has, since all android phones are non-laptop linux
+> > boxes.  ;-)
+> >
+> > Which touch screen are you looking at?
+> >
+>
+
+
+> I have not selected one yet. My thought was to see if there was one that
+> someone was able to get working without too much of a hassle or what
+> problems kept them from getting it to work.
+>
+> I would kind of like to keep my screen resolution up in the range of
+> previous projects, 1920 x 1080. I see that Newegg has a few, Planar, HP,
+> and Viewsonic. None of them claim to be LED backlit. I've had the
+> florescent backlit screens die and hope that LED backlit would have much
+> longer life.
+>
+> I'm still working on the big picture. There is a kernel module??? Some
+> sort of changes in xorg.conf??? Most of the information I've come upon
+> utilizes the UART serial port and XFree86 , I would guess that is out of
+> date.
+>
+> I'd love to know physically how the touch-screen works - what happens
+> when the screen is touched - what data is transmitted through the USB
+> connection, etc.  Still googling around looking.
+>
+> Just saw the response from Scott Garman. Will check that out.
+>
+> Thanks
+> Wayne
+>
+> Typically, the touchscreen is run through X, which sees it as a
+combination of a monitor and mousy thing.  You paint stuff on the screen
+and the touches come back as mouse clicks.
+
+Of course, what you really want to do is to use your favorite widget
+toolkit and it will handle both the painting of the screen and the
+touchscreen clicks.
+
+Ali
+
+
+From vsoich at gmail.com  Fri Aug 17 09:16:01 2012
+From: vsoich at gmail.com (Victor Soich)
+Date: Fri, 17 Aug 2012 09:16:01 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+Message-ID: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+
+Dear PLUG,
+
+I have an HL-2270DW monochrome laser printer on Ubuntu 10.04 hooked up
+to a usb port.  The following indicate the drivers on my system, I
+think...
+
+oem at freekbox:~$ dpkg  -l  |  grep  Brother
+ii  cupswrapperhl2270dw                           2.0.4-2
+                                         Brother HL2270DW CUPS wrapper driver
+ii  hl2270dwlpr                                   2.1.0-1
+                                         Brother HL-2270DW LPR driver
+ii  openprinting-ppds-postscript-brother          20101122-1lsb3.2
+                                Manufacturer-supplied PPD files for Brother'
+
+
+The problem I have is that sometimes I don't want my printer to print
+duplex.  I sometimes want it to print on just one side of the paper.
+Sometimes I use paper that is already printed on one side.  If the
+document that I'm printing has 10 pages to print, then I want the
+printer to print the 10 pages on one side, not duplex.  I reuse paper
+that has a blank page on one side sometimes.  I would not like to
+print 10 separate pages, one at a time, on one side of the page, each
+time.
+
+When I go in a program to print a document I go to File, then
+Print..., then a dialog box comes up entitled "Print".  In this dialog
+box is a tab entitled, "Page Setup".  When I go to the "Page Setup"
+tab, there is a label called, "Two-sided:".  This label is next to a
+drop down box, which has three options, "One Sided", "Long Edge
+(Standard)", and "Short Edge (Flip)"  When I pick "One Sided", my
+printer still prints duplex.  Does "One Sided", not mean what I think
+it means?
+
+When I go to a dialog box entitled, "Printer Properties - 'HL2270DW'
+on localhost", I can go to "Printer Options".  Then I see a label that
+says, "Duplex:"  Next to this label is a drop down box whose choices
+are, "None", "DuplexNoTumble", and "DuplexTumble".  When I choose,
+"None", I still get duplex printing on my printer, when all I want is
+single sided printing.  Does, "None", not mean what I think it means?
+
+Do I have incorrect drivers on my system?  Do I need to configure
+something else.
+
+I have a feeling that the ability to turn off duplex printing is in
+the Windows driver, but not in the linux driver.  Can I somehow use
+wine, and the windows driver, just to be able to turn off the duplex
+printing when I want, and have single sided printing.  How do I go
+about doing that?  Would it somehow interfere with my linux driver?
+Do I use both a windows wine, and linux driver at the same time?
+
+I'll come to the PLUG clinic for help, but maybe someone will already
+know what I need to do.  At least someone will have a heads up if they
+read this email before, presumably, helping me at the clinic.
+
+Sincerely perplexed over duplex,
+Victor Soich
+
+
+From bill at billbarry.org  Fri Aug 17 09:46:32 2012
+From: bill at billbarry.org (Bill Barry)
+Date: Fri, 17 Aug 2012 09:46:32 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+Message-ID: <CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 9:16 AM, Victor Soich <vsoich at gmail.com> wrote:
+> Dear PLUG,
+>
+> I have an HL-2270DW monochrome laser printer on Ubuntu 10.04 hooked up
+> to a usb port.  The following indicate the drivers on my system, I
+> think...
+>
+> oem at freekbox:~$ dpkg  -l  |  grep  Brother
+> ii  cupswrapperhl2270dw                           2.0.4-2
+>                                          Brother HL2270DW CUPS wrapper driver
+> ii  hl2270dwlpr                                   2.1.0-1
+>                                          Brother HL-2270DW LPR driver
+> ii  openprinting-ppds-postscript-brother          20101122-1lsb3.2
+>                                 Manufacturer-supplied PPD files for Brother'
+>
+>
+> The problem I have is that sometimes I don't want my printer to print
+> duplex.  I sometimes want it to print on just one side of the paper.
+> Sometimes I use paper that is already printed on one side.  If the
+> document that I'm printing has 10 pages to print, then I want the
+> printer to print the 10 pages on one side, not duplex.  I reuse paper
+> that has a blank page on one side sometimes.  I would not like to
+> print 10 separate pages, one at a time, on one side of the page, each
+> time.
+>
+> When I go in a program to print a document I go to File, then
+> Print..., then a dialog box comes up entitled "Print".  In this dialog
+> box is a tab entitled, "Page Setup".  When I go to the "Page Setup"
+> tab, there is a label called, "Two-sided:".  This label is next to a
+> drop down box, which has three options, "One Sided", "Long Edge
+> (Standard)", and "Short Edge (Flip)"  When I pick "One Sided", my
+> printer still prints duplex.  Does "One Sided", not mean what I think
+> it means?
+>
+> When I go to a dialog box entitled, "Printer Properties - 'HL2270DW'
+> on localhost", I can go to "Printer Options".  Then I see a label that
+> says, "Duplex:"  Next to this label is a drop down box whose choices
+> are, "None", "DuplexNoTumble", and "DuplexTumble".  When I choose,
+> "None", I still get duplex printing on my printer, when all I want is
+> single sided printing.  Does, "None", not mean what I think it means?
+>
+> Do I have incorrect drivers on my system?  Do I need to configure
+> something else.
+>
+> I have a feeling that the ability to turn off duplex printing is in
+> the Windows driver, but not in the linux driver.  Can I somehow use
+> wine, and the windows driver, just to be able to turn off the duplex
+> printing when I want, and have single sided printing.  How do I go
+> about doing that?  Would it somehow interfere with my linux driver?
+> Do I use both a windows wine, and linux driver at the same time?
+>
+> I'll come to the PLUG clinic for help, but maybe someone will already
+> know what I need to do.  At least someone will have a heads up if they
+> read this email before, presumably, helping me at the clinic.
+>
+> Sincerely perplexed over duplex,
+> Victor Soich
+
+Victor, It looks like a bug in the proprietary driver supplied by
+Brother. Maybe their customer service could answer your question.
+http://www.brother-usa.com/support/CustServ.aspx
+
+Or you could try the generic pcl driver as described here
+http://roysjosh.blogspot.com/2011/05/linux-and-brother-hl-2270dw-printer.html
+but it may have the same problem with duplex, since duplex is the
+default on that printer.
+
+Bill
+
+
+From galens at seitzassoc.com  Fri Aug 17 16:09:21 2012
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Fri, 17 Aug 2012 16:09:21 -0700
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+Message-ID: <502ECF21.4040509@seitzassoc.com>
+
+Hi,
+
+Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+#endif?  I've got a group of commands in my script that take a long
+time to execute, so I'd like to temporarily disable them.
+
+thanks,
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+
+From tim-pdxlug at sentinelchicken.org  Fri Aug 17 16:13:24 2012
+From: tim-pdxlug at sentinelchicken.org (Tim)
+Date: Fri, 17 Aug 2012 16:13:24 -0700
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+In-Reply-To: <502ECF21.4040509@seitzassoc.com>
+References: <502ECF21.4040509@seitzassoc.com>
+Message-ID: <20120817231324.GE1965@sentinelchicken.org>
+
+
+if false; then 
+  {commands}
+fi
+
+??
+
+
+tim
+
+
+On Fri, Aug 17, 2012 at 04:09:21PM -0700, Galen Seitz wrote:
+> Hi,
+> 
+> Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+> #endif?  I've got a group of commands in my script that take a long
+> time to execute, so I'd like to temporarily disable them.
+> 
+> thanks,
+> galen
+> -- 
+> Galen Seitz
+> galens at seitzassoc.com
+> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From plug at the-wes.com  Fri Aug 17 16:13:30 2012
+From: plug at the-wes.com (wes)
+Date: Fri, 17 Aug 2012 16:13:30 -0700
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+In-Reply-To: <502ECF21.4040509@seitzassoc.com>
+References: <502ECF21.4040509@seitzassoc.com>
+Message-ID: <CAA1wLOnT_zBezSVNEi4XCe6KtPsbQm9ZMx9oKQiYKVUxYws9jw@mail.gmail.com>
+
+I "think" you're asking how to do if statements in bash?
+
+if so, it's like this:
+
+if true
+then echo yes
+else echo no
+fi
+
+("fi" being "if" backwards... those crazy Bourne people)
+
+-wes
+
+On Fri, Aug 17, 2012 at 4:09 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+
+> Hi,
+>
+> Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+> #endif?  I've got a group of commands in my script that take a long
+> time to execute, so I'd like to temporarily disable them.
+>
+> thanks,
+> galen
+> --
+> Galen Seitz
+> galens at seitzassoc.com
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From martin at linux-ip.net  Fri Aug 17 16:17:48 2012
+From: martin at linux-ip.net (Martin A. Brown)
+Date: Fri, 17 Aug 2012 19:17:48 -0400
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+In-Reply-To: <502ECF21.4040509@seitzassoc.com>
+References: <502ECF21.4040509@seitzassoc.com>
+Message-ID: <alpine.LNX.2.00.1208171911490.7319@octothorpe.wonderfrog.net>
+
+
+Hello and good afternoon,
+
+ : Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+ : #endif?  I've got a group of commands in my script that take a long
+ : time to execute, so I'd like to temporarily disable them.
+
+Those are macros, sometimes called defines, sometimes called ifdefs.  
+Unless you are (pre)processing your shell, no there really isn't 
+something similar, however, you could simply use an if block.
+
+Insert this around the code you do not want to run (did you know 
+that there's a /bin/false and a /bin/true):
+
+  if false; then
+      ... code you want to skip
+  fi
+
+Then, naturally, you'll want to make that a shell variable, which 
+means you probably get to use 'test'.  Note that 'test' is 
+sometimes also written more portable as '[':
+
+  SKIP_STUFF=please
+  if test -z "$SKIP_STUFF" ; then
+      ... code you still want to skip
+  fi
+
+Then, when you are done with your temporary disability....
+
+  unset SKIP_STUFF
+  if test -z "$SKIP_STUFF" ; then
+      ... code you desperately wish to see running
+  fi
+
+Happy trails!
+
+-Martin
+
+-- 
+Martin A. Brown
+http://linux-ip.net/
+
+
+From sgarman at zenlinux.com  Fri Aug 17 16:29:15 2012
+From: sgarman at zenlinux.com (Scott Garman)
+Date: Fri, 17 Aug 2012 16:29:15 -0700
+Subject: [PLUG] Help with Xmodmap
+Message-ID: <502ED3CB.3020007@zenlinux.com>
+
+Hello,
+
+I'm having a hard time wrapping my head around Xmodmap.
+
+I have a laptop keyboard which has an Alt_R key but no Control_R key. I 
+would like the change this Alt key to a Ctrl key.
+
+I think what I'm supposed to do is:
+
+clear Mod1
+add Mod1 = Control_R NoSymbol Control_R
+
+in my ~/.Xmodmap file, but when I run xmodmap on this, it returns:
+
+Warning: Only changing the first 15 of 24 buttons.
+X Error of failed request:  BadValue (integer parameter out of range for 
+operation)
+   Major opcode of failed request:  118 (X_SetModifierMapping)
+   Value in failed request:  0x17
+   Serial number of failed request:  13
+   Current serial number in output stream:  13
+
+If I simply comment out the add line, xmodmap runs without reporting any 
+errors and the both of my Alt keys no longer do anything.
+
+Is this enough information for someone to give me some suggestions?
+
+Thanks,
+
+Scott
+
+
+From galens at seitzassoc.com  Fri Aug 17 16:34:25 2012
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Fri, 17 Aug 2012 16:34:25 -0700
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+In-Reply-To: <alpine.LNX.2.00.1208171911490.7319@octothorpe.wonderfrog.net>
+References: <502ECF21.4040509@seitzassoc.com>
+	<alpine.LNX.2.00.1208171911490.7319@octothorpe.wonderfrog.net>
+Message-ID: <502ED501.6030805@seitzassoc.com>
+
+
+Thanks for the responses.  That was too easy.  Next time I'll give you
+something more challenging.
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+
+From daniel at digitree.org  Fri Aug 17 16:48:58 2012
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Fri, 17 Aug 2012 16:48:58 -0700
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <502ED3CB.3020007@zenlinux.com>
+References: <502ED3CB.3020007@zenlinux.com>
+Message-ID: <CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 4:29 PM, Scott Garman <sgarman at zenlinux.com> wrote:
+
+> I'm having a hard time wrapping my head around Xmodmap.
+>
+ *snip*
+
+> I have a laptop keyboard which has an Alt_R key but no Control_R key. I
+> would like the change this Alt key to a Ctrl key.
+>
+> I think what I'm supposed to do is:
+>
+> clear Mod1
+> add Mod1 = Control_R NoSymbol Control_R
+
+ *snip*
+
+> If I simply comment out the add line, xmodmap runs without reporting any
+> errors and the both of my Alt keys no longer do anything.
+>
+
+Close.  Try this and see if it works:
+remove Mod1 = Alt_R
+add Control = Alt_R
+
+
+From rshepard at appl-ecosys.com  Fri Aug 17 16:55:34 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 17 Aug 2012 16:55:34 -0700 (PDT)
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <502ED3CB.3020007@zenlinux.com>
+References: <502ED3CB.3020007@zenlinux.com>
+Message-ID: <alpine.LNX.2.00.1208171653100.11596@salmo.appl-ecosys.com>
+
+On Fri, 17 Aug 2012, Scott Garman wrote:
+
+> I'm having a hard time wrapping my head around Xmodmap.
+
+Scott,
+
+   Does take some time to get used to it.
+
+> in my ~/.Xmodmap file, but when I run xmodmap on this, it returns:
+
+   Sometimes you need to make the changes as root, not as a user. This also
+has bitten me with .keymap, the console equivalent of .Xmodmap. I still
+don't completely grok the tool because I need to change it so infrequently.
+
+Rich
+
+
+
+From keithl at gate.kl-ic.com  Fri Aug 17 17:38:49 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 17 Aug 2012 17:38:49 -0700
+Subject: [PLUG] [Your clever adjective here] Linux Clinic Sunday August 19
+Message-ID: <20120818003849.GA22315@gate.kl-ic.com>
+
+It is WAY too hot to be clever today.  But the Linux clinic
+needs to be announced. 
+
+So I'll let you do it.  You need to mention these things:
+
+ * The clinic is at Free Geek at 1731 SE 10th
+ * The clinic runs from 1 to 5 pm on the 3rd Sunday (8/19)
+ * We fix linux problems on the computer you bring
+ * We have keyboards, mice, monitors, wifi, distros
+ * Expert help welcomed
+ * whatever else I forgot
+
+I could offer a prize for best announcement, but I'm too hot
+to think of one.  Everybody bring a prize, and the winner
+gets them all.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+From sgarman at zenlinux.com  Fri Aug 17 17:59:08 2012
+From: sgarman at zenlinux.com (Scott Garman)
+Date: Fri, 17 Aug 2012 17:59:08 -0700
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+References: <502ED3CB.3020007@zenlinux.com>
+	<CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+Message-ID: <502EE8DC.5000008@zenlinux.com>
+
+On 08/17/2012 04:48 PM, Daniel Hedlund wrote:
+> On Fri, Aug 17, 2012 at 4:29 PM, Scott Garman <sgarman at zenlinux.com> wrote:
+>
+>> I'm having a hard time wrapping my head around Xmodmap.
+>>
+>   *snip*
+>
+>> I have a laptop keyboard which has an Alt_R key but no Control_R key. I
+>> would like the change this Alt key to a Ctrl key.
+>>
+>> I think what I'm supposed to do is:
+>>
+>> clear Mod1
+>> add Mod1 = Control_R NoSymbol Control_R
+>
+>   *snip*
+>
+>> If I simply comment out the add line, xmodmap runs without reporting any
+>> errors and the both of my Alt keys no longer do anything.
+>>
+>
+> Close.  Try this and see if it works:
+> remove Mod1 = Alt_R
+> add Control = Alt_R
+
+Thanks Daniel, that's exactly what I needed!
+
+I can see how I had my mapping reversed when using the add command, but 
+out of curiosity, can you explain why you needed the "= Alt_R" for the 
+remove command?
+
+Thanks,
+
+Scott
+
+
+From daniel at digitree.org  Fri Aug 17 18:21:44 2012
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Fri, 17 Aug 2012 18:21:44 -0700
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <502EE8DC.5000008@zenlinux.com>
+References: <502ED3CB.3020007@zenlinux.com>
+	<CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+	<502EE8DC.5000008@zenlinux.com>
+Message-ID: <CANkHAjddOBUdNxAAKrOmcJHwcf_CwdzZteuNAn5KU-NKBCGk7Q@mail.gmail.com>
+
+On Fri, Aug 17, 2012 at 5:59 PM, Scott Garman <sgarman at zenlinux.com> wrote:
+
+> I can see how I had my mapping reversed when using the add command, but
+> out of curiosity, can you explain why you needed the "= Alt_R" for the
+> remove command?
+>
+
+Because that's how it's described in the xmodmap(1) man page?  Remove is
+supposed to remove one or more keys associated with a specific modifier, in
+your case Mod1:
+
+       remove MODIFIERNAME = KEYSYMNAME ...
+               This removes all keys containing the given keysyms from the
+indicated modi?
+               fier  map.   Unlike add, the keysym names are evaluated as
+the line is read
+               in.  This allows you to remove keys from a modifier without
+having to worry
+               about whether or not they have been reassigned.
+
+"Clear"ing a modifier will clear all keys associated with that modifier,
+which removes both Alt_L and Alt_R (and possibly Meta_L if it's mapped to a
+physical key):
+
+       clear MODIFIERNAME
+               This  removes all entries in the modifier map for the given
+modifier, where valid name are: Shift, Lock, Control, Mod1, Mod2, Mod3,
+Mod4, and Mod5 (case does
+               not matter in modifier names, although it does matter for
+all other names).  For example, ``clear Lock'' will remove all any keys
+ that  were  bound  to  the
+               shift lock modifier.
+
+
+From sgarman at zenlinux.com  Fri Aug 17 19:01:19 2012
+From: sgarman at zenlinux.com (Scott Garman)
+Date: Fri, 17 Aug 2012 19:01:19 -0700
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <CANkHAjddOBUdNxAAKrOmcJHwcf_CwdzZteuNAn5KU-NKBCGk7Q@mail.gmail.com>
+References: <502ED3CB.3020007@zenlinux.com>
+	<CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+	<502EE8DC.5000008@zenlinux.com>
+	<CANkHAjddOBUdNxAAKrOmcJHwcf_CwdzZteuNAn5KU-NKBCGk7Q@mail.gmail.com>
+Message-ID: <502EF76F.5050802@zenlinux.com>
+
+On 08/17/2012 06:21 PM, Daniel Hedlund wrote:
+> On Fri, Aug 17, 2012 at 5:59 PM, Scott Garman <sgarman at zenlinux.com> wrote:
+>
+>> I can see how I had my mapping reversed when using the add command, but
+>> out of curiosity, can you explain why you needed the "= Alt_R" for the
+>> remove command?
+>>
+>
+> Because that's how it's described in the xmodmap(1) man page?  Remove is
+> supposed to remove one or more keys associated with a specific modifier, in
+> your case Mod1:
+>
+>         remove MODIFIERNAME = KEYSYMNAME ...
+>                 This removes all keys containing the given keysyms from the
+> indicated modi?
+>                 fier  map.   Unlike add, the keysym names are evaluated as
+> the line is read
+>                 in.  This allows you to remove keys from a modifier without
+> having to worry
+>                 about whether or not they have been reassigned.
+>
+> "Clear"ing a modifier will clear all keys associated with that modifier,
+> which removes both Alt_L and Alt_R (and possibly Meta_L if it's mapped to a
+> physical key):
+>
+>         clear MODIFIERNAME
+>                 This  removes all entries in the modifier map for the given
+> modifier, where valid name are: Shift, Lock, Control, Mod1, Mod2, Mod3,
+> Mod4, and Mod5 (case does
+>                 not matter in modifier names, although it does matter for
+> all other names).  For example, ``clear Lock'' will remove all any keys
+>   that  were  bound  to  the
+>                 shift lock modifier.
+
+Great, thanks for the additional explanations!
+
+Scott
+
+
+
+From robert.citek at gmail.com  Fri Aug 17 19:40:51 2012
+From: robert.citek at gmail.com (Robert Citek)
+Date: Fri, 17 Aug 2012 22:40:51 -0400
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+In-Reply-To: <20120817231324.GE1965@sentinelchicken.org>
+References: <502ECF21.4040509@seitzassoc.com>
+	<20120817231324.GE1965@sentinelchicken.org>
+Message-ID: <CAKFjdm70HegxBGxVNL6GNPg5TNh59Y-c5M+_irs2iucpdAc09Q@mail.gmail.com>
+
+If it's just for commenting out multi-line commands, you could wrap
+them in a subshell with the first command being exit:
+
+( exit
+  commands or comments
+)
+
+Regards,
+- Robert
+
+
+On Fri, Aug 17, 2012 at 7:13 PM, Tim <tim-pdxlug at sentinelchicken.org> wrote:
+>
+> if false; then
+>   {commands}
+> fi
+>
+> ??
+>
+>
+> tim
+>
+>
+> On Fri, Aug 17, 2012 at 04:09:21PM -0700, Galen Seitz wrote:
+>> Hi,
+>>
+>> Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+>> #endif?  I've got a group of commands in my script that take a long
+>> time to execute, so I'd like to temporarily disable them.
+>>
+>> thanks,
+>> galen
+>> --
+>> Galen Seitz
+>> galens at seitzassoc.com
+>>
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From dfhubbard at freegeek.org  Sat Aug 18 12:16:35 2012
+From: dfhubbard at freegeek.org (dfhubbard at freegeek.org)
+Date: Sat, 18 Aug 2012 12:16:35 -0700
+Subject: [PLUG] [Your clever adjective here] Linux Clinic Sunday August 19
+In-Reply-To: <mailman.5.1345316403.16060.plug@lists.pdxlinux.org>
+References: <mailman.5.1345316403.16060.plug@lists.pdxlinux.org>
+Message-ID: <5f55b390cbd0b595a52f14ce06a1616b.squirrel@mail.freegeek.org>
+
+
+Any chance we can get Free Geek to turn on the AC for the clinic?
+
+Debra
+
+
+
+
+> Date: Fri, 17 Aug 2012 17:38:49 -0700
+> From: Keith Lofstrom <keithl at gate.kl-ic.com>
+> Subject: [PLUG] [Your clever adjective here] Linux Clinic Sunday
+> 	August 19
+> To: Plug Announcement <plug-announce at lists.pdxlinux.org>,
+> 	plug at lists.pdxlinux.org
+> Message-ID: <20120818003849.GA22315 at gate.kl-ic.com>
+> Content-Type: text/plain; charset=us-ascii
+>
+> It is WAY too hot to be clever today.  But the Linux clinic
+> needs to be announced.
+>
+> So I'll let you do it.  You need to mention these things:
+>
+>  * The clinic is at Free Geek at 1731 SE 10th
+>  * The clinic runs from 1 to 5 pm on the 3rd Sunday (8/19)
+>  * We fix linux problems on the computer you bring
+>  * We have keyboards, mice, monitors, wifi, distros
+>  * Expert help welcomed
+>  * whatever else I forgot
+>
+> I could offer a prize for best announcement, but I'm too hot
+> to think of one.  Everybody bring a prize, and the winner
+> gets them all.
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> KLIC --- Keith Lofstrom Integrated Circuits --- "Your Ideas in Silicon"
+> Design Contracting in Bipolar and CMOS - Analog, Digital, and Scan ICs
+
+
+
+
+From johnxj at comcast.net  Sun Aug 19 20:13:27 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sun, 19 Aug 2012 20:13:27 -0700
+Subject: [PLUG] Adobe releases open source font
+Message-ID: <20120819201327.192c5e94@mailhost.pdx.edu>
+
+When I first heard of this I thought it must be a joke. But it's for
+real. 
+
+http://sourceforge.net/projects/sourcesans.adobe/files/
+
+Lots of buzz in the DTP world about this. 
+
+
+From dexter at ambidexter.com  Mon Aug 20 10:44:28 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 20 Aug 2012 10:44:28 -0700
+Subject: [PLUG] Reminder: August PLUG Advanced Topics: Vyatta
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5032777C.5010508@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Stephen Hemminger
+What: Vyatta
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, August 21st, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+Linux has been used for network routing for many years, but the
+interface is different than the standard network appliances.  Vyatta
+is a Debian based distribution that provides an open command line
+interface that looks like Cisco or Juniper. The command line is built
+on top of standard bash shell with extensible template language.
+
+This talk will go into the history of Vyatta, where it came from
+and how it is used today. For those who want to contribute or modify,
+it will also cover the internals of how this implemented.
+
+
+Stephen Hemminger is a software engineer working remotely in Portland
+for Vyatta. He has been involved with Linux networking for 8 years
+and currently maintains bridging and routing utilities. Steve
+regularly presents at Linux conferences.
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250462637
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From dexter at ambidexter.com  Mon Aug 20 11:14:41 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 20 Aug 2012 11:14:41 -0700
+Subject: [PLUG] Mini-ITX motherboards for sale and some ECC RAM
+Message-ID: <50327E91.2020406@ambidexter.com>
+
+
+Hello all,
+
+Drop me a line if you are interested in some recent Intel Mini-ITX 
+motherboards and RAM. I also have two Kingston ECC KVR1333D3D4R9S/8GI 
+8GB PC3-10600 Parity REG CL9 240 Pin DIMM's.
+
+Michael
+
+
+From dexter at ambidexter.com  Mon Aug 20 11:24:14 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 20 Aug 2012 11:24:14 -0700
+Subject: [PLUG] Help with Xmodmap
+In-Reply-To: <CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+References: <502ED3CB.3020007@zenlinux.com>
+	<CANkHAjcaJLb4Ua7byPb7e8edxc-G4ua0xSiSiqWzzofHVnbnhg@mail.gmail.com>
+Message-ID: <503280CE.8030108@ambidexter.com>
+
+On 8/17/12 4:48 PM, Daniel Hedlund wrote:
+> Close.  Try this and see if it works:
+> remove Mod1 = Alt_R
+> add Control = Alt_R
+
+Great timing. :)
+
+I have the Macintosh Command key hard-wired to my thumb and have been 
+experimenting with Xmodmap. I can swap ALT and CTRL but was hoping to 
+add more Mac-like behavior: Use ALT only in conjunction with TAB and 
+hopefully ` for window switching within application, then map CTRL to 
+ALT so I can do ALT-C ALT-V for copy and paste.
+
+Can this be done?
+
+Michael
+
+
+From louisk at cryptomonkeys.org  Mon Aug 20 16:03:09 2012
+From: louisk at cryptomonkeys.org (Louis Kowolowski)
+Date: Mon, 20 Aug 2012 16:03:09 -0700
+Subject: [PLUG] Reminder: August PLUG Advanced Topics: Vyatta
+In-Reply-To: <5032777C.5010508@ambidexter.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5032777C.5010508@ambidexter.com>
+Message-ID: <4604A99D-766C-4896-A0DD-D653A247BEA8@cryptomonkeys.org>
+
+On Aug 20, 2012, at 10:44 AM, Michael Dexter <dexter at ambidexter.com> wrote:
+
+> Portland Linux/Unix Group Advanced Topics Meeting Announcement
+> 
+> Who: Stephen Hemminger
+> What: Vyatta
+> Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+> When: Tuesday, August 21st, 2012 at 7pm
+> Why: The pursuit of awesome, open technologies.
+> 
+> <snip>
+Is there an ical/google calendar people can subscribe to for these events?
+
+--
+Louis Kowolowski                                louisk at cryptomonkeys.org
+Cryptomonkeys:                      http://www.cryptomonkeys.org/~louisk
+
+Making life more interesting for people since 1977
+
+
+
+From dexter at ambidexter.com  Mon Aug 20 16:36:01 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 20 Aug 2012 16:36:01 -0700
+Subject: [PLUG] Reminder: August PLUG Advanced Topics: Vyatta
+In-Reply-To: <4604A99D-766C-4896-A0DD-D653A247BEA8@cryptomonkeys.org>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5032777C.5010508@ambidexter.com>
+	<4604A99D-766C-4896-A0DD-D653A247BEA8@cryptomonkeys.org>
+Message-ID: <5032C9E1.8040001@ambidexter.com>
+
+On 8/20/12 4:03 PM, Louis Kowolowski wrote:
+>> Who: Stephen Hemminger
+>> >What: Vyatta
+>> >Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+>> >When: Tuesday, August 21st, 2012 at 7pm
+>> >Why: The pursuit of awesome, open technologies.
+>> >
+>> ><snip>
+> Is there an ical/google calendar people can subscribe to for these events?
+
+No and yes.
+
+I subscribe to the Calagator feed which includes PLUG events.
+
+Would a feed be welcomed by many?
+
+Also... does anyone know of a phone app that will allow you to add an 
+alarm to an event from a feed?
+
+Michael
+
+
+From epheph at gmail.com  Tue Aug 21 17:28:12 2012
+From: epheph at gmail.com (Scott Bigelow)
+Date: Tue, 21 Aug 2012 17:28:12 -0700
+Subject: [PLUG] SIP Providers with Asterisk/FreePBX
+Message-ID: <CANdpE5XxYmHk2e4mHb17Jg=b=WcMA9FJ2_KKgYdw-b6Wta_HYw@mail.gmail.com>
+
+There seems to be quite a bit of Asterisk and phone expertise in the
+meetings so I thought I'd reach out to the group to see if my SIP provider
+is being unreasonable. I have an outbound SIP trunk configured with our
+provider, nexVortex. On this SIP trunk, I have allowed the g729 codec and
+disabled all others. There are a couple numbers that when we call out on
+this trunk, give us a "488 Not acceptable here", usually a codec error.
+Working with our provider, the common thread is that those numbers are all
+hosted by nexVortex themselves, and not hitting the PSTN. They are simply
+proxying the connection to the other customer's phone server.
+
+Am I unreasonable in thinking that it is nexVortex's job to transcode this
+connection, and not burden us with supporting all codecs their customers
+might be using? Or should I be allowing more codecs on my trunk? Thanks!
+
+
+From aaron at bavariati.org  Wed Aug 22 07:37:45 2012
+From: aaron at bavariati.org (Aaron Burt)
+Date: Wed, 22 Aug 2012 07:37:45 -0700
+Subject: [PLUG] SIP Providers with Asterisk/FreePBX
+In-Reply-To: <CANdpE5XxYmHk2e4mHb17Jg=b=WcMA9FJ2_KKgYdw-b6Wta_HYw@mail.gmail.com>
+References: <CANdpE5XxYmHk2e4mHb17Jg=b=WcMA9FJ2_KKgYdw-b6Wta_HYw@mail.gmail.com>
+Message-ID: <20120822143745.GB3638@aaron-acer>
+
+This reminds me, I've registered asterhack.org but haven't put up a site or
+announced a meeting yet.  Please mail me offlist if you, dear reader, would
+be interested in an open-source telephony group here in Portland.
+
+On Tue, Aug 21, 2012 at 05:28:12PM -0700, Scott Bigelow wrote:
+> Am I unreasonable in thinking that it is nexVortex's job to transcode this
+> connection, and not burden us with supporting all codecs their customers
+> might be using? Or should I be allowing more codecs on my trunk? Thanks!
+
+You should be transcoding or allowing more codecs.  NexVortex is just a
+broker, and they're most likely not even in the middle of the RTP stream.
+
+Also, g.729 usually requires a license to use, so it's often disabled.
+
+Uness bandwidth is significantly constrained, I usually use g.711a/u - it's
+still the best-sounding codec(s), and universally supported.
+
+
+From denis.heidtmann at gmail.com  Wed Aug 22 18:47:41 2012
+From: denis.heidtmann at gmail.com (Denis Heidtmann)
+Date: Wed, 22 Aug 2012 18:47:41 -0700
+Subject: [PLUG] Archive search issue
+Message-ID: <CAArUT0jRi7t4W6jo2b5CiVJbqgubGG=HOYF0EQ_VhvwrjkPBeg@mail.gmail.com>
+
+I attempted to search the archives, but received the following message:
+
+We're sorry...
+
+... but your computer or network may be sending automated queries. To
+protect our users, we can't process your request right now.
+
+See Google Help for more information.
+
+Advice?
+
+Thanks,
+
+-Denis
+
+
+From ronabop at gmail.com  Wed Aug 22 22:40:50 2012
+From: ronabop at gmail.com (Ronald Chmara)
+Date: Wed, 22 Aug 2012 22:40:50 -0700
+Subject: [PLUG] Archive search issue
+In-Reply-To: <CAArUT0jRi7t4W6jo2b5CiVJbqgubGG=HOYF0EQ_VhvwrjkPBeg@mail.gmail.com>
+References: <CAArUT0jRi7t4W6jo2b5CiVJbqgubGG=HOYF0EQ_VhvwrjkPBeg@mail.gmail.com>
+Message-ID: <CAFWS2+Hb-ZWmfEEE7s3FW-3PsB-kGsRfn8E06d6OPj4GEe1+hw@mail.gmail.com>
+
+On Wed, Aug 22, 2012 at 6:47 PM, Denis Heidtmann
+<denis.heidtmann at gmail.com> wrote:
+> I attempted to search the archives, but received the following message:
+>
+> We're sorry...
+>
+> ... but your computer or network may be sending automated queries. To
+> protect our users, we can't process your request right now.
+>
+> See Google Help for more information.
+>
+> Advice?
+
+Oh, how many times I have seen this message..... must be in the
+thousands (I used to do SEO work back in the day.)
+
+It usually results from somebody being on a network where some kind of
+bot is running some kind of automatic query system, to, for example,
+find google SERP rankings of different web pages for a given search,
+or something similar.
+
+It works on a timer, and is tied to IP address, so you can just wait,
+or try from a different network, or through a proxy. If you know what
+system on your network is slamming google with requests, and you have
+some control over it, you can throttle it down, and/or encourage them
+to launder through multiple source IP addresses (via proxies)....
+
+HTH,
+-Ronabop
+
+
+From merlyn at stonehenge.com  Thu Aug 23 11:35:11 2012
+From: merlyn at stonehenge.com (Randal L. Schwartz)
+Date: Thu, 23 Aug 2012 11:35:11 -0700
+Subject: [PLUG] shell script equivalent to #if 0 ... #endif
+References: <502ECF21.4040509@seitzassoc.com>
+Message-ID: <86sjbdmp7k.fsf@red.stonehenge.com>
+
+>>>>> "Galen" == Galen Seitz <galens at seitzassoc.com> writes:
+
+Galen> Hi,
+Galen> Is there some sort of Bourne or Bash shell equivalent to #if 0 ...
+Galen> #endif?  I've got a group of commands in my script that take a long
+Galen> time to execute, so I'd like to temporarily disable them.
+
+: <<'COMMENTEDOUT'
+
+your
+commands
+here
+
+COMMENTEDOUT
+
+-- 
+Randal L. Schwartz - Stonehenge Consulting Services, Inc. - +1 503 777 0095
+<merlyn at stonehenge.com> <URL:http://www.stonehenge.com/merlyn/>
+Smalltalk/Perl/Unix consulting, Technical writing, Comedy, etc. etc.
+See http://methodsandmessages.posterous.com/ for Smalltalk discussion
+
+
+
+From heinlein at madboa.com  Thu Aug 23 15:51:52 2012
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Thu, 23 Aug 2012 15:51:52 -0700 (PDT)
+Subject: [PLUG] Graceful sudo recovery
+Message-ID: <alpine.OSX.2.00.1208231544590.28191@springwater.galois.com>
+
+I have sudo configured on the servers around our office to send me 
+administrative notes when someone invokes sudo without having 
+permission to do so.
+
+So I get a message (where YYYYYY is the server name and ZZZZZZ is the 
+username):
+
+   YYYYYY: Aug 23 15:41:32 : ZZZZZZ : user NOT in sudoers ;
+   TTY=pts/1 ; PWD=/home/ZZZZZZ ; USER=root ; COMMAND=/bin/ls
+
+sudo let the user in question that his activity would be recorded and 
+reported, so just a few seconds later I get another warning:
+
+   YYYYYY: Aug 23 15:41:46 : ZZZZZZ : user NOT in sudoers ; TTY=pts/1 ;
+   PWD=/home/ZZZZZZ ; USER=root ; COMMAND=/bin/echo Just checking
+
+:-)
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+---------- Forwarded message ----------
+Date: Thu, 23 Aug 2012 15:41:47 -0700
+From: tommd at galois.com
+To: root at gibson.galois.com
+Subject: *** SECURITY information for gibson.galois.com ***
+
+
+From gently at gmail.com  Thu Aug 23 16:39:37 2012
+From: gently at gmail.com (chris (fool) mccraw)
+Date: Thu, 23 Aug 2012 16:39:37 -0700
+Subject: [PLUG] Graceful sudo recovery
+In-Reply-To: <alpine.OSX.2.00.1208231544590.28191@springwater.galois.com>
+References: <alpine.OSX.2.00.1208231544590.28191@springwater.galois.com>
+Message-ID: <CACKgb8QhzCDwbrguPNiE_dhu27qnY53d-nnp_SRk3btkKMG+-w@mail.gmail.com>
+
+On Thu, Aug 23, 2012 at 3:51 PM, Paul Heinlein <heinlein at madboa.com> wrote:
+> I have sudo configured on the servers around our office to send me
+> administrative notes when someone invokes sudo without having permission to
+> do so.
+>
+> So I get a message (where YYYYYY is the server name and ZZZZZZ is the
+> username):
+>
+>   YYYYYY: Aug 23 15:41:32 : ZZZZZZ : user NOT in sudoers ;
+>   TTY=pts/1 ; PWD=/home/ZZZZZZ ; USER=root ; COMMAND=/bin/ls
+>
+> sudo let the user in question that his activity would be recorded and
+> reported, so just a few seconds later I get another warning:
+>
+>   YYYYYY: Aug 23 15:41:46 : ZZZZZZ : user NOT in sudoers ; TTY=pts/1 ;
+>   PWD=/home/ZZZZZZ ; USER=root ; COMMAND=/bin/echo Just checking
+
+Back when I worked in a CS department with a thousand inquisitive
+students, we wrote our own kernel modules to stop forkbombs and were
+generally proactive and had few actual security incidents.  But the
+best moment perhaps was a sudo message like this, which started with a
+command like your first one, and then was followed by:
+
+YYYYYY: Aug 23 15:41:46 : ZZZZZZ : user NOT in sudoers ; TTY=pts/1 ;
+PWD=/home/ZZZZZZ ; USER=root ; COMMAND=make me a sandwich
+
+
+From heinlein at madboa.com  Thu Aug 23 16:44:28 2012
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Thu, 23 Aug 2012 16:44:28 -0700 (PDT)
+Subject: [PLUG] Graceful sudo recovery
+In-Reply-To: <CACKgb8QhzCDwbrguPNiE_dhu27qnY53d-nnp_SRk3btkKMG+-w@mail.gmail.com>
+References: <alpine.OSX.2.00.1208231544590.28191@springwater.galois.com>
+	<CACKgb8QhzCDwbrguPNiE_dhu27qnY53d-nnp_SRk3btkKMG+-w@mail.gmail.com>
+Message-ID: <alpine.OSX.2.00.1208231643490.28191@springwater.galois.com>
+
+On Thu, 23 Aug 2012, chris (fool) mccraw wrote:
+
+> YYYYYY: Aug 23 15:41:46 : ZZZZZZ : user NOT in sudoers ; TTY=pts/1 ;
+> PWD=/home/ZZZZZZ ; USER=root ; COMMAND=make me a sandwich
+
+Randall Munroe should be proud. :-)
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From rshepard at appl-ecosys.com  Thu Aug 23 17:54:27 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 23 Aug 2012 17:54:27 -0700 (PDT)
+Subject: [PLUG] Graceful sudo recovery
+In-Reply-To: <CACKgb8QhzCDwbrguPNiE_dhu27qnY53d-nnp_SRk3btkKMG+-w@mail.gmail.com>
+References: <alpine.OSX.2.00.1208231544590.28191@springwater.galois.com>
+	<CACKgb8QhzCDwbrguPNiE_dhu27qnY53d-nnp_SRk3btkKMG+-w@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1208231747170.11394@salmo.appl-ecosys.com>
+
+On Thu, 23 Aug 2012, chris (fool) mccraw wrote:
+
+> Back when I worked in a CS department with a thousand inquisitive
+> students, ...
+
+   In the early 1970s at the U. of Illinois (Champaign/Urbana) _all_ CS
+students thought it was a right of passage to crash the IBM mainframes. This
+was with Hollerith card decks, too, or the few terminals running 300 baud in
+the room off the mainframe area. PITA, too.
+
+   But, we grad students had our revenge. Toward the end of each semester the
+CS100 and CS101 students would wait until the last minute to get their
+projects run through the system. One course I took was in ecosystem modeling
+and I'd written a rather large (2 card boxes worth) program in FORTRAN IV to
+model energy flow through Cedar Lake, MN. It was not unusual during the week
+before finals for someone to call my lab and ask me to walk my deck to the
+remote job entry card reader in the building next door and run my model.
+When it got to the front of the process queue it consumed all resources for
+a few hours. Shortly thereafter I'd get a call from another grad student
+that the system cleared out so I'd cancel my model and other grad students
+could get their work done.
+
+Rich
+
+
+
+
+From vsoich at gmail.com  Fri Aug 24 01:09:55 2012
+From: vsoich at gmail.com (Victor Soich)
+Date: Fri, 24 Aug 2012 01:09:55 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+Message-ID: <CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+
+Dear PLUG,
+
+I am now able to print in Duplex, and Not In Duplex!  I also need to
+change the name of my printers.  Keep reading if you can help me
+figure out how to change the name of my printers, and keep reading
+furthermore, if your interested in know how my Duplex, Not In Duplex,
+printing issue was resolved, or more accurately, hacked to make it
+work.
+
+I have two printer drivers on my system.  One is named,
+"Brother-HL-2270DW-series", and I want to rename it,
+"Brother-HL-2270DW-series Not Duplex", and the other is named,
+"HL2270DW", and I want to rename it, "HL2270DW Duplex".  I want to
+rename it so that when I go to print something, I know which driver to
+use in order to get "Not Duplex", or "Duplex", printing.  I am able to
+change the description of these printers, but that doesn't show up
+when I go to print something.
+
+When I tried to change the name of the two printers within the dialog
+box , "Printing - localhost", I got another dialog box that popped up
+and said, "CUPS server error There was an error during the CUPS
+operation: 'client-error-bad-request'. "
+
+I figure I'm not root when I try to change the name.  Usually, I'm
+prompted for a root password when I try to mess with admin stuff.
+But, I'm not sure.  So....how do I change the name, and not just the
+description, so that when I go to print, I'll be reminded which driver
+is Duplex, and which is Not In Duplex?
+
+I am now able to print duplex on my printer, AND not to print duplex
+on my printer!  The following is how this came to be, if you care to
+read and / or comment.
+
+By a combination of what Bill Barry told me on this list, and the
+rhetoric I heard at the PLUG clinic regarding printers, I was able to
+make my way to the web site
+http://www.openprinting.org/printer/Generic/Generic-PCL_6_PCL_XL_Printer
+and eventually figured out how to download the appropriate PPD file,
+i.e. Generic PCL 6/PCL XL Printer
+
+I then went to install a new printer, and instead of letting ubuntu
+10.04 find a driver, I had it "install", if that's the right word, the
+PPD file, i.e. Generic PCL 6/PCL XL Printer
+
+Now I have two print drivers for my Brother HL-2270DW printer.  One
+driver is from the manufacturer Brother, and does duplex printing, and
+the duplex printing can't be shut off.  This is an unresolved bug, as
+far as I can tell....
+https://bugs.launchpad.net/ubuntu/+source/foomatic-db/+bug/684314
+
+The other printer driver is the PPD file, i.e. Generic PCL 6/PCL XL
+Printer which doesn't have the ability to print in duplex, i.e. it can
+only print on one side of the page, and does not make use of my
+printer's capability to do duplex.
+
+So, I have one "good" driver, to do the duplex, and one, "cut rate"
+driver, to do the Not In Duplex, i.e. singleplex, monoplex?
+
+Thank you all for helping me resolve this issue.  It has not been fun!
+ I specifically made sure I bought a printer that had a reputation for
+working with linux, at least according to Newegg feedback.
+
+According to
+http://www.openprinting.org/printer/Brother/Brother-HL-2270DW
+my printer gets a rating of 3 penguins!!!
+
+and according to
+http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/databaseintro
+
+3 penguins mean....
+Perfect printers work perfectly; everything the printer can do is
+working also under Linux and Unix. For multifunction devices, this
+must include scanning/faxing/etc.
+
+So....an end (L)user like me did his due diligence in buying a
+printer, and still runs into hassle, consternation, angst, and most of
+all, inconvenience in trying to embrace the gosh darn linuxy ethos!
+Still, thank you all for your help, and, most importantly of all,
+thanks for listening to me kvetch!
+
+Sincerely,
+Victor Soich
+
+
+
+On Fri, Aug 17, 2012 at 9:46 AM, Bill Barry <bill at billbarry.org> wrote:
+> On Fri, Aug 17, 2012 at 9:16 AM, Victor Soich <vsoich at gmail.com> wrote:
+>> Dear PLUG,
+>>
+>> I have an HL-2270DW monochrome laser printer on Ubuntu 10.04 hooked up
+>> to a usb port.  The following indicate the drivers on my system, I
+>> think...
+>>
+>> oem at freekbox:~$ dpkg  -l  |  grep  Brother
+>> ii  cupswrapperhl2270dw                           2.0.4-2
+>>                                          Brother HL2270DW CUPS wrapper driver
+>> ii  hl2270dwlpr                                   2.1.0-1
+>>                                          Brother HL-2270DW LPR driver
+>> ii  openprinting-ppds-postscript-brother          20101122-1lsb3.2
+>>                                 Manufacturer-supplied PPD files for Brother'
+>>
+>>
+>> The problem I have is that sometimes I don't want my printer to print
+>> duplex.  I sometimes want it to print on just one side of the paper.
+>> Sometimes I use paper that is already printed on one side.  If the
+>> document that I'm printing has 10 pages to print, then I want the
+>> printer to print the 10 pages on one side, not duplex.  I reuse paper
+>> that has a blank page on one side sometimes.  I would not like to
+>> print 10 separate pages, one at a time, on one side of the page, each
+>> time.
+>>
+>> When I go in a program to print a document I go to File, then
+>> Print..., then a dialog box comes up entitled "Print".  In this dialog
+>> box is a tab entitled, "Page Setup".  When I go to the "Page Setup"
+>> tab, there is a label called, "Two-sided:".  This label is next to a
+>> drop down box, which has three options, "One Sided", "Long Edge
+>> (Standard)", and "Short Edge (Flip)"  When I pick "One Sided", my
+>> printer still prints duplex.  Does "One Sided", not mean what I think
+>> it means?
+>>
+>> When I go to a dialog box entitled, "Printer Properties - 'HL2270DW'
+>> on localhost", I can go to "Printer Options".  Then I see a label that
+>> says, "Duplex:"  Next to this label is a drop down box whose choices
+>> are, "None", "DuplexNoTumble", and "DuplexTumble".  When I choose,
+>> "None", I still get duplex printing on my printer, when all I want is
+>> single sided printing.  Does, "None", not mean what I think it means?
+>>
+>> Do I have incorrect drivers on my system?  Do I need to configure
+>> something else.
+>>
+>> I have a feeling that the ability to turn off duplex printing is in
+>> the Windows driver, but not in the linux driver.  Can I somehow use
+>> wine, and the windows driver, just to be able to turn off the duplex
+>> printing when I want, and have single sided printing.  How do I go
+>> about doing that?  Would it somehow interfere with my linux driver?
+>> Do I use both a windows wine, and linux driver at the same time?
+>>
+>> I'll come to the PLUG clinic for help, but maybe someone will already
+>> know what I need to do.  At least someone will have a heads up if they
+>> read this email before, presumably, helping me at the clinic.
+>>
+>> Sincerely perplexed over duplex,
+>> Victor Soich
+>
+> Victor, It looks like a bug in the proprietary driver supplied by
+> Brother. Maybe their customer service could answer your question.
+> http://www.brother-usa.com/support/CustServ.aspx
+>
+> Or you could try the generic pcl driver as described here
+> http://roysjosh.blogspot.com/2011/05/linux-and-brother-hl-2270dw-printer.html
+> but it may have the same problem with duplex, since duplex is the
+> default on that printer.
+>
+> Bill
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From plug at the-wes.com  Fri Aug 24 07:19:59 2012
+From: plug at the-wes.com (wes)
+Date: Fri, 24 Aug 2012 07:19:59 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+Message-ID: <CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+
+>
+>
+> When I tried to change the name of the two printers within the dialog
+> box , "Printing - localhost", I got another dialog box that popped up
+> and said, "CUPS server error There was an error during the CUPS
+> operation: 'client-error-bad-request'. "
+>
+>
+As far as I know, CUPS does not allow for changing the name of a printer.
+You have to add a new one and delete the old one.
+
+-wes
+
+
+From johnxj at comcast.net  Fri Aug 24 10:23:17 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 24 Aug 2012 10:23:17 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+	<CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+Message-ID: <20120824102317.18ec1871@mailhost.pdx.edu>
+
+On Fri, 24 Aug 2012 07:19:59 -0700
+wes <plug at the-wes.com> dijo:
+
+>>
+>>
+>> When I tried to change the name of the two printers within the dialog
+>> box , "Printing - localhost", I got another dialog box that popped up
+>> and said, "CUPS server error There was an error during the CUPS
+>> operation: 'client-error-bad-request'. "
+>>
+>>
+>As far as I know, CUPS does not allow for changing the name of a
+>printer. You have to add a new one and delete the old one.
+
+I have done so. I have half a dozen "printers" installed for my Xerox
+Phaser 7400DN, each with a different PPD and/or driver. I was able to
+call each one different things. The name works in the dialog box and
+when I use lpr at the command line.
+
+I am pouring concrete today and don't have time to give details. I also
+have other comments re editing the PPD file, but they will have to wait
+until later. Concrete waits for no man.
+
+
+From plug at the-wes.com  Fri Aug 24 12:44:20 2012
+From: plug at the-wes.com (wes)
+Date: Fri, 24 Aug 2012 12:44:20 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <20120824102317.18ec1871@mailhost.pdx.edu>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+	<CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+	<20120824102317.18ec1871@mailhost.pdx.edu>
+Message-ID: <CAA1wLO=ULFJA2TEV1DZCND8+pfLKy3VVMLGNo=HvQa9c-dFDuA@mail.gmail.com>
+
+On Fri, Aug 24, 2012 at 10:23 AM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Fri, 24 Aug 2012 07:19:59 -0700
+> wes <plug at the-wes.com> dijo:
+>
+> >>
+> >>
+> >> When I tried to change the name of the two printers within the dialog
+> >> box , "Printing - localhost", I got another dialog box that popped up
+> >> and said, "CUPS server error There was an error during the CUPS
+> >> operation: 'client-error-bad-request'. "
+> >>
+> >>
+> >As far as I know, CUPS does not allow for changing the name of a
+> >printer. You have to add a new one and delete the old one.
+>
+> I have done so. I have half a dozen "printers" installed for my Xerox
+> Phaser 7400DN, each with a different PPD and/or driver. I was able to
+> call each one different things. The name works in the dialog box and
+> when I use lpr at the command line.
+>
+> I am pouring concrete today and don't have time to give details. I also
+> have other comments re editing the PPD file, but they will have to wait
+> until later. Concrete waits for no man.
+>
+>
+I know you can do it by editing the config file. For Victor's particular
+case, I would suggest going the add/remove route.
+
+I tried on my CUPS interface and the name field is not editable when I
+click Modify Printer. That, combined with my experience on Mac and from
+Victor's description of what he's doing, tells me CUPS really doesn't want
+us renaming things.
+
+-wes
+
+
+From johnxj at comcast.net  Fri Aug 24 20:06:27 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 24 Aug 2012 20:06:27 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <CAA1wLO=ULFJA2TEV1DZCND8+pfLKy3VVMLGNo=HvQa9c-dFDuA@mail.gmail.com>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+	<CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+	<20120824102317.18ec1871@mailhost.pdx.edu>
+	<CAA1wLO=ULFJA2TEV1DZCND8+pfLKy3VVMLGNo=HvQa9c-dFDuA@mail.gmail.com>
+Message-ID: <20120824200627.6e8a4118@mailhost.pdx.edu>
+
+On Fri, 24 Aug 2012 12:44:20 -0700
+wes <plug at the-wes.com> dijo:
+>On Fri, Aug 24, 2012 at 10:23 AM, John Jason Jordan
+><johnxj at comcast.net>wrote:
+>
+>> On Fri, 24 Aug 2012 07:19:59 -0700
+>> wes <plug at the-wes.com> dijo:
+>> >> When I tried to change the name of the two printers within the
+>> >> dialog box , "Printing - localhost", I got another dialog box
+>> >> that popped up and said, "CUPS server error There was an error
+>> >> during the CUPS operation: 'client-error-bad-request'. "
+
+>> >As far as I know, CUPS does not allow for changing the name of a
+>> >printer. You have to add a new one and delete the old one.
+
+>> I have done so. I have half a dozen "printers" installed for my Xerox
+>> Phaser 7400DN, each with a different PPD and/or driver. I was able to
+>> call each one different things. The name works in the dialog box and
+>> when I use lpr at the command line.
+>>
+>> I am pouring concrete today and don't have time to give details. I
+>> also have other comments re editing the PPD file, but they will have
+>> to wait until later. Concrete waits for no man.
+
+>I know you can do it by editing the config file. For Victor's
+>particular case, I would suggest going the add/remove route.
+>
+>I tried on my CUPS interface and the name field is not editable when I
+>click Modify Printer. That, combined with my experience on Mac and from
+>Victor's description of what he's doing, tells me CUPS really doesn't
+>want us renaming things.
+
+OK, let me say first that I am using Fedora 16, x86_64, not Ubuntu.
+Therefore, some configurations may be different for me.
+
+To change the name of the printer I just open Administration >
+Printing, which opens system-config-printer 1.3.8, "a cups
+configuration tool" in a dialog box showing all my installed printers.
+If I right click on a printer one of the options is Rename. Selecting
+that pops up a warning that renaming the printer will lose history. If
+I select OK to ignore the warning the name under the printer icon
+becomes editable. I can call it anything I want. 
+
+Regarding the PPD files, Victor has a partial solution by installing a
+different "printer" that he wishes to rename. The different printer
+uses a PPD file that apparently can print only in simplex. His other
+printer can seemingly only print in duplex. So his plan is to use one
+"printer" when he needs simplex and the other when he needs duplex.
+
+That is a solution that will work, but a more elegant solution would be
+to edit the PPD file for the newly installed printer so that it will
+offer the option of printing duplex OR simplex, and will do so
+reliably. If that can be achieved, then he can just delete the original
+"printer."
+
+PPD files are plain text documents of only a couple pages. It is
+trivial to edit a PPD file. However, knowing *how* to edit the PPD file
+is not so trivial. You need to understand the syntax. In Victor's case,
+however, the only syntax knowledge required is the language for the
+simplex-duplex options. The syntax for PPD files is doubtless
+documented somewhere on the net (Adobe would be a likely guess), but
+you could also just open a lot of PPD files and read through them until
+you find the right lines. 
+
+Before I conclude let me point out something about PPD files. When you
+download a PPD file your browser placed it in your default download
+folder, probably Desktop or Downloads or something. When you install
+the printer using the PPD file you point the installer to the
+downloaded file. At that point CUPS makes a copy of the PPD file in
+(too lazy to check) /etc/cups/ppd/. It is the copy that the driver
+uses, not the one in your download folder. So edit away, but your edits
+won't take effect until they are made on the copy that CUPS uses.
+
+I hope that adds something to the discussion. It is 8 pm, all my
+muscles ache and my hands hurt. I'm going to bed.
+
+
+From robert.miesen at gmail.com  Sat Aug 25 06:43:50 2012
+From: robert.miesen at gmail.com (Robert Miesen)
+Date: Sat, 25 Aug 2012 06:43:50 -0700
+Subject: [PLUG] e-readers
+In-Reply-To: <b5cff28b1107cc7028a9a1159ee5e513.squirrel@mail.freegeek.org>
+References: <mailman.5.1345057203.18413.plug@lists.pdxlinux.org>
+	<b5cff28b1107cc7028a9a1159ee5e513.squirrel@mail.freegeek.org>
+Message-ID: <5038D696.7030604@gmail.com>
+
+The best news I know of with regards to Linux and e-readers is that Sony 
+uses the Android OS to power their e-reader, which in my opinion is the 
+best candidate for a becoming a Kindle-killer, boasting the best book 
+annotation and best PDF reading / annotating capabilities of any device 
+on the market, save for perhaps the Kindle. The software on the computer 
+side appears to have recently undergone a complete overhaul about two 
+years ago, judging from the number of rough corners still in the 
+software, but the software itself is usable and the device is excellent. 
+I don't entirely sure how you would transfer books from a GNU/Linux 
+based PC to the Sony e-Reader, since I use a Windows-based PC at home, 
+but I'm fairly certain it's as simple as mounting the device, copying 
+over your files and categorizing them as you see fit device-side. The 
+internal databases are SQL lite databases from what I can tell, so the 
+more adventurous types can try and modify the database directly if they 
+want (back up your data first, though).
+
+There's also the Kobo, but I haven't really looked into that particular 
+device too much.
+
+
+On 08/15/2012 21:49, dfhubbard at freegeek.org wrote:
+> What is the GOOD news about Linux and e-readers?
+>
+> and
+>
+> What is the GOOD news about Linux and smart phones?
+>
+>
+> I am eagerly awaiting all the wonderful GOOD news!
+>
+> Thanks
+> Debra
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+-- 
+*Robert Miesen*
+
+	
+
+	*Email:* robert.miesen at gmail.com <mailto:robert.miesen at gmail.com>
+*http://www.linkedin.com/in/rmiesen*
+See who we know in common <http://www.linkedin.com/e/wwk/42004246/> 
+Want a signature like this? <http://www.linkedin.com/e/sig/42004246/>
+
+
+
+From johnxj at comcast.net  Sat Aug 25 07:35:09 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 25 Aug 2012 07:35:09 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <20120824200627.6e8a4118@mailhost.pdx.edu>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+	<CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+	<20120824102317.18ec1871@mailhost.pdx.edu>
+	<CAA1wLO=ULFJA2TEV1DZCND8+pfLKy3VVMLGNo=HvQa9c-dFDuA@mail.gmail.com>
+	<20120824200627.6e8a4118@mailhost.pdx.edu>
+Message-ID: <20120825073509.45edd4b9@mailhost.pdx.edu>
+
+>PPD files are plain text documents of only a couple pages. It is
+>trivial to edit a PPD file. However, knowing *how* to edit the PPD file
+>is not so trivial. You need to understand the syntax. In Victor's case,
+>however, the only syntax knowledge required is the language for the
+>simplex-duplex options. The syntax for PPD files is doubtless
+>documented somewhere on the net (Adobe would be a likely guess), but
+>you could also just open a lot of PPD files and read through them until
+>you find the right lines. 
+
+It's  morning and I'm back among the living.
+
+Here is a link to a PDF from Adobe for the syntax of PPD files:
+
+http://partners.adobe.com/public/developer/en/ps/5003.PPD_Spec_v4.3.pdf
+
+The above document also contains a couple sample PPD files. There are
+also hundreds of PPD files on Adobe's website. Here is a link to
+download all of them as a single compressed file:
+
+http://www.adobe.com/support/downloads/detail.jsp?ftpID=204
+
+I would suggest downloading all of them from the link above and then
+open a few in Gedit. Select PPD files for printers that are similar,
+even older or newer models of the same printer that you have. There may
+even be one for your exact model. If so, open it and the one you
+already downloaded and compare them. 
+
+
+From dexter at ambidexter.com  Mon Aug 27 11:24:35 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 27 Aug 2012 11:24:35 -0700
+Subject: [PLUG] Looks like we need a speaker as I wait on two confirmations
+Message-ID: <503BBB63.8030208@ambidexter.com>
+
+
+Hello all,
+
+I am waiting from two people out of six or so contenders for the 
+September 6th PLUG General meeting but time is running out. Most are too 
+busy with their returns to work and school.
+
+Might anyone have a presentation they would like to give?
+
+In the works are UEFI, licensing (slated for Sep. AT), Hadoop/Lustre, 
+packet radio, USB 3.0, a Mozilla update, open source photo editing plus 
+a few more topics out of Intel.
+
+Given the popularity of the FreePBX talk, is anyone using FreeSWITCH?
+
+How about Kazoo? (recently of FLOSS weekly) pfSense? Raspberry Pi?
+
+Michael
+
+
+From dexter at ambidexter.com  Mon Aug 27 14:45:57 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 27 Aug 2012 14:45:57 -0700
+Subject: [PLUG] Announcement: September PLUG Meeting: The Joy of Logical
+	Volumes
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <503BEA95.7020100@ambidexter.com>
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Brian P. Martin
+What: The Joy of Logical Volumes
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, September 6th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Brian will give a short introduction on getting started with the Linux
+Logical Volume Manager. A demonstration will follow, showing how
+to get up and running with LVM in three simple commands. Bring
+your laptop prepared with either an empty partition or an empty
+flash key and get on LVM yourself during the demo.
+
+
+Calagator Page: http://calagator.org/events/1250462787
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+
+From plug at the-wes.com  Mon Aug 27 14:56:07 2012
+From: plug at the-wes.com (wes)
+Date: Mon, 27 Aug 2012 14:56:07 -0700
+Subject: [PLUG] Victor is perplexed over duplex
+In-Reply-To: <20120824200627.6e8a4118@mailhost.pdx.edu>
+References: <CALNOJ_gxUbWowkz3p-auqVu3VNcP1uwUwpwUatseMf0Gkej8zw@mail.gmail.com>
+	<CAAPspTZkk9XEPYf-=auZCzyamvmCBimBOaS9=E7KgzoySRPHWg@mail.gmail.com>
+	<CALNOJ_g5-VV0cmpPBg1PR9Om_U1kTdBAq3gAyB-p9EOML3EPJw@mail.gmail.com>
+	<CAA1wLOkU1Vo3s9JxvkYhFLT1aC9GB62mV0LjEneqU9ZJkWaD2A@mail.gmail.com>
+	<20120824102317.18ec1871@mailhost.pdx.edu>
+	<CAA1wLO=ULFJA2TEV1DZCND8+pfLKy3VVMLGNo=HvQa9c-dFDuA@mail.gmail.com>
+	<20120824200627.6e8a4118@mailhost.pdx.edu>
+Message-ID: <CAA1wLOm=N1fv4bkDtK2WNPuRMEoRdu+R-YvX04S_afF3GjAEbA@mail.gmail.com>
+
+>
+>
+> To change the name of the printer I just open Administration >
+> Printing, which opens system-config-printer 1.3.8, "a cups
+> configuration tool" in a dialog box showing all my installed printers.
+> If I right click on a printer one of the options is Rename. Selecting
+> that pops up a warning that renaming the printer will lose history. If
+> I select OK to ignore the warning the name under the printer icon
+> becomes editable. I can call it anything I want.
+>
+>
+interesting! the Fedora devs must have scripted it such that it will remove
+and re-add the printer in CUPS for you. hence the loss of the history. how
+nice of them.
+
+-wes
+
+
+From dexter at ambidexter.com  Wed Aug 29 20:53:24 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Wed, 29 Aug 2012 20:53:24 -0700
+Subject: [PLUG] Anyone using Webmin?
+Message-ID: <503EE3B4.2090405@ambidexter.com>
+
+
+I couldn't help but notice that Webmin 1. is still around and 2. now has 
+VM and cloud management features.
+
+Is anyone using it?
+
+Might anyone want to present on it?
+
+Michael
+
+
+From nathan at nathanewilliams.com  Wed Aug 29 21:09:38 2012
+From: nathan at nathanewilliams.com (Nathan Williams)
+Date: Wed, 29 Aug 2012 21:09:38 -0700
+Subject: [PLUG] Anyone using Webmin?
+Message-ID: <0k4g0hlp2dawubv2p9hc7cmn.1346299778788@email.android.com>
+
+I don't, but my coworker uses it extensively. I'll see what he thinks about doing a talk.
+
+Michael Dexter <dexter at ambidexter.com> wrote:
+
+>
+>I couldn't help but notice that Webmin 1. is still around and 2. now has 
+>VM and cloud management features.
+>
+>Is anyone using it?
+>
+>Might anyone want to present on it?
+>
+>Michael
+>_______________________________________________
+>PLUG mailing list
+>PLUG at lists.pdxlinux.org
+>http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From michael at jamhome.us  Thu Aug 30 09:27:46 2012
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Thu, 30 Aug 2012 09:27:46 -0700
+Subject: [PLUG] Goobuntu - Google's default desktop
+Message-ID: <20120830162746.GA1280@jamhome.us>
+
+You need to get special, high level permission to use Windows
+http://www.zdnet.com/the-truth-about-goobuntu-googles-in-house-desktop-ubuntu-linux-7000003462/
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+      Other Adventures: http://www.jamhome.us/ or http://westy.saunter.us/
+Fortune Cookie Fortune du courrier:
+Absence of evidence is not evidence of absence.
+    ~ Carl Sagan
+
+
+From mkosmal at gmail.com  Fri Aug 31 10:26:05 2012
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Fri, 31 Aug 2012 10:26:05 -0700
+Subject: [PLUG] Printer Fail
+Message-ID: <CADKOhKf59Z7TZ-sbUZWjC7bvbWAjN0dPsDaacek9hnpEHXoYwA@mail.gmail.com>
+
+Hi
+
+Just upgraded from Ubuntu 10.4 to 12.4
+
+Broke the printer.
+
+Epson Stuylus 88+
+
+Worked great before the upgrade.
+
+Shows up in printers.
+
+Accepts jobs.
+
+Just no printing.
+
+
+Darn I get this
+
+
+Aug 30 12:57:39 home: kernel: Kernel logging (proc) stopped.
+This is when I did the upgrade yesterday..  No new messages since then
+
+I need to get Kernel logging back on.. How do I do that?
+
+TIA
+
+Marvin
+
+

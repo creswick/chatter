@@ -1,0 +1,3496 @@
+From website.reader3 at gmail.com  Fri Nov  1 17:23:07 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Fri, 1 Nov 2013 17:23:07 -0700
+Subject: [PLUG] Google DNS change?
+Message-ID: <CAJeYwHfn6Dca_vJu9hZ4UtPBeRxUssYmKXBHy_W6-uuaYexu1g@mail.gmail.com>
+
+Last night about 12:15 am in the morning, I lost the Google DNS
+connectivity for at least 1/2 hour.  Today, my ntp program is no longer
+listing the alphabetical domain names, but strictly the IPV4 addresses. Did
+something happen with the public Google DNS's ?
+
+From heinlein at madboa.com  Fri Nov  1 18:42:50 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Fri, 1 Nov 2013 18:42:50 -0700 (PDT)
+Subject: [PLUG] IPv6 web testing
+Message-ID: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+
+Caveat: this is a blatantly self-interested post. Feel free to ignore 
+it.
+
+I've recently been working with and enabling IPv6 on various machines, 
+one of which is the VM that hosts my web site, www.madboa.com. The 
+IPv6 address is
+
+   http://ipv6.madboa.com/
+
+If you've got IPv6 up and running and would be willing to verify that 
+you can reach the URL above, I'd appreciate it.
+
+Thanks!
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From tim-pdxlug at sentinelchicken.org  Fri Nov  1 21:34:09 2013
+From: tim-pdxlug at sentinelchicken.org (Tim)
+Date: Fri, 1 Nov 2013 21:34:09 -0700
+Subject: [PLUG] IPv6 web testing
+In-Reply-To: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+References: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+Message-ID: <20131102043409.GZ18965@sentinelchicken.org>
+
+Seems to work for me.  Where did you get your v6 from?  Doesn't look
+like 6to4 or Teredo.  A tunnel or Comcast/native?
+
+tim
+
+
+On Fri, Nov 01, 2013 at 06:42:50PM -0700, Paul Heinlein wrote:
+> Caveat: this is a blatantly self-interested post. Feel free to
+> ignore it.
+> 
+> I've recently been working with and enabling IPv6 on various
+> machines, one of which is the VM that hosts my web site,
+> www.madboa.com. The IPv6 address is
+> 
+>   http://ipv6.madboa.com/
+> 
+> If you've got IPv6 up and running and would be willing to verify
+> that you can reach the URL above, I'd appreciate it.
+> 
+> Thanks!
+> 
+> -- 
+> Paul Heinlein
+> heinlein at madboa.com
+> 45?38' N, 122?6' W
+
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From russell at personaltelco.net  Fri Nov  1 21:52:10 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Fri, 01 Nov 2013 21:52:10 -0700
+Subject: [PLUG] IPv6 web testing
+In-Reply-To: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com> (Paul
+	Heinlein's message of "Fri\, 1 Nov 2013 18\:42\:50 -0700 \(PDT\)")
+References: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+Message-ID: <86mwln4d8l.fsf@coulee.tdb.com>
+
+>>>>> "Paul" == Paul Heinlein <heinlein at madboa.com> writes:
+
+Paul> Caveat: this is a blatantly self-interested post. Feel free to
+Paul> ignore it.
+
+Paul> I've recently been working with and enabling IPv6 on various
+Paul> machines, one of which is the VM that hosts my web site,
+Paul> www.madboa.com. The IPv6 address is
+
+Paul>   http://ipv6.madboa.com/
+
+Paul> If you've got IPv6 up and running and would be willing to verify
+Paul> that you can reach the URL above, I'd appreciate it.
+
+Paul> Thanks!
+
+
+My browser says "Server not found", but ping6 gets replies.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From russell at personaltelco.net  Fri Nov  1 21:55:54 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Fri, 01 Nov 2013 21:55:54 -0700
+Subject: [PLUG] IPv6 web testing
+In-Reply-To: <86mwln4d8l.fsf@coulee.tdb.com> (Russell Senior's message of
+	"Fri\, 01 Nov 2013 21\:52\:10 -0700")
+References: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+	<86mwln4d8l.fsf@coulee.tdb.com>
+Message-ID: <86fvrf4d2d.fsf@coulee.tdb.com>
+
+>>>>> "Russell" == Russell Senior <russell at personaltelco.net> writes:
+
+>>>>> "Paul" == Paul Heinlein <heinlein at madboa.com> writes:
+Paul> Caveat: this is a blatantly self-interested post. Feel free to
+Paul> ignore it.
+
+Paul> I've recently been working with and enabling IPv6 on various
+Paul> machines, one of which is the VM that hosts my web site,
+Paul> www.madboa.com. The IPv6 address is
+
+Paul> http://ipv6.madboa.com/
+
+Paul> If you've got IPv6 up and running and would be willing to verify
+Paul> that you can reach the URL above, I'd appreciate it.
+
+Paul> Thanks!
+
+
+Russell> My browser says "Server not found", but ping6 gets replies.
+
+Belay that.  Mozilla got "server not found" but chrome and wget work.
+Pretty sure I turned ipv6 off in Mozilla to fix someone's broken ipv6
+configuration.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From johnxj at comcast.net  Fri Nov  1 22:07:57 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 1 Nov 2013 22:07:57 -0700
+Subject: [PLUG] Disk partitioning confusion
+Message-ID: <20131101220757.093aa8bc@Devil8>
+
+Normally my good friend Mr. Google helps me, but this time all he has
+created is confusion.
+
+I have a brand new 4TB Western Digital hard disk (WD4001FAEX-0,
+SATA-3, the expensive one ("Black") with 5-year warranty). I want to
+format it as one partition ext4. I will never want to boot from this
+disk; it is purely for data storage. 
+
+I started with Palimpsest, which sees it (/dev/sdc), but can't seem to
+do anything with it. So I installed Gparted, which offers to create
+partitions, but fails. My confusion started when Gparted asked me if I
+wanted a primary partition or an extended partition. In the end it
+didn't matter, because Gparted failed to create either kind of
+partition. Google has utterly failed to explain the difference between
+primary and secondary to me. There is also the matter of GUID
+partitions, which I also can't get a clear understanding of. 
+
+My (dim) understanding is that the old 2TB partition limit is no longer
+an issue since kernel 2.6. But that doesn't mean that the tools I am
+using are aware that the limit no longer exists. 
+
+I tried fdisk, which sees the drive (sudo fdisk -l /dev/sdc), but it
+says that it is not suitable for large partitions and refers me to
+parted. The man page for parted is too cursory for me to understand the
+syntax. I think I need mkpart, but I'm not sure. 
+
+I could use some pointers here. 
+
+From johnxj at comcast.net  Fri Nov  1 22:24:22 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 1 Nov 2013 22:24:22 -0700
+Subject: [PLUG] Disk partitioning confusion
+In-Reply-To: <20131101220757.093aa8bc@Devil8>
+References: <20131101220757.093aa8bc@Devil8>
+Message-ID: <20131101222422.7bc00e6e@Devil8>
+
+On Fri, 1 Nov 2013 22:07:57 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+>I could use some pointers here. 
+
+Never mind. I tried Palimpsest again, and succeeded. At first
+Palimpsest offered to make a partition (which it did not do before),
+but the partitioning failed. Then I tried to format it without a
+partition. Amazingly, it worked. It is now mounted and happy. 
+
+From heinlein at madboa.com  Sat Nov  2 09:16:54 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Sat, 2 Nov 2013 09:16:54 -0700 (PDT)
+Subject: [PLUG] IPv6 web testing
+In-Reply-To: <20131102043409.GZ18965@sentinelchicken.org>
+References: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+	<20131102043409.GZ18965@sentinelchicken.org>
+Message-ID: <alpine.OSX.2.11.1311020913410.4978@silver.madboa.com>
+
+On Fri, 1 Nov 2013, Tim wrote:
+
+> Seems to work for me.  Where did you get your v6 from?  Doesn't look 
+> like 6to4 or Teredo.  A tunnel or Comcast/native?
+
+Thanks for the confirmation that it works for you.
+
+The VM is hosted in the Rackspace cloud, so it's native IPv6.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From heinlein at madboa.com  Sat Nov  2 09:18:05 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Sat, 2 Nov 2013 09:18:05 -0700 (PDT)
+Subject: [PLUG] IPv6 web testing
+In-Reply-To: <86fvrf4d2d.fsf@coulee.tdb.com>
+References: <alpine.OSX.2.11.1311011836460.418@dyn-40-199.galois.com>
+	<86mwln4d8l.fsf@coulee.tdb.com> <86fvrf4d2d.fsf@coulee.tdb.com>
+Message-ID: <alpine.OSX.2.11.1311020917160.4978@silver.madboa.com>
+
+On Fri, 1 Nov 2013, Russell Senior wrote:
+
+> Russell> My browser says "Server not found", but ping6 gets replies.
+>
+> Belay that.  Mozilla got "server not found" but chrome and wget 
+> work. Pretty sure I turned ipv6 off in Mozilla to fix someone's 
+> broken ipv6 configuration.
+
+Thanks for the confirmation!
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From dafr+plug at dafr.us  Sat Nov  2 12:04:41 2013
+From: dafr+plug at dafr.us (David)
+Date: Sat, 02 Nov 2013 12:04:41 -0700
+Subject: [PLUG] Disk partitioning confusion
+In-Reply-To: <20131101220757.093aa8bc@Devil8>
+References: <20131101220757.093aa8bc@Devil8>
+Message-ID: <52754CC9.8040407@dafr.us>
+
+On 11/01/2013 10:07 PM, John Jason Jordan wrote:
+
+<snip>
+
+> I started with Palimpsest, which sees it (/dev/sdc), but can't seem to
+> do anything with it. So I installed Gparted, which offers to create
+> partitions, but fails. My confusion started when Gparted asked me if I
+> wanted a primary partition or an extended partition. In the end it
+> didn't matter, because Gparted failed to create either kind of
+> partition. Google has utterly failed to explain the difference between
+> primary and secondary to me. There is also the matter of GUID
+> partitions, which I also can't get a clear understanding of.
+
+I can't offer any assistance with Palimpsest; I don't use it and fdisk 
+and parted have worked just fine for me so far.
+
+What I can offer is a bit of information about the partition types and 
+partition tables.
+
+The disk partitions, as you know, segment the available space on a drive 
+into smaller chunks of space. Initially, the primary partition was where 
+the operating system was stored and how the system booted. There can 
+only be four primary partitions on a drive, and only one of them as 
+"active". Because this was seen as a limitation, by converting the 
+fourth primary partition to be an extended partition and using logical 
+partitions it became possible to have up to seven partitions on a drive.
+
+The GUID partition table (IIRC) is the way a partition table is written 
+to the disk and read by the hardware on boot. The original partition 
+table was the MBR (I think), and was constrained to the four partitions 
+mentioned above and cannot support filesystems above a certain size.
+
+This is mostly from memory and may have some gaps or inaccuracies in it, 
+but hopefully this provides a bit of insight for you.
+
+dafr
+
+
+From wamorita at gmail.com  Sat Nov  2 14:25:59 2013
+From: wamorita at gmail.com (Bill Morita)
+Date: Sat, 2 Nov 2013 16:25:59 -0500
+Subject: [PLUG] Disk partitioning confusion
+In-Reply-To: <20131101220757.093aa8bc@Devil8>
+References: <20131101220757.093aa8bc@Devil8>
+Message-ID: <CALgdxo9paQ3wAeLkaiDiyspSY_YPMF2_R8aRj4+Eh+_gYzxJSQ@mail.gmail.com>
+
+for anything 3 G and over use gparted .  The old dos partition table can't
+hack that size disk
+ On Nov 2, 2013 12:09 AM, "John Jason Jordan" <johnxj at comcast.net> wrote:
+
+> Normally my good friend Mr. Google helps me, but this time all he has
+> created is confusion.
+>
+> I have a brand new 4TB Western Digital hard disk (WD4001FAEX-0,
+> SATA-3, the expensive one ("Black") with 5-year warranty). I want to
+> format it as one partition ext4. I will never want to boot from this
+> disk; it is purely for data storage.
+>
+> I started with Palimpsest, which sees it (/dev/sdc), but can't seem to
+> do anything with it. So I installed Gparted, which offers to create
+> partitions, but fails. My confusion started when Gparted asked me if I
+> wanted a primary partition or an extended partition. In the end it
+> didn't matter, because Gparted failed to create either kind of
+> partition. Google has utterly failed to explain the difference between
+> primary and secondary to me. There is also the matter of GUID
+> partitions, which I also can't get a clear understanding of.
+>
+> My (dim) understanding is that the old 2TB partition limit is no longer
+> an issue since kernel 2.6. But that doesn't mean that the tools I am
+> using are aware that the limit no longer exists.
+>
+> I tried fdisk, which sees the drive (sudo fdisk -l /dev/sdc), but it
+> says that it is not suitable for large partitions and refers me to
+> parted. The man page for parted is too cursory for me to understand the
+> syntax. I think I need mkpart, but I'm not sure.
+>
+> I could use some pointers here.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From plug at shoshoni.info  Sat Nov  2 15:42:15 2013
+From: plug at shoshoni.info (Bryan Linton)
+Date: Sat, 2 Nov 2013 15:42:15 -0700
+Subject: [PLUG] Searching for reliable T60 laptop fan
+Message-ID: <20131102224215.GA20509@shoshoni.info>
+
+Hello list,
+
+I'm trying to find a vendor which sells a reliable replacement fan
+for an IBM/Lenovo T60 laptop, part no. 41V9932.  (Note that there
+are two different, incompatible designs for the heatsink/fan
+assembly in the T60).
+
+The original fan lasted about 5 years before failing entirely.
+The replacement I ordered from a vendor on Amazon lasted about 2
+years before it stopped reporting the fan speed to the BIOS, which
+caused the laptop to think that the fan had failed and would no
+longer boot.
+
+I recently ordered another fan from a different vendor which works
+fine so far, but makes a high-pitched grinding noise when the
+laptop is in "performance" mode as opposed to "cool running" mode.
+It will also spin down for a second, then spin up to a very high
+speed before leveling off, only to repeat the same about once every
+second or so.
+
+Since I keep my laptop in "cool running" mode 99% of the time,
+it's working fine so far, but I obviously have a defective fan.
+Some machine oil might fix it, but it's very tedious disassembling
+a T60 because almost everything must be removed before one can
+access the fan assembly so I'm going to live with it for the time
+being (one must also replace the thermal grease on the CPU, which
+is somewhat laborious).  Nevertheless, I would like to have a
+spare on-hand in case it decides to fail at an in-opportune time.
+
+Does anyone know of a vendor that sells a RELIABLE replacement fan
+for a T60?  The two fans I bought were obviously not genuine IBM
+manufactured parts, but I really don't care who the manufacturer
+is so long as it's reliable, though it would be nice to get an IBM
+original.  I see many vendors online offering a "genuine IBM
+compatible" or somesuch fan, which obviously means it's a
+third-party fan and also makes it difficult to find a genuine fan
+via a search engine.
+
+Any pointers or recommendations would be greatly appreciated.
+
+-- 
+Bryan
+
+
+
+From johnxj at comcast.net  Sat Nov  2 17:43:17 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 2 Nov 2013 17:43:17 -0700
+Subject: [PLUG] Mythtv questions
+Message-ID: <20131102174317.18eced63@Devil8>
+
+I finally did it. I bought an HDHomeRun Prime and I have it set up. I
+also upgraded the RAM in the desktop that it will run on to 4 GB, added
+a 4 TB hard disk (in addition to the two existing 320 GB disks), and
+even a BluRay burner. However, after installing and spending a couple
+hours trying to get Mythtv working, I remain puzzled and unable to get
+the HDHomeRun working to provide me with TV. 
+
+I also bought a plain rabbit-ears type antenna from Radio Shack. It
+works great with my real TV set upstairs, so I assume it will suffice
+for the HDHomeRun.
+
+I should preface my questions by making it clear what I know about
+television: There is a knob, usually on the left side and when you turn
+it to the right it makes a click (turning the TV on), and if you
+continue to turn it to the right the volume goes up. On the other side
+there is a similar knob that makes clicking noises as you turn it to
+the left and right, thus changing the channels.
+
+That's it. 
+
+I have recently seen a lot of terms like "NTSC" and "ATSC," among
+others. I don't know what they mean, and I don't even know if I should
+care. I was hoping that Mythtv would come up on my computer screen with
+a knob on the left and a knob on the right, but no such luck.
+
+So here are some preliminary questions:
+
+1) When I run any of the GUI tools, is there a way to run them in the
+window manager, like with a title bar and buttons, that I can move
+around on the screen? Oh, and with the mouse working, too? Or a least
+a bit of instructions about which keyboard actions do what?
+
+2) I found a place where the GUI front end found my HDHomeRun and
+set up its ID and IP address. But when I try to do anything I get an
+error message "could not connect to the master backend server." What is
+a master backend server? Is this needed for viewing S&M programs?
+'Cause that's so not me and I can do without it. If I need it, where is
+it supposed to be? How do I create one and tell Mythtv where it is
+located? 
+
+Oh, and I have Mythtv 2.0.25 on Xubuntu 12.04. Any suggestions
+gratefully received.
+
+From johnxj at comcast.net  Sat Nov  2 19:35:19 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 2 Nov 2013 19:35:19 -0700
+Subject: [PLUG] Mythtv questions
+In-Reply-To: <20131102174317.18eced63@Devil8>
+References: <20131102174317.18eced63@Devil8>
+Message-ID: <20131102193519.4eeeeacc@Devil8>
+
+On Sat, 2 Nov 2013 17:43:17 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+It's working! 
+
+Well, sort of. I still can't figure out the front end or what is wrong
+with the backend server. But I found a program called HDHomeRun Config
+GUI. It lets me select the HDHomeRun tuner, then click on Scan, and it
+scans for channels. Amazingly, it found a couple dozen of them. And
+there is a button that says View, which launches VLC and plays the
+channel. I'm watching Rick Steves on OPB as I write this. 
+
+I don't think this Config GUI tool is what I am supposed to be using to
+watch TV, but it works.
+
+From john at meissen.org  Sat Nov  2 19:51:27 2013
+From: john at meissen.org (John Meissen)
+Date: Sat, 02 Nov 2013 19:51:27 -0700
+Subject: [PLUG] Mythtv questions
+In-Reply-To: (Your message of Sat, 02 Nov 2013 17:43:17 PDT.)
+	<20131102174317.18eced63@Devil8>
+Message-ID: <20131103025127.64BD917F7ED@john>
+
+
+johnxj at comcast.net said:
+> 2) I found a place where the GUI front end found my HDHomeRun and set up its
+> ID and IP address. But when I try to do anything I get an error message "could
+> not connect to the master backend server." What is a master backend server? Is
+> this needed for viewing S&M programs? 'Cause that's so not me and I can do
+> without it. If I need it, where is it supposed to be? How do I create one and
+> tell Mythtv where it is located?  
+
+Have you gone through the Myth config/setup? I believe if there's no tuner 
+configured the backend won't run.
+
+Check the logs. They generally have useful information.
+
+You'll need program guide data. If you haven't already go to
+ http://www.schedulesdirect.org/
+and sign up. It's $25 a year, but it's worth it.
+
+
+
+From russell at personaltelco.net  Sat Nov  2 22:10:35 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 02 Nov 2013 22:10:35 -0700
+Subject: [PLUG] Searching for reliable T60 laptop fan
+In-Reply-To: <20131102224215.GA20509@shoshoni.info> (Bryan Linton's message of
+	"Sat\, 2 Nov 2013 15\:42\:15 -0700")
+References: <20131102224215.GA20509@shoshoni.info>
+Message-ID: <86habu2hpw.fsf@coulee.tdb.com>
+
+>>>>> "Bryan" == Bryan Linton <plug at shoshoni.info> writes:
+
+Bryan> Hello list, I'm trying to find a vendor which sells a reliable
+Bryan> replacement fan for an IBM/Lenovo T60 laptop, part no. 41V9932.
+Bryan> (Note that there are two different, incompatible designs for
+Bryan> the heatsink/fan assembly in the T60).
+
+Bryan> The original fan lasted about 5 years before failing entirely.
+Bryan> The replacement I ordered from a vendor on Amazon lasted about
+Bryan> 2 years before it stopped reporting the fan speed to the BIOS,
+Bryan> which caused the laptop to think that the fan had failed and
+Bryan> would no longer boot.
+
+Bryan> I recently ordered another fan from a different vendor which
+Bryan> works fine so far, but makes a high-pitched grinding noise when
+Bryan> the laptop is in "performance" mode as opposed to "cool
+Bryan> running" mode.  It will also spin down for a second, then spin
+Bryan> up to a very high speed before leveling off, only to repeat the
+Bryan> same about once every second or so.
+
+Bryan> Since I keep my laptop in "cool running" mode 99% of the time,
+Bryan> it's working fine so far, but I obviously have a defective fan.
+Bryan> Some machine oil might fix it, but it's very tedious
+Bryan> disassembling a T60 because almost everything must be removed
+Bryan> before one can access the fan assembly so I'm going to live
+Bryan> with it for the time being (one must also replace the thermal
+Bryan> grease on the CPU, which is somewhat laborious).  Nevertheless,
+Bryan> I would like to have a spare on-hand in case it decides to fail
+Bryan> at an in-opportune time.
+
+Bryan> Does anyone know of a vendor that sells a RELIABLE replacement
+Bryan> fan for a T60?  The two fans I bought were obviously not
+Bryan> genuine IBM manufactured parts, but I really don't care who the
+Bryan> manufacturer is so long as it's reliable, though it would be
+Bryan> nice to get an IBM original.  I see many vendors online
+Bryan> offering a "genuine IBM compatible" or somesuch fan, which
+Bryan> obviously means it's a third-party fan and also makes it
+Bryan> difficult to find a genuine fan via a search engine.
+
+I am interested too.  I have a T60p whose fan is getting creaky.  I
+ordered a replacement, but it showed up with not enough heatsink pads
+on the heatpipe.  So, I put a drop of oil on the motor spindle and the
+problem went away for 6 months.  However, it has been acting up again
+recently, getting all rattlely, and a replacement wouldn't be
+completely out of order.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From johnxj at comcast.net  Mon Nov  4 08:58:32 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 4 Nov 2013 08:58:32 -0800
+Subject: [PLUG] Amazon has taken over my computer
+Message-ID: <20131104085832.4cda6216@Devil8>
+
+So I was shopping on Amazon and decided to see what Newegg offered. I
+opened a new tab and typed "newegg.com" in the URL bar. Up popped
+Amazon's front page. I tried it several times, then in Opera, where it
+always came up Amazon as well.
+
+Then I googled on "newegg" and clicked on the Google link. That finally
+brought up Newegg. It's good to see that they haven't merged with
+Amazon.
+
+How did this happen? How can I undo it so that the URL bar takes me
+where I want to go?
+
+From rshepard at appl-ecosys.com  Mon Nov  4 09:03:23 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 4 Nov 2013 09:03:23 -0800 (PST)
+Subject: [PLUG] Amazon has taken over my computer
+In-Reply-To: <20131104085832.4cda6216@Devil8>
+References: <20131104085832.4cda6216@Devil8>
+Message-ID: <alpine.LNX.2.00.1311040901180.24904@salmo.appl-ecosys.com>
+
+On Mon, 4 Nov 2013, John Jason Jordan wrote:
+
+> So I was shopping on Amazon and decided to see what Newegg offered. I
+> opened a new tab and typed "newegg.com" in the URL bar. Up popped Amazon's
+> front page. I tried it several times, then in Opera, where it always came
+> up Amazon as well.
+
+John,
+
+   Does it do the same thing if you enter the entire URL in the address bar,
+i.e., http://www.newegg.com/ ?
+
+   I always enter the complete URL and have not suffered your experience.
+However, I've landed on several web sites that would not let me return to
+the calling link when I use the back button. Serious PITA that is.
+
+Rich
+
+
+From dexter at ambidexter.com  Mon Nov  4 15:12:05 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 04 Nov 2013 15:12:05 -0800
+Subject: [PLUG] Announcement: November PLUG Meeting: Samba 4
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <527829C5.8040106@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Brian Martin
+What: Samba 4
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, November 7th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Brian Marin will talk about his early experiences with Samba 4
+
+Samba provides open-source support for the Microsoft file sharing
+protocol. Version 4 of Samba was released late last year. It represented
+years of work and a major, some would say massive upgrade to Samba to
+include the ability to be a fully functional Active Directory server.
+Given the large scale changes, many people have been avoiding production
+Samba 4 use while waiting for the bugs to be worked out. Brian Martin
+has now started migrating production environments to Samba 4 and will
+discuss his early experiences.
+
+Bio:
+Brian Martin is the chief consultant for Martin Consulting Services,
+Inc. Martin Consulting has provided system administration services in
+Unix, Linux and Windows systems in the Portland metro area and across
+the country since 1996.  Brian is a frequent attendee at PLUG. His past
+presentations include VMWare, production grade scripting, disaster
+recovery experiences, Linux containers, and logical volume management.
+
+Many attendees will break for a social hour at the Lucky Lab Brew Pub NW
+at 1945 NW Quimby
+
+See you there!
+
+Calagator Page: http://calagator.org/events/1250464976
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From johnxj at comcast.net  Mon Nov  4 16:33:50 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 4 Nov 2013 16:33:50 -0800
+Subject: [PLUG] Amazon has taken over my computer
+In-Reply-To: <alpine.LNX.2.00.1311040901180.24904@salmo.appl-ecosys.com>
+References: <20131104085832.4cda6216@Devil8>
+	<alpine.LNX.2.00.1311040901180.24904@salmo.appl-ecosys.com>
+Message-ID: <20131104163350.5d1c64cb@Devil8>
+
+On Mon, 4 Nov 2013 09:03:23 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> dijo:
+
+>On Mon, 4 Nov 2013, John Jason Jordan wrote:
+>
+>> So I was shopping on Amazon and decided to see what Newegg offered. I
+>> opened a new tab and typed "newegg.com" in the URL bar. Up popped
+>> Amazon's front page. I tried it several times, then in Opera, where
+>> it always came up Amazon as well.
+
+>Does it do the same thing if you enter the entire URL in the address bar,
+>i.e., http://www.newegg.com/ ?
+>
+>I always enter the complete URL and have not suffered your experience.
+>However, I've landed on several web sites that would not let me return
+>to the calling link when I use the back button. Serious PITA that is.
+
+I don't know what happened, but it stopped doing it. I'd still like to
+know what caused it and what made it stop doing it.
+
+Then again, I've decided not to buy things at Newegg any more. I only
+bought from them once and I'm still getting spams from them in spite
+of unsubscribing to everything I can find. That is not acceptable
+marketing practice.
+
+From heinlein at madboa.com  Tue Nov  5 05:29:53 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Tue, 5 Nov 2013 05:29:53 -0800 (PST)
+Subject: [PLUG] Announcement: November PLUG Meeting: Samba 4
+In-Reply-To: <527829C5.8040106@ambidexter.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<527829C5.8040106@ambidexter.com>
+Message-ID: <alpine.OSX.2.11.1311050528380.723@springwater.local>
+
+On Mon, 4 Nov 2013, Michael Dexter wrote:
+
+>
+> Portland Linux/Unix Group Meeting Announcement
+>
+> Who: Brian Martin
+> What: Samba 4
+> Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+> When: Thursday, November 7th, 2013 at 7pm
+> Why: The pursuit of technology freedom
+
+I'm traveling this week, but I'd love to hear this talk. Any chance 
+someone could record it?
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From dick at dicksteffens.com  Tue Nov  5 09:23:45 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 05 Nov 2013 09:23:45 -0800
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <5273511D.3010704@gmail.com>
+References: <20131030150513.6b61a26e@Devil8>	<5271A09D.7050409@dicksteffens.com>
+	<5273511D.3010704@gmail.com>
+Message-ID: <527929A1.9020508@dicksteffens.com>
+
+Okay. This isn't really Linux related, but it's something we need for 
+MythTV, so unless there are objections I'm inclined to leave the thread 
+on this list instead of moving over to PLUG-talk. If there are serious 
+objections, then we can move over there.
+
+On 10/31/2013 11:58 PM, King Beowulf wrote:
+> I am ashamed of all of you! You run Linux but have no sense of
+> adventure. Build your own antenna!! No doubt you have a few scraps of
+> copper wire (or metal clothes hangers) etc laying around. This project
+> will also allow you to experiment with the design for optimal
+> reception in you area.
+
+I tried this one a couple of months ago:
+
+http://www.popularmechanics.com/technology/how-to/tv/build-your-own-digital-tv-antenna
+
+I didn't have the right kind of washers and the wires kept slipping out 
+from under the screws. But I have been a do-it-yourselfer for as long as 
+I can remember. I was around at the dawn of skateboarding. (This is in 
+the category of having to walk uphill both ways to school and back.) I 
+made my own skateboard out of a 1x3 board and an old skate, the kind you 
+put on under your street shoes. That worked well enough to get me 
+started, and I've followed that philosophy since then.
+
+> I am 11-13 miles from PDX towers, on the Vancouver side.  I can pick
+> up ALL PDX channels crystal clear with this two designs:
+
+ From tvfool it looks like I'm just under 15 miles from the towers. I 
+got a good signal on my simple dipole when I first tried it, but now, 
+not so much. I can get 23 channels, but not OPB or KGW.
+
+> Koch fractal (UHF/VHF, can be extended to higher order fractals) :
+> http://www.instructables.com/id/How-to-make-a-fractal-antenna-for-HDTV-DTV-plus-/
+> and a nifty artsy application of this design:
+> http://www.htpc-diy.com/2012/04/diy-flexible-fractal-window-hdtv.html
+
+Finally, a technical question: Is there something about a fractal design 
+that improves performance? I can see how it saves space, but does it do 
+a better job than the simple Vs on their sides style?
+
+Also, is there anything important about the 1" spacing and the 120/60 
+degree bends?
+
+I'm guessing that what matters is that the wire is a certain length 
+relating to some fraction of the wavelength of the signal. For saving 
+space would any shape the wires took have the same effect, like a 
+spiral, or a squared off spiral?
+
+> bow tie (UHF/VHF):
+> http://makezine.com/projects/digital-tv-coat-hanger-antenna/
+> pdf: http://cdn.makezine.com/make/television/04/DTV_Antenna_FINAL.pdf
+>
+> See also:
+> http://www.diytvantennas.com/
+> http://www.digitalhome.ca/ota/superantenna/index.htm  (UHF GPLv3 designs)
+>
+
+My wife used to do stained glass work and still has some copper foil 
+tape. One of those designs talked about poking the intersections of the 
+tape with a pin to make the connection between them since the adhesive 
+on the tape is not conductive. I would think that a pin hole through the 
+two pieces of tape would make a connection, but how long would that 
+last. Wouldn't it be better to solder the two pieces of tape together?
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From johnxj at comcast.net  Tue Nov  5 09:58:40 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 5 Nov 2013 09:58:40 -0800
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <527929A1.9020508@dicksteffens.com>
+References: <20131030150513.6b61a26e@Devil8>
+	<5271A09D.7050409@dicksteffens.com> <5273511D.3010704@gmail.com>
+	<527929A1.9020508@dicksteffens.com>
+Message-ID: <20131105095840.4577c9af@Devil8>
+
+On Tue, 05 Nov 2013 09:23:45 -0800
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+>Okay. This isn't really Linux related, but it's something we need for 
+>MythTV, so unless there are objections I'm inclined to leave the
+>thread on this list instead of moving over to PLUG-talk. If there are
+>serious objections, then we can move over there.
+
+I did finally get MythTV and my HDHomeRun working, sort of. That is,
+the MythTV Frontend application refuses to allow me to view TV because
+it complains that it can't find the Master Backend Server. But if I use
+HDHomeRun Config GUI application I can find the channel I want and
+click on View, and then it opens the channel in VLC. I should probably
+figure out a better way, but at least I know the hardware is working. I
+should probably start by trying to figure out what a Master Backend
+Server is. 
+
+I wanted an antenna right away, so I was limited to what I could find
+in local stores. Radio Shack supposedly sells a dipole antenna, but
+it's not in stock in any of the stores locally. I bought an "HDTV
+Antenna" from them for $24.95. It looks like a fancy set-top rabbit
+ears antenna. My first experiment with it was to see if it would work
+with the television I have upstairs. It worked surprisingly well - so
+well that I left it connected and disconnected the Comcast cable. Then
+I went back and bought another one for the HDHomeRun downstairs, which
+seems to work equally well.
+
+The picture I get over the air is far better than what Comcast gives
+me, although the signal sometimes breaks up a bit. There is a
+12-position knob on the antenna and I found that I get improved signal
+in different positions. I need to spend some time experimenting to find
+out which position works the best. At the moment it gets channel 10-1
+perfectly, and that's all I really want to watch anyway.
+
+As for making my own, I considered that, but by the time I bought the
+wire and spent the time putting it together I decided that it was
+cheaper just to buy one ready-made.
+
+From dick at dicksteffens.com  Tue Nov  5 14:28:49 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 05 Nov 2013 14:28:49 -0800
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <20131105095840.4577c9af@Devil8>
+References: <20131030150513.6b61a26e@Devil8>	<5271A09D.7050409@dicksteffens.com>
+	<5273511D.3010704@gmail.com>	<527929A1.9020508@dicksteffens.com>
+	<20131105095840.4577c9af@Devil8>
+Message-ID: <52797121.6070503@dicksteffens.com>
+
+On 11/05/2013 09:58 AM, John Jason Jordan wrote:
+> I did finally get MythTV and my HDHomeRun working, sort of. That is,
+> the MythTV Frontend application refuses to allow me to view TV because
+> it complains that it can't find the Master Backend Server.
+
+Sounds like you need to go through the setup for the backend. This is 
+what Galen and I were doing at the last clinic. I had the same error 
+message before the clinic. Completing the backend setup solved the problem.
+
+To run the backend setup program exit the front end by hitting <ESC> 
+until it asks you if you want to quit. Select Yes, naturally. You are 
+then back at the minimal Xubuntu screen. At the top left is a button for 
+Applications. The bottom entry under that is System. The fourth entry 
+under System is MythTV Backend Setup. When it starts up it warns you 
+that the backend is running and gives you the option to stop it, which 
+you want to do. Then you have the backend setup menu.
+
+I'm going to walk through the backend setup, but it's more than should 
+go in this reply. I'll post a separate message about running the backend 
+setup this afternoon.
+
+> But if I use
+> HDHomeRun Config GUI application I can find the channel I want and
+> click on View, and then it opens the channel in VLC. I should probably
+> figure out a better way, but at least I know the hardware is working.
+
+Yes. That is a very handy tool to see that the HDHomeRun is running and 
+that you're getting signals out of the ether. While it's possible to 
+watch a show that way that's all it can do. If you know ahead of time 
+that you want to watch a show live, then it works.
+
+> I should probably start by trying to figure out what a Master Backend
+> Server is.
+
+When you installed Mythbuntu it installed one backend server and one 
+front end. In MythTV you can have multiple backends and frontends, but 
+only one master backend. The one installed with Mythbuntu is your master 
+backend server. If, for some reason, you wanted another backend 
+somewhere on your network you would have to ensure that it was not the 
+master. (I'm sure there's documentation for that, but I'm guessing you 
+aren't planning on multiple backends.)
+
+Basically, the backend receives signals, and does any recording, while 
+the front end displays programs on your monitor or TV.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From stapilus at ridenbaugh.com  Tue Nov  5 15:05:39 2013
+From: stapilus at ridenbaugh.com (Randy Stapilus)
+Date: Tue, 5 Nov 2013 15:05:39 -0800
+Subject: [PLUG] computer purchase advice
+Message-ID: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+
+Two or three questions, depending on how you count.
+
+The last windows computer in our mostly-Linux household has crashed and
+apparently died. Does not pass POST, does not collect anything -
+motherboard is probably dead. This computer was used specifically for the
+entertainment center, to stream audio/video to our tv (which mainly has
+functioned as a monitor) and stereo.
+
+Main reason we had windows on that one was Netflix, which I long heard did
+not mesh with Linux. In the last year I've been reading about Netflix video
+playing capability on Linux (as at
+http://www.techrepublic.com/blog/linux-and-open-source/how-to-get-netflix-streaming-on-ubuntu-1210/);
+in the experience of people here who have tried it, does it work well?
+
+I'd like to set up the new entertainment-dedicated computer (just
+streaming, no games or such) as a Linux machine, sufficient for the task
+but keeping an eye on cost. So: Any recommendations on where (in the
+PDX-Salem area) to best look for such a beast? I know this sort of question
+comes up periodically, but it's probably good to revisit it occasionally.
+I'd be ok with installing the OS (probably Ubuntu) myself, but does anyone
+have any cautionary notes about what to keep alert for, in addition to
+Linux-friendy wireless cards?
+
+Advice would be most welcome.
+
+
+Randy Stapilus
+Ridenbaugh Press
+www.ridenbaugh.com
+WA, OR, ID Weekly Briefings
+503-852-0010
+
+From dick at dicksteffens.com  Tue Nov  5 15:46:00 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 05 Nov 2013 15:46:00 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+Message-ID: <52798338.6060301@dicksteffens.com>
+
+What follows is my experience running MythTV Backend Setup on Mythbuntu. 
+There are plenty of items in the various screens that I don't 
+understand, but I'll provide comments on what I do know, since it seems 
+to be enough to have my system running, for now.
+
+To run the backend setup program exit the front end by hitting <ESC> 
+until it asks you if you want to quit. Select Yes, naturally. You are 
+then back at the minimal Xubuntu screen. At the top left is a button for 
+Applications. The bottom entry under that is System. The fourth entry 
+under System is MythTV Backend Setup. When it starts up it warns you 
+that the backend is running and gives you the option to stop it, which 
+you want to do. Then you have the backend setup menu.
+
+The setting choices shown below are for the Portland, Oregon, area. So, 
+if you're reading this from another part of the world, keep in mind that 
+several of your choices will be different.
+
+
+1. Global
+
+The first screen in the Global menu option is titled Host Address 
+Backend Setup. I left everything on this screen the way it was.
+
+The next screen is Locale Settings. While we just finished (in another 
+post) talking about how we're now using ATSC instead of NTSC, NTSC is 
+the correct setting for TV Format. I have VBI format set to none. I 
+don't know what that does. Channel frequency table should be set to 
+us-bcast. Your local time zone (for XMLTV) is set to None. Again, I'm 
+not sure what this is for, but it's not something I'm using -- at least 
+I don't think I'm using it.
+
+I left everything on the Miscellaneous Settings screen as is.
+
+I also left the entries on the EIT Scanner Options screen alone.
+
+Ditto for the Shutdown/Wakeup Options screen, the Backend Wakeup 
+settings screen, the Backend Control screen, the Job Queue 
+(Backend-Specific) screen, the Job Queue (Global) screen, the Job Queue 
+(Job Commands) screen, and the Program Schedule Downloading Options screen.
+
+
+2. Capture Cards
+
+Here is where you tell the backend what you're using to grab signals 
+from the ether or the cable. You'll create a separate capture card for 
+each signal source. For your HDHomeRun, assuming you have the one with 
+two coax connectors on the back, you'll need to create two capture cards 
+if you have separate antennas going into them. So far I'm just using one 
+of them. Mine has the name HDHOMERUN:10102DC6-0. I'm guessing that I'll 
+have another one ending in -1 once I put a second antenna on the box. An 
+alternative would be to put an antenna splitter between your antenna and 
+your HDHomeRun box, connecting to each of the inputs.
+
+I'll walk through editing the settings of my existing capture card. I'm 
+hoping that will be close enough to creating a new one.
+
+On the Capture Card Setup screen the first line is for the Card Type. I 
+chose HDHomeRun DTV tuner box.
+
+The next line is for Available devices. I chose 10102DC6-0. The only 
+alternative is 10102DC6-1. (I have my antenna connected to port 0 on the 
+HDHomeRun box.)
+
+The next three lines are information only, providing a description of 
+the device, it's IP Address, and which Tuner you're using on the device.
+
+Recording options gives you a new screen. I kept the defaults. Finish 
+takes you back to the Capture Card Setup screen, and Finish on that 
+screen takes you back to the Capture Cards screen.
+
+If I understand the HDHomeRun Prime correctly it has three tuners in it. 
+If you're using one of those you probably have to go through this 
+process three times, once for each tuner.
+
+<ESC> takes you back to the main backend setup menu.
+
+
+3. Recording Profiles.
+
+I kept the defaults for this menu entry.
+
+
+4. Video Sources.
+
+This screen is where you tell the backend where to get information about 
+the programs available to you. You'll give the video source a name. I 
+called mine HDHomeRun - Antenna. I don't know if I'll have to do this 
+again for a second antenna, but I suspect I will need to do it if I get 
+a HDHomeRun Prime box and get a cable card from Comcast.
+
+For the Listings grabber line I chose North America 
+(SchedulesDirect.org) (Internal). The User ID and password are for the 
+SchedulesDirect account. As mentioned in an earlier post, this is a 
+subscription service that costs about $25 a year. It provides the names 
+and various other bits of information that they were able to collect for 
+the programs. After putting in your user ID and password, select 
+Retrieve Lineups. You may or may not see a popup window that says it's 
+part way finished. I think that's okay. I'll come back to this later, 
+because I think a later screen has something related to it.
+
+I have an entry for the DataDirect lineup which says, PC:97045. That's 
+my zip code.
+
+Perform EIT scan is unchecked. I don't know what this does, but the 
+default was unchecked, so I left it unchecked.
+
+The Channel frequency table should be us-bcast.
+
+Finish takes you back to the Video Sources screen, and <ESC> takes you 
+back to the main backend setup menu.
+
+
+5. Input Connec...
+
+This takes you to the Input Connections screen. I have one entry, 
+[HDHOMERUN: 10102DC6-0] (MPEG2TS) -> HDHomeRun - Antenna. When selecting 
+that one I get a screen titled Connect source to input.
+
+The Capture device is [HDHOMERUN: 10102DC6-0] and the Input is MPEG2TS. 
+I gave it a display name -- which is optional -- of HDHomeRun Video 
+Source. I'm guessing that name won't make sense when I get more video 
+sources through HDHomeRun devices.
+
+For Video Source I chose HDHomeRun - Antenna, and I left Use quick 
+tuning at never.
+
+The next two were confusing to us at the Plug Clinic. Thanks again, 
+Galen, for your invaluable assistance.
+
+What you have to do is select the first button, Scan for channels, 
+first, wait for that to finish, and then select the second button, Fetch 
+channels from listing source. I think what this does is to do a channel 
+scan on the HDHomeRun, much like the one done by HDHomeRun Config GUI. 
+Once it knows all the channels it can then make the connection between 
+those and the programs listed by SchedulesDirect. Not doing these 
+results in an error message when you try to exit the backend setup 
+program, and is probably the cause of the error message about not being 
+able to find a backend server when you try to run the front end. At 
+least I think that's why I got those error messages.
+
+Once the channels are scanned you can choose which one to start with. 
+Once you're running the front end, when you select Watch TV, this is the 
+channel that will show up first.
+
+The next screen, titled Interactions between inputs, I'm pretty sure I 
+left as it appeared.
+
+Finish takes you back to the Input Connections screen, and <ESC> takes 
+you back to the main backend setup menu.
+
+
+There are three more entries on the backend setup menu, 6. Channel 
+Editor, 7. Storage Directories, and 8. System Events. I have not changed 
+anything on any of those screens.
+
+
+Hit <ESC> to exit the backend setup program. When you do you'll get a 
+warning reminding you to run mythfilldatabase on the master backend. 
+After acknowledging that a popup window asks if you want to "start the 
+mythtv backend?" I chose Yes. After entering my password I was asked if 
+I wanted to run mythfilldatabase. Again I said Yes. You'll see a 
+terminal window open and see that process running. It might take awhile 
+because it goes out and gets a couple of weeks worth of programming info.
+
+After that, go to Applications > Multimedia > MythTV Frontend, and you 
+may be returned to your regularly scheduled program(s).
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Tue Nov  5 15:55:07 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 05 Nov 2013 15:55:07 -0800
+Subject: [PLUG] computer purchase advice
+In-Reply-To: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+References: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+Message-ID: <5279855B.20909@dicksteffens.com>
+
+On 11/05/2013 03:05 PM, Randy Stapilus wrote:
+> Two or three questions, depending on how you count.
+>
+> The last windows computer in our mostly-Linux household has crashed and
+> apparently died. Does not pass POST, does not collect anything -
+> motherboard is probably dead. This computer was used specifically for the
+> entertainment center, to stream audio/video to our tv (which mainly has
+> functioned as a monitor) and stereo.
+>
+> Main reason we had windows on that one was Netflix, which I long heard did
+> not mesh with Linux. In the last year I've been reading about Netflix video
+> playing capability on Linux (as at
+> http://www.techrepublic.com/blog/linux-and-open-source/how-to-get-netflix-streaming-on-ubuntu-1210/);
+> in the experience of people here who have tried it, does it work well?
+
+Don't know about Netflix and Linux, but ...
+
+> I'd like to set up the new entertainment-dedicated computer (just
+> streaming, no games or such) as a Linux machine, sufficient for the task
+> but keeping an eye on cost. So: Any recommendations on where (in the
+> PDX-Salem area) to best look for such a beast? I know this sort of question
+> comes up periodically, but it's probably good to revisit it occasionally.
+> I'd be ok with installing the OS (probably Ubuntu) myself, but does anyone
+> have any cautionary notes about what to keep alert for, in addition to
+> Linux-friendy wireless cards?
+>
+> Advice would be most welcome.
+
+Several of us are playing with MythTV.
+
+Check out our archives for various MythTV posts. (Okay. I just tried to 
+check out our archives with Google advanced search and couldn't do that. 
+Do we still have access to the archives? I thought there used to be 
+instructions on doing that by putting http://www.pdxlinux.org/ in the 
+site or domain box on the Google Advanced Search page.)
+
+See also:
+
+http://www.mythtv.org/
+
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From john at meissen.org  Tue Nov  5 16:29:58 2013
+From: john at meissen.org (John Meissen)
+Date: Tue, 05 Nov 2013 16:29:58 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: (Your message of Tue, 05 Nov 2013 15:46:00 PST.)
+	<52798338.6060301@dicksteffens.com>
+Message-ID: <20131106002959.0A2B417F836@john>
+
+Good description, but some comments..
+
+> 
+> The next screen is Locale Settings. While we just finished (in another 
+> post) talking about how we're now using ATSC instead of NTSC, NTSC is 
+> the correct setting for TV Format. 
+
+I'm not sure, but if you have a recent TV that supports HD I think you may 
+want ATSC. I'd have to check my setup to be sure.
+
+> I have VBI format set to none. I don't know what that does. 
+
+VBI = Vertical Blank Interval. Some places (used to) encode data in there,
+like Teletext. Nothing here uses it.
+
+> 
+> I also left the entries on the EIT Scanner Options screen alone.
+> 
+Good choice. EIT is Event Information Table, which is program data that's 
+broadcast as part of the digital signal stream, including upcoming shows.
+I think it also includes the channel mapping data (For instance, channel 6,
+KOIN, is actually channel 40. A channel scan will find the signal on channel 
+40 and the EIT will tell the TV to refer to it as channel 6).
+
+If you have any reception issues this can fill up your log files. :-(
+
+> 
+> 2. Capture Cards
+> 
+> Here is where you tell the backend what you're using to grab signals 
+> from the ether or the cable. You'll create a separate capture card for 
+> each signal source. For your HDHomeRun, assuming you have the one with 
+> two coax connectors on the back, you'll need to create two capture cards 
+> if you have separate antennas going into them. So far I'm just using one 
+> of them. Mine has the name HDHOMERUN:10102DC6-0. I'm guessing that I'll 
+> have another one ending in -1 once I put a second antenna on the box. An 
+> alternative would be to put an antenna splitter between your antenna and 
+> your HDHomeRun box, connecting to each of the inputs.
+
+I think all HDHomerun devices have at least two tuners. But some later ones
+only have a single antenna connection with an internal splitter.
+
+> 
+> 4. Video Sources.
+> 
+
+AFAIK, this is a misnomer. It seems to be more a source for video content 
+information, not the actual video. I.e., what video is available and when.
+
+> This screen is where you tell the backend where to get information about 
+> the programs available to you. You'll give the video source a name. I 
+> called mine HDHomeRun - Antenna. I don't know if I'll have to do this 
+> again for a second antenna, but I suspect I will need to do it if I get 
+> a HDHomeRun Prime box and get a cable card from Comcast.
+
+No, not generally. There may be something here if you're dealing with multiple 
+sources, such as OTA and cable on the same system, but I'm not sure. In most 
+cases there's just one source of content info. I called mine "SchedulesDirect", 
+which is might be a little less confusing.
+
+> 
+> 5. Input Connec...
+> 
+This associates the capture card with a listings source, i.e., what tuner to 
+use when recording video associated with the listings. If you have both tuners 
+configured you'll associate both of them with the same "Video Source". That way 
+it will know that for a particular show from the guide it can use either tuner.
+
+
+
+
+From heinlein at madboa.com  Tue Nov  5 17:21:52 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Tue, 5 Nov 2013 17:21:52 -0800 (PST)
+Subject: [PLUG] computer purchase advice
+In-Reply-To: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+References: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+Message-ID: <alpine.OSX.2.11.1311051711270.1326@springwater.local>
+
+On Tue, 5 Nov 2013, Randy Stapilus wrote:
+
+> I'd like to set up the new entertainment-dedicated computer (just 
+> streaming, no games or such) as a Linux machine, sufficient for the 
+> task but keeping an eye on cost. So: Any recommendations on where 
+> (in the PDX-Salem area) to best look for such a beast?
+
+I don't know all your criteria for success, so this suggestion may be 
+off the mark, but have you considered a Roku box?
+
+   http://www.roku.com/
+
+For $80-ish plus shipping you'll get HD TV, Netflix, and other 
+streaming apps. I don't think it can do YouTube, nor can it stream 
+from a LAN-shared disk, but otherwise it might do the trick for you.
+
+Roku boxes run MIPS-flavored Linux under the hood, but various web 
+threads suggest that they aren't easy to hack.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From dick at dicksteffens.com  Tue Nov  5 17:41:40 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 05 Nov 2013 17:41:40 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <20131106002959.0A2B417F836@john>
+References: <20131106002959.0A2B417F836@john>
+Message-ID: <52799E54.3000604@dicksteffens.com>
+
+On 11/05/2013 04:29 PM, John Meissen wrote:
+> Good description, but some comments..
+>
+>> The next screen is Locale Settings. While we just finished (in another
+>> post) talking about how we're now using ATSC instead of NTSC, NTSC is
+>> the correct setting for TV Format.
+> I'm not sure, but if you have a recent TV that supports HD I think you may
+> want ATSC. I'd have to check my setup to be sure.
+
+There is no ATSC option to select in the list. There's stuff like PAL 
+and SECAM and a few others, but no ATSC -- at least not on my Mythbuntu 
+installation. NTSC seems to work just fine, though.
+
+<snip>
+
+Thanks for the clarifications and additional info. I'm still relatively 
+new to this, and happy to learn more as I go.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From mkosmal at gmail.com  Tue Nov  5 18:15:21 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Tue, 5 Nov 2013 18:15:21 -0800
+Subject: [PLUG] computer purchase advice
+In-Reply-To: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+References: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+Message-ID: <CADKOhKdShvsOjutFZZPW8Tx6GeidZ-Ef9S4ceCq4C=VqA4VeWQ@mail.gmail.com>
+
+Hi
+
+I use Ubuntu, 12.04,  to stream my netflix.   Not a problem..
+
+I have a Belkin wireless router and a Samsung Blu-Ray player.
+
+Never a problem
+
+Marvin
+
+
+On Tue, Nov 5, 2013 at 3:05 PM, Randy Stapilus <stapilus at ridenbaugh.com>wrote:
+
+> Two or three questions, depending on how you count.
+>
+> The last windows computer in our mostly-Linux household has crashed and
+> apparently died. Does not pass POST, does not collect anything -
+> motherboard is probably dead. This computer was used specifically for the
+> entertainment center, to stream audio/video to our tv (which mainly has
+> functioned as a monitor) and stereo.
+>
+> Main reason we had windows on that one was Netflix, which I long heard did
+> not mesh with Linux. In the last year I've been reading about Netflix video
+> playing capability on Linux (as at
+>
+> http://www.techrepublic.com/blog/linux-and-open-source/how-to-get-netflix-streaming-on-ubuntu-1210/
+> );
+> in the experience of people here who have tried it, does it work well?
+>
+> I'd like to set up the new entertainment-dedicated computer (just
+> streaming, no games or such) as a Linux machine, sufficient for the task
+> but keeping an eye on cost. So: Any recommendations on where (in the
+> PDX-Salem area) to best look for such a beast? I know this sort of question
+> comes up periodically, but it's probably good to revisit it occasionally.
+> I'd be ok with installing the OS (probably Ubuntu) myself, but does anyone
+> have any cautionary notes about what to keep alert for, in addition to
+> Linux-friendy wireless cards?
+>
+> Advice would be most welcome.
+>
+>
+> Randy Stapilus
+> Ridenbaugh Press
+> www.ridenbaugh.com
+> WA, OR, ID Weekly Briefings
+> 503-852-0010
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From johnxj at comcast.net  Tue Nov  5 18:20:38 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 5 Nov 2013 18:20:38 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <52798338.6060301@dicksteffens.com>
+References: <52798338.6060301@dicksteffens.com>
+Message-ID: <20131105182038.08d3c679@Devil8>
+
+On Tue, 05 Nov 2013 15:46:00 -0800
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+I was able to follow your excellent instructions line by line, except:
+
+>For the Listings grabber line I chose North America 
+>(SchedulesDirect.org) (Internal). The User ID and password are for the 
+>SchedulesDirect account. As mentioned in an earlier post, this is a 
+>subscription service that costs about $25 a year. It provides the
+>names and various other bits of information that they were able to collect
+>for the programs. After putting in your user ID and password, select 
+>Retrieve Lineups. You may or may not see a popup window that says it's 
+>part way finished. I think that's okay. I'll come back to this later, 
+>because I think a later screen has something related to it.
+
+I left the SchedulesDirect lines empty, because I do not want their
+service, unless it is mandatory. I do not need program schedules.
+
+>I have an entry for the DataDirect lineup which says, PC:97045. That's 
+>my zip code.
+
+I cannot edit this line. It remains blank because I can't figure out
+what magic key combinations will get a cursor in the line.
+
+>For Video Source I chose HDHomeRun - Antenna, and I left Use quick 
+>tuning at never.
+
+Unable to edit the Video Source line, due to the same problems as above.
+
+>There are three more entries on the backend setup menu, 6. Channel 
+>Editor, 7. Storage Directories, and 8. System Events. I have not
+>changed anything on any of those screens.
+>
+>
+>Hit <ESC> to exit the backend setup program. When you do you'll get a 
+>warning reminding you to run mythfilldatabase on the master backend. 
+>After acknowledging that a popup window asks if you want to "start the 
+>mythtv backend?" I chose Yes. After entering my password I was asked
+>if I wanted to run mythfilldatabase. Again I said Yes. You'll see a 
+>terminal window open and see that process running. It might take
+>awhile because it goes out and gets a couple of weeks worth of
+>programming info.
+>
+>After that, go to Applications > Multimedia > MythTV Frontend, and you 
+>may be returned to your regularly scheduled program(s).
+
+Still not working. Same error message as before - cannot connect to
+Master Backend Server.
+
+Having gone through the above I notice that now I have a list of
+channels in the Backend Setup utility: 6. Channel Editor.
+
+Under 7. Storage Directories I had Default set to /media/Data (a 4 TB
+drive). Just now I tried to edit this line, but it says "Enter directory
+name or press Select to enter text via the onscreen keyboard." The
+onscreen keyboard pops up, but is useless because there is no mouse. I
+finally managed to get a cursor in the line and changed it
+to /home/jjj/. There are a lot of other things to set directories for:
+LiveTV, DB Backups, Videos, Trailers, Coverart, Fanart, Screenshots,
+Banners, Streaming, and <Create new group>. I entered nothing in any of
+them.
+
+When running mythfilldatabase there are a lot of error messages
+"content-type missing in HTTP POST, defaulting to
+application-octet-stream." It seems to be trying to get the program
+guide for the next several days or weeks.
+
+Bear in mind that I do not watch TV much. And if I do I just turn it on
+and find something interesting, usually channel 10-1. It is highly
+unlikely that I would ever want to record a program for viewing later.
+Nor would I ever want to view TV on any computer other than the one
+MythTV is installed on. I wonder if I even need a Master Backend
+Server. 
+
+Also, the MythTV front end seems to run fullscreen with no titlebar or
+buttons to change that, or mouse, for that matter. I dislike this
+arrangement. Maybe I don't even want to use the MythTV front end.
+
+From louisk at cryptomonkeys.org  Wed Nov  6 00:06:56 2013
+From: louisk at cryptomonkeys.org (Louis Kowolowski)
+Date: Wed, 6 Nov 2013 08:06:56 +0000
+Subject: [PLUG] computer purchase advice
+In-Reply-To: <alpine.OSX.2.11.1311051711270.1326@springwater.local>
+References: <CALYotCnChchhO9GR4gqyOwmVQ_AL40FPCo0NV6WDZXVf91wizA@mail.gmail.com>
+	<alpine.OSX.2.11.1311051711270.1326@springwater.local>
+Message-ID: <740BE7E1-0ACB-4FA8-B6AE-ECAAF7DB523C@cryptomonkeys.org>
+
+On Nov 6, 2013, at 1:21 AM, Paul Heinlein <heinlein at madboa.com> wrote:
+
+> On Tue, 5 Nov 2013, Randy Stapilus wrote:
+> 
+>> I'd like to set up the new entertainment-dedicated computer (just streaming, no games or such) as a Linux machine, sufficient for the task but keeping an eye on cost. So: Any recommendations on where (in the PDX-Salem area) to best look for such a beast?
+> 
+> I don't know all your criteria for success, so this suggestion may be off the mark, but have you considered a Roku box?
+> 
+>  http://www.roku.com/
+> 
+> For $80-ish plus shipping you'll get HD TV, Netflix, and other streaming apps. I don't think it can do YouTube, nor can it stream from a LAN-shared disk, but otherwise it might do the trick for you.
+> 
+> Roku boxes run MIPS-flavored Linux under the hood, but various web threads suggest that they aren't easy to hack.
+> 
+It can however, run Plex, which can talk to your local NAS (I?m using FreeNAS) running Plex Server to index all your media.
+
+--
+Louis Kowolowski                                louisk at cryptomonkeys.org
+Cryptomonkeys:                                   http://www.cryptomonkeys.com/
+
+Making life more interesting for people since 1977
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 495 bytes
+Desc: Message signed with OpenPGP using GPGMail
+Url : http://lists.pdxlinux.org/pipermail/plug/attachments/20131106/b72e1136/attachment.bin 
+
+From kingbeowulf at gmail.com  Wed Nov  6 10:04:10 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Wed, 06 Nov 2013 10:04:10 -0800
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <527929A1.9020508@dicksteffens.com>
+References: <20131030150513.6b61a26e@Devil8>	<5271A09D.7050409@dicksteffens.com>
+	<5273511D.3010704@gmail.com> <527929A1.9020508@dicksteffens.com>
+Message-ID: <527A849A.1020309@gmail.com>
+
+On 11/05/2013 09:23 AM, Dick Steffens wrote:
+
+> 
+> I tried this one a couple of months ago:
+> 
+> http://www.popularmechanics.com/technology/how-to/tv/build-your-own-digital-tv-antenna
+> 
+> I didn't have the right kind of washers and the wires kept slipping out 
+> from under the screws.
+
+I soldered the wires together.  Also, A sheet of aluminum foil as a back
+plane increases UHF signal strength at the expense of added directionality.
+
+ But I have been a do-it-yourselfer for as long as
+> I can remember. I was around at the dawn of skateboarding. (This is in 
+> the category of having to walk uphill both ways to school and back.) I 
+> made my own skateboard out of a 1x3 board and an old skate, the kind you 
+> put on under your street shoes. That worked well enough to get me 
+> started, and I've followed that philosophy since then.
+
+I was still in diapers them days. You old geezer!  Same here, tinkering
+with whatever home remodeling scraps a are left over.
+
+> 
+>> I am 11-13 miles from PDX towers, on the Vancouver side.  I can pick
+>> up ALL PDX channels crystal clear with this two designs:
+> 
+>  From tvfool it looks like I'm just under 15 miles from the towers. I 
+> got a good signal on my simple dipole when I first tried it, but now, 
+> not so much. I can get 23 channels, but not OPB or KGW.
+
+Optimal position is about 30 ft above ground level to avoid signal
+scattering. I can pick up OPB and KGW with the antenna new the ceiling
+(7-8 ft up).  Also, I am on a bit of a ridge above the Columbia.
+
+> 
+> Finally, a technical question: Is there something about a fractal design 
+> that improves performance? I can see how it saves space, but does it do 
+> a better job than the simple Vs on their sides style?
+> 
+> Also, is there anything important about the 1" spacing and the 120/60 
+> degree bends?
+> 
+> I'm guessing that what matters is that the wire is a certain length 
+> relating to some fraction of the wavelength of the signal. For saving 
+> space would any shape the wires took have the same effect, like a 
+> spiral, or a squared off spiral?
+
+There's a bunch of mathematics re: fractal antenna designs. Heck, I've
+forgotten just about everything (brain seems to be getting full...old
+stuff drips out...).  The 120/60deg bends are particular to the Koch (ie
+snowflake) fractal, other fractals will have other angles. The Koch is
+the easier one to make. The 1 inch has to do with the fractional
+wavelength, IIRC.  Fractals are nice since the have a very wide
+frequency response over UHF and VHF.  As you so to higher Koch fractal
+orders (more bends at 1/2 and 1/4 inch, it gets tricky.
+
+Loops won't work: these are for AM and shortwave:
+http://en.wikipedia.org/wiki/Loop_antenna
+
+> My wife used to do stained glass work and still has some copper foil 
+> tape. One of those designs talked about poking the intersections of the 
+> tape with a pin to make the connection between them since the adhesive 
+> on the tape is not conductive. I would think that a pin hole through the 
+> two pieces of tape would make a connection, but how long would that 
+> last. Wouldn't it be better to solder the two pieces of tape together?
+
+Yep, you can "tin" or brush a bit o' solder over the top of the
+overlapping ends. Be quick so as to not melt the adhesive or substrate.
+
+I have an left over thin sheet on Lexan I am hoping to have time soon to
+paint on a nice 2nd or 3rd order Koch fractal for the that HDHomerun I
+have my eye on, for when I get around to firing up MythTV.  In the
+meantime, I might just run coax straight to each LCD TV.
+
+
+
+From dick at dicksteffens.com  Wed Nov  6 11:10:25 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Wed, 06 Nov 2013 11:10:25 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <20131105182038.08d3c679@Devil8>
+References: <52798338.6060301@dicksteffens.com>
+	<20131105182038.08d3c679@Devil8>
+Message-ID: <527A9421.1000003@dicksteffens.com>
+
+On 11/05/2013 06:20 PM, John Jason Jordan wrote:
+> On Tue, 05 Nov 2013 15:46:00 -0800
+> Dick Steffens <dick at dicksteffens.com> dijo:
+>
+> I was able to follow your excellent instructions line by line, except:
+>
+>> For the Listings grabber line I chose North America
+>> (SchedulesDirect.org) (Internal). The User ID and password are for the
+>> SchedulesDirect account. As mentioned in an earlier post, this is a
+>> subscription service that costs about $25 a year. It provides the
+>> names and various other bits of information that they were able to collect
+>> for the programs. After putting in your user ID and password, select
+>> Retrieve Lineups. You may or may not see a popup window that says it's
+>> part way finished. I think that's okay. I'll come back to this later,
+>> because I think a later screen has something related to it.
+> I left the SchedulesDirect lines empty, because I do not want their
+> service, unless it is mandatory. I do not need program schedules.
+
+A fair amount of the functionality of MythTV uses the schedule info.
+
+>
+>> I have an entry for the DataDirect lineup which says, PC:97045. That's
+>> my zip code.
+> I cannot edit this line. It remains blank because I can't figure out
+> what magic key combinations will get a cursor in the line.
+
+Not sure, but that may be tied to the SchedulesDirect subscription.
+
+>
+>> For Video Source I chose HDHomeRun - Antenna, and I left Use quick
+>> tuning at never.
+> Unable to edit the Video Source line, due to the same problems as above.
+>
+>> There are three more entries on the backend setup menu, 6. Channel
+>> Editor, 7. Storage Directories, and 8. System Events. I have not
+>> changed anything on any of those screens.
+>>
+>>
+>> Hit <ESC> to exit the backend setup program. When you do you'll get a
+>> warning reminding you to run mythfilldatabase on the master backend.
+>> After acknowledging that a popup window asks if you want to "start the
+>> mythtv backend?" I chose Yes. After entering my password I was asked
+>> if I wanted to run mythfilldatabase. Again I said Yes. You'll see a
+>> terminal window open and see that process running. It might take
+>> awhile because it goes out and gets a couple of weeks worth of
+>> programming info.
+>>
+>> After that, go to Applications > Multimedia > MythTV Frontend, and you
+>> may be returned to your regularly scheduled program(s).
+> Still not working. Same error message as before - cannot connect to
+> Master Backend Server.
+>
+> Having gone through the above I notice that now I have a list of
+> channels in the Backend Setup utility: 6. Channel Editor.
+>
+> Under 7. Storage Directories I had Default set to /media/Data (a 4 TB
+> drive). Just now I tried to edit this line, but it says "Enter directory
+> name or press Select to enter text via the onscreen keyboard." The
+> onscreen keyboard pops up, but is useless because there is no mouse. I
+> finally managed to get a cursor in the line and changed it
+> to /home/jjj/. There are a lot of other things to set directories for:
+> LiveTV, DB Backups, Videos, Trailers, Coverart, Fanart, Screenshots,
+> Banners, Streaming, and <Create new group>. I entered nothing in any of
+> them.
+>
+> When running mythfilldatabase there are a lot of error messages
+> "content-type missing in HTTP POST, defaulting to
+> application-octet-stream." It seems to be trying to get the program
+> guide for the next several days or weeks.
+
+Yep. The program guide is one of the things the database keeps track of.
+
+> Bear in mind that I do not watch TV much. And if I do I just turn it on
+> and find something interesting, usually channel 10-1. It is highly
+> unlikely that I would ever want to record a program for viewing later.
+> Nor would I ever want to view TV on any computer other than the one
+> MythTV is installed on. I wonder if I even need a Master Backend
+> Server.
+>
+> Also, the MythTV front end seems to run fullscreen with no titlebar or
+> buttons to change that, or mouse, for that matter. I dislike this
+> arrangement. Maybe I don't even want to use the MythTV front end.
+
+Actually, what it sounds like is that your use model doesn't need 
+anything more than HDHomeRun Config Gui and VLC media player. For those 
+few times you might want to see a program full screen, VLC media player 
+has that feature.
+
+But, if you don't plan to record anything by program name, you probably 
+don't need the functionality of MythTV.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From johnxj at comcast.net  Wed Nov  6 16:41:47 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 6 Nov 2013 16:41:47 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <527A9421.1000003@dicksteffens.com>
+References: <52798338.6060301@dicksteffens.com>
+	<20131105182038.08d3c679@Devil8>
+	<527A9421.1000003@dicksteffens.com>
+Message-ID: <20131106164147.53969efd@Devil8>
+
+On Wed, 06 Nov 2013 11:10:25 -0800
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+>Actually, what it sounds like is that your use model doesn't need 
+>anything more than HDHomeRun Config Gui and VLC media player. For
+>those few times you might want to see a program full screen, VLC media
+>player has that feature.
+>
+>But, if you don't plan to record anything by program name, you
+>probably don't need the functionality of MythTV.
+
+The hdhomerun-config-gui does what I need, but it's a bit clunky and
+hard to use; e.g., you have to type in the number of the channel you
+want to view rather than just have a list to click on. I spent some time
+today looking for alternatives to the hdhomerun-config-gui, but I
+didn't find anything other than MythTV. However, I did find some
+attempts at doing something similar to what I want with bash scripts,
+and that got me thinking of the possibility of simply cooking up what I
+need - except I know very little about bash scripts.
+
+I wonder if the hdhomerun-config utility keeps a list of channels that
+it found the last time the user did a scan. If so, and if the list also
+includes the information necessary to connect to each channel, it should
+be simple enough to present the user with a GUI list of the channels,
+each with a Play button, and setting it up so that clicking on a button
+sends that stream to VLC, while terminating any previous streams that
+VLC was playing, or launching VLC if it was not already running.
+
+From keithl at gate.kl-ic.com  Wed Nov  6 17:44:31 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Wed, 6 Nov 2013 17:44:31 -0800
+Subject: [PLUG] record Brian's Samba 4 - ditto, travelling
+In-Reply-To: <alpine.OSX.2.11.1311050528380.723@springwater.local>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<527829C5.8040106@ambidexter.com>
+	<alpine.OSX.2.11.1311050528380.723@springwater.local>
+Message-ID: <20131107014430.GB2822@gate.kl-ic.com>
+
+On Tue, Nov 05, 2013 at 05:29:53AM -0800, Paul Heinlein wrote:
+> >Who: Brian Martin
+> >What: Samba 4
+> 
+> I'm traveling this week, but I'd love to hear this talk. Any chance 
+> someone could record it?
+
+Ditto.  At that time, I will be on a bus from Brooklyn
+(where I will be visiting my supertechnologist gulag-
+refugee friend A.B.) to Annapolis (for a niece's wedding).
+
+If my inventor friend builds a star trek transporter,
+I could visit him AND attend the wedding AND see Brian's
+talk.  Samba is a magical bit of software, perhaps I can
+use that to attend. :-)
+
+Otherwise, a recording may be the best remaining option.
+
+Keith
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From dick at dicksteffens.com  Wed Nov  6 21:36:06 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Wed, 06 Nov 2013 21:36:06 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <20131106164147.53969efd@Devil8>
+References: <52798338.6060301@dicksteffens.com>	<20131105182038.08d3c679@Devil8>	<527A9421.1000003@dicksteffens.com>
+	<20131106164147.53969efd@Devil8>
+Message-ID: <527B26C6.8080406@dicksteffens.com>
+
+On 11/06/2013 04:41 PM, John Jason Jordan wrote:
+> The hdhomerun-config-gui does what I need, but it's a bit clunky and
+> hard to use; e.g., you have to type in the number of the channel you
+> want to view rather than just have a list to click on. I spent some time
+> today looking for alternatives to the hdhomerun-config-gui, but I
+> didn't find anything other than MythTV. However, I did find some
+> attempts at doing something similar to what I want with bash scripts,
+> and that got me thinking of the possibility of simply cooking up what I
+> need - except I know very little about bash scripts.
+>
+> I wonder if the hdhomerun-config utility keeps a list of channels that
+> it found the last time the user did a scan. If so, and if the list also
+> includes the information necessary to connect to each channel, it should
+> be simple enough to present the user with a GUI list of the channels,
+> each with a Play button, and setting it up so that clicking on a button
+> sends that stream to VLC, while terminating any previous streams that
+> VLC was playing, or launching VLC if it was not already running.
+
+Here's a start. Mr. Google responded with these to the following foo:
+
+hdhomerun command line linux
+
+http://www.silicondust.com/hdhomerun/hdhomerun_development.pdf
+http://www.silicondust.com/hdhomerun/hdhomerun_tech.pdf
+
+Plus several others that look promising.
+
+What's needed next is an understanding of how to program for a GUI. I've 
+been taking pokes at it -- I wouldn't call what I've done so far a stab. 
+But each time I find something I run into issues getting it to work. 
+What would be nice is a start to finish, with pictures, of hello world 
+in a GUI for Ubuntu 12.04 running with gnome-session-fallback. I've got 
+a couple of Python programs I'd like to make work in this environment, 
+too. If I can figure out what GUI development tools to use, and get them 
+working, I could take a stab (instead of a poke) at scripting a TV to 
+VLC widget. I think the command line options for the HDHomeRun should be 
+able to be sent from a GUI widget.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From vsoich at gmail.com  Thu Nov  7 00:11:16 2013
+From: vsoich at gmail.com (Victor Soich)
+Date: Thu, 7 Nov 2013 00:11:16 -0800
+Subject: [PLUG] Victor wants to see a google's chromebook pixel
+Message-ID: <CALNOJ_hQRbV_LHORc-qHLE99AUnjAyMTe3EC5=1tTvLEhFfyRw@mail.gmail.com>
+
+Apparently, Linus Torvalds likes Google's Chromebook Pixel
+http://www.forbes.com/sites/jasonevangelho/2013/03/06/linux-founder-linus-torvalds-blasts-pc-industry-praises-googles-chromebook-pixel/
+ I'd like to see a Google Chromebook Pixel.  Does anyone on this list
+have one?  Can I see it?  Can you bring it to a PLUG clinic at
+Freegeek for me to play with it a bit?  Is there any place in Portland
+where I can go to play with it a bit?  I've looked at the mac book
+pros with the high retina display, and I like it.  I'd like to see the
+screen and get a feel for the keyboard, and whatever else for the
+Google Chromebook Pixel.
+
+From rshepard at appl-ecosys.com  Thu Nov  7 08:27:23 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 08:27:23 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+Message-ID: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+
+   When I have a large data file I want to save blocks of lines to separate
+files without saving the entire buffer with a new name.
+
+   My Web search foo is not working this morning: I cannot write a search
+string to find how to save selected lines in a buffer to a different file
+name (there's no menu option for doing this).
+
+   Pointer appreciated.
+
+Rich
+
+
+
+From ddsnell at frontier.com  Thu Nov  7 10:01:14 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Thu, 7 Nov 2013 10:01:14 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+Message-ID: <20131107100114.2a49d423@zothique>
+
+On Thu, 7 Nov 2013 08:27:23 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+>    When I have a large data file I want to save blocks of lines to
+> separate files without saving the entire buffer with a new name.
+> 
+>    My Web search foo is not working this morning: I cannot write a
+> search string to find how to save selected lines in a buffer to a
+> different file name (there's no menu option for doing this).
+> 
+>    Pointer appreciated.
+> 
+> Rich
+
+The following command will do what you want:
+
+    M-x write-region
+
+You'll have to set the region first, of course.
+
+--Dale
+
+--
+"If one would give me six lines written by the hand of the most
+honest man, I would find something in them to have him hanged."
+    -- Cardinal Richelieu
+
+From rshepard at appl-ecosys.com  Thu Nov  7 10:16:14 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 10:16:14 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <20131107100114.2a49d423@zothique>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+Message-ID: <alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+
+On Thu, 7 Nov 2013, Dale Snell wrote:
+
+> The following command will do what you want:
+>    M-x write-region
+
+   Thanks, Dale. I was looking for a key stoke chord, but this will certainly
+do the job. I need to find a list of all these commands; the one I use the
+most is M-x revert-buffer.
+
+Much appreciated,
+
+Rich
+
+
+From dexter at ambidexter.com  Thu Nov  7 10:35:23 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 07 Nov 2013 10:35:23 -0800
+Subject: [PLUG] TONIGHT: November PLUG Meeting: Samba 4
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <527BDD6B.1080700@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Brian Martin
+What: Samba 4
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, November 7th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Brian Marin will talk about his early experiences with Samba 4
+
+Samba provides open-source support for the Microsoft file sharing
+protocol. Version 4 of Samba was released late last year. It represented
+years of work and a major, some would say massive upgrade to Samba to
+include the ability to be a fully functional Active Directory server.
+Given the large scale changes, many people have been avoiding production
+Samba 4 use while waiting for the bugs to be worked out. Brian Martin
+has now started migrating production environments to Samba 4 and will
+discuss his early experiences.
+
+Bio:
+Brian Martin is the chief consultant for Martin Consulting Services,
+Inc. Martin Consulting has provided system administration services in
+Unix, Linux and Windows systems in the Portland metro area and across
+the country since 1996.  Brian is a frequent attendee at PLUG. His past
+presentations include VMWare, production grade scripting, disaster
+recovery experiences, Linux containers, and logical volume management.
+
+Many attendees will break for a social hour at the Lucky Lab Brew Pub NW
+at 1945 NW Quimby
+
+See you there!
+
+Calagator Page: http://calagator.org/events/1250464976
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From wevl at pacifier.com  Thu Nov  7 10:39:06 2013
+From: wevl at pacifier.com (Wayne E. Van Loon Sr.)
+Date: Thu, 07 Nov 2013 10:39:06 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+Message-ID: <527BDE4A.2000707@pacifier.com>
+
+If you are using Xemacs, the mouse has some really convenient and 
+powerful features.
+
+Hold the left mouse button down and drag to mark a region.
+Press the middle button (or if you don't have a 3 button mouse, press 
+both the left and right buttons) to paste.
+After marking a section, press the right button to cut.
+
+Wayne
+
+On 11/07/2013 10:16 AM, Rich Shepard wrote:
+> On Thu, 7 Nov 2013, Dale Snell wrote:
+>
+>> The following command will do what you want:
+>>     M-x write-region
+>     Thanks, Dale. I was looking for a key stoke chord, but this will certainly
+> do the job. I need to find a list of all these commands; the one I use the
+> most is M-x revert-buffer.
+>
+> Much appreciated,
+>
+> Rich
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+>
+
+
+From rshepard at appl-ecosys.com  Thu Nov  7 10:45:50 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 10:45:50 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <527BDE4A.2000707@pacifier.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+Message-ID: <alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+
+On Thu, 7 Nov 2013, Wayne E. Van Loon Sr. wrote:
+
+> If you are using Xemacs, the mouse has some really convenient and
+> powerful features.
+
+Wayne,
+
+   No, regular emacs that comes wih Slackware.
+
+> Hold the left mouse button down and drag to mark a region. Press the
+> middle button (or if you don't have a 3 button mouse, press both the left
+> and right buttons) to paste. After marking a section, press the right
+> button to cut.
+
+   Just as easy to mark a region (keyboard or pointy device), then press
+ctrl-x w to cut and ctrl-x y to yank it back.
+
+Thanks,
+
+Rich
+
+
+From ddsnell at frontier.com  Thu Nov  7 10:54:04 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Thu, 7 Nov 2013 10:54:04 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+Message-ID: <20131107105404.01907c4c@zothique>
+
+On Thu, 7 Nov 2013 10:16:14 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+> On Thu, 7 Nov 2013, Dale Snell wrote:
+> 
+> > The following command will do what you want:
+> >    M-x write-region
+> 
+>    Thanks, Dale. I was looking for a key stoke chord, but this will
+> certainly do the job. I need to find a list of all these commands; the
+> one I use the most is M-x revert-buffer.
+
+C-x RET r will execute revert-buffer-with-coding-system (there being
+no plain "revert-buffer" that I can find).  The manual makes it plain
+that the Emacs authors consider that command rather dangerous.  You
+can use the  undo  command (C-_ or C-/) more safely.
+
+You can get a list of keybindings with the command C-h b (or <f1> b).
+Also, the PDF Emacs manual (which I consider easier to read than
+the .info version) has the function/command and keybindings indexes.
+
+Hope this helps.
+
+--Dale
+
+--
+"Don't only practice your Art, but force your way into its
+Secrets, for it and Knowledge can raise Men to the Divine."
+    -- Ludwig van Beethoven
+
+From ddsnell at frontier.com  Thu Nov  7 11:27:26 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Thu, 7 Nov 2013 11:27:26 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+Message-ID: <20131107112726.77730352@zothique>
+
+On Thu, 7 Nov 2013 10:45:50 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+> 
+>    Just as easy to mark a region (keyboard or pointy device), then press
+> ctrl-x w to cut and ctrl-x y to yank it back.
+> 
+
+That procedure works fine, except that it marks the buffer as
+modified.  That can be fixed with M-~ .  So, being terminally lazy, I
+created a macro in my .init.el:
+
+(global-set-key (kbd "C-x w") 'copy-region-as-kill)
+
+I do quite a bit of copy/paste, and this command makes things more
+convenient.
+
+--Dale
+
+--
+"Have you any idea how successful censorship is on TV?  Don't
+know the answer?  Hmm.  Successful, isn't it?"  -- Max Headroom
+
+From creswick at gmail.com  Thu Nov  7 11:55:44 2013
+From: creswick at gmail.com (Rogan Creswick)
+Date: Thu, 7 Nov 2013 11:55:44 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <20131107112726.77730352@zothique>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+	<20131107112726.77730352@zothique>
+Message-ID: <CAHjep=ydMBQ31pjCSO06RAyZgL-558KOakLHcT3c6d_TNRZUMQ@mail.gmail.com>
+
+On Thu, Nov 7, 2013 at 11:27 AM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> On Thu, 7 Nov 2013 10:45:50 -0800 (PST)
+> Rich Shepard <rshepard at appl-ecosys.com> wrote:
+>
+> >
+> >    Just as easy to mark a region (keyboard or pointy device), then press
+> > ctrl-x w to cut and ctrl-x y to yank it back.
+> >
+>
+> That procedure works fine, except that it marks the buffer as
+> modified.  That can be fixed with M-~ .  So, being terminally lazy, I
+> created a macro in my .init.el:
+>
+> (global-set-key (kbd "C-x w") 'copy-region-as-kill)
+>
+
+kill-ring-save, which is bound to M-w (by default) does the same thing with
+one minor change:
+
+"This command is similar to `copy-region-as-kill', except that it gives
+visual feedback indicating the extent of the region being copied."
+
+(I'm also not sure where C-x y is defined for Rich -- C-y performs yank for
+me.)
+
+--Rogan
+
+
+>
+> I do quite a bit of copy/paste, and this command makes things more
+> convenient.
+>
+> --Dale
+>
+> --
+> "Have you any idea how successful censorship is on TV?  Don't
+> know the answer?  Hmm.  Successful, isn't it?"  -- Max Headroom
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From rshepard at appl-ecosys.com  Thu Nov  7 12:18:48 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 12:18:48 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <20131107112726.77730352@zothique>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+	<20131107112726.77730352@zothique>
+Message-ID: <alpine.LNX.2.00.1311071217050.16836@salmo.appl-ecosys.com>
+
+On Thu, 7 Nov 2013, Dale Snell wrote:
+
+> That procedure works fine, except that it marks the buffer as modified.
+
+   Well, it is modified if I delete content.
+
+> So, being terminally lazy, I created a macro in my .init.el:
+>
+> (global-set-key (kbd "C-x w") 'copy-region-as-kill)
+> I do quite a bit of copy/paste, and this command makes things more
+> convenient.
+
+   When I want to copy a marked block I use C-x w followed by C-x y. Doesn't
+need an additional macro.
+
+Thanks,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From rshepard at appl-ecosys.com  Thu Nov  7 12:21:59 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 12:21:59 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <CAHjep=ydMBQ31pjCSO06RAyZgL-558KOakLHcT3c6d_TNRZUMQ@mail.gmail.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+	<20131107112726.77730352@zothique>
+	<CAHjep=ydMBQ31pjCSO06RAyZgL-558KOakLHcT3c6d_TNRZUMQ@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1311071219320.16836@salmo.appl-ecosys.com>
+
+On Thu, 7 Nov 2013, Rogan Creswick wrote:
+
+> kill-ring-save, which is bound to M-w (by default) does the same thing with
+> one minor change:
+
+> (I'm also not sure where C-x y is defined for Rich -- C-y performs yank for
+> me.)
+
+Rogan,
+
+   You're correct on both points. I use M-w to copy marked block and C-y to
+yank it. My fingers just do it so when writing my messages I did not report it
+correctly.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From ddsnell at frontier.com  Thu Nov  7 12:49:47 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Thu, 7 Nov 2013 12:49:47 -0800
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311071217050.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+	<20131107112726.77730352@zothique>
+	<alpine.LNX.2.00.1311071217050.16836@salmo.appl-ecosys.com>
+Message-ID: <20131107124947.429e7ec7@zothique>
+
+On Thu, 7 Nov 2013 12:18:48 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+> On Thu, 7 Nov 2013, Dale Snell wrote:
+> 
+> > That procedure works fine, except that it marks the buffer as modified.
+> 
+>    Well, it is modified if I delete content.
+> 
+> > So, being terminally lazy, I created a macro in my .init.el:
+> >
+> > (global-set-key (kbd "C-x w") 'copy-region-as-kill)
+> > I do quite a bit of copy/paste, and this command makes things more
+> > convenient.
+> 
+>
+>    When I want to copy a marked block I use C-x w followed by C-x y.
+> Doesn't need an additional macro.
+
+???
+
+Do you perhaps mean C-w (kill-region)?  I chose "C-x w" specifically
+because that key combo was not bound to anything else.  Also, while
+kill-region / yank-region leaves the buffer essentially unchanged, the
+buffer is still marked as modified.  That's why I created that little
+bit of code.  I got tired of telling Emacs that yes, I know the buffer
+is modified and no, I really do not want to save it.
+
+Also, what is "C-x y"?  It's not in my copy of the manual.
+
+--Dale
+
+--
+"America believes in education: the average professor earns more
+money in a year than a professional athlete earns in a whole
+week."    -- Evan Esar
+
+From rshepard at appl-ecosys.com  Thu Nov  7 13:00:28 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 7 Nov 2013 13:00:28 -0800 (PST)
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <20131107124947.429e7ec7@zothique>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+	<20131107100114.2a49d423@zothique>
+	<alpine.LNX.2.00.1311071013470.16836@salmo.appl-ecosys.com>
+	<527BDE4A.2000707@pacifier.com>
+	<alpine.LNX.2.00.1311071044240.16836@salmo.appl-ecosys.com>
+	<20131107112726.77730352@zothique>
+	<alpine.LNX.2.00.1311071217050.16836@salmo.appl-ecosys.com>
+	<20131107124947.429e7ec7@zothique>
+Message-ID: <alpine.LNX.2.00.1311071257160.16836@salmo.appl-ecosys.com>
+
+On Thu, 7 Nov 2013, Dale Snell wrote:
+
+> Do you perhaps mean C-w (kill-region)?
+
+Dale,
+
+   I'm doing too much at once. C-w kills the region, M-w copies it.
+
+> I got tired of telling Emacs that yes, I know the buffer is modified and
+> no, I really do not want to save it.
+
+   I'm so used to typing C-x C-s to save the buffer that I do it
+automatically. I cannot think when I modified the buffer and did not want to
+save the new state.
+
+Thanks very much,
+
+Rich
+
+
+From johnxj at comcast.net  Thu Nov  7 16:32:58 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 7 Nov 2013 16:32:58 -0800
+Subject: [PLUG] Running MythTV Backend Setup on Mythbuntu
+In-Reply-To: <527B26C6.8080406@dicksteffens.com>
+References: <52798338.6060301@dicksteffens.com>
+	<20131105182038.08d3c679@Devil8>
+	<527A9421.1000003@dicksteffens.com>
+	<20131106164147.53969efd@Devil8>
+	<527B26C6.8080406@dicksteffens.com>
+Message-ID: <20131107163258.316c4488@Devil8>
+
+On Wed, 06 Nov 2013 21:36:06 -0800
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+>On 11/06/2013 04:41 PM, John Jason Jordan wrote:
+>> I wonder if the hdhomerun-config utility keeps a list of channels
+>> that it found the last time the user did a scan. If so, and if the
+>> list also includes the information necessary to connect to each
+>> channel, it should be simple enough to present the user with a GUI
+>> list of the channels, each with a Play button, and setting it up so
+>> that clicking on a button sends that stream to VLC, while
+>> terminating any previous streams that VLC was playing, or launching
+>> VLC if it was not already running.
+
+>Here's a start. Mr. Google responded with these to the following foo:
+>
+>hdhomerun command line linux
+>
+>http://www.silicondust.com/hdhomerun/hdhomerun_development.pdf
+>http://www.silicondust.com/hdhomerun/hdhomerun_tech.pdf
+>
+>Plus several others that look promising.
+>
+>What's needed next is an understanding of how to program for a GUI.
+>I've been taking pokes at it -- I wouldn't call what I've done so far
+>a stab. But each time I find something I run into issues getting it to
+>work. What would be nice is a start to finish, with pictures, of hello
+>world in a GUI for Ubuntu 12.04 running with gnome-session-fallback.
+>I've got a couple of Python programs I'd like to make work in this
+>environment, too. If I can figure out what GUI development tools to
+>use, and get them working, I could take a stab (instead of a poke) at
+>scripting a TV to VLC widget. I think the command line options for the
+>HDHomeRun should be able to be sent from a GUI widget.
+
+The first URL above gets me a PDF for the model that you have, but I
+have the Prime. The second one got me a PDF with interesting
+information about controlling the HDHomeRun from the command line. Most
+interesting was the part about streaming to VLC on pages 8 and 9.
+Unfortunately, I must have a different version of VLC than they used to
+create the instructions.
+
+Nevertheless, it occurred to me even before reading the above PDFs that
+VLC has a fully configurable playlist function. All I need to do is
+create a playlist item for each channel, where clicking on the playlist
+entry makes VLC get the stream for that particular channel. If I can
+succeed in doing that then there is no need for a bash script or GUI
+program at all. I can do everything I want just with VLC.
+
+Unfortunately, so far I have failed to figure out how to define the
+stream for a given channel in a way that VLC can understand. The PDF
+says "Run VLC: File, Open Network Stream. Select UDP/RTP. Specify port
+5000," but when I open File > Network Stream I have no option to select
+UDP/RTP or to specify a port. But if I go to View > Playlist I do have
+the option to specify UDP<legacy>, although after going through the
+screens various times I failed to get it working.
+
+By the way, using my HDHomeRUN device ID 103D39F1, the command:
+
+hdhomerun_config scan 103D39F1 /tuner0 ~/channels.txt
+
+Produces a text file with the channels. Again, I fail to understand all
+of the text file. Here is an example from it:
+
+SCANNING: 683000000 (us-bcast:49)
+LOCK: 8vsb (ss=60 snq=59 seq=100)
+TSID: 0x0E1B
+PROGRAM 3: 17.2 KWVT DT
+PROGRAM 4: 27.2 RetroTV
+PROGRAM 5: 37.2 Azteca
+
+And so on for all the channels. 
+
+I'm not giving up. I think it's possible to make a playlist in VLC,
+it's just going to take more poking around before I figure it out.
+
+From johnxj at comcast.net  Thu Nov  7 16:54:50 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 7 Nov 2013 16:54:50 -0800
+Subject: [PLUG] Free USB 3.0 PCI-E Add-on Card
+Message-ID: <20131107165450.25138f30@Devil8>
+
+I paid less than $10 for it and it's not worth shipping back to Newegg.
+
+It's an ORICO PCI-Express (1 or 16) card that will add four USB 3.0
+ports on the back of a desktop computer. It's for an older system that
+does not have USB 3.0. It requires a Molex connector for power (the big
+four-pin plugs that are about one inch wide).
+
+I haven't actually tried it or tested it to see how fast it is. 
+
+From wamorita at gmail.com  Fri Nov  8 04:04:09 2013
+From: wamorita at gmail.com (Bill Morita)
+Date: Fri, 8 Nov 2013 06:04:09 -0600
+Subject: [PLUG] Emacs: save marked lines to new file
+In-Reply-To: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1311070824110.16836@salmo.appl-ecosys.com>
+Message-ID: <CALgdxo9iA3_HQic7GtQS8Tuzw4BArqqw7f=iTh5BNRbWySqwbQ@mail.gmail.com>
+
+You admit to using Emacs MENUS ?
+
+-- Bill Morita
+512-569-6387 (Cell)
+
+
+On Thu, Nov 7, 2013 at 10:27 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    When I have a large data file I want to save blocks of lines to separate
+> files without saving the entire buffer with a new name.
+>
+>    My Web search foo is not working this morning: I cannot write a search
+> string to find how to save selected lines in a buffer to a different file
+> name (there's no menu option for doing this).
+>
+>    Pointer appreciated.
+>
+> Rich
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From johnxj at comcast.net  Fri Nov  8 18:12:55 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 8 Nov 2013 18:12:55 -0800
+Subject: [PLUG] Free Cable Modem
+Message-ID: <20131108181255.01b19c04@Devil8>
+
+I just upgraded to a Motorola Surfboard SB6121 Docsis 3.0 modem, so my
+old Linksys Docsis 2.0 modem is free to a good home. It is model CM100
+and has served me well for several years. Google should tell you the
+rest of the specs on it.
+
+My new modem, coupled with a service upgrade, gives me twice the speed.
+I just downloaded Slackware 14.1 DVD, 2.31 GB, in 6.05 minutes, while
+simultaneously streaming internet radio on another computer. 
+
+From heinlein at madboa.com  Fri Nov  8 18:57:26 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Fri, 8 Nov 2013 18:57:26 -0800 (PST)
+Subject: [PLUG] Free Cable Modem
+In-Reply-To: <20131108181255.01b19c04@Devil8>
+References: <20131108181255.01b19c04@Devil8>
+Message-ID: <alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+
+On Fri, 8 Nov 2013, John Jason Jordan wrote:
+
+> I just upgraded to a Motorola Surfboard SB6121 Docsis 3.0 modem, so 
+> my old Linksys Docsis 2.0 modem is free to a good home. It is model 
+> CM100 and has served me well for several years. Google should tell 
+> you the rest of the specs on it.
+>
+> My new modem, coupled with a service upgrade, gives me twice the 
+> speed. I just downloaded Slackware 14.1 DVD, 2.31 GB, in 6.05 
+> minutes, while simultaneously streaming internet radio on another 
+> computer.
+
+With a DOCSIS 3 modem on Comcast's network, you get a /64 IPv6 address 
+space.
+
+You might want to check if your workstation has a global IPv6 address. 
+If so, make sure you've got some sort of ingress filtering, either at 
+your border router or on each host.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From johnxj at comcast.net  Fri Nov  8 23:55:05 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 8 Nov 2013 23:55:05 -0800
+Subject: [PLUG] Free Cable Modem
+In-Reply-To: <alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+References: <20131108181255.01b19c04@Devil8>
+	<alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+Message-ID: <20131108235505.37ef5327@Devil8>
+
+On Fri, 8 Nov 2013 18:57:26 -0800 (PST)
+Paul Heinlein <heinlein at madboa.com> dijo:
+
+>On Fri, 8 Nov 2013, John Jason Jordan wrote:
+>
+>> I just upgraded to a Motorola Surfboard SB6121 Docsis 3.0 modem, so 
+>> my old Linksys Docsis 2.0 modem is free to a good home. It is model 
+>> CM100 and has served me well for several years. Google should tell 
+>> you the rest of the specs on it.
+>>
+>> My new modem, coupled with a service upgrade, gives me twice the 
+>> speed. I just downloaded Slackware 14.1 DVD, 2.31 GB, in 6.05 
+>> minutes, while simultaneously streaming internet radio on another 
+>> computer.
+
+>With a DOCSIS 3 modem on Comcast's network, you get a /64 IPv6 address 
+>space.
+>
+>You might want to check if your workstation has a global IPv6 address. 
+>If so, make sure you've got some sort of ingress filtering, either at 
+>your border router or on each host.
+
+My router has a firewall. Otherwise, I don't know why I should be
+concerned. I've used computers behind the router for over a decade and
+there has never been a problem. My previous router didn't even have a
+firewall, and still never a problem.
+
+I am aware of the existence of /64 IPv6 address space, but I know zero
+about it. Does this increase security concerns? 
+
+From russell at personaltelco.net  Sat Nov  9 02:08:02 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 09 Nov 2013 02:08:02 -0800
+Subject: [PLUG] Free Cable Modem
+In-Reply-To: <20131108235505.37ef5327@Devil8> (John Jason Jordan's message of
+	"Fri\, 8 Nov 2013 23\:55\:05 -0800")
+References: <20131108181255.01b19c04@Devil8>
+	<alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+	<20131108235505.37ef5327@Devil8>
+Message-ID: <86hablopkt.fsf@coulee.tdb.com>
+
+>>>>> "John" == John Jason Jordan <johnxj at comcast.net> writes:
+
+Paul> You might want to check if your workstation has a global IPv6
+Paul> address.  If so, make sure you've got some sort of ingress
+Paul> filtering, either at your border router or on each host.
+
+John> My router has a firewall. Otherwise, I don't know why I should
+John> be concerned. I've used computers behind the router for over a
+John> decade and there has never been a problem. My previous router
+John> didn't even have a firewall, and still never a problem.
+
+John> I am aware of the existence of /64 IPv6 address space, but I
+John> know zero about it. Does this increase security concerns?
+
+Even though your DOCSIS 3 modem might support IPv6 now, your router (if
+it isn't very new) probably doesn't, so you *probably* don't have
+anything to worry about.  But, IPv6 generally means no Network Address
+Translation (the poor-man's firewall that has protected most people's
+LANs for the last decade plus or so from connections from the outside,
+as a side effect).  No NAT means your host's IPv6 address (if it has a
+global one) is globally routable and anybody on the IPv6 interwebs can
+reach your hosts IPv6 address.  Your router might now have an IPv6
+address, but as long as it doesn't advertise it on the LAN, then your
+internal hosts won't have a globally routable IPv6 address and they
+are "safe".
+
+Newer routers are probably going to start coming with IPv6 out of the
+box though, so something to be aware of.
+
+Run:
+
+  $ ip a
+
+and see if there are any inet6 addresses that don't start with 'f'
+(fe80 is a local prefix, 2000:... or 2001:... or suchlike are global).
+
+On the other hand, an attacker trying to scan your /64 is likely going
+to wait a very very long time (2^64 is a LARGE NUMBER (not quite
+avagadro's but in the general ballpark) and it will take MANY DAYS to
+check all of the possible addresses).  
+
+If he can find out your address though (e.g. by seeing some of your
+IPv6 traffic), he can try to connect directly to your computer.  Your
+computer is free to ignore him, but it might not always when, in the
+fullness of time, you think it should have.  Hence the need for
+greater firewally vigilance in the IPv6 context, or at least more
+consciousness about host security.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From heinlein at madboa.com  Sat Nov  9 07:44:56 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Sat, 9 Nov 2013 07:44:56 -0800 (PST)
+Subject: [PLUG] Free Cable Modem
+In-Reply-To: <20131108235505.37ef5327@Devil8>
+References: <20131108181255.01b19c04@Devil8>
+	<alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+	<20131108235505.37ef5327@Devil8>
+Message-ID: <alpine.OSX.2.11.1311090706500.71467@silver.madboa.com>
+
+On Fri, 8 Nov 2013, John Jason Jordan wrote:
+
+> My router has a firewall. Otherwise, I don't know why I should be 
+> concerned. I've used computers behind the router for over a decade 
+> and there has never been a problem. My previous router didn't even 
+> have a firewall, and still never a problem.
+>
+> I am aware of the existence of /64 IPv6 address space, but I know 
+> zero about it. Does this increase security concerns?
+
+Russell's response is quite good, so I'll just add a few other 
+data to the mix.
+
+My brand new ASUS wireless router runs Linux under the hood. It has 
+the typical IPv4 firewall/NAT features and supports IPv6 via its GUI, 
+but it provides no IPv6 ingress filtering.
+
+It thinks it does. It's got ip6tables running with what appears to be 
+a decent ruleset, but in reality the rules aren't blocking inbound 
+traffic. (I verified this using nc to listen on arbitrary ports.)
+
+I had to enable host-based firewalls to manage inbound IPv6 traffic.
+
+Anyway, the lesson seems to be that if you've got a Comcast IPv6 
+netblock assigned to your router, it's probably best to check that 
+your firewall is working in IPv6 land as well as IPv4.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From johnxj at comcast.net  Sat Nov  9 08:19:07 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 9 Nov 2013 08:19:07 -0800
+Subject: [PLUG] Free Cable Modem
+In-Reply-To: <86hablopkt.fsf@coulee.tdb.com>
+References: <20131108181255.01b19c04@Devil8>
+	<alpine.OSX.2.11.1311081854420.68995@silver.madboa.com>
+	<20131108235505.37ef5327@Devil8> <86hablopkt.fsf@coulee.tdb.com>
+Message-ID: <20131109081907.3d7847ce@Devil8>
+
+On Sat, 09 Nov 2013 02:08:02 -0800
+Russell Senior <russell at personaltelco.net> dijo:
+
+>Run:
+>
+>  $ ip a
+>
+>and see if there are any inet6 addresses that don't start with 'f'
+>(fe80 is a local prefix, 2000:... or 2001:... or suchlike are global).
+
+I don't think there are any addresses to worry about:
+
+jjj at Devil8:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast
+state UP qlen 1000 link/ether 00:1a:6b:d0:97:f9 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.102/24 brd 192.168.0.255 scope global eth0
+    inet6 fe80::21a:6bff:fed0:97f9/64 scope link 
+       valid_lft forever preferred_lft forever
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state
+DOWN qlen 1000 link/ether 00:13:e8:b7:47:59 brd ff:ff:ff:ff:ff:ff
+
+The desktop computer is the same, except it has no wlan0.
+
+Nevertheless, I think I am going to poke around to see what my D-Link
+DGL 4100 router provides.
+
+From russell at personaltelco.net  Wed Nov 13 23:48:31 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 13 Nov 2013 23:48:31 -0800
+Subject: [PLUG] PCENGINES group order?
+Message-ID: <86iovvh19s.fsf@coulee.tdb.com>
+
+
+Hi folks!
+
+I (and/or Personal Telco) am contemplating buying some little doodads
+from PC Engines (pcengines.ch), in particular some of the newer alix
+2d cases and wall brackets, maybe some of their mmcx to rpsma pigtails
+(which are super cheap, $2.90 each).  The per-piece prices are
+excellent, but the shipping is hella-expensive, minimum around $45.
+Last time I did this, the shipping time was under 2 weeks.
+
+Does anyone want to go in on the order to better amortize the shipping
+expense?  Check out:
+
+  http://pcengines.ch/order1.php?c=4
+
+Let me know (by private email, please) ASAP.  Thanks!
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From xophere at gmail.com  Thu Nov 14 00:32:24 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Thu, 14 Nov 2013 00:32:24 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <86iovvh19s.fsf@coulee.tdb.com>
+References: <86iovvh19s.fsf@coulee.tdb.com>
+Message-ID: <CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+
+I have friend who used a lot of those boxes running pfense and had lots or
+performance problems with any applications that required encryption or
+decryption.  Also had a high failure rate.  Which wouldn't have been a
+problem except they would fail in interesting ways.  Several couldn't push
+10Mbe on one of their interfaces.  Wasn't a configuration because identical
+models running identical code was fine.  Makes you look really bad when it
+really is not the cable companies fault that you can't push a solid 3 Mbe
+link.
+
+
+
+
+
+On Wed, Nov 13, 2013 at 11:48 PM, Russell Senior
+<russell at personaltelco.net>wrote:
+
+>
+> Hi folks!
+>
+> I (and/or Personal Telco) am contemplating buying some little doodads
+> from PC Engines (pcengines.ch), in particular some of the newer alix
+> 2d cases and wall brackets, maybe some of their mmcx to rpsma pigtails
+> (which are super cheap, $2.90 each).  The per-piece prices are
+> excellent, but the shipping is hella-expensive, minimum around $45.
+> Last time I did this, the shipping time was under 2 weeks.
+>
+> Does anyone want to go in on the order to better amortize the shipping
+> expense?  Check out:
+>
+>   http://pcengines.ch/order1.php?c=4
+>
+> Let me know (by private email, please) ASAP.  Thanks!
+>
+>
+> --
+> Russell Senior, President
+> russell at personaltelco.net
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From russell at personaltelco.net  Thu Nov 14 01:20:52 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 14 Nov 2013 01:20:52 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+	(Chris Schafer's message of "Thu\, 14 Nov 2013 00\:32\:24 -0800")
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+Message-ID: <864n7fgwzv.fsf@coulee.tdb.com>
+
+>>>>> "Chris" == Chris Schafer <xophere at gmail.com> writes:
+
+Chris> I have friend who used a lot of those boxes running pfense and
+Chris> had lots or performance problems with any applications that
+Chris> required encryption or decryption.  Also had a high failure
+Chris> rate. [...]
+
+FWIW, we have about 15 of them in the field since about 2009 or so.
+We've had one failure.  Otherwise, rock solid for us with uptimes of a
+year plus.  CPU percent utilization rarely goes above low single digits.
+
+Of course, we are using a modern OS.  ;-)
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From xophere at gmail.com  Thu Nov 14 08:23:40 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Thu, 14 Nov 2013 08:23:40 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <864n7fgwzv.fsf@coulee.tdb.com>
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+	<864n7fgwzv.fsf@coulee.tdb.com>
+Message-ID: <CAHMmuJVrzSPNVyKxLxQJEDTc4-i2mQvx6+P+_13BY10hh0uP6g@mail.gmail.com>
+
+Oh perhaps it was somewhat climate and housing related then.  I suppose it
+depends on your use case.  If you don't cause any load on them I am sure
+they are fine.
+
+Which OS would that be?  There are many things that are great about Linux
+but I find your use of the term "modern" somewhat confusing.  Whether you
+are talking about the kernel or the user land would we really say that
+Linux is modern?  Free, powerful, familiar, robust, ?  I mean of the
+packaged router in a box systems I think it is really hard to beat pfsense.
+ And I have used most of them.  That said if you are gonna do it all from
+the command line it probably doesn't matter which one you use if it has
+crypto library support for the onboard chipset.
+
+The hope with these boards was that they had the cpu to do the vpn and
+routing we needed at the time.  If properly tuned they would just get by.
+ But given the hot climate they were installed in perhaps the case and
+complete packaging where at fault there.
+
+I mean they are sort of between a full PC router and a linksys class
+OpenWRT box.  There was basically one OpenVPN setting that would work with
+the on board accelerator.  The rest would work but could only push like
+50-80Kbits between the links.  No crypto was 2Mbit as was the one
+compatible library setting.
+
+From xophere at gmail.com  Thu Nov 14 12:06:34 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Thu, 14 Nov 2013 12:06:34 -0800
+Subject: [PLUG] and I thought the badBOIS story was scary...
+Message-ID: <CAHMmuJUYCHa6i3+yNgiTkX3ttW_L4MSJRBzd93YvmrkLy0pTrQ@mail.gmail.com>
+
+When can you really trust what is inside the black box?
+
+http://www.osnews.com/story/27416/The_second_operating_system_hiding_in_every_mobile_phone
+
+From russell at personaltelco.net  Thu Nov 14 12:09:21 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 14 Nov 2013 12:09:21 -0800
+Subject: [PLUG] Personal Telco Project gets a little ink
+Message-ID: <86vbzubv9q.fsf@coulee.tdb.com>
+
+
+This borders on off-topic, but since Personal Telco originated as a
+spin-off from PLUG, I convinced myself it's okay to skirt the edge:
+
+  http://www.nytimes.com/2013/11/14/technology/personaltech/homemade-wireless-networks-keep-the-snoops-away.html
+
+Freedom++
+
+Btw, Personal Telco is considering the viability of having a
+year-end Electronic Frontier Foundation Appreciation Party.  Sometime
+in December, maybe the first week.  Anyone interested?
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From dexter at ambidexter.com  Thu Nov 14 12:40:20 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 14 Nov 2013 12:40:20 -0800
+Subject: [PLUG] Advanced Topics thoughts?
+Message-ID: <52853534.2010403@ambidexter.com>
+
+
+Hello all,
+
+I have not heard back from my potential AT speaker this month and I am
+off to the Supercomputing convention the next morning on a
+horribly-early flight.
+
+Can I sway people towards an informal meeting at the Lucky Lab or might
+another keyholder have something in mind?
+
+One self-serving idea I could drag myself out for is a hackathon on
+booting Linux in bhyve. I see that every distro does things a bit
+differently and it's slow going to get them working. :)
+
+All the best,
+
+Michael Dexter
+PLUG Volunteer
+
+From tsharples at qorvus.com  Thu Nov 14 13:49:30 2013
+From: tsharples at qorvus.com (Tom Sharples)
+Date: Thu, 14 Nov 2013 13:49:30 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <CAHMmuJVrzSPNVyKxLxQJEDTc4-i2mQvx6+P+_13BY10hh0uP6g@mail.gmail.com>
+References: <86iovvh19s.fsf@coulee.tdb.com><CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com><864n7fgwzv.fsf@coulee.tdb.com>
+	<CAHMmuJVrzSPNVyKxLxQJEDTc4-i2mQvx6+P+_13BY10hh0uP6g@mail.gmail.com>
+Message-ID: <0D1CBFD87EE1487381C7E85AF43C6635@Tomoffice>
+
+Were they using the older "wrap" board or the newer "alix"? The wraps did 
+have reliability and performance problems. But we have hundreds of the alix 
+3c/d boards in outdoor settings in widely varying temperatures runing Slack, 
+and they have been rock-solid and quite speedy for us.
+
+Tom S.
+
+----- Original Message ----- 
+From: "Chris Schafer" <xophere at gmail.com>
+To: "Portland Linux/Unix Group" <plug at lists.pdxlinux.org>
+Sent: Thursday, November 14, 2013 8:23 AM
+Subject: Re: [PLUG] PCENGINES group order?
+
+
+> Oh perhaps it was somewhat climate and housing related then.  I suppose it
+> depends on your use case.  If you don't cause any load on them I am sure
+> they are fine.
+>
+> Which OS would that be?  There are many things that are great about Linux
+> but I find your use of the term "modern" somewhat confusing.  Whether you
+> are talking about the kernel or the user land would we really say that
+> Linux is modern?  Free, powerful, familiar, robust, ?  I mean of the
+> packaged router in a box systems I think it is really hard to beat 
+> pfsense.
+> And I have used most of them.  That said if you are gonna do it all from
+> the command line it probably doesn't matter which one you use if it has
+> crypto library support for the onboard chipset.
+>
+> The hope with these boards was that they had the cpu to do the vpn and
+> routing we needed at the time.  If properly tuned they would just get by.
+> But given the hot climate they were installed in perhaps the case and
+> complete packaging where at fault there.
+>
+> I mean they are sort of between a full PC router and a linksys class
+> OpenWRT box.  There was basically one OpenVPN setting that would work with
+> the on board accelerator.  The rest would work but could only push like
+> 50-80Kbits between the links.  No crypto was 2Mbit as was the one
+> compatible library setting.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug 
+
+
+From xophere at gmail.com  Thu Nov 14 14:09:23 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Thu, 14 Nov 2013 14:09:23 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <0D1CBFD87EE1487381C7E85AF43C6635@Tomoffice>
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+	<864n7fgwzv.fsf@coulee.tdb.com>
+	<CAHMmuJVrzSPNVyKxLxQJEDTc4-i2mQvx6+P+_13BY10hh0uP6g@mail.gmail.com>
+	<0D1CBFD87EE1487381C7E85AF43C6635@Tomoffice>
+Message-ID: <CAHMmuJW+_nLjbRc48Lz4TJibTO=5JT-U9Lh=GWRiNBr9KZO55A@mail.gmail.com>
+
+Alix.
+
+
+On Thu, Nov 14, 2013 at 1:49 PM, Tom Sharples <tsharples at qorvus.com> wrote:
+
+> Were they using the older "wrap" board or the newer "alix"? The wraps did
+> have reliability and performance problems. But we have hundreds of the alix
+> 3c/d boards in outdoor settings in widely varying temperatures runing
+> Slack,
+> and they have been rock-solid and quite speedy for us.
+>
+> Tom S.
+>
+> ----- Original Message -----
+> From: "Chris Schafer" <xophere at gmail.com>
+> To: "Portland Linux/Unix Group" <plug at lists.pdxlinux.org>
+> Sent: Thursday, November 14, 2013 8:23 AM
+> Subject: Re: [PLUG] PCENGINES group order?
+>
+>
+> > Oh perhaps it was somewhat climate and housing related then.  I suppose
+> it
+> > depends on your use case.  If you don't cause any load on them I am sure
+> > they are fine.
+> >
+> > Which OS would that be?  There are many things that are great about Linux
+> > but I find your use of the term "modern" somewhat confusing.  Whether you
+> > are talking about the kernel or the user land would we really say that
+> > Linux is modern?  Free, powerful, familiar, robust, ?  I mean of the
+> > packaged router in a box systems I think it is really hard to beat
+> > pfsense.
+> > And I have used most of them.  That said if you are gonna do it all from
+> > the command line it probably doesn't matter which one you use if it has
+> > crypto library support for the onboard chipset.
+> >
+> > The hope with these boards was that they had the cpu to do the vpn and
+> > routing we needed at the time.  If properly tuned they would just get by.
+> > But given the hot climate they were installed in perhaps the case and
+> > complete packaging where at fault there.
+> >
+> > I mean they are sort of between a full PC router and a linksys class
+> > OpenWRT box.  There was basically one OpenVPN setting that would work
+> with
+> > the on board accelerator.  The rest would work but could only push like
+> > 50-80Kbits between the links.  No crypto was 2Mbit as was the one
+> > compatible library setting.
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From russell at personaltelco.net  Thu Nov 14 14:35:50 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 14 Nov 2013 14:35:50 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <CAHMmuJW+_nLjbRc48Lz4TJibTO=5JT-U9Lh=GWRiNBr9KZO55A@mail.gmail.com>
+	(Chris Schafer's message of "Thu\, 14 Nov 2013 14\:09\:23 -0800")
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+	<864n7fgwzv.fsf@coulee.tdb.com>
+	<CAHMmuJVrzSPNVyKxLxQJEDTc4-i2mQvx6+P+_13BY10hh0uP6g@mail.gmail.com>
+	<0D1CBFD87EE1487381C7E85AF43C6635@Tomoffice>
+	<CAHMmuJW+_nLjbRc48Lz4TJibTO=5JT-U9Lh=GWRiNBr9KZO55A@mail.gmail.com>
+Message-ID: <86iovua9x5.fsf@coulee.tdb.com>
+
+>>>>> "Chris" == Chris Schafer <xophere at gmail.com> writes:
+
+>> Were they using the older "wrap" board or the newer "alix"? The
+>> wraps did have reliability and performance problems. But we have
+>> hundreds of the alix 3c/d boards in outdoor settings in widely
+>> varying temperatures runing Slack, and they have been rock-solid
+>> and quite speedy for us.
+
+Chris> Alix.
+
+The older stuff, like the Soekris 45xx boards (133 Mhz AMD ElanSC520)
+are super-slow on launching ssh sessions for us, like 30 seconds
+regardless of link-speed.  Clearly some kind CPU issue.  Fortunately,
+we only have a few of those floating around in the field, and we
+rarely have to log in to them. ;-) Even the Soekris 48xx boards are
+much better.  I think they must do some kind of NSA-offload (rot13?),
+they encrypt super-fast!
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From dexter at ambidexter.com  Thu Nov 14 15:08:54 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 14 Nov 2013 15:08:54 -0800
+Subject: [PLUG] TUESDAY: November PLUG Advanced Topics: Android App Collusion
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <52855806.90702@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Rogan Creswick
+What: Multi-App Security Analysis: Looking for Android App Collusion
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, November 19th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+The Android permission model opens up a number of opportunities for apps
+to bypass the established single-app permission checks that Android
+users rely on to control data flow and application behavior on their
+devices. I'll do my best to terrify the Android-using audience by
+describing the attack surface for colluding applications and showing
+interactive visualizations of multi-app data flow.  We'll look at the
+Android permission model, the user-interface it results in, and I'll
+show just how easy it is to make apps that look innocuous.
+
+Bio:
+
+Rogan Creswick develops unique tools and techniques for software
+development and security analysis at Galois, Inc. His research interests
+focus on improving the state of the art in software engineering tools
+and user interfaces. His experience also reaches into the areas of user
+interface automation and customization via integrated assistants and
+automated documentation aides at IBM Research. He has striven to provide
+natural interfaces to ease communication with complex and semi-sentient
+agents through existing tools that have already become trustworthy and
+familiar to their users.
+
+Many will head to the Lucky Lab on Hawthorne after the meeting.
+
+Calagator Page: http://calagator.org/events/1250465052
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+From keithl at gate.kl-ic.com  Thu Nov 14 17:34:27 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Thu, 14 Nov 2013 17:34:27 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+Message-ID: <20131115013427.GA2490@gate.kl-ic.com>
+
+On Thu, Nov 14, 2013 at 12:32:24AM -0800, Chris Schafer wrote:
+> I have friend who used a lot of those boxes running pfense and had lots or
+> performance problems with any applications that required encryption or
+> decryption.  Also had a high failure rate.  Which wouldn't have been a
+> problem except they would fail in interesting ways.  Several couldn't push
+> 10Mbe on one of their interfaces.  Wasn't a configuration because identical
+> models running identical code was fine.  Makes you look really bad when it
+> really is not the cable companies fault that you can't push a solid 3 Mbe
+> link.
+
+I run two Alixes (Ali?) as firewalls at two sites, both running a
+stripped-down version of the CentOS 5 distro, and connected to 
+each other, my outside servers, and road warriors with OpenVPN.  
+I have not seen the failures Chris talks about, though I keep a
+third ALIX ready as a spare, just in case.
+
+I don't really know about performance.  They move unencrypted 
+bits through the FIOS link just fine (15Mbps upload, 5Mbps
+download, as advertised), and rsync backups over the VPN
+from a server in California are just a little slower. 
+
+The AMD Geode that drives these machines has an encryption engine
+that OpenVPN is not currently using.  Perhaps that can help with
+speed, if someone tells me how to engage it.  Also, in both cases
+I shove all the logging bits (unencrypted) to local servers, so
+I do few writes to the compact flash card I use as main storage. 
+If I did more local read/writes, I imagine the ALIX would be a
+lot slower and less reliable.
+
+I am using "x133" CF cards.  8GB cards are $10 from Newegg, and
+I only use about 1.2GB of that.  Are faster cards worth it?
+
+While I do not need Yet Another Spare, it would be good to prove
+the usability of these machines, so that more local users would
+have them, and more people could teach me to do it right.  So if
+anyone can suggest some easy measurements, or do them in their
+own lab, perhaps we can demonstrate the quality and speed of
+these little machines, either to convince others to join us,
+or to find a better alternative.  Either way, we should use
+what PTP uses, and leverage from their experience.
+
+If I upgrade from an Alix, I would like something small, X86,
+solid state, low power (4 watts or less), and inexpensive. 
+I don't know of anything better in that class.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From xophere at gmail.com  Thu Nov 14 17:59:47 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Thu, 14 Nov 2013 17:59:47 -0800
+Subject: [PLUG] PCENGINES group order?
+In-Reply-To: <20131115013427.GA2490@gate.kl-ic.com>
+References: <86iovvh19s.fsf@coulee.tdb.com>
+	<CAHMmuJW-7EhePF_e5-NdX_r+PsTinCLeyKcjpf+=PH1XAGRmrw@mail.gmail.com>
+	<20131115013427.GA2490@gate.kl-ic.com>
+Message-ID: <CAHMmuJUu9YpAHSxe3cN3-qzCZ_-n=t5BannCvD1C_RMZ9gVopQ@mail.gmail.com>
+
+On the pfsense side there is one OpenVPN encryption setting supported.  It
+is the difference between usable and usable encryption links.  Though it is
+lower then the settings I would prefer for end users.  Seems fine for
+running links across the cable companies network.
+
+These guys carry a pretty good variety of small low power systems:
+
+http://www.hacom.net/catalog/jupiter-iv-1u-server-pfsense-appliance?gclid=CJHwy8TY5boCFQdyQgodaQYABA
+
+
+
+
+On Thu, Nov 14, 2013 at 5:34 PM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+
+> On Thu, Nov 14, 2013 at 12:32:24AM -0800, Chris Schafer wrote:
+> > I have friend who used a lot of those boxes running pfense and had lots
+> or
+> > performance problems with any applications that required encryption or
+> > decryption.  Also had a high failure rate.  Which wouldn't have been a
+> > problem except they would fail in interesting ways.  Several couldn't
+> push
+> > 10Mbe on one of their interfaces.  Wasn't a configuration because
+> identical
+> > models running identical code was fine.  Makes you look really bad when
+> it
+> > really is not the cable companies fault that you can't push a solid 3 Mbe
+> > link.
+>
+> I run two Alixes (Ali?) as firewalls at two sites, both running a
+> stripped-down version of the CentOS 5 distro, and connected to
+> each other, my outside servers, and road warriors with OpenVPN.
+> I have not seen the failures Chris talks about, though I keep a
+> third ALIX ready as a spare, just in case.
+>
+> I don't really know about performance.  They move unencrypted
+> bits through the FIOS link just fine (15Mbps upload, 5Mbps
+> download, as advertised), and rsync backups over the VPN
+> from a server in California are just a little slower.
+>
+> The AMD Geode that drives these machines has an encryption engine
+> that OpenVPN is not currently using.  Perhaps that can help with
+> speed, if someone tells me how to engage it.  Also, in both cases
+> I shove all the logging bits (unencrypted) to local servers, so
+> I do few writes to the compact flash card I use as main storage.
+> If I did more local read/writes, I imagine the ALIX would be a
+> lot slower and less reliable.
+>
+> I am using "x133" CF cards.  8GB cards are $10 from Newegg, and
+> I only use about 1.2GB of that.  Are faster cards worth it?
+>
+> While I do not need Yet Another Spare, it would be good to prove
+> the usability of these machines, so that more local users would
+> have them, and more people could teach me to do it right.  So if
+> anyone can suggest some easy measurements, or do them in their
+> own lab, perhaps we can demonstrate the quality and speed of
+> these little machines, either to convince others to join us,
+> or to find a better alternative.  Either way, we should use
+> what PTP uses, and leverage from their experience.
+>
+> If I upgrade from an Alix, I would like something small, X86,
+> solid state, low power (4 watts or less), and inexpensive.
+> I don't know of anything better in that class.
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From keithl at gate.kl-ic.com  Thu Nov 14 19:11:00 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Thu, 14 Nov 2013 19:11:00 -0800
+Subject: [PLUG] and I thought the badBOIS story was scary...
+In-Reply-To: <CAHMmuJUYCHa6i3+yNgiTkX3ttW_L4MSJRBzd93YvmrkLy0pTrQ@mail.gmail.com>
+References: <CAHMmuJUYCHa6i3+yNgiTkX3ttW_L4MSJRBzd93YvmrkLy0pTrQ@mail.gmail.com>
+Message-ID: <20131115031100.GA2697@gate.kl-ic.com>
+
+On Thu, Nov 14, 2013 at 12:06:34PM -0800, Chris Schafer wrote:
+> When can you really trust what is inside the black box?
+> 
+> http://www.osnews.com/story/27416/The_second_operating_system_hiding_in_every_mobile_phone
+
+In brief, the firmware running the Infineon or Qualcomm voice
+channel hardware on your smart phone is closed source, patented,
+buggy and exploitable.  The article didn't say whether this
+also applies to ancient dumb phones, but it is implied.
+
+Which is why I won't buy a smart phone until I can program the
+whole software stack.  Maybe never.  There will be other ways
+to move voice that bypass the cell network, sooner or later.
+I can wait.
+
+BTW, I hope someday there will be a similar analysis performed
+on internal firmware for magnetic hard disks, which may be my
+own biggest vulnerability.  There's a lot of room for factory-
+sourced mischief in the firmware boot and spare tracks.  Solid
+state drives could be as vulnerable, but they are easier to
+observe and reverse engineer with measurement systems,
+spinning platters not so much.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From tim at wescottdesign.com  Sat Nov 16 10:18:12 2013
+From: tim at wescottdesign.com (tim at wescottdesign.com)
+Date: Sat, 16 Nov 2013 10:18:12 -0800
+Subject: [PLUG] Movies from Stills
+Message-ID: <0e2af4a27488dced152f550971788d54@wescottdesign.com>
+
+Is there a tool out there that will make an mpg or other 'movie format' 
+file from a sequence of stills?  I'm making movies in Scilab that I can 
+only watch in Scilab.  I can export each frame as a gif or whatever, but 
+I want to be able to compile an mpg, hopefully smaller than an animated 
+gif, and distribute it.
+
+Suggestions welcome.
+
+Thanks.
+
+From russell at personaltelco.net  Sat Nov 16 10:22:35 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 16 Nov 2013 10:22:35 -0800
+Subject: [PLUG] Movies from Stills
+In-Reply-To: <0e2af4a27488dced152f550971788d54@wescottdesign.com>
+	(tim@wescottdesign.com's message of "Sat\,
+	16 Nov 2013 10\:18\:12 -0800")
+References: <0e2af4a27488dced152f550971788d54@wescottdesign.com>
+Message-ID: <868uwo2olw.fsf@coulee.tdb.com>
+
+>>>>> "tim" == tim  <tim at wescottdesign.com> writes:
+
+tim> Is there a tool out there that will make an mpg or other 'movie
+tim> format' file from a sequence of stills?  I'm making movies in
+tim> Scilab that I can only watch in Scilab.  I can export each frame
+tim> as a gif or whatever, but I want to be able to compile an mpg,
+tim> hopefully smaller than an animated gif, and distribute it.
+
+tim> Suggestions welcome.
+
+Imagemagick tools can do this.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From russell at personaltelco.net  Sat Nov 16 10:25:25 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 16 Nov 2013 10:25:25 -0800
+Subject: [PLUG] Movies from Stills
+In-Reply-To: <868uwo2olw.fsf@coulee.tdb.com> (Russell Senior's message of
+	"Sat\, 16 Nov 2013 10\:22\:35 -0800")
+References: <0e2af4a27488dced152f550971788d54@wescottdesign.com>
+	<868uwo2olw.fsf@coulee.tdb.com>
+Message-ID: <861u2g2oh6.fsf@coulee.tdb.com>
+
+>>>>> "Russell" == Russell Senior <russell at personaltelco.net> writes:
+
+>>>>> "tim" == tim  <tim at wescottdesign.com> writes:
+tim> Is there a tool out there that will make an mpg or other 'movie
+tim> format' file from a sequence of stills?  I'm making movies in
+tim> Scilab that I can only watch in Scilab.  I can export each frame
+tim> as a gif or whatever, but I want to be able to compile an mpg,
+tim> hopefully smaller than an animated gif, and distribute it.
+
+tim> Suggestions welcome.
+
+Russell> Imagemagick tools can do this.
+
+  http://www.nuxified.org/article/create_video_animations_with_inkscape_imagemagick_and_ffmpeg
+
+in particular, section 2.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From tim at wescottdesign.com  Sat Nov 16 10:36:05 2013
+From: tim at wescottdesign.com (tim at wescottdesign.com)
+Date: Sat, 16 Nov 2013 10:36:05 -0800
+Subject: [PLUG] Movies from Stills
+In-Reply-To: <861u2g2oh6.fsf@coulee.tdb.com>
+References: <0e2af4a27488dced152f550971788d54@wescottdesign.com>
+	<868uwo2olw.fsf@coulee.tdb.com> <861u2g2oh6.fsf@coulee.tdb.com>
+Message-ID: <d014f0df90efdb54f38bb77940df4559@wescottdesign.com>
+
+On 2013-11-16 10:25, Russell Senior wrote:
+>>>>>> "Russell" == Russell Senior <russell at personaltelco.net> writes:
+> 
+>>>>>> "tim" == tim  <tim at wescottdesign.com> writes:
+> tim> Is there a tool out there that will make an mpg or other 'movie
+> tim> format' file from a sequence of stills?  I'm making movies in
+> tim> Scilab that I can only watch in Scilab.  I can export each frame
+> tim> as a gif or whatever, but I want to be able to compile an mpg,
+> tim> hopefully smaller than an animated gif, and distribute it.
+> 
+> tim> Suggestions welcome.
+> 
+> Russell> Imagemagick tools can do this.
+> 
+> 
+> http://www.nuxified.org/article/create_video_animations_with_inkscape_imagemagick_and_ffmpeg
+> 
+> in particular, section 2.
+
+Thanks.  This looks like it'll do the trick.
+
+From dick at dicksteffens.com  Sat Nov 16 15:49:07 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 16 Nov 2013 15:49:07 -0800
+Subject: [PLUG] Mythbuntu networking
+Message-ID: <52880473.8000703@dicksteffens.com>
+
+I want to copy music onto my new (to me) mythbuntu system 
+(mythbuntu-12.04.3-desktop-amd64 on a Jetway ION-TOP). From the machine 
+where the music lives I can see the Jetway. Using Nautilus I can open 
+the Music directory on the Jetway. I can drag a folder of music from the 
+source machine to the Jetway and watch the progress bar as the copy is 
+being made. However, on the Jetway I don't find anything. I tried 
+looking at the folder with Thunar and also with a terminal window, but 
+nothing is there.
+
+Any idea what I'm missing?
+
+Also, Thunar appears to not include network browsing like Nautilus does. 
+Is there some other way to sit at the mythbuntu machine and access 
+another machine?
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From rshepard at appl-ecosys.com  Sat Nov 16 15:59:17 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 16 Nov 2013 15:59:17 -0800 (PST)
+Subject: [PLUG] Mythbuntu networking
+In-Reply-To: <52880473.8000703@dicksteffens.com>
+References: <52880473.8000703@dicksteffens.com>
+Message-ID: <alpine.LNX.2.00.1311161558560.13570@salmo.appl-ecosys.com>
+
+On Sat, 16 Nov 2013, Dick Steffens wrote:
+
+> Also, Thunar appears to not include network browsing like Nautilus does.
+> Is there some other way to sit at the mythbuntu machine and access another
+> machine?
+
+Dick,
+
+   Try scp (secure copy).
+
+Rich
+
+
+From david.fleck at mchsi.com  Sun Nov 17 14:23:59 2013
+From: david.fleck at mchsi.com (David Fleck)
+Date: Sun, 17 Nov 2013 16:23:59 -0600 (CST)
+Subject: [PLUG] Anybody have experience with Linux on a Samsung Series 3
+	laptop?
+Message-ID: <alpine.LNX.2.00.1311171620260.2405@grond.sourballs.org>
+
+My spouse is considering getting such a laptop and we would probably put 
+OpenSUSE on it.  There's what looks like a really good deal on a Samsung 
+Series 3 in town, but we've seen some scary articles about Samsungs and 
+UEFI problems that rendered the machines unusable bricks - does anybody 
+have any experiences with such?
+
+--
+David Fleck
+david.fleck at mchsi.com
+
+
+From mconnors1 at gmail.com  Sun Nov 17 19:12:57 2013
+From: mconnors1 at gmail.com (Mike C.)
+Date: Sun, 17 Nov 2013 19:12:57 -0800
+Subject: [PLUG] Mythbuntu networking
+Message-ID: <CAEtu1UfdSmpn7U7a2pj=wjUW4HXTr8Mc2-9X9uNxsx8+QOEsjQ@mail.gmail.com>
+
+<snip> From the machine where the music lives I can see the Jetway. Using
+Nautilus I can open the Music directory on the Jetway. I can drag a folder
+of music from the source machine to the Jetway and watch the progress bar
+as the copy is being made. However, on the Jetway I don't find anything. I
+tried looking at the folder with Thunar and also with a terminal window,
+but nothing is there. Any idea what I'm missing? <snip>
+
+-- Nautilus should work just fine for you in this situation. I came across
+this interesting piece of information on a forum thread.
+
+"*Note:* Nautilus works best in 'pull' mode, (that is) copying from the
+remote PC to your local PC. In 'push' mode (copying to a remote host) it
+will often replace file date-stamps (due to a Nautilus and/or SSH/SFTP bug)
+with today's time/date."
+
+http://askubuntu.com/questions/157507/opening-the-file-browser-of-the-remote-machine-via-terminal-and-moving-files-aro
+
+
+>
+

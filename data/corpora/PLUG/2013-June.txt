@@ -1,0 +1,5275 @@
+From mike at linuxexam.com  Sat Jun  1 14:16:14 2013
+From: mike at linuxexam.com (MJang)
+Date: Sat, 01 Jun 2013 14:16:14 -0700
+Subject: [PLUG] any Linux install W8 gotchas
+In-Reply-To: <alpine.LNX.2.00.1305311309100.6205@salmo.appl-ecosys.com>
+References: <20130531194702.77C211CB7@alexander.cnchost.com>
+	<alpine.LNX.2.00.1305311309100.6205@salmo.appl-ecosys.com>
+Message-ID: <1370121374.3770.11.camel@kauai>
+
+On Fri, 2013-05-31 at 13:11 -0700, Rich Shepard wrote:
+> On Fri, 31 May 2013, fred james wrote:
+> 
+> > My old Compaq Evo finally died and I bought a Acer Aspire w/W8 installed.
+> > I want to rid the machine of W8 without trashing any "system necessary"
+> > files that might be on the hard drive.
+> 
+> Fred,
+> 
+>    Any 'system necessary' files will be Microsoft-specific. 
+
+Just continue to proceed with caution. In some cases, there are "system
+helpful" partitions; my Lenovo (T410) has an NTFS partition with some
+diagnostic programs that -- if I'm understanding correctly (haven't
+tested recently) -- can help recover from certain kinds of crashes. I
+think my Dell e1405 had something similar.
+
+But they were not "system necessary".
+
+Thanks,
+Mike
+
+
+From mcherba at gmail.com  Sun Jun  2 04:39:14 2013
+From: mcherba at gmail.com (Mike Cherba)
+Date: Sun, 2 Jun 2013 04:39:14 -0700
+Subject: [PLUG] <Mike Cherba>
+Message-ID: <CACbpz1VWDHy3Pq8ejChO6h=T2foHYMDCae4MS_5nYcYbVpV2kw@mail.gmail.com>
+
+http://kcom711.com/kckfj/txrtdbotwktxznxakken.uguyk
+
+From fredjame at fredjame.cnc.net  Sun Jun  2 12:47:37 2013
+From: fredjame at fredjame.cnc.net (fred james)
+Date: Sun, 02 Jun 2013 15:47:37 -0400 (EDT)
+Subject: [PLUG] resolved [Linux install issue on W8 machine reading dvd]
+Message-ID: <20130602194737.9ACD6298@victory.cnchost.com>
+
+Thank you for your help ... the Acer problem resolved when the box died, and
+was retruned to the retailer.
+
+I got an HP Privilion (W8 again) and faced the same problem, but I applies
+some things you suggested and found the final answer here ...
+<http://h10025.www1.hp.com/ewfrf/wc/document?docname=c03659945&cc=us&dlc=en&lc=en&product=5360082&tmp_track_link=ot_search>
+... wherein it is (sort of) explained how to get the CD/DVD to boot.  I say
+sort of because it isn't a perfect world, eh?  But we got there, and that is
+the main point.
+Thanks again
+Regards
+Fred James
+
+From galens at seitzassoc.com  Sun Jun  2 14:49:49 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Sun, 02 Jun 2013 14:49:49 -0700
+Subject: [PLUG] resolved [Linux install issue on W8 machine reading dvd]
+In-Reply-To: <20130602194737.9ACD6298@victory.cnchost.com>
+References: <20130602194737.9ACD6298@victory.cnchost.com>
+Message-ID: <51ABBDFD.2000005@seitzassoc.com>
+
+On 06/02/13 12:47, fred james wrote:
+> Thank you for your help ... the Acer problem resolved when the box died, and
+> was retruned to the retailer.
+>
+> I got an HP Privilion (W8 again) and faced the same problem, but I applies
+> some things you suggested and found the final answer here ...
+> <http://h10025.www1.hp.com/ewfrf/wc/document?docname=c03659945&cc=us&dlc=en&lc=en&product=5360082&tmp_track_link=ot_search>
+> ... wherein it is (sort of) explained how to get the CD/DVD to boot.  I say
+> sort of because it isn't a perfect world, eh?  But we got there, and that is
+> the main point.
+
+This sounds a bit like the problem described by Matthew Garrett in a 
+recent blog entry.
+
+"Secure Boot isn't the only problem facing Linux on Windows 8 hardware"
+http://mjg59.dreamwidth.org/24869.html
+
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From russ at dimstar.net  Sun Jun  2 16:07:43 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Sun, 2 Jun 2013 16:07:43 -0700
+Subject: [PLUG] <Mike Cherba>
+In-Reply-To: <CACbpz1VWDHy3Pq8ejChO6h=T2foHYMDCae4MS_5nYcYbVpV2kw@mail.gmail.com>
+References: <CACbpz1VWDHy3Pq8ejChO6h=T2foHYMDCae4MS_5nYcYbVpV2kw@mail.gmail.com>
+Message-ID: <40AF9925-2B0D-4017-A180-E8D4F51C86BA@dimstar.net>
+
+
+On Jun 2, 2013, at 4:39 AM, Mike Cherba <mcherba at gmail.com> wrote:
+
+> http://thisisnottheurloriginallyhere.com
+
+This does not appear to be something anyone I know of would like to click... 
+
+
+
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From mcherba at gmail.com  Sun Jun  2 16:13:24 2013
+From: mcherba at gmail.com (Mike Cherba)
+Date: Sun, 2 Jun 2013 16:13:24 -0700
+Subject: [PLUG] <Mike Cherba>
+In-Reply-To: <40AF9925-2B0D-4017-A180-E8D4F51C86BA@dimstar.net>
+References: <CACbpz1VWDHy3Pq8ejChO6h=T2foHYMDCae4MS_5nYcYbVpV2kw@mail.gmail.com>
+	<40AF9925-2B0D-4017-A180-E8D4F51C86BA@dimstar.net>
+Message-ID: <CACbpz1V4ujzfXgNECMxbGff2NBCO9C_YGt1=vJcRPt-MnKESnA@mail.gmail.com>
+
+My apologies.  This account was compromised last night while I was
+travelling.   I apologize for the spam.
+-Mike
+On Jun 2, 2013 4:09 PM, "Russell Johnson" <russ at dimstar.net> wrote:
+
+>
+> On Jun 2, 2013, at 4:39 AM, Mike Cherba <mcherba at gmail.com> wrote:
+>
+> > http://thisisnottheurloriginallyhere.com
+>
+> This does not appear to be something anyone I know of would like to
+> click...
+>
+>
+>
+>
+> Russell Johnson
+> russ at dimstar.net
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From fredjame at fredjame.cnc.net  Sun Jun  2 16:58:46 2013
+From: fredjame at fredjame.cnc.net (fred james)
+Date: Sun, 02 Jun 2013 19:58:46 -0400 (EDT)
+Subject: [PLUG] resolved [Linux install issue on W8 machine reading dvd]
+In-Reply-To: <20130602194737.9ACD6298@victory.cnchost.com>
+Message-ID: <20130602235846.C4605490@captain.cnchost.com>
+
+---- Galen Seitz <galens at seitzassoc.com> wrote:
+>
+> On 06/02/13 12:47, fred james wrote:
+> > Thank you for your help ... the Acer problem resolved when the box died, and
+> > was retruned to the retailer.
+> >
+> > I got an HP Privilion (W8 again) and faced the same problem, but I applies
+> > some things you suggested and found the final answer here ...
+> > <http://h10025.www1.hp.com/ewfrf/wc/document?docname=c03659945&cc=us&dlc=en&lc=en&product=5360082&tmp_track_link=ot_search>
+> > ... wherein it is (sort of) explained how to get the CD/DVD to boot.  I say
+> > sort of because it isn't a perfect world, eh?  But we got there, and that is
+> > the main point.
+> 
+> This sounds a bit like the problem described by Matthew Garrett in a 
+> recent blog entry.
+> 
+> "Secure Boot isn't the only problem facing Linux on Windows 8 hardware"
+> http://mjg59.dreamwidth.org/24869.html
+> 
+> 
+> galen
+> -- 
+> Galen Seitz
+> galens at seitzassoc.com
+
+Galen Seitz
+Yes, that is along the same track.  Interestingly enough, the HP docs don't say press F10 (or whatever) on boot ... they say as soon as the power light goes on, start pressing F10 repeatedly (at least once a second, although I tap away rat-a-tat-tat).  That would fit with the keyboard not being initialize until the OS gets around to it.  Progress, you cannot beat it ... well you can, but it still won't go away!
+
+By they way, the Acer tech said to just press F10 and hold it down until the desired result appears.
+Regards
+Fred James
+
+From mike at linuxexam.com  Sun Jun  2 17:21:00 2013
+From: mike at linuxexam.com (MJang)
+Date: Sun, 02 Jun 2013 17:21:00 -0700
+Subject: [PLUG] Can we help Mike Cherba?
+Message-ID: <1370218860.3770.14.camel@kauai>
+
+Folks,
+
+Clearly, his system or account has been broken into in some way. As the
+Portland Linux/Unix users group, can we help him in some way
+
+(with the realization that it could happen to any one of us)
+
+Thanks,
+Mike
+
+
+From robert.citek at gmail.com  Sun Jun  2 17:34:26 2013
+From: robert.citek at gmail.com (Robert Citek)
+Date: Sun, 2 Jun 2013 20:34:26 -0400
+Subject: [PLUG] Can we help Mike Cherba?
+In-Reply-To: <1370218860.3770.14.camel@kauai>
+References: <1370218860.3770.14.camel@kauai>
+Message-ID: <CAKFjdm5cah83M+EYmPeLOFdny91TSw_VcpJgWeeM1drtG5y_nQ@mail.gmail.com>
+
+Was his account protected by two-factor authentication?
+
+If not, that may be a step to consider.
+
+https://support.google.com/accounts/answer/180744?hl=en
+
+Regards,
+- Robert
+
+
+On Sun, Jun 2, 2013 at 8:21 PM, MJang <mike at linuxexam.com> wrote:
+> Folks,
+>
+> Clearly, his system or account has been broken into in some way. As the
+> Portland Linux/Unix users group, can we help him in some way
+>
+> (with the realization that it could happen to any one of us)
+>
+> Thanks,
+> Mike
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From rshepard at appl-ecosys.com  Mon Jun  3 11:12:48 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 3 Jun 2013 11:12:48 -0700 (PDT)
+Subject: [PLUG] mailx question
+In-Reply-To: <alpine.OSX.2.00.1305201516090.3069@dyn-40-128.galois.com>
+References: <alpine.LNX.2.00.1305201458190.20630@salmo.appl-ecosys.com>
+	<alpine.OSX.2.00.1305201516090.3069@dyn-40-128.galois.com>
+Message-ID: <alpine.LNX.2.00.1306031107510.5070@salmo.appl-ecosys.com>
+
+On Mon, 20 May 2013, Paul Heinlein wrote:
+
+> The tool I'd normally reach for in this situation is m4. If, for instance,
+> you were able to loop through a list of subscribers and assign
+> $NAME and $ADDRESS, then
+>
+>  m4 -D GREETING="$NAME" newsletter.m4 | mail -s "Subject" $ADDRESS
+>
+> The newletter.m4 would contain the GREETING token which would get replaced 
+> with $NAME.
+
+Paul,
+
+   I've read the m4 man page, info file, and manual (the .pdf version of the
+info file) without seeing how I would set up the input files. I assume that
+one file contains two tokens, NAME and ADDRESS, but how are they separated
+on each line?
+
+   The other file, newsletter.m4, I assume begins with:
+
+GREETING,
+
+   This is the text of the newsletter.
+
+Is this correct?
+
+   Trying to find examples by searching the Web turned up lots of Microsoft
+examples but none using GNUm4.
+
+Thanks,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From heinlein at madboa.com  Mon Jun  3 12:04:47 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Mon, 3 Jun 2013 12:04:47 -0700 (PDT)
+Subject: [PLUG] mailx question
+In-Reply-To: <alpine.LNX.2.00.1306031107510.5070@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1305201458190.20630@salmo.appl-ecosys.com>
+	<alpine.OSX.2.00.1305201516090.3069@dyn-40-128.galois.com>
+	<alpine.LNX.2.00.1306031107510.5070@salmo.appl-ecosys.com>
+Message-ID: <alpine.OSX.2.00.1306031143500.42514@dyn-40-159.galois.com>
+
+On Mon, 3 Jun 2013, Rich Shepard wrote:
+
+> On Mon, 20 May 2013, Paul Heinlein wrote:
+>
+>> The tool I'd normally reach for in this situation is m4. If, for instance,
+>> you were able to loop through a list of subscribers and assign
+>> $NAME and $ADDRESS, then
+>>
+>>  m4 -D GREETING="$NAME" newsletter.m4 | mail -s "Subject" $ADDRESS
+>>
+>> The newletter.m4 would contain the GREETING token which would get replaced
+>> with $NAME.
+>
+> Paul,
+>
+>   I've read the m4 man page, info file, and manual (the .pdf version 
+> of the info file) without seeing how I would set up the input files. 
+> I assume that one file contains two tokens, NAME and ADDRESS, but 
+> how are they separated on each line?
+
+That was an exercise left to the reader :-) because I don't know how 
+you currently store and retrieve your recipients' e-mail addresses.
+
+If all the file contained was the greeting name and e-mail address, 
+you could separate them anyway you'd like. A CSV format would be easy, 
+but it might break if the greeting name included a comma. A more 
+robust file might use a colon, which is unlikely to occur in your 
+data. Here's a trivial example:
+
+----- %< -----
+billg at microsoft.com:Bill
+plug at lists.pdx.org:PLUG Members
+president at whitehouse.gov:Mr. President
+queen at royal.gov.uk:Madam
+----- %< -----
+
+For the template, you're correct, e.g.,
+
+----- %< -----
+GREETING,
+
+   This is the text of the newsletter.
+
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+aliquip ex ea commodo consequat. Duis aute irure dolor in 
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+culpa qui officia deserunt mollit anim id est laborum.
+----- %< -----
+
+A script that used those files -- here assumed to be named 
+subscribers.txt and news.m4 -- might work something like this:
+
+while read LINE; do
+   ADDR=$(echo $LINE | cut -d: -f1)
+   GRTG=$(echo $LINE | cut -d: -f2)
+   m4 -D GREETING="$GRTG" news.m4 | mail -s 'June News' $ADDR
+done < subscribers.txt
+
+There are, of course, several different ways to accomplish the same 
+task, but that might get you started.
+
+An m4 template, by the way, is easy to construct and test, because by 
+default m4 sends output to /dev/stdout.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From elcaseti at gmail.com  Mon Jun  3 12:21:27 2013
+From: elcaseti at gmail.com (C W)
+Date: Mon, 3 Jun 2013 12:21:27 -0700
+Subject: [PLUG] Mint 14 Xfce issues
+In-Reply-To: <20130531193412.493a9f8a@Devil8>
+References: <20130528192649.1f15ec8c@Devil8>
+	<CAGOdq5kXbSQye1J3n-o6Zyd+m-L8725fe3OcftehXWo_PLbJWw@mail.gmail.com>
+	<20130530193628.5c459d36@Devil8>
+	<CAGOdq5mhQ8KtgxRiHFNM_vdqnPMY7dVbjgLrmf13q43n0QtmkA@mail.gmail.com>
+	<20130531193412.493a9f8a@Devil8>
+Message-ID: <CACTDRA=f5t1SHTWndeVOmxp4iSZqWY3YdaHMJz_gsGBcQ0+GuQ@mail.gmail.com>
+
+These STS (short term service) releases tend to have more bugs than LTS
+releases.
+
+
+On Fri, May 31, 2013 at 7:34 PM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Fri, 31 May 2013 16:48:27 -0700
+> Benjamin Kerensa <bkerensa at ubuntu.com> dijo:
+>
+> >On Thu, May 30, 2013 at 7:36 PM, John Jason Jordan
+> ><johnxj at comcast.net> wrote:
+> >> On Thu, 30 May 2013 19:28:22 -0700
+> >> Benjamin Kerensa <bkerensa at ubuntu.com> dijo:
+> >>
+> >>>Have you found the gaping security issues yet?
+> >>
+> >> No, but I did find the gaping video bug in Ubuntu.
+> >
+> >Its actually an upstream bug and the only reason its not affecting
+> >Mint yet is because Mint is shipping older packages.
+> >https://bugs.freedesktop.org/show_bug.cgi?id=47288 indeed its
+> >affecting both Ubuntu and Fedora
+> >https://bugs.freedesktop.org/show_bug.cgi?id=61287 but is not a Ubuntu
+> >or Fedora bug.
+>
+> If Ubuntu uses a video package that's known to cause X to lock up,
+> then it becomes an Ubuntu bug.
+>
+> But thanks for the information. I'll make it a point to refuse any
+> video updates from Mint Xfce.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From galens at seitzassoc.com  Mon Jun  3 12:40:22 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Mon, 03 Jun 2013 12:40:22 -0700
+Subject: [PLUG] dnsmasq and Windows 7 FYI
+Message-ID: <51ACF126.9070700@seitzassoc.com>
+
+
+I just noticed that after adding a Windows 7 machine to our network, 
+/var/log/messages was being filled with DHCPINFORM/DHCPACK messages from 
+dnsmasq.  Apparently Windows 7 insists on getting proxy info from dhcp, 
+even when there is no proxy.  Adding 'dhcp-option=252,"\n"' to 
+dnsmasq.conf eliminates the problem.
+
+http://brielle.sosdg.org/archives/522-Windows-7-flooding-DHCP-server-with-DHCPINFORM-messages.html
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From rshepard at appl-ecosys.com  Mon Jun  3 12:43:13 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 3 Jun 2013 12:43:13 -0700 (PDT)
+Subject: [PLUG] mailx question
+In-Reply-To: <alpine.OSX.2.00.1306031143500.42514@dyn-40-159.galois.com>
+References: <alpine.LNX.2.00.1305201458190.20630@salmo.appl-ecosys.com>
+	<alpine.OSX.2.00.1305201516090.3069@dyn-40-128.galois.com>
+	<alpine.LNX.2.00.1306031107510.5070@salmo.appl-ecosys.com>
+	<alpine.OSX.2.00.1306031143500.42514@dyn-40-159.galois.com>
+Message-ID: <alpine.LNX.2.00.1306031235210.5070@salmo.appl-ecosys.com>
+
+On Mon, 3 Jun 2013, Paul Heinlein wrote:
+
+> That was an exercise left to the reader :-) because I don't know how you 
+> currently store and retrieve your recipients' e-mail addresses.
+
+Paul,
+
+   Well, ... this reader could not find any examples to use as templates.
+Names are in simple text files, not in any application.
+
+> If all the file contained was the greeting name and e-mail address, you could 
+> separate them anyway you'd like.
+
+   OK. Now, the file contains only the e-mail address. I'll add the
+addressee's name to it ...
+
+> A CSV format would be easy, but it might break if the greeting name
+> included a comma. A more robust file might use a colon, which is unlikely
+> to occur in your data.
+
+   ... using a colon. No name has a comma; they're all first names.
+
+> Here's a trivial example:
+
+   Thanks.
+
+> A script that used those files -- here assumed to be named subscribers.txt 
+> and news.m4 -- might work something like this:
+>
+> while read LINE; do
+>  ADDR=$(echo $LINE | cut -d: -f1)
+>  GRTG=$(echo $LINE | cut -d: -f2)
+>  m4 -D GREETING="$GRTG" news.m4 | mail -s 'June News' $ADDR
+> done < subscribers.txt
+
+   This is an expanded version similar to the one-line script I used with
+mailx. Looks good.
+
+> There are, of course, several different ways to accomplish the same task, but 
+> that might get you started.
+
+   As with everything GNU there are multiple solutions to every problem. :-)
+As long as the above works I won't devote more time to looking for different
+solutions.
+
+> An m4 template, by the way, is easy to construct and test, because by
+> default m4 sends output to /dev/stdout.
+
+   Aha! I missed that when I read the docs. Certainly makes it easy to test.
+
+Much appreciated,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From dexter at ambidexter.com  Mon Jun  3 22:55:58 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 03 Jun 2013 22:55:58 -0700
+Subject: [PLUG] Announcement: June PLUG Meeting: Hacking on the new Beagle
+	Bone Black
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <51AD816E.3040303@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+ALERT: I will not be here for the June AT event, might there be any FG 
+keyholders who are interested in assisting and perhaps presenting?
+
+Who: Russel Senior
+What: Hacking on the new Beagle Bone Black
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, June 6th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Hacking on the new Beagle Bone Black
+
+Russell recently spent some time working on porting a house-monitoring 
+system from the Beagle Bone (an $89 embedded, ARM-based, I/O rich device 
+running linux http://beagleboard.org/) to the new Beagle Bone Black, a 
+$45 device which is faster, includes video and 2G of onboard flash. The 
+sensors required a one-wire bus, one of which the original Beagle Bone 
+had configured out of the box. The Beagle Bone Black had none. This talk 
+is a description of what it took to get one-wire (specifically w1-gpio) 
+going with his own custom "cape" (a daughter-board for the Beagle Bone).
+
+Biography:
+
+Russell Senior has been a GNU/Linux user for over 20 years, since the 
+0.99plN days, using it both recreationally and professionally as a 
+research programmer/scientific data analyst. Since 2005, Russell has 
+become involved as a principal volunteer with the Personal Telco Project 
+(https://personaltelco.net), during which he has worked on embedded 
+systems, primarily network routers. He contributes to the development 
+and improvement of the OpenWrt project. In the last couple years, he has 
+worked on monitoring systems involving Arduino and, since last year, the 
+Beagle Bone and has learned a bit about the Angstrom distribution of 
+linux for embedded devices.
+
+
+Calagator Page: http://calagator.org/events/1250464123
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From dexter at ambidexter.com  Mon Jun  3 23:00:03 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 03 Jun 2013 23:00:03 -0700
+Subject: [PLUG] Announcement: June PLUG Meeting: Hacking on the new Beagle
+ Bone Black (missing l!)
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <51AD8263.3030403@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+ALERT: I will not be here for the June AT event, might there be any FG 
+keyholders who are interested in assisting and perhaps presenting?
+
+Who: Russell Senior (My apologies for missing an "l" in that last one!)
+What: Hacking on the new Beagle Bone Black
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, June 6th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Hacking on the new Beagle Bone Black
+
+Russell recently spent some time working on porting a house-monitoring 
+system from the Beagle Bone (an $89 embedded, ARM-based, I/O rich device 
+running linux http://beagleboard.org/) to the new Beagle Bone Black, a 
+$45 device which is faster, includes video and 2G of onboard flash. The 
+sensors required a one-wire bus, one of which the original Beagle Bone 
+had configured out of the box. The Beagle Bone Black had none. This talk 
+is a description of what it took to get one-wire (specifically w1-gpio) 
+going with his own custom "cape" (a daughter-board for the Beagle Bone).
+
+Biography:
+
+Russell Senior has been a GNU/Linux user for over 20 years, since the 
+0.99plN days, using it both recreationally and professionally as a 
+research programmer/scientific data analyst. Since 2005, Russell has 
+become involved as a principal volunteer with the Personal Telco Project 
+(https://personaltelco.net), during which he has worked on embedded 
+systems, primarily network routers. He contributes to the development 
+and improvement of the OpenWrt project. In the last couple years, he has 
+worked on monitoring systems involving Arduino and, since last year, the 
+Beagle Bone and has learned a bit about the Angstrom distribution of 
+linux for embedded devices.
+
+
+Calagator Page: http://calagator.org/events/1250464123
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From rshepard at appl-ecosys.com  Tue Jun  4 10:05:25 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 4 Jun 2013 10:05:25 -0700 (PDT)
+Subject: [PLUG] WICD on Sony Vaio
+Message-ID: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+
+   Having upgraded the Sony Vaio from Slackware-13.37/x86_64 to -14.0/x86_64
+I once again need to get wicd working so it will connect to wireless
+networks. I don't remember how I did this, but I know there was a long
+thread on the mail list to which I posted the solution way back when.
+
+   How can I search the archives for this thread without looking at each
+month's file?
+
+TIA,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From plug at the-wes.com  Tue Jun  4 10:28:15 2013
+From: plug at the-wes.com (wes)
+Date: Tue, 4 Jun 2013 10:28:15 -0700
+Subject: [PLUG] WICD on Sony Vaio
+In-Reply-To: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLO=81DN6tVBgrHPQTmDLKP0g34reu3Mt6fsM_bFBiAHtwQ@mail.gmail.com>
+
+https://www.google.com/?q=site:http%3A%2F%2Flists.pdxlinux.org%2Fpipermail%2Fplug%2F+wicd&output=search
+
+-wes
+
+
+On Tue, Jun 4, 2013 at 10:05 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    Having upgraded the Sony Vaio from Slackware-13.37/x86_64 to
+> -14.0/x86_64
+> I once again need to get wicd working so it will connect to wireless
+> networks. I don't remember how I did this, but I know there was a long
+> thread on the mail list to which I posted the solution way back when.
+>
+>    How can I search the archives for this thread without looking at each
+> month's file?
+>
+> TIA,
+>
+> Rich
+>
+> --
+> Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+> Applied Ecosystem Services, Inc.   |
+> <http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax:
+> 503-667-8863
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From plug at the-wes.com  Tue Jun  4 10:28:15 2013
+From: plug at the-wes.com (wes)
+Date: Tue, 4 Jun 2013 10:28:15 -0700
+Subject: [PLUG] WICD on Sony Vaio
+In-Reply-To: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLO=81DN6tVBgrHPQTmDLKP0g34reu3Mt6fsM_bFBiAHtwQ@mail.gmail.com>
+
+https://www.google.com/?q=site:http%3A%2F%2Flists.pdxlinux.org%2Fpipermail%2Fplug%2F+wicd&output=search
+
+-wes
+
+
+On Tue, Jun 4, 2013 at 10:05 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    Having upgraded the Sony Vaio from Slackware-13.37/x86_64 to
+> -14.0/x86_64
+> I once again need to get wicd working so it will connect to wireless
+> networks. I don't remember how I did this, but I know there was a long
+> thread on the mail list to which I posted the solution way back when.
+>
+>    How can I search the archives for this thread without looking at each
+> month's file?
+>
+> TIA,
+>
+> Rich
+>
+> --
+> Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+> Applied Ecosystem Services, Inc.   |
+> <http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax:
+> 503-667-8863
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From rshepard at appl-ecosys.com  Tue Jun  4 11:25:59 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 4 Jun 2013 11:25:59 -0700 (PDT)
+Subject: [PLUG] WICD on Sony Vaio
+In-Reply-To: <CAA1wLO=81DN6tVBgrHPQTmDLKP0g34reu3Mt6fsM_bFBiAHtwQ@mail.gmail.com>
+References: <alpine.LNX.2.00.1306041000250.17091@salmo.appl-ecosys.com>
+	<CAA1wLO=81DN6tVBgrHPQTmDLKP0g34reu3Mt6fsM_bFBiAHtwQ@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1306041125390.17091@salmo.appl-ecosys.com>
+
+On Tue, 4 Jun 2013, wes wrote:
+
+> https://www.google.com/?q=site:http%3A%2F%2Flists.pdxlinux.org%2Fpipermail%2Fplug%2F+wicd&output=search
+
+wes,
+
+   Thanks.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From johnxj at comcast.net  Tue Jun  4 12:03:17 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 4 Jun 2013 12:03:17 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+Message-ID: <20130604120317.1aadb743@Devil8>
+
+There is a free open source software on Sourceforge that I would like
+to compile to packages. I assume this can be done, but I need some
+clues where to start.
+
+From ddsnell at frontier.com  Tue Jun  4 13:22:43 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Tue, 4 Jun 2013 13:22:43 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130604120317.1aadb743@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+Message-ID: <20130604132243.3ec10610@zothique.localnet>
+
+On Tue, 4 Jun 2013 12:03:17 -0700
+John Jason Jordan <johnxj at comcast.net> wrote:
+
+> There is a free open source software on Sourceforge that I would like
+> to compile to packages. I assume this can be done, but I need some
+> clues where to start.
+
+John,
+
+May I assume (*cough*) from your Subject: line that you want to
+convert this package from whatever format it's in to something
+that can be installed by either yum/rpm or apt/dpkg?
+
+If so, I have a question for you:  Why?
+
+Okay, I'm not really trying to be snarky (well, maybe a little),
+but there's really no need to do that.  Package managers are
+persnickety buggers.  For simply installing something you've found
+on the 'net, they're probably more trouble than they're worth.
+
+So tell us what you have; that way we can tell you how to build
+it.  If it's the usual sort of tarball, with an Autotools-packaged
+project inside, it should be easy.  (Assuming [there's that word
+again] that you have all the dependencies the program needs.  If
+not, you're going to have to track them down and install them
+before you can build your new program.)
+
+OTOH, if you really do need to distribute .rpm and/or .deb
+packages, I'm sure that the list can help with that, too.
+(Optimistic, ain't I?)
+
+I can't help much with rpm (and not at all with dpkg), but you'll
+need to read the man page for rpmbuild(8).  At the minimum, you
+will also need to install rpmlint and rpmdevtools.
+
+--Dale
+
+--
+"Shambling, drooling, bent on destruction and biting people's
+heads off... it's either zombies or upper management." -- Ebenezer
+Dusk, Esquire
+
+From aaron at bavariati.org  Tue Jun  4 16:00:44 2013
+From: aaron at bavariati.org (Aaron Burt)
+Date: Tue, 4 Jun 2013 16:00:44 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130604120317.1aadb743@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+Message-ID: <20130604230044.GD11100@aaron-acer>
+
+On Tue, Jun 04, 2013 at 12:03:17PM -0700, John Jason Jordan wrote:
+> There is a free open source software on Sourceforge that I would like
+> to compile to packages. I assume this can be done, but I need some
+> clues where to start.
+
+Exciting stuff.  Here's some general options, from easiest to hardest:
+1. Find a package someone else already built.
+2. Build from source and use as-is, unpackaged.
+3. Build a package using a manifest from a similar or older version.
+4. Build a package from a new manifest.
+
+1. Finding a package:
+Many folks build packages that never make it into the regular repositories.
+Often those are gathered into other repositories, such as EPEL or DAG (RPM)
+or Launchpad (DEB).  Others just sit on webpages and such, waiting to be
+Googled.  Those packages can be installed, though you might want to add the
+repo so you get any dependent packages.
+
+2. Building from source:
+You already looked for a package, and just want to try a program out.
+Download the tarball, expand it ("tar -zxvf blah.tar.gz" or
+"tar -jxvf blah.tar.bz2") and look for README and INSTALL files.
+Also look for "Makefile" or "configure".
+You will probably have to install development tools and libraries to build
+the program, INSTALL may have some info on that.  On Ubuntu/Debian, that's
+covered by the "build-essential" package, on CentOS/RH, the "Development
+Tools" group.  After that, there will be some libblah-dev or libblah-devel
+packages to cover some specific libraries used by the program.  I usually
+take a "run make, install libraries when it breaks, repeat" approach.
+
+3-4. Building your own package:
+If you are supplying the program for ther Linux users or for many machines,
+it may be worth setting aside a few days to learn how to package it
+yourself, or convincing someone to do it for you.
+
+If you can say what program it is, folks might be able to offer more
+specific pointers.
+
+Regards,
+  Aaron
+
+From johnxj at comcast.net  Tue Jun  4 19:32:37 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 4 Jun 2013 19:32:37 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130604230044.GD11100@aaron-acer>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+Message-ID: <20130604193237.7c21b5c7@Devil8>
+
+On Tue, 4 Jun 2013 16:00:44 -0700
+Aaron Burt <aaron at bavariati.org> dijo:
+
+>On Tue, Jun 04, 2013 at 12:03:17PM -0700, John Jason Jordan wrote:
+>> There is a free open source software on Sourceforge that I would like
+>> to compile to packages. I assume this can be done, but I need some
+>> clues where to start.
+>
+>Exciting stuff.  Here's some general options, from easiest to hardest:
+>1. Find a package someone else already built.
+>2. Build from source and use as-is, unpackaged.
+>3. Build a package using a manifest from a similar or older version.
+>4. Build a package from a new manifest.
+
+I wasn't clear about a few facts. First, I do want to make the package
+available to other Linux users, and not all (including me) are capable
+of installing from source. In my own case, in the years I have been
+using Linux exclusively on my computers I have tried to install from
+source about half a dozen times. All were failures, the most recent
+being a development version of Scribus. And several of them were with
+experienced Linux users sitting next to me. I am not averse to trying
+it again, but since I want to make packages available to others, the
+more logical approach seems to be to build the packages.
+
+I am familiar with alien and have successfully used it several times to
+convert .deb to .rpm and vice versa. In fact, when I first started
+using the program in question there was no 64-bit .rpm file, although
+there was a 64-bit .deb package. I used alien to convert it and it is
+running on my Fedora laptop as I write this.
+
+The problem with my current installation is that it is pretty buggy,
+although it does more or less work. The developer released a new
+version only a few days ago and I want to try it. 
+
+The program is Sleepyhead, available here:
+
+	http://sourceforge.net/projects/sleepyhead/?source=directory
+
+In fact, I have not yet located the source for the new version, but I
+assume it is there on Sourceforge somewhere. I thought I'd start by
+asking if what I want to do is possible.
+
+It may be necessary to wait until the next Clinic to accomplish what I
+want. 
+
+From website.reader3 at gmail.com  Tue Jun  4 21:30:25 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Tue, 4 Jun 2013 21:30:25 -0700
+Subject: [PLUG] question on trying to fix local lan connection
+Message-ID: <CAJeYwHetyNph6OPeAuX50n+E0jAGzYZUjtjjXFH_s2-oUOcC6g@mail.gmail.com>
+
+I have always upgraded my Ubuntu files using the automatic Upgrade
+Manager.  Unfortunately, I have lost the ability to talk from my main
+computer to 2 other machines on the LAN network.  What do I need to
+do, so that I can talk to them?  The dhcp3 server seems okay, when
+enabled by the "service isc-dhcp-ipv4 restart" command, but running
+tcpdump at the client computers shows that no IVP4 information is
+being exchanged but strange bootps IVP6 information is occurring.
+
+How do I fix all this, so I can talk from the sever to the 2 clients?
+
+(p.s.: I hate doing Ubuntu upgrades and losing local connectivity)
+
+From denis.heidtmann at gmail.com  Wed Jun  5 08:36:24 2013
+From: denis.heidtmann at gmail.com (Denis Heidtmann)
+Date: Wed, 5 Jun 2013 08:36:24 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130604193237.7c21b5c7@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+Message-ID: <CAArUT0gUaFaO2tYmGj-kw0n_60C7Kh-YKkKr18OWjO++nBxYvA@mail.gmail.com>
+
+http://sourceforge.net/projects/sleepyhead/files/Releases/Linux/
+
+Not what you want?
+
+-Denis
+
+
+On Tue, Jun 4, 2013 at 7:32 PM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Tue, 4 Jun 2013 16:00:44 -0700
+> Aaron Burt <aaron at bavariati.org> dijo:
+>
+> >On Tue, Jun 04, 2013 at 12:03:17PM -0700, John Jason Jordan wrote:
+> >> There is a free open source software on Sourceforge that I would like
+> >> to compile to packages. I assume this can be done, but I need some
+> >> clues where to start.
+> >
+> >Exciting stuff.  Here's some general options, from easiest to hardest:
+> >1. Find a package someone else already built.
+> >2. Build from source and use as-is, unpackaged.
+> >3. Build a package using a manifest from a similar or older version.
+> >4. Build a package from a new manifest.
+>
+> I wasn't clear about a few facts. First, I do want to make the package
+> available to other Linux users, and not all (including me) are capable
+> of installing from source. In my own case, in the years I have been
+> using Linux exclusively on my computers I have tried to install from
+> source about half a dozen times. All were failures, the most recent
+> being a development version of Scribus. And several of them were with
+> experienced Linux users sitting next to me. I am not averse to trying
+> it again, but since I want to make packages available to others, the
+> more logical approach seems to be to build the packages.
+>
+> I am familiar with alien and have successfully used it several times to
+> convert .deb to .rpm and vice versa. In fact, when I first started
+> using the program in question there was no 64-bit .rpm file, although
+> there was a 64-bit .deb package. I used alien to convert it and it is
+> running on my Fedora laptop as I write this.
+>
+> The problem with my current installation is that it is pretty buggy,
+> although it does more or less work. The developer released a new
+> version only a few days ago and I want to try it.
+>
+> The program is Sleepyhead, available here:
+>
+>         http://sourceforge.net/projects/sleepyhead/?source=directory
+>
+> In fact, I have not yet located the source for the new version, but I
+> assume it is there on Sourceforge somewhere. I thought I'd start by
+> asking if what I want to do is possible.
+>
+> It may be necessary to wait until the next Clinic to accomplish what I
+> want.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From aaron at bavariati.org  Wed Jun  5 09:04:20 2013
+From: aaron at bavariati.org (Aaron Burt)
+Date: Wed, 5 Jun 2013 09:04:20 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130604193237.7c21b5c7@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+Message-ID: <20130605160419.GA15332@aaron-acer>
+
+On Tue, Jun 04, 2013 at 07:32:37PM -0700, John Jason Jordan wrote:
+> The program is Sleepyhead, available here:
+> 
+> 	http://sourceforge.net/projects/sleepyhead/?source=directory
+
+Well, looks like option 1 or 3 are available to you:
+http://wtogami.fedorapeople.org/pkgreview/sleepyhead/
+via http://wtogami.blogspot.com/
+
+Looks like Mr. Togami is building it, and has made a source RPM available.
+So if he can't be convinced to build an up-to-the-minute version, we could
+extract the RPM spec from his source RPM and use that to build one.
+
+> In fact, I have not yet located the source for the new version, but I
+> assume it is there on Sourceforge somewhere. I thought I'd start by
+> asking if what I want to do is possible.
+
+The most up-to-date version is in a Git repo, but hasn't seen any changes
+since Jan 15 2013.  So Warren Togami's F18 RPM should be up to date.
+
+That's really interesting software, incidentally.  We have an unused CPAP
+kicking around (a boil-and-bite mouthpiece worked better) so I should see
+if I can talk to it.
+
+From johnxj at comcast.net  Wed Jun  5 11:37:24 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 5 Jun 2013 11:37:24 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <CAArUT0gUaFaO2tYmGj-kw0n_60C7Kh-YKkKr18OWjO++nBxYvA@mail.gmail.com>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+	<CAArUT0gUaFaO2tYmGj-kw0n_60C7Kh-YKkKr18OWjO++nBxYvA@mail.gmail.com>
+Message-ID: <20130605113724.0bb3b2b9@Devil8>
+
+On Wed, 5 Jun 2013 08:36:24 -0700
+Denis Heidtmann <denis.heidtmann at gmail.com> dijo:
+
+>http://sourceforge.net/projects/sleepyhead/files/Releases/Linux/
+>
+>Not what you want?
+
+No. Those are the version I am currently running. In fact the 64-bit
+.rpm was my doing. There was a 64-bit .deb, but no .rpm, so I used
+alien to convert the .deb to .rpm, installed it successfully on my
+Fedora laptop, then e-mailed it to the developer so he could upload it
+to Sourceforge.
+
+I would do the same with the latest version if I could some day figure
+out how to make packages from source.
+
+From pm at nellump.net  Wed Jun  5 11:54:06 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Wed, 5 Jun 2013 11:54:06 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130605113724.0bb3b2b9@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+	<CAArUT0gUaFaO2tYmGj-kw0n_60C7Kh-YKkKr18OWjO++nBxYvA@mail.gmail.com>
+	<20130605113724.0bb3b2b9@Devil8>
+Message-ID: <20130605185405.GA25979@jupiter.nellump.net>
+
+On Wed, Jun 05, 2013 at 11:37:24AM -0700, John Jason Jordan wrote:
+> I would do the same with the latest version if I could some day figure
+> out how to make packages from source.
+
+In my experience, building manually packages from source is not a
+trivial undertaking.  However, years ago I successfully used a program
+called "checkinstall" that almost fully automated the process of
+building from source and creating a package.  Looks like it's still
+around:
+
+  When make install is done, CheckInstall will create a Slackware, RPM
+  or Debian compatible package and install it...
+
+http://checkinstall.izto.org/
+
+http://www.linuxjournal.com/content/using-checkinstall-build-packages-source
+
+
+
+-- 
+Paul
+
+From johnxj at comcast.net  Wed Jun  5 12:00:50 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 5 Jun 2013 12:00:50 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130605160419.GA15332@aaron-acer>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+	<20130605160419.GA15332@aaron-acer>
+Message-ID: <20130605120050.4bb38ed0@Devil8>
+
+On Wed, 5 Jun 2013 09:04:20 -0700
+Aaron Burt <aaron at bavariati.org> dijo:
+
+>On Tue, Jun 04, 2013 at 07:32:37PM -0700, John Jason Jordan wrote:
+>> The program is Sleepyhead, available here:
+>> 
+>> 	http://sourceforge.net/projects/sleepyhead/?source=directory
+>
+>Well, looks like option 1 or 3 are available to you:
+>http://wtogami.fedorapeople.org/pkgreview/sleepyhead/
+>via http://wtogami.blogspot.com/
+
+That is interesting. I did not realize there were packages in the
+Fedora repos. However, those packages are 2 February 2013, which is
+newer than the one I currently have installed, but the latest release
+is 19 May 2013. 
+
+>Looks like Mr. Togami is building it, and has made a source RPM
+>available. So if he can't be convinced to build an up-to-the-minute
+>version, we could extract the RPM spec from his source RPM and use
+>that to build one.
+>
+>> In fact, I have not yet located the source for the new version, but I
+>> assume it is there on Sourceforge somewhere. I thought I'd start by
+>> asking if what I want to do is possible.
+>
+>The most up-to-date version is in a Git repo, but hasn't seen any
+>changes since Jan 15 2013.  So Warren Togami's F18 RPM should be up to
+>date.
+
+Not if it's 2 February 2013, but maybe he can be convinced to make a
+newer one. And if he does he should also send it to Mark Watkins
+(JediMark, the developer) so he can put them on Sourceforge for others
+to download. 
+
+>That's really interesting software, incidentally.  We have an unused
+>CPAP kicking around (a boil-and-bite mouthpiece worked better) so I
+>should see if I can talk to it.
+
+The main issue with the mouth devices is that you have no way to tell
+if the therapy is adequate without a sleep study. My doc billed $2500
+for my sleep study, and that is the norm, although there are cheaper
+take-home devices. Mouth devices are also known to alter the mouth
+geography over time - like braces. And they are not usually adequate if
+the apnea is severe. 
+
+Using a data capable blower with software like Sleepyhead almost makes
+the sleep doctor irrelevant, given a patient with sufficient knowledge
+to interpret the daily results and the motivation to do so.
+Unfortunately, few patients meet those criteria so sleep doctoring is
+likely to continue to be a growth industry. 
+
+From svanhoosen at yahoo.com  Wed Jun  5 16:01:29 2013
+From: svanhoosen at yahoo.com (Scott Van Hoosen)
+Date: Wed, 5 Jun 2013 16:01:29 -0700 (PDT)
+Subject: [PLUG] Need recommendation for a penetration tester
+Message-ID: <1370473289.70496.YahooMailNeo@web125801.mail.ne1.yahoo.com>
+
+I am interested in having a professional penetration test done at my company. Any recommendations on a good company, preferably local, to do this?
+
+- Scott
+
+From aaron at bavariati.org  Wed Jun  5 21:27:24 2013
+From: aaron at bavariati.org (Aaron Burt)
+Date: Wed, 5 Jun 2013 21:27:24 -0700
+Subject: [PLUG] Compile from source to .deb or .rpm package?
+In-Reply-To: <20130605120050.4bb38ed0@Devil8>
+References: <20130604120317.1aadb743@Devil8>
+	<20130604230044.GD11100@aaron-acer>
+	<20130604193237.7c21b5c7@Devil8>
+	<20130605160419.GA15332@aaron-acer>
+	<20130605120050.4bb38ed0@Devil8>
+Message-ID: <20130606042724.GA6732@aaron-acer>
+
+On Wed, Jun 05, 2013 at 12:00:50PM -0700, John Jason Jordan wrote:
+> That is interesting. I did not realize there were packages in the
+> Fedora repos. However, those packages are 2 February 2013, which is
+> newer than the one I currently have installed, but the latest release
+> is 19 May 2013. 
+
+Again, the last change in the git repo was Jan 15 2013, so while the latest
+Windows binary may have a newer date, the source code it was built from
+likely is no newer than what built the good Mr. Togami's RPM.
+
+> The main issue with the mouth devices is that you have no way to tell
+> if the therapy is adequate without a sleep study.
+
+Indeed.  A sleep study was done, marginal Apnea was diagnosed, CPAP was
+prescribed as part of a medical study.  CPAP helped, but was cumbersome and
+interfered(!) with sleep.  Tried a mouthpiece, it helped breathing at least
+as well without interfering with sleep.
+
+> Using a data capable blower with software like Sleepyhead almost makes
+> the sleep doctor irrelevant, given a patient with sufficient knowledge
+> to interpret the daily results and the motivation to do so.
+
+Generally true for many, many things.
+
+-- 
+I have heard "You know most normal people call a plumber."  I usually reply
+with "I am not normal, I am an engineer." -- Tim, Design News forums
+
+From dexter at ambidexter.com  Wed Jun  5 23:29:30 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Wed, 05 Jun 2013 23:29:30 -0700
+Subject: [PLUG] REMINDER: June PLUG Meeting: Hacking on the new Beagle Bone
+	Black
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <51B02C4A.8040006@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+ALERT: I will not be here for the June AT event, might there be any FG 
+keyholders who are interested in assisting and perhaps presenting?
+
+Who: Russell Senior
+What: Hacking on the new Beagle Bone Black
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, June 6th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Hacking on the new Beagle Bone Black
+
+Russell recently spent some time working on porting a house-monitoring 
+system from the Beagle Bone (an $89 embedded, ARM-based, I/O rich device 
+running linux http://beagleboard.org/) to the new Beagle Bone Black, a 
+$45 device which is faster, includes video and 2G of onboard flash. The 
+sensors required a one-wire bus, one of which the original Beagle Bone 
+had configured out of the box. The Beagle Bone Black had none. This talk 
+is a description of what it took to get one-wire (specifically w1-gpio) 
+going with his own custom "cape" (a daughter-board for the Beagle Bone).
+
+Biography:
+
+Russell Senior has been a GNU/Linux user for over 20 years, since the 
+0.99plN days, using it both recreationally and professionally as a 
+research programmer/scientific data analyst. Since 2005, Russell has 
+become involved as a principal volunteer with the Personal Telco Project 
+(https://personaltelco.net), during which he has worked on embedded 
+systems, primarily network routers. He contributes to the development 
+and improvement of the OpenWrt project. In the last couple years, he has 
+worked on monitoring systems involving Arduino and, since last year, the 
+Beagle Bone and has learned a bit about the Angstrom distribution of 
+linux for embedded devices.
+
+
+Calagator Page: http://calagator.org/events/1250464123
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From michael at jamhome.us  Thu Jun  6 09:02:41 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Thu, 06 Jun 2013 09:02:41 -0700
+Subject: [PLUG] =?utf-8?q?IPv6_-_configured_by_default=3F?=
+Message-ID: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+
+ 
+
+This is a perfect LMGTFY moment. Because I'm not finding it. 
+
+Is
+IPv6 enabled by default in common Linux distros? Where is this
+documented? 
+
+The question came up while I was investigating an issue at
+work and saw IPv6 connections between a server and its database server.
+
+
+I know, and confirmed, there's no IPv6 routing in our internal
+network. The DB server is in a secure enclave, so I know the traffic
+routed. 
+
+But both endpoints are Linux servers, they are tunneling IPv6
+through IP4. 
+
+-- 
+ Michael Rasmussen 
+ http://www.jamhome.us/ 
+Be
+Appropriate && Follow Your Curiosity
+ 
+
+From cathy.smith at pnnl.gov  Thu Jun  6 09:30:55 2013
+From: cathy.smith at pnnl.gov (Smith, Cathy)
+Date: Thu, 6 Jun 2013 09:30:55 -0700
+Subject: [PLUG] IPv6 - configured by default?
+In-Reply-To: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+References: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+Message-ID: <70086D201BD484439914C36F5C8BF16101ACA40D40BA@EMAIL04.pnl.gov>
+
+If you install RHEL6 from the Red Hat DVD it is.  And, I believe, the same is true for RHEL5.
+
+
+Cathy
+---
+Cathy L. Smith
+IT Engineer
+
+Pacific Northwest National Laboratory
+Operated by Battelle for the
+U.S. Department of Energy
+
+Phone:?     509.375.2687
+Fax:??? ????509.375.2330
+Email:?     cathy.smith at pnnl.gov
+
+
+-----Original Message-----
+From: plug-bounces at lists.pdxlinux.org [mailto:plug-bounces at lists.pdxlinux.org] On Behalf Of Michael Rasmussen
+Sent: Thursday, June 06, 2013 9:03 AM
+To: PLUG Portland Linux User Group
+Subject: [PLUG] IPv6 - configured by default?
+
+ 
+
+This is a perfect LMGTFY moment. Because I'm not finding it. 
+
+Is
+IPv6 enabled by default in common Linux distros? Where is this documented? 
+
+The question came up while I was investigating an issue at work and saw IPv6 connections between a server and its database server.
+
+
+I know, and confirmed, there's no IPv6 routing in our internal network. The DB server is in a secure enclave, so I know the traffic routed. 
+
+But both endpoints are Linux servers, they are tunneling IPv6 through IP4. 
+
+--
+ Michael Rasmussen
+ http://www.jamhome.us/
+Be
+Appropriate && Follow Your Curiosity
+ 
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From cathy.smith at pnnl.gov  Thu Jun  6 09:32:57 2013
+From: cathy.smith at pnnl.gov (Smith, Cathy)
+Date: Thu, 6 Jun 2013 09:32:57 -0700
+Subject: [PLUG] IPv6 - configured by default?
+In-Reply-To: <70086D201BD484439914C36F5C8BF16101ACA40D40BA@EMAIL04.pnl.gov>
+References: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+	<70086D201BD484439914C36F5C8BF16101ACA40D40BA@EMAIL04.pnl.gov>
+Message-ID: <70086D201BD484439914C36F5C8BF16101ACA40D40BB@EMAIL04.pnl.gov>
+
+And so is Ubuntu 12.0.4 LTE.
+
+---
+Cathy L. Smith
+IT Engineer
+
+Pacific Northwest National Laboratory
+Operated by Battelle for the
+U.S. Department of Energy
+
+Phone:?     509.375.2687
+Fax:??? ????509.375.2330
+Email:?     cathy.smith at pnnl.gov
+
+
+-----Original Message-----
+From: Smith, Cathy 
+Sent: Thursday, June 06, 2013 9:31 AM
+To: PLUG Portland Linux User Group
+Subject: RE: [PLUG] IPv6 - configured by default?
+
+If you install RHEL6 from the Red Hat DVD it is.  And, I believe, the same is true for RHEL5.
+
+
+Cathy
+---
+Cathy L. Smith
+IT Engineer
+
+Pacific Northwest National Laboratory
+Operated by Battelle for the
+U.S. Department of Energy
+
+Phone:?     509.375.2687
+Fax:??? ????509.375.2330
+Email:?     cathy.smith at pnnl.gov
+
+
+-----Original Message-----
+From: plug-bounces at lists.pdxlinux.org [mailto:plug-bounces at lists.pdxlinux.org] On Behalf Of Michael Rasmussen
+Sent: Thursday, June 06, 2013 9:03 AM
+To: PLUG Portland Linux User Group
+Subject: [PLUG] IPv6 - configured by default?
+
+ 
+
+This is a perfect LMGTFY moment. Because I'm not finding it. 
+
+Is
+IPv6 enabled by default in common Linux distros? Where is this documented? 
+
+The question came up while I was investigating an issue at work and saw IPv6 connections between a server and its database server.
+
+
+I know, and confirmed, there's no IPv6 routing in our internal network. The DB server is in a secure enclave, so I know the traffic routed. 
+
+But both endpoints are Linux servers, they are tunneling IPv6 through IP4. 
+
+--
+ Michael Rasmussen
+ http://www.jamhome.us/
+Be
+Appropriate && Follow Your Curiosity
+ 
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From michael at jamhome.us  Thu Jun  6 09:54:32 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Thu, 06 Jun 2013 09:54:32 -0700
+Subject: [PLUG] =?utf-8?q?IPv6_-_configured_by_default=3F?=
+In-Reply-To: <70086D201BD484439914C36F5C8BF16101ACA40D40BB@EMAIL04.pnl.gov>
+References: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+	<70086D201BD484439914C36F5C8BF16101ACA40D40BA@EMAIL04.pnl.gov>
+	<70086D201BD484439914C36F5C8BF16101ACA40D40BB@EMAIL04.pnl.gov>
+Message-ID: <47e56ca0d6567f11288eb610abf5b6db@post.michaelsnet.us>
+
+On 2013-06-06 09:32, Smith, Cathy wrote:
+> And so is Ubuntu 12.0.4 LTE.
+
+And so is SuSE.
+But where is this documented?
+
+
+-- 
+  Michael Rasmussen
+  http://www.jamhome.us/
+Be Appropriate && Follow Your Curiosity
+
+From bkerensa at ubuntu.com  Fri Jun  7 12:29:50 2013
+From: bkerensa at ubuntu.com (Benjamin Kerensa)
+Date: Fri, 7 Jun 2013 12:29:50 -0700
+Subject: [PLUG] IPv6 - configured by default?
+In-Reply-To: <70086D201BD484439914C36F5C8BF16101ACA40D40BB@EMAIL04.pnl.gov>
+References: <130aee1344adc5a20fa64ea7eb29840f@post.michaelsnet.us>
+	<70086D201BD484439914C36F5C8BF16101ACA40D40BA@EMAIL04.pnl.gov>
+	<70086D201BD484439914C36F5C8BF16101ACA40D40BB@EMAIL04.pnl.gov>
+Message-ID: <CAGOdq5mD7bvOG2S6_VdRvZSkUVjpvW8FQJSvucz6ed_zV9D6Ng@mail.gmail.com>
+
+IPv6 is going to be  enabled on most by default but notably if you do
+not have IPv6 enabled at your router or even at the ISP level then in
+my experience disabling it can save milliseconds to even a few seconds
+to make the initial network handshake on Wifi or via Ethernet.
+
+On Thu, Jun 6, 2013 at 9:32 AM, Smith, Cathy <cathy.smith at pnnl.gov> wrote:
+> And so is Ubuntu 12.0.4 LTE.
+>
+> ---
+> Cathy L. Smith
+> IT Engineer
+>
+> Pacific Northwest National Laboratory
+> Operated by Battelle for the
+> U.S. Department of Energy
+>
+> Phone:      509.375.2687
+> Fax:        509.375.2330
+> Email:      cathy.smith at pnnl.gov
+>
+>
+> -----Original Message-----
+> From: Smith, Cathy
+> Sent: Thursday, June 06, 2013 9:31 AM
+> To: PLUG Portland Linux User Group
+> Subject: RE: [PLUG] IPv6 - configured by default?
+>
+> If you install RHEL6 from the Red Hat DVD it is.  And, I believe, the same is true for RHEL5.
+>
+>
+> Cathy
+> ---
+> Cathy L. Smith
+> IT Engineer
+>
+> Pacific Northwest National Laboratory
+> Operated by Battelle for the
+> U.S. Department of Energy
+>
+> Phone:      509.375.2687
+> Fax:        509.375.2330
+> Email:      cathy.smith at pnnl.gov
+>
+>
+> -----Original Message-----
+> From: plug-bounces at lists.pdxlinux.org [mailto:plug-bounces at lists.pdxlinux.org] On Behalf Of Michael Rasmussen
+> Sent: Thursday, June 06, 2013 9:03 AM
+> To: PLUG Portland Linux User Group
+> Subject: [PLUG] IPv6 - configured by default?
+>
+>
+>
+> This is a perfect LMGTFY moment. Because I'm not finding it.
+>
+> Is
+> IPv6 enabled by default in common Linux distros? Where is this documented?
+>
+> The question came up while I was investigating an issue at work and saw IPv6 connections between a server and its database server.
+>
+>
+> I know, and confirmed, there's no IPv6 routing in our internal network. The DB server is in a secure enclave, so I know the traffic routed.
+>
+> But both endpoints are Linux servers, they are tunneling IPv6 through IP4.
+>
+> --
+>  Michael Rasmussen
+>  http://www.jamhome.us/
+> Be
+> Appropriate && Follow Your Curiosity
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+-- 
+Benjamin Kerensa
+http://benjaminkerensa.com
+"I am what I am because of who we all are" - Ubuntu
+
+From keithl at gate.kl-ic.com  Sun Jun  9 15:03:57 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sun, 9 Jun 2013 15:03:57 -0700
+Subject: [PLUG] Editing a video DVD
+Message-ID: <20130609220357.GB15740@gate.kl-ic.com>
+
+What is the simplest way to use Linux tools to take a non-copy-
+protected video DVD apart, remove the first 9.5 minutes of the
+content, and make a new DVD with the same menus, etc? 
+
+The particular DVD is the recording of an awards ceremony at a
+conference, where a really wonderful person was introduced by
+a foulmouthed idiot MC.  Before I share the DVD with others,
+I would like to edit out the MC.  Most of the people at the
+ceremony would like to do the same with their brains.  While I
+can tell people to fast forward to 9:30, or just turn off the
+sound, they may be tempted to listen to Mr. Nasty, and there
+are some things (like goatse) which you cannot un-know.
+
+So, which tool is easiest?  I don't want to become an editing
+guru, just edit out one of nature's mistakes.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From p.j.timlick at ieee.org  Sun Jun  9 20:23:35 2013
+From: p.j.timlick at ieee.org (Patrick J. Timlick)
+Date: Sun, 9 Jun 2013 20:23:35 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <20130609220357.GB15740@gate.kl-ic.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+Message-ID: <CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+
+I THINK k9copy MIGHT work.
+
+I needed something to quickly copy a DVD to hard drive, k9copy did the job.
+ It has a wizard where you specify the parts you want to copy. I just
+copied everything, you might be able to just get by with that.  So, Are you
+feeling lucky Kieth?
+
+Good Luck Buddy,
+
+-- Pat
+
+
+On Sun, Jun 9, 2013 at 3:03 PM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+
+> What is the simplest way to use Linux tools to take a non-copy-
+> protected video DVD apart, remove the first 9.5 minutes of the
+> content, and make a new DVD with the same menus, etc?
+>
+> The particular DVD is the recording of an awards ceremony at a
+> conference, where a really wonderful person was introduced by
+> a foulmouthed idiot MC.  Before I share the DVD with others,
+> I would like to edit out the MC.  Most of the people at the
+> ceremony would like to do the same with their brains.  While I
+> can tell people to fast forward to 9:30, or just turn off the
+> sound, they may be tempted to listen to Mr. Nasty, and there
+> are some things (like goatse) which you cannot un-know.
+>
+> So, which tool is easiest?  I don't want to become an editing
+> guru, just edit out one of nature's mistakes.
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+p.j.timlick at ieee.org
+www.timlick.com
+503-476-3119
+10990 NE Paren Springs Rd.
+Dundee OR 97115
+
+From russell at personaltelco.net  Sun Jun  9 20:50:12 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sun, 09 Jun 2013 20:50:12 -0700
+Subject: [PLUG] FOLLOWUP: June PLUG Meeting: Hacking on the new Beagle Bone
+	Black
+In-Reply-To: <51B02C4A.8040006@ambidexter.com> (Michael Dexter's message of
+	"Wed\, 05 Jun 2013 23\:29\:30 -0700")
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<51B02C4A.8040006@ambidexter.com>
+Message-ID: <86sj0qtyiz.fsf_-_@coulee.tdb.com>
+
+
+   Portland Linux/Unix Group Meeting Announcement
+
+   ALERT: I will not be here for the June AT event, might there be any FG 
+   keyholders who are interested in assisting and perhaps presenting?
+
+   Who: Russell Senior
+   What: Hacking on the new Beagle Bone Black
+   Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+   When: Thursday, June 6th, 2013 at 7pm
+   Why: The pursuit of technology freedom
+
+   See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+   Hacking on the new Beagle Bone Black
+
+   Russell recently spent some time working on porting a house-monitoring 
+   system from the Beagle Bone (an $89 embedded, ARM-based, I/O rich device 
+   running linux http://beagleboard.org/) to the new Beagle Bone Black, a 
+   $45 device which is faster, includes video and 2G of onboard flash. The 
+   sensors required a one-wire bus, one of which the original Beagle Bone 
+   had configured out of the box. The Beagle Bone Black had none. This talk 
+   is a description of what it took to get one-wire (specifically w1-gpio) 
+   going with his own custom "cape" (a daughter-board for the Beagle Bone).
+
+   Biography:
+
+   Russell Senior has been a GNU/Linux user for over 20 years, since the 
+   0.99plN days, using it both recreationally and professionally as a 
+   research programmer/scientific data analyst. Since 2005, Russell has 
+   become involved as a principal volunteer with the Personal Telco Project 
+   (https://personaltelco.net), during which he has worked on embedded 
+   systems, primarily network routers. He contributes to the development 
+   and improvement of the OpenWrt project. In the last couple years, he has 
+   worked on monitoring systems involving Arduino and, since last year, the 
+   Beagle Bone and has learned a bit about the Angstrom distribution of 
+   linux for embedded devices.
+
+Here are my slides, for what they're worth:
+
+  http://www.aracnet.com/~seniorr/plug-talk-2013-06-06.pdf
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From rshepard at appl-ecosys.com  Mon Jun 10 06:20:31 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 10 Jun 2013 06:20:31 -0700 (PDT)
+Subject: [PLUG] Postfix Not Honoring UCE Rules
+Message-ID: <alpine.LNX.2.00.1306100605580.23160@salmo.appl-ecosys.com>
+
+   Interesting situation here that I've not been able to resolve on my own.
+My Web search found a thread on the postfix-users mail archive that says the
+problem is a mis-configured MTA on the sender's end yet I'm not able to
+reject this stream of incoming messages. I'm running postfix-2.10.0.
+
+   This started Saturday when I found a few dozen of these messages in my
+INBOX (and in /var/log/maillog):
+
+-----------------------------------------------------------------
+>From MAILER-DAEMON at salmo.appl-ecosys.com Mon Jun 10 05:22:13 2013
+Date: Mon, 10 Jun 2013 05:22:13 -0700 (PDT)
+From: Mail Delivery System <MAILER-DAEMON at salmo.appl-ecosys.com>
+To: Postmaster <postmaster at appl-ecosys.com>
+Subject: Postfix SMTP server: errors from unknown[213.230.15.189]
+
+Transcript of session follows.
+
+  Out: 220 salmo.appl-ecosys.com ESMTP Postfix
+  In:  EHLO bab.com
+  Out: 250-salmo.appl-ecosys.com
+  Out: 250-PIPELINING
+  Out: 250-SIZE 32768000
+  Out: 250-VRFY
+  Out: 250-ETRN
+  Out: 250-ENHANCEDSTATUSCODES
+  Out: 250-8BITMIME
+  Out: 250 DSN
+  In:  MAIL FROM:<bab at bab.com>
+  Out: 250 2.1.0 Ok
+  In:  RCPT TO:<alpine.lnx.2.00.1001081035450.8575 at salmo.appl-ecosys.com>
+  Out: 451 4.3.5 Server configuration error
+
+Session aborted, reason: lost connection
+
+For other details, see the local mail logfile
+-------------------------------------------------------------------
+
+   'whois' told me that IP address is assigned to Saudi Arabla. As I have no
+expectation of legitimate messages from that country I took the following
+steps:
+
+   - Blocked Saudi Arabia CIDR ranges in /etc/postfix/cidr and entered a line
+in /etc/postfix/main.cf to check that file.
+
+   - Added the string, bab at bab.com, in /etc/postfix/header_checks.
+
+   Despite these, each day brings a flood of such messages. What I would like
+to learn is why the UCE rules are not being honored and rejecting these
+messages before they enter the system. I've no issues with any other CIDR
+blocks or header_checks.
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Mon Jun 10 09:58:18 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 10 Jun 2013 09:58:18 -0700 (PDT)
+Subject: [PLUG] Postfix Not Honoring UCE Rules [RESOLVED]
+In-Reply-To: <alpine.LNX.2.00.1306100605580.23160@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306100605580.23160@salmo.appl-ecosys.com>
+Message-ID: <alpine.LNX.2.00.1306100957210.23160@salmo.appl-ecosys.com>
+
+On Mon, 10 Jun 2013, Rich Shepard wrote:
+
+>   Interesting situation here that I've not been able to resolve on my own.
+> My Web search found a thread on the postfix-users mail archive that says the
+> problem is a mis-configured MTA on the sender's end yet I'm not able to
+> reject this stream of incoming messages. I'm running postfix-2.10.0.
+
+   Fixed the problem by putting the UCE strings in the body_checks rather
+than the header_checks. Sigh. Mea culpa!
+
+Rich
+
+
+From keithl at gate.kl-ic.com  Mon Jun 10 13:57:40 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 10 Jun 2013 13:57:40 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+	<CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+Message-ID: <20130610205740.GA18814@gate.kl-ic.com>
+
+> On Sun, Jun 9, 2013 at 3:03 PM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+> > What is the simplest way to use Linux tools to take a non-copy-
+> > protected video DVD apart, remove the first 9.5 minutes of the
+> > content, and make a new DVD with the same menus, etc?
+
+On Sun, Jun 09, 2013 at 08:23:35PM -0700, Patrick J. Timlick wrote:
+> I THINK k9copy MIGHT work.
+> 
+> I needed something to quickly copy a DVD to hard drive, k9copy did the job.
+>  It has a wizard where you specify the parts you want to copy. I just
+> copied everything, you might be able to just get by with that.  So, Are you
+> feeling lucky Kieth?
+
+Not very lucky.  I can do the same with K3B.  No, I want to chop off
+the front of one of the video segments, start the modified DVD with
+the rest of that same segment, keep the metadata,  and keep the
+simple-but-better-than-I-can-design menu structure of the disk. 
+That sounds hard to do without a lot of knowledge of DVD structure
+or some capable tools that will lead me through the process.  
+
+I downloaded the k9copy source, did not find any documentation, and
+the author is no longer supports the tool.  I'll keep looking, thanks!
+
+Keith
+
+P.S. Indeed,  I may just pay the original author of the disk $$$ to
+rebuild it for me.  The problem is he doesn't answer phone or email.
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From plug at the-wes.com  Mon Jun 10 14:09:55 2013
+From: plug at the-wes.com (wes)
+Date: Mon, 10 Jun 2013 14:09:55 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <20130610205740.GA18814@gate.kl-ic.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+	<CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+	<20130610205740.GA18814@gate.kl-ic.com>
+Message-ID: <CAA1wLOm0B8_oM0k4Es=monNUR3gV1Pdhszi1ztD=TUmAzWHZYw@mail.gmail.com>
+
+if it's a paying gig, maybe someone on the list would be interested in
+doing it for you.
+
+-wes
+
+
+On Mon, Jun 10, 2013 at 1:57 PM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+
+> > On Sun, Jun 9, 2013 at 3:03 PM, Keith Lofstrom <keithl at gate.kl-ic.com
+> >wrote:
+> > > What is the simplest way to use Linux tools to take a non-copy-
+> > > protected video DVD apart, remove the first 9.5 minutes of the
+> > > content, and make a new DVD with the same menus, etc?
+>
+> On Sun, Jun 09, 2013 at 08:23:35PM -0700, Patrick J. Timlick wrote:
+> > I THINK k9copy MIGHT work.
+> >
+> > I needed something to quickly copy a DVD to hard drive, k9copy did the
+> job.
+> >  It has a wizard where you specify the parts you want to copy. I just
+> > copied everything, you might be able to just get by with that.  So, Are
+> you
+> > feeling lucky Kieth?
+>
+> Not very lucky.  I can do the same with K3B.  No, I want to chop off
+> the front of one of the video segments, start the modified DVD with
+> the rest of that same segment, keep the metadata,  and keep the
+> simple-but-better-than-I-can-design menu structure of the disk.
+> That sounds hard to do without a lot of knowledge of DVD structure
+> or some capable tools that will lead me through the process.
+>
+> I downloaded the k9copy source, did not find any documentation, and
+> the author is no longer supports the tool.  I'll keep looking, thanks!
+>
+> Keith
+>
+> P.S. Indeed,  I may just pay the original author of the disk $$$ to
+> rebuild it for me.  The problem is he doesn't answer phone or email.
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From bill at billbarry.org  Mon Jun 10 14:23:39 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Mon, 10 Jun 2013 14:23:39 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <20130610205740.GA18814@gate.kl-ic.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+	<CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+	<20130610205740.GA18814@gate.kl-ic.com>
+Message-ID: <CAAPspTanSNvT8D3sJYGURdUqKSg-HNyohW1sEOW4khgO3An60w@mail.gmail.com>
+
+## copy the dvd to hard disk
+mkdir something
+cd something
+dvdbackup -M
+
+## edit vob file with gopchop http://outflux.net/unix/software/gopchop/
+
+
+
+
+On Mon, Jun 10, 2013 at 1:57 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+>> On Sun, Jun 9, 2013 at 3:03 PM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+>> > What is the simplest way to use Linux tools to take a non-copy-
+>> > protected video DVD apart, remove the first 9.5 minutes of the
+>> > content, and make a new DVD with the same menus, etc?
+>
+> On Sun, Jun 09, 2013 at 08:23:35PM -0700, Patrick J. Timlick wrote:
+>> I THINK k9copy MIGHT work.
+>>
+>> I needed something to quickly copy a DVD to hard drive, k9copy did the job.
+>>  It has a wizard where you specify the parts you want to copy. I just
+>> copied everything, you might be able to just get by with that.  So, Are you
+>> feeling lucky Kieth?
+>
+> Not very lucky.  I can do the same with K3B.  No, I want to chop off
+> the front of one of the video segments, start the modified DVD with
+> the rest of that same segment, keep the metadata,  and keep the
+> simple-but-better-than-I-can-design menu structure of the disk.
+> That sounds hard to do without a lot of knowledge of DVD structure
+> or some capable tools that will lead me through the process.
+>
+> I downloaded the k9copy source, did not find any documentation, and
+> the author is no longer supports the tool.  I'll keep looking, thanks!
+>
+> Keith
+>
+> P.S. Indeed,  I may just pay the original author of the disk $$$ to
+> rebuild it for me.  The problem is he doesn't answer phone or email.
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+I have experience in backing up DVD's, but not too much in the reverse
+of creating DVD's, that said, here is one process that could get your
+job done.
+
+Essentially you  follow the instructions in the example at the bottom
+of this post
+http://unix.stackexchange.com/questions/77834/how-to-rip-a-scratched-dvd-video-a-cdparanoia-for-dvds
+
+but after doing the dvdbackup -m you need to edit the vob file to
+remove the unwanted parts.
+For that you can use a utility called gopchop
+http://gopchop.sourceforge.net/
+for which there exists a Debian package, but I don't know about Redhat.
+
+If this does not work, use any mpeg2 video editor.
+Then continue the steps in the example to put the DVD back together.
+
+Bill
+
+From c2plugtalk at gmail.com  Tue Jun 11 09:22:24 2013
+From: c2plugtalk at gmail.com (Clinton .)
+Date: Tue, 11 Jun 2013 09:22:24 -0700
+Subject: [PLUG] Open Source Apache Hadoop is the NSA's Star Performer
+Message-ID: <CAHkjqz+YKRk6QFw9ggnUwLiGd8J4uTPZ3N234pdmADd714XDpg@mail.gmail.com>
+
+http://www.marketplace.org/topics/tech/why-prism-powered-private-sector-technology
+
+From daniel at digitree.org  Tue Jun 11 10:25:37 2013
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Tue, 11 Jun 2013 10:25:37 -0700
+Subject: [PLUG] Open Source Bridge / Volunteer Positions (free pass)
+Message-ID: <CANkHAjefo_3uJ90PQ=mLWJjH0RQ0mBR3xX2rvYWfjYtkXmhAAg@mail.gmail.com>
+
+Open Source Bridge is only a week away, June 18-??21.  Registration is
+still open and tickets are $300 for a full pass, $99 if you're a student or
+free if you're able to volunteer 8 hours of your time to help make the
+conference a success; OS Bridge is a 100% volunteer-run conference.  Many
+of the volunteer positions are really straightforward and some involve
+little more than attending a talk and ensuring the speaker has everything
+they need (A/V cable, glass of water, etc).  A community pass is also
+available for free which gets you into most of the evening events and the
+all-day unconference on Friday.
+
+For a schedule and list of sessions being presented this year:
+http://opensourcebridge.org/events/2013/schedule
+
+More information about volunteering:
+http://volunteer.opensourcebridge.org/welcome/
+
+More about the conference:
+http://opensourcebridge.org/about/
+
+
+Cheers,
+
+Daniel Hedlund
+daniel at digitree.org
+
+From jason.lapier at gmail.com  Tue Jun 11 10:59:52 2013
+From: jason.lapier at gmail.com (Jason LaPier)
+Date: Tue, 11 Jun 2013 10:59:52 -0700
+Subject: [PLUG] Open Source Apache Hadoop is the NSA's Star Performer
+In-Reply-To: <CAHkjqz+YKRk6QFw9ggnUwLiGd8J4uTPZ3N234pdmADd714XDpg@mail.gmail.com>
+References: <CAHkjqz+YKRk6QFw9ggnUwLiGd8J4uTPZ3N234pdmADd714XDpg@mail.gmail.com>
+Message-ID: <CADJK7_TwBaod9STBuQyWOK3sGn10D==N7+u2BUB+b-q1nMYsoQ@mail.gmail.com>
+
+That article confuses me. I didn't listen to the audio, but the headline is
+"Why PRISM is powered by *private-sector *technology", and then they go on
+to talk about how the NSA uses open-source software. I get that companies
+in the private sector contribute to the development of hadoop, but that
+headline is misleading.
+
+I also have to echo the comment at the bottom (at this time, the only
+comment on the post):
+
+"I don't understand the point of this article. It is critical of the
+government for not having created something as good as Hadoop. So when
+private companies use Hadoop, it is smart and cool, but when the government
+uses it, it shows how inadequate they are? If the government did spend the
+money developing its own system, I'm sure it would be criticized for
+wasting money and not using what's available in the private sector. Again,
+what is the point?"
+
+Is this post just a badly-worded summary of the audio?
+
+
+
+On Tue, Jun 11, 2013 at 9:22 AM, Clinton . <c2plugtalk at gmail.com> wrote:
+
+>
+> http://www.marketplace.org/topics/tech/why-prism-powered-private-sector-technology
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From RParr at TemporalArts.com  Tue Jun 11 12:24:54 2013
+From: RParr at TemporalArts.com (RParr)
+Date: Tue, 11 Jun 2013 12:24:54 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <20130609220357.GB15740@gate.kl-ic.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+Message-ID: <51B77986.7020403@TemporalArts.com>
+
+On 06/09/2013 03:03 PM, Keith Lofstrom wrote:
+> What is the simplest way to use Linux tools to take a non-copy-
+> protected video DVD apart, remove the first 9.5 minutes of the
+> content, and make a new DVD with the same menus, etc?
+>
+> The particular DVD is the recording of an awards ceremony at a
+> conference, where a really wonderful person was introduced by
+> a foulmouthed idiot MC.  Before I share the DVD with others,
+> I would like to edit out the MC.  Most of the people at the
+> ceremony would like to do the same with their brains.  While I
+> can tell people to fast forward to 9:30, or just turn off the
+> sound, they may be tempted to listen to Mr. Nasty, and there
+> are some things (like goatse) which you cannot un-know.
+>
+> So, which tool is easiest?  I don't want to become an editing
+> guru, just edit out one of nature's mistakes.
+>
+> Keith
+>
+
+I use avidemux and gochop for this sort of thing.
+
+RParr, Temporal Arts
+
+
+From dexter at ambidexter.com  Tue Jun 11 23:30:39 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Tue, 11 Jun 2013 23:30:39 -0700
+Subject: [PLUG] June Advanced Topics
+Message-ID: <51B8158F.5070007@ambidexter.com>
+
+
+Hello all,
+
+It is highly unlikely that I will be around for the June Advanced Topics 
+talk.
+
+For the record, a Free Geek keyholder and long-time participant has 
+questions about various strategies on package building. May I kindly ask 
+that people chime in with either their specific desires for knowledge or 
+with an offer of packaging insights? Or both?
+
+Keep in mind: A 'talk' need not have slides or even a structure. 
+Expertise and a positive attitude are all that are needed to enable a 
+worthwhile dialog. That, plus the courage to sit before an audience. 
+That took me a decade or two but now I'm wrangling upset neighbors at 
+the neighborhood association! You can too!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From keithl at gate.kl-ic.com  Wed Jun 12 12:02:49 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Wed, 12 Jun 2013 12:02:49 -0700
+Subject: [PLUG] Editing a video DVD
+In-Reply-To: <CAAPspTanSNvT8D3sJYGURdUqKSg-HNyohW1sEOW4khgO3An60w@mail.gmail.com>
+References: <20130609220357.GB15740@gate.kl-ic.com>
+	<CABv3eFffAOB8_QT3e-Puqee9SDMnLUzGfsqgKAeak4S14HDi-w@mail.gmail.com>
+	<20130610205740.GA18814@gate.kl-ic.com>
+	<CAAPspTanSNvT8D3sJYGURdUqKSg-HNyohW1sEOW4khgO3An60w@mail.gmail.com>
+Message-ID: <20130612190249.GA27014@gate.kl-ic.com>
+
+On Mon, Jun 10, 2013 at 02:23:39PM -0700, Bill Barry wrote:
+> ## copy the dvd to hard disk
+> mkdir something
+> cd something
+> dvdbackup -M
+> 
+> ## edit vob file with gopchop http://outflux.net/unix/software/gopchop/
+
+Thank you to the folks that suggested gopchop - I was able to edit the
+nasty bits out of VOB file.   The truncated file plays back properly
+with mplayer. 
+
+A problem remains with reassembing the DVD with K3B and playing it on
+the DVD player, which does not play back the sound from the VOB file
+I edited or the VOB file that follows.  PEBK&C, probably.  I'll frob
+on it some more and report back in a day or two.
+
+Keith
+
+From t_rex at frontier.com  Wed Jun 12 18:08:51 2013
+From: t_rex at frontier.com (t_rex at frontier.com)
+Date: Wed, 12 Jun 2013 18:08:51 -0700 (PDT)
+Subject: [PLUG] BSD unix
+Message-ID: <1371085731.24585.YahooMailClassic@web122503.mail.ne1.yahoo.com>
+
+
+
+
+
+
+I need help with BSD unix.? The program can connect to the internet, but I am not able to.
+Are there any Unix experts in PLUG?
+
+From mike at linuxexam.com  Wed Jun 12 18:08:58 2013
+From: mike at linuxexam.com (MJang)
+Date: Wed, 12 Jun 2013 18:08:58 -0700
+Subject: [PLUG] Possible OSCON Free Expo Pass
+Message-ID: <1371085738.3770.62.camel@kauai>
+
+Folks, 
+
+Just saw a listing on the PDX Tech Professionals Linkedin group for a
+"free" OSCON expo pass, using code:
+
+PDXEXPO
+
+(there's reportedly also a 20% discount on OSCON packages with code
+PDXTECH).
+
+(I would test it myself, but have already been registered by the company
+I work for.)
+
+Thanks,
+Mike
+
+
+From galens at seitzassoc.com  Wed Jun 12 18:20:31 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Wed, 12 Jun 2013 18:20:31 -0700
+Subject: [PLUG] Possible OSCON Free Expo Pass
+In-Reply-To: <1371085738.3770.62.camel@kauai>
+References: <1371085738.3770.62.camel@kauai>
+Message-ID: <51B91E5F.7040303@seitzassoc.com>
+
+On 06/12/13 18:08, MJang wrote:
+> Folks,
+>
+> Just saw a listing on the PDX Tech Professionals Linkedin group for a
+> "free" OSCON expo pass, using code:
+>
+> PDXEXPO
+
+I just registered for the expo pass using this.  I can confirm that this 
+gets you in for $0.  Thanks!
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From elcaseti at gmail.com  Wed Jun 12 19:53:41 2013
+From: elcaseti at gmail.com (C W)
+Date: Wed, 12 Jun 2013 19:53:41 -0700
+Subject: [PLUG] Possible OSCON Free Expo Pass
+In-Reply-To: <51B91E5F.7040303@seitzassoc.com>
+References: <1371085738.3770.62.camel@kauai> <51B91E5F.7040303@seitzassoc.com>
+Message-ID: <CACTDRAmWDO73OroYs7WczWcEb30hWwRL9QPw-wAKsyAjnEvoeg@mail.gmail.com>
+
+Thanks Mike,
+
+It worked for me, too.
+
+See you all there,
+
+Elcaset
+
+
+On Wed, Jun 12, 2013 at 6:20 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+
+> On 06/12/13 18:08, MJang wrote:
+> > Folks,
+> >
+> > Just saw a listing on the PDX Tech Professionals Linkedin group for a
+> > "free" OSCON expo pass, using code:
+> >
+> > PDXEXPO
+>
+> I just registered for the expo pass using this.  I can confirm that this
+> gets you in for $0.  Thanks!
+>
+> galen
+> --
+> Galen Seitz
+> galens at seitzassoc.com
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From rshepard at appl-ecosys.com  Fri Jun 14 11:07:14 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 14 Jun 2013 11:07:14 -0700 (PDT)
+Subject: [PLUG] Removing annoying mail notice
+Message-ID: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+
+   This message frequently pops up on the command line:
+
+                   You have mail in /var/spool/mail/rshepard
+
+which tells me what I already know. I've not tracked what triggers
+displaying that message and I've not found where I can turn it off. If you
+know where the switch is located please point me to it so I can eliminate an
+unnecessary annoyance.
+
+Thanks,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From paulm at freegeek.org  Fri Jun 14 11:32:40 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Fri, 14 Jun 2013 11:32:40 -0700
+Subject: [PLUG] Removing annoying mail notice
+In-Reply-To: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+Message-ID: <1371234760.3099.1.camel@tundra>
+
+On Fri, 2013-06-14 at 11:07 -0700, Rich Shepard wrote:
+> This message frequently pops up on the command line:
+> 
+>                    You have mail in /var/spool/mail/rshepard
+> 
+> which tells me what I already know. I've not tracked what triggers
+> displaying that message and I've not found where I can turn it off. If you
+> know where the switch is located please point me to it so I can eliminate an
+> unnecessary annoyance.
+ try unset MAILCHECK (in .bashrc etc)
+
+> 
+> Thanks,
+> 
+> Rich
+> 
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From rshepard at appl-ecosys.com  Fri Jun 14 11:40:49 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 14 Jun 2013 11:40:49 -0700 (PDT)
+Subject: [PLUG] Removing annoying mail notice
+In-Reply-To: <1371234760.3099.1.camel@tundra>
+References: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+	<1371234760.3099.1.camel@tundra>
+Message-ID: <alpine.LNX.2.00.1306141140141.2811@salmo.appl-ecosys.com>
+
+On Fri, 14 Jun 2013, Paul Munday wrote:
+
+> try unset MAILCHECK (in .bashrc etc)
+
+   Thanks, Paul. I'll see how this works over the next few days.
+
+Much appreciated,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From plug at shoshoni.info  Fri Jun 14 11:42:38 2013
+From: plug at shoshoni.info (Bryan Linton)
+Date: Fri, 14 Jun 2013 11:42:38 -0700
+Subject: [PLUG] Removing annoying mail notice
+In-Reply-To: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+Message-ID: <20130614184238.GA32068@shoshoni.info>
+
+On 2013-06-14 11:07:14, Rich Shepard <rshepard at appl-ecosys.com> wrote:
+>    This message frequently pops up on the command line:
+> 
+>                    You have mail in /var/spool/mail/rshepard
+> 
+> which tells me what I already know. I've not tracked what triggers
+> displaying that message and I've not found where I can turn it off. If you
+> know where the switch is located please point me to it so I can eliminate an
+> unnecessary annoyance.
+> 
+
+You (or your system defaults) probably set MAIL or MAILPATH
+variables in your shell environment.  They're probably either in
+bashrc or .profile.
+
+If you're not using bash, I know that zsh and ksh use the same
+variables for the same reason, so unsetting them is likely to
+solve your problem, but are likely going to be in .zshrc or
+kshrc respectively.
+
+The following is sourced from: https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html
+
+MAIL
+	If this parameter is set to a filename or directory name
+	and the MAILPATH variable is not set, Bash informs the
+	user of the arrival of mail in the specified file or
+	Maildir-format directory.
+
+MAILPATH
+	A colon-separated list of filenames which the shell
+	periodically checks for new mail. Each list entry can
+	specify the message that is printed when new mail arrives
+	in the mail file by separating the file name from the
+	message with a `?'. When used in the text of the message,
+	$_ expands to the name of the current mail file.
+
+-- 
+Bryan
+
+
+
+From nsedell at gmail.com  Fri Jun 14 11:48:06 2013
+From: nsedell at gmail.com (Neal)
+Date: Fri, 14 Jun 2013 11:48:06 -0700
+Subject: [PLUG] Removing annoying mail notice
+In-Reply-To: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+Message-ID: <CAKxTfCPJFo13k7TtfVOF7hpAD7Ahiqq6XF_G2Kzo1EH+5mV2uA@mail.gmail.com>
+
+Possibly relevant but likely ancient history, did you try 'man biff'?
+
+NealS
+
+From rshepard at appl-ecosys.com  Fri Jun 14 12:00:42 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 14 Jun 2013 12:00:42 -0700 (PDT)
+Subject: [PLUG] Removing annoying mail notice
+In-Reply-To: <CAKxTfCPJFo13k7TtfVOF7hpAD7Ahiqq6XF_G2Kzo1EH+5mV2uA@mail.gmail.com>
+References: <alpine.LNX.2.00.1306141105010.2811@salmo.appl-ecosys.com>
+	<CAKxTfCPJFo13k7TtfVOF7hpAD7Ahiqq6XF_G2Kzo1EH+5mV2uA@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1306141200150.2811@salmo.appl-ecosys.com>
+
+On Fri, 14 Jun 2013, Neal wrote:
+
+> Possibly relevant but likely ancient history, did you try 'man biff'?
+
+   Yep. Turned off biff years ago to no avail.
+
+Rich
+
+
+From keithl at gate.kl-ic.com  Fri Jun 14 15:16:50 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 14 Jun 2013 15:16:50 -0700
+Subject: [PLUG] June Linux Clinic - Escape Windows!
+Message-ID: <20130614221650.GB3186@gate.kl-ic.com>
+
+This time of year reminds me of my friend Junie.  Her husband
+Ollie is in prison for making an illegal copy of Windows.  I'm
+in contact with the escape committee, Linux users who are also
+fond of Rodgers and Hammerstein show tunes.  So when I got a
+singing phone call, "June is busting out Oliver!" ...
+
+I don't want any more punnishing telephone calls, or friends in
+jail for using the wrong operating system.  Before the Business
+Software Alliance sends the cops to break down your front door,
+sneak out the back with your computer, and bring it to Free Geek
+at 1731 SE 10th Avenue (three blocks south of Hawthorne) Sunday
+June 16 between 1pm and 5pm.
+
+We will erase the evidence, replacing it with Linux (perhaps even
+BSD) in your choice of decorator colors and distros!   No worries
+about fingerprints - we have keyboards, monitors, and mice that
+the cops will never find.  Yes We Scan?  No!  Free Geek has wired
+and wireless internet for your anonymous Internet pleasure.  We
+don't do good-cop/bad-cop - but we do have good and bad Linux
+advice (your choice) from our skilled team of easily distractable
+look at the pretty butterfly!
+
+We have coffee and snacks.  We may not have a cake with a file
+baked in it, but we have cake packs of CDs and DVDs onto which
+we can bake all the files you want!
+
+So - escape from the prison of Windows, and join us this third
+Sunday for Linux Clinic!
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From rshepard at appl-ecosys.com  Fri Jun 14 15:48:38 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 14 Jun 2013 15:48:38 -0700 (PDT)
+Subject: [PLUG] [PLUG-ANNOUNCE] June Linux Clinic - Escape Windows!
+In-Reply-To: <20130614221650.GB3186@gate.kl-ic.com>
+References: <20130614221650.GB3186@gate.kl-ic.com>
+Message-ID: <alpine.LNX.2.00.1306141545380.2811@salmo.appl-ecosys.com>
+
+On Fri, 14 Jun 2013, Keith Lofstrom wrote:
+
+> This time of year reminds me of my friend Junie.  Her husband
+> Ollie is in prison for making an illegal copy of Windows.  I'm
+> in contact with the escape committee, Linux users who are also
+> fond of Rodgers and Hammerstein show tunes.  So when I got a
+> singing phone call, "June is busting out Oliver!" ...
+
+Keith,
+
+   I see you're competing with Pearls Before Swine.
+
+> I don't want any more punnishing telephone calls, or friends in
+> jail for using the wrong operating system.  Before the Business
+> Software Alliance sends the cops to break down your front door,
+> sneak out the back with your computer, ...
+
+   Easier to simply defenestrate.
+
+   While your prose stimulates the Friday afternoon of all who read it I
+suspect that the Microserfs to whom you address your erudite literary
+efforts do not subscribe to our mail list. That's too bad ... they avoid the
+groaners.
+
+Carpe weekend,
+
+Rich
+
+
+From rlengland at frontier.com  Sat Jun 15 13:44:29 2013
+From: rlengland at frontier.com (Richard England)
+Date: Sat, 15 Jun 2013 13:44:29 -0700
+Subject: [PLUG] Jewel cases requiring a good home
+Message-ID: <51BCD22D.9050609@frontier.com>
+
+Does anyone know if Freegeek or any other organization would care for a 
+large number of used jewel cases?
+
+I hate to simply recycle them but they've got to somewhere and I'd 
+rather they be reused.
+
+Suggestions welcomed.
+
+
+-- 
+------------------------------------------------------------------------
+Richard L. England rlengland<at>frontier<dot>com Beaverton, Oregon
+------------------------------------------------------------------------
+"The lyf so short, the craft so long to lerne, Th' assay so hard, so 
+sharpe the conquering."
+/-- The Parliament of Fowles - G.Chaucer/
+
+From eduncliffe at gmail.com  Sat Jun 15 13:50:39 2013
+From: eduncliffe at gmail.com (eduncliffe at gmail.com)
+Date: Sat, 15 Jun 2013 20:50:39 +0000
+Subject: [PLUG] Jewel cases requiring a good home
+Message-ID: <1991164220-1371329440-cardhu_decombobulator_blackberry.rim.net-1293315995-@b11.c16.bise6.blackberry>
+
+I would talk to Sean and Canoe Design in the Northwest. He had mentioned he was looking for one a few weeks ago and I think he's willing to pay for a good one.
+
+They're customers of mine so I don't know his personal number. Try the store at 503-889-8545.
+-Eamonn
+------Original Message------
+From: Richard England
+Sender: plug-bounces at lists.pdxlinux.org
+To: PLUG
+ReplyTo: Portland Linux/Unix Group
+Subject: [PLUG] Jewel cases requiring a good home
+Sent: Jun 15, 2013 1:44 PM
+
+Does anyone know if Freegeek or any other organization would care for a 
+large number of used jewel cases?
+
+I hate to simply recycle them but they've got to somewhere and I'd 
+rather they be reused.
+
+Suggestions welcomed.
+
+
+-- 
+------------------------------------------------------------------------
+Richard L. England rlengland<at>frontier<dot>com Beaverton, Oregon
+------------------------------------------------------------------------
+"The lyf so short, the craft so long to lerne, Th' assay so hard, so 
+sharpe the conquering."
+/-- The Parliament of Fowles - G.Chaucer/
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+Sent via BlackBerry from T-Mobile
+
+From paulm at freegeek.org  Sat Jun 15 14:24:53 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 15 Jun 2013 14:24:53 -0700
+Subject: [PLUG] Jewel cases requiring a good home
+In-Reply-To: <51BCD22D.9050609@frontier.com>
+References: <51BCD22D.9050609@frontier.com>
+Message-ID: <1371331493.3099.8.camel@tundra>
+
+On Sat, 2013-06-15 at 13:44 -0700, Richard England wrote:
+> Does anyone know if Freegeek or any other organization would care for a 
+> large number of used jewel cases?
+> 
+> I hate to simply recycle them but they've got to somewhere and I'd 
+> rather they be reused.
+
+Free Geek would normally recycle these. At the moment however our
+upstream vendor is not taking plastic: China is not taking in any
+plastic at the moment  so its all siting in warehouses downstream and we
+have very limited space so we might not take them at all at the moment. 
+
+
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From jgw at sdf.org  Sat Jun 15 16:35:39 2013
+From: jgw at sdf.org (jgw at sdf.org)
+Date: Sat, 15 Jun 2013 16:35:39 -0700
+Subject: [PLUG] BSD unix
+In-Reply-To: <mailman.0.1371150001.31570.plug@lists.pdxlinux.org>
+References: <mailman.0.1371150001.31570.plug@lists.pdxlinux.org>
+Message-ID: <51bcfa4b.123WRc4xNcaarBMG%jgw@sdf.org>
+
+> I need help with BSD unix.? The program can connect to the internet, but
+> I am not able to.  Are there any Unix experts in PLUG?
+
+So, what flavor BSD and what program?  iIf it's NetBSD I might be helpful,
+others probably not so much.  A good resource are the distro-specific mailing
+lists and IRC channels (irc.freenode.net).
+
+
+From dexter at ambidexter.com  Sat Jun 15 21:55:58 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Sat, 15 Jun 2013 21:55:58 -0700
+Subject: [PLUG] June PLUG Advanced Topics: Lucky Lab Social Event
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <51BD455E.4050102@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Pseudo-Announcement
+
+Who: You
+What: Food, drink
+Where: Lucky Lab on Hawthorne
+When: Tuesday, June 18th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+I will be out of town and to the best of my knowledge, no one has 
+proposed a keyholder and topic for a Free Geek meeting, making for a 
+PERFECT opportunity to go directly to the Lucky Lab on Hawthorne for the 
+meeting.
+
+Calagator Page: http://calagator.org/events/1250464124
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+From rlengland at frontier.com  Sat Jun 15 22:11:34 2013
+From: rlengland at frontier.com (Richard England)
+Date: Sat, 15 Jun 2013 22:11:34 -0700
+Subject: [PLUG] Jewel cases requiring a good home
+In-Reply-To: <1371331493.3099.8.camel@tundra>
+References: <51BCD22D.9050609@frontier.com> <1371331493.3099.8.camel@tundra>
+Message-ID: <51BD4906.7040908@frontier.com>
+
+On 06/15/2013 02:24 PM, Paul Munday wrote:
+> On Sat, 2013-06-15 at 13:44 -0700, Richard England wrote:
+>> Does anyone know if Freegeek or any other organization would care for a
+>> large number of used jewel cases?
+>>
+>> I hate to simply recycle them but they've got to somewhere and I'd
+>> rather they be reused.
+> Free Geek would normally recycle these. At the moment however our
+> upstream vendor is not taking plastic: China is not taking in any
+> plastic at the moment  so its all siting in warehouses downstream and we
+> have very limited space so we might not take them at all at the moment.
+>
+>
+>
+>
+Thank you for the response, Paul.
+
+~~R
+
+
+From keithl at gate.kl-ic.com  Tue Jun 18 12:41:10 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Tue, 18 Jun 2013 12:41:10 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+Message-ID: <20130618194110.GA21285@gate.kl-ic.com>
+
+The Sourceforge project of the month is ReactOS, an open source
+functional equivalent of WinXP.  I haven't tested it yet, but it
+looks nifty! 
+
+http://sourceforge.net/blog/potm-201306/
+
+I run about three windoze apps on a virtual Win2000 guest inside
+VMWare - that was the last version of Windoze that didn't "phone
+home" for permission from M$.  I look forward to upgrading that
+stack to Virtualbox and ReactOS, so that the only remaining M$
+code on my machine is Internet Explorer (which I run only to make
+sure my web pages don't break on that broken browser).
+
+Folks come to the clinic hoping to make their Windoze machines
+dual boot.  If ReactOS works as well as I hope, and the developer
+team can stay ahead of M$ attempts to redesign apps so they don't
+work on it, we can offer virtualization on top of Linux instead. 
+
+Folks wanting to do this should have at least a gigabyte of RAM
+on their machine. I strongly suggest leaving the old windoze hard
+drive alone, and spending $100 on a new hard drive that we will
+install Linux and VirtualBox and ReactOS on.  With both drives
+connected (using an external case for the old laptop drive, another
+$50) we can transfer files off the old drive to the new guest. 
+The old drive will still be around for warranty repairs and such.
+
+This means big bucks for those proficient in ReactOS migration.  
+The state of Oregon has thousands of WinXP machines and millions
+of dollars of custom applications running on them.  The EOL for
+WinXP is putting the government in a severe bind; redeveloping
+all that code for Win8 would cost more millions and cause great
+disruption.  Converting to ReactOS guests on a Linux host could
+save the state millions now, and prevent millions more per year
+from heading north to Redmond.  Over time, new custom apps running
+on Linux can interact with the old apps running on ReactOS.
+
+I can hear the John Lennon mashup now:
+ "Imagine there's no Windows. 
+  It's easy if you try.
+  No hell in software.
+  No bad upgrades to buy ..."
+
+So who wants to take the lead on this for PLUG? 
+  
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From rsteff at comcast.net  Tue Jun 18 17:54:58 2013
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Tue, 18 Jun 2013 17:54:58 -0700
+Subject: [PLUG] MythTV?
+Message-ID: <51C10162.5020209@comcast.net>
+
+Trying to find current info on MythTV is a bit frustrating. Many of the
+sites I've enthusiastically read end up being from 2005 or before. I
+just tried going to the Knoppix based KnoppMyth at
+http://www.mysettopbox.tv/knoppmyth.html. I get a short page with a link
+that is broken. I read on the MythDora page that the maintainer is
+dropping the project. The Mythbuntu page talks about problems running
+Mythbuntu in the 12.04 LTS distribution, which doesn't sound right, but
+does add to the confusion.
+
+Is anybody on the list running a Myth box? And can you point me to
+current information I can use to set up a Myth box?
+
+Thanks.
+
+BTW, my plan will be to record HDTV content from an antenna, and not to
+record programming from cable.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From galens at seitzassoc.com  Tue Jun 18 18:47:03 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Tue, 18 Jun 2013 18:47:03 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <51C10162.5020209@comcast.net>
+References: <51C10162.5020209@comcast.net>
+Message-ID: <51C10D97.7020909@seitzassoc.com>
+
+On 06/18/13 17:54, Richard C. Steffens wrote:
+> Trying to find current info on MythTV is a bit frustrating. Many of the
+> sites I've enthusiastically read end up being from 2005 or before. I
+> just tried going to the Knoppix based KnoppMyth at
+> http://www.mysettopbox.tv/knoppmyth.html. I get a short page with a link
+> that is broken. I read on the MythDora page that the maintainer is
+> dropping the project. The Mythbuntu page talks about problems running
+> Mythbuntu in the 12.04 LTS distribution, which doesn't sound right, but
+> does add to the confusion.
+>
+> Is anybody on the list running a Myth box? And can you point me to
+> current information I can use to set up a Myth box?
+>
+> Thanks.
+>
+> BTW, my plan will be to record HDTV content from an antenna, and not to
+> record programming from cable.
+
+I'm running Mythbuntu 11.10, which uses mythtv 0.24.2.  It runs 
+reasonably well for recording OTA TV.  Other pieces(mythmusic, 
+mythvideo, etc.) work, but have some rough edges.  Note that my setup 
+has separate frontend and backend machines, so that adds to the 
+complexity.  I suspect 12.04+0.25 would address some of my complaints, 
+but it is working well enough that it is hard to justify the risk of 
+breaking things.
+
+For hardware, I've got an Sandy Bridge i3 for the backend.  It has four 
+1 TB disks configured as two 1 TB RAID1 devices.  My tuner is a 
+SiliconDust HDHomerun connected to an antenna in my attic.  I'm ~5 miles 
+from the Portland transmitter towers.  My frontend box is a Zotac Ion 
+system.  It feels a bit underpowered, but it works.  My preference today 
+would be for Intel video, avoiding proprietary video drivers.  This 
+assumes they've gotten the kinks out of the VAAPI stuff.
+
+If I were starting today, I would probably get my feet wet with 
+Mythbuntu 12.04.2.  This would get you MythTV 0.25.  There's definitely 
+a learning curve, so don't expect to get everything perfect the first 
+time.  By the time you get some experience with it, 14.04 will be just 
+around the corner.  14.04 will probably have 0.26.  Around May 2014 you 
+can decide whether to keep what you've got, or to move to 14.04.  This 
+assumes the Mythbuntu people decide to move to 14.04.
+
+BTW, I have an extra HDHomerun that I'll let you have for a very good 
+price.  I spotted it at Freegeek one day and snapped it up even though I 
+already have one.
+
+I wasn't planning on going to the meeting tonight, but if you're going 
+to be at the Lab, I'll make it a point to drop by.
+
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From john at meissen.org  Tue Jun 18 18:51:16 2013
+From: john at meissen.org (John Meissen)
+Date: Tue, 18 Jun 2013 18:51:16 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: (Your message of Tue, 18 Jun 2013 17:54:58 PDT.)
+	<51C10162.5020209@comcast.net>
+Message-ID: <20130619015117.16CF317F793@john>
+
+<rsteff at comcast.net> wrote:
+> 
+> Is anybody on the list running a Myth box? And can you point me to
+> current information I can use to set up a Myth box?
+> 
+
+I'm running Myth under Ubuntu 12.04 (Mythbuntu 12.04 64-bit). I can't say I've 
+had any real problems with it. The Mythbuntu.org support page has a number of 
+links, including to the MythTV wiki at http://www.mythtv.org/wiki.
+
+Was there something specific mentioned about 12.04?
+
+> 
+> BTW, my plan will be to record HDTV content from an antenna, and not to
+> record programming from cable.
+
+That's what I'm doing. My intent was to cut the cord with Cable/Satellite and 
+stop wasting $1,000+/year just to watch TV. I took the easy approach, and got 
+an HDHomerun. I was so happy with it I bought a 2nd later on. Stay away from 
+the HDHomerun Prime. The 3 tuners is tempting, but it's cable-only. And for the 
+same price you can get two 2-tuner units.
+
+The only real problem I had was getting audio to work over HDMI using the 
+internal on-board ATI hardware. I eventually gave up and got an inexpensive 
+(and fan-less) nVidia card, and use the proprietary driver.
+
+There's an annoying bug where it loses track of where it is if you're watching 
+live TV and the programming transitions to the next show... it works OK, but 
+always says it's at the end of the stream and doesn't skip forward/backward 
+very well. But I have no problems with recorded shows.
+
+You'll also want to avoid using the OTA embedded channel guide data. If there 
+are any reception problems it will end up filling the logfile with error 
+messages. Stick with Schedules Direct, it's worth the $25/yr.
+
+
+
+From rsteff at comcast.net  Wed Jun 19 11:11:49 2013
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 19 Jun 2013 11:11:49 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <51C10D97.7020909@seitzassoc.com>
+References: <51C10162.5020209@comcast.net> <51C10D97.7020909@seitzassoc.com>
+Message-ID: <51C1F465.6070406@comcast.net>
+
+On 06/18/2013 06:47 PM, Galen Seitz wrote:
+> I'm running Mythbuntu 11.10, which uses mythtv 0.24.2.  It runs 
+> reasonably well for recording OTA TV.  Other pieces(mythmusic, 
+> mythvideo, etc.) work, but have some rough edges.  Note that my setup 
+> has separate frontend and backend machines, so that adds to the 
+> complexity.  I suspect 12.04+0.25 would address some of my complaints, 
+> but it is working well enough that it is hard to justify the risk of 
+> breaking things.
+
+Working well and left alone (except for normal updates) is my approach
+in general. I delayed upgrading from 10.04 to 12.04 until this winter.
+I'm still using 10.04 on a separate machine for some things that broke
+with 12.04. Sigh.
+
+> For hardware, I've got an Sandy Bridge i3 for the backend.  It has four 
+> 1 TB disks configured as two 1 TB RAID1 devices.  My tuner is a 
+> SiliconDust HDHomerun connected to an antenna in my attic.  I'm ~5 miles 
+> from the Portland transmitter towers.  My frontend box is a Zotac Ion 
+> system.  It feels a bit underpowered, but it works.  My preference today 
+> would be for Intel video, avoiding proprietary video drivers.  This 
+> assumes they've gotten the kinks out of the VAAPI stuff.
+
+I want to set up a separate backend machine and do a couple of front end
+machines, since I have a second TV. It will be interesting to see if I
+can put an antenna in the right place to get a signal. I'm east of
+Oregon City, and near the crest of a hill (going downhill to the south,
+unfortunately). It may be possible to put an antenna in the attic. How
+well does UHF travel through cedar shingles?
+
+> If I were starting today, I would probably get my feet wet with 
+> Mythbuntu 12.04.2.  This would get you MythTV 0.25.  There's definitely 
+> a learning curve, so don't expect to get everything perfect the first 
+> time.  By the time you get some experience with it, 14.04 will be just 
+> around the corner.  14.04 will probably have 0.26.  Around May 2014 you 
+> can decide whether to keep what you've got, or to move to 14.04.  This 
+> assumes the Mythbuntu people decide to move to 14.04.
+
+I hope to be able to have a separate machine to set a new backend up
+when that time comes. Any idea whether frontends and backends have to be
+the same version?
+
+Thanks for the info. Once I get started I'm sure I'll be asking lots of
+questions.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From rsteff at comcast.net  Wed Jun 19 11:22:09 2013
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Wed, 19 Jun 2013 11:22:09 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <20130619015117.16CF317F793@john>
+References: <20130619015117.16CF317F793@john>
+Message-ID: <51C1F6D1.6000504@comcast.net>
+
+On 06/18/2013 06:51 PM, John Meissen wrote:
+>
+> I'm running Myth under Ubuntu 12.04 (Mythbuntu 12.04 64-bit). I can't say I've 
+> had any real problems with it. The Mythbuntu.org support page has a number of 
+> links, including to the MythTV wiki at http://www.mythtv.org/wiki.
+>
+> Was there something specific mentioned about 12.04?
+
+The one I recall seeing was some conflict with Unity, but I don't find
+it this morning. But maybe that was upgrading rather than a fresh install.
+
+>> BTW, my plan will be to record HDTV content from an antenna, and not to
+>> record programming from cable.
+> That's what I'm doing. My intent was to cut the cord with Cable/Satellite and 
+> stop wasting $1,000+/year just to watch TV. I took the easy approach, and got 
+> an HDHomerun. I was so happy with it I bought a 2nd later on. Stay away from 
+> the HDHomerun Prime. The 3 tuners is tempting, but it's cable-only. And for the 
+> same price you can get two 2-tuner units.
+
+Good to know. Thanks.
+
+> The only real problem I had was getting audio to work over HDMI using the 
+> internal on-board ATI hardware. I eventually gave up and got an inexpensive 
+> (and fan-less) nVidia card, and use the proprietary driver.
+
+That might not be a real issue for me. I'm planning to set up the stereo
+with the TV and route the sound through the good speakers anyway.
+
+> There's an annoying bug where it loses track of where it is if you're watching 
+> live TV and the programming transitions to the next show... it works OK, but 
+> always says it's at the end of the stream and doesn't skip forward/backward 
+> very well. But I have no problems with recorded shows.
+
+It is extremely rare that we watch live TV anymore. We've been really
+spoiled by the automatic commercial skip on recorded shows. I think the
+last time we watched live was during the Super Bowl when we actually
+were interested in seeing the commercials -- well, some of them.
+
+> You'll also want to avoid using the OTA embedded channel guide data. If there 
+> are any reception problems it will end up filling the logfile with error 
+> messages. Stick with Schedules Direct, it's worth the $25/yr.
+
+I have Schedules Direct in use on my ReplayTV.
+
+Thanks for the info.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From elcaseti at gmail.com  Wed Jun 19 15:46:47 2013
+From: elcaseti at gmail.com (C W)
+Date: Wed, 19 Jun 2013 15:46:47 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <51C1F6D1.6000504@comcast.net>
+References: <20130619015117.16CF317F793@john>
+	<51C1F6D1.6000504@comcast.net>
+Message-ID: <CACTDRAkWByo2x-CGZq+9D3_EMQcACMA9cOuqhfeHiUki+ab=Mg@mail.gmail.com>
+
+ "It may be possible to put an antenna in the attic. How
+well does UHF travel through cedar shingles?"
+
+Having a UHF telly antenna inside or in attic should reduce your signal by
+about 50%.  However, your antenna should last a lot longer before being
+degraded by the elements.  So, as long as your reception to your fav
+stations is strong enough, it's probably worth it to put your antenna in
+the attic.  You can test it out on the roof vs. in the attic 1st.   You can
+use a small TV & one of those ATSC converter boxes, or if you have a small
+atsc TV.  Let us know what you find.
+
+Cheers,
+
+Elcaset
+
+
+On Wed, Jun 19, 2013 at 11:22 AM, Richard C. Steffens <rsteff at comcast.net>wrote:
+
+> On 06/18/2013 06:51 PM, John Meissen wrote:
+> >
+> > I'm running Myth under Ubuntu 12.04 (Mythbuntu 12.04 64-bit). I can't
+> say I've
+> > had any real problems with it. The Mythbuntu.org support page has a
+> number of
+> > links, including to the MythTV wiki at http://www.mythtv.org/wiki.
+> >
+> > Was there something specific mentioned about 12.04?
+>
+> The one I recall seeing was some conflict with Unity, but I don't find
+> it this morning. But maybe that was upgrading rather than a fresh install.
+>
+> >> BTW, my plan will be to record HDTV content from an antenna, and not to
+> >> record programming from cable.
+> > That's what I'm doing. My intent was to cut the cord with
+> Cable/Satellite and
+> > stop wasting $1,000+/year just to watch TV. I took the easy approach,
+> and got
+> > an HDHomerun. I was so happy with it I bought a 2nd later on. Stay away
+> from
+> > the HDHomerun Prime. The 3 tuners is tempting, but it's cable-only. And
+> for the
+> > same price you can get two 2-tuner units.
+>
+> Good to know. Thanks.
+>
+> > The only real problem I had was getting audio to work over HDMI using the
+> > internal on-board ATI hardware. I eventually gave up and got an
+> inexpensive
+> > (and fan-less) nVidia card, and use the proprietary driver.
+>
+> That might not be a real issue for me. I'm planning to set up the stereo
+> with the TV and route the sound through the good speakers anyway.
+>
+> > There's an annoying bug where it loses track of where it is if you're
+> watching
+> > live TV and the programming transitions to the next show... it works OK,
+> but
+> > always says it's at the end of the stream and doesn't skip
+> forward/backward
+> > very well. But I have no problems with recorded shows.
+>
+> It is extremely rare that we watch live TV anymore. We've been really
+> spoiled by the automatic commercial skip on recorded shows. I think the
+> last time we watched live was during the Super Bowl when we actually
+> were interested in seeing the commercials -- well, some of them.
+>
+> > You'll also want to avoid using the OTA embedded channel guide data. If
+> there
+> > are any reception problems it will end up filling the logfile with error
+> > messages. Stick with Schedules Direct, it's worth the $25/yr.
+>
+> I have Schedules Direct in use on my ReplayTV.
+>
+> Thanks for the info.
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From mike at linuxexam.com  Wed Jun 19 18:27:02 2013
+From: mike at linuxexam.com (MJang)
+Date: Wed, 19 Jun 2013 18:27:02 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <20130618194110.GA21285@gate.kl-ic.com>
+References: <20130618194110.GA21285@gate.kl-ic.com>
+Message-ID: <1371691622.3770.79.camel@kauai>
+
+On Tue, 2013-06-18 at 12:41 -0700, Keith Lofstrom wrote:
+> The Sourceforge project of the month is ReactOS, an open source
+> functional equivalent of WinXP.  I haven't tested it yet, but it
+> looks nifty! 
+> 
+> http://sourceforge.net/blog/potm-201306/
+
+ReactOS? Bad flashback to the one person who was banned from the PLUG
+mailing lists....
+
+Thanks,
+Mike
+
+
+From eduncliffe at gmail.com  Wed Jun 19 18:45:30 2013
+From: eduncliffe at gmail.com (eduncliffe at gmail.com)
+Date: Thu, 20 Jun 2013 01:45:30 +0000
+Subject: [PLUG] ReactOS - lucrative opportunity?
+Message-ID: <415039140-1371692734-cardhu_decombobulator_blackberry.rim.net-662373683-@b11.c16.bise6.blackberry>
+
+Oh, wasn't that the bomb threat guy? I totally forgot about that.
+-Eamonn
+------Original Message------
+From: MJang
+Sender: plug-bounces at lists.pdxlinux.org
+To: Portland Linux/Unix Group
+ReplyTo: Portland Linux/Unix Group
+Subject: Re: [PLUG] ReactOS - lucrative opportunity?
+Sent: Jun 19, 2013 6:27 PM
+
+On Tue, 2013-06-18 at 12:41 -0700, Keith Lofstrom wrote:
+> The Sourceforge project of the month is ReactOS, an open source
+> functional equivalent of WinXP.  I haven't tested it yet, but it
+> looks nifty! 
+> 
+> http://sourceforge.net/blog/potm-201306/
+
+ReactOS? Bad flashback to the one person who was banned from the PLUG
+mailing lists....
+
+Thanks,
+Mike
+
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+Sent via BlackBerry from T-Mobile
+
+From kingbeowulf at gmail.com  Wed Jun 19 19:30:54 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Wed, 19 Jun 2013 19:30:54 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <CACTDRAkWByo2x-CGZq+9D3_EMQcACMA9cOuqhfeHiUki+ab=Mg@mail.gmail.com>
+References: <20130619015117.16CF317F793@john> <51C1F6D1.6000504@comcast.net>
+	<CACTDRAkWByo2x-CGZq+9D3_EMQcACMA9cOuqhfeHiUki+ab=Mg@mail.gmail.com>
+Message-ID: <CAPiArqMGoCpPXHyVzragq5V50SGt8F9gzR8L3eJzO56d7oS5FA@mail.gmail.com>
+
+Setting up a DTV antenna won't be a problem anywhere in the house. I
+built a DIY antenna an hung it on a hook next the the 1080p LCD TV
+(pretty much center of house). The signal is digital and pokes through
+a house like a hot knife through butter. Antenna signal degradation is
+an analog problem from the TV Dark Ages.
+
+All modern HDTVs have built in DTV tuners - just make sure the card
+you use for MythTV has one as well, then you won't need converters.
+You will need to be pretty far out, and in an RF shadow (Mt Hood) not
+to pick up Portlands DTV broadcasts.
+
+I haven't used MythTV in a while (had an analog tuner back in NM) so I
+might give the new version a try on Slackware.
+
+Ed
+
+
+On 6/19/13, C W <elcaseti at gmail.com> wrote:
+>  "It may be possible to put an antenna in the attic. How
+> well does UHF travel through cedar shingles?"
+>
+> Having a UHF telly antenna inside or in attic should reduce your signal by
+> about 50%.  However, your antenna should last a lot longer before being
+> degraded by the elements.  So, as long as your reception to your fav
+> stations is strong enough, it's probably worth it to put your antenna in
+> the attic.  You can test it out on the roof vs. in the attic 1st.   You can
+> use a small TV & one of those ATSC converter boxes, or if you have a small
+> atsc TV.  Let us know what you find.
+>
+> Cheers,
+>
+> Elcaset
+>
+>
+> On Wed, Jun 19, 2013 at 11:22 AM, Richard C. Steffens
+> <rsteff at comcast.net>wrote:
+>
+>> On 06/18/2013 06:51 PM, John Meissen wrote:
+>> >
+>> > I'm running Myth under Ubuntu 12.04 (Mythbuntu 12.04 64-bit). I can't
+>> say I've
+>> > had any real problems with it. The Mythbuntu.org support page has a
+>> number of
+>> > links, including to the MythTV wiki at http://www.mythtv.org/wiki.
+>> >
+>> > Was there something specific mentioned about 12.04?
+>>
+>> The one I recall seeing was some conflict with Unity, but I don't find
+>> it this morning. But maybe that was upgrading rather than a fresh
+>> install.
+>>
+>> >> BTW, my plan will be to record HDTV content from an antenna, and not
+>> >> to
+>> >> record programming from cable.
+>> > That's what I'm doing. My intent was to cut the cord with
+>> Cable/Satellite and
+>> > stop wasting $1,000+/year just to watch TV. I took the easy approach,
+>> and got
+>> > an HDHomerun. I was so happy with it I bought a 2nd later on. Stay away
+>> from
+>> > the HDHomerun Prime. The 3 tuners is tempting, but it's cable-only. And
+>> for the
+>> > same price you can get two 2-tuner units.
+>>
+>> Good to know. Thanks.
+>>
+>> > The only real problem I had was getting audio to work over HDMI using
+>> > the
+>> > internal on-board ATI hardware. I eventually gave up and got an
+>> inexpensive
+>> > (and fan-less) nVidia card, and use the proprietary driver.
+>>
+>> That might not be a real issue for me. I'm planning to set up the stereo
+>> with the TV and route the sound through the good speakers anyway.
+>>
+>> > There's an annoying bug where it loses track of where it is if you're
+>> watching
+>> > live TV and the programming transitions to the next show... it works
+>> > OK,
+>> but
+>> > always says it's at the end of the stream and doesn't skip
+>> forward/backward
+>> > very well. But I have no problems with recorded shows.
+>>
+>> It is extremely rare that we watch live TV anymore. We've been really
+>> spoiled by the automatic commercial skip on recorded shows. I think the
+>> last time we watched live was during the Super Bowl when we actually
+>> were interested in seeing the commercials -- well, some of them.
+>>
+>> > You'll also want to avoid using the OTA embedded channel guide data. If
+>> there
+>> > are any reception problems it will end up filling the logfile with
+>> > error
+>> > messages. Stick with Schedules Direct, it's worth the $25/yr.
+>>
+>> I have Schedules Direct in use on my ReplayTV.
+>>
+>> Thanks for the info.
+>>
+>> --
+>> Regards,
+>>
+>> Dick Steffens
+>>
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+>
+> --
+> Free Geek Seattle- Helping The Needy Get Nerdy
+> http://www.freegeekseattle.org/
+> https://groups.google.com/group/freegeek-seattle/topics?hl=en
+>
+> K Desktop Environment- Experience Freedom & User Friendliness
+> http://kde.org/
+>
+> Free Lossless Audio Codec
+> https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+>
+> Protect your digital freedom and privacy, eliminate DRM, learn more at
+> http://www.defectivebydesign.org/what_is_drm
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From starworks5 at gmail.com  Wed Jun 19 21:39:55 2013
+From: starworks5 at gmail.com (benjamin barber)
+Date: Wed, 19 Jun 2013 21:39:55 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <415039140-1371692734-cardhu_decombobulator_blackberry.rim.net-662373683-@b11.c16.bise6.blackberry>
+References: <415039140-1371692734-cardhu_decombobulator_blackberry.rim.net-662373683-@b11.c16.bise6.blackberry>
+Message-ID: <CAMTdTS-q2G63+ukEwTMLatX9=BOgMmyPB2kijdAMe-qHPswRuw@mail.gmail.com>
+
+I thought it was the super christian guy who hated liberals.
+
+On Wed, Jun 19, 2013 at 6:45 PM, <eduncliffe at gmail.com> wrote:
+
+> Oh, wasn't that the bomb threat guy? I totally forgot about that.
+> -Eamonn
+> ------Original Message------
+> From: MJang
+> Sender: plug-bounces at lists.pdxlinux.org
+> To: Portland Linux/Unix Group
+> ReplyTo: Portland Linux/Unix Group
+> Subject: Re: [PLUG] ReactOS - lucrative opportunity?
+> Sent: Jun 19, 2013 6:27 PM
+>
+> On Tue, 2013-06-18 at 12:41 -0700, Keith Lofstrom wrote:
+> > The Sourceforge project of the month is ReactOS, an open source
+> > functional equivalent of WinXP.  I haven't tested it yet, but it
+> > looks nifty!
+> >
+> > http://sourceforge.net/blog/potm-201306/
+>
+> ReactOS? Bad flashback to the one person who was banned from the PLUG
+> mailing lists....
+>
+> Thanks,
+> Mike
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+>
+> Sent via BlackBerry from T-Mobile
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From john at meissen.org  Thu Jun 20 00:16:05 2013
+From: john at meissen.org (John Meissen)
+Date: Thu, 20 Jun 2013 00:16:05 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: (Your message of Wed, 19 Jun 2013 19:30:54 PDT.)
+	<CAPiArqMGoCpPXHyVzragq5V50SGt8F9gzR8L3eJzO56d7oS5FA@mail.gmail.com>
+Message-ID: <20130620071606.0E4C217F7A6@john>
+
+
+kingbeowulf at gmail.com said:
+> Setting up a DTV antenna won't be a problem anywhere in the house. I built a
+> DIY antenna an hung it on a hook next the the 1080p LCD TV (pretty much center
+> of house). The signal is digital and pokes through a house like a hot knife
+> through butter. Antenna signal degradation is an analog problem from the TV
+> Dark Ages. 
+
+Actually, that's not completely true. The signals can be frustratingly 
+susceptible to multi-path interference issues. I live only about 5 miles from 
+the towers in Beaverton, with no hills in between. But I have a lot of trees 
+around the property, including directly in the line-of-sight between the 
+antenna and the towers. I had to take out two trees and trim a couple of others 
+before I could get a reasonable lock on most of the channels. Before that any 
+time it rained or the wind blew it would shred the signal.
+
+
+
+From galens at seitzassoc.com  Thu Jun 20 07:17:29 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Thu, 20 Jun 2013 07:17:29 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <20130620071606.0E4C217F7A6@john>
+References: <20130620071606.0E4C217F7A6@john>
+Message-ID: <51C30EF9.2000502@seitzassoc.com>
+
+On 06/20/13 00:16, John Meissen wrote:
+>
+> kingbeowulf at gmail.com said:
+>> Setting up a DTV antenna won't be a problem anywhere in the house. I built a
+>> DIY antenna an hung it on a hook next the the 1080p LCD TV (pretty much center
+>> of house). The signal is digital and pokes through a house like a hot knife
+>> through butter. Antenna signal degradation is an analog problem from the TV
+>> Dark Ages.
+>
+> Actually, that's not completely true. The signals can be frustratingly
+> susceptible to multi-path interference issues. I live only about 5 miles from
+> the towers in Beaverton, with no hills in between. But I have a lot of trees
+> around the property, including directly in the line-of-sight between the
+> antenna and the towers. I had to take out two trees and trim a couple of others
+> before I could get a reasonable lock on most of the channels. Before that any
+> time it rained or the wind blew it would shred the signal.
+
+Agreed.  There is some controversy over the choice of modulation for 
+ATSC broadcasts.  North America uses 8VSB.  Some argue that we would be 
+better off having chosen COFDM, as used in Europe.  COFDM allegedly 
+works better in a multipath environment.
+
+http://en.wikipedia.org/wiki/8VSB
+
+With respect to antennas, here in Portland a combined VHF/UHF antenna is 
+needed.  NBC, OPB, and Fox are all on VHF.  With analog broadcasts the 
+VHF band was split into two pieces, 2-6 and 7-13.  After the digital 
+transition, only 7-13 is used.  Also, the UHF band now ends at channel 51.
+
+There's lots of good info here:
+http://www.hdtvprimer.com/ISSUES/erecting_antenna.html
+http://www.antennaweb.org/Default.aspx
+
+In the metro area, an indoor antenna may be sufficient, but it's not 
+unusual for multipath or rain to cause the picture to go from perfect to 
+unwatchable.
+
+FWIW, I have a Winegard HD-7694P in my attic.  I also have a Winegard 
+HDP-269 high input pre-amp in order to drive a long cable run plus 
+multiple splitters.
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From galens at seitzassoc.com  Thu Jun 20 07:33:06 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Thu, 20 Jun 2013 07:33:06 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <51C30EF9.2000502@seitzassoc.com>
+References: <20130620071606.0E4C217F7A6@john> <51C30EF9.2000502@seitzassoc.com>
+Message-ID: <51C312A2.5040203@seitzassoc.com>
+
+On 06/20/13 07:17, Galen Seitz wrote:
+>
+> There's lots of good info here:
+> http://www.hdtvprimer.com/ISSUES/erecting_antenna.html
+> http://www.antennaweb.org/Default.aspx
+>
+
+Here are some more television reception links.  tvfool.com is 
+particularly useful.
+
+http://tvfool.com/
+http://transition.fcc.gov/mb/engineering/maps/
+http://www.avsforum.com/t/381623/the-official-avs-antenna-and-related-hardware-topic/9270#post_15005797
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From russ at dimstar.net  Thu Jun 20 08:41:11 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Thu, 20 Jun 2013 08:41:11 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <51C30EF9.2000502@seitzassoc.com>
+References: <20130620071606.0E4C217F7A6@john> <51C30EF9.2000502@seitzassoc.com>
+Message-ID: <A402FA36-8B49-4436-9F02-C1635457E9E2@dimstar.net>
+
+
+On Jun 20, 2013, at 7:17 AM, Galen Seitz <galens at seitzassoc.com> wrote:
+
+> In the metro area, an indoor antenna may be sufficient, but it's not 
+> unusual for multipath or rain to cause the picture to go from perfect to 
+> unwatchable.
+
+It's my understanding that with DTV signals, those two are your only options. Perfect or unwatchable. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From denis.heidtmann at gmail.com  Thu Jun 20 08:56:38 2013
+From: denis.heidtmann at gmail.com (Denis Heidtmann)
+Date: Thu, 20 Jun 2013 08:56:38 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <CAMTdTS-q2G63+ukEwTMLatX9=BOgMmyPB2kijdAMe-qHPswRuw@mail.gmail.com>
+References: <415039140-1371692734-cardhu_decombobulator_blackberry.rim.net-662373683-@b11.c16.bise6.blackberry>
+	<CAMTdTS-q2G63+ukEwTMLatX9=BOgMmyPB2kijdAMe-qHPswRuw@mail.gmail.com>
+Message-ID: <CAArUT0ivqd3gR0zAi-2ZLR0PoDs98gCYmhz6oWoDUCa3pbR97w@mail.gmail.com>
+
+Best drop this line.
+
+
+On Wed, Jun 19, 2013 at 9:39 PM, benjamin barber <starworks5 at gmail.com>wrote:
+
+> I thought it was the super christian guy who hated liberals.
+>
+> On Wed, Jun 19, 2013 at 6:45 PM, <eduncliffe at gmail.com> wrote:
+>
+> > Oh, wasn't that the bomb threat guy? I totally forgot about that.
+> > -Eamonn
+> > ------Original Message------
+> > From: MJang
+> > Sender: plug-bounces at lists.pdxlinux.org
+> > To: Portland Linux/Unix Group
+> > ReplyTo: Portland Linux/Unix Group
+> > Subject: Re: [PLUG] ReactOS - lucrative opportunity?
+> > Sent: Jun 19, 2013 6:27 PM
+> >
+> > On Tue, 2013-06-18 at 12:41 -0700, Keith Lofstrom wrote:
+> > > The Sourceforge project of the month is ReactOS, an open source
+> > > functional equivalent of WinXP.  I haven't tested it yet, but it
+> > > looks nifty!
+> > >
+> > > http://sourceforge.net/blog/potm-201306/
+> >
+> > ReactOS? Bad flashback to the one person who was banned from the PLUG
+> > mailing lists....
+> >
+> > Thanks,
+> > Mike
+> >
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+> >
+> >
+> > Sent via BlackBerry from T-Mobile
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+> >
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From keithl at gate.kl-ic.com  Thu Jun 20 12:17:37 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Thu, 20 Jun 2013 12:17:37 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <CAArUT0ivqd3gR0zAi-2ZLR0PoDs98gCYmhz6oWoDUCa3pbR97w@mail.gmail.com>
+References: <415039140-1371692734-cardhu_decombobulator_blackberry.rim.net-662373683-@b11.c16.bise6.blackberry>
+	<CAMTdTS-q2G63+ukEwTMLatX9=BOgMmyPB2kijdAMe-qHPswRuw@mail.gmail.com>
+	<CAArUT0ivqd3gR0zAi-2ZLR0PoDs98gCYmhz6oWoDUCa3pbR97w@mail.gmail.com>
+Message-ID: <20130620191737.GD24695@gate.kl-ic.com>
+
+On Thu, Jun 20, 2013 at 08:56:38AM -0700, Denis Heidtmann wrote:
+> Best drop this line.
+
+Agreed.  Can't we "react" to an opportunity to run legacy windows
+apps on a non-M$ platform?
+
+BTW, more websearch shows that ReactOS is still early alpha but
+making progress fast.  The biggest missing chunk (IMHO) is NTFS
+compatability; for now it works with FATxx only.  The project's
+focus at this time is on improving binary compatability for
+applications.  For those of us who run a handful of apps like
+Quickbooks, and test the occasional linux-generated file with
+Word or Explorer, that is close to adequate.
+
+ReactOS is not Linux, but it will support ExtN and the other
+Linux file systems eventually.  For new deployments, that is
+probably good enough.  Export your WinX files to a FAT32 
+partition, and move them to a modern file system from there.
+
+While ReactOS is not ready for wide deployment today, early
+adopters will be the first to benefit from wide deployment
+when it does happen.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From mconnors1 at gmail.com  Thu Jun 20 12:17:51 2013
+From: mconnors1 at gmail.com (Mike C.)
+Date: Thu, 20 Jun 2013 12:17:51 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+Message-ID: <CAEtu1UfRBN32Kt_xCbFJi3eme2T_fwRhLvB5wUEnx7Ke8qhM-A@mail.gmail.com>
+
+>
+> Best drop this line.
+>
+>
+> > I thought it was the super christian guy who hated liberals.
+> >
+>
+> >
+> > > Oh, wasn't that the bomb threat guy? I totally forgot about that.
+>
+> > >
+> > > ReactOS? Bad flashback to the one person who was banned from the PLUG
+> > > mailing lists....
+>
+> I find it interesting, telling, and troubling that more than 1 person on
+this list had the same reaction as I did. I initially discredited
+everything Keith was saying about ReactOS based on my experience with this
+one person who was the only person I knew who ever spoke about it.
+
+Funny and a bit concerning how the mind works some times. Thank you Keith
+for the good and thorough write-up. I think you made some very salient
+points worth considering
+
+As I'm quite ignorant of all things ReactOS, the one question I have is, is
+ReactOS a good bridge or transition from WinXP to Linux? Or do people think
+Ubuntu and browser based apps are so user friendly now that it makes this
+transition step unnecessary?
+
+Cheers,
+
+Mike
+
+From elcaseti at gmail.com  Thu Jun 20 13:21:18 2013
+From: elcaseti at gmail.com (C W)
+Date: Thu, 20 Jun 2013 13:21:18 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <CAEtu1UfRBN32Kt_xCbFJi3eme2T_fwRhLvB5wUEnx7Ke8qhM-A@mail.gmail.com>
+References: <CAEtu1UfRBN32Kt_xCbFJi3eme2T_fwRhLvB5wUEnx7Ke8qhM-A@mail.gmail.com>
+Message-ID: <CACTDRAkF1ztRkHUOiRUpX5oJ6LMuF5PsVjqzJz8GgmO7uELvsQ@mail.gmail.com>
+
+User friendliness isn't the issue, in this case.  Projects like ReactOS &
+WINE are useful for those few Windows apps that are still necessary in some
+cases.
+
+Cheers,
+Elcaset
+
+
+On Thu, Jun 20, 2013 at 12:17 PM, Mike C. <mconnors1 at gmail.com> wrote:
+
+> >
+> > Best drop this line.
+> >
+> >
+> > > I thought it was the super christian guy who hated liberals.
+> > >
+> >
+> > >
+> > > > Oh, wasn't that the bomb threat guy? I totally forgot about that.
+> >
+> > > >
+> > > > ReactOS? Bad flashback to the one person who was banned from the PLUG
+> > > > mailing lists....
+> >
+> > I find it interesting, telling, and troubling that more than 1 person on
+> this list had the same reaction as I did. I initially discredited
+> everything Keith was saying about ReactOS based on my experience with this
+> one person who was the only person I knew who ever spoke about it.
+>
+> Funny and a bit concerning how the mind works some times. Thank you Keith
+> for the good and thorough write-up. I think you made some very salient
+> points worth considering
+>
+> As I'm quite ignorant of all things ReactOS, the one question I have is, is
+> ReactOS a good bridge or transition from WinXP to Linux? Or do people think
+> Ubuntu and browser based apps are so user friendly now that it makes this
+> transition step unnecessary?
+>
+> Cheers,
+>
+> Mike
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From elcaseti at gmail.com  Thu Jun 20 13:26:29 2013
+From: elcaseti at gmail.com (C W)
+Date: Thu, 20 Jun 2013 13:26:29 -0700
+Subject: [PLUG] MythTV?
+In-Reply-To: <A402FA36-8B49-4436-9F02-C1635457E9E2@dimstar.net>
+References: <20130620071606.0E4C217F7A6@john> <51C30EF9.2000502@seitzassoc.com>
+	<A402FA36-8B49-4436-9F02-C1635457E9E2@dimstar.net>
+Message-ID: <CACTDRA=VR_TV5vuzqJwxwZFU5avVuzGbD2NWtpxGNQ-a1xAQww@mail.gmail.com>
+
+"It's my understanding that with DTV signals, those two are your only
+options. Perfect or unwatchable."
+
+That's basically true.  There's perfect, barely watchable, & unwatchable.
+And those moments of barely watchable are pretty few & far between.
+
+
+On Thu, Jun 20, 2013 at 8:41 AM, Russell Johnson <russ at dimstar.net> wrote:
+
+>
+> On Jun 20, 2013, at 7:17 AM, Galen Seitz <galens at seitzassoc.com> wrote:
+>
+> > In the metro area, an indoor antenna may be sufficient, but it's not
+> > unusual for multipath or rain to cause the picture to go from perfect to
+> > unwatchable.
+>
+> It's my understanding that with DTV signals, those two are your only
+> options. Perfect or unwatchable.
+>
+> Russell Johnson
+> russ at dimstar.net
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From kingbeowulf at gmail.com  Thu Jun 20 19:30:39 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Thu, 20 Jun 2013 19:30:39 -0700
+Subject: [PLUG] ReactOS - lucrative opportunity?
+In-Reply-To: <CACTDRAkF1ztRkHUOiRUpX5oJ6LMuF5PsVjqzJz8GgmO7uELvsQ@mail.gmail.com>
+References: <CAEtu1UfRBN32Kt_xCbFJi3eme2T_fwRhLvB5wUEnx7Ke8qhM-A@mail.gmail.com>
+	<CACTDRAkF1ztRkHUOiRUpX5oJ6LMuF5PsVjqzJz8GgmO7uELvsQ@mail.gmail.com>
+Message-ID: <CAPiArqPLK3R==O6mAtBzEqJD7+sC4M-9Yc+dY01thr0aft37Qw@mail.gmail.com>
+
+ReactOS is an interesting project, but is quite a bit behind the WINE
+project. I'd so its got a good 5+ years to go to catch up. WINE can be
+glitchy for some win apps, but the rate of dev and responsiveness to
+fixes is very good.  I use WINE and Dosbox for legacy apps (and games
+too) and have been rarely disappointed.
+
+Ed
+
+
+On 6/20/13, C W <elcaseti at gmail.com> wrote:
+> User friendliness isn't the issue, in this case.  Projects like ReactOS &
+> WINE are useful for those few Windows apps that are still necessary in some
+> cases.
+>
+> Cheers,
+> Elcaset
+>
+>
+> On Thu, Jun 20, 2013 at 12:17 PM, Mike C. <mconnors1 at gmail.com> wrote:
+>
+>> >
+>> > Best drop this line.
+>> >
+>> >
+>> > > I thought it was the super christian guy who hated liberals.
+>> > >
+>> >
+>> > >
+>> > > > Oh, wasn't that the bomb threat guy? I totally forgot about that.
+>> >
+>> > > >
+>> > > > ReactOS? Bad flashback to the one person who was banned from the
+>> > > > PLUG
+>> > > > mailing lists....
+>> >
+>> > I find it interesting, telling, and troubling that more than 1 person
+>> > on
+>> this list had the same reaction as I did. I initially discredited
+>> everything Keith was saying about ReactOS based on my experience with
+>> this
+>> one person who was the only person I knew who ever spoke about it.
+>>
+>> Funny and a bit concerning how the mind works some times. Thank you Keith
+>> for the good and thorough write-up. I think you made some very salient
+>> points worth considering
+>>
+>> As I'm quite ignorant of all things ReactOS, the one question I have is,
+>> is
+>> ReactOS a good bridge or transition from WinXP to Linux? Or do people
+>> think
+>> Ubuntu and browser based apps are so user friendly now that it makes this
+>> transition step unnecessary?
+>>
+>> Cheers,
+>>
+>> Mike
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+>
+> --
+> Free Geek Seattle- Helping The Needy Get Nerdy
+> http://www.freegeekseattle.org/
+> https://groups.google.com/group/freegeek-seattle/topics?hl=en
+>
+> K Desktop Environment- Experience Freedom & User Friendliness
+> http://kde.org/
+>
+> Free Lossless Audio Codec
+> https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+>
+> Protect your digital freedom and privacy, eliminate DRM, learn more at
+> http://www.defectivebydesign.org/what_is_drm
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From johnxj at comcast.net  Thu Jun 20 21:37:03 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 20 Jun 2013 21:37:03 -0700
+Subject: [PLUG] How many bad sectors is too many?
+Message-ID: <20130620213703.3a3ed441@Devil8>
+
+I have a 1TB drive that is a couple years old. Palimpsest says "103 bad
+sectors, disk is OK." That seems like a lot of bad sectors. Is that
+really OK?
+
+From jhg at jhmg.net  Thu Jun 20 21:52:05 2013
+From: jhg at jhmg.net (Jim Garrison)
+Date: Thu, 20 Jun 2013 21:52:05 -0700
+Subject: [PLUG] How many bad sectors is too many?
+In-Reply-To: <20130620213703.3a3ed441@Devil8>
+References: <20130620213703.3a3ed441@Devil8>
+Message-ID: <51C3DBF5.1080201@jhmg.net>
+
+On 6/20/2013 9:37 PM, John Jason Jordan wrote:
+> I have a 1TB drive that is a couple years old. Palimpsest says "103 bad
+> sectors, disk is OK." That seems like a lot of bad sectors. Is that
+> really OK?
+
+For a 1TB disk that's within tolerance. What's more important is
+the number when you originally bought the drive, and whether or not
+the number is increasing.  I would make a backup and then watch it
+carefully.  If you see any increase over a period of a month or less,
+replace it.
+
+
+-- 
+Jim Garrison (jhg at acm.org)
+PGP Keys at http://www.jhmg.net RSA 0x04B73B7F DH 0x70738D88
+
+From kingbeowulf at gmail.com  Thu Jun 20 22:54:18 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Thu, 20 Jun 2013 22:54:18 -0700
+Subject: [PLUG] How many bad sectors is too many?
+In-Reply-To: <20130620213703.3a3ed441@Devil8>
+References: <20130620213703.3a3ed441@Devil8>
+Message-ID: <CAPiArqMLa6cHu2Y3bVV3ZL-MWBhmDVvmhwmxHOT4kHrxpJr_NA@mail.gmail.com>
+
+All depends on sector size, sectors/track, etc. I wouldn't worry.
+Under Ubuntu you can check the SMART data with 'disk utility' to see
+if the drive is reporting impending doom.
+
+ Try something like
+
+# fdisk -l /dev/sdx
+
+(sudo if you must...) to list the sector size and number of sectors.
+If your fdisk defaults to "cylinders" use
+
+# fdisk -lu=sectors
+
+Also, check out
+
+# smartctl -a /dev/sda
+
+To view SMART capabilties and status (see man page).
+
+Hard drives lose a few sectors all the time as they age. No worries
+unless the rate goes way up.  For example, my 160GB laptop drive has
+312581808 sectors of 512 bytes (ext4). 100 sectors would be a very
+small % error.  As long as there is enough room to reallocate and the
+bad sector count does not keep increasing, I wouldn't worry.  That
+said, "never put all your eggs in one basket" - multiple backups are
+important.
+
+Ed
+
+
+Ed
+
+On 6/20/13, John Jason Jordan <johnxj at comcast.net> wrote:
+> I have a 1TB drive that is a couple years old. Palimpsest says "103 bad
+> sectors, disk is OK." That seems like a lot of bad sectors. Is that
+> really OK?
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From johnxj at comcast.net  Fri Jun 21 08:15:44 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 21 Jun 2013 08:15:44 -0700
+Subject: [PLUG] How many bad sectors is too many?
+In-Reply-To: <20130620213703.3a3ed441@Devil8>
+References: <20130620213703.3a3ed441@Devil8>
+Message-ID: <20130621081544.44f8db77@Devil8>
+
+On Thu, 20 Jun 2013 21:37:03 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+Thanks to all who responded. The question came up because my desktop
+computer was running really slow and the disks were thrashing - disk
+light constantly on or at least flickering. I used Palimpsest to check
+the disks and that is when I noticed that there were 103 bad sectors on
+the 1TB disk.
+
+I later tracked the problem down to Banshee. I disabled almost all of
+the extensions and now it behaves as it should. Apparently it was
+constantly downloading music data from Amazon, emusic, and a dozen
+other places. My world is back to normal. 
+
+From russ at dimstar.net  Fri Jun 21 13:45:52 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Fri, 21 Jun 2013 13:45:52 -0700
+Subject: [PLUG] round robin mysql
+Message-ID: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+
+Has anyone else used round robin mysql servers? Where each server is a master and slave, like so:
+
++-->1-->2-->3-->4-->n+1->+
++<----<-------<-------<--+
+
+I'm thinking something like that with a load balancer in front of it would allow me to run fewer total db servers, and at the same time, if one goes down, things don't stop in their tracks. I'd rather have more of a star topology, but I don't see a real way to have 3 or more masters that are also slaves of each other. I can see a possible failure if, for example, node 3 goes down, node 4 and up won't get updates anymore until something does a SWITCH MASTER TO on node 4, but that can be scripted. 
+
+Ideas? Suggestions? Reasons why I shouldn't do this?
+
+Background: I'm currently working with several mysql servers that are running in a master-->slave configuration. I'd like to find a way to make this so it's not quite as fragile.
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From ronabop at gmail.com  Fri Jun 21 13:53:44 2013
+From: ronabop at gmail.com (Ronald Chmara)
+Date: Fri, 21 Jun 2013 13:53:44 -0700
+Subject: [PLUG] round robin mysql
+In-Reply-To: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+Message-ID: <CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+
+I've done it. It's a huge headache. As in, 3 hours a day getting everything
+working right again after a simple "ALTER TABLE" breaks all the things, or
+a transaction doesn't make it through (etc.).
+
+
+On Fri, Jun 21, 2013 at 1:45 PM, Russell Johnson <russ at dimstar.net> wrote:
+
+> Has anyone else used round robin mysql servers? Where each server is a
+> master and slave, like so:
+>
+> +-->1-->2-->3-->4-->n+1->+
+> +<----<-------<-------<--+
+>
+> I'm thinking something like that with a load balancer in front of it would
+> allow me to run fewer total db servers, and at the same time, if one goes
+> down, things don't stop in their tracks. I'd rather have more of a star
+> topology, but I don't see a real way to have 3 or more masters that are
+> also slaves of each other. I can see a possible failure if, for example,
+> node 3 goes down, node 4 and up won't get updates anymore until something
+> does a SWITCH MASTER TO on node 4, but that can be scripted.
+>
+> Ideas? Suggestions? Reasons why I shouldn't do this?
+>
+> Background: I'm currently working with several mysql servers that are
+> running in a master-->slave configuration. I'd like to find a way to make
+> this so it's not quite as fragile.
+>
+> Russell Johnson
+> russ at dimstar.net
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From russ at dimstar.net  Fri Jun 21 14:17:50 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Fri, 21 Jun 2013 14:17:50 -0700
+Subject: [PLUG] round robin mysql
+In-Reply-To: <CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+Message-ID: <CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+
+So, at a minimum, I'm thinking of switching to master<>master. At least then if something goes down, I can get things back up by just repointing things. Then repairing the damage can happen while things continue to work. 
+
+
+
+On Jun 21, 2013, at 1:53 PM, Ronald Chmara <ronabop at gmail.com> wrote:
+
+> I've done it. It's a huge headache. As in, 3 hours a day getting everything
+> working right again after a simple "ALTER TABLE" breaks all the things, or
+> a transaction doesn't make it through (etc.).
+> 
+> 
+> On Fri, Jun 21, 2013 at 1:45 PM, Russell Johnson <russ at dimstar.net> wrote:
+> 
+>> Has anyone else used round robin mysql servers? Where each server is a
+>> master and slave, like so:
+>> 
+>> +-->1-->2-->3-->4-->n+1->+
+>> +<----<-------<-------<--+
+>> 
+>> I'm thinking something like that with a load balancer in front of it would
+>> allow me to run fewer total db servers, and at the same time, if one goes
+>> down, things don't stop in their tracks. I'd rather have more of a star
+>> topology, but I don't see a real way to have 3 or more masters that are
+>> also slaves of each other. I can see a possible failure if, for example,
+>> node 3 goes down, node 4 and up won't get updates anymore until something
+>> does a SWITCH MASTER TO on node 4, but that can be scripted.
+>> 
+>> Ideas? Suggestions? Reasons why I shouldn't do this?
+>> 
+>> Background: I'm currently working with several mysql servers that are
+>> running in a master-->slave configuration. I'd like to find a way to make
+>> this so it's not quite as fragile.
+>> 
+>> Russell Johnson
+>> russ at dimstar.net
+>> 
+>> 
+>> 
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From russell at personaltelco.net  Fri Jun 21 15:39:18 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Fri, 21 Jun 2013 15:39:18 -0700
+Subject: [PLUG] round robin mysql
+In-Reply-To: <CC253D46-2A89-4387-A25C-85668101D688@dimstar.net> (Russell
+	Johnson's message of "Fri\, 21 Jun 2013 14\:17\:50 -0700")
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+	<CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+Message-ID: <8638sb5bs9.fsf@coulee.tdb.com>
+
+>>>>> "Russell" == Russell Johnson <russ at dimstar.net> writes:
+
+Russell> So, at a minimum, I'm thinking of switching to
+Russell> master<>master. At least then if something goes down, I can
+Russell> get things back up by just repointing things. Then repairing
+Russell> the damage can happen while things continue to work.
+Russell> On Jun 21, 2013, at 1:53 PM, Ronald Chmara <ronabop at gmail.com> wrote:
+
+I went to an amusing talk at Open Source Bridge about PostgreSQL
+replication, and how management and marketing people love the word
+"replication" because it sounds so simple.  "Oh, we'll just use
+replication and it'll be great!"  The message was, paraphrasing, "it's
+not magic, and it won't magically solve all your problems", and "make
+good backups".
+
+  http://opensourcebridge.org/sessions/1016
+
+  "Like having a speed boat and a helicopter with a remote control to
+   fly from the boat." Set up wisely.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From rshepard at appl-ecosys.com  Sat Jun 22 08:35:06 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 08:35:06 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+Message-ID: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+
+   My Nikon CoolPix puts all file names in uppercase and I want to convert
+them to lowercase names. I've tried a shell script Wil Cooley provided in
+2005 but it's not working for me. I'd greatly appreciate learning where the
+syntax is incorrect.
+
+   Here is a representative file name:
+
+DSCN0064.JPG
+
+   Here's Wil's script:
+
+for FiLe in *; do
+     file=$(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')
+     echo mv -i "${FiLe}" "${file}"
+done
+
+   When I copy this to the command line the output is:
+
+mv -i
+
+for each file in the subdirectory.
+
+Rich
+
+
+From bill at billbarry.org  Sat Jun 22 08:47:27 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Sat, 22 Jun 2013 08:47:27 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+Message-ID: <CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 8:35 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    My Nikon CoolPix puts all file names in uppercase and I want to convert
+> them to lowercase names. I've tried a shell script Wil Cooley provided in
+> 2005 but it's not working for me. I'd greatly appreciate learning where the
+> syntax is incorrect.
+>
+>    Here is a representative file name:
+>
+> DSCN0064.JPG
+>
+>    Here's Wil's script:
+>
+> for FiLe in *; do
+>      file=$(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')
+>      echo mv -i "${FiLe}" "${file}"
+> done
+>
+>    When I copy this to the command line the output is:
+>
+> mv -i
+>
+> for each file in the subdirectory.
+>
+> Rich
+>
+>
+Rich,
+
+Remove the second echo
+     echo mv -i "${FiLe}" "${file}"
+->
+      mv -i "${FiLe}" "${file}"
+
+
+Or maybe you could turn the camera upside down?
+
+Bill
+
+From bill at billbarry.org  Sat Jun 22 08:47:27 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Sat, 22 Jun 2013 08:47:27 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+Message-ID: <CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 8:35 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+>    My Nikon CoolPix puts all file names in uppercase and I want to convert
+> them to lowercase names. I've tried a shell script Wil Cooley provided in
+> 2005 but it's not working for me. I'd greatly appreciate learning where the
+> syntax is incorrect.
+>
+>    Here is a representative file name:
+>
+> DSCN0064.JPG
+>
+>    Here's Wil's script:
+>
+> for FiLe in *; do
+>      file=$(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')
+>      echo mv -i "${FiLe}" "${file}"
+> done
+>
+>    When I copy this to the command line the output is:
+>
+> mv -i
+>
+> for each file in the subdirectory.
+>
+> Rich
+>
+>
+Rich,
+
+Remove the second echo
+     echo mv -i "${FiLe}" "${file}"
+->
+      mv -i "${FiLe}" "${file}"
+
+
+Or maybe you could turn the camera upside down?
+
+Bill
+
+From pm at nellump.net  Sat Jun 22 08:55:10 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Sat, 22 Jun 2013 08:55:10 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+Message-ID: <20130622155510.GA23424@jupiter.nellump.net>
+
+On Sat, Jun 22, 2013 at 08:35:06AM -0700, Rich Shepard wrote:
+> My Nikon CoolPix puts all file names in uppercase and I want to
+> convert them to lowercase names. I've tried a shell script Wil
+> Cooley provided in 2005 but it's not working for me. I'd greatly
+> appreciate learning where the syntax is incorrect.
+
+Does your system have a command called "rename" available?  It's a
+very handy Perl script that's been around for years, and does exactly
+what its name implies.  It applies a Perl regex to the name of each
+file passed to it.  E.g., to convert all upper case characters in a
+file name to lower case:
+
+  rename 'y/A-Z/a-z/' DSC*
+
+
+-- 
+Paul
+
+From fredjame at fredjame.cnc.net  Sat Jun 22 09:36:25 2013
+From: fredjame at fredjame.cnc.net (Fred James)
+Date: Sat, 22 Jun 2013 12:36:25 -0400
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+Message-ID: <51C5D289.2010208@fredjame.cnc.net>
+
+Rich Shepard wrote:
+>     My Nikon CoolPix puts all file names in uppercase and I want to convert
+> them to lowercase names. I've tried a shell script Wil Cooley provided in
+> 2005 but it's not working for me. I'd greatly appreciate learning where the
+> syntax is incorrect.
+>
+>     Here is a representative file name:
+>
+> DSCN0064.JPG
+>
+>     Here's Wil's script:
+>
+> for FiLe in *; do
+>       file=$(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')
+>       echo mv -i "${FiLe}" "${file}"
+> done
+>
+>     When I copy this to the command line the output is:
+>
+> mv -i
+>
+> for each file in the subdirectory.
+>
+> Rich
+Rich Shepard
+This worked for me ... please note that there are four back tics (`) in 
+the script ...
+     surrounding the `ls DSC*`
+     surrounding the `(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')`
+... and I added the DSC* to be a little more specific in which files to 
+change.
+Regards
+Fred James
+
+#! /bin/bash
+for FiLe in `ls DSC*`
+do
+      file=`(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')`
+      mv ${FiLe} ${file}
+done
+
+
+
+From rshepard at appl-ecosys.com  Sat Jun 22 09:45:11 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 09:45:11 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, Bill Barry wrote:
+
+> Remove the second echo
+>     echo mv -i "${FiLe}" "${file}"
+> ->
+>      mv -i "${FiLe}" "${file}"
+
+Bill,
+
+   Wil suggested the second echo to test before borking the files.
+
+> Or maybe you could turn the camera upside down?
+
+   Or stand on my head? Like too many things the Nikon assumption is that
+everyone slavishly uses whatever Microsoft is selling at the time.
+
+Thanks,
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sat Jun 22 09:47:03 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 09:47:03 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <20130622155510.GA23424@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<20130622155510.GA23424@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1306220945520.1471@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, Paul Mullen wrote:
+
+> Does your system have a command called "rename" available?
+
+Paul,
+
+   I've read that this exists but have not used it before. Yes, Slackware
+includes this tool.
+
+>  rename 'y/A-Z/a-z/' DSC*
+
+   Looks sed-like.
+
+Thanks,
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sat Jun 22 09:54:16 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 09:54:16 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <20130622155510.GA23424@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<20130622155510.GA23424@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1306220952500.1471@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, Paul Mullen wrote:
+
+> Does your system have a command called "rename" available?  It's a very
+> handy Perl script that's been around for years, and does exactly what its
+> name implies.  It applies a Perl regex to the name of each file passed to
+> it.  E.g., to convert all upper case characters in a file name to lower
+> case:
+>
+>  rename 'y/A-Z/a-z/' DSC*
+
+Paul,
+
+   That did not work. But after reading the man page I found that
+
+ 	rename .JPG .jpg *.JPG
+
+works just fine.
+
+   Thanks again for reminding me of rename's existence.
+
+Rich
+
+
+From plug at the-wes.com  Sat Jun 22 11:42:15 2013
+From: plug at the-wes.com (wes)
+Date: Sat, 22 Jun 2013 11:42:15 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 9:45 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Sat, 22 Jun 2013, Bill Barry wrote:
+>
+> > Remove the second echo
+> >     echo mv -i "${FiLe}" "${file}"
+> > ->
+> >      mv -i "${FiLe}" "${file}"
+>
+> Bill,
+>
+>    Wil suggested the second echo to test before borking the files.
+>
+>
+here is your problem... after testing, you're supposed to remove the echo
+and run it again to "do it live"
+
+-wes
+
+From rshepard at appl-ecosys.com  Sat Jun 22 12:01:19 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 12:01:19 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+	<CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, wes wrote:
+
+> here is your problem... after testing, you're supposed to remove the echo
+> and run it again to "do it live"
+
+wes,
+
+   If I don't see the correct output echoed to the console then my assumption
+is that running it 'live' will move all file names to one, incorrect one.
+The second echo should, if I correctly read the script, print the results of
+the mv command to the screen.
+
+Rich
+
+
+From paulm at freegeek.org  Sat Jun 22 12:37:49 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 22 Jun 2013 12:37:49 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+	<CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+	<alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+Message-ID: <1371929869.3929.14.camel@localhost>
+
+On Sat, 2013-06-22 at 12:01 -0700, Rich Shepard wrote:
+> On Sat, 22 Jun 2013, wes wrote:
+> 
+> > here is your problem... after testing, you're supposed to remove the echo
+> > and run it again to "do it live"
+> 
+> wes,
+> 
+>    If I don't see the correct output echoed to the console then my assumption
+> is that running it 'live' will move all file names to one, incorrect one.
+The -i switch  to mv will prevent that, since it will prompt you before
+overwriting an existing file
+(or just -n to never overwrite) the -v switch might also be useful as it
+will tell you what it's doing.
+
+Paul
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From paulm at freegeek.org  Sat Jun 22 12:57:49 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 22 Jun 2013 12:57:49 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <51C5D289.2010208@fredjame.cnc.net>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<51C5D289.2010208@fredjame.cnc.net>
+Message-ID: <1371931069.3929.19.camel@localhost>
+
+On Sat, 2013-06-22 at 12:36 -0400, Fred James wrote:
+> Rich Shepard wrote:
+> >     My Nikon CoolPix puts all file names in uppercase and I want to convert
+> > them to lowercase names. I've tried a shell script Wil Cooley provided in
+> > 2005 but it's not working for me. I'd greatly appreciate learning where the
+> > syntax is incorrect.
+> >
+> >     Here is a representative file name:
+> >
+> > DSCN0064.JPG
+> >
+> >     Here's Wil's script:
+> >
+> > for FiLe in *; do
+> >       file=$(echo "${FiLe}"|tr '[:upper:]' '[:lower:]')
+> >       echo mv -i "${FiLe}" "${file}"
+> > done
+> >
+> >     When I copy this to the command line the output is:
+> >
+> > mv -i
+> >
+> > for each file in the subdirectory.
+> >
+> > Rich
+> Rich Shepard
+> This worked for me ... please note that there are four back tics (`) in 
+> the script ...
+
+$() does what backticks do with the added advantage of being readable
+and easier to use. 
+Backticks exist as legacy syntax from very old pre_POSIx compatible
+bourne shells and there is no good reason to be using them.
+
+http://mywiki.wooledge.org/BashFAQ/082
+
+>      surrounding the `ls DSC*`
+
+for FiLe in DSC* 
+will do the same thing
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From michael at jamhome.us  Sat Jun 22 13:02:12 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sat, 22 Jun 2013 13:02:12 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+	<CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+Message-ID: <20130622200212.GA24553@jamhome.us>
+
+On Sat, Jun 22, 2013 at 11:42:15AM -0700, wes wrote:
+> On Sat, Jun 22, 2013 at 9:45 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+> > On Sat, 22 Jun 2013, Bill Barry wrote:
+> >
+> > > Remove the second echo
+> > >     echo mv -i "${FiLe}" "${file}"
+> > > ->
+> > >      mv -i "${FiLe}" "${file}"
+> >
+> >    Wil suggested the second echo to test before borking the files.
+> >
+> here is your problem... after testing, you're supposed to remove the echo
+> and run it again to "do it live"
+ 
+Simplier would be to just pipe the verified output into your shell, assuming bash:
+
+
+michael at bivy:/srv/photo/365_2012/this_month/296_Jun_21/t$ ls
+OM211853.JPG  OM211854.JPG  OM211863.JPG  OM211864.JPG  tsh
+michael at bivy:/srv/photo/365_2012/this_month/296_Jun_21/t$ ./tsh        # run to verify, "tsh" is Rich's original script
+mv -i OM211853.JPG om211853.jpg
+mv -i OM211854.JPG om211854.jpg
+mv -i OM211863.JPG om211863.jpg
+mv -i OM211864.JPG om211864.jpg
+mv -i tsh tsh
+michael at bivy:/srv/photo/365_2012/this_month/296_Jun_21/t$ ./tsh | bash # sent to shell for execution
+mv: `tsh' and `tsh' are the same file
+michael at bivy:/srv/photo/365_2012/this_month/296_Jun_21/t$ ls           # verify results
+om211853.jpg  om211854.jpg  om211863.jpg  om211864.jpg  tsh
+michael at bivy:/srv/photo/365_2012/this_month/296_Jun_21/t$ 
+
+Though I'd suggest changing 
+
+for FiLe in *; do
+  to 
+for FiLe in $@; do
+
+and then you'd run the script with arguments about what you really want to change, for example:
+
+  ./tsh *JPG
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+I'm predicting spirited competition for Lanterne Rouge. Don't take it for granted.
+    ~ Mark Thomas
+
+From paulm at freegeek.org  Sat Jun 22 13:07:08 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 22 Jun 2013 13:07:08 -0700
+Subject: [PLUG] round robin mysql
+In-Reply-To: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+Message-ID: <1371931628.3929.26.camel@localhost>
+
+On Fri, 2013-06-21 at 13:45 -0700, Russell Johnson wrote:
+> Has anyone else used round robin mysql servers? Where each server is a master and slave, like so:
+
+I built a high availability mysql setup that used DRBD to mirror the
+database at the disk level.
+
+It was not the easiest thing I have ever set up but you could test it by
+yanking the power cord out the back and then watch the failover partner
+come up automatically  with in a couple of seconds and take up where it
+left off without data loss. You might want to look into this to ensure a
+more resilient master. 
+
+Paul
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From rshepard at appl-ecosys.com  Sat Jun 22 13:08:03 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 22 Jun 2013 13:08:03 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <1371929869.3929.14.camel@localhost>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+	<CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+	<alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+	<1371929869.3929.14.camel@localhost>
+Message-ID: <alpine.LNX.2.00.1306221306320.4943@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, Paul Munday wrote:
+
+> The -i switch  to mv will prevent that, since it will prompt you before
+> overwriting an existing file
+> (or just -n to never overwrite) the -v switch might also be useful as it
+> will tell you what it's doing.
+
+Paul,
+
+   I saw the purpose of the -i option on the man page and wondered why it was
+in the script.
+
+Rich
+
+
+From fredjame at fredjame.cnc.net  Sat Jun 22 13:40:31 2013
+From: fredjame at fredjame.cnc.net (Fred James)
+Date: Sat, 22 Jun 2013 16:40:31 -0400
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <1371931069.3929.19.camel@localhost>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<51C5D289.2010208@fredjame.cnc.net>
+	<1371931069.3929.19.camel@localhost>
+Message-ID: <51C60BBF.4020302@fredjame.cnc.net>
+
+Paul Munday wrote:
+> $() does what backticks do with the added advantage of being readable 
+> and easier to use. Backticks exist as legacy syntax from very old 
+> pre_POSIx compatible bourne shells and there is no good reason to be 
+> using them. http://mywiki.wooledge.org/BashFAQ/082
+>>       surrounding the `ls DSC*`
+> for FiLe in DSC*
+> will do the same thing
+One nice thing about "legacy" is that it is often the most portable.
+Regards
+Fred James
+
+
+
+From plug at the-wes.com  Sat Jun 22 14:56:54 2013
+From: plug at the-wes.com (wes)
+Date: Sat, 22 Jun 2013 14:56:54 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<CAAPspTbLReb0UZA9gWFEYwZiyowWxpCbRCABSZBh9Xofi4gopw@mail.gmail.com>
+	<alpine.LNX.2.00.1306220943450.1471@salmo.appl-ecosys.com>
+	<CAA1wLOn97x9aT6Fmu4n2V7C_ziqxfqwDwbk0rOCj3+kJEHvgYA@mail.gmail.com>
+	<alpine.LNX.2.00.1306221159380.4943@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLO=okDa7h=iVxWEhGA3LNSGLY75wKW3tjMC6SCggG3N8Nw@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 12:01 PM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Sat, 22 Jun 2013, wes wrote:
+>
+> > here is your problem... after testing, you're supposed to remove the echo
+> > and run it again to "do it live"
+>
+> wes,
+>
+>    If I don't see the correct output echoed to the console then my
+> assumption
+> is that running it 'live' will move all file names to one, incorrect one.
+>
+
+it would try to, except that -i would cause it to prompt you before
+overwriting, as paul pointed out.
+
+
+> The second echo should, if I correctly read the script, print the results
+> of
+> the mv command to the screen.
+>
+
+negative - it does not display the _results_ of the mv command. it displays
+the mv command itself. this is to give you the opportunity to spot-check
+the intended behavior before clobbering any files. the idea being that if
+it looks like what you want, you remove the echo and do it again.
+
+of course, more elegant solutions have been posted so this is all academic
+at this point.
+
+-wes
+
+From keithl at gate.kl-ic.com  Sat Jun 22 17:49:25 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sat, 22 Jun 2013 17:49:25 -0700
+Subject: [PLUG] Mysql newbie question
+In-Reply-To: <8638sb5bs9.fsf@coulee.tdb.com>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+	<CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+	<8638sb5bs9.fsf@coulee.tdb.com>
+Message-ID: <20130623004925.GB1452@gate.kl-ic.com>
+
+On Fri, Jun 21, 2013 at 03:39:18PM -0700, Russell Senior wrote:
+> replication and it'll be great!"  The message was, paraphrasing, "it's
+> not magic, and it won't magically solve all your problems", and "make
+> good backups".
+
+Sophisticated questions and answers.   Perhaps someone can point
+me at a not-too-complicated tutorial which quickly summarizes
+what is simpler and harder to do with mysql backup/mirroring.
+
+I'm using an app that uses mysql, and I know too little about
+mysql for safety.  Especially backup and mirroring.  But wuth
+way too much to do, I don't have time to become an expert.
+
+I'm guessing mysql is getting 20 reads and 5 writes per minute
+during office hours, with zero user load between midnight and 6AM.
+
+At minimum, I want to do the right thing to image the database to
+backups at 3 AM.  I rsync them to two different backup servers, but
+I don't know that the databases will recover to a viable state.  
+Is there something I should be doing to freeze the database?
+
+At maximum, I would like to do realtime imaging to a failover
+server on a different network far far away.  About 100kbps between
+a couple of lightly loaded machines with solid state drives.
+In the rare event that I lose the primary server, I expect to 
+lose some recent activity, and spend an hour or two recovering.
+
+What's reasonable to expect from a maintainable-by-dummies backup
+and/or failover process for mysql?
+
+Keith
+
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From paulm at freegeek.org  Sat Jun 22 18:22:21 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 22 Jun 2013 18:22:21 -0700
+Subject: [PLUG] Mysql newbie question
+In-Reply-To: <20130623004925.GB1452@gate.kl-ic.com>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+	<CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+	<8638sb5bs9.fsf@coulee.tdb.com> <20130623004925.GB1452@gate.kl-ic.com>
+Message-ID: <1371950541.3929.45.camel@localhost>
+
+On Sat, 2013-06-22 at 17:49 -0700, Keith Lofstrom wrote:
+> On Fri, Jun 21, 2013 at 03:39:18PM -0700, Russell Senior wrote:
+> > replication and it'll be great!"  The message was, paraphrasing, "it's
+> > not magic, and it won't magically solve all your problems", and "make
+> > good backups".
+> 
+> Sophisticated questions and answers.   Perhaps someone can point
+> me at a not-too-complicated tutorial which quickly summarizes
+> what is simpler and harder to do with mysql backup/mirroring.
+> 
+> I'm using an app that uses mysql, and I know too little about
+> mysql for safety.  Especially backup and mirroring.  But wuth
+> way too much to do, I don't have time to become an expert.
+> 
+> I'm guessing mysql is getting 20 reads and 5 writes per minute
+> during office hours, with zero user load between midnight and 6AM.
+> 
+> At minimum, I want to do the right thing to image the database to
+> backups at 3 AM.  I rsync them to two different backup servers, but
+> I don't know that the databases will recover to a viable state.  
+> Is there something I should be doing to freeze the database?
+
+mysqldump dumps out the database contents as sql statements that can 
+be loaded into another database (not just mysql), it does the whole data
+base at once
+though you can use diff to make it incremental, you can also enable
+binary logs to make
+incremental backups(though I would still do regular full dumps)
+
+ 
+https://dev.mysql.com/doc/refman/5.1/en/backup-methods.html
+
+> At maximum, I would like to do realtime imaging to a failover
+> server on a different network far far away.  About 100kbps between
+> a couple of lightly loaded machines with solid state drives.
+> In the rare event that I lose the primary server, I expect to 
+> lose some recent activity, and spend an hour or two recovering.
+> 
+> What's reasonable to expect from a maintainable-by-dummies backup
+
+mysqldump would get you reliable backups with little effort and it would
+be quick
+to get up and running
+ 
+In fact you should do at least one asap
+
+mysqldump -u root -ptmppassword database_name > database.sql (single
+database) 
+
+mysqldump -u root -ptmppassword --all-databases > all-database.sql
+
+> and/or failover process for mysql?
+given the load a master /slave setup would be fine for your purposes and
+it is
+possible to do it remotely /asynchronously.
+
+Here's some pointers 
+https://dev.mysql.com/doc/refman/5.0/en/replication.html
+(I'm a little rusty on the details since its a while since I've had to
+set it up
+but it wasn't too hard)
+
+Paul
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From abc1 at bbimedia.com  Sat Jun 22 18:54:31 2013
+From: abc1 at bbimedia.com (Alan Niven)
+Date: Sat, 22 Jun 2013 18:54:31 -0700
+Subject: [PLUG] A quick summary of Open Source Bridge in Portland
+Message-ID: <51C65557.1020403@bbimedia.com>
+
+I just wanted to let PLUG subscriber know that the Open Source Bridge 
+last week was awesome and highly recommend. Many sessions covering many 
+day including an ad hoc Friday set. The food my the best of any 
+conference and drew from Portland food carts/caterers. The price was 
+right at $300 for all four days including the food and 8 hours of 
+volunteer work got your in for free. For the next 30 days you can sign 
+up for next year for only $150.
+
+The most surprising thing to me was how nice, friendly and helpful 
+everyone was. I hadn't put together that people interested in open 
+source would understand and embody the principles that by working 
+together we can build and fix the things we need an make a better world. 
+At some point here will be videos of all the main session available on 
+the Open Source Bridge 
+<http://opensourcebridge.org/events/2013/schedule> site.
+
+Alan Niven
+
+From daniel at digitree.org  Sat Jun 22 19:15:45 2013
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Sat, 22 Jun 2013 19:15:45 -0700
+Subject: [PLUG] A quick summary of Open Source Bridge in Portland
+In-Reply-To: <51C65557.1020403@bbimedia.com>
+References: <51C65557.1020403@bbimedia.com>
+Message-ID: <CANkHAjcxRCdB=0j63hRkDzSkYE+Euxa381awbTWSzbk5fXWnZA@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 6:54 PM, Alan Niven <abc1 at bbimedia.com> wrote:
+
+> For the next 30 days you can sign up for next year for only $150.
+>
+
+The $150 "ridiculously early bird registration" actually ends on June 30th;
+easy to get confused since it was only announced verbally.
+
+From pm at nellump.net  Sat Jun 22 21:10:45 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Sat, 22 Jun 2013 21:10:45 -0700
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <alpine.LNX.2.00.1306220952500.1471@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<20130622155510.GA23424@jupiter.nellump.net>
+	<alpine.LNX.2.00.1306220952500.1471@salmo.appl-ecosys.com>
+Message-ID: <20130623041044.GA25172@jupiter.nellump.net>
+
+On Sat, Jun 22, 2013 at 09:54:16AM -0700, Rich Shepard wrote:
+>    That did not work. But after reading the man page I found that
+> 
+>  	rename .JPG .jpg *.JPG
+> 
+> works just fine.
+> 
+>    Thanks again for reminding me of rename's existence.
+
+That sounds like a different "rename" command than the one I'm
+familiar with.  The version on my systems produces the following
+usage message:
+
+  $ rename
+  Usage: rename [-v] [-n] [-f] perlexpr [filenames]
+
+Its manpage shows that it was originally written by Larry Wall (father
+of Perl).  A Web search indicates that there is, indeed, more than one
+"rename" command out there:
+
+  http://linux.die.net/man/1/rename
+
+
+-- 
+Paul
+
+From ronabop at gmail.com  Sat Jun 22 22:45:58 2013
+From: ronabop at gmail.com (Ronald Chmara)
+Date: Sat, 22 Jun 2013 22:45:58 -0700
+Subject: [PLUG] round robin mysql
+In-Reply-To: <CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+	<CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+Message-ID: <CAFWS2+F+L4nBtS5OW44bqi-5-HSEnqr5sBcCRdx7NURqGXr-LQ@mail.gmail.com>
+
+BTDT. Also a PITA, but at least there's less machines. The "best practice"
+I got from the MySQL AB folks was HALinux+DRBD, so there's only *one* live
+master, and both are close to each other (within milliseconds).
+
+
+
+On Fri, Jun 21, 2013 at 2:17 PM, Russell Johnson <russ at dimstar.net> wrote:
+
+> So, at a minimum, I'm thinking of switching to master<>master. At least
+> then if something goes down, I can get things back up by just repointing
+> things. Then repairing the damage can happen while things continue to work.
+>
+>
+>
+> On Jun 21, 2013, at 1:53 PM, Ronald Chmara <ronabop at gmail.com> wrote:
+>
+> > I've done it. It's a huge headache. As in, 3 hours a day getting
+> everything
+> > working right again after a simple "ALTER TABLE" breaks all the things,
+> or
+> > a transaction doesn't make it through (etc.).
+> >
+> >
+> > On Fri, Jun 21, 2013 at 1:45 PM, Russell Johnson <russ at dimstar.net>
+> wrote:
+> >
+> >> Has anyone else used round robin mysql servers? Where each server is a
+> >> master and slave, like so:
+> >>
+> >> +-->1-->2-->3-->4-->n+1->+
+> >> +<----<-------<-------<--+
+> >>
+> >> I'm thinking something like that with a load balancer in front of it
+> would
+> >> allow me to run fewer total db servers, and at the same time, if one
+> goes
+> >> down, things don't stop in their tracks. I'd rather have more of a star
+> >> topology, but I don't see a real way to have 3 or more masters that are
+> >> also slaves of each other. I can see a possible failure if, for example,
+> >> node 3 goes down, node 4 and up won't get updates anymore until
+> something
+> >> does a SWITCH MASTER TO on node 4, but that can be scripted.
+> >>
+> >> Ideas? Suggestions? Reasons why I shouldn't do this?
+> >>
+> >> Background: I'm currently working with several mysql servers that are
+> >> running in a master-->slave configuration. I'd like to find a way to
+> make
+> >> this so it's not quite as fragile.
+> >>
+> >> Russell Johnson
+> >> russ at dimstar.net
+> >>
+> >>
+> >>
+> >> _______________________________________________
+> >> PLUG mailing list
+> >> PLUG at lists.pdxlinux.org
+> >> http://lists.pdxlinux.org/mailman/listinfo/plug
+> >>
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+> Russell Johnson
+> russ at dimstar.net
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From david.fleck at mchsi.com  Sun Jun 23 05:30:52 2013
+From: david.fleck at mchsi.com (David Fleck)
+Date: Sun, 23 Jun 2013 07:30:52 -0500 (CDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <20130623041044.GA25172@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<20130622155510.GA23424@jupiter.nellump.net>
+	<alpine.LNX.2.00.1306220952500.1471@salmo.appl-ecosys.com>
+	<20130623041044.GA25172@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1306230722170.2352@grond.sourballs.org>
+
+On Sat, 22 Jun 2013, Paul Mullen wrote:
+> That sounds like a different "rename" command than the one I'm
+> familiar with.  The version on my systems produces the following
+> usage message:
+>
+>  $ rename
+>  Usage: rename [-v] [-n] [-f] perlexpr [filenames]
+>
+> Its manpage shows that it was originally written by Larry Wall (father
+> of Perl).  A Web search indicates that there is, indeed, more than one
+> "rename" command out there:
+
+
+I think Paul's "rename" command is a little Perl script cooked up by Wall 
+eons ago and scattered across the Internet since then; sometime later 
+several Linux distributions started adding a small binary file, which 
+sounds like the one that Rich found on his system.
+
+--
+David Fleck
+david.fleck at mchsi.com
+
+
+From rshepard at appl-ecosys.com  Sun Jun 23 06:43:54 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 23 Jun 2013 06:43:54 -0700 (PDT)
+Subject: [PLUG] Converting Uppercase File Names to Lowercase
+In-Reply-To: <20130623041044.GA25172@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1306220830210.1471@salmo.appl-ecosys.com>
+	<20130622155510.GA23424@jupiter.nellump.net>
+	<alpine.LNX.2.00.1306220952500.1471@salmo.appl-ecosys.com>
+	<20130623041044.GA25172@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1306230642030.16658@salmo.appl-ecosys.com>
+
+On Sat, 22 Jun 2013, Paul Mullen wrote:
+
+> That sounds like a different "rename" command than the one I'm
+> familiar with.
+
+   Yep:
+
+[rshepard at salmo ~]$ rename
+call: rename from to files...
+
+> A Web search indicates that there is, indeed, more than one "rename"
+> command out there:
+
+"AVAILABILITY
+   The rename command is part of the util-linux-ng package and is available
+from ftp://ftp.kernel.org/pub/linux/utils/util-linux-ng/."
+
+Rich
+
+
+
+From robert.citek at gmail.com  Sun Jun 23 11:55:42 2013
+From: robert.citek at gmail.com (Robert Citek)
+Date: Sun, 23 Jun 2013 14:55:42 -0400
+Subject: [PLUG] Mysql newbie question
+In-Reply-To: <1371950541.3929.45.camel@localhost>
+References: <8C300379-85BE-49C8-9022-1BEBBEC04349@dimstar.net>
+	<CAFWS2+GF-OkSGQ2YMKXau4+x_bHgc1XcYDq+qWD5-yERZLL9fA@mail.gmail.com>
+	<CC253D46-2A89-4387-A25C-85668101D688@dimstar.net>
+	<8638sb5bs9.fsf@coulee.tdb.com>
+	<20130623004925.GB1452@gate.kl-ic.com>
+	<1371950541.3929.45.camel@localhost>
+Message-ID: <CAKFjdm5spaTOJ2z+4AFq=So1GEB6qyZb+zCu4Jq1NcSDmdgVSA@mail.gmail.com>
+
+If you are sure about the zero users between midnight and 6AM, then
+you have a lot of options.  From easy to more challenging:
+
+1) stop mysql and rsync /var/lib/mysql
+2) run a mysql dump (e.g. apt-cache search automysqlbackup)
+3) create slave replica and run backups from the slave
+4) stop mysql, create an LVM snaphot, start mysql, rsync from snapshot
+
+The key in each case, though, is that you need to verify that you can
+restore.  It won't matter what method you choose or how good you
+believe your backup to be, if you can't restore.
+
+We do this kind of stuff regularly for all kinds of clients.  If you
+want to off-load some of the heavy lifting, shoot me an e-mail
+off-line.
+
+Regards,
+- Robert
+
+
+On Sat, Jun 22, 2013 at 9:22 PM, Paul Munday <paulm at freegeek.org> wrote:
+> On Sat, 2013-06-22 at 17:49 -0700, Keith Lofstrom wrote:
+>> On Fri, Jun 21, 2013 at 03:39:18PM -0700, Russell Senior wrote:
+>> > replication and it'll be great!"  The message was, paraphrasing, "it's
+>> > not magic, and it won't magically solve all your problems", and "make
+>> > good backups".
+>>
+>> Sophisticated questions and answers.   Perhaps someone can point
+>> me at a not-too-complicated tutorial which quickly summarizes
+>> what is simpler and harder to do with mysql backup/mirroring.
+>>
+>> I'm using an app that uses mysql, and I know too little about
+>> mysql for safety.  Especially backup and mirroring.  But wuth
+>> way too much to do, I don't have time to become an expert.
+>>
+>> I'm guessing mysql is getting 20 reads and 5 writes per minute
+>> during office hours, with zero user load between midnight and 6AM.
+>>
+>> At minimum, I want to do the right thing to image the database to
+>> backups at 3 AM.  I rsync them to two different backup servers, but
+>> I don't know that the databases will recover to a viable state.
+>> Is there something I should be doing to freeze the database?
+>
+> mysqldump dumps out the database contents as sql statements that can
+> be loaded into another database (not just mysql), it does the whole data
+> base at once
+> though you can use diff to make it incremental, you can also enable
+> binary logs to make
+> incremental backups(though I would still do regular full dumps)
+>
+>
+> https://dev.mysql.com/doc/refman/5.1/en/backup-methods.html
+>
+>> At maximum, I would like to do realtime imaging to a failover
+>> server on a different network far far away.  About 100kbps between
+>> a couple of lightly loaded machines with solid state drives.
+>> In the rare event that I lose the primary server, I expect to
+>> lose some recent activity, and spend an hour or two recovering.
+>>
+>> What's reasonable to expect from a maintainable-by-dummies backup
+>
+> mysqldump would get you reliable backups with little effort and it would
+> be quick
+> to get up and running
+>
+> In fact you should do at least one asap
+>
+> mysqldump -u root -ptmppassword database_name > database.sql (single
+> database)
+>
+> mysqldump -u root -ptmppassword --all-databases > all-database.sql
+>
+>> and/or failover process for mysql?
+> given the load a master /slave setup would be fine for your purposes and
+> it is
+> possible to do it remotely /asynchronously.
+>
+> Here's some pointers
+> https://dev.mysql.com/doc/refman/5.0/en/replication.html
+> (I'm a little rusty on the details since its a while since I've had to
+> set it up
+> but it wasn't too hard)
+>
+> Paul
+> --
+>                Technical Support Specialist, Free Geek
+>               Free Geek Tech Support: support at freegeek.org
+>         (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From dexter at ambidexter.com  Thu Jun 27 18:06:05 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 27 Jun 2013 18:06:05 -0700
+Subject: [PLUG] July 11th (!) meeting pre-announcement
+Message-ID: <51CCE17D.7050508@ambidexter.com>
+
+
+Hello all,
+
+ld:dr : THE JULY 4TH MEETING IS MOVE TO JULY 11TH IN THE USUAL TIME AND 
+LOCATION AND THE TOPIC IS PHYSICAL SECURITY
+
+With the first Thursday meeting falling the 4th, the consensus at the 
+June meeting was to move the meeting up a week if the room is available.
+
+Good news, the room is available and Steve Pasco is scheduled to give a 
+talk on many aspects of physical security. I will post the full 
+description soon.
+
+Have a safe 4th!*
+
+Michael Dexter
+PLUG Volunteer
+
+* There have been rather significant, borderline arson fireworks-related 
+fires in my neighborhood this last two years. I do mean have a SAVE 4th 
+and in the spirit of physical security, you should add "don't set 
+yourself or your neighbors on fire" to your list of best practices.
+
+
+From dick at dicksteffens.com  Fri Jun 28 10:59:48 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 28 Jun 2013 10:59:48 -0700
+Subject: [PLUG] Change of e-mail address testing
+Message-ID: <51CDCF14.3070607@dicksteffens.com>
+
+Pay no attention to that man behind the flat screen.
+
+I'm switching e-mail addresses and am confirming all is well.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From johnxj at comcast.net  Sat Jun 29 20:23:48 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 29 Jun 2013 20:23:48 -0700
+Subject: [PLUG] Unicode
+Message-ID: <20130629202348.5e2f0daa@Devil8>
+
+It's way complicated, and I know little about it. I wish I knew more.
+Is anyone here an expert? A talk at one of our meetings would be
+awesome. I could help with writing systems, of which I have some ken.
+

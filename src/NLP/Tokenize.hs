@@ -48,7 +48,7 @@ run f = \txt -> map T.copy $ (map unwrap . unE . f) txt
 defaultTokenizer :: Tokenizer
 defaultTokenizer =     whitespace 
                    >=> uris 
-                   >=> hyphens
+--                   >=> hyphens
                    >=> punctuation 
                    >=> contractions 
                    >=> negatives 

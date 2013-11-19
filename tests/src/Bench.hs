@@ -1,3 +1,4 @@
+{-# LANGUAGE PackageImports #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Bench where
 
@@ -5,13 +6,17 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
+import Control.DeepSeq
 import Criterion.Main
 import Criterion.Config (defaultConfig, Config(..), ljust)
 import Criterion (bench, bgroup, Benchmark)
 
+import qualified "tokenize" NLP.Tokenize as StrTok
+import qualified "chatter" NLP.Tokenize as TextTok
 import NLP.POS (tagText)
 import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
 import Corpora
+import NLP.Corpora.Email
 
 import qualified NLP.Similarity.VectorSimBench as VS
 
@@ -27,10 +32,23 @@ main = do
   muc3_1 <- VS.muc3_01
   muc3_2 <- VS.muc3_02
   muc3_3 <- VS.muc3_03
-  defaultMainWith myConfig (return ())
-       [ bgroup "POS Tagging" [] -- postagBench
-       , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
+  pTxt <- plugArchiveText
+  let len = length pTxt
+      plugTxt = take (len `div` 4) pTxt
+      plugStr = map T.unpack plugTxt
+  deepseq plugStr $ defaultMainWith myConfig (return ())
+       [ bgroup "tokenizing"
+                    [ bench "String Tokenizer" $ nf (map StrTok.tokenize) plugStr
+                    , bench "Text Tokenizer" $ nf (map TextTok.tokenize) plugTxt
+                    , bench "String Tokenizer" $ nf (map strTokenizer) plugTxt
+                    ]
+
+       --  bgroup "POS Tagging" [] -- postagBench
+       -- , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
        ]
+
+strTokenizer :: Text -> [Text]
+strTokenizer txt = map T.pack (StrTok.tokenize $ T.unpack txt)
 
 -- posTagging :: IO [Benchmark]
 -- posTagging = do

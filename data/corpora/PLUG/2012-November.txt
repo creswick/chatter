@@ -1,0 +1,4625 @@
+From keithl at gate.kl-ic.com  Wed Nov  7 07:10:10 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Wed, 7 Nov 2012 07:10:10 -0800
+Subject: [PLUG] Duplex card scanner
+Message-ID: <20121107151010.GB29960@gate.kl-ic.com>
+
+I would like a duplex card scanner for linux - pop in the card,
+get front and back images.  The sane project only lists a couple
+of old simplex scanners.   Any suggestions?
+
+Failing that, I can build a kludge with a couple of cheap
+digital cameras with macro lenses in a fixture with a push
+button.  Any suggestions for cheap cameras that will take
+a picture and upload it on external command?  Perhaps all
+I need is a single webcam with the right lensing, a pair
+of 45 degree mirrors to see both sides at once, followed
+by some image correction in software, which I might be
+able to do with PovRay.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From rowlett at cloud85.net  Wed Nov  7 08:49:31 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Wed, 07 Nov 2012 10:49:31 -0600
+Subject: [PLUG] Debian "repository" on large USB stick?
+Message-ID: <509A911B.8010204@cloud85.net>
+
+I've just read read the manpage of debmirror. It seems to 
+hint there may be a simple solution to my problem.
+
+I *DO NOT* have good internet connectivity.
+I *DO* have the 8 DVD set of Debian 6.0.5.
+I want all of the deb files from the set on a 64GB flash 
+drive in a format/structure acceptable to apt-get or synaptic.
+
+I'm currently wading through descriptions of the Debian 
+repository to be able to do it manually. I suspect there may 
+already be a suitable script.
+
+Pointers please. TIA
+
+
+
+
+
+
+From jason.lapier at gmail.com  Wed Nov  7 09:53:20 2012
+From: jason.lapier at gmail.com (Jason LaPier)
+Date: Wed, 7 Nov 2012 09:53:20 -0800
+Subject: [PLUG] problems creating logical volume (LVM)
+Message-ID: <CADJK7_SKWxuD_jhhSrXSJfaKGpEv9ziRVet0fLPrtPwGicDTBg@mail.gmail.com>
+
+First off -
+Bummed that I missed the PLUG talk on LVM - if I'd realized I was going to
+need it so soon, I would have gone out of my way to attend! In any case,
+Brian Martin's post [1] on the subject is a great read.
+
+So I'm trying to create a logical volume in a volume group that stripes
+across a few of Amazon's EBS volumes. When I try this with a couple 1 GB
+volumes, it works fine. When I try this with five 1 TB volumes, I'm seeing
+a strange error.
+
+$ vgcreate ebs_vg /dev/sdp1 /dev/sdp2 /dev/sdp3 /dev/sdp4 /dev/sdp5
+$ vgdisplay /dev/ebs_vg
+  --- Volume group ---
+  VG Name               ebs_vg
+  System ID
+  Format                lvm2
+  Metadata Areas        5
+  Metadata Sequence No  1
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                5
+  Act PV                5
+  VG Size               4.88 TiB
+  PE Size               4.00 MiB
+  Total PE              1279995
+  Alloc PE / Size       0 / 0
+  Free  PE / Size       1279995 / 4.88 TiB
+$ lvcreate -l 100%VG -n ebs_lv -i2 ebs_vg -I256
+  Rounding size (1279995 extents) up to stripe boundary size (1279996
+extents)
+  Volume group "ebs_vg" has insufficient free space (1279995 extents):
+1279996 required.
+
+
+I'm expecting it to be smart enough to make it the right size by using the
+"100%" for the logical extents. If I try to manually set this to the number
+it seems to want, I still get the error:
+
+$ lvcreate -l 1279995 -n ebs_lv -i2 ebs_vg -I256
+  Rounding size (1279995 extents) up to stripe boundary size (1279996
+extents)
+  Volume group "ebs_vg" has insufficient free space (1279995 extents):
+1279996 required.
+
+Anyone see anything glaring that I'm missing?
+
+Thanks!
+
+- Jason L.
+
+
+From jason.lapier at gmail.com  Wed Nov  7 10:26:46 2012
+From: jason.lapier at gmail.com (Jason LaPier)
+Date: Wed, 7 Nov 2012 10:26:46 -0800
+Subject: [PLUG] problems creating logical volume (LVM)
+In-Reply-To: <CADJK7_SKWxuD_jhhSrXSJfaKGpEv9ziRVet0fLPrtPwGicDTBg@mail.gmail.com>
+References: <CADJK7_SKWxuD_jhhSrXSJfaKGpEv9ziRVet0fLPrtPwGicDTBg@mail.gmail.com>
+Message-ID: <CADJK7_SS9b=84nWGobvByb_qtTsDX7mt6+LXPHEkTt0uf+Eohw@mail.gmail.com>
+
+Answering my own question here: I was failing to change the number of
+stripes form 2 to 5. This works:
+
+lvcreate -l100%VG -n ebs_lv -i5 ebs_vg -I256
+
+
+On Wed, Nov 7, 2012 at 9:53 AM, Jason LaPier <jason.lapier at gmail.com> wrote:
+
+> First off -
+> Bummed that I missed the PLUG talk on LVM - if I'd realized I was going to
+> need it so soon, I would have gone out of my way to attend! In any case,
+> Brian Martin's post [1] on the subject is a great read.
+>
+> So I'm trying to create a logical volume in a volume group that stripes
+> across a few of Amazon's EBS volumes. When I try this with a couple 1 GB
+> volumes, it works fine. When I try this with five 1 TB volumes, I'm seeing
+> a strange error.
+>
+> $ vgcreate ebs_vg /dev/sdp1 /dev/sdp2 /dev/sdp3 /dev/sdp4 /dev/sdp5
+> $ vgdisplay /dev/ebs_vg
+>   --- Volume group ---
+>   VG Name               ebs_vg
+>   System ID
+>   Format                lvm2
+>   Metadata Areas        5
+>   Metadata Sequence No  1
+>   VG Access             read/write
+>   VG Status             resizable
+>   MAX LV                0
+>   Cur LV                0
+>   Open LV               0
+>   Max PV                0
+>   Cur PV                5
+>   Act PV                5
+>   VG Size               4.88 TiB
+>   PE Size               4.00 MiB
+>   Total PE              1279995
+>   Alloc PE / Size       0 / 0
+>   Free  PE / Size       1279995 / 4.88 TiB
+> $ lvcreate -l 100%VG -n ebs_lv -i2 ebs_vg -I256
+>   Rounding size (1279995 extents) up to stripe boundary size (1279996
+> extents)
+>   Volume group "ebs_vg" has insufficient free space (1279995 extents):
+> 1279996 required.
+>
+>
+> I'm expecting it to be smart enough to make it the right size by using the
+> "100%" for the logical extents. If I try to manually set this to the number
+> it seems to want, I still get the error:
+>
+> $ lvcreate -l 1279995 -n ebs_lv -i2 ebs_vg -I256
+>   Rounding size (1279995 extents) up to stripe boundary size (1279996
+> extents)
+>   Volume group "ebs_vg" has insufficient free space (1279995 extents):
+> 1279996 required.
+>
+> Anyone see anything glaring that I'm missing?
+>
+> Thanks!
+>
+> - Jason L.
+>
+
+
+From jason.barnett71 at gmail.com  Wed Nov  7 12:48:14 2012
+From: jason.barnett71 at gmail.com (Jason Barnett)
+Date: Wed, 7 Nov 2012 12:48:14 -0800
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <509A911B.8010204@cloud85.net>
+References: <509A911B.8010204@cloud85.net>
+Message-ID: <CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+
+I know it's not the "proper" way to do it, but if you just want to get the
+job done and figure out a better way later, just copy all the packages to
+the root of the USB then mount it as /var/cache/apt/archives and you should
+be good to go.
+
+Of course, I am sure someone knows a better way, but sometimes the fastest
+way is all that is needed.
+
+- Jason
+
+On Wed, Nov 7, 2012 at 8:49 AM, Richard Owlett <rowlett at cloud85.net> wrote:
+
+> I've just read read the manpage of debmirror. It seems to
+> hint there may be a simple solution to my problem.
+>
+> I *DO NOT* have good internet connectivity.
+> I *DO* have the 8 DVD set of Debian 6.0.5.
+> I want all of the deb files from the set on a 64GB flash
+> drive in a format/structure acceptable to apt-get or synaptic.
+>
+> I'm currently wading through descriptions of the Debian
+> repository to be able to do it manually. I suspect there may
+> already be a suitable script.
+>
+> Pointers please. TIA
+>
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From jason.barnett71 at gmail.com  Wed Nov  7 13:33:40 2012
+From: jason.barnett71 at gmail.com (Jason Barnett)
+Date: Wed, 7 Nov 2012 13:33:40 -0800
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+References: <509A911B.8010204@cloud85.net>
+	<CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+Message-ID: <CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+
+A bit of googling lead me to this page that describes how to create a
+signed local repository.
+http://ubuntuforums.org/showthread.php?s=7cfc0f038cfe90434538e2fe367b0c65&t=1090731
+
+This page has an explanation of how to create a local repository that is
+NOT signed but explains step-by-step what the commands are doing. About mid
+way down in the comments, there are a couple of scripts that readers have
+submitted that may be what you are looking for...
+http://odzangba.wordpress.com/2006/10/13/how-to-build-local-apt-repositories/
+
+Hope this helps. I may have to do this myself, just to speed up the updates
+on my machines...
+
+- Jason
+
+On Wed, Nov 7, 2012 at 12:48 PM, Jason Barnett <jason.barnett71 at gmail.com>wrote:
+
+> I know it's not the "proper" way to do it, but if you just want to get the
+> job done and figure out a better way later, just copy all the packages to
+> the root of the USB then mount it as /var/cache/apt/archives and you should
+> be good to go.
+>
+> Of course, I am sure someone knows a better way, but sometimes the fastest
+> way is all that is needed.
+>
+> - Jason
+>
+>
+> On Wed, Nov 7, 2012 at 8:49 AM, Richard Owlett <rowlett at cloud85.net>wrote:
+>
+>> I've just read read the manpage of debmirror. It seems to
+>> hint there may be a simple solution to my problem.
+>>
+>> I *DO NOT* have good internet connectivity.
+>> I *DO* have the 8 DVD set of Debian 6.0.5.
+>> I want all of the deb files from the set on a 64GB flash
+>> drive in a format/structure acceptable to apt-get or synaptic.
+>>
+>> I'm currently wading through descriptions of the Debian
+>> repository to be able to do it manually. I suspect there may
+>> already be a suitable script.
+>>
+>> Pointers please. TIA
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+
+
+From rowlett at cloud85.net  Thu Nov  8 04:07:59 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Thu, 08 Nov 2012 06:07:59 -0600
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+References: <509A911B.8010204@cloud85.net>
+	<CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+Message-ID: <509BA09F.8080405@cloud85.net>
+
+I how quickly I could get something up,  the Debian 
+installer already will scan all the DVDs available for apt 
+to request the required DVD. But it's not a elegant solution.
+
+Jason Barnett wrote:
+> I know it's not the "proper" way to do it, but if you just want to get the
+> job done and figure out a better way later, just copy all the packages to
+> the root of the USB then mount it as /var/cache/apt/archives and you should
+> be good to go.
+>
+> Of course, I am sure someone knows a better way, but sometimes the fastest
+> way is all that is needed.
+>
+> - Jason
+>
+> On Wed, Nov 7, 2012 at 8:49 AM, Richard Owlett <rowlett at cloud85.net> wrote:
+>
+>> I've just read read the manpage of debmirror. It seems to
+>> hint there may be a simple solution to my problem.
+>>
+>> I *DO NOT* have good internet connectivity.
+>> I *DO* have the 8 DVD set of Debian 6.0.5.
+>> I want all of the deb files from the set on a 64GB flash
+>> drive in a format/structure acceptable to apt-get or synaptic.
+>>
+>> I'm currently wading through descriptions of the Debian
+>> repository to be able to do it manually. I suspect there may
+>> already be a suitable script.
+>>
+>> Pointers please. TIA
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+From rowlett at cloud85.net  Thu Nov  8 04:09:55 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Thu, 08 Nov 2012 06:09:55 -0600
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+References: <509A911B.8010204@cloud85.net>
+	<CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+	<CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+Message-ID: <509BA113.2060002@cloud85.net>
+
+I've bookmarked the references. Thanks.
+
+Jason Barnett wrote:
+> A bit of googling lead me to this page that describes how to create a
+> signed local repository.
+> http://ubuntuforums.org/showthread.php?s=7cfc0f038cfe90434538e2fe367b0c65&t=1090731
+>
+> This page has an explanation of how to create a local repository that is
+> NOT signed but explains step-by-step what the commands are doing. About mid
+> way down in the comments, there are a couple of scripts that readers have
+> submitted that may be what you are looking for...
+> http://odzangba.wordpress.com/2006/10/13/how-to-build-local-apt-repositories/
+>
+> Hope this helps. I may have to do this myself, just to speed up the updates
+> on my machines...
+>
+> - Jason
+>
+> On Wed, Nov 7, 2012 at 12:48 PM, Jason Barnett <jason.barnett71 at gmail.com>wrote:
+>
+>> I know it's not the "proper" way to do it, but if you just want to get the
+>> job done and figure out a better way later, just copy all the packages to
+>> the root of the USB then mount it as /var/cache/apt/archives and you should
+>> be good to go.
+>>
+>> Of course, I am sure someone knows a better way, but sometimes the fastest
+>> way is all that is needed.
+>>
+>> - Jason
+>>
+>>
+>> On Wed, Nov 7, 2012 at 8:49 AM, Richard Owlett <rowlett at cloud85.net>wrote:
+>>
+>>> I've just read read the manpage of debmirror. It seems to
+>>> hint there may be a simple solution to my problem.
+>>>
+>>> I *DO NOT* have good internet connectivity.
+>>> I *DO* have the 8 DVD set of Debian 6.0.5.
+>>> I want all of the deb files from the set on a 64GB flash
+>>> drive in a format/structure acceptable to apt-get or synaptic.
+>>>
+>>> I'm currently wading through descriptions of the Debian
+>>> repository to be able to do it manually. I suspect there may
+>>> already be a suitable script.
+>>>
+>>> Pointers please. TIA
+>>>
+>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> PLUG mailing list
+>>> PLUG at lists.pdxlinux.org
+>>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>>
+>>
+>>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+From rowlett at cloud85.net  Thu Nov  8 09:18:41 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Thu, 08 Nov 2012 11:18:41 -0600
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+References: <509A911B.8010204@cloud85.net>
+	<CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+	<CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+Message-ID: <509BE971.20003@cloud85.net>
+
+Jason Barnett wrote:
+> [snip]
+>
+> This page has an explanation of how to create a local repository that is
+> NOT signed but explains step-by-step what the commands are doing. About mid
+> way down in the comments, there are a couple of scripts that readers have
+> submitted that may be what you are looking for...
+> http://odzangba.wordpress.com/2006/10/13/how-to-build-local-apt-repositories/
+>
+> Hope this helps. I may have to do this myself, just to speed up the updates
+> on my machines...
+>
+
+It's looking good. Should have report this evening or 
+tomorrow morning ;)
+
+
+
+
+From dexter at ambidexter.com  Thu Nov  8 09:28:53 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 08 Nov 2012 09:28:53 -0800
+Subject: [PLUG] Announcement: November PLUG Advanced Topics: Linux Network
+ Driver Development
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <509BEBD5.4060300@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Jeff Kirsher, Intel
+What: Linux Network Driver Development
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, November 20th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+
+Full title: Everything you ever wanted to know about developing a Linux 
+network driver
+
+Jeff Kirsher will cover how Intel deals working on the in-kernel driver 
+as well as the out-of-tree driver and the advantages/disadvantages that 
+come along with it. In addition, the processes used to ensure that we 
+deliver a working driver.
+
+Jeff's Bio:
+
+Linux Kernel Sub-Maintainer for Intel Wired LAN
+1999-2003 Validation Engineer for Intel Switches
+2003-Current Networking Software Engineer/Linux kernel maintainer
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250463091
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From fredjame at fredjame.cnc.net  Fri Nov  9 10:26:14 2012
+From: fredjame at fredjame.cnc.net (Fred James)
+Date: Fri, 09 Nov 2012 13:26:14 -0500
+Subject: [PLUG] KDE4 question
+Message-ID: <509D4AC6.8080106@fredjame.cnc.net>
+
+My wife and I both run KDE4, but my machine doesn't have enough of 
+something to run quite the way hers does.
+
+I am quite happy with mine ... she is not at all happy with hers. What 
+she does not like?
+
+When her cursor moves over an icon in the task tray (at the bottom of 
+the screen) ... say the office icon for example, and she has more than 
+one document open at the time ... the current document she was looking 
+at is no longer full size, but all of her open documents now appear on 
+the screen as smaller versions of themselves.
+
+This doesn't happen on mine, and we would like to know how to stop it on 
+hers.
+
+Thank you
+Regards
+Fred James
+
+
+
+From jason.barnett71 at gmail.com  Fri Nov  9 10:37:42 2012
+From: jason.barnett71 at gmail.com (Jason Barnett)
+Date: Fri, 9 Nov 2012 10:37:42 -0800
+Subject: [PLUG] KDE4 question
+In-Reply-To: <509D4AC6.8080106@fredjame.cnc.net>
+References: <509D4AC6.8080106@fredjame.cnc.net>
+Message-ID: <CA+PcUTOidDLfafgqjmzNkfmGV0TkQwJ31jJzQczX5vt18v68VQ@mail.gmail.com>
+
+That sounds like the [present windows] option. Do the following to
+change/disable this option...
+
+[system settings] --> [workspace behavior] --> [screen edges]
+
+there will be a picture of a screen with boxes on each side and each
+corner. click on the corner that is causing the problems and from the
+dropdown menu, select [no action] then apply the settings. That should fix
+it.
+
+- Jason
+
+On Fri, Nov 9, 2012 at 10:26 AM, Fred James <fredjame at fredjame.cnc.net>wrote:
+
+> My wife and I both run KDE4, but my machine doesn't have enough of
+> something to run quite the way hers does.
+>
+> I am quite happy with mine ... she is not at all happy with hers. What
+> she does not like?
+>
+> When her cursor moves over an icon in the task tray (at the bottom of
+> the screen) ... say the office icon for example, and she has more than
+> one document open at the time ... the current document she was looking
+> at is no longer full size, but all of her open documents now appear on
+> the screen as smaller versions of themselves.
+>
+> This doesn't happen on mine, and we would like to know how to stop it on
+> hers.
+>
+> Thank you
+> Regards
+> Fred James
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From kingbeowulf at gmail.com  Sat Nov 10 11:26:45 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sat, 10 Nov 2012 11:26:45 -0800
+Subject: [PLUG] Duplex card scanner
+In-Reply-To: <20121107151010.GB29960@gate.kl-ic.com>
+References: <20121107151010.GB29960@gate.kl-ic.com>
+Message-ID: <509EAA75.9080307@gmail.com>
+
+On 11/07/2012 07:10 AM, Keith Lofstrom wrote:
+> I would like a duplex card scanner for linux - pop in the card,
+> get front and back images.  The sane project only lists a couple
+> of old simplex scanners.   Any suggestions?
+>
+> Failing that, I can build a kludge with a couple of cheap
+> digital cameras with macro lenses in a fixture with a push
+> button.  Any suggestions for cheap cameras that will take
+> a picture and upload it on external command?  Perhaps all
+> I need is a single webcam with the right lensing, a pair
+> of 45 degree mirrors to see both sides at once, followed
+> by some image correction in software, which I might be
+> able to do with PovRay.
+>
+> Keith
+>
+http://www.sane-project.org/sane-mfgs.html#SCANNERS lists many newer 
+scanner with ADFduplex attachments
+
+I have had good luck with HP scanners under Linux in the past.  I 
+currently use HP Laserjet Pro M1212nf MFP via TCP/IP on sane/hplip (no 
+duplexing attachment though).   Scanning is supported with a free 
+proprietary plugin in SANE. I scan 2 sided stuff by just setting up for 
+multipage and flipping it over. For < full page I just set the scan 
+dimensions(some backends can detect size automagically).
+
+The link above shows quite a few scanner with ADFduplex support (status: 
+complete). Fancy duplexing ones tend to be pricey:
+
+HP Scanjet 5590 Digital Flatbed Scanner  (see link above)
+
+I would get a full size scanner and if needed just crop/OCR the images 
+producedand not one of the limited special purpose business card ones. 
+Also, this claims linux support:
+
+http://www.irislink.com/c2-2203-189/IRISCard-Anywhere-5--Scan-your-business-cards--Organize-and-manage-your-contacts.aspx 
+
+
+(at least for the scanner portion).  If you find a good USB scanner and 
+can detemine the chipset used, you may be able to locate a sane backend 
+and then adjust "/lib/udev/rules.d/80-libsane.rules" to add your scanner.
+
+-Ed
+
+
+
+
+
+From rowlett at cloud85.net  Sun Nov 11 07:35:59 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Sun, 11 Nov 2012 09:35:59 -0600
+Subject: [PLUG] Debian "repository" on large USB stick?
+In-Reply-To: <509BE971.20003@cloud85.net>
+References: <509A911B.8010204@cloud85.net>
+	<CA+PcUTPrKH1JG9ZykJbMWObXa3nfj6PmW936SUND2Z7J9pGPcQ@mail.gmail.com>
+	<CA+PcUTNDT+PCWEPAg25D_A+zuyQLNLfgjU_ePoHaXbSPVz4kcQ@mail.gmail.com>
+	<509BE971.20003@cloud85.net>
+Message-ID: <509FC5DF.8000703@cloud85.net>
+
+Richard Owlett wrote:
+> Jason Barnett wrote:
+>> [snip]
+>>
+>> This page has an explanation of how to create a local repository that is
+>> NOT signed but explains step-by-step what the commands are doing. About mid
+>> way down in the comments, there are a couple of scripts that readers have
+>> submitted that may be what you are looking for...
+>> http://odzangba.wordpress.com/2006/10/13/how-to-build-local-apt-repositories/
+>>
+>> Hope this helps. I may have to do this myself, just to speed up the updates
+>> on my machines...
+>>
+>
+> It's looking good. Should have report this evening or
+> tomorrow morning ;)
+>
+
+I think I've got it. Won't be able to test until this 
+afternoon or tomorrow. I'm getting slow in my retirement 
+years ;)
+
+
+
+
+From merlyn at stonehenge.com  Tue Nov 13 13:13:33 2012
+From: merlyn at stonehenge.com (Randal L. Schwartz)
+Date: Tue, 13 Nov 2012 13:13:33 -0800
+Subject: [PLUG] Question on efficiently searching large files for a
+	simple text match
+References: <mailman.5.1349031602.23406.plug@lists.pdxlinux.org>
+	<5068A34C.6080701@speakeasy.net>
+Message-ID: <86zk2ltddu.fsf@red.stonehenge.com>
+
+>>>>> "Robert" == Robert Munro <ramunro at speakeasy.net> writes:
+
+Robert> On Sat, 29 Sep 2012 19:36:36 -0700 Eric Wilhelm wrote:
+>> # from website reader on Saturday 29 September 2012:
+>>>> I have a list of about 2 to 5 thousand items ...
+Robert> <snip>
+>> If you don't know Perl, I think this is a really good time to read
+>> the `man perlintro` document.
+
+Robert> I suspect that Randall Schwartz has just encountered the downside of
+Robert> posting at PLUG using an alias that hides his identity.
+
+And I'm sure you're joking, but just in case... :)
+
+-- 
+Randal L. Schwartz - Stonehenge Consulting Services, Inc. - +1 503 777 0095
+<merlyn at stonehenge.com> <URL:http://www.stonehenge.com/merlyn/>
+Smalltalk/Perl/Unix consulting, Technical writing, Comedy, etc. etc.
+See http://methodsandmessages.posterous.com/ for Smalltalk discussion
+
+
+
+From rsteff at comcast.net  Thu Nov 15 12:03:31 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Thu, 15 Nov 2012 12:03:31 -0800
+Subject: [PLUG] Noisy mp3s
+Message-ID: <50A54A93.8020705@comcast.net>
+
+I have some mp3 recordings to transcribe. For some reason these 
+recordings have some noise in them. What it sounds like is the noise 
+left over when I use a filter in Audacity to remove some noise. (I know, 
+that's a bit weird, but maybe some of you who use the Audacity filter 
+will recognize the effect.) Anyway, the other weird part of this is that 
+if I listen to them on my wife's Win7 machine, they are clear as a bell. 
+They are also clear as a bell if I listen to them on my laptop running 
+XP. The same laptop hardware running Ubuntu 10.4 has the noise.
+
+Not all mp3 files on my Ubuntu machine exhibit this problem. So far, 
+it's just the two. They both were recorded phone conversations, but I 
+don't know the recording technology used. It could have been a hand held 
+recorder sitting next to a speaker phone -- that's the usual technique 
+-- or it could have been a fancy phone system that has the ability to 
+record a call. The call is between two offices of a big, east coast 
+consulting company that could very well have that technology.
+
+Anyway, does anyone have any ideas about why the sound on my Linux 
+machines show this noise while the sound on two Winders machines does 
+not? And more important, is there anything I can do about it, other than 
+listening on XP while typing on Ubuntu?
+
+Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From rshepard at appl-ecosys.com  Thu Nov 15 13:35:00 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 15 Nov 2012 13:35:00 -0800 (PST)
+Subject: [PLUG] Clinic This Sunday?
+Message-ID: <alpine.LNX.2.00.1211151333000.21163@salmo.appl-ecosys.com>
+
+   According to my calendar this coming Sunday is the third one in November,
+so there should be a clinic scheduled. I'd like the latest Xubuntu to
+install on a Toshiba portable. Will this be possible Sunday?
+
+Rich
+
+
+
+From johnxj at comcast.net  Thu Nov 15 14:18:53 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 15 Nov 2012 14:18:53 -0800
+Subject: [PLUG] Clinic This Sunday?
+In-Reply-To: <alpine.LNX.2.00.1211151333000.21163@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1211151333000.21163@salmo.appl-ecosys.com>
+Message-ID: <20121115141853.621f01a9@mailhost.pdx.edu>
+
+On Thu, 15 Nov 2012 13:35:00 -0800 (PST)
+Rich Shepard <rshepard at appl-ecosys.com> dijo:
+
+>According to my calendar this coming Sunday is the third one in November,
+>so there should be a clinic scheduled. I'd like the latest Xubuntu to
+>install on a Toshiba portable. Will this be possible Sunday?
+
+It certainly will, God willing and the creek don't rise.
+
+I have Xubuntu 12.10 in 32- and 64-bit ISOs, waiting to burn for you. 
+
+
+From rshepard at appl-ecosys.com  Thu Nov 15 14:25:33 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 15 Nov 2012 14:25:33 -0800 (PST)
+Subject: [PLUG] Clinic This Sunday?
+In-Reply-To: <20121115141853.621f01a9@mailhost.pdx.edu>
+References: <alpine.LNX.2.00.1211151333000.21163@salmo.appl-ecosys.com>
+	<20121115141853.621f01a9@mailhost.pdx.edu>
+Message-ID: <alpine.LNX.2.00.1211151424280.21163@salmo.appl-ecosys.com>
+
+On Thu, 15 Nov 2012, John Jason Jordan wrote:
+
+> It certainly will, God willing and the creek don't rise.
+
+   It's supposed to rain Saturday so the cricks may well rise. But, Free
+Geek's well back from the rivers.
+
+> I have Xubuntu 12.10 in 32- and 64-bit ISOs, waiting to burn for you.
+
+   Much grasses.
+
+See y'all then,
+
+Rich
+
+
+
+From elcaseti at gmail.com  Thu Nov 15 16:01:39 2012
+From: elcaseti at gmail.com (C W)
+Date: Thu, 15 Nov 2012 16:01:39 -0800
+Subject: [PLUG] Noisy mp3s
+In-Reply-To: <50A54A93.8020705@comcast.net>
+References: <50A54A93.8020705@comcast.net>
+Message-ID: <CACTDRAm1nEh0UGNuCWE4Z-doc1LQ=uygi+zuKLxdCY-Z+ykmnQ@mail.gmail.com>
+
+Richard,
+
+While I don't have a solution to your immediate problem, I can tell you,
+I've had much better luck with the sound quality of FLAC files, as opposed
+to the lossy lower quality file formats like mp3, aac, & even ogg vorbis.
+
+Whenever I can choose FLAC, I do so, whether it's recording, ripping,
+buying, downloading, (in  any situation).  Also, FLAC is a free codec, like
+ogg vorbis & Theora.
+
+Cheers,
+
+Elcaset
+
+On Thu, Nov 15, 2012 at 12:03 PM, Richard C. Steffens <rsteff at comcast.net>wrote:
+
+> I have some mp3 recordings to transcribe. For some reason these
+> recordings have some noise in them. What it sounds like is the noise
+> left over when I use a filter in Audacity to remove some noise. (I know,
+> that's a bit weird, but maybe some of you who use the Audacity filter
+> will recognize the effect.) Anyway, the other weird part of this is that
+> if I listen to them on my wife's Win7 machine, they are clear as a bell.
+> They are also clear as a bell if I listen to them on my laptop running
+> XP. The same laptop hardware running Ubuntu 10.4 has the noise.
+>
+> Not all mp3 files on my Ubuntu machine exhibit this problem. So far,
+> it's just the two. They both were recorded phone conversations, but I
+> don't know the recording technology used. It could have been a hand held
+> recorder sitting next to a speaker phone -- that's the usual technique
+> -- or it could have been a fancy phone system that has the ability to
+> record a call. The call is between two offices of a big, east coast
+> consulting company that could very well have that technology.
+>
+> Anyway, does anyone have any ideas about why the sound on my Linux
+> machines show this noise while the sound on two Winders machines does
+> not? And more important, is there anything I can do about it, other than
+> listening on XP while typing on Ubuntu?
+>
+> Thanks.
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From rsteff at comcast.net  Thu Nov 15 16:20:55 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Thu, 15 Nov 2012 16:20:55 -0800
+Subject: [PLUG] Noisy mp3s
+In-Reply-To: <CACTDRAm1nEh0UGNuCWE4Z-doc1LQ=uygi+zuKLxdCY-Z+ykmnQ@mail.gmail.com>
+References: <50A54A93.8020705@comcast.net>
+	<CACTDRAm1nEh0UGNuCWE4Z-doc1LQ=uygi+zuKLxdCY-Z+ykmnQ@mail.gmail.com>
+Message-ID: <50A586E7.6000108@comcast.net>
+
+On 11/15/2012 04:01 PM, C W wrote:
+> Richard,
+>
+> While I don't have a solution to your immediate problem, I can tell you,
+> I've had much better luck with the sound quality of FLAC files, as opposed
+> to the lossy lower quality file formats like mp3, aac, & even ogg vorbis.
+>
+> Whenever I can choose FLAC, I do so, whether it's recording, ripping,
+> buying, downloading, (in  any situation).  Also, FLAC is a free codec, like
+> ogg vorbis & Theora.
+>
+
+Interesting. I don't have the option of directing the format in which 
+the recording is made, though.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From ddsnell at frontier.com  Thu Nov 15 16:23:04 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Thu, 15 Nov 2012 16:23:04 -0800
+Subject: [PLUG] Noisy mp3s
+In-Reply-To: <50A54A93.8020705@comcast.net>
+References: <50A54A93.8020705@comcast.net>
+Message-ID: <20121115162304.044dfbd7@zothique.localnet>
+
+On Thu, 15 Nov 2012 12:03:31 -0800
+"Richard C. Steffens" <rsteff at comcast.net> wrote:
+
+> I have some mp3 recordings to transcribe. For some reason these 
+> recordings have some noise in them. What it sounds like is the noise 
+> left over when I use a filter in Audacity to remove some noise. (I
+> know, that's a bit weird, but maybe some of you who use the Audacity
+> filter will recognize the effect.) Anyway, the other weird part of
+> this is that if I listen to them on my wife's Win7 machine, they are
+> clear as a bell. They are also clear as a bell if I listen to them on
+> my laptop running XP. The same laptop hardware running Ubuntu 10.4
+> has the noise.
+> 
+> Not all mp3 files on my Ubuntu machine exhibit this problem. So far, 
+> it's just the two. They both were recorded phone conversations, but I 
+> don't know the recording technology used. It could have been a hand
+> held recorder sitting next to a speaker phone -- that's the usual
+> technique -- or it could have been a fancy phone system that has the
+> ability to record a call. The call is between two offices of a big,
+> east coast consulting company that could very well have that
+> technology.
+> 
+> Anyway, does anyone have any ideas about why the sound on my Linux 
+> machines show this noise while the sound on two Winders machines does 
+> not? And more important, is there anything I can do about it, other
+> than listening on XP while typing on Ubuntu?
+
+Hard to say what this might be.  The only thing I can think of off
+the top of my head is that you've got clipping somewhere.  Try
+loading one of the errant files into Audacity and check for
+clipping.  If it's there, use Audacity reduce the audio amplitude;
+that should clear up the problem.
+
+Hope this help,
+
+--Dale
+
+--
+The attitude of "Oh, you want it should work?  That costs extra!"
+is the biggest security hole in computer software today.
+    -- Anon., paraphrased (anybody know the real source?)
+
+
+From elcaseti at gmail.com  Thu Nov 15 18:33:03 2012
+From: elcaseti at gmail.com (C W)
+Date: Thu, 15 Nov 2012 18:33:03 -0800
+Subject: [PLUG] Noisy mp3s
+In-Reply-To: <50A586E7.6000108@comcast.net>
+References: <50A54A93.8020705@comcast.net>
+	<CACTDRAm1nEh0UGNuCWE4Z-doc1LQ=uygi+zuKLxdCY-Z+ykmnQ@mail.gmail.com>
+	<50A586E7.6000108@comcast.net>
+Message-ID: <CACTDRAkOSAM87q8iG6QM4RBc2LVCJhzGCHH4sG+MykkVuzXE2g@mail.gmail.com>
+
+No, I just mean, in the future, whenever possible, you're better off using
+FLAC than the other audio formats.
+
+Cheers,
+
+Elcaset
+
+On Thu, Nov 15, 2012 at 4:20 PM, Richard C. Steffens <rsteff at comcast.net>wrote:
+
+> On 11/15/2012 04:01 PM, C W wrote:
+> > Richard,
+> >
+> > While I don't have a solution to your immediate problem, I can tell you,
+> > I've had much better luck with the sound quality of FLAC files, as
+> opposed
+> > to the lossy lower quality file formats like mp3, aac, & even ogg vorbis.
+> >
+> > Whenever I can choose FLAC, I do so, whether it's recording, ripping,
+> > buying, downloading, (in  any situation).  Also, FLAC is a free codec,
+> like
+> > ogg vorbis & Theora.
+> >
+>
+> Interesting. I don't have the option of directing the format in which
+> the recording is made, though.
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From kingbeowulf at gmail.com  Thu Nov 15 18:40:56 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Thu, 15 Nov 2012 18:40:56 -0800
+Subject: [PLUG] Noisy mp3s
+In-Reply-To: <20121115162304.044dfbd7@zothique.localnet>
+References: <50A54A93.8020705@comcast.net>
+	<20121115162304.044dfbd7@zothique.localnet>
+Message-ID: <50A5A7B8.4090208@gmail.com>
+
+On 11/15/2012 04:23 PM, Dale Snell wrote:
+> On Thu, 15 Nov 2012 12:03:31 -0800
+> "Richard C. Steffens" <rsteff at comcast.net> wrote:
+>
+>>
+>> Anyway, does anyone have any ideas about why the sound on my Linux
+>> machines show this noise while the sound on two Winders machines does
+>> not? And more important, is there anything I can do about it, other
+>> than listening on XP while typing on Ubuntu?
+> Hard to say what this might be.  The only thing I can think of off
+> the top of my head is that you've got clipping somewhere.  Try
+> loading one of the errant files into Audacity and check for
+> clipping.  If it's there, use Audacity reduce the audio amplitude;
+> that should clear up the problem.
+>
+> Hope this help,
+>
+> --Dale
+>
+Rich, what linux audio player are you using? You said you "clean up" the 
+mp3 in audacity so is the sound quality bad in audacity or just another 
+player? As Dale mentioned, clipping could be a reason. Also, if you 
+didn't set up the noise filter properly you can have introduced some 
+static that depends on the mp3 codec and player (Fraunhofer licensed vs. 
+LAME for example).   Also, you may wish to convert to a lossless format 
+(wav or flac) before editing in audacity.  Also, consider mp3 bit rate, 
+CBR vs VBR....
+
+Ed
+
+
+From rsteff at comcast.net  Thu Nov 15 19:26:13 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Thu, 15 Nov 2012 19:26:13 -0800
+Subject: [PLUG] Resolved:  Noisy mp3s
+In-Reply-To: <20121115162304.044dfbd7@zothique.localnet>
+References: <50A54A93.8020705@comcast.net>
+	<20121115162304.044dfbd7@zothique.localnet>
+Message-ID: <50A5B255.4090800@comcast.net>
+
+
+> On Thu, 15 Nov 2012 12:03:31 -0800
+> "Richard C. Steffens" <rsteff at comcast.net> wrote:
+>
+> Anyway, does anyone have any ideas about why the sound on my Linux
+> machines show this noise while the sound on two Winders machines does
+> not? And more important, is there anything I can do about it, other
+> than listening on XP while typing on Ubuntu?
+
+> <...>
+On 11/15/2012 04:23 PM, Dale Snell wrote:
+> Hard to say what this might be.  The only thing I can think of off
+> the top of my head is that you've got clipping somewhere.  Try
+> loading one of the errant files into Audacity and check for
+> clipping.  If it's there, use Audacity reduce the audio amplitude;
+> that should clear up the problem.
+
+Bingo. I had to check the box, "Show Clipping" in the View menu, and it 
+was obvious. Clipping was present every time one of the speakers spoke. 
+I used the amplify effect to reduce the amplitude from 0.0 to -1.4 and 
+the clipping disappeared. However, while quieter, the noise was still 
+present in the saved mp3 file.
+
+On 11/15/2012 06:40 PM, King Beowulf wrote:
+
+> Rich, what linux audio player are you using?
+
+I'm using a program called a python program called Transcribe. I get the 
+same noise when using Movie Player. I'm guessing it uses the same 
+underlying sound library as Transcribe, which uses gstreamer. 
+Interestingly, though, the noise is not present when I play the audio 
+with Audacity.
+
+> You said you "clean up" the
+> mp3 in audacity so is the sound quality bad in audacity or just another
+> player?
+
+I gave a wrong impression. I did not use Audacity to "clean up" this 
+particular mp3. I have used Audacity for that purpose in the past, but 
+not this time. It didn't occur to me to try since the noise sounds like 
+an effect I get sometimes when filtering with Audacity.
+
+> As Dale mentioned, clipping could be a reason. Also, if you
+> didn't set up the noise filter properly you can have introduced some
+> static that depends on the mp3 codec and player (Fraunhofer licensed vs.
+> LAME for example).
+
+LAME is what's installed here -- at least for exporting mp3s from Audacity.
+
+> Also, you may wish to convert to a lossless format
+> (wav or flac) before editing in audacity.  Also, consider mp3 bit rate,
+> CBR vs VBR....
+
+This proved very useful. I imported the mp3 into Audacity at the 
+beginning of this exercise (responding to these e-mails). Since it was 
+already there, I exported the file as flac -- after the amplitude 
+reduction. Now it plays nice and quiet in Transcribe and Movie Player.
+
+Thanks to both of you for your helpful ideas.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From elcaseti at gmail.com  Thu Nov 15 21:58:55 2012
+From: elcaseti at gmail.com (C W)
+Date: Thu, 15 Nov 2012 21:58:55 -0800
+Subject: [PLUG] Resolved: Noisy mp3s
+In-Reply-To: <50A5B255.4090800@comcast.net>
+References: <50A54A93.8020705@comcast.net>
+	<20121115162304.044dfbd7@zothique.localnet>
+	<50A5B255.4090800@comcast.net>
+Message-ID: <CACTDRA=jg6Af_SC23FFeFHuPROuC7r2QS=cR_qtB0XQvWyPQ7w@mail.gmail.com>
+
+No problem, glad you were able to get it to work.
+
+On Thu, Nov 15, 2012 at 7:26 PM, Richard C. Steffens <rsteff at comcast.net>wrote:
+
+>
+> > On Thu, 15 Nov 2012 12:03:31 -0800
+> > "Richard C. Steffens" <rsteff at comcast.net> wrote:
+> >
+> > Anyway, does anyone have any ideas about why the sound on my Linux
+> > machines show this noise while the sound on two Winders machines does
+> > not? And more important, is there anything I can do about it, other
+> > than listening on XP while typing on Ubuntu?
+>
+> > <...>
+> On 11/15/2012 04:23 PM, Dale Snell wrote:
+> > Hard to say what this might be.  The only thing I can think of off
+> > the top of my head is that you've got clipping somewhere.  Try
+> > loading one of the errant files into Audacity and check for
+> > clipping.  If it's there, use Audacity reduce the audio amplitude;
+> > that should clear up the problem.
+>
+> Bingo. I had to check the box, "Show Clipping" in the View menu, and it
+> was obvious. Clipping was present every time one of the speakers spoke.
+> I used the amplify effect to reduce the amplitude from 0.0 to -1.4 and
+> the clipping disappeared. However, while quieter, the noise was still
+> present in the saved mp3 file.
+>
+> On 11/15/2012 06:40 PM, King Beowulf wrote:
+>
+> > Rich, what linux audio player are you using?
+>
+> I'm using a program called a python program called Transcribe. I get the
+> same noise when using Movie Player. I'm guessing it uses the same
+> underlying sound library as Transcribe, which uses gstreamer.
+> Interestingly, though, the noise is not present when I play the audio
+> with Audacity.
+>
+> > You said you "clean up" the
+> > mp3 in audacity so is the sound quality bad in audacity or just another
+> > player?
+>
+> I gave a wrong impression. I did not use Audacity to "clean up" this
+> particular mp3. I have used Audacity for that purpose in the past, but
+> not this time. It didn't occur to me to try since the noise sounds like
+> an effect I get sometimes when filtering with Audacity.
+>
+> > As Dale mentioned, clipping could be a reason. Also, if you
+> > didn't set up the noise filter properly you can have introduced some
+> > static that depends on the mp3 codec and player (Fraunhofer licensed vs.
+> > LAME for example).
+>
+> LAME is what's installed here -- at least for exporting mp3s from Audacity.
+>
+> > Also, you may wish to convert to a lossless format
+> > (wav or flac) before editing in audacity.  Also, consider mp3 bit rate,
+> > CBR vs VBR....
+>
+> This proved very useful. I imported the mp3 into Audacity at the
+> beginning of this exercise (responding to these e-mails). Since it was
+> already there, I exported the file as flac -- after the amplitude
+> reduction. Now it plays nice and quiet in Transcribe and Movie Player.
+>
+> Thanks to both of you for your helpful ideas.
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From vsoich at gmail.com  Fri Nov 16 21:44:02 2012
+From: vsoich at gmail.com (Victor Soich)
+Date: Fri, 16 Nov 2012 21:44:02 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+Message-ID: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+
+Dear Plug clinic,
+
+I don't like my Ubuntu 12.something.  I can't figure out what programs
+are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+I want to put on Mint or Debian on my desktop computer.  I really
+don't relish hauling my desktop computer down to the clinic, with my
+monitor, printer, et. al.  Can I get help backing up my files, blowing
+away Ubuntu 12.something, and putting Debian on my machine, and make
+sure I can surf the internet, and be able to print, all in the span of
+4 hours.  I've had issues with all these things in the past, and each
+time it took an inordinate amount of time.
+
+On second thought, I may be getting a laptop, and putting Linux from
+Scratch, or Debian on it, or whatever more sophisticated people than I
+suggest.  Once I get that working to my satisfaction, I'll blow away
+my Ubuntu 12.something.  Unless there some quick trick to go back to
+10.04, I'll leave well enough alone.  Is there a mechanism to roll
+back the operating system, so to speak?
+
+Sincerely,
+Victor Soich
+
+
+From johnxj at comcast.net  Fri Nov 16 23:12:21 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 16 Nov 2012 23:12:21 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+Message-ID: <20121116231221.504e5eb0@mailhost.pdx.edu>
+
+On Fri, 16 Nov 2012 21:44:02 -0800
+Victor Soich <vsoich at gmail.com> dijo:
+
+>Dear Plug clinic,
+>
+>I don't like my Ubuntu 12.something.  I can't figure out what programs
+>are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+>I want to put on Mint or Debian on my desktop computer.  I really
+>don't relish hauling my desktop computer down to the clinic, with my
+>monitor, printer, et. al.  Can I get help backing up my files, blowing
+>away Ubuntu 12.something, and putting Debian on my machine, and make
+>sure I can surf the internet, and be able to print, all in the span of
+>4 hours.  I've had issues with all these things in the past, and each
+>time it took an inordinate amount of time.
+>
+>On second thought, I may be getting a laptop, and putting Linux from
+>Scratch, or Debian on it, or whatever more sophisticated people than I
+>suggest.  Once I get that working to my satisfaction, I'll blow away
+>my Ubuntu 12.something.  Unless there some quick trick to go back to
+>10.04, I'll leave well enough alone.  Is there a mechanism to roll
+>back the operating system, so to speak?
+
+I hear you about Ubuntu 12.something. I suspect your complaint is more
+about Gnome 3 than Ubuntu, at least, that's my complaint. Some love
+the new look, and others hate it.  As for rolling back the OS, that is
+not generally possible. But, as I just said, I think your problem is
+more with the desktop than the version of the OS.
+
+I might suggest Xubuntu instead of Ubuntu. Xubuntu has the Xfce desktop
+instead of Gnome 3, and it looks and acts a lot more like Gnome 2.
+
+I also suggest you explore other distros such as Fedora and OpenSuse.
+
+I have live CDs of all the above except Debian. Debian is designed to
+be installed over the net, so there is just a very small bootable CD.
+Installing over the net is not a good idea at the Clinic due to limited
+bandwidth.
+
+Bring whatever you want to the Clinic and we'll burn CDs and play
+around so you can see alternatives. 
+
+
+From rowlett at cloud85.net  Sat Nov 17 03:24:49 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Sat, 17 Nov 2012 05:24:49 -0600
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121116231221.504e5eb0@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+Message-ID: <50A77401.7040100@cloud85.net>
+
+John Jason Jordan wrote:
+> On Fri, 16 Nov 2012 21:44:02 -0800
+> Victor Soich <vsoich at gmail.com> dijo:
+>
+>> Dear Plug clinic,
+>>
+>> I don't like my Ubuntu 12.something.  ...Can I get help backing up my files, blowing
+>> away Ubuntu 12.something, and putting Debian on my machine, ...
+
+Debian is happy to dual boot with debian or Windows. I don't 
+see why it wouldn't be happy to dual boot with Ubuntu.
+One of my installs has the default  install of "every thing 
+PLUS kitchen sink" ;/ It is just under 4 GB.
+
+>>
+>> [SNIP]
+>
+> I have live CDs of all the above except Debian. Debian is designed to
+> be installed over the net, so there is just a very small bootable CD.
+
+Oh , it's definitely _designed_ for internet connected 
+install. But it will install without difficulty from either 
+the 1st CD/DVD of the set or the LiveCD. With network 
+physically disconnected, it will merrily ask about a half 
+dozen network related questions which you ignore by pressing 
+<ENTER>. It will then divine that [non-existent ;] network 
+could not be configure and will present a menu including a 
+choice to configure network at a later time.
+
+I'm in rural SW MO at the end of a 56k dial-up connection. 
+Bought a set of DVDs and have had no problems when making 
+reasonably normal installs. In pursuing my personal 
+definition of a minimal install I've exposed a few bugs.
+
+
+
+From johnxj at comcast.net  Sat Nov 17 08:27:03 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 17 Nov 2012 08:27:03 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <50A77401.7040100@cloud85.net>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+Message-ID: <20121117082703.7f1affba@mailhost.pdx.edu>
+
+On Sat, 17 Nov 2012 05:24:49 -0600
+Richard Owlett <rowlett at cloud85.net> dijo:
+
+>> I have live CDs of all the above except Debian. Debian is designed to
+>> be installed over the net, so there is just a very small bootable CD.
+
+>Oh , it's definitely _designed_ for internet connected 
+>install. But it will install without difficulty from either 
+>the 1st CD/DVD of the set or the LiveCD. With network 
+>physically disconnected, it will merrily ask about a half 
+>dozen network related questions which you ignore by pressing 
+><ENTER>. It will then divine that [non-existent ;] network 
+>could not be configure and will present a menu including a 
+>choice to configure network at a later time.
+
+OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+will fit on a CD, yet each ISO is around 1 GB. Maybe they have special
+CDs in Debian-land.
+
+
+From johnxj at comcast.net  Sat Nov 17 08:48:27 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 17 Nov 2012 08:48:27 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121117082703.7f1affba@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+Message-ID: <20121117084827.312e2c93@mailhost.pdx.edu>
+
+On Sat, 17 Nov 2012 08:27:03 -0800
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+>OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+>will fit on a CD, yet each ISO is around 1 GB. Maybe they have special
+>CDs in Debian-land.
+
+I forgot a question. The ISOs are on this web site:
+
+http://www.debian.org/CD/live/
+
+Where it says they are "hybrid" ISOs, and then they offer alternative
+images in case your BIOS cannot boot from a "hybrid" ISO on a USB
+stick. 
+
+What is a "hybrid" ISO?
+
+
+From rowlett at cloud85.net  Sat Nov 17 10:05:56 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Sat, 17 Nov 2012 12:05:56 -0600
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121117082703.7f1affba@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+Message-ID: <50A7D204.6010001@cloud85.net>
+
+John Jason Jordan wrote:
+> On Sat, 17 Nov 2012 05:24:49 -0600
+> Richard Owlett <rowlett at cloud85.net> dijo:
+>
+>>> I have live CDs of all the above except Debian. Debian is designed to
+>>> be installed over the net, so there is just a very small bootable CD.
+>
+>> Oh , it's definitely _designed_ for internet connected
+>> install. But it will install without difficulty from either
+>> the 1st CD/DVD of the set or the LiveCD. With network
+>> physically disconnected, it will merrily ask about a half
+>> dozen network related questions which you ignore by pressing
+>> <ENTER>. It will then divine that [non-existent ;] network
+>> could not be configure and will present a menu including a
+>> choice to configure network at a later time.
+>
+> OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+> will fit on a CD, yet each ISO is around 1 GB. Maybe they have special
+> CDs in Debian-land.
+> _
+
+That doesn't sound right.
+I just went looking and 
+http://cdimage.debian.org/debian-cd/6.0.6/i386/iso-cd/ shows 
+all the CDs in the 640MB range.
+
+Are you getting "testing" rather than "stable"? I vaguely 
+recall some discussion about what would have to go to allow 
+what the developers considered an adequate minimal install 
+on one CD. I didn't follow the discussion as downloading 
+isn't practical due to dial-up connection.
+
+
+
+
+From plug at the-wes.com  Sat Nov 17 10:07:04 2012
+From: plug at the-wes.com (wes)
+Date: Sat, 17 Nov 2012 18:07:04 +0000
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121116231221.504e5eb0@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+Message-ID: <CAA1wLOmeDH+gB-uy1mQxS-VepRXP3bSD++vpYtkQMQToaVkffQ@mail.gmail.com>
+
+On Sat, Nov 17, 2012 at 7:12 AM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Fri, 16 Nov 2012 21:44:02 -0800
+> Victor Soich <vsoich at gmail.com> dijo:
+> >I don't like my Ubuntu 12.something.  I can't figure out what programs
+> >are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+> >I want to put on Mint or Debian on my desktop computer.
+>
+
+...
+
+
+> >Unless there some quick trick to go back to
+> >10.04, I'll leave well enough alone.  Is there a mechanism to roll
+> >back the operating system, so to speak?
+>
+> I hear you about Ubuntu 12.something. I suspect your complaint is more
+> about Gnome 3 than Ubuntu, at least, that's my complaint. Some love
+> the new look, and others hate it.  As for rolling back the OS, that is
+> not generally possible. But, as I just said, I think your problem is
+> more with the desktop than the version of the OS.
+>
+>
+Gnome3 or Unity. It should be possible to use the Ubuntu Software Center to
+install Gnome Classic, which would return the familiar look and feel
+without downgrading the OS, or even reinstalling. The challenge is centered
+around how much customization has been done to the current setup. Switching
+desktop managers is kind of a big deal, so we won't know how successful
+this will be until we try it. Since the plan is to wipe/reinstall anyway,
+it's worth a try.
+
+-wes
+
+
+From timb at tbruce.com  Sat Nov 17 10:34:59 2012
+From: timb at tbruce.com (Tim Bruce - PLUG)
+Date: Sat, 17 Nov 2012 10:34:59 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+Message-ID: <977c0e53d38088f0605b7ffe06b99497.squirrel@sm.tbruce.com>
+
+On Fri, November 16, 2012 21:44, Victor Soich wrote:
+> Dear Plug clinic,
+>
+> I don't like my Ubuntu 12.something.  I can't figure out what programs
+> are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+> I want to put on Mint or Debian on my desktop computer.  I really
+> don't relish hauling my desktop computer down to the clinic, with my
+> monitor, printer, et. al.  Can I get help backing up my files, blowing
+> away Ubuntu 12.something, and putting Debian on my machine, and make
+> sure I can surf the internet, and be able to print, all in the span of
+> 4 hours.  I've had issues with all these things in the past, and each
+> time it took an inordinate amount of time.
+>
+> On second thought, I may be getting a laptop, and putting Linux from
+> Scratch, or Debian on it, or whatever more sophisticated people than I
+> suggest.  Once I get that working to my satisfaction, I'll blow away
+> my Ubuntu 12.something.  Unless there some quick trick to go back to
+> 10.04, I'll leave well enough alone.  Is there a mechanism to roll
+> back the operating system, so to speak?
+>
+> Sincerely,
+> Victor Soich
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+Victor,
+
+One thing I've found is the reliance on the menu.  And I should know
+because I'm one of them.  Trying to remember the app names can be
+frustrating but I can remember which submenu it's on.
+
+In that regard, I've installed AWN (Avant Window Navigator) which give me
+a Macintosh like look (along with Unity).
+
+Maybe you want to take a look at some of the screen shots of that and see
+if that fits your bill rather than a full re-install or trying to "fix"
+it.
+
+Tim
+-- 
+Timothy J. Bruce
+
+visit my Website at: http://www.tbruce.com
+Registered Linux User #325725
+
+
+
+
+From johnxj at comcast.net  Sat Nov 17 10:35:30 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 17 Nov 2012 10:35:30 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <50A7D204.6010001@cloud85.net>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+	<50A7D204.6010001@cloud85.net>
+Message-ID: <20121117103530.5c75734f@mailhost.pdx.edu>
+
+On Sat, 17 Nov 2012 12:05:56 -0600
+Richard Owlett <rowlett at cloud85.net> dijo:
+
+>> OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+>> will fit on a CD, yet each ISO is around 1 GB. Maybe they have
+>> special CDs in Debian-land.
+
+>That doesn't sound right.
+>I just went looking and 
+>http://cdimage.debian.org/debian-cd/6.0.6/i386/iso-cd/ shows 
+>all the CDs in the 640MB range.
+>
+>Are you getting "testing" rather than "stable"? I vaguely 
+>recall some discussion about what would have to go to allow 
+>what the developers considered an adequate minimal install 
+>on one CD. I didn't follow the discussion as downloading 
+>isn't practical due to dial-up connection.
+
+I am downloading via torrent, and I got the torrent files from here:
+
+http://www.debian.org/CD/live/
+
+That is a different web site than the one you cite. And yes, it says
+they are the stable release, version 6.05. I wonder what is going on.
+
+
+From rowlett at cloud85.net  Sat Nov 17 10:43:36 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Sat, 17 Nov 2012 12:43:36 -0600
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121117084827.312e2c93@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+	<20121117084827.312e2c93@mailhost.pdx.edu>
+Message-ID: <50A7DAD8.9070906@cloud85.net>
+
+John Jason Jordan wrote:
+> On Sat, 17 Nov 2012 08:27:03 -0800
+> John Jason Jordan <johnxj at comcast.net> dijo:
+>
+>> OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+>> will fit on a CD, yet each ISO is around 1 GB. Maybe they have special
+>> CDs in Debian-land.
+>
+> I forgot a question. The ISOs are on this web site:
+>
+> http://www.debian.org/CD/live/
+
+That makes a difference. The first CD of >40 gives a rather 
+minimal system.
+I just did a install fro that CD and it is VERY minimal.
+
+
+>
+> Where it says they are "hybrid" ISOs, and then they offer alternative
+> images in case your BIOS cannot boot from a "hybrid" ISO on a USB
+> stick.
+>
+> What is a "hybrid" ISO?
+
+You're asking a newbie ;/  I  know only that it is supposed 
+to make it easier to boot from a USB stick.
+
+
+
+From rowlett at cloud85.net  Sat Nov 17 10:47:53 2012
+From: rowlett at cloud85.net (Richard Owlett)
+Date: Sat, 17 Nov 2012 12:47:53 -0600
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121117103530.5c75734f@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+	<50A7D204.6010001@cloud85.net>
+	<20121117103530.5c75734f@mailhost.pdx.edu>
+Message-ID: <50A7DBD9.1060006@cloud85.net>
+
+John Jason Jordan wrote:
+> On Sat, 17 Nov 2012 12:05:56 -0600
+> Richard Owlett <rowlett at cloud85.net> dijo:
+>
+>>> OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+>>> will fit on a CD, yet each ISO is around 1 GB. Maybe they have
+>>> special CDs in Debian-land.
+>
+>> That doesn't sound right.
+>> I just went looking and
+>> http://cdimage.debian.org/debian-cd/6.0.6/i386/iso-cd/ shows
+>> all the CDs in the 640MB range.
+>>
+>> Are you getting "testing" rather than "stable"? I vaguely
+>> recall some discussion about what would have to go to allow
+>> what the developers considered an adequate minimal install
+>> on one CD. I didn't follow the discussion as downloading
+>> isn't practical due to dial-up connection.
+>
+> I am downloading via torrent, and I got the torrent files from here:
+>
+> http://www.debian.org/CD/live/
+>
+> That is a different web site than the one you cite. And yes, it says
+> they are the stable release, version 6.05. I wonder what is going on.
+
+The LiveCD has a more representative sample of applications 
+an average user is likely to install.
+
+
+
+
+
+From john at meissen.org  Sat Nov 17 10:51:37 2012
+From: john at meissen.org (John Meissen)
+Date: Sat, 17 Nov 2012 10:51:37 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: (Your message of Fri, 16 Nov 2012 21:44:02 PST.)
+	<CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+Message-ID: <20121117185137.E0A4617F775@john>
+
+
+vsoich at gmail.com said:
+> I don't like my Ubuntu 12.something.  I can't figure out what programs are on
+> my machine.  There is no menu.  I want to go back to 10.04.  Or I want to put
+> on Mint or Debian on my desktop computer.  I really don't relish hauling my
+> desktop computer down to the clinic, with my monitor, printer, et. al.  Can I
+> get help backing up my files, blowing away Ubuntu 12.something, and putting
+> Debian on my machine, and make sure I can surf the internet, and be able to
+> print, all in the span of 4 hours.  I've had issues with all these things in
+> the past, and each time it took an inordinate amount of time. 
+
+Victor,
+
+Been through that already, posted my own rant. :-/
+
+Try 'apt-get install gnome-session-fallback'. It should restore the mostly 
+familiar Gnome interface from 10.04.
+
+john-
+
+
+
+
+
+
+From tonyr42 at gmail.com  Sat Nov 17 11:37:13 2012
+From: tonyr42 at gmail.com (Tony Rick)
+Date: Sat, 17 Nov 2012 11:37:13 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121117084827.312e2c93@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+	<50A77401.7040100@cloud85.net>
+	<20121117082703.7f1affba@mailhost.pdx.edu>
+	<20121117084827.312e2c93@mailhost.pdx.edu>
+Message-ID: <CADgmxUmT=NuFMCEerS7ByFPKTmM9NO4HpydwgdH9qvERA61kGA@mail.gmail.com>
+
+On Sat, Nov 17, 2012 at 8:48 AM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Sat, 17 Nov 2012 08:27:03 -0800
+> John Jason Jordan <johnxj at comcast.net> dijo:
+>
+> >OK, I'm downloading the live CD ISOs. Oddly, the web site says they
+> >will fit on a CD, yet each ISO is around 1 GB. Maybe they have special
+> >CDs in Debian-land.
+>
+> I forgot a question. The ISOs are on this web site:
+>
+> http://www.debian.org/CD/live/
+>
+> Where it says they are "hybrid" ISOs, and then they offer alternative
+> images in case your BIOS cannot boot from a "hybrid" ISO on a USB
+> stick.
+>
+> What is a "hybrid" ISO?
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+AFAIK, a hybrid ISO is an image that can be both burned to optical media
+(CD, DVD) and written directly to flash drive to create bootable media.
+-- 
+- tony
+"I come from the nowhere, I go to the noplace, und here I am!"
+Aladdin and His Wonderful Lamp (Popeye, 1939)
+
+
+From russell at personaltelco.net  Sun Nov 18 00:14:55 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Sun, 18 Nov 2012 00:14:55 -0800
+Subject: [PLUG] kiosk linux desktop?
+Message-ID: <8639072ups.fsf@coulee.tdb.com>
+
+
+We have a node with a desktop machine they had set up as a web-surfing
+kiosk, which got zombified (udp port 16471, iirc, some kind of
+click-fraud according to random google results).  I suggested the node
+host install some kind of read-only live-cd-ish linux desktop image on
+the box.  They said yes.  Now I need to find one for them.  Any
+suggestions?  Extra weight goes to any actual experiences.
+
+Thanks!
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From elcaseti at gmail.com  Sun Nov 18 16:40:19 2012
+From: elcaseti at gmail.com (C W)
+Date: Sun, 18 Nov 2012 16:40:19 -0800
+Subject: [PLUG] kiosk linux desktop?
+In-Reply-To: <8639072ups.fsf@coulee.tdb.com>
+References: <8639072ups.fsf@coulee.tdb.com>
+Message-ID: <CACTDRAkFPz7qojWYn09ShFVMZEtbyoRN50zxQ=pgKQs6pHAd=A@mail.gmail.com>
+
+A MS Windows PC became zombified, or a GNU/Linux PC became zombified?
+
+
+On Sun, Nov 18, 2012 at 12:14 AM, Russell Senior
+<russell at personaltelco.net>wrote:
+
+>
+> We have a node with a desktop machine they had set up as a web-surfing
+> kiosk, which got zombified (udp port 16471, iirc, some kind of
+> click-fraud according to random google results).  I suggested the node
+> host install some kind of read-only live-cd-ish linux desktop image on
+> the box.  They said yes.  Now I need to find one for them.  Any
+> suggestions?  Extra weight goes to any actual experiences.
+>
+> Thanks!
+>
+>
+> --
+> Russell Senior, President
+> russell at personaltelco.net
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From elcaseti at gmail.com  Sun Nov 18 17:06:08 2012
+From: elcaseti at gmail.com (C W)
+Date: Sun, 18 Nov 2012 17:06:08 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+Message-ID: <CACTDRAmABcv7=q0cRBOFS5sCAzUHj6qRWLOT7KpY4UOZ2_hFvw@mail.gmail.com>
+
+Hi Victor,
+
+Give the live DVD, (or live USB, or SD card) of Linux Mint 13 KDE a try.
+It is LTS (Long Term support) with 5 years of support.  Linux Mint 13 KDE
+is what several of my friends & myself, use and love.
+
+GNOME fallback mode has just been eliminated from any future versions of
+GNOME. A lot of people don't like Unity, & GNOME3 is so unpopular, that THE
+GNOME project is going to try to make GNOME 4 more traditional like GNOME 2.
+
+The 2011 Members' Choice Awards from LinuxQuestions.org has honored the KDE
+Community with "Best Desktop Environment of the Year".  "
+http://dot.kde.org/2012/03/05/kde-best-desktop-environment-year"
+
+Cheers,
+
+Elcaset
+
+
+On Fri, Nov 16, 2012 at 9:44 PM, Victor Soich <vsoich at gmail.com> wrote:
+
+> Dear Plug clinic,
+>
+> I don't like my Ubuntu 12.something.  I can't figure out what programs
+> are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+> I want to put on Mint or Debian on my desktop computer.  I really
+> don't relish hauling my desktop computer down to the clinic, with my
+> monitor, printer, et. al.  Can I get help backing up my files, blowing
+> away Ubuntu 12.something, and putting Debian on my machine, and make
+> sure I can surf the internet, and be able to print, all in the span of
+> 4 hours.  I've had issues with all these things in the past, and each
+> time it took an inordinate amount of time.
+>
+> On second thought, I may be getting a laptop, and putting Linux from
+> Scratch, or Debian on it, or whatever more sophisticated people than I
+> suggest.  Once I get that working to my satisfaction, I'll blow away
+> my Ubuntu 12.something.  Unless there some quick trick to go back to
+> 10.04, I'll leave well enough alone.  Is there a mechanism to roll
+> back the operating system, so to speak?
+>
+> Sincerely,
+> Victor Soich
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From elcaseti at gmail.com  Sun Nov 18 17:10:17 2012
+From: elcaseti at gmail.com (C W)
+Date: Sun, 18 Nov 2012 17:10:17 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <CACTDRAmABcv7=q0cRBOFS5sCAzUHj6qRWLOT7KpY4UOZ2_hFvw@mail.gmail.com>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<CACTDRAmABcv7=q0cRBOFS5sCAzUHj6qRWLOT7KpY4UOZ2_hFvw@mail.gmail.com>
+Message-ID: <CACTDRAkmp-USvw16UuuAwwj0TNF4aKTi+nrXLrgyTULJ8pPXRA@mail.gmail.com>
+
+I forgot to post this link in the previous post   Linux Mint 13 KDE:  "
+http://blog.linuxmint.com/?p=2090"
+
+
+On Sun, Nov 18, 2012 at 5:06 PM, C W <elcaseti at gmail.com> wrote:
+
+> Hi Victor,
+>
+> Give the live DVD, (or live USB, or SD card) of Linux Mint 13 KDE a try.
+> It is LTS (Long Term support) with 5 years of support.  Linux Mint 13 KDE
+> is what several of my friends & myself, use and love.
+>
+> GNOME fallback mode has just been eliminated from any future versions of
+> GNOME. A lot of people don't like Unity, & GNOME3 is so unpopular, that THE
+> GNOME project is going to try to make GNOME 4 more traditional like GNOME 2.
+>
+> The 2011 Members' Choice Awards from LinuxQuestions.org has honored the
+> KDE Community with "Best Desktop Environment of the Year".  "
+> http://dot.kde.org/2012/03/05/kde-best-desktop-environment-year"
+>
+> Cheers,
+>
+> Elcaset
+>
+>
+>
+> On Fri, Nov 16, 2012 at 9:44 PM, Victor Soich <vsoich at gmail.com> wrote:
+>
+>> Dear Plug clinic,
+>>
+>> I don't like my Ubuntu 12.something.  I can't figure out what programs
+>> are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+>> I want to put on Mint or Debian on my desktop computer.  I really
+>> don't relish hauling my desktop computer down to the clinic, with my
+>> monitor, printer, et. al.  Can I get help backing up my files, blowing
+>> away Ubuntu 12.something, and putting Debian on my machine, and make
+>> sure I can surf the internet, and be able to print, all in the span of
+>> 4 hours.  I've had issues with all these things in the past, and each
+>> time it took an inordinate amount of time.
+>>
+>> On second thought, I may be getting a laptop, and putting Linux from
+>> Scratch, or Debian on it, or whatever more sophisticated people than I
+>> suggest.  Once I get that working to my satisfaction, I'll blow away
+>> my Ubuntu 12.something.  Unless there some quick trick to go back to
+>> 10.04, I'll leave well enough alone.  Is there a mechanism to roll
+>> back the operating system, so to speak?
+>>
+>> Sincerely,
+>> Victor Soich
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+>
+> --
+> Free Geek Seattle- Helping The Needy Get Nerdy
+> http://www.freegeekseattle.org/
+> https://groups.google.com/group/freegeek-seattle/topics?hl=en
+>
+> K Desktop Environment- Experience Freedom & User Friendliness
+> http://kde.org/
+>
+> Free Lossless Audio Codec
+> https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+>
+> Protect your digital freedom and privacy, eliminate DRM, learn more at
+> http://www.defectivebydesign.org/what_is_drm
+>
+>
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From russell at personaltelco.net  Sun Nov 18 20:09:49 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Sun, 18 Nov 2012 20:09:49 -0800
+Subject: [PLUG] kiosk linux desktop?
+In-Reply-To: <CACTDRAkFPz7qojWYn09ShFVMZEtbyoRN50zxQ=pgKQs6pHAd=A@mail.gmail.com>
+	(C. W.'s message of "Sun\, 18 Nov 2012 16\:40\:19 -0800")
+References: <8639072ups.fsf@coulee.tdb.com>
+	<CACTDRAkFPz7qojWYn09ShFVMZEtbyoRN50zxQ=pgKQs6pHAd=A@mail.gmail.com>
+Message-ID: <86zk2exmgi.fsf@coulee.tdb.com>
+
+>>>>> "CW" == C W <elcaseti at gmail.com> writes:
+
+CW> A MS Windows PC became zombified, or a GNU/Linux PC became
+CW> zombified?
+
+The zombified box was Windows PC.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From keithl at gate.kl-ic.com  Mon Nov 19 10:12:46 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 19 Nov 2012 10:12:46 -0800
+Subject: [PLUG] Physical security talk?
+Message-ID: <20121119181246.GC10279@gate.kl-ic.com>
+
+Last night I had dinner with my friend Steve, who has designed
+systems for physical and data security for 20+ years.  He is
+willing to give a talk to PLUG.  Are folks interested?  Not
+exactly open source, but the kinds of things we need to know
+about if we are designing secure systems.  
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From mcherba at gmail.com  Mon Nov 19 10:13:42 2012
+From: mcherba at gmail.com (Mike Cherba)
+Date: Mon, 19 Nov 2012 10:13:42 -0800
+Subject: [PLUG] Physical security talk?
+In-Reply-To: <20121119181246.GC10279@gate.kl-ic.com>
+References: <20121119181246.GC10279@gate.kl-ic.com>
+Message-ID: <CACbpz1UGXwX3gBb4AeCDoDS=FHpp3F6o3R5vEZeTqXhiN7Q3Qg@mail.gmail.com>
+
+I'd be interested.
+    -Mike
+
+
+On Mon, Nov 19, 2012 at 10:12 AM, Keith Lofstrom <keithl at gate.kl-ic.com>wrote:
+
+> Last night I had dinner with my friend Steve, who has designed
+> systems for physical and data security for 20+ years.  He is
+> willing to give a talk to PLUG.  Are folks interested?  Not
+> exactly open source, but the kinds of things we need to know
+> about if we are designing secure systems.
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+"The good thing about science is that it's true whether or not you believe
+in it.? -Neil DeGrasse Tyson
+
+
+From dexter at ambidexter.com  Mon Nov 19 10:57:47 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 19 Nov 2012 10:57:47 -0800
+Subject: [PLUG] Reminder: November PLUG Advanced Topics: Linux Network
+	Driver Development
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <50AA812B.2020706@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Jeff Kirsher, Intel
+What: Linux Network Driver Development
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, November 20th, 2012 at 7pm
+Why: The pursuit of awesome, open technologies.
+
+
+Full title: Everything you ever wanted to know about developing a Linux 
+network driver
+
+Jeff Kirsher will cover how Intel deals working on the in-kernel driver 
+as well as the out-of-tree driver and the advantages/disadvantages that 
+come along with it. In addition, the processes used to ensure that we 
+deliver a working driver.
+
+Jeff's Bio:
+
+Linux Kernel Sub-Maintainer for Intel Wired LAN
+1999-2003 Validation Engineer for Intel Switches
+2003-Current Networking Software Engineer/Linux kernel maintainer
+
+
+Many will break for the Lucky Lab on Hawthorne afterwards.
+
+Calagator Page: http://calagator.org/events/1250463091
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+
+From jeffm at jetexpedited.com  Tue Nov 20 08:46:42 2012
+From: jeffm at jetexpedited.com (Jeff Maher)
+Date: Tue, 20 Nov 2012 08:46:42 -0800
+Subject: [PLUG] Physical security talk?
+In-Reply-To: <20121119181246.GC10279@gate.kl-ic.com>
+References: <20121119181246.GC10279@gate.kl-ic.com>
+Message-ID: <50ABB3F2.6080902@jetexpedited.com>
+
++1 - Good topic for discussion
+
+Regards,
+
+Jeff Maher, GCIH
+Systems Administrator
+Jet Expedited Transport, Inc.
+6225 NE 112th Avenue
+Portland, OR  97220
+Phone: (503) 256-3621 x1023
+FAX:   (503) 256-2975
+jeffm at jetexpedited.com
+
+
+On 11/19/12 10:12 AM, Keith Lofstrom wrote:
+> Last night I had dinner with my friend Steve, who has designed
+> systems for physical and data security for 20+ years.  He is
+> willing to give a talk to PLUG.  Are folks interested?  Not
+> exactly open source, but the kinds of things we need to know
+> about if we are designing secure systems.
+>
+> Keith
+>
+
+
+From keithl at gate.kl-ic.com  Tue Nov 20 11:58:41 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Tue, 20 Nov 2012 11:58:41 -0800
+Subject: [PLUG] Are "standard security procedures" an oxymoron?
+Message-ID: <20121120195841.GC13380@gate.kl-ic.com>
+
+A friend taught me that con men exploit smart people more easily
+than dumb people, because there are fewer ways to be smart than
+dumb, making smart people (and their blind spots) more predictable.
+
+I am helping a friend set up security procedures for a business
+in a highly regulated industry, with acres of forms and checklists
+and standards that are supposed to result in secure systems. 
+Many look like brainfarts from academics working from unproven
+hypotheses, who haven't collected the histories of real exploits,
+much less fought an exploit themselves.  
+
+Standarized security systems probably have standardized holes,
+suitable for automated exploitation.  Instead, should we
+construct vivid and instructive stories, and count on the
+creativity of end users to develop and elaborate a varied
+(and difficult to exploit) set of solutions? 
+
+Or do semi-informed people tend to make the same predictable
+mistakes more often than standard security procedures result
+in widespread identical holes?
+
+Build a kludge, or buy a black box?
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From rich at richburroughs.com  Tue Nov 20 12:09:11 2012
+From: rich at richburroughs.com (Rich Burroughs)
+Date: Tue, 20 Nov 2012 12:09:11 -0800
+Subject: [PLUG] Are "standard security procedures" an oxymoron?
+In-Reply-To: <20121120195841.GC13380@gate.kl-ic.com>
+References: <20121120195841.GC13380@gate.kl-ic.com>
+Message-ID: <CAPGcbtB4Lx+jzoPJFyERRe7LuoLVuRxqy43rEReEBJeTakTHiw@mail.gmail.com>
+
+If the industry is highly regulated, you may not have a ton of choice
+in the matter. You may have audit requirements that need to be met
+whether you like it or not for things like PCI or HIPAA.
+
+I think defense in depth is a very important concept. A lot of people
+do rely on the same products and solutions, that's true. Hopefully
+your security design doesn't put you in a position where one
+standardized hole leaves you too vulnerable.
+
+
+Rich
+
+On Tue, Nov 20, 2012 at 11:58 AM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+> A friend taught me that con men exploit smart people more easily
+> than dumb people, because there are fewer ways to be smart than
+> dumb, making smart people (and their blind spots) more predictable.
+>
+> I am helping a friend set up security procedures for a business
+> in a highly regulated industry, with acres of forms and checklists
+> and standards that are supposed to result in secure systems.
+> Many look like brainfarts from academics working from unproven
+> hypotheses, who haven't collected the histories of real exploits,
+> much less fought an exploit themselves.
+>
+> Standarized security systems probably have standardized holes,
+> suitable for automated exploitation.  Instead, should we
+> construct vivid and instructive stories, and count on the
+> creativity of end users to develop and elaborate a varied
+> (and difficult to exploit) set of solutions?
+>
+> Or do semi-informed people tend to make the same predictable
+> mistakes more often than standard security procedures result
+> in widespread identical holes?
+>
+> Build a kludge, or buy a black box?
+>
+> Keith
+>
+> --
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From heinlein at madboa.com  Tue Nov 20 13:57:47 2012
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Tue, 20 Nov 2012 13:57:47 -0800 (PST)
+Subject: [PLUG] Are "standard security procedures" an oxymoron?
+In-Reply-To: <20121120195841.GC13380@gate.kl-ic.com>
+References: <20121120195841.GC13380@gate.kl-ic.com>
+Message-ID: <alpine.OSX.2.00.1211201335140.8283@springwater.galois.com>
+
+On Tue, 20 Nov 2012, Keith Lofstrom wrote:
+
+> A friend taught me that con men exploit smart people more easily 
+> than dumb people, because there are fewer ways to be smart than 
+> dumb, making smart people (and their blind spots) more predictable.
+>
+> I am helping a friend set up security procedures for a business in a 
+> highly regulated industry, with acres of forms and checklists and 
+> standards that are supposed to result in secure systems. Many look 
+> like brainfarts from academics working from unproven hypotheses, who 
+> haven't collected the histories of real exploits, much less fought 
+> an exploit themselves.
+
+There are essentially three security tasks, each one more difficult 
+than the next:
+
+  1. Secure your network exposure.
+
+Most IT work tends to begin and end here, but it's actually about the 
+easiest layer of security to get right. The mantras are well known: 
+defense in depth, timely patching, penetration testing, configuration 
+management, firewalls, intrusion detection, etc.
+
+  2. Secure your physical exposure.
+
+Physical protection of assets is typically more difficult, if for no 
+other reason than it's expensive and the ROI will never be realized if 
+things go well. It involves storage crypto, really good locks and 
+alarms (or an isolated island headquaters), fire suppression, solid 
+electrical and network connections, insurance, tested 
+business-continuity and/or disaster-recovery plans, redundant 
+hardware, etc.
+
+  3. Secure your people.
+
+This is easily the hardest security task, and the most likely avenue 
+for crooks, vandals, and other ne'er-do-wells. All the network 
+and physical security in the world won't keep employees from re-using 
+passwords, divulging sensitive information via phishing attacks (or 
+even on public mailing lists), using USB sticks of unknown origin, or 
+visiting web sites with malicious files.
+
+> Standarized security systems probably have standardized holes, 
+> suitable for automated exploitation.
+
+Good user training is the best response to attacks, automated or 
+targeted. Users who can identify and report suspicious e-mail 
+messages, service behavior, and even social interactions are the 
+difference between a well-administered network and a secure network.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From john at meissen.org  Tue Nov 20 14:34:29 2012
+From: john at meissen.org (John Meissen)
+Date: Tue, 20 Nov 2012 14:34:29 -0800
+Subject: [PLUG] Are "standard security procedures" an oxymoron?
+In-Reply-To: (Your message of Tue, 20 Nov 2012 11:58:41 PST.)
+	<20121120195841.GC13380@gate.kl-ic.com>
+Message-ID: <20121120223429.8A18D17F77F@john>
+
+There are many different kinds of security, but I'll assume you're referring 
+to computers and related systems.
+
+A lot of people are spending a lot of time and effort on that. Some interesting 
+reading:
+
+http://dsd.gov.au/infosec/top35mitigationstrategies.htm
+http://www.cpni.gov.uk/advice/cyber/Critical-controls/
+
+> A friend taught me that con men exploit smart people more easily
+> than dumb people, because there are fewer ways to be smart than
+> dumb, making smart people (and their blind spots) more predictable.
+> 
+> I am helping a friend set up security procedures for a business
+> in a highly regulated industry, with acres of forms and checklists
+> and standards that are supposed to result in secure systems. 
+> Many look like brainfarts from academics working from unproven
+> hypotheses, who haven't collected the histories of real exploits,
+> much less fought an exploit themselves.  
+> 
+> Standarized security systems probably have standardized holes,
+> suitable for automated exploitation.  Instead, should we
+> construct vivid and instructive stories, and count on the
+> creativity of end users to develop and elaborate a varied
+> (and difficult to exploit) set of solutions? 
+> 
+> Or do semi-informed people tend to make the same predictable
+> mistakes more often than standard security procedures result
+> in widespread identical holes?
+> 
+> Build a kludge, or buy a black box?
+> 
+> Keith
+> 
+> -- 
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+
+From dexter at ambidexter.com  Tue Nov 20 14:42:42 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Tue, 20 Nov 2012 14:42:42 -0800
+Subject: [PLUG] Physical security talk?
+In-Reply-To: <20121119181246.GC10279@gate.kl-ic.com>
+References: <20121119181246.GC10279@gate.kl-ic.com>
+Message-ID: <50AC0762.9030807@ambidexter.com>
+
+On 11/19/12 10:12 AM, Keith Lofstrom wrote:
+> Last night I had dinner with my friend Steve, who has designed
+> systems for physical and data security for 20+ years.  He is
+> willing to give a talk to PLUG.  Are folks interested?  Not
+> exactly open source, but the kinds of things we need to know
+> about if we are designing secure systems.
+
++1 :)
+
+Michael
+
+
+
+From johnxj at comcast.net  Wed Nov 21 17:09:47 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 21 Nov 2012 17:09:47 -0800
+Subject: [PLUG] How to clean USB jack
+Message-ID: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+
+My Samsung Galaxy S2 battery has suddenly started draining within a
+couple of hours, even with no phone usage. I have several suggestions
+from Phandroid forums to try, but one of them seemed a good idea even
+if it is not the source of the problem, that is, clean the USB jack on
+the bottom of the phone. 
+
+The phone uses a micro USB form factor, which is extremely tiny. To
+peer inside it I need a strong light, my geezer glasses *and* a
+magnifying glass. 
+
+I am hoping someone has a clever way to clean tiny areas.
+
+
+From plug at the-wes.com  Wed Nov 21 19:01:19 2012
+From: plug at the-wes.com (wes)
+Date: Wed, 21 Nov 2012 19:01:19 -0800
+Subject: [PLUG] How to clean USB jack
+In-Reply-To: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+References: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+Message-ID: <CAA1wLOk_a6_bbDn-srn_7tr4M32t5D4Azcv+0RQj9FyCi0FZog@mail.gmail.com>
+
+compressed air?
+
+dip a USB cable into alcohol and the work it in and out of the port?
+
+that's all I can think of off the top of my head.
+
+-wes
+
+
+On Wed, Nov 21, 2012 at 5:09 PM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> My Samsung Galaxy S2 battery has suddenly started draining within a
+> couple of hours, even with no phone usage. I have several suggestions
+> from Phandroid forums to try, but one of them seemed a good idea even
+> if it is not the source of the problem, that is, clean the USB jack on
+> the bottom of the phone.
+>
+> The phone uses a micro USB form factor, which is extremely tiny. To
+> peer inside it I need a strong light, my geezer glasses *and* a
+> magnifying glass.
+>
+> I am hoping someone has a clever way to clean tiny areas.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+From keithl at gate.kl-ic.com  Thu Nov 22 14:04:20 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Thu, 22 Nov 2012 14:04:20 -0800
+Subject: [PLUG] Phone battery drain
+In-Reply-To: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+References: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+Message-ID: <20121122220420.GB19756@gate.kl-ic.com>
+
+On Wed, Nov 21, 2012 at 05:09:47PM -0800, John Jason Jordan wrote:
+> My Samsung Galaxy S2 battery has suddenly started draining within a
+> couple of hours, even with no phone usage. I have several suggestions
+> from Phandroid forums to try, but one of them seemed a good idea even
+> if it is not the source of the problem, that is, clean the USB jack on
+> the bottom of the phone. 
+
+While cleaning the USB jack has a small probability of helping,
+there are two more likely causes:  Battery failure, and radio
+failure in the phone.
+
+I just replaced the battery in my semi-dumb Nokia flip phone,
+which used to last a week on a charge (not suprising with 10
+calls a month) and recently dropped to a day.  The replacement
+worked.  The replacement battery was from a spare/identical
+Nokia that I keep around "just in case".  I ordered another
+battery via Amazon for $4.
+
+
+There is a grimmer possibility, a bit technical.  A high
+quality cell phone (which nobody makes anymore) would use
+a gallium arsenide power amplifier on the radio.  GaAs is
+a faster process, so the amplifier does not need to be
+pushed as hard to deliver both efficiency and reliability.  
+
+But standard CMOS silicon is cheaper than GaAs, because 99%
+of all integrated circuits are made with silicon, and most
+of those are CMOS silicon.  Most of the phone is CMOS
+silicon, which is great for the processors and memory and
+such.  So to save a few pennies per phone, manufacturers
+make the power amplifier with CMOS, too.
+
+Whether you use the phone for calls or not, the phone frequently
+sends out "registration requests" to cell towers to let the
+network know where it is.  If the tower is distant, or you are
+in a shielded area, the phone pumps up the transmit power of 
+the registration request until the tower hears it.  That means
+battery drain, but mostly it means increased stress on the power
+amplifier.  If the shielding is a nearby metal table, or other
+materials that interfere with the efficiency of the antenna, 
+that maximizes the stress.  The stresses can damage transistors
+in the CMOS power amplifier, causing them to leak current, even
+when the phone is not transmitting.  This leakage can drain
+batteries rapidly.  And the power amplifier can't be repaired.
+
+A clever engineer can design a power amplifier, even a CMOS one,
+to protect itself from this.  However, few engineers are that
+clever, and the ones who are clever usually work for companies
+that prefer you buy a new phone every year.  
+
+Until customers make robustness a priority when buying phones,
+demand long warranties, and support review sites that do reverse
+engineering teardowns and reliability evaluations, the phones
+will fail sooner and sooner, because the manufacturers compete
+on price and features, not quality.  I'm not holding my breath
+for improvements - just buying spares of products that seem 
+relatively robust.  
+
+So - good luck on the USB thing, but hope it is the battery, and
+that you can get inside to replace it.  Otherwise, assume your
+smart phone is more durable than kleenex, less durable than a
+hanky.  Try not to put it antenna-side down on metal surfaces.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From dfhubbard at freegeek.org  Thu Nov 22 16:07:07 2012
+From: dfhubbard at freegeek.org (dfhubbard at freegeek.org)
+Date: Thu, 22 Nov 2012 16:07:07 -0800
+Subject: [PLUG] clean small electronics
+In-Reply-To: <mailman.9.1353614403.12630.plug@lists.pdxlinux.org>
+References: <mailman.9.1353614403.12630.plug@lists.pdxlinux.org>
+Message-ID: <59d3c46a834c910d2aa023097f4a17ba.squirrel@mail.freegeek.org>
+
+
+Hi John,
+
+My Ex was not good for much ;-)
+but as an electrical engineer he did teach me this.  Get the disposable 
+tiny dental crevice brushes, dip them in alcohol and use in tiny spaces. 
+It is helpful if you can dip the "space" in alcohol and swish it around
+before and after and of course allow everything 24 hours to dry.....
+
+Peace
+Debra
+
+
+
+>    1. How to clean USB jack (John Jason Jordan)
+>    2. Re: How to clean USB jack (wes)
+>
+>
+> ----------------------------------------------------------------------
+>
+> Message: 1
+> Date: Wed, 21 Nov 2012 17:09:47 -0800
+> From: John Jason Jordan <johnxj at comcast.net>
+> Subject: [PLUG] How to clean USB jack
+> To: PLUG <plug at lists.pdxlinux.org>
+> Message-ID: <20121121170947.1a8fd2cb at mailhost.pdx.edu>
+> Content-Type: text/plain; charset=US-ASCII
+>
+> My Samsung Galaxy S2 battery has suddenly started draining within a
+> couple of hours, even with no phone usage. I have several suggestions
+> from Phandroid forums to try, but one of them seemed a good idea even
+> if it is not the source of the problem, that is, clean the USB jack on
+> the bottom of the phone.
+>
+> The phone uses a micro USB form factor, which is extremely tiny. To
+> peer inside it I need a strong light, my geezer glasses *and* a
+> magnifying glass.
+>
+> I am hoping someone has a clever way to clean tiny areas.
+>
+>
+> ------------------------------
+>
+> Message: 2
+> Date: Wed, 21 Nov 2012 19:01:19 -0800
+> From: wes <plug at the-wes.com>
+> Subject: Re: [PLUG] How to clean USB jack
+> To: "General Linux/UNIX discussion and help,	civil and on-topic"
+> 	<plug at lists.pdxlinux.org>
+> Message-ID:
+> 	<CAA1wLOk_a6_bbDn-srn_7tr4M32t5D4Azcv+0RQj9FyCi0FZog at mail.gmail.com>
+> Content-Type: text/plain; charset=ISO-8859-1
+>
+> compressed air?
+>
+> dip a USB cable into alcohol and the work it in and out of the port?
+>
+> that's all I can think of off the top of my head.
+>
+> -wes
+>
+>
+> On Wed, Nov 21, 2012 at 5:09 PM, John Jason Jordan
+> <johnxj at comcast.net>wrote:
+>
+>> My Samsung Galaxy S2 battery has suddenly started draining within a
+>> couple of hours, even with no phone usage. I have several suggestions
+>> from Phandroid forums to try, but one of them seemed a good idea even
+>> if it is not the source of the problem, that is, clean the USB jack on
+>> the bottom of the phone.
+>>
+>> The phone uses a micro USB form factor, which is extremely tiny. To
+>> peer inside it I need a strong light, my geezer glasses *and* a
+>> magnifying glass.
+>>
+>> I am hoping someone has a clever way to clean tiny areas.
+>> _______________________________________________
+>> PLUG mailing list
+>> PLUG at lists.pdxlinux.org
+>> http://lists.pdxlinux.org/mailman/listinfo/plug
+>>
+>
+>
+> ------------------------------
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+>
+> End of PLUG Digest, Vol 98, Issue 16
+> ************************************
+>
+
+
+True reconciliation is never cheap, for it is based on forgiveness, which
+is costly. Forgiveness in turn depends on repentance, which has to be
+based on an acknowledgment of what was done wrong, and therefore on
+disclosure of the truth. You cannot forgive what you do not know.
+Archbishop Tutu
+
+
+
+From johnxj at comcast.net  Thu Nov 22 16:44:10 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 22 Nov 2012 16:44:10 -0800
+Subject: [PLUG] Phone battery drain
+In-Reply-To: <20121122220420.GB19756@gate.kl-ic.com>
+References: <20121121170947.1a8fd2cb@mailhost.pdx.edu>
+	<20121122220420.GB19756@gate.kl-ic.com>
+Message-ID: <20121122164410.1396ae5b@mailhost.pdx.edu>
+
+On Thu, 22 Nov 2012 14:04:20 -0800
+Keith Lofstrom <keithl at gate.kl-ic.com> dijo:
+
+>On Wed, Nov 21, 2012 at 05:09:47PM -0800, John Jason Jordan wrote:
+>> My Samsung Galaxy S2 battery has suddenly started draining within a
+>> couple of hours, even with no phone usage. I have several suggestions
+>> from Phandroid forums to try, but one of them seemed a good idea even
+>> if it is not the source of the problem, that is, clean the USB jack
+>> on the bottom of the phone. 
+>
+>While cleaning the USB jack has a small probability of helping,
+>there are two more likely causes:  Battery failure, and radio
+>failure in the phone.
+
+As it turns out, the problem is due to some errant process in how the
+software works with the hardware. Exactly where I cannot tell, although
+an Android expert may be able to sleuth it down. The fix is to remove
+the battery and leave the battery out for at least a half hour, then
+replace the battery and reboot. I had removed and reinstalled the
+battery previously without success, but after leaving it out for half
+an hour before rebooting the problem is resolved. I am back to my
+normal 12 hours or so per charge.
+
+>I just replaced the battery in my semi-dumb Nokia flip phone,
+>which used to last a week on a charge (not suprising with 10
+>calls a month) and recently dropped to a day.  The replacement
+>worked.  The replacement battery was from a spare/identical
+>Nokia that I keep around "just in case".  I ordered another
+>battery via Amazon for $4.
+
+I bought a spare battery shortly after buying the phone a year ago.
+Spare batteries for the SGS2 are about $30. Then again, they are 2150
+mah batteries, plus they contain the NFC antenna. Don't ask why Samsung
+decided to put the NFC antenna in the battery. Especially considering
+that you can't even use NFC with T-Mobile phones yet.
+
+>But standard CMOS silicon is cheaper than GaAs, because 99%
+>of all integrated circuits are made with silicon, and most
+>of those are CMOS silicon.  Most of the phone is CMOS
+>silicon, which is great for the processors and memory and
+>such.  So to save a few pennies per phone, manufacturers
+>make the power amplifier with CMOS, too.
+
+I wonder if this is related to the fact that you have to leave the
+battery out for a period of time before the fix works.
+
+>Whether you use the phone for calls or not, the phone frequently
+>sends out "registration requests" to cell towers to let the
+>network know where it is. 
+
+I leave the GPS turned on all the time, so the phone is always phoning
+home. Yes, I know this means the feds can track me. But it also means
+that if I lose the phone I can log in to Where's My Droid from any
+networked computer on the planet and get its location within a few
+dozen meters. (I have actually done this twice, and both times
+recovered the phone.) That's a fair trade-off. Besides, God knows why
+the feds would want me, but if they really do want me they can probably
+find me without having to track my phone. In fact, they could just call
+me and ask me where I am.
+
+>Try not to put it antenna-side down on metal surfaces.
+
+I don't even know where the main antenna on this thing is.
+
+
+From bkerensa at ubuntu.com  Fri Nov 23 18:29:41 2012
+From: bkerensa at ubuntu.com (Benjamin Kerensa)
+Date: Fri, 23 Nov 2012 18:29:41 -0800
+Subject: [PLUG] Victor upgraded to Ubuntu 12.something
+In-Reply-To: <20121116231221.504e5eb0@mailhost.pdx.edu>
+References: <CALNOJ_iH5t9EcidGAd3Q_qzWDzHKD2YxeETU_FQJjZS6vziuNw@mail.gmail.com>
+	<20121116231221.504e5eb0@mailhost.pdx.edu>
+Message-ID: <CAGOdq5ksJmoz54_Yc0uM884D4M2rVY_nAcdJ0Uz6-gfd4TyG2g@mail.gmail.com>
+
+On Fri, Nov 16, 2012 at 11:12 PM, John Jason Jordan <johnxj at comcast.net>wrote:
+
+> On Fri, 16 Nov 2012 21:44:02 -0800
+> Victor Soich <vsoich at gmail.com> dijo:
+>
+> >Dear Plug clinic,
+> >
+> >I don't like my Ubuntu 12.something.  I can't figure out what programs
+> >are on my machine.  There is no menu.  I want to go back to 10.04.  Or
+> >I want to put on Mint or Debian on my desktop computer.  I really
+> >don't relish hauling my desktop computer down to the clinic, with my
+> >monitor, printer, et. al.  Can I get help backing up my files, blowing
+> >away Ubuntu 12.something, and putting Debian on my machine, and make
+> >sure I can surf the internet, and be able to print, all in the span of
+> >4 hours.  I've had issues with all these things in the past, and each
+> >time it took an inordinate amount of time.
+> >
+> >On second thought, I may be getting a laptop, and putting Linux from
+> >Scratch, or Debian on it, or whatever more sophisticated people than I
+> >suggest.  Once I get that working to my satisfaction, I'll blow away
+> >my Ubuntu 12.something.  Unless there some quick trick to go back to
+> >10.04, I'll leave well enough alone.  Is there a mechanism to roll
+> >back the operating system, so to speak?
+>
+> I hear you about Ubuntu 12.something. I suspect your complaint is more
+> about Gnome 3 than Ubuntu, at least, that's my complaint. Some love
+> the new look, and others hate it.  As for rolling back the OS, that is
+> not generally possible. But, as I just said, I think your problem is
+> more with the desktop than the version of the OS.
+>
+
+ You mean Unity?
+
+>
+> I might suggest Xubuntu instead of Ubuntu. Xubuntu has the Xfce desktop
+> instead of Gnome 3, and it looks and acts a lot more like Gnome 2.
+>
+
+Xubuntu is an excellent Official Community Flavor in fact the folks at
+FreeGeek will be transitioning their typically older spec "FreeKBoxes" to
+Xubuntu 12.04 next month. Notably though you can easily switch desktop
+environments on Ubuntu by simply installing the Desktop Environment of your
+choice without the hassle of needing to format or attempt to "roll back" or
+migrate data.
+
+
+
+>
+> I also suggest you explore other distros such as Fedora and OpenSuse.
+>
+> I have live CDs of all the above except Debian. Debian is designed to
+> be installed over the net, so there is just a very small bootable CD.
+> Installing over the net is not a good idea at the Clinic due to limited
+> bandwidth.
+>
+> Bring whatever you want to the Clinic and we'll burn CDs and play
+> around so you can see alternatives.
+>
+
+I may be at the Clinic on the 16th if the Debian SOC does their Bug
+Squashing Party on the same day so if anyone needs assistance configuring
+their desktop I would be glad to help.
+
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+*Benjamin Kerensa*
+*http://benjaminkerensa.com*
+*"I am what I am because of who we all are" - Ubuntu*
+
+
+From elcaseti at gmail.com  Sat Nov 24 13:39:27 2012
+From: elcaseti at gmail.com (C W)
+Date: Sat, 24 Nov 2012 13:39:27 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is installed?
+Message-ID: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+
+Is it wise to add other DEs once Ubuntu 12.04 is installed?
+
+Hey Everybody,
+
+I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+He's spent the last month or more getting his PC set up the way he likes
+it.  The problem is, he's having problems with Firefox that I'm not having
+on KDE Mint 13 LTS.  Also, he's not liking Unity, in general.  He'd like to
+add Kubuntu desktop, or another DE.  He's concerned that this might make
+things more likely to break in the long run.  He might be right about
+that.  He & I both like to err on the side of caution & stability, using
+only LTS releases, & sticking with an install for years, putting a lot of
+time & effort into setting up the computer just the way each one of us
+likes it.  In other words, not the popular GNU/Linux geek bleeding edge
+approach.  What do you all think?
+
+Thanks,
+
+Elcaset
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From ddsnell at frontier.com  Sat Nov 24 14:06:48 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sat, 24 Nov 2012 14:06:48 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+ installed?
+In-Reply-To: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+Message-ID: <20121124140648.7ad492f0@zothique.localnet>
+
+On Sat, 24 Nov 2012 13:39:27 -0800
+C W <elcaseti at gmail.com> wrote:
+
+> Is it wise to add other DEs once Ubuntu 12.04 is installed?
+> 
+> Hey Everybody,
+> 
+> I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+> He's spent the last month or more getting his PC set up the way he
+> likes it.  The problem is, he's having problems with Firefox that I'm
+> not having on KDE Mint 13 LTS.  Also, he's not liking Unity, in
+> general.  He'd like to add Kubuntu desktop, or another DE.  He's
+> concerned that this might make things more likely to break in the
+> long run.  He might be right about that.  He & I both like to err on
+> the side of caution & stability, using only LTS releases, & sticking
+> with an install for years, putting a lot of time & effort into
+> setting up the computer just the way each one of us likes it.  In
+> other words, not the popular GNU/Linux geek bleeding edge approach.
+> What do you all think?
+> 
+> Thanks,
+> 
+> Elcaset
+
+In my experience, adding a DE/WM is not a problem.  Removing one,
+on the other hand, can open a large can of worms.  Hideous, ugly,
+mutant worms with nasty, sharp teeth and a bad smell.  But if you
+never run the DE that you don't like, there shouldn't be any
+trouble.  I've run multiple DEs before with not problems.
+
+As for Firefox, you'll have to describe the troubles before we can
+help troubleshoot them.  
+
+Just my $0.02.
+
+--Dale
+
+--
+"The Enrichment Center reminds you that the Weighted Companion Cube
+will never threaten to stab you and, in fact, cannot speak.  In the
+event that the Weighted Companion Cube does speak, the Enrichment
+Center urges you to disregard its advice."
+
+
+From Word.Wizard at comcast.net  Sat Nov 24 15:47:01 2012
+From: Word.Wizard at comcast.net (Word Wizard)
+Date: Sat, 24 Nov 2012 15:47:01 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+	installed?
+In-Reply-To: <20121124140648.7ad492f0@zothique.localnet>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+	<20121124140648.7ad492f0@zothique.localnet>
+Message-ID: <50B15C75.3090005@comcast.net>
+
+On 11/24/2012 02:06 PM, Dale Snell wrote:
+> On Sat, 24 Nov 2012 13:39:27 -0800
+> C W <elcaseti at gmail.com> wrote:
+>
+>> Is it wise to add other DEs once Ubuntu 12.04 is installed?
+>>
+>> Hey Everybody,
+>>
+>> I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+>> He's spent the last month or more getting his PC set up the way he
+>> likes it.  The problem is, he's having problems with Firefox that I'm
+>> not having on KDE Mint 13 LTS.  Also, he's not liking Unity, in
+>> general.  He'd like to add Kubuntu desktop, or another DE.  He's
+>> concerned that this might make things more likely to break in the
+>> long run.  He might be right about that.  He & I both like to err on
+>> the side of caution & stability, using only LTS releases, & sticking
+>> with an install for years, putting a lot of time & effort into
+>> setting up the computer just the way each one of us likes it.  In
+>> other words, not the popular GNU/Linux geek bleeding edge approach.
+>> What do you all think?
+>>
+>> Thanks,
+>>
+>> Elcaset
+>
+If you're going to experiment with adding additional desktops or window 
+managers (or even new applications that require extensive libs or other 
+changes to your existing system) I find it helpful to back up my 
+existing system first. On a regular basis, even if I make no significant 
+changes to my installation. I use the command line utility dd to make an 
+image file of the disk partition containing the system I want to back 
+up, along with that hard drive's partition table. Thus:
+
+dd if=/dev/sda of=Ubuntu.boot.mbr bs=512 count=1  #(for the partition table)
+
+dd if=/dev/sda1 of=Ubuntu.img  #(for the partition containing my main 
+system)
+
+I keep my HOME directory on a separate partition of that first hard 
+drive as well as reserving two other partitions of equal size to the 
+first partition on that drive (a WD 120 gig Sata). That way I have two 
+extra partitions to use to test new distros as they come along. All 
+three installations can use the same HOME directory and files. If I need 
+to remove either a distro being tested or restore the main system after 
+I screwed something up, I have a known working copy of my everyday 
+working system ready to reinstall simply by reversing the dd command thus:
+
+dd if=Ubuntu.img of=/dev/sda1
+
+Keeping the backed up image on a separate physical drive (in my case a 
+250 gig WD Sata) also keeps it safe if and when that first hard drive 
+goes poof. The above dd commands are predicated on my using a USB or DVD 
+live system to log onto that 250 gig WD, which contains the image files.
+
+Hope some or this helps.
+
+
+From elcaseti at gmail.com  Sat Nov 24 16:26:29 2012
+From: elcaseti at gmail.com (C W)
+Date: Sat, 24 Nov 2012 16:26:29 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+	installed?
+In-Reply-To: <50B15C75.3090005@comcast.net>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+	<20121124140648.7ad492f0@zothique.localnet>
+	<50B15C75.3090005@comcast.net>
+Message-ID: <CACTDRA==o4G3UsV-pXxeV9o9OH69G1xHXLqkKZXR_z5jFOA6cQ@mail.gmail.com>
+
+Thanks for the replies, everybody.  Does restoring from a backup work
+reliably?
+
+On Sat, Nov 24, 2012 at 3:47 PM, Word Wizard <Word.Wizard at comcast.net>wrote:
+
+> On 11/24/2012 02:06 PM, Dale Snell wrote:
+> > On Sat, 24 Nov 2012 13:39:27 -0800
+> > C W <elcaseti at gmail.com> wrote:
+> >
+> >> Is it wise to add other DEs once Ubuntu 12.04 is installed?
+> >>
+> >> Hey Everybody,
+> >>
+> >> I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+> >> He's spent the last month or more getting his PC set up the way he
+> >> likes it.  The problem is, he's having problems with Firefox that I'm
+> >> not having on KDE Mint 13 LTS.  Also, he's not liking Unity, in
+> >> general.  He'd like to add Kubuntu desktop, or another DE.  He's
+> >> concerned that this might make things more likely to break in the
+> >> long run.  He might be right about that.  He & I both like to err on
+> >> the side of caution & stability, using only LTS releases, & sticking
+> >> with an install for years, putting a lot of time & effort into
+> >> setting up the computer just the way each one of us likes it.  In
+> >> other words, not the popular GNU/Linux geek bleeding edge approach.
+> >> What do you all think?
+> >>
+> >> Thanks,
+> >>
+> >> Elcaset
+> >
+> If you're going to experiment with adding additional desktops or window
+> managers (or even new applications that require extensive libs or other
+> changes to your existing system) I find it helpful to back up my
+> existing system first. On a regular basis, even if I make no significant
+> changes to my installation. I use the command line utility dd to make an
+> image file of the disk partition containing the system I want to back
+> up, along with that hard drive's partition table. Thus:
+>
+> dd if=/dev/sda of=Ubuntu.boot.mbr bs=512 count=1  #(for the partition
+> table)
+>
+> dd if=/dev/sda1 of=Ubuntu.img  #(for the partition containing my main
+> system)
+>
+> I keep my HOME directory on a separate partition of that first hard
+> drive as well as reserving two other partitions of equal size to the
+> first partition on that drive (a WD 120 gig Sata). That way I have two
+> extra partitions to use to test new distros as they come along. All
+> three installations can use the same HOME directory and files. If I need
+> to remove either a distro being tested or restore the main system after
+> I screwed something up, I have a known working copy of my everyday
+> working system ready to reinstall simply by reversing the dd command thus:
+>
+> dd if=Ubuntu.img of=/dev/sda1
+>
+> Keeping the backed up image on a separate physical drive (in my case a
+> 250 gig WD Sata) also keeps it safe if and when that first hard drive
+> goes poof. The above dd commands are predicated on my using a USB or DVD
+> live system to log onto that 250 gig WD, which contains the image files.
+>
+> Hope some or this helps.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+
+From Word.Wizard at comcast.net  Sat Nov 24 17:08:05 2012
+From: Word.Wizard at comcast.net (Word Wizard)
+Date: Sat, 24 Nov 2012 17:08:05 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+	installed?
+In-Reply-To: <CACTDRA==o4G3UsV-pXxeV9o9OH69G1xHXLqkKZXR_z5jFOA6cQ@mail.gmail.com>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+	<20121124140648.7ad492f0@zothique.localnet>
+	<50B15C75.3090005@comcast.net>
+	<CACTDRA==o4G3UsV-pXxeV9o9OH69G1xHXLqkKZXR_z5jFOA6cQ@mail.gmail.com>
+Message-ID: <50B16F75.5000607@comcast.net>
+
+On 11/24/2012 04:26 PM, C W wrote:
+> Thanks for the replies, everybody.  Does restoring from a backup work
+> reliably?
+>
+> Just about every time so far for me. Some points to remember:
+>
+> IMAGE backups of a drive partition are much larger than backing up just the data that comprises the system. You're also backing up all the unused space on that partition. Thus the file produced is much larger than a tar or zip archive so more space is need on the storage drive. Hard drive gigs are cheap these days,even more so if you buy used at Freegeek or a factory reconditioned drive at Pacific Solutions, so that should not be a problem.
+>
+> Backing up the drive's partition table helps avoid some problems that might occur although such are rare. If your restore fails, e.g. if you boot and GRUB fails to find the system files it needs, restoring the backed-up partition table can help.
+>
+> It also helps to have a DVD or USB live copy of the main system you use. For example if you're using Ubuntu 12.04 LTS, write that distro to a DVD/USB and boot up with that. That way you minimize any problems that might arise by using another distro while restoring.
+>
+> If even restoring the partition table fails, you can always reinstall GRUB from that DVD/USB live system onto your drive thus:
+>
+> sudo fdisk -l # (to find Ubuntu root)
+>
+> sudo mkdir -v /Ubuntu
+>
+> sudo mount /dev/sda1 /Ubuntu #(where sda1 is the drive partition where your restored system is located)
+>
+> sudo grub-install --root-directory=/Ubuntu /dev/sda #(where sda is the physical drive where your restored system is located)
+>
+> Reading the grub-install man page before you need it and related online info will help clear up any confusion about grub-install options.
+>
+> You probably won't need that latter hassle but it helps to have the ammunition available if some odd issue surfaces and you can't get the restored system to clear GRUB. With all those tools you can pretty much rest easy that you can backup and restore your stable system without fearing its extinction and the need to reinstall from scratch.
+>
+>
+>
+>
+
+
+
+From ddsnell at frontier.com  Sat Nov 24 17:18:17 2012
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sat, 24 Nov 2012 17:18:17 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+ installed?
+In-Reply-To: <CACTDRA==o4G3UsV-pXxeV9o9OH69G1xHXLqkKZXR_z5jFOA6cQ@mail.gmail.com>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+	<20121124140648.7ad492f0@zothique.localnet>
+	<50B15C75.3090005@comcast.net>
+	<CACTDRA==o4G3UsV-pXxeV9o9OH69G1xHXLqkKZXR_z5jFOA6cQ@mail.gmail.com>
+Message-ID: <20121124171817.02bf4904@zothique.localnet>
+
+On Sat, 24 Nov 2012 16:26:29 -0800
+C W <elcaseti at gmail.com> wrote:
+
+> Thanks for the replies, everybody.  Does restoring from a backup work
+> reliably?
+
+Yes, but.
+
+Yes, it can, but you have to set up your backup system correctly.
+Read the docs for your favorite backup program CAREFULLY.  Set
+everything up, and make SURE that what you want backed up IS
+backed up.  At the very least, you want your /home partition, and
+any other non-Ubuntu-supplied data you have.  For bare-metal
+restores, you're going to need a copy of your master boot
+record(s), so that you can re-create your disk partitions, plus
+information on filesystems, logical volumes (if used), and so on.
+
+Once you're sure that backups are made correctly, make sure that
+you can use the backed-up data to restore your system.  TRY IT AND
+MAKE CERTAIN.  I've heard too many stories of outfits that have
+faithfully run their backup software, only to find that they
+couldn't restore from backups when the inevitable disaster struck.
+And trust me, it is inevitable.  Something will go worng somewhere
+along the line, and you will have to restore.
+
+Do I make backups?  Yes.  I have a half-terabyte WD MyBook on USB
+that I back up to.  I have had to restore from it, too.  Believe
+me, I was glad I had it.
+
+Just another $0.02.
+
+--Dale
+
+--
+"Who cares if it doesn't do anything?  It was made with our new
+Triple-Iso-Bifurcated-Krypton-Gate-MOS process ..."
+
+
+From keithl at gate.kl-ic.com  Sat Nov 24 21:05:34 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sat, 24 Nov 2012 21:05:34 -0800
+Subject: [PLUG] Card Scanner - resolved
+Message-ID: <20121125050534.GA25217@gate.kl-ic.com>
+
+I was looking for a duplex (both sides at once) card scanner.
+The vast majority are simplex (one sided), and the few that
+are duplex seem to be Windoze only.
+Consulting  http://www.sane-project.org/lists/sane-mfgs-cvs.html
+the one and only "good" simplex (single sided) card scanner
+seems to be the Corex Cardscan 800c .  
+
+I attempted to purchase an 800c though eBay for $55, but the
+seller is AWOL - 2 weeks after I paid for it, no response to
+my emails, and eBay's conflict resolution process hasn't
+worked, either.  Oh well.  eBay claims to provide refunds
+(after a couple of months of jumping through hoops).  We'll
+see if that works.  Otherwise, I've researched out the name
+and address of the seller in Texas, and have redneck
+relatives living 10 miles away, so ...
+
+The good news is that I purchased an 800c via Craigslist
+($99) and just got it working.  It will be hooked up to a
+Mac most of the time (and it comes with Mac software as well
+as W#@%*!s software), but the sane-cardscan driver is in my
+somewhat ancient distro (Scientific Linux 5.6, 2.6.18 kernel).
+
+Out of the box, it worked only as root.  I fixed that by 
+adding two lines to /etc/udev/rules.d/60-libsane.rules  :
+
+  # Corex Cardscan 800c
+  SYSFS{idVendor}=="08f0", SYSFS{idProduct}=="0005", SYMLINK+="scanner-%k"
+
+With default settings, the results are a little dim, a little
+pink, but there are knobs on xsane that can fix this.  It
+works well enough for our needs.  The 800c is small, 4x7
+inches, USB powered, and just loud enough to let you know
+it's working.  Given the $300+ retail price of a new card
+scanner plus software, $99 (and same day pickup) is good.
+
+Duplex?  We can run the card through twice.  About two
+minutes of extra work a day.
+
+BTW, one of the things we want to copy is customer
+driver's licenses (for the picture, not the ODOT info).
+I was pondering how to crop the private information
+from the picture in software.  My more practical wife
+said "how about a postit with today's date on it, on top
+of information we shouldn't store".  Sometimes atoms are
+better than bits.  She's certainly smarter than I am.
+
+Next step is configuring the Mac to scan the card and 
+send the image to the Linux server.  If the Corex-provided
+proprietary software is too opaque or nonconfigurable, 
+I'll install sane on that machine, too.
+
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From keithl at gate.kl-ic.com  Sun Nov 25 23:02:07 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sun, 25 Nov 2012 23:02:07 -0800
+Subject: [PLUG] Slightly OT:  version/instance control on Mac software
+Message-ID: <20121126070207.GA1336@gate.kl-ic.com>
+
+This isn't Linux, only vaguely Unix, but it is a question
+I expect some open source folks will know the answer to. 
+Probably not most Mac folk, who tend to solve problems
+with credit cards rather than knowledge.
+
+The second-hand CardScan is working with Linux.  The craigslist
+seller advertised it as Mac compatable. He gave me a copy of the 
+Mac software installer cardscan.pkg, which allegedly runs with
+this scanner.  However, it complains that it won't work with the
+OSX 2.6.8 (Snow Leopard) on our Mac.  So the instance of code
+may be tied to the specific version of OSX, perhaps to the
+particular machine this scanner was first attached to.  It has
+been years since I've dealt with $$$ proprietary applications,
+but I remember these kinds of shenanigans.
+
+Anyone here know enough about Mac software architecture and
+vendor behavior to hazard a guess?  Am I S.O.L?  This is what I
+get for working with second rate, amateurish software like MacOS.
+
+Not really, of course - SANE is ported to the Mac, and I probably
+can get that running.  We are already running mostly open source
+apps on the Mac, and SANE might be easier to integrate with our 
+business process than some closed-source walled-garden "solution".
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From nick at intronic.org  Mon Nov 26 00:02:23 2012
+From: nick at intronic.org (nick)
+Date: Mon, 26 Nov 2012 00:02:23 -0800
+Subject: [PLUG] Slightly OT:  version/instance control on Mac software
+In-Reply-To: <20121126070207.GA1336@gate.kl-ic.com>
+References: <20121126070207.GA1336@gate.kl-ic.com>
+Message-ID: <D2E78EC5-0AE8-4540-84E0-535B2388B781@intronic.org>
+
+.pkg files are actually .xar archives. This Stack Overflow post has the details on how to get at stuff inside of them:
+
+http://stackoverflow.com/questions/11298855/osx-how-unpack-and-pack-pkg-file
+
+Look for .plist files and see if there are tags inside of those that specify a specific OS version.
+
+Do you know if CardScan actually needs a newer version of the OS (as opposed to an older app that might just freak out if it sees it's running on a newer version even though it may otherwise work OK)? 
+
+On Nov 25, 2012, at 11:02 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+
+> This isn't Linux, only vaguely Unix, but it is a question
+> I expect some open source folks will know the answer to. 
+> Probably not most Mac folk, who tend to solve problems
+> with credit cards rather than knowledge.
+> 
+> The second-hand CardScan is working with Linux.  The craigslist
+> seller advertised it as Mac compatable. He gave me a copy of the 
+> Mac software installer cardscan.pkg, which allegedly runs with
+> this scanner.  However, it complains that it won't work with the
+> OSX 2.6.8 (Snow Leopard) on our Mac.  So the instance of code
+> may be tied to the specific version of OSX, perhaps to the
+> particular machine this scanner was first attached to.  It has
+> been years since I've dealt with $$$ proprietary applications,
+> but I remember these kinds of shenanigans.
+> 
+> Anyone here know enough about Mac software architecture and
+> vendor behavior to hazard a guess?  Am I S.O.L?  This is what I
+> get for working with second rate, amateurish software like MacOS.
+> 
+> Not really, of course - SANE is ported to the Mac, and I probably
+> can get that running.  We are already running mostly open source
+> apps on the Mac, and SANE might be easier to integrate with our 
+> business process than some closed-source walled-garden "solution".
+> 
+> Keith
+> 
+> -- 
+> Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+From chaz at bctonline.com  Mon Nov 26 10:32:46 2012
+From: chaz at bctonline.com (Chaz Sliger)
+Date: Mon, 26 Nov 2012 10:32:46 -0800
+Subject: [PLUG] Building Ubuntu System With Mirrored Drives
+Message-ID: <005201cdcc04$6ee688f0$4cb39ad0$@com>
+
+I would like to build a system that has removable mirrored drives.
+
+I'm thinking of having 3 drives - 2 in the system, 1 on the shelf, and
+rotating them daily.
+
+Q: Is there a motherboard with good hardware mirroring support?
+
+Anyone done anything like this?
+
+~chaz
+
+chaz at bctonline.com
+
+ 
+
+
+
+From dexter at ambidexter.com  Mon Nov 26 12:19:17 2012
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 26 Nov 2012 12:19:17 -0800
+Subject: [PLUG] Your turn to talk!
+Message-ID: <50B3CEC5.1080905@ambidexter.com>
+
+
+Hey all,
+
+The holidays have proven disruptive for everyone and no one has stepped 
+forward for the December slots. I offered a plan-B of me giving my BHyVe 
+hypervisor talk but that's a bit niche.
+
+The person who recently came up about physical security is interested 
+but looks like they will need more time.
+
+Got something to share?
+
+Another thought: few-minute pseudo-lightning talks on the absolutely 
+coolest open source things we've each discovered this last year with the 
+option of a few things that have driven us up the wall.
+
+Michael
+
+
+From tim-pdxlug at sentinelchicken.org  Mon Nov 26 13:03:05 2012
+From: tim-pdxlug at sentinelchicken.org (Tim)
+Date: Mon, 26 Nov 2012 13:03:05 -0800
+Subject: [PLUG] Your turn to talk!
+In-Reply-To: <50B3CEC5.1080905@ambidexter.com>
+References: <50B3CEC5.1080905@ambidexter.com>
+Message-ID: <20121126210305.GY2752@sentinelchicken.org>
+
+
+I *may* have time to put together a short talk on OWASP, what it is
+all about, what our chapter is doing locally, and introduce FLOSSHack,
+(a hacking competition designed to audit open source apps).
+
+Or if that isn't technical enough, I could give a talk I recently gave
+at BSides PDX on an open source tool (bletchley) I'm working on which
+helps pentesters perform black box cryptanalysis.  Kinda niche also,
+though.
+
+Chime in if there is any interest...
+tim
+
+
+On Mon, Nov 26, 2012 at 12:19:17PM -0800, Michael Dexter wrote:
+> 
+> Hey all,
+> 
+> The holidays have proven disruptive for everyone and no one has stepped 
+> forward for the December slots. I offered a plan-B of me giving my BHyVe 
+> hypervisor talk but that's a bit niche.
+> 
+> The person who recently came up about physical security is interested 
+> but looks like they will need more time.
+> 
+> Got something to share?
+> 
+> Another thought: few-minute pseudo-lightning talks on the absolutely 
+> coolest open source things we've each discovered this last year with the 
+> option of a few things that have driven us up the wall.
+> 
+> Michael
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+From bkerensa at ubuntu.com  Mon Nov 26 13:25:51 2012
+From: bkerensa at ubuntu.com (Benjamin Kerensa)
+Date: Mon, 26 Nov 2012 13:25:51 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+	installed?
+In-Reply-To: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+Message-ID: <CAGOdq5kf9dqpo-KHU2NCN=U7pnSYHEztSQ4h8BqQVktAUbf1qQ@mail.gmail.com>
+
+Its totally fine to run multiple desktop environments on one install in
+fact the Lightdm Logon Screen fully supports multiple desktops and will
+show a icon for each one.
+
+On Sat, Nov 24, 2012 at 1:39 PM, C W <elcaseti at gmail.com> wrote:
+
+> Is it wise to add other DEs once Ubuntu 12.04 is installed?
+>
+> Hey Everybody,
+>
+> I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+> He's spent the last month or more getting his PC set up the way he likes
+> it.  The problem is, he's having problems with Firefox that I'm not having
+> on KDE Mint 13 LTS.  Also, he's not liking Unity, in general.  He'd like to
+> add Kubuntu desktop, or another DE.  He's concerned that this might make
+> things more likely to break in the long run.  He might be right about
+> that.  He & I both like to err on the side of caution & stability, using
+> only LTS releases, & sticking with an install for years, putting a lot of
+> time & effort into setting up the computer just the way each one of us
+> likes it.  In other words, not the popular GNU/Linux geek bleeding edge
+> approach.  What do you all think?
+>
+> Thanks,
+>
+> Elcaset
+> --
+> Free Geek Seattle- Helping The Needy Get Nerdy
+> http://www.freegeekseattle.org/
+> https://groups.google.com/group/freegeek-seattle/topics?hl=en
+>
+> K Desktop Environment- Experience Freedom & User Friendliness
+> http://kde.org/
+>
+> Free Lossless Audio Codec
+> https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+>
+> Protect your digital freedom and privacy, eliminate DRM, learn more at
+> http://www.defectivebydesign.org/what_is_drm
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+*Benjamin Kerensa*
+*http://benjaminkerensa.com*
+*"I am what I am because of who we all are" - Ubuntu*
+
+
+From bkerensa at ubuntu.com  Mon Nov 26 13:27:43 2012
+From: bkerensa at ubuntu.com (Benjamin Kerensa)
+Date: Mon, 26 Nov 2012 13:27:43 -0800
+Subject: [PLUG] Is it wise to add other DEs once Ubuntu 12.04 is
+	installed?
+In-Reply-To: <20121124140648.7ad492f0@zothique.localnet>
+References: <CACTDRAnXs5TgsW+OWwrLHtkVuHZ4O9Nqis6WgDOg2fv4R_E2Tg@mail.gmail.com>
+	<20121124140648.7ad492f0@zothique.localnet>
+Message-ID: <CAGOdq5m9cREGbZMZHeKsN-fL9mb0w=c6zqG61CC1PZB=p+mN=g@mail.gmail.com>
+
+On Sat, Nov 24, 2012 at 2:06 PM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> On Sat, 24 Nov 2012 13:39:27 -0800
+> C W <elcaseti at gmail.com> wrote:
+>
+> > Is it wise to add other DEs once Ubuntu 12.04 is installed?
+> >
+> > Hey Everybody,
+> >
+> > I have a friend who installed Ubuntu 12.04 LTS on his work desktop PC.
+> > He's spent the last month or more getting his PC set up the way he
+> > likes it.  The problem is, he's having problems with Firefox that I'm
+> > not having on KDE Mint 13 LTS.  Also, he's not liking Unity, in
+> > general.  He'd like to add Kubuntu desktop, or another DE.  He's
+> > concerned that this might make things more likely to break in the
+> > long run.  He might be right about that.  He & I both like to err on
+> > the side of caution & stability, using only LTS releases, & sticking
+> > with an install for years, putting a lot of time & effort into
+> > setting up the computer just the way each one of us likes it.  In
+> > other words, not the popular GNU/Linux geek bleeding edge approach.
+> > What do you all think?
+> >
+> > Thanks,
+> >
+> > Elcaset
+>
+> In my experience, adding a DE/WM is not a problem.  Removing one,
+> on the other hand, can open a large can of worms.  Hideous, ugly,
+> mutant worms with nasty, sharp teeth and a bad smell.  But if you
+> never run the DE that you don't like, there shouldn't be any
+> trouble.  I've run multiple DEs before with not problems.
+>
+> As for Firefox, you'll have to describe the troubles before we can
+> help troubleshoot them.
+>
+> Just my $0.02.
+>
+> --Dale
+>
+>
+The can of warms is because apt-get will often remove dependencies that
+need to stay but there are some decent How To's out there on adding DE's
+and then later removing them without breaking your install. AskUbuntu.com
+is also a good resource for a relatively quick answer.
+
+
+-- 
+*Benjamin Kerensa*
+*http://benjaminkerensa.com*
+*"I am what I am because of who we all are" - Ubuntu*
+
+
+From rsteff at comcast.net  Mon Nov 26 17:19:21 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Mon, 26 Nov 2012 17:19:21 -0800
+Subject: [PLUG] 5-1/4" Floppy Issue
+Message-ID: <50B41519.7050602@comcast.net>
+
+I just installed a 5-1/4" floppy in a Gateway box I got from Free Geek. 
+When I try to read a floppy disk, the disk drive spins, the pilot light 
+lights, and then I get a message that says:
+
+Unable to mount location
+No media in the drive
+
+I remembered that I had not done anything in the BIOS after installing 
+the drive, so I rebooted, pressed <F2> and started walking through the 
+System Setup.
+
+On the Advanced menu page there is an entry called Floppy Configuration. 
+When I go to that page, there is an entry called Floppy Type. There are 
+only two options, <1.44MB> and <2.88MB>.
+
+Is it possible that the BIOS doesn't support 5-1/4" drives? Or did I 
+miss something else?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From johnxj at comcast.net  Mon Nov 26 18:20:08 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 26 Nov 2012 18:20:08 -0800
+Subject: [PLUG] 5-1/4" Floppy Issue
+In-Reply-To: <50B41519.7050602@comcast.net>
+References: <50B41519.7050602@comcast.net>
+Message-ID: <20121126182008.7eb03b0f@mailhost.pdx.edu>
+
+On Mon, 26 Nov 2012 17:19:21 -0800
+"Richard C. Steffens" <rsteff at comcast.net> dijo:
+
+>On the Advanced menu page there is an entry called Floppy
+>Configuration. When I go to that page, there is an entry called Floppy
+>Type. There are only two options, <1.44MB> and <2.88MB>.
+>
+>Is it possible that the BIOS doesn't support 5-1/4" drives? Or did I 
+>miss something else?
+
+It is not only possible, but likely. One of the advantages of the
+(then) new 3-1/2" drives was that they were standardized. The bad old
+5-1/4" drives were sometimes 360 MB, sometimes some other number, the
+number of sectors were different from one manufacturer to the next,
+and there were all kinds of other incompatibilities. It was a nightmare
+for BIOS manufacturers as well as users. You were lucky if your 5-1/4"
+floppy could be read on your friend's machine. The computer world
+flocked to 3-1/2" drives as quickly as possible.
+
+Assuming the disk you want to read is for an IBM PC (or clone), which
+at least standardized on 360 MB, you'll need a BIOS from probably
+significantly before 2000.
+
+I'll bet Free Geek has a ton of old motherboards with a BIOS that would
+do the trick. In fact, you can probably get one for free just by
+dumpster diving in their trash.
+
+
+From rsteff at comcast.net  Mon Nov 26 18:25:34 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Mon, 26 Nov 2012 18:25:34 -0800
+Subject: [PLUG] 5-1/4" Floppy Issue
+In-Reply-To: <20121126182008.7eb03b0f@mailhost.pdx.edu>
+References: <50B41519.7050602@comcast.net>
+	<20121126182008.7eb03b0f@mailhost.pdx.edu>
+Message-ID: <50B4249E.4060008@comcast.net>
+
+On 11/26/2012 06:20 PM, John Jason Jordan wrote:
+> On Mon, 26 Nov 2012 17:19:21 -0800
+> "Richard C. Steffens" <rsteff at comcast.net> dijo:
+>
+>> Is it possible that the BIOS doesn't support 5-1/4" drives? Or did I
+>> miss something else?
+> It is not only possible, but likely. One of the advantages of the
+> (then) new 3-1/2" drives was that they were standardized. The bad old
+> 5-1/4" drives were sometimes 360 MB, sometimes some other number, the
+> number of sectors were different from one manufacturer to the next,
+> and there were all kinds of other incompatibilities. It was a nightmare
+> for BIOS manufacturers as well as users. You were lucky if your 5-1/4"
+> floppy could be read on your friend's machine. The computer world
+> flocked to 3-1/2" drives as quickly as possible.
+
+I do remember those days. My first machine had 10 hole, hard sector drives.
+> Assuming the disk you want to read is for an IBM PC (or clone), which
+> at least standardized on 360 MB, you'll need a BIOS from probably
+> significantly before 2000.
+
+It is from a PC.
+
+> I'll bet Free Geek has a ton of old motherboards with a BIOS that would
+> do the trick. In fact, you can probably get one for free just by
+> dumpster diving in their trash.
+
+I'll have to check that out.
+
+Thanks for the thoughts.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From nsedell at gmail.com  Mon Nov 26 18:39:35 2012
+From: nsedell at gmail.com (Neal)
+Date: Mon, 26 Nov 2012 18:39:35 -0800
+Subject: [PLUG] 5-1/4" Floppy Issue
+In-Reply-To: <50B4249E.4060008@comcast.net>
+References: <50B41519.7050602@comcast.net>
+	<20121126182008.7eb03b0f@mailhost.pdx.edu>
+	<50B4249E.4060008@comcast.net>
+Message-ID: <CAKxTfCOzY+B6wxr09=-iJfHeCMGJbpsofxfOvLyN5D8a+sivqw@mail.gmail.com>
+
+Ahhh, memories of PCs stepping the floppy head at 30msec or some other
+similarly brain dead rate instead of what the drives were capable of.
+Talk about buzz saw! :)
+
+> It is from a PC.
+
+Is it a 1.2M or 360K disk?
+
+You can read either in a 1.2M drive but you can't read a 1.2M disk in
+a 360K drive. If it's a 360K disk try not to write it in a 1.2M drive
+if you care about ever reading it in a 360K drive again.
+
+NealS
+
+
+From gently at gmail.com  Mon Nov 26 20:15:20 2012
+From: gently at gmail.com (chris (fool) mccraw)
+Date: Mon, 26 Nov 2012 20:15:20 -0800
+Subject: [PLUG] Building Ubuntu System With Mirrored Drives
+In-Reply-To: <005201cdcc04$6ee688f0$4cb39ad0$@com>
+References: <005201cdcc04$6ee688f0$4cb39ad0$@com>
+Message-ID: <CACKgb8SX=TPk=PynMKVdmvTgwDb5jV7uXNk80LvTVt+Gfn2zLA@mail.gmail.com>
+
+Hey Chaz,
+
+On Mon, Nov 26, 2012 at 10:32 AM, Chaz Sliger <chaz at bctonline.com> wrote:
+> I would like to build a system that has removable mirrored drives.
+
+I think you will have a hard time doing this the way you envision.
+
+> I'm thinking of having 3 drives - 2 in the system, 1 on the shelf, and
+> rotating them daily.
+>
+> Q: Is there a motherboard with good hardware mirroring support?
+
+A: I've found a lot that don't, in my searches.  I'm wondering why
+would you want to tie yourself to a specific motherboard? (hardware
+raid volumes are very rarely usable on other breeds of card than the
+one they were made on--sometimes even same-brand is not enough, it
+must be same firmware revision!) The beauty of linux s/w raid is that
+in 10 years, you can still put those disks in whatever machine is
+available (with a "legacy" sata card) and reassemble the raid.  i have
+rebuilt my raid on my underpowered (was VIA, now Atom, both fanless
+single core machines) fileserver a whole lot in the past 8 months (due
+to a failing hard drive that kept working for long enough to rebuild
+before erroring out and requiring another rebuild) and the speed of
+the rebuild has been pretty close to disk speed despite these servers
+not being optimized for I/O - i regularly get 110MB/s rebuilds on
+modern 2TB drives (the cheapest ones i could find though!)  plus, my
+systems have been pretty usable while the raid rebuilds--they only
+serve pretty small stuff except the occasional "fire up virtualbox off
+a networked drive to run windows for 5 minutes" and that definitely
+gets prioritized over raid rebuilds (you can tweak the settings from
+the command line for s/w raid rebuild speed and priority)--so i
+basically don't notice additional lag during rebuild (vs the 100mbit
+network fileservice speed anyway)
+
+The real problem I think you'll have is that raid 1 is about 2
+disks--i don't know a way to proactively mirror that third disk while
+the first 2 are working.  maybe some h/w raid solutions have this, but
+linux s/w raid doesn't have a concept of 3-way mirroring (unless you
+have 4 drives and have a mirrored-mirror kind of thing) so here's the
+way things will go:
+
+- you have a 2 drive raid.
+- you mdadm --add md0 /dev/otherdrive
+- you now have a 2 drive raid with an empty hotspare
+- you pull a working drive
+- you wait hours to rebuild the new drive from the one that's still
+spinning and hope you don't have a failure of that first drive during
+this process, since you'll lose data from the last 2 hours.
+
+My 3-drive system is like this:
+
+2 drive mirrored array (have /boot and / mirrored separately from my
+data partition so i can upgrade the OS without touching my data
+partition
+
+1 external usb drive for use with rsnapshot which is online backups
+with months of history for not much extra drive space.  If I'm going
+on vacation, i unplug the USB drive and take it with me or anyway make
+sure it's not vulnerable to fire/theft/lightning at the same time as
+the rest of my system.
+
+Not trying to poo-poo your idea, but wondering if having the solution
+in mind instead of the problem (what problem are you trying to solve
+with the constant drive swaps, esp if you keep the other drive next to
+the computer?) might be narrowing your field of possibilities.
+
+luck++;
+
+
+From keithl at gate.kl-ic.com  Mon Nov 26 21:40:53 2012
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 26 Nov 2012 21:40:53 -0800
+Subject: [PLUG] Slightly OT:  version/instance control on Mac software
+In-Reply-To: <20121126070207.GA1336@gate.kl-ic.com>
+References: <20121126070207.GA1336@gate.kl-ic.com>
+Message-ID: <20121127054053.GA4470@gate.kl-ic.com>
+
+On Sun, Nov 25, 2012 at 11:02:07PM -0800, Keith Lofstrom wrote:
+> The second-hand CardScan is working with Linux.  The craigslist
+> seller advertised it as Mac compatable. He gave me a copy of the 
+> Mac software installer cardscan.pkg, which allegedly runs with
+> this scanner.  However, it complains that it won't work with the
+> OSX 2.6.8 (Snow Leopard) on our Mac.  So the instance of code
+
+In spite of cryptic error reporting, I found out part of what
+was going on with the Cardscan Mac software.  The files from
+the seller had symlinks that did not survive the transition
+from Mac to Linux to Mac.  Other stuff is also broken.
+
+Meanwhile, I used MacPorts to put SANE (scanner software) and
+Imagemagick on the Mac.  Still some issues with sane.  Preview,
+the provided image viewer, displays surprisingly few image
+formats, and MacOS version of Firefox likewise (no PNM,
+for example).  
+
+Next, build a tiny little app to scan cards, enter client names,
+then file them on the server.  We'll see how hard that is.
+
+Keith (clawing my way through the fog)
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+
+From guy1656 at opusnet.com  Tue Nov 27 05:33:35 2012
+From: guy1656 at opusnet.com (Guy Letourneau)
+Date: Tue, 27 Nov 2012 05:33:35 -0800
+Subject: [PLUG] Fwd: RE: Phone battery drain. (Extra info)
+Message-ID: <50B4C12F.9030303@opusnet.com>
+
+I have a good friend of a few decades who has been working as an 
+electical engineer, first in pagers, then in more contemporary wireless 
+devices. I sent him Keith Lofstrom's and John Jason Jordan's exchange 
+and here are his additional technical comments. ('QSO' stands for 
+'conversation' as he is also a ham radio operator.)
+
+Enjoy:
+
+- GLL
+
+-------- Original Message --------
+
+
+The QSO below brings up some interesting points indeed.
+
+For LTE and CDMA protocols in particular, the transmit power is
+increased as needed to be heard during events such as described below 
+where there is an attenuated path back to the base station.
+
+Also, there is what we call "the cocktail party effect" which 
+essentially says that if everyone in a room talks at once, and we wish 
+to be heard in our individual conversations, we must raise our voices.
+
+When everyone does this, the situation must escalate in volume until the
+path loss between different conversations is large compared to the path 
+loss between ears and mouths of the individuals having each 
+conversation, and at that point sufficient power has been attained to 
+converse...  Essentially, the fewer the transmitters there are on a CDMA 
+or LTE channel, the less power is required.  Parties with fewer people 
+are always quieter.
+
+This effect is also qualified by everyone operating on the same 
+frequency simultaneously. The GSM protocol is TDMA (Time Division 
+Multiple Access), which involves the individual transmitters having an 
+assigned timeslot, and so we have only one person talking at a time, and 
+this takes considerably less power.
+
+The batteries always last longer in GSM phones for this reason.
+
+As for the CMOS power amps, this sounds a bit hoaky. Reason is, that we
+need linear PA's in order to have sufficiently low group delay 
+distortion.  CMOS makes some great non-linear (like Class C) PA's but 
+isn't well suited for linearity. I'm sure some topologies try to do 
+this, but most must use GaAs devices in order to attain sufficient John 
+Jason Jordan linearity. CMOS also creates lots of harmonics too, which 
+is bad for passing FCC part 15B...
+
+I wouldn't be surprised if someone is doing this, but it would be a very
+difficult and inefficient way. (I could see some inexperienced Chinese 
+company doing this...) In our base-stations, we use GaAs FET's in a 
+Dougherty configuration, which means a linear main amplifier,
+With an additional peaking amp summing power in. The whole thing is
+delightfully linear, but not very efficient (about 26%,) which isn't too 
+far from the theoretical class A amplifier maximum of 33%.
+This method involves significantly less cost than a big-ole-hawnkin
+class A power stage, which makes up for the inefficiency in the eyes of 
+management. CMOS would probly be < 8% efficient given all the harmonic 
+filtering that would be needed.
+
+M
+
+-------- Original Message --------
+Subject: [PLUG] Phone battery drain
+
+
+On Wed, Nov 21, 2012 at 05:09:47PM -0800, John Jason Jordan wrote:
+> My Samsung Galaxy S2 battery has suddenly started draining within a
+> couple of hours, even with no phone usage. I have several suggestions
+> from Phandroid forums to try, but one of them seemed a good idea even
+> if it is not the source of the problem, that is, clean the USB jack on
+> the bottom of the phone.
+
+While cleaning the USB jack has a small probability of helping,
+there are two more likely causes:  Battery failure, and radio
+failure in the phone.
+
+I just replaced the battery in my semi-dumb Nokia flip phone,
+which used to last a week on a charge (not suprising with 10
+calls a month) and recently dropped to a day.  The replacement
+worked.  The replacement battery was from a spare/identical
+Nokia that I keep around "just in case".  I ordered another
+battery via Amazon for $4.
+
+
+There is a grimmer possibility, a bit technical.  A high
+quality cell phone (which nobody makes anymore) would use
+a gallium arsenide power amplifier on the radio.  GaAs is
+a faster process, so the amplifier does not need to be
+pushed as hard to deliver both efficiency and reliability.
+
+But standard CMOS silicon is cheaper than GaAs, because 99%
+of all integrated circuits are made with silicon, and most
+of those are CMOS silicon.  Most of the phone is CMOS
+silicon, which is great for the processors and memory and
+such.  So to save a few pennies per phone, manufacturers
+make the power amplifier with CMOS, too.
+
+Whether you use the phone for calls or not, the phone frequently
+sends out "registration requests" to cell towers to let the
+network know where it is.  If the tower is distant, or you are
+in a shielded area, the phone pumps up the transmit power of
+the registration request until the tower hears it.  That means
+battery drain, but mostly it means increased stress on the power
+amplifier.  If the shielding is a nearby metal table, or other
+materials that interfere with the efficiency of the antenna,
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+
+From guy1656 at opusnet.com  Tue Nov 27 06:17:27 2012
+From: guy1656 at opusnet.com (Guy Letourneau)
+Date: Tue, 27 Nov 2012 06:17:27 -0800
+Subject: [PLUG] Transcription Error
+Message-ID: <50B4CB77.6080306@opusnet.com>
+
+In my previous forwarding, the name 'John Jason Jordan' was accidentally 
+dropped into a sentence:
+
+" I'm sure some topologies try to do this, but most must use GaAs 
+devices in order to attain sufficient [John Jason Jordan] linearity. "
+
+This was my typo and not in the original - sorry.
+
+- GLL
+
+
+From johnxj at comcast.net  Tue Nov 27 08:14:31 2012
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 27 Nov 2012 08:14:31 -0800
+Subject: [PLUG] Transcription Error
+In-Reply-To: <50B4CB77.6080306@opusnet.com>
+References: <50B4CB77.6080306@opusnet.com>
+Message-ID: <20121127081431.6a342196@mailhost.pdx.edu>
+
+On Tue, 27 Nov 2012 06:17:27 -0800
+Guy Letourneau <guy1656 at opusnet.com> dijo:
+
+>In my previous forwarding, the name 'John Jason Jordan' was
+>accidentally dropped into a sentence:
+>
+>" I'm sure some topologies try to do this, but most must use GaAs 
+>devices in order to attain sufficient [John Jason Jordan] linearity. "
+>
+>This was my typo and not in the original - sorry.
+
+Wow! I've been name-dropped.
+
+
+From ronabop at gmail.com  Tue Nov 27 09:20:11 2012
+From: ronabop at gmail.com (Ronald Chmara)
+Date: Tue, 27 Nov 2012 09:20:11 -0800
+Subject: [PLUG] 5-1/4" Floppy Issue
+In-Reply-To: <20121126182008.7eb03b0f@mailhost.pdx.edu>
+References: <50B41519.7050602@comcast.net>
+	<20121126182008.7eb03b0f@mailhost.pdx.edu>
+Message-ID: <CAFWS2+ExQbYRurBsC_LO_MhnL=eiMRQYHkHiadUmsW-HsUUxRg@mail.gmail.com>
+
+On Mon, Nov 26, 2012 at 6:20 PM, John Jason Jordan <johnxj at comcast.net> wrote:
+> It is not only possible, but likely. One of the advantages of the
+> (then) new 3-1/2" drives was that they were standardized. The bad old
+> 5-1/4" drives were sometimes 360 MB,
+....
+> Assuming the disk you want to read is for an IBM PC (or clone), which
+> at least standardized on 360 MB
+
+This typo, repeated twice, amuses me greatly.
+
+-Ronabop
+
+
+From louisk at cryptomonkeys.org  Tue Nov 27 09:54:09 2012
+From: louisk at cryptomonkeys.org (Louis Kowolowski)
+Date: Tue, 27 Nov 2012 09:54:09 -0800
+Subject: [PLUG] Your turn to talk!
+In-Reply-To: <50B3CEC5.1080905@ambidexter.com>
+References: <50B3CEC5.1080905@ambidexter.com>
+Message-ID: <6C220042-DFDB-47D7-B3E7-0E089EFEFB96@cryptomonkeys.org>
+
+On Nov 26, 2012, at 12:19 PM, Michael Dexter <dexter at ambidexter.com> wrote:
+
+> Hey all,
+> 
+> The holidays have proven disruptive for everyone and no one has stepped 
+> forward for the December slots. I offered a plan-B of me giving my BHyVe 
+> hypervisor talk but that's a bit niche.
+> 
+> The person who recently came up about physical security is interested 
+> but looks like they will need more time.
+> 
+> Got something to share?
+> 
+> Another thought: few-minute pseudo-lightning talks on the absolutely 
+> coolest open source things we've each discovered this last year with the 
+> option of a few things that have driven us up the wall.
+> 
+If I'm not in DC, I would show up for a talk on BHyVe.
+
+--
+Louis Kowolowski                                louisk at cryptomonkeys.org
+Cryptomonkeys:                      http://www.cryptomonkeys.org/~louisk
+
+Making life more interesting for people since 1977
+
+
+
+From guy1656 at opusnet.com  Tue Nov 27 10:27:25 2012
+From: guy1656 at opusnet.com (Guy Letourneau)
+Date: Tue, 27 Nov 2012 18:27:25 GMT
+Subject: [PLUG] Transcription Error
+Message-ID: <20121127102775.SM02288@[172.17.33.80]>
+
+
+>
+>" ...[John Jason Jordan] linearity. "
+>
+Wow! I've been name-dropped.
+Yes, your name has now been associated with a specific range of linearity, distinct from others' surnames and also from, say, 12AX7 tube preamps and 100% Class A Darlington Pair power-consuming hog-meisters such at the old Dynaco (or DynaKit) stereo power amps of the 1960s and 70s!?- GLL?
+
+From russell at personaltelco.net  Wed Nov 28 08:06:17 2012
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 28 Nov 2012 08:06:17 -0800
+Subject: [PLUG] HAPPY 0xC BIRTHDAY PTP!
+Message-ID: <867gp5n24m.fsf@coulee.tdb.com>
+
+
+Twelve years ago today, the Personal Telco Project was launched.  Adam
+Shand, inspired by an article about Consume.net he saw on Slashdot,
+decided to try to start something similar here in Portland.  Here is
+the message from the PLUG mailing list:
+
+  https://personaltelco.net/~russell/the-beginning.txt
+
+That message got Personal Telco off the ground, and it's been flying
+(sometimes eating some pine cones) ever since.  Come help it gain some
+more altitude and soar with you into the future!
+
+We have our last meeting of 2012 tonight at the Lucky Lab on SE
+Hawthorne tonight at 6:30pm.  Come join us to toast the last 12 years
+and the next 12 as well.
+
+  https://personaltelco.net/wiki/MeetingNovember2012
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+
+From david.fleck at mchsi.com  Wed Nov 28 17:33:58 2012
+From: david.fleck at mchsi.com (David Fleck)
+Date: Wed, 28 Nov 2012 19:33:58 -0600 (CST)
+Subject: [PLUG] Live by the GUI, die by the GUI
+Message-ID: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+
+OK, now I've done it.  I'm trying to import some new pictures from my 
+digital camera to digikam, only to discover that somehow I have horked up 
+my digikam (1.2.0) UI such that I can no longer get any toolbars - 
+including the one that allows me to import new pictures - to show up 
+across the top of the window.  I can manipulate the existing albums and 
+pictures no problem - but the toolbars appear to be irrevokably lost.
+
+Any suggestions on how to get a usable user interface back!?
+
+--
+David Fleck
+david.fleck at mchsi.com
+
+
+
+From fredjame at fredjame.cnc.net  Wed Nov 28 17:57:20 2012
+From: fredjame at fredjame.cnc.net (Fred James)
+Date: Wed, 28 Nov 2012 20:57:20 -0500
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+Message-ID: <50B6C100.2070807@fredjame.cnc.net>
+
+David Fleck wrote:
+> OK, now I've done it.  I'm trying to import some new pictures from my
+> digital camera to digikam, only to discover that somehow I have horked up
+> my digikam (1.2.0) UI such that I can no longer get any toolbars -
+> including the one that allows me to import new pictures - to show up
+> across the top of the window.  I can manipulate the existing albums and
+> pictures no problem - but the toolbars appear to be irrevokably lost.
+>
+> Any suggestions on how to get a usable user interface back!?
+>
+> --
+> David Fleck
+> david.fleck at mchsi.com
+At the risk of sounding (fill-in-the-blank) ... reboot! Unfortunately 
+some software is just as flaky as M$ could make it.
+Regards
+Fred James
+
+
+
+From david.fleck at mchsi.com  Wed Nov 28 17:59:45 2012
+From: david.fleck at mchsi.com (David Fleck)
+Date: Wed, 28 Nov 2012 19:59:45 -0600 (CST)
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+Message-ID: <alpine.LNX.2.00.1211281952250.2958@grond.sourballs.org>
+
+On Wed, 28 Nov 2012, David Fleck wrote:
+> OK, now I've done it.  I'm trying to import some new pictures from my
+> digital camera to digikam, only to discover that somehow I have horked up
+> my digikam (1.2.0) UI such that I can no longer get any toolbars -
+> including the one that allows me to import new pictures - to show up
+> across the top of the window.  I can manipulate the existing albums and
+> pictures no problem - but the toolbars appear to be irrevokably lost.
+>
+> Any suggestions on how to get a usable user interface back!?
+
+
+Answering my own question, on the off-chance anybody else finds it useful:
+
+The settings for digikam are in ~/.kde4/share/config/digikamrc
+
+I backed up this file and reopened digikam, which caused digikam to create 
+a new digikamrc file.  Now, for the most part I liked the customizations I 
+had put into digikam over the years, so I didn't want to have to just go 
+back to the original defaults.  So...
+
+I then compared the settings between the old and new files using vimdiff. 
+Doing so, I discovered about 5 "Toolbar=disabled" lines in my old copy.
+Using vimdiff, I got rid of those lines completely.
+
+I moved the default digikamrc aside, moved my modified (and hopefully 
+fixed) copy in place, and restarted digikam.
+
+Voila!  I have toolbars again, and can import new pictures. Success!
+And thank ${deity} for hand-editable config files. (Though a GUI I 
+couldn't screw up would be nice too.)
+
+--
+David Fleck
+david.fleck at mchsi.com
+
+
+
+From kingbeowulf at gmail.com  Wed Nov 28 18:14:14 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Wed, 28 Nov 2012 18:14:14 -0800
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+Message-ID: <50B6C4F6.3000007@gmail.com>
+
+On 11/28/2012 05:33 PM, David Fleck wrote:
+> OK, now I've done it.  I'm trying to import some new pictures from my
+> digital camera to digikam, only to discover that somehow I have horked up
+> my digikam (1.2.0) UI such that I can no longer get any toolbars -
+> including the one that allows me to import new pictures - to show up
+> across the top of the window.  I can manipulate the existing albums and
+> pictures no problem - but the toolbars appear to be irrevokably lost.
+>
+> Any suggestions on how to get a usable user interface back!?
+>
+> --
+> David Fleck
+> david.fleck at mchsi.com
+>
+>
+Did you try Ctrl-M to toggle menu and then "Settings -> Show" Toolbar to 
+show toolbar
+
+It been awhile and I might be foggy on the details.
+
+
+From david.fleck at mchsi.com  Thu Nov 29 04:39:56 2012
+From: david.fleck at mchsi.com (David Fleck)
+Date: Thu, 29 Nov 2012 06:39:56 -0600 (CST)
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <50B6C4F6.3000007@gmail.com>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+	<50B6C4F6.3000007@gmail.com>
+Message-ID: <alpine.LNX.2.00.1211290637540.2958@grond.sourballs.org>
+
+On Wed, 28 Nov 2012, King Beowulf wrote:
+> On 11/28/2012 05:33 PM, David Fleck wrote:
+>> OK, now I've done it.  I'm trying to import some new pictures from my
+>> digital camera to digikam, only to discover that somehow I have horked up
+>> my digikam (1.2.0) UI such that I can no longer get any toolbars -
+>> including the one that allows me to import new pictures - to show up
+>> across the top of the window.  I can manipulate the existing albums and
+>> pictures no problem - but the toolbars appear to be irrevokably lost.
+>>
+>> Any suggestions on how to get a usable user interface back!?
+>>
+> Did you try Ctrl-M to toggle menu and then "Settings -> Show" Toolbar to
+> show toolbar
+>
+> It been awhile and I might be foggy on the details.
+
+No, you are correct. Ctrl-M does just what I needed, but I forgot about 
+it.  Thanks.
+
+
+
+From david.fleck at mchsi.com  Thu Nov 29 04:41:35 2012
+From: david.fleck at mchsi.com (David Fleck)
+Date: Thu, 29 Nov 2012 06:41:35 -0600 (CST)
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <50B6C100.2070807@fredjame.cnc.net>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+	<50B6C100.2070807@fredjame.cnc.net>
+Message-ID: <alpine.LNX.2.00.1211290640060.2958@grond.sourballs.org>
+
+On Wed, 28 Nov 2012, Fred James wrote:
+> David Fleck wrote:
+>>
+>> Any suggestions on how to get a usable user interface back!?
+> At the risk of sounding (fill-in-the-blank) ... reboot! Unfortunately
+> some software is just as flaky as M$ could make it.
+
+Ah, but that wouldn't have helped here, because the unwanted settings were 
+already written into the .rc file, and thus preserved across reboots.
+
+
+From heinlein at madboa.com  Thu Nov 29 09:56:51 2012
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Thu, 29 Nov 2012 09:56:51 -0800 (PST)
+Subject: [PLUG] Live by the GUI, die by the GUI
+In-Reply-To: <alpine.LNX.2.00.1211281952250.2958@grond.sourballs.org>
+References: <alpine.LNX.2.00.1211281930420.2958@grond.sourballs.org>
+	<alpine.LNX.2.00.1211281952250.2958@grond.sourballs.org>
+Message-ID: <alpine.OSX.2.00.1211290952310.50788@springwater.galois.com>
+
+On Wed, 28 Nov 2012, David Fleck wrote:
+
+> The settings for digikam are in ~/.kde4/share/config/digikamrc
+>
+> I backed up this file and reopened digikam, which caused digikam to 
+> create a new digikamrc file.  Now, for the most part I liked the 
+> customizations I had put into digikam over the years, so I didn't 
+> want to have to just go back to the original defaults.  So...
+>
+> I then compared the settings between the old and new files using 
+> vimdiff. Doing so, I discovered about 5 "Toolbar=disabled" lines in 
+> my old copy. Using vimdiff, I got rid of those lines completely.
+
+This is a classic example of the argument for ASCII configuration 
+files. Sure, a binary configuration representation might mean 
+(slightly) faster launch times, but IMO it's a completely fair 
+trade-off since ASCII files allow great out-of-band control and they 
+can be easily stored in a VCS, copied to new home directories, shared 
+on mailing lists, etc.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From rshepard at appl-ecosys.com  Thu Nov 29 15:37:14 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 29 Nov 2012 15:37:14 -0800 (PST)
+Subject: [PLUG] Webinar Software Suggestions/Recommendations?
+Message-ID: <alpine.LNX.2.00.1211291534560.25063@salmo.appl-ecosys.com>
+
+   I'm considering preparing a webinar or three and would like suggestions
+and recommendations on software and other issues from those who have
+experience with these. Video conferencing is another option; is ekiga still
+viable?
+
+Rich
+
+
+
+From aaron at bavariati.org  Thu Nov 29 16:16:35 2012
+From: aaron at bavariati.org (Aaron Burt)
+Date: Thu, 29 Nov 2012 16:16:35 -0800
+Subject: [PLUG] Webinar Software Suggestions/Recommendations?
+In-Reply-To: <alpine.LNX.2.00.1211291534560.25063@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1211291534560.25063@salmo.appl-ecosys.com>
+Message-ID: <20121130001635.GB31382@aaron-acer>
+
+On Thu, Nov 29, 2012 at 03:37:14PM -0800, Rich Shepard wrote:
+>    I'm considering preparing a webinar or three and would like suggestions
+> and recommendations on software and other issues from those who have
+> experience with these. Video conferencing is another option; is ekiga still
+> viable?
+
+My office uses Google Hangouts - it's a little CPU-intensive but works well. 
+
+
+From rshepard at appl-ecosys.com  Thu Nov 29 16:52:35 2012
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Thu, 29 Nov 2012 16:52:35 -0800 (PST)
+Subject: [PLUG] Webinar Software Suggestions/Recommendations?
+In-Reply-To: <20121130001635.GB31382@aaron-acer>
+References: <alpine.LNX.2.00.1211291534560.25063@salmo.appl-ecosys.com>
+	<20121130001635.GB31382@aaron-acer>
+Message-ID: <alpine.LNX.2.00.1211291652060.25063@salmo.appl-ecosys.com>
+
+On Thu, 29 Nov 2012, Aaron Burt wrote:
+
+> My office uses Google Hangouts - it's a little CPU-intensive but works well.
+
+Aaron,
+
+   For video conferences or downloadable webinars?
+
+Thanks,
+
+Rich
+
+
+
+From rsteff at comcast.net  Fri Nov 30 15:49:04 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 30 Nov 2012 15:49:04 -0800
+Subject: [PLUG] Wrong Screen Resolution after this morning's update
+Message-ID: <50B945F0.6010708@comcast.net>
+
+I ran an update on Ubuntu 10.04 this morning. After if was finished it 
+required a reboot. After the reboot one of my two screens came up with 
+the wrong resolution -- sort of.
+
+I'm running the NVIDIA driver, version 195.36.24. My video card supports 
+two monitors, one DVI, and one VGA. I recently got a second 1680 x 1050 
+monitor, and have them set up as "TwinView", which means that I can drag 
+the cursor from left to right and go from the left edge of the left 
+screen to the right edge of the right screen.
+
+After the reboot this morning, I see an image on the left screen that 
+goes about halfway across, at which point the left edge of what's no the 
+right hand monitor is displayed. The correct image is displayed on the 
+right hand monitor. In other words, what is in the upper left corner of 
+the right hand monitor is also displayed in the upper left hand corner 
+of the far right quarter of the left hand monitor.
+
+The NVIDIA X Server Settings too shows both monitors detected at the 
+correct resolution.
+
+Any idea where to start looking for how to fix this so that each screen 
+has its own image displayed?
+
+Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From rsteff at comcast.net  Fri Nov 30 16:06:00 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 30 Nov 2012 16:06:00 -0800
+Subject: [PLUG] Wrong Screen Resolution after this morning's update
+In-Reply-To: <50B945F0.6010708@comcast.net>
+References: <50B945F0.6010708@comcast.net>
+Message-ID: <50B949E8.40309@comcast.net>
+
+On 11/30/2012 03:49 PM, Richard C. Steffens wrote:
+> After the reboot this morning, I see an image on the left screen that
+> goes about halfway across, at which point the left edge of what's no the
+> right hand monitor is displayed. The correct image is displayed on the
+> right hand monitor. In other words, what is in the upper left corner of
+> the right hand monitor is also displayed in the upper left hand corner
+> of the far right quarter of the left hand monitor.
+
+With further fiddling, I see that I can extend a window on the left 
+screen all the way to the right of that screen, but that it also shows 
+up in the left had quarter of the right screen. So, for some reason, the 
+two views overlap.
+
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From kingbeowulf at gmail.com  Fri Nov 30 18:28:09 2012
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Fri, 30 Nov 2012 18:28:09 -0800
+Subject: [PLUG] Wrong Screen Resolution after this morning's update
+In-Reply-To: <50B945F0.6010708@comcast.net>
+References: <50B945F0.6010708@comcast.net>
+Message-ID: <50B96B39.5070603@gmail.com>
+
+On 11/30/2012 03:49 PM, Richard C. Steffens wrote:
+> I ran an update on Ubuntu 10.04 this morning. After if was finished it
+> required a reboot. After the reboot one of my two screens came up with
+> the wrong resolution -- sort of.
+>
+> I'm running the NVIDIA driver, version 195.36.24. My video card supports
+> two monitors, one DVI, and one VGA. I recently got a second 1680 x 1050
+> monitor, and have them set up as "TwinView", which means that I can drag
+> the cursor from left to right and go from the left edge of the left
+> screen to the right edge of the right screen.
+>
+> After the reboot this morning, I see an image on the left screen that
+> goes about halfway across, at which point the left edge of what's no the
+> right hand monitor is displayed. The correct image is displayed on the
+> right hand monitor. In other words, what is in the upper left corner of
+> the right hand monitor is also displayed in the upper left hand corner
+> of the far right quarter of the left hand monitor.
+>
+> The NVIDIA X Server Settings too shows both monitors detected at the
+> correct resolution.
+>
+> Any idea where to start looking for how to fix this so that each screen
+> has its own image displayed?
+>
+> Thanks.
+>
+Richard
+
+you can set all thisup simply in a file in /etc/X11/xorg.conf.d  but 
+lets do it the "GUI" way. Now, I run Nvidia 310.19, so my gui has a few 
+different bells and whistles. When you run the nvidia-settings gui, you 
+should have a "X Server Display Configuration". Bottom right corner 
+click on "advanced."  No you should see at top a graphical 
+representation of your 2 monitors. Do they overlap?  If so move 
+themapart. Following example is for my 1920x1080 LCD and 1024x768 CRT. 
+Click on each monitor to check/set settings (reddish border when selected).
+
+LCD:
+Configuration: Twinview
+Resolution: 1920x1008 60Hz
+Position: Absolute +0+0
+Viewport in: 1920x1080
+Viewportout: 1920x1080+0+0
+Panning: 1920x1080
+primary display checked
+
+CRT:
+Configuration: Twinview
+Resolution: 1024x76885Hz
+Position: Absolute +1920+0
+Viewport in: 1024x768
+Viewportout: 1024x768+0+0
+Panning: 1024x768
+primary display *unchecked*
+
+no rotation/no reflection for both.
+
+Hit "apply" and then click on monitor edges to selct the whole X 
+screen.  Click on MetaMode to give a list: the 1st one is the default. 
+You need to make sure the config you just set is the default. You will 
+also see all the modes that are autodetected.
+
+Essentially you want the right hand monitor to start where the left one 
+ends. Once you find settings that work, click on "save to X 
+configuration file"  (need to be root, or sudo whatever text editor and 
+copy/paste)to save the settings.
+
+Hope this helps.
+Ed
+uration: Twinview Resolution: 1920x1008 60Hz Position: Absolute +0+0 
+Viewport in: 1920x1080 Viewport out: 1920x1080+0+0 Panning: 1920x1080 
+primary display checked
+
+
+From rsteff at comcast.net  Fri Nov 30 21:15:16 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 30 Nov 2012 21:15:16 -0800
+Subject: [PLUG] Wrong Screen Resolution after this morning's update
+In-Reply-To: <50B96B39.5070603@gmail.com>
+References: <50B945F0.6010708@comcast.net> <50B96B39.5070603@gmail.com>
+Message-ID: <50B99264.8080607@comcast.net>
+
+On 11/30/2012 06:28 PM, King Beowulf wrote:
+> On 11/30/2012 03:49 PM, Richard C. Steffens wrote:
+>> I ran an update on Ubuntu 10.04 this morning. After if was finished it
+>> required a reboot. After the reboot one of my two screens came up with
+>> the wrong resolution -- sort of.
+>>
+>> I'm running the NVIDIA driver, version 195.36.24. My video card supports
+>> two monitors, one DVI, and one VGA. I recently got a second 1680 x 1050
+>> monitor, and have them set up as "TwinView", which means that I can drag
+>> the cursor from left to right and go from the left edge of the left
+>> screen to the right edge of the right screen.
+>>
+>> After the reboot this morning, I see an image on the left screen that
+>> goes about halfway across, at which point the left edge of what's no the
+>> right hand monitor is displayed. The correct image is displayed on the
+>> right hand monitor. In other words, what is in the upper left corner of
+>> the right hand monitor is also displayed in the upper left hand corner
+>> of the far right quarter of the left hand monitor.
+>>
+>> The NVIDIA X Server Settings too shows both monitors detected at the
+>> correct resolution.
+>>
+>> Any idea where to start looking for how to fix this so that each screen
+>> has its own image displayed?
+>>
+>> Thanks.
+>>
+> Richard
+>
+> you can set all thisup simply in a file in /etc/X11/xorg.conf.d  but
+> lets do it the "GUI" way. Now, I run Nvidia 310.19, so my gui has a few
+> different bells and whistles. When you run the nvidia-settings gui, you
+> should have a "X Server Display Configuration". Bottom right corner
+> click on "advanced."  No you should see at top a graphical
+> representation of your 2 monitors. Do they overlap?  If so move
+> themapart. Following example is for my 1920x1080 LCD and 1024x768 CRT.
+> Click on each monitor to check/set settings (reddish border when selected).
+>
+> LCD:
+> Configuration: Twinview
+> Resolution: 1920x1008 60Hz
+> Position: Absolute +0+0
+> Viewport in: 1920x1080
+> Viewportout: 1920x1080+0+0
+> Panning: 1920x1080
+> primary display checked
+>
+> CRT:
+> Configuration: Twinview
+> Resolution: 1024x76885Hz
+> Position: Absolute +1920+0
+> Viewport in: 1024x768
+> Viewportout: 1024x768+0+0
+> Panning: 1024x768
+> primary display *unchecked*
+>
+> no rotation/no reflection for both.
+>
+> Hit "apply" and then click on monitor edges to selct the whole X
+> screen.  Click on MetaMode to give a list: the 1st one is the default.
+> You need to make sure the config you just set is the default. You will
+> also see all the modes that are autodetected.
+>
+> Essentially you want the right hand monitor to start where the left one
+> ends. Once you find settings that work, click on "save to X
+> configuration file"  (need to be root, or sudo whatever text editor and
+> copy/paste)to save the settings.
+>
+> Hope this helps.
+> Ed
+> uration: Twinview Resolution: 1920x1008 60Hz Position: Absolute +0+0
+> Viewport in: 1920x1080 Viewport out: 1920x1080+0+0 Panning: 1920x1080
+> primary display checked
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+Thanks. I'll give that a try when I reconfigure things on Sunday. 
+Meanwhile, I'll start a new thread for my next problem.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From rsteff at comcast.net  Fri Nov 30 21:26:41 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 30 Nov 2012 21:26:41 -0800
+Subject: [PLUG] Wallpaper only after nVidia driver installation in Ubuntu
+	12.04
+Message-ID: <50B99511.1080404@comcast.net>
+
+I have Ubuntu 12.04 running on my test system. I added an nVidia card to 
+the system and connected one of my wide screen monitors. So far, so 
+good. The system was using the default driver, so I followed (possibly 
+the wrong) directions to install the nVidia driver. The instructions I 
+found were at:
+
+http://www.ubuntugeek.com/how-to-install-nvidia-295-40-drivers-in-ubuntu-12-0411-10-using-ppa.html
+
+When I rebooted the machine and logged in, I got a screen with 
+wallpaper, but nothing else. I can right-click and get the usual context 
+menu. I can get to a terminal screen and run commands.
+
+Next, I ran halt -- which hung partway through. I powered down, put the 
+second monitor on the Y cable that connects to the card, and booted in 
+to Debian. Both monitors display the same image. Next I booted into 
+Ubuntu, again. At the GRUB stage, both monitors showed the same 
+information. Once Ubuntu came up, only the first monitor showed 
+anything. I logged in, and again, only got the wallpaper image on the 
+first monitor. The second monitor was blank. Switching to a terminal, I 
+get the same image on both monitors.
+
+I've tried searching but don't have useful foo. Any ideas on where to 
+turn? Is there some command I could run, or a configuration file I could 
+tweak from the terminal screen?
+
+Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+
+From rsteff at comcast.net  Fri Nov 30 22:07:23 2012
+From: rsteff at comcast.net (Richard C. Steffens)
+Date: Fri, 30 Nov 2012 22:07:23 -0800
+Subject: [PLUG] Wallpaper only after nVidia driver installation in
+ Ubuntu 12.04
+In-Reply-To: <50B99511.1080404@comcast.net>
+References: <50B99511.1080404@comcast.net>
+Message-ID: <50B99E9B.3020700@comcast.net>
+
+On 11/30/2012 09:26 PM, Richard C. Steffens wrote:
+> I have Ubuntu 12.04 running on my test system. I added an nVidia card to
+> the system <...>
+
+Further searching turned up:
+
+---------------------------------------------
+jockey-text --help
+jockey-text -l
+jockey-text -e xorg:nvidia_current
+---------------------------------------------
+
+as a way to enable the nvidia driver from the terminal. 
+xorg:nvidia_current was enabled. But there was xorg:nvidia_173 listed 
+above current. I ran jockey-text -e xorg:nvidia_173 and rebooted. Now, I 
+do have the expected menu bar, and can run programs. Foobilliard runs 
+better than with the default video driver, but is not as smooth as on my 
+other machine. I suspect that's because the card in the test machine is 
+an old Quadro NVS 285 card with only 64 MB of total memory.
+
+However, I still don't have the second monitor. I ran nvidia-settings. 
+It only sees one screen. On the X Server Display Configuration page 
+there is a message that says,
+
+---------------------------------------------
+Unable to load X-Server Display Configuration page:
+
+The NVIDIA X driver on gateway-u 1204:0.0 is not new
+enough to support the nvidia-settings Display Configuration page.
+---------------------------------------------
+
+A somewhat odd thing: NVIDIA X SErver Settings on the test machine knows 
+what nVidia card is installed, the Quadro NVS 285. NVIDIA X Server 
+Settings on this machine says GPU 0 (Unknown). Right off hand I don't 
+remember what model card it is, but it does have 512 MB of memory.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+

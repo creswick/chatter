@@ -1,0 +1,4194 @@
+From johnxj at comcast.net  Tue Oct  1 08:09:45 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Tue, 1 Oct 2013 08:09:45 -0700
+Subject: [PLUG] Greek keyboard
+Message-ID: <20131001080945.4d63b6a2@Devil8>
+
+I'm sure the instructions for switching the keyboard on my Xubuntu
+12.04 laptop to Greek are out there on the net somewhere, but I want to
+set only my second workspace to Greek, leaving the first workspace as
+it is.
+
+Is this a possibility?
+
+From dick at dicksteffens.com  Tue Oct  1 14:34:15 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 01 Oct 2013 14:34:15 -0700
+Subject: [PLUG] Battery backup issue
+In-Reply-To: <20130930212118.GA6170@gate.kl-ic.com>
+References: <524914D6.80707@dicksteffens.com>
+	<20130930212118.GA6170@gate.kl-ic.com>
+Message-ID: <524B3FD7.5070302@dicksteffens.com>
+
+On 09/30/2013 02:21 PM, Keith Lofstrom wrote:
+> On Sun, Sep 29, 2013 at 11:06:14PM -0700, Dick Steffens wrote:
+>> I have an APC Back-UPS ES 550 UPS.
+> Does the unplugged UPS provide enough power to start up the
+> machine?
+
+Yes.
+
+> That is probably an Offline/Standby UPS.
+
+I think this says it's standby:
+
+http://www.apc.com/products/resource/include/techspec_index.cfm?base_sku=BE550G&total_watts=200&tab=models
+
+
+> <...> Inside the computer power supply are some
+> electrolytic capacitors which may have been full value when
+> the machine was new, but may have been cooked to weakness.
+
+I'm guessing this is likely.
+
+Might be time to look for a replacement power supply.
+
+Thanks for the info, Keith.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From dick at dicksteffens.com  Tue Oct  1 17:54:41 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 01 Oct 2013 17:54:41 -0700
+Subject: [PLUG] Recommended Tablet Computers?
+Message-ID: <524B6ED1.1040404@dicksteffens.com>
+
+I'd like to find a tablet computer that I can use with wi-fi at home. I 
+don't need a service to go with it, and I'd just as soon have it run a 
+flavor of Linux. What's the right set of Google foo to find linux 
+compatible tablet hardware? The little bit of looking I've done has some 
+old links, or talks more about software.
+
+I'll want to be able to visit web sites and probably use it for a MythTV 
+remote.
+
+Any recommendations?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From elcaseti at gmail.com  Tue Oct  1 18:03:32 2013
+From: elcaseti at gmail.com (elcaseti .)
+Date: Tue, 1 Oct 2013 18:03:32 -0700
+Subject: [PLUG] Recommended Tablet Computers?
+In-Reply-To: <524B6ED1.1040404@dicksteffens.com>
+References: <524B6ED1.1040404@dicksteffens.com>
+Message-ID: <CACTDRAkDwGWRXUEzROqzG5MNLnPdqwCArXVk022x8NrPfFD84Q@mail.gmail.com>
+
+http://makeplaylive.com/  This is for the Vivaldi GNU/Linux tablet running
+KDE Plasma Active for touch screens.  If you need something right away, &
+Android Linux is good enough, then you might try the Nexus 7 Android
+tablet.  I'm not sure if Myth TV can be controlled via Android.
+
+Cheers,
+
+Elcaset
+
+
+On Tue, Oct 1, 2013 at 5:54 PM, Dick Steffens <dick at dicksteffens.com> wrote:
+
+> I'd like to find a tablet computer that I can use with wi-fi at home. I
+> don't need a service to go with it, and I'd just as soon have it run a
+> flavor of Linux. What's the right set of Google foo to find linux
+> compatible tablet hardware? The little bit of looking I've done has some
+> old links, or talks more about software.
+>
+> I'll want to be able to visit web sites and probably use it for a MythTV
+> remote.
+>
+> Any recommendations?
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+
+-- 
+Free Geek Seattle- Helping The Needy Get Nerdy
+http://www.freegeekseattle.org/
+https://groups.google.com/group/freegeek-seattle/topics?hl=en
+
+K Desktop Environment- Experience Freedom & User Friendliness
+http://kde.org/
+
+Free Lossless Audio Codec
+https://secure.wikimedia.org/wikipedia/en/wiki/Flac
+
+Protect your digital freedom and privacy, eliminate DRM, learn more at
+http://www.defectivebydesign.org/what_is_drm
+
+From michael at jamhome.us  Tue Oct  1 18:46:05 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Tue, 1 Oct 2013 18:46:05 -0700
+Subject: [PLUG] Recommended Tablet Computers?
+In-Reply-To: <CACTDRAkDwGWRXUEzROqzG5MNLnPdqwCArXVk022x8NrPfFD84Q@mail.gmail.com>
+References: <524B6ED1.1040404@dicksteffens.com>
+	<CACTDRAkDwGWRXUEzROqzG5MNLnPdqwCArXVk022x8NrPfFD84Q@mail.gmail.com>
+Message-ID: <20131002014605.GA26054@jamhome.us>
+
+On Tue, Oct 01, 2013 at 06:03:32PM -0700, elcaseti . wrote:
+> http://makeplaylive.com/  This is for the Vivaldi GNU/Linux tablet running
+> KDE Plasma Active for touch screens.  If you need something right away, &
+> Android Linux is good enough, then you might try the Nexus 7 Android
+> tablet.  I'm not sure if Myth TV can be controlled via Android.
+
+There are three apps in the play store. One of them seems reasonable (not a first
+project, still being maintained)
+
+https://play.google.com/store/apps/details?id=tkj.android.homecontrol.mythmote
+
+> On Tue, Oct 1, 2013 at 5:54 PM, Dick Steffens <dick at dicksteffens.com> wrote:
+> 
+> > I'd like to find a tablet computer that I can use with wi-fi at home. I
+> > don't need a service to go with it, and I'd just as soon have it run a
+> > flavor of Linux. What's the right set of Google foo to find linux
+> > compatible tablet hardware? The little bit of looking I've done has some
+> > old links, or talks more about software.
+> >
+> > I'll want to be able to visit web sites and probably use it for a MythTV
+> > remote.
+> >
+> > Any recommendations?
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+Curiosity is worth looking for, especially in technical interviews.
+    ~ Adam Shand
+
+From dexter at ambidexter.com  Thu Oct  3 10:46:40 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 03 Oct 2013 10:46:40 -0700
+Subject: [PLUG] TONIGHT: October PLUG Meeting: FreeNAS Plugins and more
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <524DAD80.50700@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Michael Dexter
+What: FreeNAS Plugins
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, October 3rd, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+FreeNAS is an open source Network Attached Storage system powered by
+FreeBSD that features the ZFS filesystem.
+
+Michael Dexter will demonstrate the FreeNAS 9.1.1 Plugins architecture
+using the Plex Media Server and various virtual machines.
+
+And to be honest, I will put FreeNAS in context and field your ZFS
+questions.
+
+For more information: http://freenas.org
+
+Many attendees will break for a social hour at the Lucky Lab Brew Pub NW
+at 1945 NW Quimby
+
+See you there!
+
+Calagator Page: http://calagator.org/events/1250464770
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From dick at dicksteffens.com  Sat Oct  5 13:28:02 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 05 Oct 2013 13:28:02 -0700
+Subject: [PLUG] MythTV setup
+Message-ID: <52507652.7060208@dicksteffens.com>
+
+After a couple of weeks I now have some time to spend on my MythTV 
+setup. The box has been shut down for those two weeks. I now have made a 
+place for it where it can be left running.
+
+For whatever reason when I powered up the box the schedule information 
+was missing. I also had an error message asking me if the back end was 
+running, and if the IP address was correct. After running mythtv-setup I 
+verified that the answer to both of those questions is yes. And, after 
+restarting mythbackend I'm no longer asked those questions.
+
+However, I have no program data.
+
+I went back to mythtv-setup and checked Video source setup. It shows 
+that for the video source named Antenna, the Grabber is North America 
+(Schedules Direct) (Internal). Using the arrow keys I cannot get to the 
+Retrieve Lineups button. Clicking on it with the mouse cursor I can see, 
+briefly, a progress bar that shows 50%, and has shown 50% for many minutes.
+
+On the Connect source to input screen, I can reach the Fetch channels 
+from listing source button, as well as the Scan for channels button. 
+When I clicked on the Scan for channels button I watched it step through 
+all the channels (0? through 69) that are visible from my antenna. But 
+when I click on the Fetch channels from listings source button I don't 
+see anything happening.
+
+Any idea what's messed up, and how to fix it?
+
+Thanks.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From rshepard at appl-ecosys.com  Sat Oct  5 14:42:32 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 5 Oct 2013 14:42:32 -0700 (PDT)
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+Message-ID: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+
+   I have an ION USB turntable that works with audacity to convert vinyl
+records to digital files. Does anyone know if I can do the same with the ION
+USB cassette player? I'd like to convert those old cassettes while they
+still have some bits in the right places.
+
+Rich
+
+
+From dick at dicksteffens.com  Sat Oct  5 15:04:45 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 05 Oct 2013 15:04:45 -0700
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+Message-ID: <52508CFD.3080101@dicksteffens.com>
+
+On 10/05/2013 02:42 PM, Rich Shepard wrote:
+>     I have an ION USB turntable that works with audacity to convert vinyl
+> records to digital files. Does anyone know if I can do the same with the ION
+> USB cassette player? I'd like to convert those old cassettes while they
+> still have some bits in the right places.
+>
+
+I have one of those on a shelf somewhere. I got it last December, but 
+haven't figured out a way to use it in Linux, and haven't gotten around 
+to using it with XP.
+
+When you use your ION USB turntable, do you use the USB connection with 
+Linux? I haven't found a way to use the USB part except with XP. (I've 
+had it for several years) The version of audacity that came with it 
+includes a Windows driver for the USB side. I have used the turntable 
+with Linux by connecting its standard audio cables to the audio in part 
+of my sound card. I'd rather use the USB connection because it seems to 
+handle record level setting on the USB side better then I get with my 
+own record level settings on the sound card.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From paulm at freegeek.org  Sat Oct  5 15:31:12 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 05 Oct 2013 15:31:12 -0700
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+Message-ID: <1381012272.9220.3.camel@localhost>
+
+On Sat, 2013-10-05 at 14:42 -0700, Rich Shepard wrote:
+> I have an ION USB turntable that works with audacity to convert vinyl
+> records to digital files. Does anyone know if I can do the same with the ION
+> USB cassette player? I'd like to convert those old cassettes while they
+> still have some bits in the right places.
+
+I've definitely come across a USB cassette player that worked in Linux
+(without additional drivers) it was some cheapo on name Chinese brand
+though. 
+
+USB audio is a standard specification, so anything that reports itself
+as a USB audio device should work out of the box.
+
+Paul
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From rshepard at appl-ecosys.com  Sat Oct  5 17:02:30 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 5 Oct 2013 17:02:30 -0700 (PDT)
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <52508CFD.3080101@dicksteffens.com>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+	<52508CFD.3080101@dicksteffens.com>
+Message-ID: <alpine.LNX.2.00.1310051700380.20752@salmo.appl-ecosys.com>
+
+On Sat, 5 Oct 2013, Dick Steffens wrote:
+
+> When you use your ION USB turntable, do you use the USB connection with
+> Linux?
+
+   Actually, I've not yet tried it. I bought it because I understood that it
+would work with linux.
+
+   Paul's information suggests that the turntable (and the cassette player)
+would work with linux because audio output should be OS-agnostic.
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sat Oct  5 17:05:52 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 5 Oct 2013 17:05:52 -0700 (PDT)
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <1381012272.9220.3.camel@localhost>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+	<1381012272.9220.3.camel@localhost>
+Message-ID: <alpine.LNX.2.00.1310051703010.20752@salmo.appl-ecosys.com>
+
+On Sat, 5 Oct 2013, Paul Munday wrote:
+
+> I've definitely come across a USB cassette player that worked in Linux
+> (without additional drivers) it was some cheapo on name Chinese brand
+> though.
+>
+> USB audio is a standard specification, so anything that reports itself
+> as a USB audio device should work out of the box.
+
+Paul,
+
+   Your second paragraph suggests that your first paragraph is not an
+exception. I know nothing about audio with linux, but suspect that a USB
+turntable or cassette deck should not require Microsoft-specific software to
+work.
+
+   Time to do a bit more digging.
+
+Thanks,
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sat Oct  5 17:20:13 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 5 Oct 2013 17:20:13 -0700 (PDT)
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <1381012272.9220.3.camel@localhost>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+	<1381012272.9220.3.camel@localhost>
+Message-ID: <alpine.LNX.2.00.1310051717250.20752@salmo.appl-ecosys.com>
+
+On Sat, 5 Oct 2013, Paul Munday wrote:
+
+> USB audio is a standard specification, so anything that reports itself as
+> a USB audio device should work out of the box.
+
+Paul/Dick:
+
+   Audacity is cross-platform; ergo, if it works equally well in windoze and
+linux it'll work with the ION hardware.
+
+   Here's the URL for their tutorial on using music-generating devices and
+producing audio CDs and/or .mp3 files:
+
+<http://manual.audacityteam.org/o/man/tutorial_copying_tapes_lps_or_minidiscs_to_cd.html>
+
+   I'm ordering the cassette player.
+
+Thanks to both of you,
+
+Rich
+
+
+From pm at nellump.net  Sat Oct  5 18:03:48 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Sat, 5 Oct 2013 18:03:48 -0700
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+Message-ID: <20131006010348.GA11764@jupiter.nellump.net>
+
+On Sat, Oct 05, 2013 at 02:42:32PM -0700, Rich Shepard wrote:
+> I have an ION USB turntable that works with audacity to convert
+> vinyl records to digital files. Does anyone know if I can do the
+> same with the ION USB cassette player? I'd like to convert those old
+> cassettes while they still have some bits in the right places.
+
+You don't need special hardware for that.  I've had good success
+connecting the line out from a tape deck in the microphone jack and
+using arecord to dump the incoming audio signal to disk.  Clean up the
+resulting PCM in Audacity and export to your preferred file type (MP3,
+FLAC, etc.).
+
+
+-- 
+Paul
+
+From dick at dicksteffens.com  Sat Oct  5 18:19:31 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 05 Oct 2013 18:19:31 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <523CEA25.90603@seitzassoc.com>
+References: <523CDDCD.60606@dicksteffens.com> <523CEA25.90603@seitzassoc.com>
+Message-ID: <5250BAA3.9080203@dicksteffens.com>
+
+On 09/20/2013 05:36 PM, Galen Seitz wrote:
+> On 09/20/13 16:44, Dick Steffens wrote:
+>> I'm testing Mythbuntu on an Toshiba Satellite laptop. Everything
+>> installs and runs. I have a simple dipole antenna connected to an
+>> HDHomeRun box connected to my home network. I can see a number of local
+>> channels. Those sending a non-HD signal are clear. Those sending an HD
+>> signal are slightly choppy. I'm guessing this is related to system
+>> memory, but wanted to get other opinions.
+> How are you viewing this?  Via mythtv's 'live tv' feature, or are you
+> viewing a recording?
+
+Even though I don't have any program guide info today I can still watch 
+and record with MythTV. Around 4:15 I recorded a part of a '60s western 
+on one of the non-HD channels. Later on I played it back. Nice and 
+clear. Around 5:00 I decided to see if the Ohio State/Northwestern game 
+would come in choppy on the HD channel. Nice and clear. Later on I'll 
+try recording a segment of it and see how it looks played back. What I'm 
+wondering is if I'm getting a clearer signal today than I got a couple 
+of weeks ago. It's a nice clear day (weather-wise) today. I don't recall 
+what the weather was like when I tried looking at an HD channel before.
+
+More experimenting.
+
+Interesting side note:
+
+I have cable going to the TV in the living room, and I'm getting the 
+non-HD version of channel 2. I tuned the game on that TV and also on the 
+Myth box. There is a delay of several seconds (5? 10?) between the two. 
+Strange.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From denis.heidtmann at gmail.com  Sat Oct  5 18:41:44 2013
+From: denis.heidtmann at gmail.com (Denis Heidtmann)
+Date: Sat, 5 Oct 2013 18:41:44 -0700
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <20131006010348.GA11764@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+	<20131006010348.GA11764@jupiter.nellump.net>
+Message-ID: <CAArUT0hw2b7eDV+aY+-8F9Y8k+TzMdXd7svwew3ZK4pBL8Se5A@mail.gmail.com>
+
+On Sat, Oct 5, 2013 at 6:03 PM, Paul Mullen <pm at nellump.net> wrote:
+
+>
+> You don't need special hardware for that.  I've had good success
+> connecting the line out from a tape deck in the microphone jack and
+> using arecord to dump the incoming audio signal to disk.
+> Paul
+
+
+I expect that in some cases distortion will occur.  Line levels are are
+significantly higher than mic. levels.  My card has separate input jacks
+for mic. and line.  However, some cards may have built-in
+software-selectable attenuators to accommodate line levels in the mic.
+input.
+
+-Denis
+
+From rshepard at appl-ecosys.com  Sat Oct  5 20:12:03 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 5 Oct 2013 20:12:03 -0700 (PDT)
+Subject: [PLUG] Cassette Tapes to .mp3 Files
+In-Reply-To: <20131006010348.GA11764@jupiter.nellump.net>
+References: <alpine.LNX.2.00.1310051440300.20752@salmo.appl-ecosys.com>
+	<20131006010348.GA11764@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1310052011490.30612@salmo.appl-ecosys.com>
+
+On Sat, 5 Oct 2013, Paul Mullen wrote:
+
+> You don't need special hardware for that.  I've had good success
+> connecting the line out from a tape deck in the microphone jack and using
+> arecord to dump the incoming audio signal to disk.  Clean up the resulting
+> PCM in Audacity and export to your preferred file type (MP3, FLAC, etc.).
+
+   Thanks, Paul.
+
+Rich
+
+
+From dexter at ambidexter.com  Sat Oct 12 23:01:09 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Sat, 12 Oct 2013 23:01:09 -0700
+Subject: [PLUG] Announcement: October PLUG Advanced Topics: Virtual Machine
+	Fair
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <525A3725.7050807@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Daniel Hedlund, Michael Dexter and a few special guests
+What: Virtual Machine Fair: Erlang/ocaml/Haskell VMs, bhyve, Xen & LXCs!
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, October 15th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+Contain yourselves!
+
+Daniel and I have been working with various virtual machines
+technologies and would like to have a roundtable style talk with micro
+presentations about each one, including:
+
+Erlang VMs
+bhyve BSD Hypervisor VMs
+Xen VM's
+Haskell VMs (hopefully) and
+Linux Containers if we can rattle a familiar PLUG face's cage
+
+We've invited a few guests and will give you a survey of some of the
+great things going on with open source virtualization technology.
+
+Links:
+http://halvm.org/
+http://www.openmirage.org/
+https://github.com/GaloisInc/HaLVM
+http://bhyve.org
+http://www.citrix.com/products/xenserver/overview.html
+http://www.netbsd.org/ports/xen/
+http://lxc.sourceforge.net
+
+
+Many will head to the Lucky Lab on Hawthorne after the meeting.
+
+Calagator Page: http://calagator.org/events/1250464772
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+From dick at dicksteffens.com  Sun Oct 13 15:15:16 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 13 Oct 2013 15:15:16 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+Message-ID: <525B1B74.1090909@dicksteffens.com>
+
+When I was setting up my current desktop, a Gateway with a 64 bit 
+processor, I remember learning that the nVidia driver did not work with 
+64 bit, but would work with 32 bit. And so that is what I am running on 
+this machine. This was back in March, 2013.
+
+I'm running the 64 bit version of Mythbuntu on my Toshiba Satellite. No 
+nVidia there. When I get around to installing it on a box with an nVidia 
+card in it, will I run into the same issue I had with the Gateway, or 
+has that been resolved since March?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From kingbeowulf at gmail.com  Sun Oct 13 20:47:38 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sun, 13 Oct 2013 20:47:38 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: <525B1B74.1090909@dicksteffens.com>
+References: <525B1B74.1090909@dicksteffens.com>
+Message-ID: <525B695A.4020304@gmail.com>
+
+On 10/13/2013 03:15 PM, Dick Steffens wrote:
+> When I was setting up my current desktop, a Gateway with a 64 bit 
+> processor, I remember learning that the nVidia driver did not work with 
+> 64 bit, but would work with 32 bit. And so that is what I am running on 
+> this machine. This was back in March, 2013.
+> 
+> I'm running the 64 bit version of Mythbuntu on my Toshiba Satellite. No 
+> nVidia there. When I get around to installing it on a box with an nVidia 
+> card in it, will I run into the same issue I had with the Gateway, or 
+> has that been resolved since March?
+> 
+
+Nvidia has had 64bit versions of their proprietary binary drivers
+available for many years - I use it on Slackware64. I don't know why you
+were told, or think, that Nvidia 64bit drivers are unavailable.
+
+This might be (lazy) fail of your Linux distribution package managers.
+There is no reason any of the 64bit Ubuntu flavors should not have
+current Nvidia drivers for both CPU architectures.
+
+For newer Linux kernels, if the built-in nouveau driver is inadequate
+for your needs, you can blacklist that driver and download the
+appropriate version for you CPU and GPU from here:
+
+http://www.nvidia.com/object/unix.html
+
+The download is a script + driver that you run as root (or via sudo) in
+the command line that steps you through the install process. This
+installation works ok 99% of the time as long as your distro didn't do
+anything freaky with library locations.
+
+Have fun.
+Ed
+
+
+From dick at dicksteffens.com  Sun Oct 13 21:46:13 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 13 Oct 2013 21:46:13 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: <525B695A.4020304@gmail.com>
+References: <525B1B74.1090909@dicksteffens.com> <525B695A.4020304@gmail.com>
+Message-ID: <525B7715.2060807@dicksteffens.com>
+
+On 10/13/2013 08:47 PM, King Beowulf wrote:
+> On 10/13/2013 03:15 PM, Dick Steffens wrote:
+>> When I was setting up my current desktop, a Gateway with a 64 bit
+>> processor, I remember learning that the nVidia driver did not work with
+>> 64 bit, but would work with 32 bit.
+> Nvidia has had 64bit versions of their proprietary binary drivers
+> available for many years - I use it on Slackware64. I don't know why you
+> were told, or think, that Nvidia 64bit drivers are unavailable.
+>
+> This might be (lazy) fail of your Linux distribution package managers.
+> There is no reason any of the 64bit Ubuntu flavors should not have
+> current Nvidia drivers for both CPU architectures.
+
+I don't remember where I got the idea, but it was back when I was 
+setting up this box with Ubuntu 12.04, back in the spring.
+
+Well, I'll have to try it again when the time comes to re-install on 
+this machine. At this point everything works fine, so I'm not concerned 
+about not taking advantage of the 64 bit capability of the machine. And 
+since this machine is the one with the weak capacitors in the power 
+supply (at least that's what it seems to be) I may not bother until I 
+upgrade to a newer box.
+
+Thanks for the info.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From john at meissen.org  Sun Oct 13 21:58:29 2013
+From: john at meissen.org (John Meissen)
+Date: Sun, 13 Oct 2013 21:58:29 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: (Your message of Sun, 13 Oct 2013 20:47:38 PDT.)
+	<525B695A.4020304@gmail.com>
+Message-ID: <20131014045829.4744E17F6F5@john>
+
+> On 10/13/2013 03:15 PM, Dick Steffens wrote:
+> > When I was setting up my current desktop, a Gateway with a 64 bit 
+> > processor, I remember learning that the nVidia driver did not work with 
+> > 64 bit, but would work with 32 bit. And so that is what I am running on 
+> > this machine. This was back in March, 2013.
+> 
+> Nvidia has had 64bit versions of their proprietary binary drivers
+> available for many years - I use it on Slackware64. I don't know why you
+> were told, or think, that Nvidia 64bit drivers are unavailable.
+> 
+
+I'm currently running a 64-bit kernel and the nVidia driver on my Mythbuntu 
+box. I needed the proprietary driver to get audio over hdmi functioning.
+It works very well.
+
+At least, so far.
+
+I've been struggling with one system because I recently upgraded from 10.04LTS 
+to 12.04LTS. And so I spent far too much time trying to restore the Gnome 
+interface. Since then I've been randomly getting "Maximum number of clients 
+reached" from the X server (a known issue, but apparently not a very high priority 
+issue). 
+ https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1045899
+
+Regardless, the only real way to recover is to restart X. Since I was facing 
+that again anyway yesterday I figured it was a good time to do updates.
+
+When I rebooted my display wouldn't configure properly. 
+
+I go though a KVM that doesn't pass EDID from the monitor. Because of that I 
+have an xorg.conf file, with a "PreferredMode" option to explicitly set the 
+video mode that I need. For some reason, it's ignoring that now. A line in the 
+log file says, "'PreferredMode' option ignored" with no explanation.
+
+>From what I've found online this seems to be an issue with the nVidia driver. I 
+can't say that for sure, all I know is this update broke my system. Now I'm 
+afraid to do updates on any of my other systems. There have been other issues 
+since the update - after unblanking the screen this morning compiz locked up 
+with 100% cpu, and I had to ssh in from another system and kill it. And certain 
+menus assocated with specific programs are opening in strange locations.
+
+I can almost believe Ubuntu sabatoged X to create support for their "Mir" 
+replacement. Right now I'm really, really unhappy. X11R4 has been around since 
+before Linux. It should be one of the most mature programs on the platform. 
+There's no excuse for this to happen with an update.
+
+
+
+
+
+
+From kingbeowulf at gmail.com  Sun Oct 13 22:37:46 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sun, 13 Oct 2013 22:37:46 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: <20131014045829.4744E17F6F5@john>
+References: <20131014045829.4744E17F6F5@john>
+Message-ID: <525B832A.2030102@gmail.com>
+
+On 10/13/2013 09:58 PM, John Meissen wrote:
+> 
+> At least, so far.
+> 
+> I've been struggling with one system because I recently upgraded from 10.04LTS 
+> to 12.04LTS. And so I spent far too much time trying to restore the Gnome 
+> interface. Since then I've been randomly getting "Maximum number of clients 
+> reached" from the X server (a known issue, but apparently not a very high priority 
+> issue). 
+>  https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1045899
+
+IMHO, nothing beats a clean install when upgrading major versions
+
+> Regardless, the only real way to recover is to restart X. Since I was facing 
+> that again anyway yesterday I figured it was a good time to do updates.
+> 
+> When I rebooted my display wouldn't configure properly. 
+> 
+> I go though a KVM that doesn't pass EDID from the monitor. Because of that I 
+> have an xorg.conf file, with a "PreferredMode" option to explicitly set the 
+> video mode that I need. For some reason, it's ignoring that now. A line in the 
+> log file says, "'PreferredMode' option ignored" with no explanation.
+> 
+I haven't seen this issue in years...
+
+>>From what I've found online this seems to be an issue with the nVidia driver. I 
+> can't say that for sure, all I know is this update broke my system. Now I'm 
+> afraid to do updates on any of my other systems. There have been other issues 
+> since the update - after unblanking the screen this morning compiz locked up 
+> with 100% cpu, and I had to ssh in from another system and kill it. And certain 
+> menus assocated with specific programs are opening in strange locations.
+> 
+> I can almost believe Ubuntu sabatoged X to create support for their "Mir" 
+> replacement. Right now I'm really, really unhappy. X11R4 has been around since 
+> before Linux. It should be one of the most mature programs on the platform. 
+> There's no excuse for this to happen with an update.
+> 
+
+Most *buntus suck when upgrading if you have ANY software, especial
+kernel drivers, not in the original software set.  Ubuntu does not know
+how to deal with the proprietary Nvidia blob since Nvidia stomps on
+quite a few X.Org files.  When you upgrade all or any of the following
+can occur:
+1. Ubuntu restores the original X.Org server files
+2. removes nouveau driver from blacklist
+3. doesn't update Nvidia and/or recompile new kernel interface properly
+4. etc.
+
+Ubuntu is notorious for screwing up Nvidia installations. If you want,
+need to update
+1. back up ALL user data
+2. remove ALL non Ubuntu software. synaptics/apt-get has a way for you
+to look at what software is "official" and what is "extra"
+3. get nouveau running
+4. update
+6. reinstall non Ubuntu software.
+
+I say, a POX on House Canonical for mangling what could have been a
+decent user friendly distro.
+
+(YMMV, as a Slackware I am not burdened by your issues.)
+
+Have Fun
+Ed
+
+From john at meissen.org  Sun Oct 13 22:49:08 2013
+From: john at meissen.org (John Meissen)
+Date: Sun, 13 Oct 2013 22:49:08 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: (Your message of Sun, 13 Oct 2013 21:58:29 PDT.)
+	<20131014045829.4744E17F6F5@john>
+Message-ID: <20131014054909.0DF9017F6F5@john>
+
+
+I said:
+> When I rebooted my display wouldn't configure properly.  
+
+Initially it came up in a mode my monitor didn't support. Eventually, after 
+searching and tweaking for an hour or more last night, I got it to at least 
+come up in 1024x768 (pretty awful when the native resolution is 1920x1200).
+
+I could use the nVidia configuration tool to reset the video mode. I tried 
+saving a new xorg.conf file, but that didn't seem to do any good, as I found 
+out when I just now had to log out and back in because
+
+Oct 13 22:24:10 kernel: [79565.080103] nautilus[6439]: segfault at 10 ip b6ef1151 sp bfc13cb8 error 4 in libcairo.so.2.11000.2[b6ea6000+c7000]
+Oct 13 22:29:09 kernel: [79864.478015] gnome-settings-[6401]: segfault at 10 ip b6bbb151 sp bfabe078 error 4 in libcairo.so.2.11000.2[b6b70000+c7000]
+
+and my display suddenly reverted to 1024x768 again, and I can't launch the 
+nVidia config tool to restore it. 
+
+<sigh>
+
+
+
+From dick at dicksteffens.com  Mon Oct 14 10:26:10 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Mon, 14 Oct 2013 10:26:10 -0700
+Subject: [PLUG] More MythTV Related Testing
+Message-ID: <525C2932.3020900@dicksteffens.com>
+
+While not strictly MythTV, the following test is related.
+
+I took my main desktop box (Gateway E-4500D, with 64 bit Intel Pentium 4 
+CPU 2.80 GHz, running 32 bit Ubuntu 12.04) to the living room yesterday. 
+It has an nVidia GeForce 210, which has an HDMI port. I connected that 
+to my Panasonic plasma TV (TC-42PX14), a 720p HDTV. I wanted to see if 
+that level of nVidia card was adequate to for MythTV.
+
+Earlier in the week I used my MythTV test box to record Oregon Field 
+Guide, the episode about the ice caves on the Sandy Glacier on Mt. Hood. 
+I copied the mpg file over to my desktop machine so I'd be able to look 
+at it on the TV. The picture was clear and steady, and the sound was 
+good, too.
+
+Next I used HDHomeRun Config GUI to look at the stations I could see 
+with my little dipole antenna sitting on a window sill. Channel 10 has 
+good video and audio, as do a few others. Other stations had poorer 
+video and/or poorer audio. I'm guessing this is related to the antenna, 
+either the placement of it, or the simplicity of the Radio Shack dipole. 
+Also, channel 8 does not appear at all. Again, I'm guessing this is 
+related to the antenna, which sits on a north facing window sill about 5 
+miles east of I-205 exit 10.
+
+Another test I did was to switch between the cable input on the TV and 
+the computer input while watching the same program. I chose the football 
+game between San Francisco and Arizona. The video from the antenna was 
+clearer than the video from the cable and, of course, it was HD, so I 
+had the whole thing, instead of missing a bit of the edges. On this 
+particular network it's not as important, but some of the networks put 
+the graphic showing details of where we are in the game in the upper 
+left corner of the screen -- all the way to the left. Apparently, 
+Comcast (and maybe others, too) chops the edges of the HD image to 
+create the SD image they send out over the cable.
+
+So, it appears that this lower end nVidia card is adequate. Any reason I 
+didn't cover with my experiment that would suggest I need a higher end card?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From dexter at ambidexter.com  Mon Oct 14 10:37:29 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 14 Oct 2013 10:37:29 -0700
+Subject: [PLUG] TUESDAY: October PLUG Advanced Topics: Virtual Machine Fair
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <525C2BD9.8020603@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Daniel Hedlund, Michael Dexter, Brian Martin and more!
+What: Virtual Machine Fair: Erlang/ocaml/Haskell VMs, bhyve, Xen & LXCs!
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, October 15th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+Contain yourselves!
+
+Daniel and I have been working with various virtual machines
+technologies and would like to have a roundtable style talk with micro
+presentations about each one, including:
+
+Erlang VMs
+bhyve BSD Hypervisor VMs
+Xen VM's
+Haskell VMs (hopefully) and
+Linux KVM
+Linux Containers
+
+We've invited a few guests and will give you a survey of some of the
+great things going on with open source virtualization technology.
+
+Links:
+http://halvm.org/
+http://www.openmirage.org/
+https://github.com/GaloisInc/HaLVM
+http://bhyve.org
+http://www.citrix.com/products/xenserver/overview.html
+http://www.netbsd.org/ports/xen/
+http://www.linux-kvm.org/page/Main_Page
+http://lxc.sourceforge.net
+
+
+Many will head to the Lucky Lab on Hawthorne after the meeting.
+
+Calagator Page: http://calagator.org/events/1250464772
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+From kingbeowulf at gmail.com  Tue Oct 15 13:16:59 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Tue, 15 Oct 2013 13:16:59 -0700
+Subject: [PLUG] More MythTV Related Testing
+In-Reply-To: <525C2932.3020900@dicksteffens.com>
+References: <525C2932.3020900@dicksteffens.com>
+Message-ID: <CAPiArqNwmA_jYYB=MBWjCwY_mO12fNAy5m7h-tbRODf60me53w@mail.gmail.com>
+
+No, your GPU is fine. Any GPU from the last 5 yrs or so is fine. My
+old 7600GS was adequate for 720/1080p mp2 and 720p mp4 on an athlon64
+1.8Ghz yrs ago.
+
+Your 210 and P4 are more than adequate for  1080p mp2/mp4 streams
+
+Ed
+
+
+On 10/14/13, Dick Steffens <dick at dicksteffens.com> wrote:
+> While not strictly MythTV, the following test is related.
+>
+> I took my main desktop box (Gateway E-4500D, with 64 bit Intel Pentium 4
+> CPU 2.80 GHz, running 32 bit Ubuntu 12.04) to the living room yesterday.
+> It has an nVidia GeForce 210, which has an HDMI port. I connected that
+> to my Panasonic plasma TV (TC-42PX14), a 720p HDTV. I wanted to see if
+> that level of nVidia card was adequate to for MythTV.
+>
+> Earlier in the week I used my MythTV test box to record Oregon Field
+> Guide, the episode about the ice caves on the Sandy Glacier on Mt. Hood.
+> I copied the mpg file over to my desktop machine so I'd be able to look
+> at it on the TV. The picture was clear and steady, and the sound was
+> good, too.
+>
+> Next I used HDHomeRun Config GUI to look at the stations I could see
+> with my little dipole antenna sitting on a window sill. Channel 10 has
+> good video and audio, as do a few others. Other stations had poorer
+> video and/or poorer audio. I'm guessing this is related to the antenna,
+> either the placement of it, or the simplicity of the Radio Shack dipole.
+> Also, channel 8 does not appear at all. Again, I'm guessing this is
+> related to the antenna, which sits on a north facing window sill about 5
+> miles east of I-205 exit 10.
+>
+> Another test I did was to switch between the cable input on the TV and
+> the computer input while watching the same program. I chose the football
+> game between San Francisco and Arizona. The video from the antenna was
+> clearer than the video from the cable and, of course, it was HD, so I
+> had the whole thing, instead of missing a bit of the edges. On this
+> particular network it's not as important, but some of the networks put
+> the graphic showing details of where we are in the game in the upper
+> left corner of the screen -- all the way to the left. Apparently,
+> Comcast (and maybe others, too) chops the edges of the HD image to
+> create the SD image they send out over the cable.
+>
+> So, it appears that this lower end nVidia card is adequate. Any reason I
+> didn't cover with my experiment that would suggest I need a higher end
+> card?
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From dick at dicksteffens.com  Tue Oct 15 14:03:44 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 15 Oct 2013 14:03:44 -0700
+Subject: [PLUG] More MythTV Related Testing
+In-Reply-To: <CAPiArqNwmA_jYYB=MBWjCwY_mO12fNAy5m7h-tbRODf60me53w@mail.gmail.com>
+References: <525C2932.3020900@dicksteffens.com>
+	<CAPiArqNwmA_jYYB=MBWjCwY_mO12fNAy5m7h-tbRODf60me53w@mail.gmail.com>
+Message-ID: <525DADB0.7060304@dicksteffens.com>
+
+On 10/15/2013 01:16 PM, King Beowulf wrote:
+> No, your GPU is fine. Any GPU from the last 5 yrs or so is fine. My
+> old 7600GS was adequate for 720/1080p mp2 and 720p mp4 on an athlon64
+> 1.8Ghz yrs ago.
+>
+> Your 210 and P4 are more than adequate for  1080p mp2/mp4 streams
+
+Thanks. Good to know.
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Tue Oct 15 17:48:29 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 15 Oct 2013 17:48:29 -0700
+Subject: [PLUG] Installing a Python program
+Message-ID: <525DE25D.3070004@dicksteffens.com>
+
+Background: target machine us running Ubuntu 12.04 in Gnome session 
+fallback mode (or whatever they called it).
+
+I have the source code for a program to allow the use of a USB 
+transcribing foot pedal. When I try to run it in the directory in which 
+the source code resides I get an error message:
+
+_________________________________________________________________________________ 
+
+:~/Documents/Programming/footpedal/footpedal-0.4.orig$ python footpedal
+Traceback (most recent call last):
+   File "footpedal", line 763, in <module>
+     fs = FootpedalAppWindow(options.installed, options.showpanel)
+   File "footpedal", line 415, in __init__
+     self.populateUserInterface()
+   File "footpedal", line 503, in populateUserInterface
+     self.set_icon_from_file( self.icon_path )
+glib.GError: Failed to open file '/usr/share/footpedal/footpedal.png': 
+No such file or directory
+_________________________________________________________________________________ 
+
+
+This is a program that long ago was available through Ubuntu's 
+Launchpad. I use it on a machine running Ubuntu 10.04. Now I'm trying to 
+move this last bit over to my 12.04 machine so I can run a single 
+machine to get my work done. The program is no longer supported through 
+Launchpad, but I assume that, with the source code, I can somehow get it 
+to work on 12.04.
+
+I also assume that the error message is there because the program 
+expects to have been installed in /use/share. So, my question is, how do 
+I install this program? Is it as simple as putting the directory with 
+the source code in /usr/share and creating a link to it? Or is there 
+something "fancier" that I need to do?
+
+In 10.04 I have an icon that looks like a bare foot in the launcher 
+panel. It's properties are:
+
+Type: Application
+Name: footpedal
+Command footpedal
+
+I'd like to be able to do the same thing in 12.04. Any guidance on how 
+to proceed would be appreciated.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From rshepard at appl-ecosys.com  Tue Oct 15 17:52:38 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 15 Oct 2013 17:52:38 -0700 (PDT)
+Subject: [PLUG] Installing a Python program
+In-Reply-To: <525DE25D.3070004@dicksteffens.com>
+References: <525DE25D.3070004@dicksteffens.com>
+Message-ID: <alpine.LNX.2.00.1310151751010.7131@salmo.appl-ecosys.com>
+
+On Tue, 15 Oct 2013, Dick Steffens wrote:
+
+> glib.GError: Failed to open file '/usr/share/footpedal/footpedal.png':
+> No such file or directory
+
+Dick,
+
+   As root, run
+
+ 	find / -name footpedal.png
+
+and see where it's located. If it's not there, copy it from another machine;
+if it's there, either mv it to /usr/share/footpedal/ or make a soft link to
+that directory.
+
+Rich
+
+
+From john at meissen.org  Tue Oct 15 18:07:18 2013
+From: john at meissen.org (John Meissen)
+Date: Tue, 15 Oct 2013 18:07:18 -0700
+Subject: [PLUG] Installing a Python program
+In-Reply-To: (Your message of Tue, 15 Oct 2013 17:48:29 PDT.)
+	<525DE25D.3070004@dicksteffens.com>
+Message-ID: <20131016010718.9031F17F7CA@john>
+
+
+dick at dicksteffens.com said:
+> I have the source code for a program to allow the use of a USB  transcribing
+> foot pedal. When I try to run it in the directory in which  the source code
+> resides I get an error message:
+
+Have you tried installing from a package? Is this it?
+
+  http://code.google.com/p/footpedal/downloads/detail?name=footpedal_0.4-0ubuntu1_all.deb
+
+Looks like it needs some tweaking to work on 12.04:
+  http://code.google.com/p/footpedal/issues/detail?id=4#c5
+
+
+
+From dick at dicksteffens.com  Tue Oct 15 19:26:48 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 15 Oct 2013 19:26:48 -0700
+Subject: [PLUG] Installing a Python program
+In-Reply-To: <alpine.LNX.2.00.1310151751010.7131@salmo.appl-ecosys.com>
+References: <525DE25D.3070004@dicksteffens.com>
+	<alpine.LNX.2.00.1310151751010.7131@salmo.appl-ecosys.com>
+Message-ID: <525DF968.7090501@dicksteffens.com>
+
+On 10/15/2013 05:52 PM, Rich Shepard wrote:
+> On Tue, 15 Oct 2013, Dick Steffens wrote:
+>
+>> glib.GError: Failed to open file '/usr/share/footpedal/footpedal.png':
+>> No such file or directory
+> Dick,
+>
+>     As root, run
+>
+>   	find / -name footpedal.png
+>
+> and see where it's located. If it's not there, copy it from another machine;
+> if it's there, either mv it to /usr/share/footpedal/ or make a soft link to
+> that directory.
+
+Actually, I know where it is. What I was trying to figure out is the 
+proper way to get the whole shebang into /usr/share/footpedal.
+
+But, it looks like John has a useful find.
+
+Thanks, though.
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Tue Oct 15 19:47:31 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Tue, 15 Oct 2013 19:47:31 -0700
+Subject: [PLUG] Resolved mostly:  Installing a Python program
+In-Reply-To: <20131016010718.9031F17F7CA@john>
+References: <20131016010718.9031F17F7CA@john>
+Message-ID: <525DFE43.4040807@dicksteffens.com>
+
+On 10/15/2013 06:07 PM, John Meissen wrote:
+> dick at dicksteffens.com said:
+>> I have the source code for a program to allow the use of a USB  transcribing
+>> foot pedal. When I try to run it in the directory in which  the source code
+>> resides I get an error message:
+> Have you tried installing from a package? Is this it?
+>
+>    http://code.google.com/p/footpedal/downloads/detail?name=footpedal_0.4-0ubuntu1_all.deb
+>
+> Looks like it needs some tweaking to work on 12.04:
+>    http://code.google.com/p/footpedal/issues/detail?id=4#c5
+
+Thanks, John. Both of those are useful.
+
+I downloaded the deb, and then tried to edit the appropriate file per 
+the second link you provided. It appeared to be successful. Then I 
+installed the deb using the Ubuntu Software Center.
+
+On 10.04 that installation
+
+When I ran it I got the same error messages. So, I went to /usr/bin and 
+edited footpedal. The comments were not there. So, I guess it's not a 
+good idea to try to edit a file inside a package. Anyway, I put the 
+comments back in, saved the file.
+
+The file runs, but does not provide the indicator icon that when clicked 
+allows changing the configuration of the buttons. However, I suspect 
+that I can spend some time with the program file and figure out what to 
+change to eliminate all the options I don't want to use. The original 
+programmer use the footpedal for more than start/stop/rewind types of 
+functions, and he has volume up/down as the default.
+
+Thanks, again.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Thu Oct 17 09:33:48 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Thu, 17 Oct 2013 09:33:48 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+Message-ID: <5260116C.5000902@dicksteffens.com>
+
+Sunday, October 20, being the third Sunday of the month, I'm assuming 
+we'll be having a clinic. That being the case I'd like to bring my 
+MythTV stuff and see if we can figure out what I'm missing trying to get 
+Myth to see Schedules Direct and populate the channels I can get via 
+antenna. Will any Myth gurus be present?
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From johnxj at comcast.net  Thu Oct 17 10:43:58 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 17 Oct 2013 10:43:58 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <5260116C.5000902@dicksteffens.com>
+References: <5260116C.5000902@dicksteffens.com>
+Message-ID: <20131017104358.2de71304@Devil8>
+
+On Thu, 17 Oct 2013 09:33:48 -0700
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+>Sunday, October 20, being the third Sunday of the month, I'm assuming 
+>we'll be having a clinic. That being the case I'd like to bring my 
+>MythTV stuff and see if we can figure out what I'm missing trying to
+>get Myth to see Schedules Direct and populate the channels I can get
+>via antenna. Will any Myth gurus be present?
+
+I will be present, but I am not a Myth guru, nor have I even ever
+installed it. But I have long been interested in Myth, so I would love
+to look over shoulders to watch.
+
+From dick at dicksteffens.com  Thu Oct 17 13:27:24 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Thu, 17 Oct 2013 13:27:24 -0700
+Subject: [PLUG] T-bird won't retrieve messages for default account
+Message-ID: <5260482C.4010901@dicksteffens.com>
+
+Yesterday I converted several IMAP accounts to POP accounts by copying 
+out messages I wanted to save, deleting the account from Thunderbird, 
+and then recreating the account, manually telling Thunderbird to use POP 
+instead of IMAP. Everything appeared to be working correctly.
+
+Next I changed the default account and deleted the account that used to 
+be the default account. Again, everything appeared to be working correctly.
+
+This morning I accidentally closed Thunderbird. When I reopened it I was 
+asked for a password for the four accounts that are not the default, but 
+I wasn't asked for a password for the default account. When I click on 
+Inbox in Local Folders and then click on Get Mail nothing appears to 
+happen. I can send mail from the default account, but can't retrieve 
+any. I know there is mail to retrieve because I can see it using the web 
+mail interface for the account.
+
+I've posted this at the Thunderbird forum, but no one's looked at it, yet.
+
+Any ideas as to what happened and how to fix it?
+
+Thanks.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Thu Oct 17 18:11:54 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Thu, 17 Oct 2013 18:11:54 -0700
+Subject: [PLUG] Resolved: T-bird won't retrieve messages for default account
+In-Reply-To: <5260482C.4010901@dicksteffens.com>
+References: <5260482C.4010901@dicksteffens.com>
+Message-ID: <52608ADA.1020205@dicksteffens.com>
+
+On 10/17/2013 01:27 PM, Dick Steffens wrote:
+
+> <...> When I click on
+> Inbox in Local Folders and then click on Get Mail nothing appears to
+> happen. I can send mail from the default account, but can't retrieve
+> any. I know there is mail to retrieve because I can see it using the web
+> mail interface for the account.
+
+I dug deeper into the Account Settings. Hidden away under the Advanced 
+button on the Server Settings is a check box that says, "Include this 
+server when getting new mail." It was not checked. I checked it and the 
+problem went away. I have no idea how it got unchecked.
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From dick at dicksteffens.com  Fri Oct 18 09:40:19 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 18 Oct 2013 09:40:19 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <20131017104358.2de71304@Devil8>
+References: <5260116C.5000902@dicksteffens.com>
+	<20131017104358.2de71304@Devil8>
+Message-ID: <52616473.7010008@dicksteffens.com>
+
+On Thu, 17 Oct 2013 09:33:48 -0700 Dick Steffens <dick at dicksteffens.com> 
+dijo:
+>> Sunday, October 20, being the third Sunday of the month, I'm assuming
+>> we'll be having a clinic. That being the case I'd like to bring my
+>> MythTV stuff and see if we can figure out what I'm missing trying to
+>> get Myth to see Schedules Direct and populate the channels I can get
+>> via antenna. Will any Myth gurus be present?
+
+Part of what my MythTV installation counts on is specific IP addresses, 
+one of which is my HDHomeRun box. I have it set to 192.168.0.100. I'm 
+not sure if that will play well on the Free Geek network. I also have 
+the Myth box set to 192.168.0.238. Again, I don't know if that will play 
+well in the Free Geek network. Would a WRT54G sitting between the Free 
+Geek network and my equipment help things?
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From johnxj at comcast.net  Fri Oct 18 18:30:57 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 18 Oct 2013 18:30:57 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <52616473.7010008@dicksteffens.com>
+References: <5260116C.5000902@dicksteffens.com>
+	<20131017104358.2de71304@Devil8>
+	<52616473.7010008@dicksteffens.com>
+Message-ID: <20131018183057.73d366a6@Devil8>
+
+On Fri, 18 Oct 2013 09:40:19 -0700
+Dick Steffens <dick at dicksteffens.com> dijo:
+
+>On Thu, 17 Oct 2013 09:33:48 -0700 Dick Steffens
+><dick at dicksteffens.com> dijo:
+>>> Sunday, October 20, being the third Sunday of the month, I'm
+>>> assuming we'll be having a clinic. That being the case I'd like to
+>>> bring my MythTV stuff and see if we can figure out what I'm missing
+>>> trying to get Myth to see Schedules Direct and populate the
+>>> channels I can get via antenna. Will any Myth gurus be present?
+>
+>Part of what my MythTV installation counts on is specific IP
+>addresses, one of which is my HDHomeRun box. I have it set to
+>192.168.0.100. I'm not sure if that will play well on the Free Geek
+>network. I also have the Myth box set to 192.168.0.238. Again, I don't
+>know if that will play well in the Free Geek network. Would a WRT54G
+>sitting between the Free Geek network and my equipment help things?
+
+Free Geek does have wireless as well as wired connections. I don't know
+what kind of wireless router it is, but it generally works fine. I
+always connect my laptop to it rather than the wire.
+
+Another concern is bandwidth. When I first get to Free Geek the
+connection is nice and fast. An hour later with a dozen Clinic people
+hitting Google and heaven only knows what else it can bog down, both
+wired and wireless.
+
+From dick at dicksteffens.com  Fri Oct 18 21:25:47 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 18 Oct 2013 21:25:47 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <20131018183057.73d366a6@Devil8>
+References: <5260116C.5000902@dicksteffens.com>	<20131017104358.2de71304@Devil8>	<52616473.7010008@dicksteffens.com>
+	<20131018183057.73d366a6@Devil8>
+Message-ID: <526209CB.7080001@dicksteffens.com>
+
+On 10/18/2013 06:30 PM, John Jason Jordan wrote:
+> On Fri, 18 Oct 2013 09:40:19 -0700
+> Dick Steffens <dick at dicksteffens.com> dijo:
+>
+>> Part of what my MythTV installation counts on is specific IP
+>> addresses, one of which is my HDHomeRun box. I have it set to
+>> 192.168.0.100. I'm not sure if that will play well on the Free Geek
+>> network. I also have the Myth box set to 192.168.0.238. Again, I don't
+>> know if that will play well in the Free Geek network. Would a WRT54G
+>> sitting between the Free Geek network and my equipment help things?
+> Free Geek does have wireless as well as wired connections. I don't know
+> what kind of wireless router it is, but it generally works fine. I
+> always connect my laptop to it rather than the wire.
+>
+> Another concern is bandwidth. When I first get to Free Geek the
+> connection is nice and fast. An hour later with a dozen Clinic people
+> hitting Google and heaven only knows what else it can bog down, both
+> wired and wireless.
+
+I don't think bandwidth is going to be a problem for what I'm dealing 
+with. We'll probably tune in some channel Sunday afternoon, but the real 
+purpose of the experiment is to figure out a setup issue, and modest 
+bandwidth will be fine for that.
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From kingbeowulf at gmail.com  Fri Oct 18 22:22:20 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Fri, 18 Oct 2013 22:22:20 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: <20131014054909.0DF9017F6F5@john>
+References: <20131014054909.0DF9017F6F5@john>
+Message-ID: <5262170C.1080607@gmail.com>
+
+On 10/13/2013 10:49 PM, John Meissen wrote:
+> 
+> I said:
+>> When I rebooted my display wouldn't configure properly.
+> 
+> Initially it came up in a mode my monitor didn't support.
+> Eventually, after searching and tweaking for an hour or more last
+> night, I got it to at least come up in 1024x768 (pretty awful when
+> the native resolution is 1920x1200).
+> 
+> I could use the nVidia configuration tool to reset the video mode.
+> I tried saving a new xorg.conf file, but that didn't seem to do any
+> good, as I found out when I just now had to log out and back in
+> because
+> 
+> Oct 13 22:24:10 kernel: [79565.080103] nautilus[6439]: segfault at
+> 10 ip b6ef1151 sp bfc13cb8 error 4 in
+> libcairo.so.2.11000.2[b6ea6000+c7000] Oct 13 22:29:09 kernel:
+> [79864.478015] gnome-settings-[6401]: segfault at 10 ip b6bbb151 sp
+> bfabe078 error 4 in libcairo.so.2.11000.2[b6b70000+c7000]
+> 
+> and my display suddenly reverted to 1024x768 again, and I can't
+> launch the nVidia config tool to restore it.
+> 
+> <sigh>
+> 
+
+Try deleting $HOME/.nvidia-settings-rc  as that file sometimes gets
+corrupted resulting in nvidia-settings not launching.  Also, try
+running nvidia-settings from the command line (terminal window) to see
+what errors it kick up.  You could have a borked xorg.conf - sometimes
+autodetection is screwy and you need to check it to see if any weird
+stuff is set up.
+
+
+
+
+From john at meissen.org  Fri Oct 18 22:55:40 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 18 Oct 2013 22:55:40 -0700
+Subject: [PLUG] Mythbuntu and nVidia
+In-Reply-To: (Your message of Fri, 18 Oct 2013 22:22:20 PDT.)
+	<5262170C.1080607@gmail.com>
+Message-ID: <20131019055540.B1B2917F755@john>
+
+
+kingbeowulf at gmail.com said:
+> I said:
+> > Oct 13 22:24:10 kernel: [79565.080103] nautilus[6439]: segfault at
+> > 10 ip b6ef1151 sp bfc13cb8 error 4 in
+> > libcairo.so.2.11000.2[b6ea6000+c7000] Oct 13 22:29:09 kernel:
+> > [79864.478015] gnome-settings-[6401]: segfault at 10 ip b6bbb151 sp
+> > bfabe078 error 4 in libcairo.so.2.11000.2[b6b70000+c7000]
+> >
+> > and my display suddenly reverted to 1024x768 again, and I can't
+> >launch the nVidia config tool to restore it.
+> 
+> 
+> Try deleting $HOME/.nvidia-settings-rc  as that file sometimes gets corrupted
+> resulting in nvidia-settings not launching.  Also, try running nvidia-settings
+> from the command line (terminal window) to see what errors it kick up.  You
+> could have a borked xorg.conf - sometimes autodetection is screwy and you need
+> to check it to see if any weird stuff is set up. 
+
+Interestingly, there were more updates pushed out a couple of days ago. Among 
+them were Xorg and gnome-settings updates. After I applied them I rebooted and 
+magically the system is now honoring my PreferredMode option in the xorg.conf 
+file, and I haven't had a crash since.
+
+knock on wood, the problems seem to be fixed.
+
+I have a slew of updates waiting on my Mythbuntu system that I've been afraid 
+to apply. I guess I feel safer about it now.
+
+john-
+
+
+
+From jjkarlock at gmail.com  Fri Oct 18 23:52:42 2013
+From: jjkarlock at gmail.com (jim karlock)
+Date: Fri, 18 Oct 2013 23:52:42 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: <20131019055540.B1B2917F755@john>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+Message-ID: <52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+
+I have Ubuntu 12.04 LTS.
+When I start the update it gets a list of 51 updates.
+When I select install updates it starts then reports "failed to 
+download package files"
+This happened from Comcast tonight and a few days age. Tonight I also 
+tried Clear Wireless with the same result.
+
+Any help would be appreciated.
+
+Thanks
+JK
+
+From johnxj at comcast.net  Sat Oct 19 00:13:49 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 19 Oct 2013 00:13:49 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: <52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+	<52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+Message-ID: <20131019001349.782d41a1@Devil8>
+
+On Fri, 18 Oct 2013 23:52:42 -0700
+jim karlock <jjkarlock at gmail.com> dijo:
+
+>I have Ubuntu 12.04 LTS.
+>When I start the update it gets a list of 51 updates.
+>When I select install updates it starts then reports "failed to 
+>download package files"
+>This happened from Comcast tonight and a few days age. Tonight I also 
+>tried Clear Wireless with the same result.
+>
+>Any help would be appreciated.
+
+Probably the issue is the server. Sometimes the server can be offline.
+I suggest waiting a day or so and trying again.
+
+If that does not resolve the issue, then go into Software Sources and
+check what server you are set to. I believe the default is the server
+for the US, but it may be "Main" or some other server. Whatever it is,
+set it to use a different server.
+
+And while you're at it, there is an option to find out which server is
+the fastest. Try it out and you may find that your current server is
+not the fastest. Having said that, in the past I have set it to what
+appeared to be a faster server only to discover that not all servers
+mirror every single package, so sometimes stuff will be missing.
+
+From jjkarlock at gmail.com  Sat Oct 19 00:49:19 2013
+From: jjkarlock at gmail.com (jim karlock)
+Date: Sat, 19 Oct 2013 00:49:19 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: <20131019001349.782d41a1@Devil8>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+	<52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+	<20131019001349.782d41a1@Devil8>
+Message-ID: <5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+
+At 12:13 AM 10/19/2013, you wrote:
+>On Fri, 18 Oct 2013 23:52:42 -0700
+>jim karlock <jjkarlock at gmail.com> dijo:
+>
+> >I have Ubuntu 12.04 LTS.
+> >When I start the update it gets a list of 51 updates.
+> >When I select install updates it starts then reports "failed to
+> >download package files"
+> >This happened from Comcast tonight and a few days age. Tonight I also
+> >tried Clear Wireless with the same result.
+> >
+> >Any help would be appreciated.
+>
+>Probably the issue is the server. Sometimes the server can be offline.
+>I suggest waiting a day or so and trying again.
+
+I just found the error details:
+
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-postscript-hp_3.12.2-1ubuntu3.2_all.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-postscript-hp_3.12.2-1ubuntu3.2_all.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpijs_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpijs_3.12.2-1ubuntu3.2_i386.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libsane-hpaio_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libsane-hpaio_3.12.2-1ubuntu3.2_i386.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip_3.12.2-1ubuntu3.2_i386.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libhpmud0_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libhpmud0_3.12.2-1ubuntu3.2_i386.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip-data_3.12.2-1ubuntu3.2_all.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip-data_3.12.2-1ubuntu3.2_all.deb 
+404 Not Found [IP: 91.189.92.190 80]
+Failed to fetch 
+<http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpcups_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpcups_3.12.2-1ubuntu3.2_i386.deb 
+404 Not Found [IP: 91.189.92.190 80]
+
+
+
+>If that does not resolve the issue, then go into Software Sources and
+>check what server you are set to. I believe the default is the server
+>for the US, but it may be "Main" or some other server. Whatever it is,
+>set it to use a different server.
+
+Where do I find Software Sources? (I am a newbe.)
+
+Thanks
+JK
+
+
+
+>And while you're at it, there is an option to find out which server is
+>the fastest. Try it out and you may find that your current server is
+>not the fastest. Having said that, in the past I have set it to what
+>appeared to be a faster server only to discover that not all servers
+>mirror every single package, so sometimes stuff will be missing.
+>_______________________________________________
+>PLUG mailing list
+>PLUG at lists.pdxlinux.org
+>http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From johnxj at comcast.net  Sat Oct 19 01:03:49 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 19 Oct 2013 01:03:49 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: <5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+	<52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+	<20131019001349.782d41a1@Devil8>
+	<5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+Message-ID: <20131019010349.22bfddfe@Devil8>
+
+On Sat, 19 Oct 2013 00:49:19 -0700
+jim karlock <jjkarlock at gmail.com> dijo:
+
+>Where do I find Software Sources? (I am a newbe.)
+
+They may have deleted it as a separate application. You can get the
+same thing from Synaptic Package Manager. Look under Settings or
+something, and then Repositories. 
+
+From john at meissen.org  Sat Oct 19 01:33:55 2013
+From: john at meissen.org (John Meissen)
+Date: Sat, 19 Oct 2013 01:33:55 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: (Your message of Sat, 19 Oct 2013 00:49:19 PDT.)
+	<5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+Message-ID: <20131019083355.A796817F755@john>
+
+> At 12:13 AM 10/19/2013, you wrote:
+> >On Fri, 18 Oct 2013 23:52:42 -0700
+> >jim karlock <jjkarlock at gmail.com> dijo:
+> >
+> > >I have Ubuntu 12.04 LTS.
+> > >When I start the update it gets a list of 51 updates.
+> > >When I select install updates it starts then reports "failed to
+> > >download package files"
+> > >This happened from Comcast tonight and a few days age. Tonight I also
+> > >tried Clear Wireless with the same result.
+> > >
+> > >Any help would be appreciated.
+> >
+> >Probably the issue is the server. Sometimes the server can be offline.
+> >I suggest waiting a day or so and trying again.
+> 
+> I just found the error details:
+> 
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-postscript-hp_3.12.2-1ubuntu3.2_all.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-postscript-hp_3.12.2-1ubuntu3.2_all.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpijs_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpijs_3.12.2-1ubuntu3.2_i386.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libsane-hpaio_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libsane-hpaio_3.12.2-1ubuntu3.2_i386.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip_3.12.2-1ubuntu3.2_i386.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libhpmud0_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/libhpmud0_3.12.2-1ubuntu3.2_i386.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip-data_3.12.2-1ubuntu3.2_all.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/hplip-data_3.12.2-1ubuntu3.2_all.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> Failed to fetch 
+> <http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpcups_3.12.2-1ubuntu3.2_i386.deb>http://security.ubuntu.com/ubuntu/pool/main/h/hplip/printer-driver-hpcups_3.12.2-1ubuntu3.2_i386.deb 
+> 404 Not Found [IP: 91.189.92.190 80]
+> 
+
+That can happen if the selected files have been replaced by later updates.
+Have you forced update manager to check for new updates?
+
+
+
+From john at meissen.org  Sat Oct 19 02:21:23 2013
+From: john at meissen.org (John Meissen)
+Date: Sat, 19 Oct 2013 02:21:23 -0700
+Subject: [PLUG] ubuntu 12.04 issues
+In-Reply-To: (Your message of Sat, 19 Oct 2013 01:33:55 PDT.)
+	<20131019083355.A796817F755@john>
+Message-ID: <20131019092123.5F68117F755@john>
+
+Well, my crashes and screen resolution issues may have been solved, but the 
+resource leaks haven't. 
+
+After a random amount of time I start getting 
+  Maximum number of clients reached
+errors from X. Right now I have exactly 3 firefox windows, one terminal window, 
+and one Pigin window open. I can't seem to open anything else.
+
+my .xsession-errors file has lots of stuff like 
+Maximum number of clients reached
+(nautilus:5991): GnomeDesktop-WARNING **: Unable to open display ':0.0' when setting background pixmap
+Maximum number of clients reachedMaximum number of clients reachedCould not parse arguments: Cannot open display: 
+
+<sigh>
+
+I should have stayed on 10.04.
+
+
+
+
+
+From paulm at freegeek.org  Sat Oct 19 10:45:33 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 19 Oct 2013 10:45:33 -0700
+Subject: [PLUG] Ubuntu update problem
+In-Reply-To: <20131019010349.22bfddfe@Devil8>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+	<52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+	<20131019001349.782d41a1@Devil8>
+	<5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+	<20131019010349.22bfddfe@Devil8>
+Message-ID: <1382204733.24217.2.camel@localhost>
+
+On Sat, 2013-10-19 at 01:03 -0700, John Jason Jordan wrote:
+> On Sat, 19 Oct 2013 00:49:19 -0700
+> jim karlock <jjkarlock at gmail.com> dijo:
+> 
+> >Where do I find Software Sources? (I am a newbe.)
+> 
+> They may have deleted it as a separate application. 
+
+Just moved.
+
+Software Center -> Edit ->Software Sources
+
+or Update Manager ->  Settings
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From paulm at freegeek.org  Sat Oct 19 10:57:53 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 19 Oct 2013 10:57:53 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <20131018183057.73d366a6@Devil8>
+References: <5260116C.5000902@dicksteffens.com>
+	<20131017104358.2de71304@Devil8> <52616473.7010008@dicksteffens.com>
+	<20131018183057.73d366a6@Devil8>
+Message-ID: <1382205473.24217.4.camel@localhost>
+
+On Fri, 2013-10-18 at 18:30 -0700, John Jason Jordan wrote:
+> On Fri, 18 Oct 2013 09:40:19 -0700
+> . Would a WRT54G
+> >sitting between the Free Geek network and my equipment help things?
+> 
+
+
+Please note that plugging a wireless router into the wired network in
+strictly forbidden by Free Geek's network policy. Please don't do this. 
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From dick at dicksteffens.com  Sat Oct 19 11:54:59 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 19 Oct 2013 11:54:59 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <1382205473.24217.4.camel@localhost>
+References: <5260116C.5000902@dicksteffens.com>	<20131017104358.2de71304@Devil8>
+	<52616473.7010008@dicksteffens.com>	<20131018183057.73d366a6@Devil8>
+	<1382205473.24217.4.camel@localhost>
+Message-ID: <5262D583.6050809@dicksteffens.com>
+
+On 10/19/2013 10:57 AM, Paul Munday wrote:
+> On Fri, 2013-10-18 at 18:30 -0700, John Jason Jordan wrote:
+>> On Fri, 18 Oct 2013 09:40:19 -0700
+>> . Would a WRT54G
+>>> sitting between the Free Geek network and my equipment help things?
+>
+> Please note that plugging a wireless router into the wired network in
+> strictly forbidden by Free Geek's network policy. Please don't do this.
+
+Okay. Glad to know before I make the technological fax pas.
+
+I wouldn't have been trying to use the wireless part of it, but I'm not 
+well versed enough in the setup of a WET54G to know that I have wireless 
+completely disabled.
+
+I suppose I could let the Myth box work with CPD for the afternoon, and 
+then change it back to static when I get back home.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From galens at seitzassoc.com  Sat Oct 19 14:54:11 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Sat, 19 Oct 2013 14:54:11 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <5260116C.5000902@dicksteffens.com>
+References: <5260116C.5000902@dicksteffens.com>
+Message-ID: <5262FF83.4050503@seitzassoc.com>
+
+On 10/17/13 09:33, Dick Steffens wrote:
+> Sunday, October 20, being the third Sunday of the month, I'm assuming
+> we'll be having a clinic. That being the case I'd like to bring my
+> MythTV stuff and see if we can figure out what I'm missing trying to get
+> Myth to see Schedules Direct and populate the channels I can get via
+> antenna. Will any Myth gurus be present?
+>
+
+I'm not sure guru applies, but I will try to be there tomorrow.
+
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From dick at dicksteffens.com  Sat Oct 19 15:03:44 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 19 Oct 2013 15:03:44 -0700
+Subject: [PLUG] MythTV at Clinic this Sunday?
+In-Reply-To: <5262FF83.4050503@seitzassoc.com>
+References: <5260116C.5000902@dicksteffens.com>
+	<5262FF83.4050503@seitzassoc.com>
+Message-ID: <526301C0.6030109@dicksteffens.com>
+
+On 10/19/2013 02:54 PM, Galen Seitz wrote:
+> On 10/17/13 09:33, Dick Steffens wrote:
+>> Sunday, October 20, being the third Sunday of the month, I'm assuming
+>> we'll be having a clinic. That being the case I'd like to bring my
+>> MythTV stuff and see if we can figure out what I'm missing trying to get
+>> Myth to see Schedules Direct and populate the channels I can get via
+>> antenna. Will any Myth gurus be present?
+>>
+> I'm not sure guru applies, but I will try to be there tomorrow.
+>
+
+Great! Hope to see you there.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From jjkarlock at gmail.com  Sat Oct 19 17:55:41 2013
+From: jjkarlock at gmail.com (jim karlock)
+Date: Sat, 19 Oct 2013 17:55:41 -0700
+Subject: [PLUG] Ubuntu update problem - fixed itself
+In-Reply-To: <1382204733.24217.2.camel@localhost>
+References: <(Your message of Fri,
+	18 Oct 2013 22:22:20 PDT.) <5262170C.1080607@gmail.com>
+	<20131019055540.B1B2917F755@john>
+	<52622c67.6175420a.24c4.ffffc90d@mx.google.com>
+	<20131019001349.782d41a1@Devil8>
+	<5262399f.caa7420a.15f0.ffffebaf@mx.google.com>
+	<20131019010349.22bfddfe@Devil8>
+	<1382204733.24217.2.camel@localhost>
+Message-ID: <52632a20.a7dd420a.4ac3.ffffa501@mx.google.com>
+
+Thanks,
+I found that and switched to the "main server" which told me I didn't 
+need any updates.
+I then switched back to the "United States" server and it found 103 
+updates. But the update failed again.
+
+I just tried it again today and it updated OK.
+
+Thanks for the help
+JK
+
+
+
+
+At 10:45 AM 10/19/2013, you wrote:
+>On Sat, 2013-10-19 at 01:03 -0700, John Jason Jordan wrote:
+> > On Sat, 19 Oct 2013 00:49:19 -0700
+> > jim karlock <jjkarlock at gmail.com> dijo:
+> >
+> > >Where do I find Software Sources? (I am a newbe.)
+> >
+> > They may have deleted it as a separate application.
+>
+>Just moved.
+>
+>Software Center -> Edit ->Software Sources
+>
+>or Update Manager ->  Settings
+>
+>--
+>                Technical Support Specialist, Free Geek
+>               Free Geek Tech Support: support at freegeek.org
+>         (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+>
+>_______________________________________________
+>PLUG mailing list
+>PLUG at lists.pdxlinux.org
+>http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From michael at jamhome.us  Sun Oct 20 10:12:07 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sun, 20 Oct 2013 10:12:07 -0700
+Subject: [PLUG] 30 Window Managers in 30 Days
+Message-ID: <20131020171207.GA15412@jamhome.us>
+
+Ambitious guy went on a tour of window managers and has an introduction to each
+
+http://crunchbang.org/forums/viewtopic.php?id=18273
+
+KDE and Gnome not included in the list.
+Stacking Window managers
+Day 1.5 -- Housekeeping
+Day 2 -- jwm
+Day 3 -- flwm
+Day 4 -- fluxbox
+Day 5 -- pekwm
+Day 6 -- twm
+Day 7 -- evilwm
+Day 8 -- windowlab
+Day 9 -- lwm and wm2
+Day 10 -- aewm
+Tiling Window Managers
+Day 11 -- scrotwm
+Day 12 -- wmii
+Day 13 -- i3
+Day 14 -- wmfs
+Day 15 -- dwm
+Day 16 -- catwm and dminiwm
+Day 17 -- snapwm and monsterwm
+Day 18 -- musca
+Day 19 -- tmux
+Day 20 -- ratpoison
+Random Other Window Managers
+Day 21 -- sithwm
+Day 22 -- euclid-wm
+Day 23 -- oroborus
+Day 24 -- icewm
+Day 25 -- herbstluftwm
+Day 26 -- dvtm
+Day 27 -- sapphire and cwm
+Day 28 -- echinus and larswm
+Day 29 -- xmonad and awesome
+Day 30 -- tinywm
+Day N -- Amiwm -- joek review
+Day N+1 -- AfterStep -- joek review
+
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+Cycle tracks will abound in Utopia.
+	~  H.G. Wells
+
+From dick at dicksteffens.com  Sun Oct 20 18:12:27 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 20 Oct 2013 18:12:27 -0700
+Subject: [PLUG] Weird network problem
+Message-ID: <52647F7B.2000406@dicksteffens.com>
+
+Thanks, Galen, for the help with my MythTV installation at the clinic 
+this afternoon.
+
+When I got home from the clinic I started up the laptop, stopped the 
+Myth frontend, edited /etc/network/interfaces, deleting all those 
+comment signs in front of the static IP entries and putting on in front 
+of the DHCP entry. Then I ran MythTV Backend Setup and changed the IP 
+address in the General section to the static IP address of the machine.
+
+However I was unable to see anything through the HDHomeRun.
+
+After a bunch of fooling around I discovered that the laptop will not 
+see the Internet. I am able to ping the router, and other boxes in the 
+house, including the HDHomeRun. I can discover the HDHomeRun using 
+hdhomerun_config discover, but I can't get anywhere with Google Chrome 
+outside the house. I can see my internal web server, though.
+
+Any idea what I've missed?
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From bill at billbarry.org  Sun Oct 20 18:39:36 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Sun, 20 Oct 2013 18:39:36 -0700
+Subject: [PLUG] Weird network problem
+In-Reply-To: <52647F7B.2000406@dicksteffens.com>
+References: <52647F7B.2000406@dicksteffens.com>
+Message-ID: <CAAPspTZkqiH4QqawMEc==EYLhEXfmSaYr4jaRRGLX_sEE981-A@mail.gmail.com>
+
+On Sun, Oct 20, 2013 at 6:12 PM, Dick Steffens <dick at dicksteffens.com> wrote:
+> Thanks, Galen, for the help with my MythTV installation at the clinic
+> this afternoon.
+>
+> When I got home from the clinic I started up the laptop, stopped the
+> Myth frontend, edited /etc/network/interfaces, deleting all those
+> comment signs in front of the static IP entries and putting on in front
+> of the DHCP entry. Then I ran MythTV Backend Setup and changed the IP
+> address in the General section to the static IP address of the machine.
+>
+> However I was unable to see anything through the HDHomeRun.
+>
+> After a bunch of fooling around I discovered that the laptop will not
+> see the Internet. I am able to ping the router, and other boxes in the
+> house, including the HDHomeRun. I can discover the HDHomeRun using
+> hdhomerun_config discover, but I can't get anywhere with Google Chrome
+> outside the house. I can see my internal web server, though.
+>
+> Any idea what I've missed?
+>
+
+Probably your nameservers in /etc/resolv.conf  were changed at the
+clinic and you need to change them back to their previous settings for
+your house.
+
+Bill
+
+From bill at billbarry.org  Sun Oct 20 19:26:32 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Sun, 20 Oct 2013 19:26:32 -0700
+Subject: [PLUG] Weird network problem
+In-Reply-To: <CAAPspTZkqiH4QqawMEc==EYLhEXfmSaYr4jaRRGLX_sEE981-A@mail.gmail.com>
+References: <52647F7B.2000406@dicksteffens.com>
+	<CAAPspTZkqiH4QqawMEc==EYLhEXfmSaYr4jaRRGLX_sEE981-A@mail.gmail.com>
+Message-ID: <CAAPspTZ56bMgqspb8w8hoqy0Fo9zxLYKHZHMnhcWSPavEiuF9Q@mail.gmail.com>
+
+On Sun, Oct 20, 2013 at 6:39 PM, Bill Barry <bill at billbarry.org> wrote:
+> On Sun, Oct 20, 2013 at 6:12 PM, Dick Steffens <dick at dicksteffens.com> wrote:
+>> Thanks, Galen, for the help with my MythTV installation at the clinic
+>> this afternoon.
+>>
+>> When I got home from the clinic I started up the laptop, stopped the
+>> Myth frontend, edited /etc/network/interfaces, deleting all those
+>> comment signs in front of the static IP entries and putting on in front
+>> of the DHCP entry. Then I ran MythTV Backend Setup and changed the IP
+>> address in the General section to the static IP address of the machine.
+>>
+>> However I was unable to see anything through the HDHomeRun.
+>>
+>> After a bunch of fooling around I discovered that the laptop will not
+>> see the Internet. I am able to ping the router, and other boxes in the
+>> house, including the HDHomeRun. I can discover the HDHomeRun using
+>> hdhomerun_config discover, but I can't get anywhere with Google Chrome
+>> outside the house. I can see my internal web server, though.
+>>
+>> Any idea what I've missed?
+>>
+>
+> Probably your nameservers in /etc/resolv.conf  were changed at the
+> clinic and you need to change them back to their previous settings for
+> your house.
+>
+> Bill
+
+
+While static IPs can be handy they often cause  problems like you
+describe above.  The way around this is to DHCP instead, but give the
+computer a memorable hostname. Then use hostname in the places you are
+currently using static IP.  This saved me just last week when someone
+changed a router on a remote system I manage. The router used a
+different default network, but because I was using hostnames no one
+had to go in and adjust any static IPs.
+
+Bill
+
+From dick at dicksteffens.com  Sun Oct 20 21:51:27 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 20 Oct 2013 21:51:27 -0700
+Subject: [PLUG] Weird network problem
+In-Reply-To: <CAAPspTZ56bMgqspb8w8hoqy0Fo9zxLYKHZHMnhcWSPavEiuF9Q@mail.gmail.com>
+References: <52647F7B.2000406@dicksteffens.com>	<CAAPspTZkqiH4QqawMEc==EYLhEXfmSaYr4jaRRGLX_sEE981-A@mail.gmail.com>
+	<CAAPspTZ56bMgqspb8w8hoqy0Fo9zxLYKHZHMnhcWSPavEiuF9Q@mail.gmail.com>
+Message-ID: <5264B2CF.9030502@dicksteffens.com>
+
+On 10/20/2013 07:26 PM, Bill Barry wrote:
+> While static IPs can be handy they often cause  problems like you
+> describe above.  The way around this is to DHCP instead, but give the
+> computer a memorable hostname. Then use hostname in the places you are
+> currently using static IP.  This saved me just last week when someone
+> changed a router on a remote system I manage. The router used a
+> different default network, but because I was using hostnames no one
+> had to go in and adjust any static IPs.
+
+Thanks for the comments. Galen mentioned something about them this 
+afternoon, too. I must spend some time learning more about host names, 
+and then setting them up.
+
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From john at meissen.org  Sun Oct 20 21:59:31 2013
+From: john at meissen.org (John Meissen)
+Date: Sun, 20 Oct 2013 21:59:31 -0700
+Subject: [PLUG] Weird network problem
+In-Reply-To: (Your message of Sun, 20 Oct 2013 18:12:27 PDT.)
+	<52647F7B.2000406@dicksteffens.com>
+Message-ID: <20131021045931.B579817F7FF@john>
+
+> Thanks, Galen, for the help with my MythTV installation at the clinic 
+> this afternoon.
+> 
+> When I got home from the clinic I started up the laptop, stopped the 
+> Myth frontend, edited /etc/network/interfaces, deleting all those 
+> comment signs in front of the static IP entries and putting on in front 
+> of the DHCP entry. Then I ran MythTV Backend Setup and changed the IP 
+> address in the General section to the static IP address of the machine.
+> 
+> However I was unable to see anything through the HDHomeRun.
+> 
+> After a bunch of fooling around I discovered that the laptop will not 
+> see the Internet. I am able to ping the router, and other boxes in the 
+> house, including the HDHomeRun. I can discover the HDHomeRun using 
+> hdhomerun_config discover, but I can't get anywhere with Google Chrome 
+> outside the house. I can see my internal web server, though.
+> 
+> Any idea what I've missed?
+
+Sounds like multiple problems. 
+
+You probably didn't set up a default route when you switched to static IPs. 
+DHCP provides more than just the IP address, it also sets the nameserver and 
+default routes. And then there's resolv.conf, or whatever they're using now
+(<sigh> I just looked at my Ubuntu system, and resolv.conf is pointing to 
+'localhost', and I've got something called 'dnsmasq' listening on that port).
+
+
+You can still use DHCP and have static IP addresses. Edit the dhcpd.conf file 
+to provide fixed addresses for those hosts you want, restart the dhcp server,
+then let your systems use DHCP to set up networking. You can get the MAC 
+address from 'ifconfig'.
+
+When you say "I was unable to see anything through the HDHomeRun" what do you 
+mean? Are you saying myth can't find your HDHomeRun? How do they get their IP 
+addresses assigned?
+
+Tweaking the DHCP server is a lot easier and cleaner than messing with and 
+tracking fixed addresses the way you're doing it. Set it once and forget it, as 
+long as the hardware (specifically the NIC) doesn't change it will always work 
+right.
+
+Set a subnet range for assigning to 'guest' systems that doesn't include the 
+fixed IPs' you're assigning elsewhere:
+
+subnet 192.168.10.0 netmask 255.255.255.0 {
+ range 192.168.10.100 192.168.10.200;
+}
+
+Then set the addresses for your 'fixed' hosts:
+
+host myth  { hardware ethernet 40:61:86:e4:1f:3b;
+ fixed-address 192.168.10.10;
+ option host-name "myth";
+}
+
+host hdhomerun  { hardware ethernet 00:18:dd:01:a1:9a;
+ fixed-address 192.168.10.15;
+}
+
+(those are from my dhcpd.conf file)
+
+While you're at it, set up a nameserver to resolve your local hosts, and keep 
+it in sync with dhcpd.conf. Don't forget to specify it in the dhcpd.conf file:
+
+option domain-name-servers 192.168.10.6
+
+Of course, if you're using something like a linksys or dlink router to handle 
+your dhcp you can still do all that, it's just different.
+
+john-
+
+
+From john at meissen.org  Sun Oct 20 22:17:22 2013
+From: john at meissen.org (John Meissen)
+Date: Sun, 20 Oct 2013 22:17:22 -0700
+Subject: [PLUG] Weird network problem
+In-Reply-To: (Your message of Sun, 20 Oct 2013 18:12:27 PDT.)
+	<52647F7B.2000406@dicksteffens.com>
+Message-ID: <20131021051722.D87D317F7FF@john>
+
+Using DHCP to manage your fixed IP addresses is so much better, in multiple 
+ways.
+
+For one, it provides a central place to manage/track systems and their 
+addresses across the entire network. No warrying about getting hosts files out 
+of sync.
+
+But even better, things "just work". I have a laptop for work. When I'm plugged 
+in at home I have a fixed address (also reflected in my nameserver config). But 
+I can unplug it and take it to Starbucks, or anywhere else, and it will connect 
+to and talk on their network without having to make ANY changes.
+
+Ditto if I want to take a desktop system somewhere for troubleshooting.
+
+
+
+From dick at dicksteffens.com  Mon Oct 21 10:48:46 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Mon, 21 Oct 2013 10:48:46 -0700
+Subject: [PLUG] Crash notices when programs don't crash
+Message-ID: <526568FE.8030508@dicksteffens.com>
+
+I've been using two programs with Ubuntu 12.04 the last few days. Before 
+last week I was unable to get them working on 12.04 and had to use a 
+second machine running 10.04 to run them while running Libre Office on 
+the 12.04 machine. These are the tools I use when transcribing an audio 
+file, the Python programs Transcribe and Footpedal.
+
+They appear to work fine for the most part, but once in awhile I get a 
+pop up window claiming that one or the other of them has crashed. I 
+close that window by clicking on the button that says something to the 
+effect of "leave closed." The programs are still running, though. I have 
+had the problem of the footpedal program quitting in the middle of a 
+session on two occasions. I simply stop the playback using the mouse on 
+a button on the transcribe program. Then I double check to make sure 
+footpedal has stopped by opening a terminal and running:
+
+ps ax | grep footpedal
+
+On these occasions the programmed had indeed stopped running. I just 
+restart it and pick up from where I left off. (The reason I have to 
+check is that there is no visible indication that the program is 
+running. There is the obvious indication that the machine isn't 
+responding to the physical foot pedal, of course.)
+
+As for the transcribe program, I do the same thing, where I close the 
+alert window with the "leave closed" button. There is a window open for 
+that program, so I can see that it is still running.
+
+So, today's question: While this is a minor annoyance, is it something I 
+should be more concerned about? I could report the incident to the 
+maintainer of the transcribe program, but it appears that the footpedal 
+program has been abandoned.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From kingbeowulf at gmail.com  Mon Oct 21 13:36:03 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Mon, 21 Oct 2013 13:36:03 -0700
+Subject: [PLUG] Crash notices when programs don't crash
+In-Reply-To: <526568FE.8030508@dicksteffens.com>
+References: <526568FE.8030508@dicksteffens.com>
+Message-ID: <CAPiArqOwyVeJwBqJX3DSNrW=J5T1TPGsArcWwu0gBeBkv0Xmrg@mail.gmail.com>
+
+When situations like this occur, I run the program from the command
+line (terminal) that way you can get a better picture of errors for
+apps that send error messages to stdout and not /var/log/messages.
+
+It could be as simple as a lib version mismatch.
+
+Ed
+
+
+On 10/21/13, Dick Steffens <dick at dicksteffens.com> wrote:
+> I've been using two programs with Ubuntu 12.04 the last few days. Before
+> last week I was unable to get them working on 12.04 and had to use a
+> second machine running 10.04 to run them while running Libre Office on
+> the 12.04 machine. These are the tools I use when transcribing an audio
+> file, the Python programs Transcribe and Footpedal.
+>
+> They appear to work fine for the most part, but once in awhile I get a
+> pop up window claiming that one or the other of them has crashed. I
+> close that window by clicking on the button that says something to the
+> effect of "leave closed." The programs are still running, though. I have
+> had the problem of the footpedal program quitting in the middle of a
+> session on two occasions. I simply stop the playback using the mouse on
+> a button on the transcribe program. Then I double check to make sure
+> footpedal has stopped by opening a terminal and running:
+>
+> ps ax | grep footpedal
+>
+> On these occasions the programmed had indeed stopped running. I just
+> restart it and pick up from where I left off. (The reason I have to
+> check is that there is no visible indication that the program is
+> running. There is the obvious indication that the machine isn't
+> responding to the physical foot pedal, of course.)
+>
+> As for the transcribe program, I do the same thing, where I close the
+> alert window with the "leave closed" button. There is a window open for
+> that program, so I can see that it is still running.
+>
+> So, today's question: While this is a minor annoyance, is it something I
+> should be more concerned about? I could report the incident to the
+> maintainer of the transcribe program, but it appears that the footpedal
+> program has been abandoned.
+>
+> --
+> Regards,
+>
+> Richard C. Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From dick at dicksteffens.com  Mon Oct 21 13:43:51 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Mon, 21 Oct 2013 13:43:51 -0700
+Subject: [PLUG] Crash notices when programs don't crash
+In-Reply-To: <CAPiArqOwyVeJwBqJX3DSNrW=J5T1TPGsArcWwu0gBeBkv0Xmrg@mail.gmail.com>
+References: <526568FE.8030508@dicksteffens.com>
+	<CAPiArqOwyVeJwBqJX3DSNrW=J5T1TPGsArcWwu0gBeBkv0Xmrg@mail.gmail.com>
+Message-ID: <52659207.3070301@dicksteffens.com>
+
+On 10/21/2013 01:36 PM, King Beowulf wrote:
+> When situations like this occur, I run the program from the command
+> line (terminal) that way you can get a better picture of errors for
+> apps that send error messages to stdout and not /var/log/messages.
+>
+> It could be as simple as a lib version mismatch.
+
+Thanks. I'll start them up that way the next time I use them.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From rshepard at appl-ecosys.com  Mon Oct 21 17:28:04 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 21 Oct 2013 17:28:04 -0700 (PDT)
+Subject: [PLUG] Set Up Portable to Restore /etc/resolv.conf
+Message-ID: <alpine.LNX.2.00.1310211725120.28873@salmo.appl-ecosys.com>
+
+   What method would be most appropriate for a user without root privileges to
+reset /etc/resolv.conf from /etc/resolv.conf.home when returning from using
+a portable at an external site? Is there a way to automate (or script) this
+to make it simple for the user?
+
+Rich
+
+
+From kingbeowulf at gmail.com  Mon Oct 21 18:57:28 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Mon, 21 Oct 2013 18:57:28 -0700
+Subject: [PLUG] Set Up Portable to Restore /etc/resolv.conf
+In-Reply-To: <alpine.LNX.2.00.1310211725120.28873@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1310211725120.28873@salmo.appl-ecosys.com>
+Message-ID: <CAPiArqNJhJLr6eUe4GB2bXALTvTUra736-Pj=px_TpeR84y0Eg@mail.gmail.com>
+
+You'll need root access to /etc/resolv.conf (or sudo) which is a bad
+idea. Better to set up wicd or networkmanager profiles which each
+stores in $HOME. No need to access resolv.conf at all. Both can also
+toggle not only between wifi APs but also between wifi and wired.
+
+IIRC, you're on slackware. Just set rc.networkmanager to execute,
+create a rc.iptables scrips (rworkman or Alien Bob have a nifty
+generator) and you are golden.
+
+-Ed
+
+
+On 10/21/13, Rich Shepard <rshepard at appl-ecosys.com> wrote:
+>    What method would be most appropriate for a user without root privileges
+> to
+> reset /etc/resolv.conf from /etc/resolv.conf.home when returning from using
+> a portable at an external site? Is there a way to automate (or script) this
+> to make it simple for the user?
+>
+> Rich
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From rshepard at appl-ecosys.com  Mon Oct 21 19:08:23 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 21 Oct 2013 19:08:23 -0700 (PDT)
+Subject: [PLUG] Set Up Portable to Restore /etc/resolv.conf
+In-Reply-To: <CAPiArqNJhJLr6eUe4GB2bXALTvTUra736-Pj=px_TpeR84y0Eg@mail.gmail.com>
+References: <alpine.LNX.2.00.1310211725120.28873@salmo.appl-ecosys.com>
+	<CAPiArqNJhJLr6eUe4GB2bXALTvTUra736-Pj=px_TpeR84y0Eg@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1310211907380.8375@salmo.appl-ecosys.com>
+
+On Mon, 21 Oct 2013, King Beowulf wrote:
+
+> IIRC, you're on slackware. Just set rc.networkmanager to execute, create a
+> rc.iptables scrips (rworkman or Alien Bob have a nifty generator) and you
+> are golden.
+
+Ed,
+
+   Will do! I'll need to read all about it but this looks like the ideal
+solution.
+
+Much grasses,
+
+Rich
+
+
+From kingbeowulf at gmail.com  Mon Oct 21 19:28:27 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Mon, 21 Oct 2013 19:28:27 -0700
+Subject: [PLUG] 30 Window Managers in 30 Days
+In-Reply-To: <20131020171207.GA15412@jamhome.us>
+References: <20131020171207.GA15412@jamhome.us>
+Message-ID: <CAPiArqPGSNGUPfeb1zDmTvEQ=Y7EyJAGXQ6NN6tMig3ZiEmtBA@mail.gmail.com>
+
+Ambitious and a good summary. But he didn't cover KDE, Gnome, Xfce,
+and LXDE because those are Desktop Environments (DE) which you pretty
+much need to live with for a few weeks before you can pass judgment.
+
+Also, the WM is only 1/2 of the story. You still need a bunch of
+utilities to essentially make a DE. Here's the Linux fun part: you can
+take any DE and swap out its default WM for one of these. Freaky!
+
+-Ed
+
+
+On 10/20/13, Michael Rasmussen <michael at jamhome.us> wrote:
+> Ambitious guy went on a tour of window managers and has an introduction to
+> each
+>
+> http://crunchbang.org/forums/viewtopic.php?id=18273
+>
+> KDE and Gnome not included in the list.
+> Stacking Window managers
+> Day 1.5 -- Housekeeping
+> Day 2 -- jwm
+> Day 3 -- flwm
+> Day 4 -- fluxbox
+> Day 5 -- pekwm
+> Day 6 -- twm
+> Day 7 -- evilwm
+> Day 8 -- windowlab
+> Day 9 -- lwm and wm2
+> Day 10 -- aewm
+> Tiling Window Managers
+> Day 11 -- scrotwm
+> Day 12 -- wmii
+> Day 13 -- i3
+> Day 14 -- wmfs
+> Day 15 -- dwm
+> Day 16 -- catwm and dminiwm
+> Day 17 -- snapwm and monsterwm
+> Day 18 -- musca
+> Day 19 -- tmux
+> Day 20 -- ratpoison
+> Random Other Window Managers
+> Day 21 -- sithwm
+> Day 22 -- euclid-wm
+> Day 23 -- oroborus
+> Day 24 -- icewm
+> Day 25 -- herbstluftwm
+> Day 26 -- dvtm
+> Day 27 -- sapphire and cwm
+> Day 28 -- echinus and larswm
+> Day 29 -- xmonad and awesome
+> Day 30 -- tinywm
+> Day N -- Amiwm -- joek review
+> Day N+1 -- AfterStep -- joek review
+>
+>
+> --
+>             Michael Rasmussen, Portland Oregon
+>           Be Appropriate && Follow Your Curiosity
+>   Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+> A special random fortune cookie fortune:
+> Cycle tracks will abound in Utopia.
+> 	~  H.G. Wells
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+-- 
+Sent from my mobile device
+
+You! What PLANET is this!
+	-- McCoy, "The City on the Edge of Forever", stardate 3134.0
+
+From johnxj at comcast.net  Thu Oct 24 00:55:01 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 24 Oct 2013 00:55:01 -0700
+Subject: [PLUG] I killed my desktop
+Message-ID: <20131024005501.0b41fe5d@Devil8>
+
+My desktop computer is used only for streaming internet radio, playing
+movies, and as a backup to get on the net in case I hopelessly mess up
+my laptop. It ran Ubuntu 10.04 for years, long after 12.04 came out,
+but eventually it got too far out of date so I installed Xubuntu 12.04.
+Due to issues with the video driver that came with 12.04, I wiped it
+out and installed Mint. But Mint has issues playing videos (slow, jerky
+video). So this evening I decided to try Xubuntu again.
+
+The first thing I discovered is that I can't get the ASUS M2NPV-VM BIOS
+to boot to a USB stick. So I burned a DVD on my laptop and installed
+from that. However, no matter what I try, it won't boot after the
+install. This is curious because several months ago when I installed
+12.04 it booted and ran fine (except for the video driver issues). That
+was version 12.04 and now I am trying to install 12.04.3.
+
+The computer has two 320 GB Seagate drives (SDA and SDB), originally
+matching, but one failed and Seagate replaced it with a refurbished
+unit. It also as a 1 TB drive, but I don't want to touch it because I
+used it to store ~/ on, intending to copy it back to ~/ after the fresh
+install of Xubuntu. I started by installing to SDA setting up a 20 GB
+partition for root, a 6 GB partition for swap, and the remainder for
+home. It goes all the way through the install process without error,
+but when it finishes and I reboot, it comes up in rescue mode.
+
+Thinking that there might be a problem with SDA I repeated the install
+to SDB, but got the same results. I also tried telling the installer to
+apply all updates during the install, but it made no difference. 
+
+The computer has 2 GB RAM and video is nVidia GeForce 6150 on the
+motherboard.
+
+The motherboard has 4 SATA connectors. In the BIOS it sees the two 320
+GB drives, but not the 1 TB drive. I don't understand that, because a
+few hours ago with Mint it saw the 1 TB drive just fine.
+
+It is way past my bedtime, I am out of ideas, disgusted, and I will not
+have music in my house tomorrow. I hope someone has some ideas.
+
+From johnxj at comcast.net  Thu Oct 24 01:02:10 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 24 Oct 2013 01:02:10 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131024005501.0b41fe5d@Devil8>
+References: <20131024005501.0b41fe5d@Devil8>
+Message-ID: <20131024010210.55e40719@Devil8>
+
+On Thu, 24 Oct 2013 00:55:01 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+>My desktop computer is used only for streaming internet radio, playing
+>movies, and as a backup to get on the net in case I hopelessly mess up
+>my laptop. It ran Ubuntu 10.04 for years, long after 12.04 came out,
+>but eventually it got too far out of date so I installed Xubuntu 12.04.
+>Due to issues with the video driver that came with 12.04, I wiped it
+>out and installed Mint. But Mint has issues playing videos (slow, jerky
+>video). So this evening I decided to try Xubuntu again.
+>
+>The first thing I discovered is that I can't get the ASUS M2NPV-VM BIOS
+>to boot to a USB stick. So I burned a DVD on my laptop and installed
+>from that. However, no matter what I try, it won't boot after the
+>install. This is curious because several months ago when I installed
+>12.04 it booted and ran fine (except for the video driver issues). That
+>was version 12.04 and now I am trying to install 12.04.3.
+>
+>The computer has two 320 GB Seagate drives (SDA and SDB), originally
+>matching, but one failed and Seagate replaced it with a refurbished
+>unit. It also as a 1 TB drive, but I don't want to touch it because I
+>used it to store ~/ on, intending to copy it back to ~/ after the fresh
+>install of Xubuntu. I started by installing to SDA setting up a 20 GB
+>partition for root, a 6 GB partition for swap, and the remainder for
+>home. It goes all the way through the install process without error,
+>but when it finishes and I reboot, it comes up in rescue mode.
+>
+>Thinking that there might be a problem with SDA I repeated the install
+>to SDB, but got the same results. I also tried telling the installer to
+>apply all updates during the install, but it made no difference. 
+>
+>The computer has 2 GB RAM and video is nVidia GeForce 6150 on the
+>motherboard.
+>
+>The motherboard has 4 SATA connectors. In the BIOS it sees the two 320
+>GB drives, but not the 1 TB drive. I don't understand that, because a
+>few hours ago with Mint it saw the 1 TB drive just fine.
+>
+>It is way past my bedtime, I am out of ideas, disgusted, and I will not
+>have music in my house tomorrow. I hope someone has some ideas.
+
+I should have added that when I boot I get:
+
+error: no such partition
+grub rescue>
+
+But I am unable to figure out how to use grub rescue. I tried help and
+other obvious commands, but all I get is error messages. 
+
+From bill at billbarry.org  Thu Oct 24 09:07:02 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Thu, 24 Oct 2013 09:07:02 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131024010210.55e40719@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+Message-ID: <CAAPspTYmWgJk8WfmPnh7WZPS4TYj6NndCB85KeGfTQfjytqDzQ@mail.gmail.com>
+
+On Thu, Oct 24, 2013 at 1:02 AM, John Jason Jordan <johnxj at comcast.net> wrote:
+> On Thu, 24 Oct 2013 00:55:01 -0700
+> John Jason Jordan <johnxj at comcast.net> dijo:
+>
+> I should have added that when I boot I get:
+>
+> error: no such partition
+> grub rescue>
+>
+> But I am unable to figure out how to use grub rescue. I tried help and
+> other obvious commands, but all I get is error messages.
+
+
+Probably the grub that is giving you the error message is the grub
+from the previous installation and it is looking in the wrong place
+for the boot partition.
+
+In the installation process did it ask you which disks/partitions  to
+install grub on? The surest way to make it boot correctly is to
+install it on all disks.
+
+You could try  Boot-Repair and see if that fixes the problem.
+
+https://help.ubuntu.com/community/Boot-Repair
+
+Or you could re-install and check that the grub installation goes correctly.
+
+Bill
+
+From plug at the-wes.com  Thu Oct 24 09:09:27 2013
+From: plug at the-wes.com (wes)
+Date: Thu, 24 Oct 2013 09:09:27 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131024010210.55e40719@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+Message-ID: <CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+
+>
+>
+> >this evening I decided to try Xubuntu again.
+> >
+> >no matter what I try, it won't boot after the
+> >install.
+> >
+> >The computer has two 320 GB Seagate drives
+> >
+> >It goes all the way through the install process without error,
+> >but when it finishes and I reboot, it comes up in rescue mode.
+> >
+> >Thinking that there might be a problem with SDA I repeated the install
+> >to SDB, but got the same results.
+> >
+> >The motherboard has 4 SATA connectors. In the BIOS it sees the two 320
+> >GB drives, but not the 1 TB drive. I don't understand that, because a
+> >few hours ago with Mint it saw the 1 TB drive just fine.
+> >
+>
+> I should have added that when I boot I get:
+>
+> error: no such partition
+> grub rescue>
+>
+>
+my first guess is that the installer installed GRUB onto one drive, but the
+BIOS is attempting to boot the other drive. you could try swapping the
+cables going to them, or unplugging them one at a time til it boots (or
+doesn't). I agree that it should have worked once you repeated the
+installation to the other drive.
+
+I have no idea why the 1TB doesn't show up in BIOS, but I'd unplug its
+cable too, just in case.
+
+this way you can at least narrow down the problem.
+
+-wes
+
+From johnxj at comcast.net  Thu Oct 24 10:58:08 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Thu, 24 Oct 2013 10:58:08 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+Message-ID: <20131024105808.5d79e1f9@Devil8>
+
+On Thu, 24 Oct 2013 09:09:27 -0700
+wes <plug at the-wes.com> dijo:
+
+>> >this evening I decided to try Xubuntu again.
+>> I should have added that when I boot I get:
+>>
+>> error: no such partition
+>> grub rescue>
+
+>my first guess is that the installer installed GRUB onto one drive,
+>but the BIOS is attempting to boot the other drive. you could try
+>swapping the cables going to them, or unplugging them one at a time
+>til it boots (or doesn't). I agree that it should have worked once you
+>repeated the installation to the other drive.
+
+That was my guess also, so I swapped the cables, but it still gave me
+the error message. I finally got it to install without issue by
+unplugging both the 1 TB drive and the second 320 GB drive. 
+
+It appears to be running fine, but the hard drive light is on
+constantly - not just flickering, but solid. If I shut down it finally
+goes out, and when I restart the light flickers a bit during the boot
+process, and then stays on continuously. Yet I hear no disk activity.
+Using the GUI Task Manager I see nothing that might be causing this.
+
+Palimpsest says the 320 GB drive that is in use is 6 years old (can it
+be that long since I built this computer?) and that it has "a few bad
+sectors." Looking at the Smart data the Current Pending Sector Count is
+in red and it says "Number of sectors waiting to be remapped." I assume
+this is the cause of the disk light being on constantly. The Smart data
+says it will not be remapped until there is a failed write attempt. 
+
+>I have no idea why the 1TB doesn't show up in BIOS, but I'd unplug its
+>cable too, just in case.
+
+This is very strange. Hard drives do fail, but for it to be working
+fine and fail completely just when I installed Xubuntu would be a
+colossal coincidence. But it does not show up even in the BIOS. I can't
+grasp how Xubuntu could have caused that. 
+
+Now that I have Xubuntu installed and working I tried shutting the
+computer down and plugging the other two drives in, then rebooting.
+First I plugged in the 1 TB drive, but it still did not appear in the
+BIOS and, of course, Xubuntu does not see it. Then I plugged in the
+other 320 GB drive, which the BIOS does see, but Xubuntu can't see this
+drive either. The 1 TB drive is formatted ext4, used only for data
+storage. I believe the other 320 GB drive may be unformatted. Yet
+Palimpsest does not see it either. 
+
+There is one other oddity that was a problem with Mint and previous
+installations of Xubuntu 12.04 as well, that is, if there is a USB stick
+inserted during boot I will get an error message that the USB stick has
+no operating system. The boot order in the BIOS is set to 1) Removable,
+2) CD/DVD, 3) Hard Disk, and 4) Hard Disk. I thought that this means
+the BIOS should look for an OS on each of those devices in the above
+order, and if it does not find an OS, to move on to the next device.
+It's not moving on to the next device. I can't find anything in the
+BIOS to change this behavior. 
+
+Well, at least I have music again. 
+
+From dafr+plug at dafr.us  Thu Oct 24 15:16:23 2013
+From: dafr+plug at dafr.us (David Frye)
+Date: Thu, 24 Oct 2013 15:16:23 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+Message-ID: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+
+
+Howdy,
+
+I'm currently seeking suggestions on reliable places that can open, repair,
+and cleanly close up a Thinkpad T61 for a reasonable price. Doesn't have to be
+the cheapest, and I want a quality work.
+
+My T61 laptop has had wobbly hinges for a long time now, a known condition,
+and now one of them has decided to become impertinent and I can't close the
+lid any longer. I'm still trying to decide on opening the case myself or
+hiring it out for a professional to do, but I need pricing before I can
+completely decide on how to proceed.
+
+Recommendations would be greatly appreciated. Portland metro is the market,
+preferably in the SW, NW, or downtown areas, but all metro businesses will be
+considered.
+
+Cheers,
+
+dafr
+
+
+--
+David
+dafr at dafr.us
+
+
+From joeniski at easystreet.net  Thu Oct 24 15:28:36 2013
+From: joeniski at easystreet.net (Joe Niski)
+Date: Thu, 24 Oct 2013 15:28:36 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+In-Reply-To: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+Message-ID: <CE8EECA0.377B1%joeniski@easystreet.net>
+
+
+On 2013-10-24 3:16 PM, "David Frye" <dafr+plug at dafr.us> wrote:
+
+>
+>Howdy,
+>
+>I'm currently seeking suggestions on reliable places that can open,
+>repair,
+>and cleanly close up a Thinkpad T61 for a reasonable price. Doesn't have
+>to be
+>the cheapest, and I want a quality work.
+>
+>My T61 laptop has had wobbly hinges for a long time now, a known
+>condition,
+>and now one of them has decided to become impertinent and I can't close
+>the
+>lid any longer. I'm still trying to decide on opening the case myself or
+>hiring it out for a professional to do, but I need pricing before I can
+>completely decide on how to proceed.
+>
+>Recommendations would be greatly appreciated. Portland metro is the
+>market,
+>preferably in the SW, NW, or downtown areas, but all metro businesses
+>will be
+>considered.
+>
+>Cheers,
+>
+>dafr
+
+i've had good experience with Pacific Solutions on SE Powell. They had to
+scour eBay to find the ribbon cable for the display in my wife's old
+no-name laptop after it wore out from a decade of opening/closing, did a
+good job for a reasonable rate.
+________________________________________
+Joe Shisei Niski
+Portland, Oregon, USA
+??
+
+
+
+
+From wevl at pacifier.com  Thu Oct 24 17:25:35 2013
+From: wevl at pacifier.com (Wayne E. Van Loon Sr.)
+Date: Thu, 24 Oct 2013 17:25:35 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+In-Reply-To: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+Message-ID: <5269BA7F.9060803@pacifier.com>
+
+Dafr:
+I had a screen replace laptop repair at a place on Allen Blvd. in 
+Beaverton, between Lombard and Hall Blvd. cross streets. One repair is 
+not a lot of experience, but I was happy. He gave me and price estimate 
+and completion time and it all came true. The name of the place escapes 
+me, but if you are interested, I'll get you the name and phone number.
+
+Wayne
+
+On 10/24/2013 03:16 PM, David Frye wrote:
+> Howdy,
+>
+> I'm currently seeking suggestions on reliable places that can open, repair,
+> and cleanly close up a Thinkpad T61 for a reasonable price. Doesn't have to be
+> the cheapest, and I want a quality work.
+>
+> My T61 laptop has had wobbly hinges for a long time now, a known condition,
+> and now one of them has decided to become impertinent and I can't close the
+> lid any longer. I'm still trying to decide on opening the case myself or
+> hiring it out for a professional to do, but I need pricing before I can
+> completely decide on how to proceed.
+>
+> Recommendations would be greatly appreciated. Portland metro is the market,
+> preferably in the SW, NW, or downtown areas, but all metro businesses will be
+> considered.
+>
+> Cheers,
+>
+> dafr
+>
+>
+> --
+> David
+> dafr at dafr.us
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+>
+
+
+From starworks5 at gmail.com  Thu Oct 24 17:38:55 2013
+From: starworks5 at gmail.com (benjamin barber)
+Date: Thu, 24 Oct 2013 17:38:55 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+In-Reply-To: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+Message-ID: <CAMTdTS9A1m49E+5DSBVVdt1RcicgY=RHy-qY6sQeNQw-smsOAw@mail.gmail.com>
+
+I live in downtown, and I could do that. Otherwise I would talk to bolt
+computers.
+
+
+On Thu, Oct 24, 2013 at 3:16 PM, David Frye <dafr+plug at dafr.us> wrote:
+
+>
+> Howdy,
+>
+> I'm currently seeking suggestions on reliable places that can open, repair,
+> and cleanly close up a Thinkpad T61 for a reasonable price. Doesn't have
+> to be
+> the cheapest, and I want a quality work.
+>
+> My T61 laptop has had wobbly hinges for a long time now, a known condition,
+> and now one of them has decided to become impertinent and I can't close the
+> lid any longer. I'm still trying to decide on opening the case myself or
+> hiring it out for a professional to do, but I need pricing before I can
+> completely decide on how to proceed.
+>
+> Recommendations would be greatly appreciated. Portland metro is the market,
+> preferably in the SW, NW, or downtown areas, but all metro businesses will
+> be
+> considered.
+>
+> Cheers,
+>
+> dafr
+>
+>
+> --
+> David
+> dafr at dafr.us
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From website.reader3 at gmail.com  Fri Oct 25 12:49:30 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Fri, 25 Oct 2013 12:49:30 -0700
+Subject: [PLUG] question on lock-free queuing structures
+Message-ID: <CAJeYwHcieUMF7bvZCBxojEke6v80eAup961=_HWYq_4ddW3dfQ@mail.gmail.com>
+
+Has anyone had experience building a multiple producer, single
+consumer lock-free circular queue in C or C++?
+
+I am not worried about the consumer thread, it just moves along the
+circular queue until the head and tail pointers match then idles until
+it sees a change.
+
+My concern is some type of atomic write operation to the queue head
+and tail pointers from one producer, to block any other producers from
+writing to the same item, but to insure that all producers are able to
+write out successfully onto the queue.
+
+If you have had experience with building circular queues in C or C++ I
+would like to correspond with you.
+
+Thanks.
+
+Randall
+
+From website.reader3 at gmail.com  Fri Oct 25 13:55:02 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Fri, 25 Oct 2013 13:55:02 -0700
+Subject: [PLUG] possible solution to multiple producer problem
+Message-ID: <CAJeYwHejaQ2tQWw3tVg5f3peP75gs==xzEAeXPSrGMmitSDj2g@mail.gmail.com>
+
+Okay, I think I found a safe answer for multiple producers
+incrementing in the ring buffer.
+
+Each producer will do a type __sync_fetch_and_add (type *ptr, type
+value) operation which is guaranteed to be atomic and thus thread
+safe, on multiple core machines sharing a common memory.  The fetch
+operation will return the current value of the variable and then
+increment it atomically.
+
+Thus a safely incrementing modulo counter to the ring buffer is
+maintained and my problem is solved.
+
+Randall
+
+From johnxj at comcast.net  Sat Oct 26 13:02:51 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 26 Oct 2013 13:02:51 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131024105808.5d79e1f9@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8>
+Message-ID: <20131026130251.7c448cb9@Devil8>
+
+On Thu, 24 Oct 2013 10:58:08 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+>On Thu, 24 Oct 2013 09:09:27 -0700
+>wes <plug at the-wes.com> dijo:
+>>my first guess is that the installer installed GRUB onto one drive,
+>>but the BIOS is attempting to boot the other drive. you could try
+>>swapping the cables going to them, or unplugging them one at a time
+>>til it boots (or doesn't). I agree that it should have worked once you
+>>repeated the installation to the other drive.
+
+Update:
+
+I have Xubuntu installed and working fine on one of the 320 GB drives.
+In the process I also tried installing it on the other drive. If both
+drives are plugged in during boot there is no way to get Xubuntu to
+boot; it gets hopelessly confused and I get the Grub menu.
+Unfortunately, the drives are identical except for serial number, and
+Grub just assigned uuid numbers to both, without bothering to tell me
+which uuid is assigned to which drive. In sum, the only way to boot is
+to leave one of the 320 GB drives not plugged in. After doing that, and
+using Rescue Mode to update Grub, it now boots fine from one drive, and
+I have fixed that installation the way I want it. 
+
+I also discovered that I can hot-plug the other 320 GB drive. With
+Xubuntu running I can just reach into the case and plug the other 320 G
+drive in. Xubuntu automatically mounts it and presents a file browser
+window for it. I find this amazing. Of course you can hot-plug USB
+drives, but I am surprised that you can do it with internal drives as
+well. But note that the power cable was always connected; all I pulled
+during boot and plugged in after booting was the data cable.
+
+Having discovered this I used Palimpsest to remove the partitions from
+the hot-plugged 320 GB drive, and then formatted it as one partition
+ext4 for data storage. Now I should be able to leave it plugged in
+during boot and Xubuntu should not get confused.
+
+Having discovered that I could hot-plug the other 320 GB drive I tried
+it with the 1 TB drive. But the result was not what I hoped for. The
+disk light came on and stayed on continuously and Xubuntu did not
+mount the drive. I don't know what this means, and since the drive is
+not visible to Xubuntu, or even the BIOS, there is no way to do
+diagnostics on it. The only thing I can think of to try is to install
+it in another desktop computer with SATA ports to see if it is
+recognized. 
+
+And when I pulled the 1 TB drive out of the case I discovered that the
+label says it is a Seagate Barracuda 7200.12 and that it is a
+"Certified Repaired HDD." That is because the original failed and
+Seagate replaced it under warranty. If this drive has failed also that
+makes the fourth Seagate drive that I have had fail within the last
+couple of years, and it also assures Seagate a top position on my
+"Do Not Buy" list.
+
+From pm at nellump.net  Sat Oct 26 13:19:26 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Sat, 26 Oct 2013 13:19:26 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+In-Reply-To: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+Message-ID: <20131026201916.GA2237@neptune.nellump.net>
+
+On Thu, Oct 24, 2013 at 03:16:23PM -0700, David Frye wrote:
+> My T61 laptop has had wobbly hinges for a long time now, a known
+> condition, and now one of them has decided to become impertinent and
+> I can't close the lid any longer. I'm still trying to decide on
+> opening the case myself or hiring it out for a professional to do,
+> but I need pricing before I can completely decide on how to proceed.
+
+I have the same laptop, with the same dodgy hinges.  I've been
+planning on fixing it myself, but haven't bought any replacement parts
+yet.  Disassembling the laptop is tedious, but not particularly
+difficult.  Lenovo offers a service guide for free download that is
+helpful.  (Search for "T61 hardware maintenance manual".)
+
+If you're interested in making a group project out of it, we could get
+together and repair our respective laptops side-by-side.  Perhaps in
+conjunction with one of the monthly PLUG clinics?  Are there any other
+PLUGgers out there with Thinkpads in disrepair?
+
+
+-- 
+Paul
+
+From paulm at freegeek.org  Sat Oct 26 14:08:35 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 26 Oct 2013 14:08:35 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131026130251.7c448cb9@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+Message-ID: <1382821715.3740.3.camel@localhost>
+
+On Sat, 2013-10-26 at 13:02 -0700, John Jason Jordan wrote:
+
+> 
+> Update:
+> 
+> I have Xubuntu installed and working fine on one of the 320 GB drives.
+> In the process I also tried installing it on the other drive. If both
+> drives are plugged in during boot there is no way to get Xubuntu to
+> boot; it gets hopelessly confused and I get the Grub menu.
+> Unfortunately, the drives are identical except for serial number, and
+> Grub just assigned uuid numbers to both, without bothering to tell me
+> which uuid is assigned to which drive.
+
+'blkid' will give you the uuids.
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From johnxj at comcast.net  Sat Oct 26 16:27:21 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sat, 26 Oct 2013 16:27:21 -0700
+Subject: [PLUG] Laptop Repair Recommendation Request
+In-Reply-To: <20131026201916.GA2237@neptune.nellump.net>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+	<20131026201916.GA2237@neptune.nellump.net>
+Message-ID: <20131026162721.224653a4@Devil8>
+
+On Sat, 26 Oct 2013 13:19:26 -0700
+Paul Mullen <pm at nellump.net> dijo:
+
+>On Thu, Oct 24, 2013 at 03:16:23PM -0700, David Frye wrote:
+>> My T61 laptop has had wobbly hinges for a long time now, a known
+>> condition, and now one of them has decided to become impertinent and
+>> I can't close the lid any longer. I'm still trying to decide on
+>> opening the case myself or hiring it out for a professional to do,
+>> but I need pricing before I can completely decide on how to proceed.
+>
+>I have the same laptop, with the same dodgy hinges.  I've been
+>planning on fixing it myself, but haven't bought any replacement parts
+>yet.  Disassembling the laptop is tedious, but not particularly
+>difficult.  Lenovo offers a service guide for free download that is
+>helpful.  (Search for "T61 hardware maintenance manual".)
+>
+>If you're interested in making a group project out of it, we could get
+>together and repair our respective laptops side-by-side.  Perhaps in
+>conjunction with one of the monthly PLUG clinics?  Are there any other
+>PLUGgers out there with Thinkpads in disrepair?
+
+I have a T61, and it is always with me at the Clinic. However, its
+hinges are fine, although the SD card reader is kaput. I haven't
+bothered trying to fix it because I just got an external USB reader for
+a couple bucks.
+
+From ddsnell at frontier.com  Sat Oct 26 22:33:40 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sat, 26 Oct 2013 22:33:40 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131026130251.7c448cb9@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+Message-ID: <20131026223340.03b67b1f@zothique>
+
+On Sat, 26 Oct 2013 13:02:51 -0700
+John Jason Jordan <johnxj at comcast.net> wrote:
+
+> Having discovered that I could hot-plug the other 320 GB drive I tried
+> it with the 1 TB drive. But the result was not what I hoped for. The
+> disk light came on and stayed on continuously and Xubuntu did not
+> mount the drive. I don't know what this means, and since the drive is
+> not visible to Xubuntu, or even the BIOS, there is no way to do
+> diagnostics on it. The only thing I can think of to try is to install
+> it in another desktop computer with SATA ports to see if it is
+> recognized. 
+
+Download and install the "iotop" package.  You'll have to run it as
+root, but it should tell you what process is hogging the drive.  The
+drive is probably bad, but it doesn't hurt to check.
+
+Anyway, hope this helps.
+
+--Dale
+
+--
+The attitude of "Oh, you want it should work?  That costs extra!"
+is the biggest security hole in computer software today.
+    -- Anon., paraphrased (anybody know the real source?)
+
+From wamorita at gmail.com  Sun Oct 27 06:36:31 2013
+From: wamorita at gmail.com (Bill Morita)
+Date: Sun, 27 Oct 2013 08:36:31 -0500
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131026223340.03b67b1f@zothique>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+	<20131026223340.03b67b1f@zothique>
+Message-ID: <CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+
+Time to "Get SMART"
+
+http://www.linuxjournal.com/magazine/monitoring-hard-disks-smart
+
+
+-- Bill Morita
+512-569-6387 (Cell)
+
+
+On Sun, Oct 27, 2013 at 12:33 AM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> On Sat, 26 Oct 2013 13:02:51 -0700
+> John Jason Jordan <johnxj at comcast.net> wrote:
+>
+> > Having discovered that I could hot-plug the other 320 GB drive I tried
+> > it with the 1 TB drive. But the result was not what I hoped for. The
+> > disk light came on and stayed on continuously and Xubuntu did not
+> > mount the drive. I don't know what this means, and since the drive is
+> > not visible to Xubuntu, or even the BIOS, there is no way to do
+> > diagnostics on it. The only thing I can think of to try is to install
+> > it in another desktop computer with SATA ports to see if it is
+> > recognized.
+>
+> Download and install the "iotop" package.  You'll have to run it as
+> root, but it should tell you what process is hogging the drive.  The
+> drive is probably bad, but it doesn't hurt to check.
+>
+> Anyway, hope this helps.
+>
+> --Dale
+>
+> --
+> The attitude of "Oh, you want it should work?  That costs extra!"
+> is the biggest security hole in computer software today.
+>     -- Anon., paraphrased (anybody know the real source?)
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From johnxj at comcast.net  Sun Oct 27 09:16:34 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sun, 27 Oct 2013 09:16:34 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131026223340.03b67b1f@zothique>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+	<20131026223340.03b67b1f@zothique>
+Message-ID: <20131027091634.21bd6040@Devil8>
+
+On Sat, 26 Oct 2013 22:33:40 -0700
+Dale Snell <ddsnell at frontier.com> dijo:
+
+>On Sat, 26 Oct 2013 13:02:51 -0700
+>John Jason Jordan <johnxj at comcast.net> wrote:
+>
+>> Having discovered that I could hot-plug the other 320 GB drive I
+>> tried it with the 1 TB drive. But the result was not what I hoped
+>> for. The disk light came on and stayed on continuously and Xubuntu
+>> did not mount the drive. I don't know what this means, and since the
+>> drive is not visible to Xubuntu, or even the BIOS, there is no way
+>> to do diagnostics on it. The only thing I can think of to try is to
+>> install it in another desktop computer with SATA ports to see if it
+>> is recognized. 
+>
+>Download and install the "iotop" package.  You'll have to run it as
+>root, but it should tell you what process is hogging the drive.  The
+>drive is probably bad, but it doesn't hurt to check.
+
+I installed iotop, but it didn't show any disk activity at all for
+anything but the two 320 GB drives. I suspect that is because the drive
+is not recognized, even in the BIOS. The drive doesn't exist.
+
+From johnxj at comcast.net  Sun Oct 27 09:51:01 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sun, 27 Oct 2013 09:51:01 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+	<20131026223340.03b67b1f@zothique>
+	<CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+Message-ID: <20131027095101.761b575c@Devil8>
+
+On Sun, 27 Oct 2013 08:36:31 -0500
+Bill Morita <wamorita at gmail.com> dijo:
+
+>Time to "Get SMART"
+>
+>http://www.linuxjournal.com/magazine/monitoring-hard-disks-smart
+
+I installed smartmontoools, and the GUI for it. gsmartcntl. The drive
+does not appear in the BIOS, so neither does it appear to
+smartmontools. 
+
+However I did use it to check the two 320 GB drives, which it reported
+as "healthy." It appears that the data available under the Smart tab in
+Palimpsest is much more complete. 
+
+I had removed the 1 TB drive, so before trying smatmontools and iotools
+(thanks, Dale) I plugged it back in. As soon as I plugged in the power
+cable it made clicking noises for a minute or so. I assume this means
+the head is seeking, and failing  to find whatever it is looking for.
+
+Monday I will call Seagate to see if they will still honor the
+warranty, considering that it is a refurbished drive that Seagate
+sent me to replace the original that also failed. If they will honor
+the warranty they will require that I run their diagnostics utility,
+which only runs on Windows. I don't have a Windows computer.
+
+I also looked around for replacement drives. Almost half the drives on
+the market are Seagate, with Western Digital offering almost as many.
+Western Digital also requires their proprietary diagnostic tool, which
+also runs only on Windows. There aren't a lot of other brands to choose
+from. Newegg offers a few, but Enu and Fry's have only Seagate and
+Western Digital. 
+
+From jhg at jhmg.net  Sun Oct 27 10:06:38 2013
+From: jhg at jhmg.net (Jim Garrison)
+Date: Sun, 27 Oct 2013 10:06:38 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131027095101.761b575c@Devil8>
+References: <20131024005501.0b41fe5d@Devil8>
+	<20131024010210.55e40719@Devil8>	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>	<20131024105808.5d79e1f9@Devil8>
+	<20131026130251.7c448cb9@Devil8>	<20131026223340.03b67b1f@zothique>	<CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+	<20131027095101.761b575c@Devil8>
+Message-ID: <526D481E.8070500@jhmg.net>
+
+On 10/27/2013 9:51 AM, John Jason Jordan wrote:
+> On Sun, 27 Oct 2013 08:36:31 -0500
+> Bill Morita <wamorita at gmail.com> dijo:
+> Monday I will call Seagate to see if they will still honor the
+> warranty, considering that it is a refurbished drive that Seagate
+> sent me to replace the original that also failed. If they will honor
+> the warranty they will require that I run their diagnostics utility,
+> which only runs on Windows. I don't have a Windows computer.
+
+I'm pretty sure Seatools
+(http://www.seagate.com/support/downloads/item/seatools-dos-master/)
+is a bootable CD image that does not require Windows.
+
+-- 
+Jim Garrison (jhg at acm.org)
+PGP Keys at http://www.jhmg.net RSA 0x04B73B7F DH 0x70738D88
+
+From joshsangrydance at gmail.com  Sun Oct 27 10:07:23 2013
+From: joshsangrydance at gmail.com (Joshua Coatney)
+Date: Sun, 27 Oct 2013 10:07:23 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131027095101.761b575c@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+	<20131026223340.03b67b1f@zothique>
+	<CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+	<20131027095101.761b575c@Devil8>
+Message-ID: <CAHkrM+CbwEcnDNTWocwPhtEj=2qr9J8_529fZRQyiM85K35Acw@mail.gmail.com>
+
+They have a dos based utility comes as an iso
+On Oct 27, 2013 9:52 AM, "John Jason Jordan" <johnxj at comcast.net> wrote:
+
+> On Sun, 27 Oct 2013 08:36:31 -0500
+> Bill Morita <wamorita at gmail.com> dijo:
+>
+> >Time to "Get SMART"
+> >
+> >http://www.linuxjournal.com/magazine/monitoring-hard-disks-smart
+>
+> I installed smartmontoools, and the GUI for it. gsmartcntl. The drive
+> does not appear in the BIOS, so neither does it appear to
+> smartmontools.
+>
+> However I did use it to check the two 320 GB drives, which it reported
+> as "healthy." It appears that the data available under the Smart tab in
+> Palimpsest is much more complete.
+>
+> I had removed the 1 TB drive, so before trying smatmontools and iotools
+> (thanks, Dale) I plugged it back in. As soon as I plugged in the power
+> cable it made clicking noises for a minute or so. I assume this means
+> the head is seeking, and failing  to find whatever it is looking for.
+>
+> Monday I will call Seagate to see if they will still honor the
+> warranty, considering that it is a refurbished drive that Seagate
+> sent me to replace the original that also failed. If they will honor
+> the warranty they will require that I run their diagnostics utility,
+> which only runs on Windows. I don't have a Windows computer.
+>
+> I also looked around for replacement drives. Almost half the drives on
+> the market are Seagate, with Western Digital offering almost as many.
+> Western Digital also requires their proprietary diagnostic tool, which
+> also runs only on Windows. There aren't a lot of other brands to choose
+> from. Newegg offers a few, but Enu and Fry's have only Seagate and
+> Western Digital.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From keithl at gate.kl-ic.com  Sun Oct 27 13:06:11 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sun, 27 Oct 2013 13:06:11 -0700
+Subject: [PLUG] T61 laptop repair at the clinic
+In-Reply-To: <20131026201916.GA2237@neptune.nellump.net>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+	<20131026201916.GA2237@neptune.nellump.net>
+Message-ID: <20131027200611.GA26261@gate.kl-ic.com>
+
+On Sat, Oct 26, 2013 at 01:19:26PM -0700, Paul Mullen wrote:
+> If you're interested in making a group project out of it, we could get
+> together and repair our respective laptops side-by-side.  Perhaps in
+> conjunction with one of the monthly PLUG clinics?  Are there any other
+> PLUGgers out there with Thinkpads in disrepair?
+
+I would be glad to help at the next clinic.  Laptop repair is much
+easier when there is more than one machine open, and there are
+other machines to refer to.  Finding others in the community with
+wonky T61s would be good, too;  a Meetup announced on Caligator in
+advance of the clinic would attact others, and give everyone a chance
+to order parts and prepare (and not get in bidding wars with each
+other on eBay).  I will be out of town the second week of November,
+but could participate before then (that is, Real Soon Now).
+
+I have been in and out of T60s (not T61s) a LOT, and the machines are
+probably very much alike in layout.  Indeed, having a 15 inch 4x3
+screen, I went crazy, replacing it with a 2048x1536 prototype screen,
+different screen connection cable, higher power backlight inverter,
+and reprogramming the EDID code so the Thinkpad BIOS recognizes the
+new screen.
+
+Replacing the hinges involves both the screen and the chassis.  If
+the T61 is like the T60, that involves pulling the keyboard and all
+the bezel plastic.  Look around for new hinges;  ACSparts sometimes
+has items like that. 
+
+Sometimes you can find a screensmashed laptop really cheap on
+eBay; good for spare parts.  If someone has connections at Free
+Geek, they could accumulate a months supply of unrepairable T61s
+for us to raid for parts.  In return, we can invite some of their
+grant clients with T61s.
+
+While you are inside the machine,  you will want to replace the
+AC adapter socket and the BIOS battery.  Depending on how the T61
+differs from the T60, the battery is dead simple and the AC adapter
+socket may require major disassembly; nevertheless, the socket is
+of the first things to go.  Given the Lenovo FRU, you can find new
+sockets with pigtail cables for about $5 on eBay.  
+
+If you are obsessive and want to restore the little plastic stick-on
+screw covers, look for those too.  A few will get their stickum
+displaced too much to re-use.
+
+You will want a small Phillios jewelers screwdriver ( size 00).
+A shallow compartment plastic tray for storing the screws would
+help.  Michaels or a bead store might have something.  Screws tend
+to get lost; ordering extras might help.
+
+This is also a good time to upgrade RAM if you want more.  Check
+
+                  thinkwiki.org
+
+for hacker info on how much RAM your linux distro can support;
+often more than Windoze permits.  Many other items can be replaced
+or upgraded;  if your screen is dim, new backlight inverters are
+available, even new screens.  If you are really obsessed, you can
+replace the CPU with the fastest that fits the socket; however,
+if both cores are running flat out, you can heat the machine into
+thermal shutdown. 
+
+The main thing is preparation.  Download the hardware maintenance
+manual and read through the disassembly/reassembly stuff.  80% of
+the manual is lists of all the different hardware options, and
+there are many changes over the manufacturing life of a thinkpad.
+Almost none of that matters for what we will work on.  Order the
+parts in advance; we won't find any near Free Geek on a Sunday
+afternoon.
+
+Most folks are afraid of opening their hardware, or disinterested.
+I think it is the only healthy way to own technology, rather than
+having techmology own you.  Real Hackers void warranties.  
+
+
+
+
+
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From keithl at gate.kl-ic.com  Sun Oct 27 13:33:36 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Sun, 27 Oct 2013 13:33:36 -0700
+Subject: [PLUG] T61 laptop repair at the clinic (T61 only...)
+In-Reply-To: <20131027200611.GA26261@gate.kl-ic.com>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+	<20131026201916.GA2237@neptune.nellump.net>
+	<20131027200611.GA26261@gate.kl-ic.com>
+Message-ID: <20131027203336.GC17752@gate.kl-ic.com>
+
+On Sun, Oct 27, 2013 at 01:06:11PM -0700, Keith Lofstrom wrote:
+> I would be glad to help at the next clinic.  Laptop repair is much
+> easier when there is more than one machine open, and there are
+> other machines to refer to.  Finding others in the community with
+> wonky T61s would be good, too 
+...
+
+BTW - I would prefer to concentrate on T61s that Clinic Sunday,
+for folks that are prepared, and set aside other Sundays for other
+models.  Like all clinics, we will have plenty of people with
+other problems, and I don't have the brainpower to help with
+T61s, and help those other people, AND deal with whatever random
+laptop walks in the door.  This will take time, and I don't want
+to rush, or send folks home with a box of unassembled parts.
+
+Preparation is important, and finding service documents and
+replacement parts for non-Lenovo machines will take time. 
+If you want to repair a Dell or an HP, we can have fun doing
+that together, but we will want to learn how, beforehand.
+
+Lets do one thing with excellence.  
+
+Keith
+
+P.S., John J: I bet a cookie that the SD card reader on your
+T61 has a similar problem to your machine we fixed last month.
+Perhaps your cat chases mice in there, which bends the
+contacts. :-)  We can open your machine and take a look.
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From johnxj at comcast.net  Sun Oct 27 17:08:33 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Sun, 27 Oct 2013 17:08:33 -0700
+Subject: [PLUG] T61 laptop repair at the clinic (T61 only...)
+In-Reply-To: <20131027203336.GC17752@gate.kl-ic.com>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+	<20131026201916.GA2237@neptune.nellump.net>
+	<20131027200611.GA26261@gate.kl-ic.com>
+	<20131027203336.GC17752@gate.kl-ic.com>
+Message-ID: <20131027170833.35257460@Devil8>
+
+On Sun, 27 Oct 2013 13:33:36 -0700
+Keith Lofstrom <keithl at gate.kl-ic.com> dijo:
+
+>P.S., John J: I bet a cookie that the SD card reader on your
+>T61 has a similar problem to your machine we fixed last month.
+>Perhaps your cat chases mice in there, which bends the
+>contacts. :-)  We can open your machine and take a look.
+
+You may be right. However, even when brand new I could never get any
+Linux distro to mount it writable. Best I could do was read-only. (Yes,
+the switch was in the right position.) I only wanted it writable so that
+I could transfer 30+ GB of mp3s to the card that I use in my phone.
+Eventually I gave up and plugged the phone into a USB port on the T61.
+It was slow, but I only ever needed to do it once. 
+
+It was when I started CPAP that I discovered that it had become
+completely broken and wouldn't even read SD cards. So I spent the grand
+sum of $2 with free shipping for an external reader that has been
+working fine ever since. Some things aren't worth the trouble to fix
+them.
+
+From dafr+plug at dafr.us  Sun Oct 27 20:38:58 2013
+From: dafr+plug at dafr.us (David Frye)
+Date: Sun, 27 Oct 2013 20:38:58 -0700
+Subject: [PLUG] T61 laptop repair at the clinic
+In-Reply-To: <20131027200611.GA26261@gate.kl-ic.com>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>	<20131026201916.GA2237@neptune.nellump.net>
+	<20131027200611.GA26261@gate.kl-ic.com>
+Message-ID: <526DDC52.6030106@dafr.us>
+
+On 10/27/2013 01:06 PM, Keith Lofstrom wrote:
+> On Sat, Oct 26, 2013 at 01:19:26PM -0700, Paul Mullen wrote:
+>> If you're interested in making a group project out of it, we could get
+>> together and repair our respective laptops side-by-side.  Perhaps in
+>> conjunction with one of the monthly PLUG clinics?  Are there any other
+>> PLUGgers out there with Thinkpads in disrepair?
+
+I could go for this myself, but it depends on obtaining parts. I'm 
+trying to be a bit finicky to get quality hinges at this point. If I can 
+get the parts quick enough, I may jump ahead and do the work on my own, 
+but if something is set up, I can share my knowledge and experience at a 
+meetup.
+
+<snip>
+
+> Replacing the hinges involves both the screen and the chassis.  If
+> the T61 is like the T60, that involves pulling the keyboard and all
+> the bezel plastic.  Look around for new hinges;  ACSparts sometimes
+> has items like that.
+
+Yeah, this will be pretty much a complete dis-assembly. I had already 
+found a manual for a different version of the T61 and seen that. The 
+correct manual isn't any more descriptive, but I'm relatively handy with 
+this kind of thing. I just lack some of the tools, but it appears to be 
+cheaper to buy what I need instead of farming the work out to a third party.
+
+> Sometimes you can find a screensmashed laptop really cheap on
+> eBay; good for spare parts.  If someone has connections at Free
+> Geek, they could accumulate a months supply of unrepairable T61s
+> for us to raid for parts.  In return, we can invite some of their
+> grant clients with T61s.
+
+Interesting idea that I hadn't considered... I appreciate that logic.
+
+<snip>
+
+> The main thing is preparation.  Download the hardware maintenance
+> manual and read through the disassembly/reassembly stuff.  80% of
+> the manual is lists of all the different hardware options, and
+> there are many changes over the manufacturing life of a thinkpad.
+> Almost none of that matters for what we will work on.  Order the
+> parts in advance; we won't find any near Free Geek on a Sunday
+> afternoon.
+>
+> Most folks are afraid of opening their hardware, or disinterested.
+> I think it is the only healthy way to own technology, rather than
+> having techmology own you.  Real Hackers void warranties.
+
+<snip>
+
+Preparation is a good way to stay out of jams most of the time for most 
+things, but here especially so. I don't have a lot of experience with 
+opening up laptops, but always up for a challenge.
+
+dafr
+
+
+
+From johnxj at comcast.net  Mon Oct 28 11:30:53 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 28 Oct 2013 11:30:53 -0700
+Subject: [PLUG] I killed my desktop
+In-Reply-To: <20131027095101.761b575c@Devil8>
+References: <20131024005501.0b41fe5d@Devil8> <20131024010210.55e40719@Devil8>
+	<CAA1wLOmR2BTMBJ3XR2AZ32dFc2nzQODA3HipPiVPbZVi0HDL8Q@mail.gmail.com>
+	<20131024105808.5d79e1f9@Devil8> <20131026130251.7c448cb9@Devil8>
+	<20131026223340.03b67b1f@zothique>
+	<CALgdxo8-3kdJMhkWEBX2eyLgUaKu8t0gTS+yO7eE4WKgvF43xg@mail.gmail.com>
+	<20131027095101.761b575c@Devil8>
+Message-ID: <20131028113053.3236e9a1@Devil8>
+
+On Sun, 27 Oct 2013 09:51:01 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:
+
+>Monday I will call Seagate to see if they will still honor the
+>warranty, considering that it is a refurbished drive that Seagate
+>sent me to replace the original that also failed. If they will honor
+>the warranty they will require that I run their diagnostics utility,
+>which only runs on Windows. I don't have a Windows computer.
+
+Seagate's web based warranty validator said it could not determine if
+the drive was under warranty, so today I called Seagate. They confirmed
+that the warranty expired last January. 
+
+Since it is not detected in the BIOS there is nothing that can be done
+via repair and recovery tools. I have all kinds of bootable disk repair
+CDs, but they are all useless here. The only hope is to install it in
+another desktop computer with a SATA port, or in an external SATA
+enclosure and connect it to any computer via USB. If it still cannot be
+seen, then it is truly history. I have neither a SATA enclosure nor any
+other desktop computers, so I'll save this for the next Clinic. It's a
+long shot anyway.
+
+In the meantime I'm shopping for a replacement. Does anyone have any
+good or bad things to say about 3 TB SATA-3 drives, excluding Seagate?
+
+From johnxj at comcast.net  Mon Oct 28 14:39:53 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 28 Oct 2013 14:39:53 -0700
+Subject: [PLUG] Can I use a 3 TB internal drive?
+Message-ID: <20131028143953.25b792b2@Devil8>
+
+My desktop computer has a five-year old ASUS motherboard with four
+SATA-2 ports. I am considering adding a 3 TB SATA-3 drive. My choice of
+SATA-3 is only for future; my current motherboard only has SATA-2. In
+shopping I found this on a page from Enu:
+
+Motherboard with UEFI BIOS or compatible controller card and compatible
+OS needed for drives greater than 2.2TB
+
+I assume that a SATA-3 drive will work on a SATA-2 controller; it just
+won't run as fast as if it was on a SATA-3 controller. But what is this
+about drives greater than 2.2 TB?
+
+From johnxj at comcast.net  Mon Oct 28 15:20:59 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 28 Oct 2013 15:20:59 -0700
+Subject: [PLUG] Can I use a 3 TB internal drive?
+In-Reply-To: <20131028143953.25b792b2@Devil8>
+References: <20131028143953.25b792b2@Devil8>
+Message-ID: <20131028152059.2146805a@Devil8>
+
+On Mon, 28 Oct 2013 14:39:53 -0700
+John Jason Jordan <johnxj at comcast.net> dijo:I
+
+>In shopping I found this on a page from Enu:
+>
+>Motherboard with UEFI BIOS or compatible controller card and compatible
+>OS needed for drives greater than 2.2TB
+>
+>I assume that a SATA-3 drive will work on a SATA-2 controller; it just
+>won't run as fast as if it was on a SATA-3 controller. But what is this
+>about drives greater than 2.2 TB?
+
+Never mind. I found this on Seagate's web site:
+
+Linux kernel version v2.6.35 or newer is known to support >2TiB disk
+drives.
+
+And I have 3.2.0 on Xubuntu 12.04.
+
+From russell at personaltelco.net  Mon Oct 28 15:59:38 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Mon, 28 Oct 2013 15:59:38 -0700
+Subject: [PLUG] Can I use a 3 TB internal drive?
+In-Reply-To: <20131028152059.2146805a@Devil8> (John Jason Jordan's message of
+	"Mon\, 28 Oct 2013 15\:20\:59 -0700")
+References: <20131028143953.25b792b2@Devil8> <20131028152059.2146805a@Devil8>
+Message-ID: <86y55dhuhx.fsf@coulee.tdb.com>
+
+>>>>> "John" == John Jason Jordan <johnxj at comcast.net> writes:
+
+>> Motherboard with UEFI BIOS or compatible controller card and
+>> compatible OS needed for drives greater than 2.2TB
+>> 
+>> I assume that a SATA-3 drive will work on a SATA-2 controller; it
+>> just won't run as fast as if it was on a SATA-3 controller. But
+>> what is this about drives greater than 2.2 TB?
+
+John> Never mind. I found this on Seagate's web site:
+
+Some (many?) larger, newer drives can't be used as boot devices on
+non-UEFI bios motherboards, apparently.  As long as you are booting
+off of something else, you should be okay, I think.
+
+I've got a couple 3TB drives waiting to get plugged into a file server
+which came with that warning.
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From larry.brigman at gmail.com  Mon Oct 28 16:12:24 2013
+From: larry.brigman at gmail.com (Larry Brigman)
+Date: Mon, 28 Oct 2013 16:12:24 -0700
+Subject: [PLUG] Can I use a 3 TB internal drive?
+In-Reply-To: <86y55dhuhx.fsf@coulee.tdb.com>
+References: <20131028143953.25b792b2@Devil8> <20131028152059.2146805a@Devil8>
+	<86y55dhuhx.fsf@coulee.tdb.com>
+Message-ID: <CAJEEjpZr1Ae8ikqCk-WznOdGNVCsaUDv2710wM7f5ocswa7L_A@mail.gmail.com>
+
+On Mon, Oct 28, 2013 at 3:59 PM, Russell Senior
+<russell at personaltelco.net>wrote:
+
+> >>>>> "John" == John Jason Jordan <johnxj at comcast.net> writes:
+>
+> >> Motherboard with UEFI BIOS or compatible controller card and
+> >> compatible OS needed for drives greater than 2.2TB
+> >>
+> >> I assume that a SATA-3 drive will work on a SATA-2 controller; it
+> >> just won't run as fast as if it was on a SATA-3 controller. But
+> >> what is this about drives greater than 2.2 TB?
+>
+> John> Never mind. I found this on Seagate's web site:
+>
+> Some (many?) larger, newer drives can't be used as boot devices on
+> non-UEFI bios motherboards, apparently.  As long as you are booting
+> off of something else, you should be okay, I think.
+>
+> I've got a couple 3TB drives waiting to get plugged into a file server
+> which came with that warning.
+>
+> There are a few tricks that allow large drives like this to boot even
+without
+uefi motherboards.
+
+http://www.linux.com/learn/tutorials/730440-using-the-new-guid-partition-table-in-linux-good-bye-ancient-mbr-
+http://www.ibm.com/developerworks/linux/library/l-gpt/
+
+From keithl at gate.kl-ic.com  Mon Oct 28 17:22:43 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 28 Oct 2013 17:22:43 -0700
+Subject: [PLUG] T61 laptop repair at the clinic
+In-Reply-To: <526DDC52.6030106@dafr.us>
+References: <A61BAD5D-451B-4811-80AD-CDAD16306220@dafr.us>
+	<20131026201916.GA2237@neptune.nellump.net>
+	<20131027200611.GA26261@gate.kl-ic.com> <526DDC52.6030106@dafr.us>
+Message-ID: <20131029002243.GA29837@gate.kl-ic.com>
+
+On Sun, Oct 27, 2013 at 08:38:58PM -0700, David Frye wrote:
+> I could go for this myself, but it depends on obtaining parts. I'm 
+> trying to be a bit finicky to get quality hinges at this point.
+
+Keep in mind that any given repair shop - and that includes the
+third party :-( company that Lenovo outsources their laptop
+repair to - will have the same access to parts that you do.
+
+"XYZ Laptop Repair And Muffler Shop" will find their parts
+from junkers, ebay, etc.  No guarantee of top quality unless
+you buy the parts yourself.  Look around the net - if T61 
+hinges are a common problem, there will be an aftermarket
+third party source, just like there is for specialized screen
+flex cables, AC adapter sockets, screw hole covers, etc.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From johnxj at comcast.net  Wed Oct 30 15:05:13 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 30 Oct 2013 15:05:13 -0700
+Subject: [PLUG] Indoor TV antenna recommendations
+Message-ID: <20131030150513.6b61a26e@Devil8>
+
+I have ordered an HDHomerun to add TV functionality to my Xubuntu
+desktop. I will want to watch only over the air broadcasts. According
+to tvfool.com (a website that I learned about at the last Clinic) there
+are roughly 20 stations approximately 4 miles SSW of my house (about
+220 degrees) and the weakest has a power of -47.5 dBm. I assume that
+means that I probably don't need cutting edge antenna technology,
+however, it would be most convenient to have it indoors and downstairs
+in the middle of the house, although putting it in the attic wouldn't
+be tremendously difficult.
+
+There are a bewildering number of indoor TV antennas on the market. I
+could use some suggestions and advice from real world users - not only
+as to makes and models, but also as to how it should be oriented. All I
+know about RF is that it is tricky and unpredictable.
+
+From john at meissen.org  Wed Oct 30 16:04:17 2013
+From: john at meissen.org (John Meissen)
+Date: Wed, 30 Oct 2013 16:04:17 -0700
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: (Your message of Wed, 30 Oct 2013 15:05:13 PDT.)
+	<20131030150513.6b61a26e@Devil8>
+Message-ID: <20131030230417.D337017F729@john>
+
+> I have ordered an HDHomerun to add TV functionality to my Xubuntu
+> desktop. I will want to watch only over the air broadcasts. According
+> to tvfool.com (a website that I learned about at the last Clinic) there
+> are roughly 20 stations approximately 4 miles SSW of my house (about
+> 220 degrees) and the weakest has a power of -47.5 dBm. I assume that
+> means that I probably don't need cutting edge antenna technology,
+> however, it would be most convenient to have it indoors and downstairs
+> in the middle of the house, although putting it in the attic wouldn't
+> be tremendously difficult.
+> 
+> There are a bewildering number of indoor TV antennas on the market. I
+> could use some suggestions and advice from real world users - not only
+> as to makes and models, but also as to how it should be oriented. All I
+> know about RF is that it is tricky and unpredictable.
+
+There's also http://antennaweb.org
+
+I would suggest that you make sure you can return anything you get. You may 
+find yourself going through the same drawn-out procedure I did.
+
+I am literally 4.5 miles west of towers. They are easily visible from my yard, 
+but there are random trees between them and myself.
+
+I started out trying various indoor antennas, with terrible results. Then I 
+tried amplified indoor antennas with no real change. I tried amplified "indoor/
+outdoor" antennas. Then I moved them out to the garage attic space. I went to 
+Radio Shack and bought an external directional antenna and a chimney mount. 
+That almost worked. Being on the roof I now had a considerable run of coax, 
+so I bought a pole-mount preamp and a power injector. That was much better. 
+Then I realized that the antennas they typically sell are UHF only (most 
+stations migrated to UHF frequencies with the switch), but a couple of 
+Portland stations are still VHF, so I bought a decent sized VHF/UHF antenna, 
+specifically
+  http://www.solidsignal.com/pview.asp?mc=03&p=HD7694P
+(note this is claiming a range of 35 miles).
+
+I now get almost perfect signal on every local station except channel 12. It 
+turns out that most of the local stations broadcast at 45KW, with a couple at 
+1000KW (1MW), but channel 12 only broadcasts at 25KW. I don't know what their 
+radiation pattern looks like, but I assume they're configured to send most of 
+that east over Portland instead of purely omni-directional over the entire 
+metro area. Even with a roof-mounted directional antenna with a pole-mounted 
+pre-amp I still can't reliably get channel 12, and I'm about to upgrade to 
+something like this:
+ http://www.solidsignal.com/pview.asp?p=cm-5646
+
+Remember, I'm 4.5 miles line-of-sight from the towers. :-(
+
+The frustrating thing is my Sony TV tuner can handle most of the issues with 
+channel 12, but my two HDHomeRun units have fits with the signal (I have a 
+1-to-4 splitter connecting the TV and 3 HDHomeRun cables).
+
+After you work through your indoor options drop me a line, I may still have the 
+HD7694 laying around.
+
+john-
+
+
+
+From dick at dicksteffens.com  Wed Oct 30 17:13:17 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Wed, 30 Oct 2013 17:13:17 -0700
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <20131030150513.6b61a26e@Devil8>
+References: <20131030150513.6b61a26e@Devil8>
+Message-ID: <5271A09D.7050409@dicksteffens.com>
+
+On 10/30/2013 03:05 PM, John Jason Jordan wrote:
+> I have ordered an HDHomerun to add TV functionality to my Xubuntu
+> desktop. I will want to watch only over the air broadcasts. According
+> to tvfool.com (a website that I learned about at the last Clinic) there
+> are roughly 20 stations approximately 4 miles SSW of my house (about
+> 220 degrees) and the weakest has a power of -47.5 dBm. I assume that
+> means that I probably don't need cutting edge antenna technology,
+> however, it would be most convenient to have it indoors and downstairs
+> in the middle of the house, although putting it in the attic wouldn't
+> be tremendously difficult.
+>
+> There are a bewildering number of indoor TV antennas on the market. I
+> could use some suggestions and advice from real world users - not only
+> as to makes and models, but also as to how it should be oriented. All I
+> know about RF is that it is tricky and unpredictable.
+
+I suspect I'll need to follow John M's advice later on, but to get 
+started I went to Radio Shack and got a simple dipole, the kind of 
+antenna that's made from 300 ohm twinlead. I connected that to a 300/75 
+ohm balun and plugged that into my HDHomeRun. Before the clinic I got 
+channel 10 easily. At the clinic and after I got home I didn't get 
+channel 10 easily. I found another dipole hooked up to a stereo tuner I 
+don't use anymore, and when I get time I'll give that a try to see if it 
+makes any difference. But, it's possible that a simple dipole might work 
+for you. It's cheap enough to be worth a try.
+
+-- 
+Regards,
+
+Richard C. Steffens
+
+
+From russell at personaltelco.net  Wed Oct 30 17:36:44 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Wed, 30 Oct 2013 17:36:44 -0700
+Subject: [PLUG] chasing a kernel memory leak
+Message-ID: <86ppqmqns3.fsf@coulee.tdb.com>
+
+
+I have been seeing a kernel memory leak (or what looks a hell of a lot
+like one) on recently openwrt (as of 6+ months ago).  It seems to be
+triggered running a particular shell script, though I'm having trouble
+narrowing it down because of its heisenbug properties, and also
+because it's fairly slow and you can only really see it over intervals
+of several hours.
+
+One of the things I am having trouble with is figuring out where the
+memory is going with /proc/meminfo.  It is not clear what components
+should be added to get the MemTotal.  My attempts so far aren't adding
+up (that is, I get something a non-zero remainder).  E.g.:
+
+  awk '$1 ~ /MemTotal/ { sum += $2 ; print $0 } 
+       $1 ~ /MemFree|Buffers|Cached|AnonPages|Slab|Mapped|Shmem|KernelStack|PageTables/ { sum -= $2 ; print $0 } 
+       END { print sum }'
+
+I've asked on the linux-mm irc channel, with deafening crickets as
+response.  Google has been unhelpful on memory accounting, mostly just
+pointing me at newbie questions/answers about "where did all my memory
+go?!" (when it is just eaten by recoverable cache and buffers) which
+is not my problem.  Also, kmemleak is not helping.
+
+Does anyone have practical advice on kernel memory accounting? 
+
+TIA.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From johnxj at comcast.net  Wed Oct 30 18:24:36 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Wed, 30 Oct 2013 18:24:36 -0700
+Subject: [PLUG] DOCSIS 3.0 modems
+Message-ID: <20131030182436.3376ba63@Devil8>
+
+Several months ago Comcast announced to me that they had massively
+increased my internet speeds. OK, that was hyperbole, but there was
+some recent speed increase. I am not hurting, as I regularly get in
+excess of 3 MB/s down and 600 KB/s up, but this is America, so more is
+always better, right? 
+
+However, there was a footnote in small print. It seems that to take
+advantage of the latest Comcast bounty I need a DOCSIS 3.0 modem. A
+quick check revealed that my current modem is a pathetic DOCSIS 2.0
+modem. I'm not sure what to do. Google, Amazon and others provide a
+long list of DOCSIS 3.0 modems, but I can find little information about
+which is the best. The same manufacturer often lists several DOCSIS 3.0
+modems, with ever escalating prices, with promises of ever greater
+speed as the price goes up. Isn't DOCSIS 3.0 the same regardless of the
+device? Other than possible construction quality, why pay extra for a
+modem as long as it is DOCSIS 3.0?
+
+Observations, experience, insights and suggestions welcome. 
+
+From larry.brigman at gmail.com  Wed Oct 30 20:21:52 2013
+From: larry.brigman at gmail.com (Larry Brigman)
+Date: Wed, 30 Oct 2013 20:21:52 -0700
+Subject: [PLUG] DOCSIS 3.0 modems
+In-Reply-To: <20131030182436.3376ba63@Devil8>
+References: <20131030182436.3376ba63@Devil8>
+Message-ID: <CAJEEjpbSi5_bK+_TOXa=WhUvfWPhYpXnx6vgSgtumGArA1SCCg@mail.gmail.com>
+
+I would start with the list of modems that Comcast has certified.
+They could even rent you a new modem with the new wireless AC standard.
+On Oct 30, 2013 6:25 PM, "John Jason Jordan" <johnxj at comcast.net> wrote:
+
+> Several months ago Comcast announced to me that they had massively
+> increased my internet speeds. OK, that was hyperbole, but there was
+> some recent speed increase. I am not hurting, as I regularly get in
+> excess of 3 MB/s down and 600 KB/s up, but this is America, so more is
+> always better, right?
+>
+> However, there was a footnote in small print. It seems that to take
+> advantage of the latest Comcast bounty I need a DOCSIS 3.0 modem. A
+> quick check revealed that my current modem is a pathetic DOCSIS 2.0
+> modem. I'm not sure what to do. Google, Amazon and others provide a
+> long list of DOCSIS 3.0 modems, but I can find little information about
+> which is the best. The same manufacturer often lists several DOCSIS 3.0
+> modems, with ever escalating prices, with promises of ever greater
+> speed as the price goes up. Isn't DOCSIS 3.0 the same regardless of the
+> device? Other than possible construction quality, why pay extra for a
+> modem as long as it is DOCSIS 3.0?
+>
+> Observations, experience, insights and suggestions welcome.
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From kingbeowulf at gmail.com  Thu Oct 31 23:58:37 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Thu, 31 Oct 2013 23:58:37 -0700
+Subject: [PLUG] Indoor TV antenna recommendations
+In-Reply-To: <5271A09D.7050409@dicksteffens.com>
+References: <20131030150513.6b61a26e@Devil8>
+	<5271A09D.7050409@dicksteffens.com>
+Message-ID: <5273511D.3010704@gmail.com>
+
+On 10/30/2013 05:13 PM, Dick Steffens wrote:
+> On 10/30/2013 03:05 PM, John Jason Jordan wrote:
+>> I have ordered an HDHomerun to add TV functionality to my
+>> Xubuntu desktop. I will want to watch only over the air
+>> broadcasts. According to tvfool.com (a website that I learned
+>> about at the last Clinic) there are roughly 20 stations
+>> approximately 4 miles SSW of my house (about 220 degrees) and the
+>> weakest has a power of -47.5 dBm. I assume that means that I
+>> probably don't need cutting edge antenna technology, however, it
+>> would be most convenient to have it indoors and downstairs in the
+>> middle of the house, although putting it in the attic wouldn't be
+>> tremendously difficult.
+>> 
+>> There are a bewildering number of indoor TV antennas on the
+>> market. I could use some suggestions and advice from real world
+>> users - not only as to makes and models, but also as to how it
+>> should be oriented. All I know about RF is that it is tricky and
+>> unpredictable.
+> 
+> I suspect I'll need to follow John M's advice later on, but to get
+>  started I went to Radio Shack and got a simple dipole, the kind of
+>  antenna that's made from 300 ohm twinlead. I connected that to a
+> 300/75 ohm balun and plugged that into my HDHomeRun. Before the
+> clinic I got channel 10 easily. At the clinic and after I got home
+> I didn't get channel 10 easily. I found another dipole hooked up to
+> a stereo tuner I don't use anymore, and when I get time I'll give
+> that a try to see if it makes any difference. But, it's possible
+> that a simple dipole might work for you. It's cheap enough to be
+> worth a try.
+> 
+
+I am ashamed of all of you! You run Linux but have no sense of
+adventure. Build your own antenna!! No doubt you have a few scraps of
+copper wire (or metal clothes hangers) etc laying around. This project
+will also allow you to experiment with the design for optimal
+reception in you area.
+
+I am 11-13 miles from PDX towers, on the Vancouver side.  I can pick
+up ALL PDX channels crystal clear with this two designs:
+
+Koch fractal (UHF/VHF, can be extended to higher order fractals) :
+http://www.instructables.com/id/How-to-make-a-fractal-antenna-for-HDTV-DTV-plus-/
+and a nifty artsy application of this design:
+http://www.htpc-diy.com/2012/04/diy-flexible-fractal-window-hdtv.html
+
+bow tie (UHF/VHF):
+http://makezine.com/projects/digital-tv-coat-hanger-antenna/
+pdf: http://cdn.makezine.com/make/television/04/DTV_Antenna_FINAL.pdf
+
+See also:
+http://www.diytvantennas.com/
+http://www.digitalhome.ca/ota/superantenna/index.htm  (UHF GPLv3 designs)
+
+Enjoy!
+-Ed
+
+

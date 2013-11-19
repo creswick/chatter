@@ -1,0 +1,4110 @@
+From aaron at bavariati.org  Sun Sep  1 09:08:40 2013
+From: aaron at bavariati.org (Aaron Burt)
+Date: Sun, 1 Sep 2013 09:08:40 -0700
+Subject: [PLUG] Resolved:  Optical Drive Door Won't Open
+In-Reply-To: <522127FF.2010608@dicksteffens.com>
+References: <5220E182.3050002@dicksteffens.com>
+	<20130830122217.2b51d88d@Devil8>
+	<522104A3.7030701@dicksteffens.com>
+	<522127FF.2010608@dicksteffens.com>
+Message-ID: <20130901160840.GA2651@aaron-acer>
+
+On Fri, Aug 30, 2013 at 04:17:19PM -0700, Dick Steffens wrote:
+> After buttoning up the box and pushing the power button I pushed the 
+> eject button. The door opened. I pushed the button again and the drawer 
+> closed.
+
+That's great news!
+
+<snip>
+> The laptop has a dual core 64 bit Intel processor, but only 1 GB of RAM.
+<snip>
+> I know I can upgrade the RAM to 2 GB, but the screen has damage on the
+> right side -- almost 1/4 is unusable. However, the external VGA port
+> works just fine on one of my extra monitors, so I'll play with it some.
+
+Not a bad system.  You'd be surprised at how easy and cheap it is to
+replace a screen.  No spam intended, but you can check laptopscreen.com for
+an idea of what screen you'd need, what it might cost and how it's done.
+
+From dick at dicksteffens.com  Sun Sep  1 09:20:50 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 01 Sep 2013 09:20:50 -0700
+Subject: [PLUG] Resolved:  Optical Drive Door Won't Open
+In-Reply-To: <20130901160840.GA2651@aaron-acer>
+References: <5220E182.3050002@dicksteffens.com>
+	<20130830122217.2b51d88d@Devil8>
+	<522104A3.7030701@dicksteffens.com>
+	<522127FF.2010608@dicksteffens.com>
+	<20130901160840.GA2651@aaron-acer>
+Message-ID: <52236962.1040909@dicksteffens.com>
+
+On 09/01/2013 09:08 AM, Aaron Burt wrote:
+> On Fri, Aug 30, 2013 at 04:17:19PM -0700, Dick Steffens wrote:
+> <snip>
+>> I know I can upgrade the RAM to 2 GB, but the screen has damage on the
+>> right side -- almost 1/4 is unusable. However, the external VGA port
+>> works just fine on one of my extra monitors, so I'll play with it some.
+> Not a bad system.  You'd be surprised at how easy and cheap it is to
+> replace a screen.  No spam intended, but you can check laptopscreen.com for
+> an idea of what screen you'd need, what it might cost and how it's done.
+
+Interesting site. Looks like the going rate is between about $70 and $90 
+for a replacement screen. Might be a reasonable thing to do one of these 
+days. Thanks for the link.
+
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From heinlein at madboa.com  Tue Sep  3 11:18:40 2013
+From: heinlein at madboa.com (Paul Heinlein)
+Date: Tue, 3 Sep 2013 11:18:40 -0700 (PDT)
+Subject: [PLUG] OS X coolness: pbcopy and alpine
+Message-ID: <alpine.OSX.2.00.1309031106390.387@springwater.galois.com>
+
+One of the neatest command-line tools in OS X is pbcopy (aka 
+Pasteboard Copy), which allows you to pipe stuff into the copy/paste 
+buffer. Its output counterpart is pbpaste.
+
+So pbcopy allows you do to cool stuff like
+
+   grep thisfile.txt | awk '{neat operation}' | pbcopy
+
+Then you can paste it anywhere.
+
+In alpine (the only-barely maintained successor to pine, the CLI 
+e-mail client), you can enable pipe commands. Usually you do that to 
+modify the contents of your message, e.g., piping it to tr for ROT13 
+encoding.
+
+I receive a lot of system e-mail messages, and occasionally I have to 
+put copies of them into trouble-tickets, wiki pages, or whatever. So 
+from within alpine (on OS X), I call the message for reading, then
+
+  | pbcopy
+
+Then I paste a away, without ever having to lift a mouse or save the 
+mssage to the filesystem.
+
+-- 
+Paul Heinlein
+heinlein at madboa.com
+45?38' N, 122?6' W
+
+From rshepard at appl-ecosys.com  Tue Sep  3 11:40:12 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 3 Sep 2013 11:40:12 -0700 (PDT)
+Subject: [PLUG] Pointer Color
+Message-ID: <alpine.LNX.2.00.1309031132230.22291@salmo.appl-ecosys.com>
+
+   I would like to find where the cursor (mouse, trackball) color is
+controlled for various applications. This is not the position cursor such as
+the point position in emacs, alpine, or lyx which indicates where the next
+keystroke will be displayed, but the position of the mouse or trackball
+cursor which is a very thin "I" beam.
+
+   My alpine window is configured as white text on a black background (high
+contrast but easier on my eyes than black text on a bright white
+background), and the trackball cursor is white which makes it easy to
+locate.
+
+   When I write using LyX the page background is a pale beige and the thin
+black trackball cursor is easily lost among the black text. I cannot find a
+LyX configuration color for this pointing-device position.
+
+   In firefox the cursor is a black arrow on a white background so it's easy
+to see there.
+
+   Is there a generic location that sets mouse/trackball position cursor
+based on the application's background color? I tried looking for 'gtkconfig'
+but did not find it and I don't think it's applicable for all applications
+in any case.
+
+Rich
+
+
+From pm at nellump.net  Tue Sep  3 11:44:53 2013
+From: pm at nellump.net (Paul Mullen)
+Date: Tue, 3 Sep 2013 11:44:53 -0700
+Subject: [PLUG] OS X coolness: pbcopy and alpine
+In-Reply-To: <alpine.OSX.2.00.1309031106390.387@springwater.galois.com>
+References: <alpine.OSX.2.00.1309031106390.387@springwater.galois.com>
+Message-ID: <20130903184452.GB13883@jupiter.nellump.net>
+
+On Tue, Sep 03, 2013 at 11:18:40AM -0700, Paul Heinlein wrote:
+> One of the neatest command-line tools in OS X is pbcopy (aka
+> Pasteboard Copy), which allows you to pipe stuff into the copy/paste
+> buffer. Its output counterpart is pbpaste.
+> 
+> So pbcopy allows you do to cool stuff like
+> 
+>   grep thisfile.txt | awk '{neat operation}' | pbcopy
+> 
+> Then you can paste it anywhere.
+
+'xclip' on Linux (and presumably other Unix-like systems) works
+similarly.  It combines both setting and getting into one command,
+though.  From the README:
+
+    Copy your uptime into the selection for pasting:
+    uptime | xclip
+    
+    Copy your password file for pasting:
+    xclip /etc/passwd
+    
+    Save some text you have Edit | Copied in a web browser:
+    xclip -o -sel clip > webpage.txt
+    
+    Open a URL selected in an email client
+    mozilla `xclip -o`
+    
+    Copy XA_PRIMARY to XA_CLIPBOARD
+    xclip -o | xclip -sel clip
+
+Tools like these are very handy for CLI junkies living in a GUI world.
+
+
+-- 
+Paul
+
+From rshepard at appl-ecosys.com  Tue Sep  3 12:41:06 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 3 Sep 2013 12:41:06 -0700 (PDT)
+Subject: [PLUG] OS X coolness: pbcopy and alpine
+In-Reply-To: <20130903184452.GB13883@jupiter.nellump.net>
+References: <alpine.OSX.2.00.1309031106390.387@springwater.galois.com>
+	<20130903184452.GB13883@jupiter.nellump.net>
+Message-ID: <alpine.LNX.2.00.1309031239270.22291@salmo.appl-ecosys.com>
+
+On Tue, 3 Sep 2013, Paul Mullen wrote:
+
+> 'xclip' on Linux (and presumably other Unix-like systems) works similarly. 
+> It combines both setting and getting into one command, though.
+
+   Thanks, Paul! As was explained to me more than 15 years ago, linux tools
+are quite simple and easy to understand. The problem is that there are
+thousands of tools. And us non-professionals don't even know what to seek in
+the tool universe.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From dexter at ambidexter.com  Tue Sep  3 13:47:47 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Tue, 03 Sep 2013 13:47:47 -0700
+Subject: [PLUG] Announcement: September PLUG Meeting: Virtual Private
+	Networks
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <52264AF3.3090000@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Ted Mittlestaedt
+What: Virtual Private Networks
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, September 5th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Virtual Private Networks
+
+Our illustrious IPv6 authority will give a talk on popular Virtual
+Private Network options, including:
+
+1) standard IPSec clients - require static IP at each endpoint, and are
+supported out of the box by Windows, Cisco IOS, Mac, and Unix using
+raccoon and similar programs.
+
+2) Modified IPSec VPN clients - example is the Cisco IPSec VPN client.
+This is a proprietary modification used to allow one end to have a
+dynamic IP number.
+
+3) SSL VPN clients. Cisco has one they call AnyConnect that is
+proprietary. OpenVPN is another example.
+
+4) PPTP. This was supposed to have died years ago but since Microsoft
+ships the PPTP client with Windows it is still very useful is situations
+where the network admin is forced to provide VPN services to clients
+that she has no control over.
+
+5) L2TP. This is what PPTP morphed into, Microsoft supports it natively,
+so it has the same benefits (to the network admin) as PPTP plus the
+Microsoft implementation allows for encryption using IPSec with
+certificates.
+
+Ted is the Co-Owner of Portlandia IT and author of the FreeBSD Corporate
+Networker's Guide
+
+Calagator Page: http://calagator.org/events/1250464769
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From dexter at ambidexter.com  Wed Sep  4 20:21:41 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Wed, 04 Sep 2013 20:21:41 -0700
+Subject: [PLUG] THURSDAY: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5227F8C5.4030703@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Ted Mittlestaedt
+What: Virtual Private Networks
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, September 5th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Virtual Private Networks
+
+Our illustrious IPv6 authority will give a talk on popular Virtual
+Private Network options, including:
+
+1) standard IPSec clients - require static IP at each endpoint, and are
+supported out of the box by Windows, Cisco IOS, Mac, and Unix using
+raccoon and similar programs.
+
+2) Modified IPSec VPN clients - example is the Cisco IPSec VPN client.
+This is a proprietary modification used to allow one end to have a
+dynamic IP number.
+
+3) SSL VPN clients. Cisco has one they call AnyConnect that is
+proprietary. OpenVPN is another example.
+
+4) PPTP. This was supposed to have died years ago but since Microsoft
+ships the PPTP client with Windows it is still very useful is situations
+where the network admin is forced to provide VPN services to clients
+that she has no control over.
+
+5) L2TP. This is what PPTP morphed into, Microsoft supports it natively,
+so it has the same benefits (to the network admin) as PPTP plus the
+Microsoft implementation allows for encryption using IPSec with
+certificates.
+
+Ted is the Co-Owner of Portlandia IT and author of the FreeBSD Corporate
+Networker's Guide
+
+Calagator Page: http://calagator.org/events/1250464769
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From dexter at ambidexter.com  Thu Sep  5 12:23:46 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 05 Sep 2013 12:23:46 -0700
+Subject: [PLUG] TONIGHT: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5228DA42.1020109@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Ted Mittlestaedt
+What: Virtual Private Networks
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, September 5th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+Virtual Private Networks
+
+Our illustrious IPv6 authority will give a talk on popular Virtual
+Private Network options, including:
+
+1) standard IPSec clients - require static IP at each endpoint, and are
+supported out of the box by Windows, Cisco IOS, Mac, and Unix using
+raccoon and similar programs.
+
+2) Modified IPSec VPN clients - example is the Cisco IPSec VPN client.
+This is a proprietary modification used to allow one end to have a
+dynamic IP number.
+
+3) SSL VPN clients. Cisco has one they call AnyConnect that is
+proprietary. OpenVPN is another example.
+
+4) PPTP. This was supposed to have died years ago but since Microsoft
+ships the PPTP client with Windows it is still very useful is situations
+where the network admin is forced to provide VPN services to clients
+that she has no control over.
+
+5) L2TP. This is what PPTP morphed into, Microsoft supports it natively,
+so it has the same benefits (to the network admin) as PPTP plus the
+Microsoft implementation allows for encryption using IPSec with
+certificates.
+
+Ted is the Co-Owner of Portlandia IT and author of the FreeBSD Corporate
+Networker's Guide
+
+Calagator Page: http://calagator.org/events/1250464769
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From russell at personaltelco.net  Thu Sep  5 14:16:59 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 05 Sep 2013 14:16:59 -0700
+Subject: [PLUG] TONIGHT: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <5228DA42.1020109@ambidexter.com> (Michael Dexter's message of
+	"Thu\, 05 Sep 2013 12\:23\:46 -0700")
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5228DA42.1020109@ambidexter.com>
+Message-ID: <864n9zrmt0.fsf@coulee.tdb.com>
+
+>>>>> "Michael" == Michael Dexter <dexter at ambidexter.com> writes:
+
+Michael> Portland Linux/Unix Group Meeting Announcement
+
+Michael> Who: Ted Mittlestaedt What: Virtual Private Networks Where:
+Michael> PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level) When:
+Michael> Thursday, September 5th, 2013 at 7pm Why: The pursuit of
+Michael> technology freedom
+
+In light of today's revelations, quite topical!
+
+Maybe the talk should be renamed "virtually-private networks" or maybe
+"not-so-private virtual networks" ;-)
+
+I would not be trusting any binary-blob vendor to be keeping my bits
+private at this point.
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From lorenl at north-winds.org  Thu Sep  5 15:06:00 2013
+From: lorenl at north-winds.org (Loren M. Lang)
+Date: Thu, 05 Sep 2013 15:06:00 -0700
+Subject: [PLUG] TONIGHT: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <864n9zrmt0.fsf@coulee.tdb.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5228DA42.1020109@ambidexter.com> <864n9zrmt0.fsf@coulee.tdb.com>
+Message-ID: <52290048.5000008@north-winds.org>
+
+On 9/5/2013 2:16 PM, Russell Senior wrote:
+>>>>>> "Michael" == Michael Dexter <dexter at ambidexter.com> writes:
+> Michael> Portland Linux/Unix Group Meeting Announcement
+>
+> Michael> Who: Ted Mittlestaedt What: Virtual Private Networks Where:
+> Michael> PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level) When:
+> Michael> Thursday, September 5th, 2013 at 7pm Why: The pursuit of
+> Michael> technology freedom
+>
+> In light of today's revelations, quite topical!
+>
+> Maybe the talk should be renamed "virtually-private networks" or maybe
+> "not-so-private virtual networks" ;-)
+>
+> I would not be trusting any binary-blob vendor to be keeping my bits
+> private at this point.
+
+While I don't doubt that the NSA has a large budget and a supercomputer
+farm to match, I still think that properly-implemented, peer-reviewed,
+open-source and strong cryptography algorithms are still out of their
+reach. The problem, as I've read about before is a large amount of open
+source software that blindly applies AES without a good understanding of
+cryptography creating weak solutions like cryptoloop and tinc. Properly
+implemented solutions like dm-crypt and OpenVPN may also use AES, but
+are implemented properly and should keep away the prying eyes of the
+government for another few years. Maybe what we need is a place to find
+detailed information of the quality of various open source solutions as
+reviewed by well-known cryptographers.
+
+>
+>
+
+
+-- 
+Loren M. Lang
+lorenl at north-winds.org
+http://www.north-winds.org/
+
+
+Public Key: ftp://ftp.north-winds.org/pub/lorenl_pubkey.asc
+Fingerprint: 10A0 7AE2 DAF5 4780 888A  3FA4 DCEE BB39 7654 DE5B
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 261 bytes
+Desc: OpenPGP digital signature
+Url : http://lists.pdxlinux.org/pipermail/plug/attachments/20130905/d6d8143f/attachment.bin 
+
+From russell at personaltelco.net  Thu Sep  5 16:53:55 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Thu, 05 Sep 2013 16:53:55 -0700
+Subject: [PLUG] TONIGHT: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <52290048.5000008@north-winds.org> (Loren M. Lang's message of
+	"Thu\, 05 Sep 2013 15\:06\:00 -0700")
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5228DA42.1020109@ambidexter.com> <864n9zrmt0.fsf@coulee.tdb.com>
+	<52290048.5000008@north-winds.org>
+Message-ID: <86sixirfjg.fsf@coulee.tdb.com>
+
+>>>>> "Loren" == Loren M Lang <lorenl at north-winds.org> writes:
+
+Russell> Maybe the talk should be renamed "virtually-private networks"
+Russell> or maybe "not-so-private virtual networks" ;-)
+
+Russell> I would not be trusting any binary-blob vendor to be keeping
+Russell> my bits private at this point.
+
+Loren> While I don't doubt that the NSA has a large budget and a
+Loren> supercomputer farm to match, I still think that
+Loren> properly-implemented, peer-reviewed, open-source and strong
+Loren> cryptography algorithms are still out of their reach. The
+Loren> problem, as I've read about before is a large amount of open
+Loren> source software that blindly applies AES without a good
+Loren> understanding of cryptography creating weak solutions like
+Loren> cryptoloop and tinc. Properly implemented solutions like
+Loren> dm-crypt and OpenVPN may also use AES, but are implemented
+Loren> properly and should keep away the prying eyes of the government
+Loren> for another few years. Maybe what we need is a place to find
+Loren> detailed information of the quality of various open source
+Loren> solutions as reviewed by well-known cryptographers.
+
+Schneier has seen the Snowden material, and this is his advice:
+
+  http://www.theguardian.com/world/2013/sep/05/nsa-how-to-remain-secure-surveillance
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From dexter at ambidexter.com  Thu Sep  5 18:03:55 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Thu, 05 Sep 2013 18:03:55 -0700
+Subject: [PLUG] TONIGHT: September PLUG Meeting: Virtual Private Networks
+In-Reply-To: <864n9zrmt0.fsf@coulee.tdb.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+	<5228DA42.1020109@ambidexter.com> <864n9zrmt0.fsf@coulee.tdb.com>
+Message-ID: <522929FB.8010702@ambidexter.com>
+
+On 9/5/13 2:16 PM, Russell Senior wrote:
+> In light of today's revelations, quite topical!
+
+Thanks. My feeling on all this is that it's like the walls of our
+bedroom collapsed to reveal that we've spent the last 20 years in a TV
+studio. Sigh.
+
+Michael
+
+From rshepard at appl-ecosys.com  Sat Sep  7 17:22:54 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sat, 7 Sep 2013 17:22:54 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+Message-ID: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+
+   I've read the U. Del. web page on procmail, and a couple of others,
+without finding a definitive answer whether a recipe can start with FROM_
+rather than TO_.
+
+   Almost all entried in my recipes.rc file are used to sort mail list
+messages to their proper mbox file. But, there are a couple of individuals
+whose incoming mail I want to direct to a file in ~/mail/. I use the FROM_
+keyword but all the messages are placed in the default INBOX.
+
+   Is there a way to have procmail use FROM_ rather than TO_ or SUBJECT_?
+
+Rich
+
+
+From lorenl at north-winds.org  Sat Sep  7 19:35:15 2013
+From: lorenl at north-winds.org (Loren M. Lang)
+Date: Sat, 07 Sep 2013 19:35:15 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+Message-ID: <522BE263.7070507@north-winds.org>
+
+On 9/7/2013 5:22 PM, Rich Shepard wrote:
+>    I've read the U. Del. web page on procmail, and a couple of others,
+> without finding a definitive answer whether a recipe can start with FROM_
+> rather than TO_.
+
+You can use any header you want to in your recipes. For example, I use
+the List-Id header in filtering email from PLUG as it's much more
+reliable than using To and CC.
+
+:0:
+* ^List-Id: Portland Linux/Unix Group <plug\.lists\.pdxlinux\.org>
+.ML.PLUG/
+
+That places all PLUG email into the PLUG mail subfolder of the ML
+folder. More information on recipes can be found in the procmailrc man
+page with the procmailex man page showing various examples of recipes.
+
+>
+>    Almost all entried in my recipes.rc file are used to sort mail list
+> messages to their proper mbox file. But, there are a couple of individuals
+> whose incoming mail I want to direct to a file in ~/mail/. I use the FROM_
+> keyword but all the messages are placed in the default INBOX.
+>
+>    Is there a way to have procmail use FROM_ rather than TO_ or SUBJECT_?
+>
+> Rich
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+
+-- 
+Loren M. Lang
+lorenl at north-winds.org
+http://www.north-winds.org/
+
+
+Public Key: ftp://ftp.north-winds.org/pub/lorenl_pubkey.asc
+Fingerprint: 10A0 7AE2 DAF5 4780 888A  3FA4 DCEE BB39 7654 DE5B
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 261 bytes
+Desc: OpenPGP digital signature
+Url : http://lists.pdxlinux.org/pipermail/plug/attachments/20130907/29c92c0a/attachment.bin 
+
+From rshepard at appl-ecosys.com  Sun Sep  8 06:18:23 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 06:18:23 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <522BE263.7070507@north-winds.org>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+Message-ID: <alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+
+On Sat, 7 Sep 2013, Loren M. Lang wrote:
+
+> You can use any header you want to in your recipes. For example, I use the
+> List-Id header in filtering email from PLUG as it's much more reliable
+> than using To and CC.
+
+   Thanks, Loren. I'll look again at the man page to figure out why I'm
+having problems with two recipes and not all of them.
+
+Rich
+
+
+From michael at jamhome.us  Sun Sep  8 06:46:33 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sun, 8 Sep 2013 06:46:33 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+Message-ID: <20130908134633.GA28357@jamhome.us>
+
+On Sun, Sep 08, 2013 at 06:18:23AM -0700, Rich Shepard wrote:
+> On Sat, 7 Sep 2013, Loren M. Lang wrote:
+> 
+> > You can use any header you want to in your recipes. For example, I use the
+> > List-Id header in filtering email from PLUG as it's much more reliable
+> > than using To and CC.
+> 
+>    Thanks, Loren. I'll look again at the man page to figure out why I'm
+> having problems with two recipes and not all of them.
+ 
+Is LOGFILE defined in your .procmailrc? Something like:
+  LOGFILE=$MAILDIR/pmlog-`/bin/date +%Y-%m`
+
+It should contain some clues.
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+Don't stop yourself before you've done more than you thought you would.
+    ~ http://someoneoncetoldme.com/gallery/06112008
+
+From rshepard at appl-ecosys.com  Sun Sep  8 07:35:31 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 07:35:31 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <20130908134633.GA28357@jamhome.us>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1309080735080.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+
+> Is LOGFILE defined in your .procmailrc? Something like:
+>  LOGFILE=$MAILDIR/pmlog-`/bin/date +%Y-%m`
+
+   It is now.
+
+Thanks,
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sun Sep  8 10:05:02 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 10:05:02 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <20130908134633.GA28357@jamhome.us>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+
+> Is LOGFILE defined in your .procmailrc?
+
+Michael,
+
+   I turned on logging at the highest verbosity level. What I now see in the
+log is:
+
+procmail: Locking "PERSONAL.lock"
+procmail: Assigning "LASTFOLDER=PERSONAL"
+procmail: Opening "PERSONAL"
+procmail: Acquiring kernel-lock
+procmail: Error while writing to "PERSONAL"
+procmail: Truncated file to former size
+procmail: Unlocking "PERSONAL.lock"
+procmail: Match on "(^((Original-)?(Resent-)?(To|Cc|Bcc)|(X-Envelope|Apparently(-Resent)?)-To):(.*[^-a-zA-Z0-9_.])?).*RSHEPARD at TWODOGS\.US"
+procmail: Locking "PERSONAL.lock"
+procmail: Assigning "LASTFOLDER=PERSONAL"
+procmail: Opening "PERSONAL"
+procmail: Acquiring kernel-lock
+procmail: Error while writing to "PERSONAL"
+procmail: Truncated file to former size
+procmail: Unlocking "PERSONAL.lock"
+
+   Permissions on ~/mail/PERSONAL are 644, the same as for other files that
+have no errors. The procmail man page suggests that the disk might be full
+(there's 117G available) or the pipe died. Why might the pipe die on only
+that one file? Where else might I find the error?
+
+Thanks,
+
+Rich
+
+
+From plug at the-wes.com  Sun Sep  8 10:24:09 2013
+From: plug at the-wes.com (wes)
+Date: Sun, 8 Sep 2013 10:24:09 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+Message-ID: <CAA1wLOmX09-4R6YNiGGWsn=uzvznTRpRUDpMRdSKCbEtKTZ9GQ@mail.gmail.com>
+
+>
+>    Permissions on ~/mail/PERSONAL are 644, the same as for other files that
+> have no errors.
+
+
+are the owner and group the same on this file as the other files?
+
+-wes
+
+From rshepard at appl-ecosys.com  Sun Sep  8 11:37:53 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 11:37:53 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <CAA1wLOmX09-4R6YNiGGWsn=uzvznTRpRUDpMRdSKCbEtKTZ9GQ@mail.gmail.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<CAA1wLOmX09-4R6YNiGGWsn=uzvznTRpRUDpMRdSKCbEtKTZ9GQ@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1309081137090.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, wes wrote:
+
+> are the owner and group the same on this file as the other files?
+
+wes,
+
+   Yep: rshepard.users
+
+Rich
+
+
+From michael at jamhome.us  Sun Sep  8 12:12:59 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sun, 8 Sep 2013 12:12:59 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+Message-ID: <20130908191259.GA29854@jamhome.us>
+
+On Sun, Sep 08, 2013 at 10:05:02AM -0700, Rich Shepard wrote:
+> On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+> 
+> > Is LOGFILE defined in your .procmailrc?
+> 
+> Michael,
+> 
+>    I turned on logging at the highest verbosity level. What I now see in the
+> log is:
+> 
+> procmail: Locking "PERSONAL.lock"
+> procmail: Assigning "LASTFOLDER=PERSONAL"
+> procmail: Opening "PERSONAL"
+> procmail: Acquiring kernel-lock
+> procmail: Error while writing to "PERSONAL"
+> procmail: Truncated file to former size
+> procmail: Unlocking "PERSONAL.lock"
+> procmail: Match on "(^((Original-)?(Resent-)?(To|Cc|Bcc)|(X-Envelope|Apparently(-Resent)?)-To):(.*[^-a-zA-Z0-9_.])?).*RSHEPARD at TWODOGS\.US"
+> procmail: Locking "PERSONAL.lock"
+> procmail: Assigning "LASTFOLDER=PERSONAL"
+> procmail: Opening "PERSONAL"
+> procmail: Acquiring kernel-lock
+> procmail: Error while writing to "PERSONAL"
+> procmail: Truncated file to former size
+> procmail: Unlocking "PERSONAL.lock"
+ 
+>    Permissions on ~/mail/PERSONAL are 644, the same as for other files that
+> have no errors. 
+
+
+What kind of mailbox are you using? Meaning are the other files, files or directories?
+
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+When people are free to do as they please, they usually imitate each other.
+	~  Eric Hoffer
+
+From rshepard at appl-ecosys.com  Sun Sep  8 12:32:14 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 12:32:14 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <20130908191259.GA29854@jamhome.us>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+
+> What kind of mailbox are you using? Meaning are the other files, files or directories?
+
+   mbox files.
+
+Rich
+
+
+From michael at jamhome.us  Sun Sep  8 13:04:52 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sun, 8 Sep 2013 13:04:52 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+	<alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+Message-ID: <20130908200452.GA30059@jamhome.us>
+
+On Sun, Sep 08, 2013 at 12:32:14PM -0700, Rich Shepard wrote:
+> On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+> 
+> > What kind of mailbox are you using? Meaning are the other files, files or directories?
+> 
+>    mbox files.
+
+In that case, please humor us with 
+    an `ls -l ` of the directory with the mbox files 
+    enough context lines of .procmailrc to see the rule for this mbox and one that works
+
+
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+Life is the art of drawing without an eraser. 
+    ~ John W. Gardner
+
+From rshepard at appl-ecosys.com  Sun Sep  8 13:31:18 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 13:31:18 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <20130908200452.GA30059@jamhome.us>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+	<alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+	<20130908200452.GA30059@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+
+>    an `ls -l ` of the directory with the mbox files
+>    enough context lines of .procmailrc to see the rule for this mbox and one that works
+
+-rw-r--r-- 1 rshepard users    174118 Nov  8  2010 GIMP
+-rw-r--r-- 1 rshepard users  28683065 Sep  8 11:36 GIS
+-rw-r--r-- 1 rshepard users    669262 Apr 16 12:57 INBOX
+-rw-r--r-- 1 rshepard users   2895413 Sep  2 09:29 JPILOT
+-rw-r--r-- 1 rshepard users   4586637 Sep  8 09:45 LYX
+-rw-r--r-- 1 rshepard users    614488 Sep  5 12:38 MAILHELP
+-rw-r--r-- 1 rshepard users  73749577 Sep  7 10:05 PERSONAL
+-rw-r--r-- 1 rshepard users   2784435 Sep  8 11:36 PLUG
+-rw-r--r-- 1 rshepard users     21011 Feb  7  2012 POSTFIX
+-rw-r--r-- 1 rshepard users    786595 Sep  8 08:56 POSTGRES
+-rw-r--r-- 1 rshepard users   5457957 Sep  8 11:36 PROGRAMMING
+-rw-r--r-- 1 rshepard users   5626582 Sep  8 10:46 R
+-rw-r--r-- 1 rshepard users    312896 Apr 12 19:07 SQL
+
+   There are more, but this is a sample of those addressed by procmail/
+recipes.rc
+
+   Here're relevant recipes from that file:
+
+# BEGIN RECIPES
+
+# Nuke duplicate messages
+#:0 Wh: msgid.lock
+#| $FORMAIL -D 8192 msgid.cache
+
+## Call SpamAssassin
+:0fw: spamassassin.lock
+* < 256000
+| spamassassin
+
+## Flagged as SPAM by spamassassin?
+:0
+* ^X-Spam-Status: Yes
+/dev/null
+
+:0:
+* ^Subject: *****SPAM*****
+/dev/null
+
+:0:
+* ^TO_.*rshepard at twodogs\.us
+PERSONAL
+
+:0:
+* ^TO_.*RSHEPARD at TWODOGS\.US
+PERSONAL
+
+:0:
+* ^TO_.*postfix-users at postfix.org
+MAILHELP
+
+:0
+* ^TO_.*postfix-users at cloud9.net
+MAILHELP
+
+:0:
+* ^TO_.*wxpython-users at googlegroups.com
+PROGRAMMING
+
+:0:
+* ^TO_.*jpilot at jpilot.org
+JPILOT
+
+   That sufficient?
+
+Thanks,
+
+Rich
+
+
+From rshepard at appl-ecosys.com  Sun Sep  8 13:35:49 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 13:35:49 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+	<alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+	<20130908200452.GA30059@jamhome.us>
+	<alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+Message-ID: <alpine.LNX.2.00.1309081334370.32591@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Rich Shepard wrote:
+
+> :0:
+> * ^TO_.*rshepard at twodogs\.us
+> PERSONAL
+>
+> :0:
+> * ^TO_.*RSHEPARD at TWODOGS\.US
+> PERSONAL
+
+   These recipes originally did not escape the dot. When I saw someone's
+recipes on a Web forum that used them I decided to try them to see if they
+make a difference. They don't. Same results with or without the backslash.
+
+Rich
+
+
+From michael at jamhome.us  Sun Sep  8 14:24:15 2013
+From: michael at jamhome.us (Michael Rasmussen)
+Date: Sun, 8 Sep 2013 14:24:15 -0700
+Subject: [PLUG] Procmail Recipe Question
+In-Reply-To: <alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+	<alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+	<20130908200452.GA30059@jamhome.us>
+	<alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+Message-ID: <20130908212415.GA30332@jamhome.us>
+
+On Sun, Sep 08, 2013 at 01:31:18PM -0700, Rich Shepard wrote:
+> On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+> 
+> >    an `ls -l ` of the directory with the mbox files
+> >    enough context lines of .procmailrc to see the rule for this mbox and one that works
+> 
+> -rw-r--r-- 1 rshepard users    174118 Nov  8  2010 GIMP
+> -rw-r--r-- 1 rshepard users  28683065 Sep  8 11:36 GIS
+> -rw-r--r-- 1 rshepard users    669262 Apr 16 12:57 INBOX
+> -rw-r--r-- 1 rshepard users   2895413 Sep  2 09:29 JPILOT
+> -rw-r--r-- 1 rshepard users   4586637 Sep  8 09:45 LYX
+> -rw-r--r-- 1 rshepard users    614488 Sep  5 12:38 MAILHELP
+> -rw-r--r-- 1 rshepard users  73749577 Sep  7 10:05 PERSONAL
+> -rw-r--r-- 1 rshepard users   2784435 Sep  8 11:36 PLUG
+> -rw-r--r-- 1 rshepard users     21011 Feb  7  2012 POSTFIX
+> -rw-r--r-- 1 rshepard users    786595 Sep  8 08:56 POSTGRES
+> -rw-r--r-- 1 rshepard users   5457957 Sep  8 11:36 PROGRAMMING
+> -rw-r--r-- 1 rshepard users   5626582 Sep  8 10:46 R
+> -rw-r--r-- 1 rshepard users    312896 Apr 12 19:07 SQL
+
+That, to my eye, is one humongous PERSONAL file. 
+Are you ussing postfix or what? 
+For reference: 
+    http://www.preshweb.co.uk/2007/07/49mb-mailbox-size-limit-postfix-procmail/
+Other MTAs may have a similar restriction.
+
+-- 
+            Michael Rasmussen, Portland Oregon  
+          Be Appropriate && Follow Your Curiosity
+  Other Adventures: http://www.jamhome.us/ or http://gplus.to/MichaelRpdx
+A special random fortune cookie fortune:
+Going nowhere faster will not get you somewhere. 
+    ~ Alan Cohen
+
+From rshepard at appl-ecosys.com  Sun Sep  8 14:54:40 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Sun, 8 Sep 2013 14:54:40 -0700 (PDT)
+Subject: [PLUG] Procmail Recipe Question [RESOLVED]
+In-Reply-To: <20130908212415.GA30332@jamhome.us>
+References: <alpine.LNX.2.00.1309071718580.17719@salmo.appl-ecosys.com>
+	<522BE263.7070507@north-winds.org>
+	<alpine.LNX.2.00.1309080617300.32591@salmo.appl-ecosys.com>
+	<20130908134633.GA28357@jamhome.us>
+	<alpine.LNX.2.00.1309080955380.32591@salmo.appl-ecosys.com>
+	<20130908191259.GA29854@jamhome.us>
+	<alpine.LNX.2.00.1309081231560.32591@salmo.appl-ecosys.com>
+	<20130908200452.GA30059@jamhome.us>
+	<alpine.LNX.2.00.1309081327420.32591@salmo.appl-ecosys.com>
+	<20130908212415.GA30332@jamhome.us>
+Message-ID: <alpine.LNX.2.00.1309081451030.11018@salmo.appl-ecosys.com>
+
+On Sun, 8 Sep 2013, Michael Rasmussen wrote:
+
+> That, to my eye, is one humongous PERSONAL file.
+
+   Well, messages there go back to 2008.
+
+> Are you ussing postfix or what?
+
+   Postfix.
+
+> For reference:
+>    http://www.preshweb.co.uk/2007/07/49mb-mailbox-size-limit-postfix-procmail/
+
+   Aha! I never found this in my Web searches.
+
+   I've created a bunch of topic-specific files in ~/mail to reduce the size
+of the PERSONAL file. Now I know to raise the file limit in postfix if I
+need to store a lot of messages.
+
+Thanks!
+
+Rich
+
+
+From galens at seitzassoc.com  Mon Sep  9 15:21:54 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Mon, 09 Sep 2013 15:21:54 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+Message-ID: <522E4A02.3010305@seitzassoc.com>
+
+Hi,
+
+I have a need to allow multiple network connections to a single serial 
+port.  Data from the serial port needs to be sent to *all* network 
+clients, and each network client needs to write to the serial port.  Is 
+there a way to achieve this using command line tools, or do you think I 
+will end up having to write my own code?
+
+Both conserver and gpsd have functionality similar to what I'm looking 
+for, but they are both overkill for my needs.  I'm hoping I can find 
+something that will require less hacking.
+
+Ultimately this needs to run on an embedded system running OpenWrt, so 
+I'm uncertain as to whether a high level scripting(Perl/Python) solution 
+is viable.
+
+Thanks for any suggestions you can provide.
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From bill at billbarry.org  Mon Sep  9 15:35:52 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Mon, 9 Sep 2013 15:35:52 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+In-Reply-To: <522E4A02.3010305@seitzassoc.com>
+References: <522E4A02.3010305@seitzassoc.com>
+Message-ID: <CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+
+On Mon, Sep 9, 2013 at 3:21 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+> Hi,
+>
+> I have a need to allow multiple network connections to a single serial
+> port.  Data from the serial port needs to be sent to *all* network
+> clients, and each network client needs to write to the serial port.  Is
+> there a way to achieve this using command line tools, or do you think I
+> will end up having to write my own code?
+>
+> Both conserver and gpsd have functionality similar to what I'm looking
+> for, but they are both overkill for my needs.  I'm hoping I can find
+> something that will require less hacking.
+>
+> Ultimately this needs to run on an embedded system running OpenWrt, so
+> I'm uncertain as to whether a high level scripting(Perl/Python) solution
+> is viable.
+>
+> Thanks for any suggestions you can provide.
+>
+> galen
+> --
+
+netcat would be useful for that. Busybox comes with an implementation
+of netcat so I think it could work on openwrt.
+
+Bill
+
+From galens at seitzassoc.com  Mon Sep  9 16:03:58 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Mon, 09 Sep 2013 16:03:58 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+In-Reply-To: <CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+References: <522E4A02.3010305@seitzassoc.com>
+	<CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+Message-ID: <522E53DE.1040406@seitzassoc.com>
+
+On 09/09/13 15:35, Bill Barry wrote:
+> On Mon, Sep 9, 2013 at 3:21 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+>> Hi,
+>>
+>> I have a need to allow multiple network connections to a single serial
+>> port.  Data from the serial port needs to be sent to *all* network
+>> clients, and each network client needs to write to the serial port.  Is
+>> there a way to achieve this using command line tools, or do you think I
+>> will end up having to write my own code?
+>>
+>> Both conserver and gpsd have functionality similar to what I'm looking
+>> for, but they are both overkill for my needs.  I'm hoping I can find
+>> something that will require less hacking.
+>>
+>> Ultimately this needs to run on an embedded system running OpenWrt, so
+>> I'm uncertain as to whether a high level scripting(Perl/Python) solution
+>> is viable.
+>>
+>> Thanks for any suggestions you can provide.
+>>
+>> galen
+>> --
+>
+> netcat would be useful for that. Busybox comes with an implementation
+> of netcat so I think it could work on openwrt.
+
+I should have mentioned that I already tried socat(netcat on steroids). 
+  Here's the command I started with:
+
+socat tcp-l:9001,reuseaddr,fork /dev/ttyUSB0,raw,echo=0,crnl
+
+This is close to what I want, but the data from the serial port is not 
+sent to all readers.  I'm not sure, but I think there is a single file 
+descriptor associated with the serial data, so it's a first reader wins 
+situation, where the first reader is unpredictable.  I sent a message to 
+the socat developer asking for hints on how to accomplish my particular 
+multiple reader situation, but I have yet to hear back.
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From bill at billbarry.org  Mon Sep  9 20:07:27 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Mon, 9 Sep 2013 20:07:27 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+In-Reply-To: <522E53DE.1040406@seitzassoc.com>
+References: <522E4A02.3010305@seitzassoc.com>
+	<CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+	<522E53DE.1040406@seitzassoc.com>
+Message-ID: <CAAPspTZ-W6RPVwH6SWENdcF4B+URRM6w4DkqF2Ak0L2_V81vVQ@mail.gmail.com>
+
+On Mon, Sep 9, 2013 at 4:03 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+>
+> I should have mentioned that I already tried socat(netcat on steroids).
+>   Here's the command I started with:
+>
+> socat tcp-l:9001,reuseaddr,fork /dev/ttyUSB0,raw,echo=0,crnl
+>
+> This is close to what I want, but the data from the serial port is not
+> sent to all readers.  I'm not sure, but I think there is a single file
+> descriptor associated with the serial data, so it's a first reader wins
+> situation, where the first reader is unpredictable.  I sent a message to
+> the socat developer asking for hints on how to accomplish my particular
+> multiple reader situation, but I have yet to hear back.
+
+Possibly you could use a multicast address
+http://stevehaskew.blogspot.com/2012/08/playing-with-multicast.html
+
+Or a message queue
+http://zguide.zeromq.org/page:all
+http://www.jnbagale.com/blog/2011/12/19/porting-zeromq-to-openwrt/
+
+But this is getting a bit beyond a command line solution.
+
+Bill
+
+From bill at billbarry.org  Mon Sep  9 23:08:18 2013
+From: bill at billbarry.org (Bill Barry)
+Date: Mon, 9 Sep 2013 23:08:18 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+In-Reply-To: <522E53DE.1040406@seitzassoc.com>
+References: <522E4A02.3010305@seitzassoc.com>
+	<CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+	<522E53DE.1040406@seitzassoc.com>
+Message-ID: <CAAPspTaAL1GfJa-3gerDZiX1-UZmbEe4tTpi8kpCoG9csFdt1A@mail.gmail.com>
+
+On Mon, Sep 9, 2013 at 4:03 PM, Galen Seitz <galens at seitzassoc.com> wrote:
+> I should have mentioned that I already tried socat(netcat on steroids).
+>   Here's the command I started with:
+>
+> socat tcp-l:9001,reuseaddr,fork /dev/ttyUSB0,raw,echo=0,crnl
+>
+> This is close to what I want, but the data from the serial port is not
+> sent to all readers.  I'm not sure, but I think there is a single file
+> descriptor associated with the serial data, so it's a first reader wins
+> situation, where the first reader is unpredictable.  I sent a message to
+> the socat developer asking for hints on how to accomplish my particular
+> multiple reader situation, but I have yet to hear back.
+>
+
+Instead of the fork command you can use ncat that is part of the nmap
+distribution
+http://nmap.org/ncat/guide/ncat-usage.html
+
+As the page above says:
+"With --keep-open (or -k for short), the server receives everything
+sent by any of its clients, and anything the server sends is sent to
+all of them."
+
+which is exactly what is needed.
+
+Combine that with  the socat command to send and receive data from the
+serial port
+
+and you get:
+
+ncat --listen --keep-open localhost 9212 --sh-exec "socat -
+/dev/ttyUSB0,raw,echo=0,crnl"
+
+Every client that connects to localhost 9212 will be able to send
+things to the serial port and anything from the serial port will go
+out to every client that is connected to localhost 9212.
+
+I did not test it with a serial port, but did test it  like this
+
+from one terminal
+ncat --listen --keep-open localhost 9300
+
+from a second terminal
+ncat --listen --keep-open localhost 9212 --sh-exec "socat - TCP:localhost:9300"
+
+from a third and fourth terminal
+ncat localhost 9212
+
+Now anything typed into the third and fourth terminals appears in
+terminal one and anything typed in terminal one goes out to terminals
+three and four.
+
+Bill
+
+From galens at seitzassoc.com  Tue Sep 10 16:31:19 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Tue, 10 Sep 2013 16:31:19 -0700
+Subject: [PLUG] sending data from single serial port to multiple readers
+In-Reply-To: <CAAPspTaAL1GfJa-3gerDZiX1-UZmbEe4tTpi8kpCoG9csFdt1A@mail.gmail.com>
+References: <522E4A02.3010305@seitzassoc.com>
+	<CAAPspTb7JK7qx7yB9Bhao6oc4jnnFO2HrobEyPBEUbgyz9T8WA@mail.gmail.com>
+	<522E53DE.1040406@seitzassoc.com>
+	<CAAPspTaAL1GfJa-3gerDZiX1-UZmbEe4tTpi8kpCoG9csFdt1A@mail.gmail.com>
+Message-ID: <522FABC7.5030009@seitzassoc.com>
+
+On 09/09/13 23:08, Bill Barry wrote:
+>
+> Instead of the fork command you can use ncat that is part of the nmap
+> distribution
+> http://nmap.org/ncat/guide/ncat-usage.html
+>
+> As the page above says:
+> "With --keep-open (or -k for short), the server receives everything
+> sent by any of its clients, and anything the server sends is sent to
+> all of them."
+>
+> which is exactly what is needed.
+
+Good eye!  Thanks for spotting this!  I read over the ncat docs but I 
+missed that.  I naively assumed that -k worked the same as socat.
+
+
+> Combine that with  the socat command to send and receive data from the
+> serial port
+>
+> and you get:
+>
+> ncat --listen --keep-open localhost 9212 --sh-exec "socat -
+> /dev/ttyUSB0,raw,echo=0,crnl"
+
+This didn't work for me.  The serial data out was not written to all 
+client connections.  However, the following does seem to work.
+
+stty -F /dev/ttyUSB0 cs8 -cstopb -parenb 57600 crtscts etc.
+ncat --listen --keep-open localhost 9001 < /dev/ttyUSB0 > /dev/ttyUSB0
+
+
+Thanks again for your help!
+
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From keithl at gate.kl-ic.com  Fri Sep 13 13:26:47 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Fri, 13 Sep 2013 13:26:47 -0700
+Subject: [PLUG] Back to School Linux Clinic  Sunday September 15 1pm
+Message-ID: <20130913202647.GA10178@gate.kl-ic.com>
+
+OK, so all the other kids are bringing apples to their teacher at
+school.  Really - how many MacOSX machines can a teacher use?
+
+Think differenter.  Send your child (or someone else's child,
+if you forgot to have one) to school with the gift of Linux.
+Bring your computer to the Clinic Sunday afternoon 1 to 5 pm,
+at Free Geek, 1731 SE 10th, and we will upgrade it to Linux, 
+chock full of the free,  open source goodness that impresses
+teachers and other students alike.  
+
+We will have distros, screens, keyboards and mice, coffee, and
+munchies.  Free Geek is upgrading their network, but assures us
+that wired and wireless internet will be available.
+
+Your child will become an A student.  If not from their teacher,
+from using their new software and network skills to correct 
+grading mistakes in the school's poorly-secured database.  Give
+your child the tools they need to get into Harvard, Yale, or
+Stanford - with their own poorly-secured admissions and financial
+aid databases.  See http://xkcd.com/327/ 
+
+See you Sunday!
+
+Keith
+
+
+-- 
+Keith Lofstrom          keithl at keithl.com         Voice (503)-520-1993
+
+From tyrell at jentink.net  Fri Sep 13 16:05:05 2013
+From: tyrell at jentink.net (Tyrell Jentink)
+Date: Fri, 13 Sep 2013 16:05:05 -0700
+Subject: [PLUG] New to the area, looking to expand my job-gaining-potential
+Message-ID: <CAJo8XLL_xouBstyXhJV_OXk6C1GUryt9FjLuh6aCs5CF2T=dfA@mail.gmail.com>
+
+Good afternoon to the list,
+
+My name is Tyrell, and I just moved to Portland from Reno, NV a couple of
+weeks ago; I'm still trying to settle in, finding jobs and a home and such.
+ In Reno, I went to UNR for Geography, but that school didn't offer much in
+the way of what I was looking for (Geographic Information Systems), and so
+I came up here on the hope of getting residency and then getting into the
+GIS program at PSU.
+
+While GIS is largely dominated by the Windows-only ArcGIS suite, server and
+networking technologies largely surround the use of infrastructure based on
+Linux and Unix, and I can't imagine it being a BAD thing trying to build up
+some IT experience before finishing school and entering the job force in my
+"Real" field of study.  Further, I have been using Linux as my primary
+operating system for the better part of a decade, and wouldn't mind
+expanding my knowledge of it, even if just as a hobby.  Most of my
+experience is in Fedora, but I have dabbled in Debian/Ubuntu, FreeBSD, and
+Mac OS lightly here and there; I would LIKE to think that I'm fairly decent
+at system administration, but I'm a far cry from the gurus I'm used to
+seeing in the Reno Linux User group, and I'm equally certain that people on
+this list can show up many of the people in Reno...
+
+I would love to expand my knowledge in general, and maybe get a job as a
+result.
+
+SO, here's the question:  RHCSA is a $400 test; RHCE is another $400.  Is
+it worth it? And with CompTIA A+, those, and my experience building my own
+systems, how difficult is it to get a Linux job in these parts?
+
+Thank you all for your help
+Tyrell Jentink
+
+From dexter at ambidexter.com  Fri Sep 13 16:18:57 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Fri, 13 Sep 2013 16:18:57 -0700
+Subject: [PLUG] New to the area,
+	looking to expand my job-gaining-potential
+In-Reply-To: <CAJo8XLL_xouBstyXhJV_OXk6C1GUryt9FjLuh6aCs5CF2T=dfA@mail.gmail.com>
+References: <CAJo8XLL_xouBstyXhJV_OXk6C1GUryt9FjLuh6aCs5CF2T=dfA@mail.gmail.com>
+Message-ID: <52339D61.7070106@ambidexter.com>
+
+
+Tyrell,
+
+Welcome to town and I hope to see you at meetings, eventually giving a
+talk some day.
+
+On 9/13/13 4:05 PM, Tyrell Jentink wrote:
+> SO, here's the question:  RHCSA is a $400 test; RHCE is another $400.  Is
+> it worth it? And with CompTIA A+, those, and my experience building my own
+> systems, how difficult is it to get a Linux job in these parts?
+
+I have not heard of certification coming up and like to think that
+Portland companies are more... intuitive than that, but I won't knock
+certification as a member of the BSD Certification Group. In tech-weak
+climates, it can definitely set you apart and helps show initiative for
+those who are right out of school and face the chicken and egg,
+experience required/haven't worked yet scenario.
+
+Michael
+
+From johnxj at comcast.net  Fri Sep 13 18:36:39 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Fri, 13 Sep 2013 18:36:39 -0700
+Subject: [PLUG] Back to School Linux Clinic  Sunday September 15 1pm
+In-Reply-To: <20130913202647.GA10178@gate.kl-ic.com>
+References: <20130913202647.GA10178@gate.kl-ic.com>
+Message-ID: <20130913183639.2678db7d@Devil8>
+
+On Fri, 13 Sep 2013 13:26:47 -0700
+Keith Lofstrom <keithl at gate.kl-ic.com> dijo:
+
+>We will have distros, screens, keyboards and mice, coffee, and
+>munchies.  Free Geek is upgrading their network, but assures us
+>that wired and wireless internet will be available.
+
+In addition, I will be bringing small rabbit parts, as I recently
+acquired a 40 lb. bag of them and need help eating them.
+
+From russ at dimstar.net  Sat Sep 14 09:40:23 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Sat, 14 Sep 2013 09:40:23 -0700
+Subject: [PLUG] Back to School Linux Clinic  Sunday September 15 1pm
+In-Reply-To: <20130913202647.GA10178@gate.kl-ic.com>
+References: <20130913202647.GA10178@gate.kl-ic.com>
+Message-ID: <9552D3F4-2297-4C3D-9ADC-6122E0B6A68C@dimstar.net>
+
+
+On Sep 13, 2013, at 1:26 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+
+> If not from their teacher,
+> from using their new software and network skills to correct 
+> grading mistakes in the school's poorly-secured database.
+
+You do realize, Keith, that this appears to be condoning a class C felony in the state of Oregon*?
+
+I understand the intent, but there are others that won't, and I'd hate to perpetuate the idea that linux users are criminals. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+*Code Section 164.125; 164.377
+
+
+From mkosmal at gmail.com  Sat Sep 14 10:00:49 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Sat, 14 Sep 2013 10:00:49 -0700
+Subject: [PLUG] Back to School Linux Clinic Sunday September 15 1pm
+In-Reply-To: <9552D3F4-2297-4C3D-9ADC-6122E0B6A68C@dimstar.net>
+References: <20130913202647.GA10178@gate.kl-ic.com>
+	<9552D3F4-2297-4C3D-9ADC-6122E0B6A68C@dimstar.net>
+Message-ID: <CADKOhKeCzQ58zr+xPUvxA0gBCkQON4Wy2ndvOTps7N51+PD3KQ@mail.gmail.com>
+
+All
+
+I thought it was good humour!
+
+Marvin
+
+
+
+
+
+On Sat, Sep 14, 2013 at 9:40 AM, Russell Johnson <russ at dimstar.net> wrote:
+
+>
+> On Sep 13, 2013, at 1:26 PM, Keith Lofstrom <keithl at gate.kl-ic.com> wrote:
+>
+> > If not from their teacher,
+> > from using their new software and network skills to correct
+> > grading mistakes in the school's poorly-secured database.
+>
+> You do realize, Keith, that this appears to be condoning a class C felony
+> in the state of Oregon*?
+>
+> I understand the intent, but there are others that won't, and I'd hate to
+> perpetuate the idea that linux users are criminals.
+>
+> Russell Johnson
+> russ at dimstar.net
+>
+>
+>
+> *Code Section 164.125; 164.377
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From tyrell at jentink.net  Sat Sep 14 12:01:34 2013
+From: tyrell at jentink.net (Tyrell Jentink)
+Date: Sat, 14 Sep 2013 12:01:34 -0700
+Subject: [PLUG] Back to School Linux Clinic Sunday September 15 1pm
+In-Reply-To: <CADKOhKeCzQ58zr+xPUvxA0gBCkQON4Wy2ndvOTps7N51+PD3KQ@mail.gmail.com>
+References: <20130913202647.GA10178@gate.kl-ic.com>
+	<9552D3F4-2297-4C3D-9ADC-6122E0B6A68C@dimstar.net>
+	<CADKOhKeCzQ58zr+xPUvxA0gBCkQON4Wy2ndvOTps7N51+PD3KQ@mail.gmail.com>
+Message-ID: <CAJo8XLKKEPv7qj01SoZUUkRG9NR4AXC_D4vwPbtnoCfLvyEc+g@mail.gmail.com>
+
+I agree: Just good humor; I mean, one must always remember the audience:
+While this is far from a private group, and it shouldn't be, the audience
+can still be safely assumed to be a bunch of Linux users and professionals
+who understand the irony of the statement.
+
+It's a sad day when a satire gets interpreted as an endorsement or
+perpetuation of a crime...  And while I have seen some ridiculous things in
+the news about courts upholding claims that posting a URL to a page that
+may contain pirated data as being a crime in and of itself, I can't imagine
+a day when we have to stop having fun out of fear of someone committing a
+crime based on a joke...
+
+
+On Sat, Sep 14, 2013 at 10:00 AM, Marvin Kosmal <mkosmal at gmail.com> wrote:
+
+> All
+>
+> I thought it was good humour!
+>
+> Marvin
+>
+>
+>
+>
+>
+> On Sat, Sep 14, 2013 at 9:40 AM, Russell Johnson <russ at dimstar.net> wrote:
+>
+> >
+> > On Sep 13, 2013, at 1:26 PM, Keith Lofstrom <keithl at gate.kl-ic.com>
+> wrote:
+> >
+> > > If not from their teacher,
+> > > from using their new software and network skills to correct
+> > > grading mistakes in the school's poorly-secured database.
+> >
+> > You do realize, Keith, that this appears to be condoning a class C felony
+> > in the state of Oregon*?
+> >
+> > I understand the intent, but there are others that won't, and I'd hate to
+> > perpetuate the idea that linux users are criminals.
+> >
+> > Russell Johnson
+> > russ at dimstar.net
+> >
+> >
+> >
+> > *Code Section 164.125; 164.377
+> >
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+> >
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From russ at dimstar.net  Sat Sep 14 13:15:32 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Sat, 14 Sep 2013 13:15:32 -0700
+Subject: [PLUG] Back to School Linux Clinic Sunday September 15 1pm
+In-Reply-To: <CADKOhKeCzQ58zr+xPUvxA0gBCkQON4Wy2ndvOTps7N51+PD3KQ@mail.gmail.com>
+References: <20130913202647.GA10178@gate.kl-ic.com>
+	<9552D3F4-2297-4C3D-9ADC-6122E0B6A68C@dimstar.net>
+	<CADKOhKeCzQ58zr+xPUvxA0gBCkQON4Wy2ndvOTps7N51+PD3KQ@mail.gmail.com>
+Message-ID: <6E1BCECD-3C0E-4749-AE18-81AA233A3432@dimstar.net>
+
+
+On Sep 14, 2013, at 10:00 AM, Marvin Kosmal <mkosmal at gmail.com> wrote:
+
+> I thought it was good humour!
+
+Personally, I do too. I'm all for humor, light, dark, polite, impolite, etc. But there is a publicly accessible, google searchable archive of every message in the list. I think it's likely that someone, somewhere, will see it, and not take it the way Keith intended. 
+
+If I'm over reacting, I apologize. I know Keith is a very intelligent person, and no slight was intended toward anyone.
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From dick at dicksteffens.com  Sat Sep 14 15:09:38 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sat, 14 Sep 2013 15:09:38 -0700
+Subject: [PLUG] Ubuntu 12.04 gvfsd -- bug?
+Message-ID: <5234DEA2.4090200@dicksteffens.com>
+
+It took several minutes to move five photos from my SD card in a USB 
+adapter to a folder on my system. Also, the disk access light is 
+blinking rapidly. Top says that 45% of the CPU is being used by 
+gvfsd-metada. A bit of Googling indicates this is because gvfsd (Gnome 
+Virtual File System daemon) is spending a lot of time working on things. 
+Back in 2007 someone had a similar problem:
+
+http://ubuntuforums.org/showthread.php?t=1421580
+
+> It looks like your metadata store is got corrupted, leading to an 
+> infinite loop in the code.
+>
+> FIX:
+> The fix here is to remove the metadata storage, located in: 
+> ~/.local/share/gvfs-metadata. 
+
+I tried that the other day. Indeed the disk access light settled down to 
+normal. But I have the same issue today.
+
+More Googling turned up:
+
+https://bugs.launchpad.net/ubuntu/+source/gvfs/+bug/951585
+
+A search of current bugs took me to:
+
+https://bugs.launchpad.net/ubuntu/+source/gvfs/+bugs?orderby=-importance&memo=300&start=300
+
+where I found that it is "Undecided" and "Confirmed" but that's from 
+last year. Doesn't look like it is getting any attention.
+
+Any recommendations on getting around this, other than periodic deleting 
+of the file gvfs-metadata? One of the side effects of that is that the 
+arrangement of things on my desktop changed to something that I assume 
+is a default layout. While annoying, that's something I could live with. 
+The extreme delay getting files moved from this machine to other 
+machines, or devices is more than annoying, though, and I would like a 
+way around that.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From dexter at ambidexter.com  Mon Sep 16 23:15:42 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 16 Sep 2013 23:15:42 -0700
+Subject: [PLUG] TUESDAY! September PLUG Advanced Topics: GUI Programming
+	with Qt
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5237F38E.3050000@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Michael Faunce
+What: GUI Programming with Qt
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, September 17th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+Michael Faunce of Memorytime will talk about the Qt GUI toolkit and how
+and why he used it on a recent project.
+
+
+Mike is the owner of Memorytime and has been involved with technology
+since 1972 has seen and used a Slide Rule. He came to oregon in 1976 to
+work at Tektronix and taught classes at Wilsonville Tektronix plant.
+While there he deisgned Memory boards for the ATARI computer and also
+taught at PCC for a short time. Mike has designed a number of memory
+board and SBC (single board computer) systems.
+
+Mike has three patents and recently served as an expert witness in a
+recent patent infringement case and currently involved in a number of
+design projects including a customizable LED sign and a PXE Boot server.
+
+
+Many will head to the Lucky Lab on Hawthorne after the meeting.
+
+Calagator Page: http://calagator.org/events/1250464896
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+From dexter at ambidexter.com  Tue Sep 17 14:25:39 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Tue, 17 Sep 2013 14:25:39 -0700
+Subject: [PLUG] TONIGHT! September PLUG Advanced Topics: GUI Programming
+	with Qt
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <5238C8D3.6020006@ambidexter.com>
+
+Portland Linux/Unix Group Advanced Topics Meeting Announcement
+
+Who: Michael Faunce
+What: GUI Programming with Qt
+Where: Free Geek, 1731 SE 10th Avenue, Portland (Left Entrance)
+When: Tuesday, September 17th, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+Michael Faunce of Memorytime will talk about the Qt GUI toolkit and how
+and why he used it on a recent project.
+
+
+Mike is the owner of Memorytime and has been involved with technology
+since 1972 has seen and used a Slide Rule. He came to oregon in 1976 to
+work at Tektronix and taught classes at Wilsonville Tektronix plant.
+While there he deisgned Memory boards for the ATARI computer and also
+taught at PCC for a short time. Mike has designed a number of memory
+board and SBC (single board computer) systems.
+
+Mike has three patents and recently served as an expert witness in a
+recent patent infringement case and currently involved in a number of
+design projects including a customizable LED sign and a PXE Boot server.
+
+
+Many will head to the Lucky Lab on Hawthorne after the meeting.
+
+Calagator Page: http://calagator.org/events/1250464896
+
+PLUG Page with information about all PLUG events: http://pdxlinux.org/
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+See you there!
+
+Michael Dexter
+PLUG Volunteer
+
+From eehouse at eehouse.org  Thu Sep 19 13:49:21 2013
+From: eehouse at eehouse.org (Eric House)
+Date: Thu, 19 Sep 2013 13:49:21 -0700
+Subject: [PLUG] Emacs: what/where is look-for?
+Message-ID: <20130919204921.GJ17323@eehouse.org>
+
+I'm playing around with eproject, which assumes erroneously that
+there's a function called look-for in my emacs environment.  And now
+for the life of me I can't figure out how to install or enable it.
+I've searched all .el files on my (ubuntu) system.  Googling isn't
+helping, perhaps because I can't make google treat "look-for" as a
+literal string ("look" followed by "for" being a very common pair in
+English.)
+
+Somebody here *just knows*.  Thanks!
+
+--Eric
+-- 
+******************************************************************************
+* From the desktop of: Eric House, eehouse at eehouse.org                       *
+*      Crosswords for Android now in beta: via Google Play or xwords.sf.net  *
+******************************************************************************
+
+From daniel at digitree.org  Thu Sep 19 14:08:38 2013
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Thu, 19 Sep 2013 14:08:38 -0700
+Subject: [PLUG] Emacs: what/where is look-for?
+In-Reply-To: <20130919204921.GJ17323@eehouse.org>
+References: <20130919204921.GJ17323@eehouse.org>
+Message-ID: <CANkHAjdSoL57DU9wT-YZP73gR6rYRRPA=WhznhqmUERc4DZQAQ@mail.gmail.com>
+
+On Thu, Sep 19, 2013 at 1:49 PM, Eric House <eehouse at eehouse.org> wrote:
+
+> I'm playing around with eproject, which assumes erroneously that
+> there's a function called look-for in my emacs environment.  And now
+> for the life of me I can't figure out how to install or enable it.
+> I've searched all .el files on my (ubuntu) system.  Googling isn't
+> helping, perhaps because I can't make google treat "look-for" as a
+> literal string ("look" followed by "for" being a very common pair in
+> English.)
+>
+
+Searching google for "defun look-for" returns matches in GLOBAL-FIND:
+http://www.young-0.com/emacs/global-find.el
+
+From dick at dicksteffens.com  Fri Sep 20 10:45:48 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 20 Sep 2013 10:45:48 -0700
+Subject: [PLUG] Trackball ball movement not smooth
+Message-ID: <523C89CC.9010906@dicksteffens.com>
+
+I decided to try out a trackball a friend gave me. It was pretty dirty, 
+so I cleaned the ball and the socket with isopropyl alcohol. Before 
+cleaning the cursor response to the movement of the ball was jerky. Now 
+the cursor response is smooth, but the ball movement in the socket is 
+sticky. It's like I had cleaned some kind of lubricant off of it -- I'm 
+guessing that the ball is not lubricated, since that would likely get on 
+one's fingers -- but that's what it feels like.
+
+Any recommendations on how to get the ball to rotate smoothly in the socket?
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From ddsnell at frontier.com  Fri Sep 20 11:35:46 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Fri, 20 Sep 2013 11:35:46 -0700
+Subject: [PLUG] Trackball ball movement not smooth
+In-Reply-To: <523C89CC.9010906@dicksteffens.com>
+References: <523C89CC.9010906@dicksteffens.com>
+Message-ID: <20130920113546.7f7bb96c@zothique.localnet>
+
+On Fri, 20 Sep 2013 10:45:48 -0700
+Dick Steffens <dick at dicksteffens.com> wrote:
+
+> I decided to try out a trackball a friend gave me. It was pretty dirty, 
+> so I cleaned the ball and the socket with isopropyl alcohol. Before 
+> cleaning the cursor response to the movement of the ball was jerky. Now 
+> the cursor response is smooth, but the ball movement in the socket is 
+> sticky. It's like I had cleaned some kind of lubricant off of it -- I'm 
+> guessing that the ball is not lubricated, since that would likely get on 
+> one's fingers -- but that's what it feels like.
+> 
+> Any recommendations on how to get the ball to rotate smoothly in the socket?
+ 
+I've never had a trackball, but I'm assuming (oh that word) that it's
+rather like an old-fashioned ball-type mouse, only upside down.  If
+so, there should be two orthagonal rollers.  Since you've cleaned the
+socket out, there shouldn't be any lint or hair or whatever to foul
+things up.  At a guess, you cleaned off some sort of lube from the
+roller pins.  A touch of lube at each end of the pins should do the
+trick.  I think it should, anyway.  Be sure that you don't get any
+lube on the interrupters, or your cursor will skip around most
+unpleasantly.
+
+BTW, alcohol isn't the best thing to use on those hard rubber rollers.
+Some rubber conditioner, like that for magnetic tape capstan rollers,
+would be much better.
+
+Anyway, I hope this helps.
+
+--Dale
+
+--
+"A thoughtful, educated populace is the enemy of governments
+everywhere."  -- Unknown (From memory -- source please?)
+
+From rshepard at appl-ecosys.com  Fri Sep 20 11:52:46 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Fri, 20 Sep 2013 11:52:46 -0700 (PDT)
+Subject: [PLUG] Trackball ball movement not smooth
+In-Reply-To: <523C89CC.9010906@dicksteffens.com>
+References: <523C89CC.9010906@dicksteffens.com>
+Message-ID: <alpine.LNX.2.00.1309201148210.24042@salmo.appl-ecosys.com>
+
+On Fri, 20 Sep 2013, Dick Steffens wrote:
+
+> Any recommendations on how to get the ball to rotate smoothly in the socket?
+
+Dick,
+
+   I've used only trackballs for more than a dozen years. Now and then they
+become less responsive so I know they need a cleaning. I blow and pick out
+whatever is visible, usually dust bunnies. Sometimes I need to use splinter
+forceps to pick the lint off the sensing points in the base or from crevices
+in the unit. I never use alcohol or any other liquid.
+
+   Take out the ball and rub it with a microfiber cloth or lint-free towel.
+There are no lubricants on trackballs; it's plastic against plastic and
+usually as low speeds. You can wash and thoroughly dry the ball if you wish;
+it's solid plastic so it will not be harmed by the water. That removes
+finger grease and snack residue quite well.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From dick at dicksteffens.com  Fri Sep 20 12:01:41 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 20 Sep 2013 12:01:41 -0700
+Subject: [PLUG] Trackball ball movement not smooth
+In-Reply-To: <alpine.LNX.2.00.1309201148210.24042@salmo.appl-ecosys.com>
+References: <523C89CC.9010906@dicksteffens.com>
+	<alpine.LNX.2.00.1309201148210.24042@salmo.appl-ecosys.com>
+Message-ID: <523C9B95.5020400@dicksteffens.com>
+
+On 09/20/2013 11:52 AM, Rich Shepard wrote:
+>     I've used only trackballs for more than a dozen years. Now and then they
+> become less responsive so I know they need a cleaning. I blow and pick out
+> whatever is visible, usually dust bunnies. Sometimes I need to use splinter
+> forceps to pick the lint off the sensing points in the base or from crevices
+> in the unit. I never use alcohol or any other liquid.
+>
+>     Take out the ball and rub it with a microfiber cloth or lint-free towel.
+> There are no lubricants on trackballs; it's plastic against plastic and
+> usually as low speeds. You can wash and thoroughly dry the ball if you wish;
+> it's solid plastic so it will not be harmed by the water. That removes
+> finger grease and snack residue quite well.
+
+Hard to say what the "dirt" on this thing was, but it was all stuff that 
+was stuck to the plastic. No loose debris. It was free, and I was in 
+need of an extra "mouse" so I thought I'd give it a try. I think I'll 
+stick with mice and pick up a couple the next time I'm down at Free Geek.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From xophere at gmail.com  Fri Sep 20 14:22:50 2013
+From: xophere at gmail.com (Chris Schafer)
+Date: Fri, 20 Sep 2013 14:22:50 -0700
+Subject: [PLUG] Trackball ball movement not smooth
+In-Reply-To: <523C9B95.5020400@dicksteffens.com>
+References: <523C89CC.9010906@dicksteffens.com>
+	<alpine.LNX.2.00.1309201148210.24042@salmo.appl-ecosys.com>
+	<523C9B95.5020400@dicksteffens.com>
+Message-ID: <CAHMmuJX0iOApEM2OAQbe5tctTbFCgkMQwKGc71Wt-Fa-9Dh18g@mail.gmail.com>
+
+Most made in recent time have been optical.  Usually a laser against a ball
+and the ball just floats on little bits of plastic.  If yours is mechanical
+it could be quite old.
+
+
+On Fri, Sep 20, 2013 at 12:01 PM, Dick Steffens <dick at dicksteffens.com>wrote:
+
+> On 09/20/2013 11:52 AM, Rich Shepard wrote:
+> >     I've used only trackballs for more than a dozen years. Now and then
+> they
+> > become less responsive so I know they need a cleaning. I blow and pick
+> out
+> > whatever is visible, usually dust bunnies. Sometimes I need to use
+> splinter
+> > forceps to pick the lint off the sensing points in the base or from
+> crevices
+> > in the unit. I never use alcohol or any other liquid.
+> >
+> >     Take out the ball and rub it with a microfiber cloth or lint-free
+> towel.
+> > There are no lubricants on trackballs; it's plastic against plastic and
+> > usually as low speeds. You can wash and thoroughly dry the ball if you
+> wish;
+> > it's solid plastic so it will not be harmed by the water. That removes
+> > finger grease and snack residue quite well.
+>
+> Hard to say what the "dirt" on this thing was, but it was all stuff that
+> was stuck to the plastic. No loose debris. It was free, and I was in
+> need of an extra "mouse" so I thought I'd give it a try. I think I'll
+> stick with mice and pick up a couple the next time I'm down at Free Geek.
+>
+> --
+> Regards,
+>
+> Dick Steffens
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From dick at dicksteffens.com  Fri Sep 20 14:48:14 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 20 Sep 2013 14:48:14 -0700
+Subject: [PLUG] Trackball ball movement not smooth
+In-Reply-To: <CAHMmuJX0iOApEM2OAQbe5tctTbFCgkMQwKGc71Wt-Fa-9Dh18g@mail.gmail.com>
+References: <523C89CC.9010906@dicksteffens.com>
+	<alpine.LNX.2.00.1309201148210.24042@salmo.appl-ecosys.com>
+	<523C9B95.5020400@dicksteffens.com>
+	<CAHMmuJX0iOApEM2OAQbe5tctTbFCgkMQwKGc71Wt-Fa-9Dh18g@mail.gmail.com>
+Message-ID: <523CC29E.7000108@dicksteffens.com>
+
+On 09/20/2013 02:22 PM, Chris Schafer wrote:
+> Most made in recent time have been optical.  Usually a laser against a ball
+> and the ball just floats on little bits of plastic.  If yours is mechanical
+> it could be quite old.
+>
+
+Old, but not that old.
+
+http://www.google.com/imgres?imgurl=http://www.publicsurplus.com/sms/docviewer/aucdoc/DSC05254.JPG%3Fauc%3D742673%26docid%3D5313331&imgrefurl=http://www.publicsurplus.com/sms/auction/view?auc%3D742673&h=768&w=1024&sz=316&tbnid=UKaJ5sR6mriGgM:&tbnh=91&tbnw=121&zoom=1&usg=__1COLZGHoSY1fPyhTTHtmvRZtCdQ=&docid=U2qu2LXjr9jmiM&sa=X&ei=1ME8UqiPJY3riQL8i4DgCA&ved=0CGAQ9QEwCA&dur=2959
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From dick at dicksteffens.com  Fri Sep 20 16:44:13 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 20 Sep 2013 16:44:13 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+Message-ID: <523CDDCD.60606@dicksteffens.com>
+
+I'm testing Mythbuntu on an Toshiba Satellite laptop. Everything 
+installs and runs. I have a simple dipole antenna connected to an 
+HDHomeRun box connected to my home network. I can see a number of local 
+channels. Those sending a non-HD signal are clear. Those sending an HD 
+signal are slightly choppy. I'm guessing this is related to system 
+memory, but wanted to get other opinions.
+
+The Satellite is a model L45-S7423. It has I dual-core 1.46Ghz Pentium, 
+and 1GB RAM (two 512 modules). I can upgrade to 2GB of RAM for under 
+$25. But I wonder if RAM is the issue, or if processor speed is the 
+issue. In the long run, this won't be the box I'd run Myth on 
+eventually, so it may not be worth the expense -- especially since this 
+is the laptop I mentioned a couple of weeks ago with the damaged screen. 
+But it is working as a test bed for me to get to know Myth.
+
+Opinions are welcome.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From galens at seitzassoc.com  Fri Sep 20 17:36:53 2013
+From: galens at seitzassoc.com (Galen Seitz)
+Date: Fri, 20 Sep 2013 17:36:53 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <523CDDCD.60606@dicksteffens.com>
+References: <523CDDCD.60606@dicksteffens.com>
+Message-ID: <523CEA25.90603@seitzassoc.com>
+
+On 09/20/13 16:44, Dick Steffens wrote:
+> I'm testing Mythbuntu on an Toshiba Satellite laptop. Everything
+> installs and runs. I have a simple dipole antenna connected to an
+> HDHomeRun box connected to my home network. I can see a number of local
+> channels. Those sending a non-HD signal are clear. Those sending an HD
+> signal are slightly choppy. I'm guessing this is related to system
+> memory, but wanted to get other opinions.
+
+How are you viewing this?  Via mythtv's 'live tv' feature, or are you 
+viewing a recording?
+...
+OK, I see that your laptop has an Intel GMA X3100.  This may be the 
+problem.  I'm not sure whether this video hardware is capable of hw 
+decode of HD, at least with the drivers available for Linux.  You may 
+have better luck with software decoding, but that too may be a problem, 
+as the T2310 in your laptop may not be up to the task either.  You can 
+try adjusting the quality of the decode in order to reduce the burden on 
+your hardware.
+
+This might be useful:
+http://www.mythtv.org/wiki/Playback_profiles
+
+
+I highly doubt that your problem is due to lack of memory.
+
+galen
+-- 
+Galen Seitz
+galens at seitzassoc.com
+
+
+From dick at dicksteffens.com  Fri Sep 20 21:50:31 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 20 Sep 2013 21:50:31 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <523CEA25.90603@seitzassoc.com>
+References: <523CDDCD.60606@dicksteffens.com> <523CEA25.90603@seitzassoc.com>
+Message-ID: <523D2597.7070306@dicksteffens.com>
+
+On 09/20/2013 05:36 PM, Galen Seitz wrote:
+> On 09/20/13 16:44, Dick Steffens wrote:
+>> I'm testing Mythbuntu on an Toshiba Satellite laptop. Everything
+>> installs and runs. I have a simple dipole antenna connected to an
+>> HDHomeRun box connected to my home network. I can see a number of local
+>> channels. Those sending a non-HD signal are clear. Those sending an HD
+>> signal are slightly choppy. I'm guessing this is related to system
+>> memory, but wanted to get other opinions.
+> How are you viewing this?  Via mythtv's 'live tv' feature, or are you
+> viewing a recording?
+
+Live TV. I haven't tried recording anything yet. Today was the first 
+time I had an opportunity to finish configuring MythTV to the point 
+where I could watch something with it. Previously I ran HDHomeRun Config 
+GUI and watched a couple of stations via VLC Media Player. Same 
+choppiness there, too, and also with the demo movie clips in MythTV 
+setup. The silly bird was fine, but the character trekking through snow 
+in the mountains was slightly choppy. Note, that the choppiness is not 
+terrible, but it is noticeable.
+
+Next time I have some free time I'll try setting it up to record 
+something and see what I get.
+
+> ...
+> OK, I see that your laptop has an Intel GMA X3100.  This may be the
+> problem.  I'm not sure whether this video hardware is capable of hw
+> decode of HD, at least with the drivers available for Linux.  You may
+> have better luck with software decoding, but that too may be a problem,
+> as the T2310 in your laptop may not be up to the task either.  You can
+> try adjusting the quality of the decode in order to reduce the burden on
+> your hardware.
+>
+> This might be useful:
+> http://www.mythtv.org/wiki/Playback_profiles
+
+I'll fiddle with those, too, when time permits.
+
+> I highly doubt that your problem is due to lack of memory.
+
+That's good to know. Like I said, I'm not sure it makes sense to spend 
+too much on this particular laptop. It does, however, give me the 
+opportunity to get to know MythTV from an operational perspective.
+
+Thanks for your comments.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From dexter at ambidexter.com  Fri Sep 20 23:11:25 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Fri, 20 Sep 2013 23:11:25 -0700
+Subject: [PLUG] Looking for the grub-emu info page
+Message-ID: <523D388D.1010304@ambidexter.com>
+
+
+Hey all,
+
+I have a Linux question!
+
+I am looking for the grub-emu info (not man!) page referenced in the man
+page:
+
+http://manned.org/grub-emu/9e965fe3
+
+
+"The  full  documentation  for grub-emu is maintained as a Texinfo
+manual. If the info and grub-emu programs are properly installed  at
+your  site, the command
+
+    info grub-emu
+
+should give you access to the complete manual."
+
+
+Could someone please shoot me a copy of this info page or a link to it?
+
+Thanks!
+
+Michael
+
+From nsedell at gmail.com  Fri Sep 20 23:23:28 2013
+From: nsedell at gmail.com (Neal)
+Date: Fri, 20 Sep 2013 23:23:28 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <523D2597.7070306@dicksteffens.com>
+References: <523CDDCD.60606@dicksteffens.com> <523CEA25.90603@seitzassoc.com>
+	<523D2597.7070306@dicksteffens.com>
+Message-ID: <CAKxTfCPPgZr5vOg8recUFikofW=T0tau2c6fwS+uNRnBpE95+A@mail.gmail.com>
+
+What's your CPU utilization? Seems like that will tell you if your CPU
+has enough oomph or not.
+
+Hope I haven't missed that detail earlier in the thread.
+
+NealS
+
+From kingbeowulf at gmail.com  Sat Sep 21 00:11:45 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sat, 21 Sep 2013 00:11:45 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <523CDDCD.60606@dicksteffens.com>
+References: <523CDDCD.60606@dicksteffens.com>
+Message-ID: <523D46B1.9090301@gmail.com>
+
+On 09/20/2013 04:44 PM, Dick Steffens wrote:
+> I'm testing Mythbuntu on an Toshiba Satellite laptop. Everything 
+> installs and runs. I have a simple dipole antenna connected to an 
+> HDHomeRun box connected to my home network. I can see a number of
+> local channels. Those sending a non-HD signal are clear. Those
+> sending an HD signal are slightly choppy. I'm guessing this is
+> related to system memory, but wanted to get other opinions.
+> 
+> The Satellite is a model L45-S7423. It has I dual-core 1.46Ghz
+> Pentium, and 1GB RAM (two 512 modules). I can upgrade to 2GB of RAM
+> for under $25. But I wonder if RAM is the issue, or if processor
+> speed is the issue. In the long run, this won't be the box I'd run
+> Myth on eventually, so it may not be worth the expense --
+> especially since this is the laptop I mentioned a couple of weeks
+> ago with the damaged screen. But it is working as a test bed for me
+> to get to know Myth.
+> 
+> Opinions are welcome.
+> 
+
+Streaming 1080i/p HD video performance will depend on
+1. GPU
+2. CPU/memory
+3. Hard drive speed
+4. network speed
+5. DTV Antenna
+
+1 and 2 should be ok on your laptop with newer linux kernels.  I have
+a Free Geek Intel box running Slackware64 + XBMC 12.2 (kernel 3.2.45)
+that uses the Intel Q965 chipset (GMA 3000). This GPU is a slightly
+older desktop version of yours.  My CPU is Intel Core 2 duo 1.86GHz
+E6300.
+
+Funny story: 1080p HD worked ok but we noticed a few days ago (via
+htop)that someone at Free Geek had disabled the 2nd core in the BIOS.
+Might be something to check.
+
+3. Your lappy is sporting a 5400 rpm SATA-150 hard drive. That could
+make 1080p video a bit choppy.  Even streaming, IIRC, data gets
+buffered to the hard drive.  A proper 7200 rpm SATA 2 or 3 desktop
+drive will do better.
+
+4. Network: Ive had issues streaming 1080p over wifi due to
+interference and odd chipset support. It can work but takes some
+tweaking of the routers, etc. Linux support for some wifi chipsets is
+gimpy (broadcom).  A good Cat5 or Cat6 cable with a gigabit NIC is the
+way to go (if 100 Mbps, you may need to tweak network kernel params a
+bit). It you must use wifi, go with Atheros chips - far fewer packets
+lost and better connections.  Look into adjusting TCP/IP parameters in
+/etc/sysctl.conf (esp. TCP buffer sizes).
+
+5. I built my own DTV antenna for grins:
+http://cdn.makezine.com/make/television/04/DTV_Antenna_FINAL.pdf
+I used scraps: some leftover 18 gauge Cu wire and a piece of cork
+flooring. I get excellent 1080i reception of PDX stations from
+Vancouver at ground level.
+Another site: http://www.tvantennaplans.com/
+
+For 1-3, a good way to test the laptop - or the real box later -
+download these 1080p videos and then play them via MythTV.
+http://www.bigbuckbunny.org/index.php/download/
+http://www.sintel.org/download
+
+
+Have Fun!
+Ed
+
+
+
+
+From russell at personaltelco.net  Sat Sep 21 01:05:37 2013
+From: russell at personaltelco.net (Russell Senior)
+Date: Sat, 21 Sep 2013 01:05:37 -0700
+Subject: [PLUG] Looking for the grub-emu info page
+In-Reply-To: <523D388D.1010304@ambidexter.com> (Michael Dexter's message of
+	"Fri\, 20 Sep 2013 23\:11\:25 -0700")
+References: <523D388D.1010304@ambidexter.com>
+Message-ID: <86bo3m8ur2.fsf@coulee.tdb.com>
+
+>>>>> "Michael" == Michael Dexter <dexter at ambidexter.com> writes:
+
+Michael> Hey all,
+
+Michael> I have a Linux question!
+
+Michael> I am looking for the grub-emu info (not man!) page referenced
+Michael> in the man page:
+
+Michael> http://manned.org/grub-emu/9e965fe3
+
+
+Michael> "The full documentation for grub-emu is maintained as a
+Michael> Texinfo manual. If the info and grub-emu programs are
+Michael> properly installed at your site, the command
+
+Michael>     info grub-emu
+
+Michael> should give you access to the complete manual."
+
+
+Michael> Could someone please shoot me a copy of this info page or a
+Michael> link to it?
+
+Is grub-emu.info different than grub.info?
+
+
+-- 
+Russell Senior, President
+russell at personaltelco.net
+
+From john at meissen.org  Sat Sep 21 01:06:26 2013
+From: john at meissen.org (John Meissen)
+Date: Sat, 21 Sep 2013 01:06:26 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: (Your message of Sat, 21 Sep 2013 00:11:45 PDT.)
+	<523D46B1.9090301@gmail.com>
+Message-ID: <20130921080626.D80D017F7E1@john>
+
+
+kingbeowulf at gmail.com said:
+> 5. I built my own DTV antenna for grins: 
+> http://cdn.makezine.com/make/television/04/DTV_Antenna_FINAL.pdf 
+> I used scraps: some leftover 18 gauge Cu wire and a piece of cork flooring. 
+> I get excellent 1080i reception of PDX stations from Vancouver at ground
+> level.
+
+I'm surprised you get such good reception. That's a UHF antenna, and 3 of the 
+Portland stations are VHF (8, 10 and 12).
+
+
+
+
+From kingbeowulf at gmail.com  Sat Sep 21 12:28:31 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Sat, 21 Sep 2013 12:28:31 -0700
+Subject: [PLUG] MythTV Testing - HDTV choppy
+In-Reply-To: <20130921080626.D80D017F7E1@john>
+References: <20130921080626.D80D017F7E1@john>
+Message-ID: <523DF35F.7050100@gmail.com>
+
+On 09/21/2013 01:06 AM, John Meissen wrote:
+> 
+> kingbeowulf at gmail.com said:
+>> 5. I built my own DTV antenna for grins: 
+>> http://cdn.makezine.com/make/television/04/DTV_Antenna_FINAL.pdf 
+>> I used scraps: some leftover 18 gauge Cu wire and a piece of cork flooring. 
+>> I get excellent 1080i reception of PDX stations from Vancouver at ground
+>> level.
+> 
+> I'm surprised you get such good reception. That's a UHF antenna, and 3 of the 
+> Portland stations are VHF (8, 10 and 12).
+> 
+> 
+> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+> 
+Ah, that's the beauty of this simple design: it can pull in all PDX DTV
+channels just fine.  Its great that I built this with leftover scrap
+building material in the garage!  A spiffier design is Gray-Hoverman:
+http://www.digitalhome.ca/ota/superantenna/design.htm
+
+There are several other designs.  One is a better fractal design that I
+plan to try. Here is an example using Al foil on clear plastic:
+http://www.htpc-diy.com/2012/04/diy-flexible-fractal-window-hdtv.html
+
+You can increase the number of elements and the Koch curve iterations:
+http://makezine.com/2012/01/30/diy-fractal-antenna-for-digital-tv/
+
+"Signal strength" also depends on your DTV tuner.  I suspect that some
+(most?) HDTV manufacturers are skimping figuring that most people just
+plug into one of the HDMI jacks.  Since 99% of DTV is in the UHF, I
+wouldn't be surprised if some DTV tuners skip proper VHF support.
+
+(Note: Anyone that has a high quality roof top VHF/UHF antenna from the
+old analog days already has a dang good DTV antenna.  The only reason I
+bothered to build one is because the last TV antenna I had was 20+ years
+ago!)
+
+But I digress (rainy Saturday!). Yes, this simple design is plenty good
+enough in PDX.  If you need more frequency response, replace the bow tie
+elements with Koch fractals.
+
+-Ed
+
+
+From dexter at ambidexter.com  Sat Sep 21 23:21:13 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Sat, 21 Sep 2013 23:21:13 -0700
+Subject: [PLUG] Looking for the grub-emu info page
+In-Reply-To: <86bo3m8ur2.fsf@coulee.tdb.com>
+References: <523D388D.1010304@ambidexter.com> <86bo3m8ur2.fsf@coulee.tdb.com>
+Message-ID: <523E8C59.5080109@ambidexter.com>
+
+On 9/21/13 1:05 AM, Russell Senior wrote:
+
+> Is grub-emu.info different than grub.info?
+
+I don't see any mention of grub-emu in the grub main (man/info) page.
+
+It is a special userspace version for a few specific uses.
+
+Feel free to grill your distro for "grub-emu"
+
+Thanks,
+
+Michael
+
+
+From ddsnell at frontier.com  Sun Sep 22 08:11:57 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Sun, 22 Sep 2013 08:11:57 -0700
+Subject: [PLUG] Looking for the grub-emu info page
+In-Reply-To: <523D388D.1010304@ambidexter.com>
+References: <523D388D.1010304@ambidexter.com>
+Message-ID: <20130922081157.00bbc589@zothique.localnet>
+
+On Fri, 20 Sep 2013 23:11:25 -0700
+Michael Dexter <dexter at ambidexter.com> wrote:
+
+> I am looking for the grub-emu info (not man!) page referenced in the man
+> page:
+> 
+> http://manned.org/grub-emu/9e965fe3
+> 
+> 
+> "The  full  documentation  for grub-emu is maintained as a Texinfo
+> manual. If the info and grub-emu programs are properly installed  at
+> your  site, the command
+> 
+>     info grub-emu
+> 
+> should give you access to the complete manual."
+> 
+> 
+> Could someone please shoot me a copy of this info page or a link to it?
+> 
+> Thanks!
+> 
+> Michael
+
+
+I found a list of files in Debian's grub-emu package.  Unfortunately,
+as you can see here
+
+    <http://packages.debian.org/squeeze/amd64/grub-emu/filelist>
+
+there does not seem to be a .info file, just the man page.  Fedora
+does not support grub-emu at all.  I presume that Red Hat doesn't
+either.
+
+I suspect that you're going to have to download the grub2 sources
+and compile them yourself, which will generate the doc files.
+That's assuming that the grub-emu.info page actually exists, which
+it may not.  My google-fu came up blank (i.e., zero pages) several
+times.  Another thing you could try is emailing the GNU folks a
+line asking about grub-emu.  If anyone could tell you where to get
+the info page, they could.  Also, GNU supports a number of IRC
+channels on freenode, including #grub and #gnu.  That might be
+faster than emailing them.
+
+Anyway, sorry I couldn't help more.  Best of luck to you.
+
+--Dale
+
+--
+Yet creeds mean very little, Coth answered the dark god, still speaking
+almost gently.  The optimist proclaims that we live in the best of all
+possible worlds; and the pessimist fears this is true.
+ 		-- James Cabell, "The Silver Stallion"
+
+From dexter at ambidexter.com  Mon Sep 23 10:07:56 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 23 Sep 2013 10:07:56 -0700
+Subject: [PLUG] Looking for the grub-emu info page
+In-Reply-To: <20130922081157.00bbc589@zothique.localnet>
+References: <523D388D.1010304@ambidexter.com>
+	<20130922081157.00bbc589@zothique.localnet>
+Message-ID: <5240756C.8080303@ambidexter.com>
+
+On 9/22/13 8:11 AM, Dale Snell wrote:
+> I found a list of files in Debian's grub-emu package.  Unfortunately,
+> as you can see here
+> 
+>     <http://packages.debian.org/squeeze/amd64/grub-emu/filelist>
+
+Indeed, very little turns up but this list is very helpful. The sources
+only suggested there is one main C file for it.
+
+Thank you,
+
+Michael
+
+From mkosmal at gmail.com  Mon Sep 23 15:01:10 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Mon, 23 Sep 2013 15:01:10 -0700
+Subject: [PLUG] Printer
+Message-ID: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+
+Hi
+
+I am having printer problems.
+
+Printer was out of ink..
+
+Replaced cartridge.
+
+Printer did not print.
+
+Replaced bad cartridge  Printer complained empty cartridge and wouldn't
+print.
+
+Put in anther new cartridge.
+
+Printer won't print..
+
+Model  HP OfficeJet 4620..  Had been working fine.
+
+I use second source ink cartridges.
+
+Any ideas on what I am overlooking?
+
+I rebooted the printer..
+
+The ink level indicator says it is full of  ink..
+
+The test page prints the color things at the top but no text.
+
+TIA
+
+Marvin
+
+From rshepard at appl-ecosys.com  Mon Sep 23 15:09:28 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Mon, 23 Sep 2013 15:09:28 -0700 (PDT)
+Subject: [PLUG] Printer
+In-Reply-To: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+
+On Mon, 23 Sep 2013, Marvin Kosmal wrote:
+
+> I am having printer problems.
+> Printer was out of ink..
+> Replaced cartridge.
+> Printer did not print.
+> Replaced bad cartridge  Printer complained empty cartridge and wouldn't
+> print.
+> Put in anther new cartridge.
+> Printer won't print..
+
+Marvin,
+
+   Does this printer use a separate print head? If so, it might be clogged
+and needs to be replaced. Otherwise, there might be an issue with non-HP
+cartridge or load. Cartridge World might be able to advise you.
+
+   I gave up my inkjet printer and use only laserjets (one monochrome, one
+color).
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From kingbeowulf at gmail.com  Mon Sep 23 19:15:01 2013
+From: kingbeowulf at gmail.com (King Beowulf)
+Date: Mon, 23 Sep 2013 19:15:01 -0700
+Subject: [PLUG] Printer
+In-Reply-To: <alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+	<alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+Message-ID: <1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+
+All HP inkjets have the print head in the cartridge. I've never been a fan of 3rd party cartridges - fine if they work but not worth the overall hassle. If you get nothing out of the cartridge then it's either bad or you have a bad electrical connection (e g not snapped in all the way).
+
+Get a proper HP cartridge to test!
+
+Rich, I agree, laser is the way to go for "bang for yer buck" and reliability. Toners last longer than ink cartridges. I just use inkjet on photopaper since the  colors are a bit better.
+
+-Ed
+
+Sent from my iPhone
+
+On Sep 23, 2013, at 3:09 PM, Rich Shepard <rshepard at appl-ecosys.com> wrote:
+
+> On Mon, 23 Sep 2013, Marvin Kosmal wrote:
+> 
+>> I am having printer problems.
+>> Printer was out of ink..
+>> Replaced cartridge.
+>> Printer did not print.
+>> Replaced bad cartridge  Printer complained empty cartridge and wouldn't
+>> print.
+>> Put in anther new cartridge.
+>> Printer won't print..
+> 
+> Marvin,
+> 
+>   Does this printer use a separate print head? If so, it might be clogged
+> and needs to be replaced. Otherwise, there might be an issue with non-HP
+> cartridge or load. Cartridge World might be able to advise you.
+> 
+>   I gave up my inkjet printer and use only laserjets (one monochrome, one
+> color).
+> 
+> Rich
+> 
+> -- 
+> Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+> Applied Ecosystem Services, Inc.   |
+> <http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From mkosmal at gmail.com  Mon Sep 23 20:31:04 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Mon, 23 Sep 2013 20:31:04 -0700
+Subject: [PLUG] Printer
+In-Reply-To: <1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+	<alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+	<1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+Message-ID: <CADKOhKensonEfH3PZbUmm4dAsvRc0vOjadejjF1ZRrT4tdAbtg@mail.gmail.com>
+
+HI
+
+I will go buy HP Ink Cartridges tomorrow..
+
+And next time I buy.  It will be lasar.
+
+Thanks
+
+Marvin
+
+
+
+On Mon, Sep 23, 2013 at 7:15 PM, King Beowulf <kingbeowulf at gmail.com> wrote:
+
+> All HP inkjets have the print head in the cartridge. I've never been a fan
+> of 3rd party cartridges - fine if they work but not worth the overall
+> hassle. If you get nothing out of the cartridge then it's either bad or you
+> have a bad electrical connection (e g not snapped in all the way).
+>
+> Get a proper HP cartridge to test!
+>
+> Rich, I agree, laser is the way to go for "bang for yer buck" and
+> reliability. Toners last longer than ink cartridges. I just use inkjet on
+> photopaper since the  colors are a bit better.
+>
+> -Ed
+>
+> Sent from my iPhone
+>
+> On Sep 23, 2013, at 3:09 PM, Rich Shepard <rshepard at appl-ecosys.com>
+> wrote:
+>
+> > On Mon, 23 Sep 2013, Marvin Kosmal wrote:
+> >
+> >> I am having printer problems.
+> >> Printer was out of ink..
+> >> Replaced cartridge.
+> >> Printer did not print.
+> >> Replaced bad cartridge  Printer complained empty cartridge and wouldn't
+> >> print.
+> >> Put in anther new cartridge.
+> >> Printer won't print..
+> >
+> > Marvin,
+> >
+> >   Does this printer use a separate print head? If so, it might be clogged
+> > and needs to be replaced. Otherwise, there might be an issue with non-HP
+> > cartridge or load. Cartridge World might be able to advise you.
+> >
+> >   I gave up my inkjet printer and use only laserjets (one monochrome, one
+> > color).
+> >
+> > Rich
+> >
+> > --
+> > Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+> > Applied Ecosystem Services, Inc.   |
+> > <http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax:
+> 503-667-8863
+> >
+> > _______________________________________________
+> > PLUG mailing list
+> > PLUG at lists.pdxlinux.org
+> > http://lists.pdxlinux.org/mailman/listinfo/plug
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From rshepard at appl-ecosys.com  Tue Sep 24 05:42:16 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 24 Sep 2013 05:42:16 -0700 (PDT)
+Subject: [PLUG] Printer
+In-Reply-To: <CADKOhKensonEfH3PZbUmm4dAsvRc0vOjadejjF1ZRrT4tdAbtg@mail.gmail.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+	<alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+	<1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+	<CADKOhKensonEfH3PZbUmm4dAsvRc0vOjadejjF1ZRrT4tdAbtg@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1309240535060.31205@salmo.appl-ecosys.com>
+
+On Mon, 23 Sep 2013, Marvin Kosmal wrote:
+
+> And next time I buy.  It will be lasar.
+
+Marvin
+
+   I don't know how much color printing you do, nor what type (plots and
+diagrams vs. digital camera images) but these two factors should guide your
+choice of printer. When you're ready to start looking try craigslist and go
+visit The Printer Place on Powell Blvd. about SE 17th Ave.
+
+   The latter have used printers and can advise you on brands and models.
+Very good folks there. I bought my color HP LaserJet on craigslist for only
+$50 (and a trip to Washougal and back). Turns out it needed a new drum which
+The Printer Place diagnosed and fixed for $130 so I have the equivalent of a
+like-new printer for a reasonable cost, and I'm still on the set of
+cartridges that came with it. When I need new ones I'll go to Cartridge
+World; I've been using their toner cartridges for my LJ 5 for years with no
+problems at all.
+
+Happy printing,
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From bharris at suse.com  Tue Sep 24 07:31:30 2013
+From: bharris at suse.com (Brett Harris)
+Date: Tue, 24 Sep 2013 08:31:30 -0600
+Subject: [PLUG] SUSE Linux Days - Portland October 1st, Seattle October 3rd.
+Message-ID: <52413FD2020000740002446A@novprvoes0310.provo.novell.com>
+
+Greetings PLUGgers!
+ 
+I wanted to take a moment to invite all of you to SUSE Linux Days in Seattle and/or Portland in October of this year.
+ 
+At SUSE Linux Days you'll be able to get the latest technical information on SUSE Linux and also get questions answered that I hear every day:
+1. Can you help me lower my Linux Costs? (Spoiler: Yes!)
+2. Can you help me consolidate my Linux and Windows Management? (Spoiler: Again - Yes!)
+3. Can you Support my RedHat, Centos and SUSE Environments with your award-winning support? (Yes!)
+4. Will SUSE Linux integrate well with my Microsoft Environment? (Yes!)
+ 
+Abstract to satisfy your curiosity and the higher-ups if you need it: 
+https://www.suse.com/events/road-tour/
+
+There is no charge to register and you'll have plenty of time and opportunity to engage with our technical folks if you like during the conference and, if you like, I will have access to them on October 2nd. and possibly the 4th. as well should you like an on-site meeting with us.
+ 
+SUSE Linux Days Portland Oct. 1st.: 
+https://www.regonline.com/Register/Checkin.aspx?EventID=1270653 
+ 
+SUSE Linux Days Seattle Oct. 3rd.: 
+https://www.regonline.com/Register/Checkin.aspx?EventID=1270657
+ 
+Thank you!
+
+
+Kind regards,
+ 
+Brett Harris
+M: bharris at suse.com
+O: 425-298-4299
+C: 425-736-5728
+704 228th. Ave NE #822 - Sammamish, WA 98074
+"We Adapt - you Succeed"
+ 
+Microsoft Alliance: http://www.moreinterop.com
+ 
+SAP Alliance: https://www.suse.com/partners/alliance-partners/sap/
+
+From mkosmal at gmail.com  Tue Sep 24 08:47:05 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Tue, 24 Sep 2013 08:47:05 -0700
+Subject: [PLUG] Printer
+In-Reply-To: <alpine.LNX.2.00.1309240535060.31205@salmo.appl-ecosys.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+	<alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+	<1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+	<CADKOhKensonEfH3PZbUmm4dAsvRc0vOjadejjF1ZRrT4tdAbtg@mail.gmail.com>
+	<alpine.LNX.2.00.1309240535060.31205@salmo.appl-ecosys.com>
+Message-ID: <CADKOhKc7ThV-gRycG0EXfk-ZEsP9-NVbQkqATKJGsdR=E+3oxw@mail.gmail.com>
+
+Richard..
+
+The only printing I do is Black and White small text files.
+
+Powell and 17th is a long Haul for me.  I live in La Center.
+
+I am scared to buy off Craigslist.   Too much bad luck with electronics
+from  that list.
+
+Thanks
+
+Marvin
+
+
+On Tue, Sep 24, 2013 at 5:42 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Mon, 23 Sep 2013, Marvin Kosmal wrote:
+>
+> > And next time I buy.  It will be lasar.
+>
+> Marvin
+>
+>    I don't know how much color printing you do, nor what type (plots and
+> diagrams vs. digital camera images) but these two factors should guide your
+> choice of printer. When you're ready to start looking try craigslist and go
+> visit The Printer Place on Powell Blvd. about SE 17th Ave.
+>
+>    The latter have used printers and can advise you on brands and models.
+> Very good folks there. I bought my color HP LaserJet on craigslist for only
+> $50 (and a trip to Washougal and back). Turns out it needed a new drum
+> which
+> The Printer Place diagnosed and fixed for $130 so I have the equivalent of
+> a
+> like-new printer for a reasonable cost, and I'm still on the set of
+> cartridges that came with it. When I need new ones I'll go to Cartridge
+> World; I've been using their toner cartridges for my LJ 5 for years with no
+> problems at all.
+>
+> Happy printing,
+>
+> Rich
+>
+> --
+> Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+> Applied Ecosystem Services, Inc.   |
+> <http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax:
+> 503-667-8863
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From rshepard at appl-ecosys.com  Tue Sep 24 09:08:47 2013
+From: rshepard at appl-ecosys.com (Rich Shepard)
+Date: Tue, 24 Sep 2013 09:08:47 -0700 (PDT)
+Subject: [PLUG] Printer
+In-Reply-To: <CADKOhKc7ThV-gRycG0EXfk-ZEsP9-NVbQkqATKJGsdR=E+3oxw@mail.gmail.com>
+References: <CADKOhKd4k214rX=_Ztx3T7+TxapRbrWHHRJ44Ea1j4+9ae4y2w@mail.gmail.com>
+	<alpine.LNX.2.00.1309231507120.12301@salmo.appl-ecosys.com>
+	<1596AF67-508B-4112-B99D-5D6D18A6B519@gmail.com>
+	<CADKOhKensonEfH3PZbUmm4dAsvRc0vOjadejjF1ZRrT4tdAbtg@mail.gmail.com>
+	<alpine.LNX.2.00.1309240535060.31205@salmo.appl-ecosys.com>
+	<CADKOhKc7ThV-gRycG0EXfk-ZEsP9-NVbQkqATKJGsdR=E+3oxw@mail.gmail.com>
+Message-ID: <alpine.LNX.2.00.1309240904500.31205@salmo.appl-ecosys.com>
+
+On Tue, 24 Sep 2013, Marvin Kosmal wrote:
+
+> The only printing I do is Black and White small text files.
+
+Marvin,
+
+   Black and white laser printers are quite inexpensive. I bought a Brothers
+on sale at Office Depot for $50 a few years ago (and since sold it). Watch
+the office supply stores (or amazon.com) and you can replace the inkjet with
+an inexpensive, single-purpose laser printer most of which are supported by
+CUPS.
+
+Rich
+
+-- 
+Richard B. Shepard, Ph.D.          |      Have knowledge, will travel.
+Applied Ecosystem Services, Inc.   |
+<http://www.appl-ecosys.com>     Voice: 503-667-4517      Fax: 503-667-8863
+
+
+From mkosmal at gmail.com  Wed Sep 25 19:08:54 2013
+From: mkosmal at gmail.com (Marvin Kosmal)
+Date: Wed, 25 Sep 2013 19:08:54 -0700
+Subject: [PLUG] Printer---Solved
+Message-ID: <CADKOhKftcWEJ2mnSs=HmHon59oAZ1Tz03j4vcmugnGCu3N-=Nw@mail.gmail.com>
+
+On Tue, Sep 24, 2013 at 9:08 AM, Rich Shepard <rshepard at appl-ecosys.com>wrote:
+
+> On Tue, 24 Sep 2013, Marvin Kosmal wrote:
+>
+> > The only printing I do is Black and White small text files.
+>
+> Marvin,
+>
+>    Black and white laser printers are quite inexpensive. I bought a
+> Brothers
+> on sale at Office Depot for $50 a few years ago (and since sold it). Watch
+> the office supply stores (or amazon.com) and you can replace the inkjet
+> with
+> an inexpensive, single-purpose laser printer most of which are supported by
+> CUPS.
+>
+> Rich
+>
+>
+>
+
+Printer problem solved.
+
+Bought genuine HP cartridges and works fine.  <as suggested>
+
+Thanks to everyone who spoke up..
+
+I am considering Laser..
+
+Thanks
+
+Marvin
+
+
+
+
+
+
+
+
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+>
+
+From website.reader3 at gmail.com  Wed Sep 25 22:06:33 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Wed, 25 Sep 2013 22:06:33 -0700
+Subject: [PLUG] odd date command behavior for the starting Daylight time in
+	a year
+Message-ID: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+
+To the KPLUG community:
+
+I got "invalid data" warnings for all the March dates on the shell
+script file, but changing the time to 03:00:00 fixed this problem.  Is
+something wrong with the tzfile or ???
+
+The problem occurred on my Ubuntu machine when checking daylight
+savings time EPOCH values for the years 2010 to 2015.
+
+I am curious to see if this occurs on other machines?
+
+Randall
+--------------------------------------------
+#!/bin/sh
+date -d "Mar 14 02:00:00 2010" +%s
+date -d "Nov 7 02:00:00 2010" +%s
+date -d "Mar 13 02:00:00 2011" +%s
+date -d "Nov 6 02:00:00 2011" +%s
+date -d "Mar 11 02:00:00 2012" +%s
+date -d "Nov 4 02:00:00 2012" +%s
+date -d "Mar 10 02:00:00 2013" +%s
+date -d "Nov 3 02:00:00 2013" +%s
+date -d "Mar 9 02:00:00 2014" +%s
+date -d "Nov 2 02:00:00 2014" +%s
+date -d "Mar 8 02:00:00 2015" +%s
+date -d "Nov 1 02:00:00 2015" +%s
+echo "Linux version 3.2.0-53-generic (buildd at allspice) (gcc version
+4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #81-Ubuntu SMP Thu Aug 22
+21:01:03 UTC 2013"
+------------------------------------------------------------------------------
+
+From ddsnell at frontier.com  Wed Sep 25 22:54:34 2013
+From: ddsnell at frontier.com (Dale Snell)
+Date: Wed, 25 Sep 2013 22:54:34 -0700
+Subject: [PLUG] odd date command behavior for the starting Daylight time
+ in a year
+In-Reply-To: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+References: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+Message-ID: <20130925225434.22205dba@zothique.localnet>
+
+On Wed, 25 Sep 2013 22:06:33 -0700
+website reader <website.reader3 at gmail.com> wrote:
+
+> To the KPLUG community:
+
+KPLUG?
+
+PLUGH!
+
+> I got "invalid data" warnings for all the March dates on the shell
+> script file, but changing the time to 03:00:00 fixed this problem.  Is
+> something wrong with the tzfile or ???
+> 
+> The problem occurred on my Ubuntu machine when checking daylight
+> savings time EPOCH values for the years 2010 to 2015.
+> 
+> I am curious to see if this occurs on other machines?
+> 
+> Randall
+
+------>%======== snip! ========%<------
+
+Just tried your script, got the same problem.  I tried subtracting one
+day from all the March dates and everything worked.
+
+Those March days are all Daylight Saving Time switchover days, aren't
+they?  (If they're not, I'm going to look really stupid...)  There is
+no 2:00AM hour on those days, thus the dates really are invalid.
+
+--Dale
+
+--
+"IT'S THE END OF THE WORLD!  Or the beginning.  Hmph.  End, begin,
+all the same.  Big change.  Sometimes good.  Sometimes bad."
+    -- Aughra, _The Dark Crystal_
+
+From russ at dimstar.net  Thu Sep 26 08:51:41 2013
+From: russ at dimstar.net (Russell Johnson)
+Date: Thu, 26 Sep 2013 08:51:41 -0700
+Subject: [PLUG] odd date command behavior for the starting Daylight time
+	in a year
+In-Reply-To: <20130925225434.22205dba@zothique.localnet>
+References: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+	<20130925225434.22205dba@zothique.localnet>
+Message-ID: <AF68B90E-F01D-4913-9C8D-43673662FD9A@dimstar.net>
+
+
+On Sep 25, 2013, at 10:54 PM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> Those March days are all Daylight Saving Time switchover days, aren't
+> they?  (If they're not, I'm going to look really stupid...)  There is
+> no 2:00AM hour on those days, thus the dates really are invalid.
+
+And this is one reason a lot of sysadmins don't use daylight saving time (summer time elsewhere) and/or always use UTC for the times our computers run. 
+
+Russell Johnson
+russ at dimstar.net
+
+
+
+
+From daniel at digitree.org  Thu Sep 26 10:54:32 2013
+From: daniel at digitree.org (Daniel Hedlund)
+Date: Thu, 26 Sep 2013 10:54:32 -0700
+Subject: [PLUG] odd date command behavior for the starting Daylight time
+ in a year
+In-Reply-To: <20130925225434.22205dba@zothique.localnet>
+References: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+	<20130925225434.22205dba@zothique.localnet>
+Message-ID: <CANkHAjehvCt48u9R6RkfO6Xm53xHxz6kU4wWwuNR0Wtt0LyutQ@mail.gmail.com>
+
+On Wed, Sep 25, 2013 at 10:54 PM, Dale Snell <ddsnell at frontier.com> wrote:
+
+> Those March days are all Daylight Saving Time switchover days, aren't
+> they?  (If they're not, I'm going to look really stupid...)  There is
+> no 2:00AM hour on those days, thus the dates really are invalid.
+>
+
+Dale is correct here in that they really aren't valid dates due to the
+daylight savings change.  To compound the problem, dates between 01:00:00
+and 01:59:59 are ambiguous if you don't specify a timezone.
+
+date -d "Nov 7 01:59:59 2010" +%s # => 1289120399 (in PDT)
+date -d "Nov 7 02:00:00 2010" +%s # => 1289124000 (in PST, +3601 epoc
+seconds)
+
+date -d "Nov 7 01:00:00 2010 PDT" +%s # => 1289116800
+date -d "Nov 7 01:00:00 2010 PST" +%s # => 1289120400 (+3600 epoc seconds)
+
+
+Working backwards from seconds since epoc (which is in UTC)...
+
+date -d @1268560799 # => Sun Mar 14 01:59:59 PST 2010
+date -d @1268560800 # => Sun Mar 14 03:00:00 PDT 2010 (+1 epoc second)
+
+date -d @1289120399 # => Sun Nov  7 01:59:59 PDT 2010
+date -d @1289120400 # => Sun Nov  7 01:00:00 PST 2010 (+1 epoc second)
+
+From paulm at freegeek.org  Thu Sep 26 11:58:21 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Thu, 26 Sep 2013 11:58:21 -0700
+Subject: [PLUG] odd date command behavior for the starting Daylight time
+ in a year
+In-Reply-To: <CANkHAjehvCt48u9R6RkfO6Xm53xHxz6kU4wWwuNR0Wtt0LyutQ@mail.gmail.com>
+References: <CAJeYwHdqxC4bdyPo88-YOiKCAWdjr1FPjA31ELB5K73gJn922w@mail.gmail.com>
+	<20130925225434.22205dba@zothique.localnet>
+	<CANkHAjehvCt48u9R6RkfO6Xm53xHxz6kU4wWwuNR0Wtt0LyutQ@mail.gmail.com>
+Message-ID: <1380221901.3620.20.camel@localhost>
+
+On Thu, 2013-09-26 at 10:54 -0700, Daniel Hedlund wrote:
+> On Wed, Sep 25, 2013 at 10:54 PM, Dale Snell <ddsnell at frontier.com> wrote:
+> 
+> > Those March days are all Daylight Saving Time switchover days, aren't
+> > they?  (If they're not, I'm going to look really stupid...)  There is
+> > no 2:00AM hour on those days, thus the dates really are invalid.
+> >
+> 
+> Dale is correct here in that they really aren't valid dates due to the
+> daylight savings change.  To compound the problem, dates between 01:00:00
+> and 01:59:59 are ambiguous if you don't specify a timezone.
+
+I have a side project that deals with historic time data over multiple
+timezones, and its tricky to say the least, even with libraries to do
+the heavy lifting. Its kind of a notoriously tricky area where naive
+solutions can go very wrong. It's an interesting subject. Further
+reading  below if anyone is interested, I would particularly recommend A
+literary appreciation of the Olson/Zoneinfo/tz database.
+
+Paul M
+
+Further Reading:
+===========================================================
+
+(from the python timezone library documentation)
+In cases where countries change their timezone definitions, cases like
+the end-of-daylight-savings-time occur with no way of resolving the
+ambiguity. For example, in 1915 Warsaw switched from Warsaw time to
+Central European time. So at the stroke of midnight on August 5th 1915
+the clocks were wound back 24 minutes creating an ambiguous time period
+that cannot be specified without referring to the timezone abbreviation
+or the actual UTC offset. In this case midnight happened twice, neither
+time during a daylight savings time period
+
+http://pytz.sourceforge.net/
+
+(from the gnu manual on date and time)
+
+First, a quote:
+
+Our units of temporal measurement, from seconds on up to months, are so
+complicated, asymmetrical and disjunctive so as to make coherent mental
+reckoning in time all but impossible. Indeed, had some tyrannical god
+contrived to enslave our minds to time, to make it all but impossible
+for us to escape subjection to sodden routines and unpleasant surprises,
+he could hardly have done better than handing down our present system.
+It is like a set of trapezoidal building blocks, with no vertical or
+horizontal surfaces, like a language in which the simplest thought
+demands ornate constructions, useless particles and lengthy
+circumlocutions. Unlike the more successful patterns of language and
+science, which enable us to face experience boldly or at least
+level-headedly, our system of temporal calculation silently and
+persistently encourages our terror of time. ...
+
+It is as though architects had to measure length in feet, width in
+meters and height in ells; as though basic instruction manuals demanded
+a knowledge of five different languages. It is no wonder then that we
+often look into our own immediate past or future, last Tuesday or a week
+from Sunday, with feelings of helpless confusion. ... 
+
+?Robert Grudin, Time and the Art of Living. 
+
+https://www.gnu.org/software/coreutils/manual/html_node/Date-input-formats.html#Date-input-formats
+
+http://blog.jonudell.net/2009/10/23/a-literary-appreciation-of-the-olsonzoneinfotz-database/
+http://www.quirksmode.org/blog/archives/2009/04/making_time_saf.html
+http://naggum.no/lugm-time.html
+http://stackoverflow.com/questions/6841333/why-is-subtracting-these-two-times-in-1927-giving-a-strange-result/6841479#6841479
+
+
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From website.reader3 at gmail.com  Thu Sep 26 15:53:08 2013
+From: website.reader3 at gmail.com (website reader)
+Date: Thu, 26 Sep 2013 15:53:08 -0700
+Subject: [PLUG] Thanks for the comments
+Message-ID: <CAJeYwHebVk1rvV7ADDsw9+5gM8+b+xr8m6TzReSJBnXt=s9xSA@mail.gmail.com>
+
+Thank you for the comments regarding the Daylight Savings time
+switchover at 2:00 am local time on the 2nd Sunday in March (for US
+locations)
+
+This is a great reason why everyone should switch over to Julian time
+as astronomers do.
+
+From john at meissen.org  Fri Sep 27 10:30:52 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 27 Sep 2013 10:30:52 -0700
+Subject: [PLUG] Ubuntu upgrade help
+Message-ID: <20130927173052.C823F17F778@john>
+
+I finally got around to "upgrading" the Ubuntu 10.04 LTS system that I use 
+daily to the 12.04 LTS release. I've been putting it off because I knew that it 
+would break everything user-interface related that I depended on. :-( And of 
+course I wasn't disappointed. Or rather, I was. Whatever.
+
+I got some of the gnome env back, and I'm struggling through the font problems. 
+However all of my keybindings are toast and I still haven't figured out how to 
+reconfigure them. The two biggest ones are navigating the virtual desktops and 
+launching a terminal.
+
+I don't see any way to do the latter anymore. And the compiz Settings Manager 
+has settings for switching to specific viewports via keyboard or directional 
+switching via mouse, neither of which I want! I want to navigate left/right/up/
+down via keyboard. This was simple to do before I "upgraded".
+
+Suggestion? FYI I'm not using Unity.
+
+john-
+
+
+From dick at dicksteffens.com  Fri Sep 27 11:12:15 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 27 Sep 2013 11:12:15 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130927173052.C823F17F778@john>
+References: <20130927173052.C823F17F778@john>
+Message-ID: <5245CA7F.9090004@dicksteffens.com>
+
+On 09/27/2013 10:30 AM, John Meissen wrote:
+> I finally got around to "upgrading" the Ubuntu 10.04 LTS system that I use
+> daily to the 12.04 LTS release. I've been putting it off because I knew that it
+> would break everything user-interface related that I depended on. :-( And of
+> course I wasn't disappointed. Or rather, I was. Whatever.
+>
+> I got some of the gnome env back, and I'm struggling through the font problems.
+> However all of my keybindings are toast and I still haven't figured out how to
+> reconfigure them. The two biggest ones are navigating the virtual desktops and
+> launching a terminal.
+>
+> I don't see any way to do the latter anymore. And the compiz Settings Manager
+> has settings for switching to specific viewports via keyboard or directional
+> switching via mouse, neither of which I want! I want to navigate left/right/up/
+> down via keyboard. This was simple to do before I "upgraded".
+>
+> Suggestion? FYI I'm not using Unity.
+
+Did you install GNOME session fallback? In the Ubuntu Software Center 
+it's called:
+
+     GNOME Session Manager - GNOME fallback session
+     gnome-session-fallback
+
+I use that, and with it <ctl><alt>T gives me a terminal window.
+
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From john at meissen.org  Fri Sep 27 11:27:52 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 27 Sep 2013 11:27:52 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Fri, 27 Sep 2013 11:12:15 PDT.)
+	<5245CA7F.9090004@dicksteffens.com>
+Message-ID: <20130927182752.3A45817F778@john>
+
+
+dick at dicksteffens.com said:
+> Did you install GNOME session fallback? In the Ubuntu Software Center  it's
+> called:
+
+>      GNOME Session Manager - GNOME fallback session
+>      gnome-session-fallback
+
+
+Yes. That was implied when I said I got most of the gnome environment back, and 
+that I wasn't using Unity. I suppose I could have done something else, though.
+
+> I use that, and with it <ctl><alt>T gives me a terminal window. 
+
+That may be. But it's awkward, and I have a different, much more natural and 
+comfortable combination that I've used for years. I don't want to retrain my 
+fingers. In the old system it was a simple matter to redefine the keys.
+
+Now they're trying to make the settings interface look like a Mac, and IMHO 
+have only screwed things up.
+
+
+
+
+From paulm at freegeek.org  Fri Sep 27 11:37:52 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Fri, 27 Sep 2013 11:37:52 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130927182752.3A45817F778@john>
+References: <20130927182752.3A45817F778@john>
+Message-ID: <1380307072.3776.2.camel@localhost>
+
+On Fri, 2013-09-27 at 11:27 -0700, John Meissen wrote:
+> dick at dicksteffens.com said:
+> > Did you install GNOME session fallback? In the Ubuntu Software Center  it's
+> > called:
+> 
+> >      GNOME Session Manager - GNOME fallback session
+> >      gnome-session-fallback
+> 
+> 
+> Yes. That was implied when I said I got most of the gnome environment back, and 
+> that I wasn't using Unity. I suppose I could have done something else, though.
+> 
+> > I use that, and with it <ctl><alt>T gives me a terminal window. 
+> 
+> That may be. But it's awkward, and I have a different, much more natural and 
+> comfortable combination that I've used for years. I don't want to retrain my 
+> fingers. In the old system it was a simple matter to redefine the keys.
+> 
+> Now they're trying to make the settings interface look like a Mac, and IMHO 
+> have only screwed things up.
+
+apt-get install  compizconfig-settings-manager will get you the old
+setting manager
+Then enable Desktop Wall (or rotate cube) -> bindings
+(Ctrl+Alt + arrow is the default, I think, but I may have set that)
+> 
+> 
+> _______________________________________________ 
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From dick at dicksteffens.com  Fri Sep 27 11:38:40 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Fri, 27 Sep 2013 11:38:40 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130927182752.3A45817F778@john>
+References: <20130927182752.3A45817F778@john>
+Message-ID: <5245D0B0.7070108@dicksteffens.com>
+
+On 09/27/2013 11:27 AM, John Meissen wrote:
+> dick at dicksteffens.com said:
+>> Did you install GNOME session fallback? In the Ubuntu Software Center  it's
+>> called:
+>>       GNOME Session Manager - GNOME fallback session
+>>       gnome-session-fallback
+>
+> Yes. That was implied when I said I got most of the gnome environment back, and
+> that I wasn't using Unity. I suppose I could have done something else, though.
+>
+>> I use that, and with it <ctl><alt>T gives me a terminal window.
+> That may be. But it's awkward, and I have a different, much more natural and
+> comfortable combination that I've used for years. I don't want to retrain my
+> fingers. In the old system it was a simple matter to redefine the keys.
+>
+> Now they're trying to make the settings interface look like a Mac, and IMHO
+> have only screwed things up.
+
+In Applications - System Tools - System Settings, in the Hardware group, 
+is a button for Keyboard. That has a tab for Shotcuts. One of those 
+shortcuts is Launch Terminal, with the default setting of Ctrl+Alt+T. 
+Down at the bottom it says, "To edit a shortcut, click the row and hold 
+down the new keys or press Backspace to clear."
+
+I haven't tried changing anything in there, but that might be worth a 
+try for your key combination.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From john at meissen.org  Fri Sep 27 11:53:14 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 27 Sep 2013 11:53:14 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Fri, 27 Sep 2013 11:38:40 PDT.)
+	<5245D0B0.7070108@dicksteffens.com>
+Message-ID: <20130927185314.7263C17F778@john>
+
+
+dick at dicksteffens.com said:
+> In Applications - System Tools - System Settings, in the Hardware group,  is a
+> button for Keyboard. That has a tab for Shotcuts. One of those  shortcuts is
+> Launch Terminal, with the default setting of Ctrl+Alt+T.  Down at the bottom
+> it says, "To edit a shortcut, click the row and hold  down the new keys or
+> press Backspace to clear." 
+
+Thanks. I don't know why I didn't see that. I must have looked at the System 
+Settings window a dozen time. :-(
+
+Maybe it's the grey-on-grey color scheme.... ;-)
+
+john-
+
+
+From john at meissen.org  Fri Sep 27 12:22:52 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 27 Sep 2013 12:22:52 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Fri, 27 Sep 2013 11:37:52 PDT.)
+	<1380307072.3776.2.camel@localhost>
+Message-ID: <20130927192252.BC34A17F7E7@john>
+
+
+paulm at freegeek.org said:
+> apt-get install  compizconfig-settings-manager will get you the old setting
+> manager 
+
+I already had compizconfig-settings-manager installed, that's what I was using.
+
+> Then enable Desktop Wall (or rotate cube) -> bindings
+> (Ctrl+Alt + arrow is the default, I think, but I may have set that) 
+
+I tried Rotate Cube. Holy cow, that screwed things up. Pinned windows lost 
+their positions, I suddenly couldn't access any of the virtual desktops. I 
+tried to reset things back to the way they were, hopefully I succeeded.
+
+I tried Desktop Wall instead. That works well enough (although I wish it would 
+wrap.
+
+When I logged out and back in it complained that there were updates pending 
+that needed a reboot. Is it suddenly downloading and applying updates in the 
+background?!? That's a no-no. Update Manager settings still shows "Display" 
+only. Is there a different setting somewhere else?
+
+
+
+From paulm at freegeek.org  Fri Sep 27 13:19:36 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Fri, 27 Sep 2013 13:19:36 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130927192252.BC34A17F7E7@john>
+References: <20130927192252.BC34A17F7E7@john>
+Message-ID: <1380313176.3776.10.camel@localhost>
+
+On Fri, 2013-09-27 at 12:22 -0700, John Meissen wrote:
+
+> When I logged out and back in it complained that there were updates pending 
+> that needed a reboot. 
+
+Thats standard if a reboot is pending because of previously applied
+updates (a kernel upgrade came down the line this morning).
+
+> Is it suddenly downloading and applying updates in the 
+> background?!? That's a no-no. Update Manager settings still shows "Display" 
+> only. Is there a different setting somewhere else?
+
+Not as far as I know (on either question, there is unattended-upgrades
+but that doesn't involve update-manager and needs to be installed
+separately) . 
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From john at meissen.org  Fri Sep 27 14:41:07 2013
+From: john at meissen.org (John Meissen)
+Date: Fri, 27 Sep 2013 14:41:07 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Fri, 27 Sep 2013 13:19:36 PDT.)
+	<1380313176.3776.10.camel@localhost>
+Message-ID: <20130927214107.9275617F7E7@john>
+
+
+paulm at freegeek.org said:
+> On Fri, 2013-09-27 at 12:22 -0700, John Meissen wrote:
+> 
+> > Is it suddenly downloading and applying updates in the 
+> > background?!? That's a no-no. Update Manager settings still shows "Display" 
+> > only. Is there a different setting somewhere else?
+> 
+> Not as far as I know (on either question, there is unattended-upgrades
+> but that doesn't involve update-manager and needs to be installed
+> separately) . 
+> 
+
+Synaptic/dpkg shows that it got installed...
+ii unattended-upgrades  0.76ubuntu1 automatic installation of security upgrades
+
+This script is the backend for the APT::Periodic::Unattended-Upgrade option.
+
+Is there a way to configure it, or should I just uninstall it?
+
+
+
+From paulm at freegeek.org  Sat Sep 28 13:46:30 2013
+From: paulm at freegeek.org (Paul Munday)
+Date: Sat, 28 Sep 2013 13:46:30 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130927214107.9275617F7E7@john>
+References: <20130927214107.9275617F7E7@john>
+Message-ID: <1380401190.3651.2.camel@localhost>
+
+On Fri, 2013-09-27 at 14:41 -0700, John Meissen wrote:
+> paulm at freegeek.org said:
+> > On Fri, 2013-09-27 at 12:22 -0700, John Meissen wrote:
+> > 
+> > > Is it suddenly downloading and applying updates in the 
+> > > background?!? That's a no-no. Update Manager settings still shows "Display" 
+> > > only. Is there a different setting somewhere else?
+> > 
+> > Not as far as I know (on either question, there is unattended-upgrades
+> > but that doesn't involve update-manager and needs to be installed
+> > separately) . 
+> > 
+> 
+> Synaptic/dpkg shows that it got installed...
+> ii unattended-upgrades  0.76ubuntu1 automatic installation of security upgrades
+> 
+> This script is the backend for the APT::Periodic::Unattended-Upgrade option.
+> 
+> Is there a way to configure it, or should I just uninstall it?
+
+https://help.ubuntu.com/community/AutomaticSecurityUpdates
+
+
+By default it just does security upgrades, without them it won't be
+doing  much of anything but you can also exclude packages, so you might
+want to keep security but remove kernels so you can control reboots. 
+
+> 
+> 
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+
+
+-- 
+               Technical Support Specialist, Free Geek
+              Free Geek Tech Support: support at freegeek.org
+        (503) 232-9350 option 6 Tuesday-Saturday: 12-1,1:30-5:45PM
+
+
+From dick at dicksteffens.com  Sun Sep 29 23:06:14 2013
+From: dick at dicksteffens.com (Dick Steffens)
+Date: Sun, 29 Sep 2013 23:06:14 -0700
+Subject: [PLUG] Battery backup issue
+Message-ID: <524914D6.80707@dicksteffens.com>
+
+I have an APC Back-UPS ES 550 UPS. I have a Gateway E-4500D plugged into 
+it along with a Samsung SyncMaster 712n and a SyncMaster 205nw. Up until 
+Saturday I also had my Sony Vaio and another SyncMaster 712 and a pair 
+of external speakers plugged into it. We had a power outage Saturday 
+evening while I was working on the machines. (Because of the 
+"improvements" made in Ubuntu 12.04 I need to run the Sony on 10.04 in 
+order to be able to use my foot pedal and audio transcription playback 
+software, but that's a different story.)
+
+Anyway, when the power went out the Gateway immediately died. The Sony 
+and the three monitors remained running until I went through a 
+controlled shut down of the Sony. I can't put my hands on the test 
+results I got using my Kill A Watt, but I recall that the power 
+consumption for all that hardware was way under the 330 watts / 550 VA 
+the APC unit is rated for. But, thinking there may be something more 
+subtle going on I decided to move the Sony, its monitor, and the 
+speakers from the battery plus surge protection side of the APC to just 
+the surge protection side, since I don't create stuff on that machine, 
+just play back files I download. That left only the the Gateway machine 
+and its two monitors on the APC.
+
+This afternoon, while working again, there was a power blip. The Sony 
+survived the blip, but the Gateway rebooted. Later on there was another 
+power blip, but this time both machines survived it. In all three cases 
+I didn't lose anything thanks to my auto save setting in LibreOffice. It 
+was just annoying to have to reboot, start up Thunderbird again, and 
+send passwords to five different e-mail accounts. (Another story. Sigh.)
+
+While looking on Amazon at another APC unit (so I'd have one for each 
+machine) I found a comment that warned about some computer power 
+supplies needing pure sine wave. The BackUPS ES 550 delivers stepped 
+approximation to a sine wave. I'm hoping the Gateway is old enough that 
+it isn't that sensitive, but I don't find anything that tells me either way.
+
+Any thoughts on why the Gateway should not survive a power failure while 
+plugged into a UPS? The indicator light on the APC is green. Red is 
+supposed to indicate the need for a new battery. This unit isn't all 
+that old, either, but again, I would have to dig to find the receipt, so 
+I can't say if I bought it in 2012 or 2011, or maybe even earlier this year.
+
+-- 
+Regards,
+
+Dick Steffens
+
+
+From john at meissen.org  Mon Sep 30 11:03:50 2013
+From: john at meissen.org (John Meissen)
+Date: Mon, 30 Sep 2013 11:03:50 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Sat, 28 Sep 2013 13:46:30 PDT.)
+	<1380401190.3651.2.camel@localhost>
+Message-ID: <20130930180351.1DCA717F7F7@john>
+
+Two more annoyances ....
+
+The panel at the bottom of the screen (WindowList) used to have an option to 
+"auto-hide". It doesn't do that anymore, and it's taking up valuable screen 
+real estate that I want back. I've checked every "configuration" and 
+"preferences" screen I can find. Any suggestions on how to restore that feature?
+
+Also, now whenever I happen to move a window to the top of the screen it 
+automatically "maximizes" the window. Damnit, if I want Windows I'll run 
+Windows. :-( I can't imagine on what planet this might be useful. How 
+do I turn that off? If I want a window maximized I can do it myself.
+
+
+
+
+From kd7vvk at gmail.com  Mon Sep 30 12:05:20 2013
+From: kd7vvk at gmail.com (Bruce Kilpatrick)
+Date: Mon, 30 Sep 2013 12:05:20 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130930180351.1DCA717F7F7@john>
+References: <20130930180351.1DCA717F7F7@john>
+Message-ID: <5249CB70.3090508@gmail.com>
+
+On 09/30/2013 11:03 AM, John Meissen wrote:
+> Two more annoyances ....
+>
+> The panel at the bottom of the screen (WindowList) used to have an option to
+> "auto-hide". It doesn't do that anymore, and it's taking up valuable screen
+> real estate that I want back. I've checked every "configuration" and
+> "preferences" screen I can find. Any suggestions on how to restore that feature?
+>
+> Also, now whenever I happen to move a window to the top of the screen it
+> automatically "maximizes" the window. Damnit, if I want Windows I'll run
+> Windows. :-( I can't imagine on what planet this might be useful. How
+> do I turn that off? If I want a window maximized I can do it myself.
+>
+>
+>
+> _______________________________________________
+> PLUG mailing list
+> PLUG at lists.pdxlinux.org
+> http://lists.pdxlinux.org/mailman/listinfo/plug
+Right click on the lower panel.  Click panel options/panel settings.  
+Then click more settings.  That should open up a pane that gives 
+visibility settings including auto-hide.
+
+Bruce
+
+From john at meissen.org  Mon Sep 30 12:22:15 2013
+From: john at meissen.org (John Meissen)
+Date: Mon, 30 Sep 2013 12:22:15 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Mon, 30 Sep 2013 12:05:20 PDT.)
+	<5249CB70.3090508@gmail.com>
+Message-ID: <20130930192215.E9C1C17F7F7@john>
+
+kd7vvk at gmail.com said:
+>  
+> On 09/30/2013 11:03 AM, John Meissen wrote:
+> > Two more annoyances ....
+> >
+> > The panel at the bottom of the screen (WindowList) used to have an option to
+> > "auto-hide". It doesn't do that anymore, and it's taking up valuable screen
+> > real estate that I want back. I've checked every "configuration" and
+> > "preferences" screen I can find. Any suggestions on how to restore that
+> > feature?
+> >
+> > Also, now whenever I happen to move a window to the top of the screen it
+> > automatically "maximizes" the window. Damnit, if I want Windows I'll run
+> > Windows. :-( I can't imagine on what planet this might be useful. How
+> > do I turn that off? If I want a window maximized I can do it myself.
+>
+> Right click on the lower panel.  Click panel options/panel settings.  
+> Then click more settings.  That should open up a pane that gives 
+> visibility settings including auto-hide.
+> 
+If I right-click on the lower panel I get a single choice: "Preferences". That 
+opens a window with
+
+  Window List Content
+    o Show windows from currecnt workspace
+    o Show windows from all workspaces
+
+ Window Grouping
+    o Never group windows
+    o Group windows when space is limited
+    o Always group windows
+
+ Restoring Minimized Windows (disabled unless Show All is selected above)
+    o Restore to current workspace
+    o Restore to native workspace
+
+That's it. No "panel options" or "panel settings". No "more settings" .
+
+
+
+From johnxj at comcast.net  Mon Sep 30 13:06:12 2013
+From: johnxj at comcast.net (John Jason Jordan)
+Date: Mon, 30 Sep 2013 13:06:12 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130930192215.E9C1C17F7F7@john>
+References: <5249CB70.3090508@gmail.com>
+	<20130930192215.E9C1C17F7F7@john>
+Message-ID: <20130930130612.7d9a8a8a@Devil8>
+
+On Mon, 30 Sep 2013 12:22:15 -0700
+"John Meissen" <john at meissen.org> dijo:
+
+>> Right click on the lower panel.  Click panel options/panel
+>> settings. Then click more settings.  That should open up a pane that
+>> gives visibility settings including auto-hide.
+>> 
+>If I right-click on the lower panel I get a single choice:
+>"Preferences". That opens a window with
+>
+>  Window List Content
+>    o Show windows from currecnt workspace
+>    o Show windows from all workspaces
+>
+> Window Grouping
+>    o Never group windows
+>    o Group windows when space is limited
+>    o Always group windows
+>
+> Restoring Minimized Windows (disabled unless Show All is selected
+> above) o Restore to current workspace
+>    o Restore to native workspace
+>
+>That's it. No "panel options" or "panel settings". No "more settings" .
+
+I don't use the same desktop as you, so my advice might be wrong. But
+it seems to me that you clicked on one of the widgets (or applets, among
+other names) that live in the panel, rather than clicking on the panel
+itself . It can be tricky to find a spot on the panel that is not
+occupied by a widget, but once you find one you should get the panel
+options.
+
+Or - better idea yet - drag the panel to the left (or right) of the
+screen and make it wide enough to hold all the widgets that you want.
+This will leave you with nothing at the top and bottom, giving you
+maximum vertical real estate.
+
+Or even better idea - install Xubuntu, and then move the panel to the
+left or right.
+
+From keithl at gate.kl-ic.com  Mon Sep 30 14:21:18 2013
+From: keithl at gate.kl-ic.com (Keith Lofstrom)
+Date: Mon, 30 Sep 2013 14:21:18 -0700
+Subject: [PLUG] Battery backup issue
+In-Reply-To: <524914D6.80707@dicksteffens.com>
+References: <524914D6.80707@dicksteffens.com>
+Message-ID: <20130930212118.GA6170@gate.kl-ic.com>
+
+On Sun, Sep 29, 2013 at 11:06:14PM -0700, Dick Steffens wrote:
+> I have an APC Back-UPS ES 550 UPS. 
+
+Does the unplugged UPS provide enough power to start up the
+machine?
+
+That is probably an Offline/Standby UPS.  In normal conditions,
+it feeds power straight from the wall to the load, bypassing
+the charger and battery and inverter.  When the power goes
+down, it twiddles its thumbs for a missing cycle or two, fires
+up the inverter from the battery, throws a relay, and starts 
+feeding the load, which has been without power for 30
+milliseconds or more.  The better UPS units send a signal
+over USB to the computer to signal "suspend NOW".
+
+As you can imagine, a computer with a just-barely-adequate 
+power supply, accustomed to a squirt of power 120 times a
+second (plus and minus lobes of line frequency), might lose
+hope and die during a very brief interruption of those 
+squirts.  Inside the computer power supply are some
+electrolytic capacitors which may have been full value when
+the machine was new, but may have been cooked to weakness.
+
+Same electrolytic problem for the UPS itself, which may also
+have worn out batteries.  
+
+And you may have added peripherals to the Gateway computer
+that draw down the power faster.  A bigger third party 
+power supply with larger internal capacitors might help.
+
+The UPSs that Really Work are "online" UPSs.  Power from
+the line charges the battery, battery power drives the
+inverter continuously, which directly powers the computer. 
+If the charger shuts down, the inverter and computer keep
+running until wall power comes back or the battery is
+exhausted.  If everything is functional, zero power
+interruption.  Of course, online UPSs are more expensive.
+
+Either the larger computer power supply, or the online
+UPS, will make heat continuously that the offline UPS
+and smaller computer power supply won't.  You can spend
+Even More Money on high efficiency "green" power supplies
+and UPS units.  There may even be computer power supplies
+that connect to 370V batteries directly, supplementing
+the electrolytics, which is more efficient still. 
+This is what the big data centers are evolving to.
+
+The power grid is becoming more unstable and less
+reliable.  Utilities are strapped for cash and required
+to absorb intermittent, unpredictable "green" energy.
+And your neighbors are buying plug electric cars - when
+their multikilowatt chargers turn on, the line power will
+sag a little (or a lot, depending on charger design).
+
+And if climate change expands the Hadley cell and moves
+more tropical storms north, we will have more wind and
+rain storms at 45N.  And we won't have as much glacial
+melt to power hydro in the summer and fall.  So a good
+offline UPS may be needed for the power grid of the future.
+
+Encouraging versions of the Linux kernel that can recover
+from instant power loss might be called for, too.  Spotty
+power availability is the norm for most of the world, and
+most future computer users.  We should help build software
+for the precarious power world, and for our own future as
+we reduce our own industrial capabilities.
+
+Keith
+
+-- 
+Keith Lofstrom          keithl at keithl.com
+
+From john at meissen.org  Mon Sep 30 14:34:08 2013
+From: john at meissen.org (John Meissen)
+Date: Mon, 30 Sep 2013 14:34:08 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Mon, 30 Sep 2013 13:06:12 PDT.)
+	<20130930130612.7d9a8a8a@Devil8>
+Message-ID: <20130930213408.B330F17F7F7@john>
+
+
+johnxj at comcast.net said:
+> "John Meissen" <john at meissen.org> dijo:
+> >That's it. No "panel options" or "panel settings". No "more settings" .
+>
+> I don't use the same desktop as you, so my advice might be wrong. But it seems
+> to me that you clicked on one of the widgets (or applets, among other names)
+> that live in the panel, rather than clicking on the panel itself . It can be
+> tricky to find a spot on the panel that is not occupied by a widget, but once
+> you find one you should get the panel options. 
+
+That was it. I needed to <super><alt><right-click> on the panel (super = 
+Windows key) and then I got the correct preferences screen.
+
+Thanks.
+
+I still need a way to disable this stupid auto-maximize every time I 
+accidentally hit the top of the screen when moving a window. :-(
+
+
+
+
+From ronaldx.j.bynoe at intel.com  Mon Sep 30 14:40:29 2013
+From: ronaldx.j.bynoe at intel.com (Bynoe, RonaldX J)
+Date: Mon, 30 Sep 2013 21:40:29 +0000
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130930213408.B330F17F7F7@john>
+References: (Your message of Mon, 30 Sep 2013 13:06:12 PDT.)
+	<20130930130612.7d9a8a8a@Devil8>,<20130930213408.B330F17F7F7@john>
+Message-ID: <3108673A8B660F4EA3D50CFD4A0EF2352CE161@FMSMSX107.amr.corp.intel.com>
+
+Well, in KDE you go to settings | Workspace Behaviour, click on "Screen Edges", and then uncheck the "Maximize windows by dragging them to the top of the screen" box.
+
+I don't know how you'd do it in an inferior DE though.
+(;
+
+Glad to help!
+________________________________________
+From: plug-bounces at lists.pdxlinux.org [plug-bounces at lists.pdxlinux.org] on behalf of John Meissen [john at meissen.org]
+Sent: Monday, September 30, 2013 2:34 PM
+To: Portland Linux/Unix Group
+Subject: Re: [PLUG] Ubuntu upgrade help
+
+johnxj at comcast.net said:
+> "John Meissen" <john at meissen.org> dijo:
+> >That's it. No "panel options" or "panel settings". No "more settings" .
+>
+> I don't use the same desktop as you, so my advice might be wrong. But it seems
+> to me that you clicked on one of the widgets (or applets, among other names)
+> that live in the panel, rather than clicking on the panel itself . It can be
+> tricky to find a spot on the panel that is not occupied by a widget, but once
+> you find one you should get the panel options.
+
+That was it. I needed to <super><alt><right-click> on the panel (super =
+Windows key) and then I got the correct preferences screen.
+
+Thanks.
+
+I still need a way to disable this stupid auto-maximize every time I
+accidentally hit the top of the screen when moving a window. :-(
+
+
+
+_______________________________________________
+PLUG mailing list
+PLUG at lists.pdxlinux.org
+http://lists.pdxlinux.org/mailman/listinfo/plug
+
+From joeniski at easystreet.net  Mon Sep 30 14:49:41 2013
+From: joeniski at easystreet.net (Joe Niski)
+Date: Mon, 30 Sep 2013 14:49:41 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: <20130930213408.B330F17F7F7@john>
+Message-ID: <CE6F3FB3.36987%joeniski@easystreet.net>
+
+i had to deal with this one, too - it's somewhere in CompizConfig's
+Window-management section, though i can't remember exactly where...
+________________________________________
+Joe Shisei Niski
+Portland, Oregon, USA
+??
+
+
+
+
+On 2013-09-30 2:34 PM, "John Meissen" <john at meissen.org> wrote:
+
+>
+>I still need a way to disable this stupid auto-maximize every time I
+>accidentally hit the top of the screen when moving a window. :-(
+
+
+
+From john at meissen.org  Mon Sep 30 14:51:52 2013
+From: john at meissen.org (John Meissen)
+Date: Mon, 30 Sep 2013 14:51:52 -0700
+Subject: [PLUG] Ubuntu upgrade help
+In-Reply-To: (Your message of Mon, 30 Sep 2013 14:34:08 PDT.)
+	<20130930213408.B330F17F7F7@john>
+Message-ID: <20130930215152.7177017F7F7@john>
+
+
+john at meissen.org said:
+> I still need a way to disable this stupid auto-maximize every time I
+> accidentally hit the top of the screen when moving a window. :-( 
+
+Found it. It's actually a Compiz setting under Window Management. Disabling 
+"Grid" accomplishes what I want.
+
+
+
+From dexter at ambidexter.com  Mon Sep 30 20:26:51 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 30 Sep 2013 20:26:51 -0700
+Subject: [PLUG] Announcement: October PLUG Meeting: Virtual Private Networks
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <524A40FB.5090804@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Michael Dexter
+What: FreeNAS Plugins
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, October 3rd, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+FreeNAS is an open source Network Attached Storage system powered by
+FreeBSD that features the ZFS filesystem.
+
+Michael Dexter will demonstrate the FreeNAS 9.1.1 Plugins architecture
+using the Plex Media Server and various virtual machines.
+
+For more information: http://freenas.org
+
+Many attendees will break for a social hour at the Lucky Lab Brew Pub NW
+at 1945 NW Quimby
+
+See you there!
+
+Calagator Page: http://calagator.org/events/1250464770
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
+From dexter at ambidexter.com  Mon Sep 30 22:22:57 2013
+From: dexter at ambidexter.com (Michael Dexter)
+Date: Mon, 30 Sep 2013 22:22:57 -0700
+Subject: [PLUG] Announcement: October PLUG Meeting: FreeNAS Plugins
+	(Corrected Subject)
+In-Reply-To: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+References: <CAJ3mhmgX8dsi44B7EaM7m9dGXHMitQpFSU_ppUvve7nARirf1g@mail.gmail.com>
+Message-ID: <524A5C31.9080209@ambidexter.com>
+
+
+Portland Linux/Unix Group Meeting Announcement
+
+Who: Michael Dexter
+What: FreeNAS Plugins
+Where: PSU, 1930 SW 4th Ave. Room FAB 86-01 (Lower Level)
+When: Thursday, October 3rd, 2013 at 7pm
+Why: The pursuit of technology freedom
+
+See location H-10 on the PSU map at http://pdxLinux.org/campus_map.jpg
+
+FreeNAS is an open source Network Attached Storage system powered by
+FreeBSD that features the ZFS filesystem.
+
+Michael Dexter will demonstrate the FreeNAS 9.1.1 Plugins architecture
+using the Plex Media Server and various virtual machines.
+
+For more information: http://freenas.org
+
+Many attendees will break for a social hour at the Lucky Lab Brew Pub NW
+at 1945 NW Quimby
+
+See you there!
+
+Calagator Page: http://calagator.org/events/1250464770
+PLUG Page with information about all PLUG events: http://pdxLinux.org/
+
+Agenda:
+
+7:00 - 7:30  Announcements
+7:30 - 8:30  Presentation and Questions
+9:00 - ...   Refreshments
+
+The Lucky Lab Northwest Beer Hall
+1945 NW Quimby
+Portland, Oregon
+
+Follow PLUG on Twitter: http://twitter.com/pdxlinux
+
+Michael Dexter
+PLUG Volunteer
+
+See you there!
+
