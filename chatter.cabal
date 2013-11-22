@@ -49,15 +49,16 @@ Library
                      Data.DefaultMap
 
    Build-depends:    base >= 4 && <= 6,
-                     text,
-                     containers,
+                     text >= 0.11.3.0,
+                     containers >= 0.5.3.0,
+                     ghc-prim,
                      safe,
                      random-shuffle,
                      MonadRandom,
                      cereal,
                      fullstop,
                      split,
-                     bytestring,
+                     bytestring >= 0.10.0.0,
                      zlib,
                      filepath,
                      directory,
@@ -73,9 +74,9 @@ Executable tag
 
    Build-depends:    chatter,
                      filepath,
-                     text,
+                     text >= 0.11.3.0,
                      base       >= 4 && <= 6,
-                     bytestring,
+                     bytestring >= 0.10.0.0,
                      cereal
 
    ghc-options:      -Wall -main-is Tagger -rtsopts
@@ -87,11 +88,11 @@ Executable train
 
    Build-depends:    chatter,
                      filepath,
-                     text,
+                     text >= 0.11.3.0,
                      base       >= 4 && <= 6,
-                     bytestring,
+                     bytestring >= 0.10.0.0,
                      cereal,
-                     containers
+                     containers >= 0.5.3.0
 
    ghc-options:      -Wall -main-is Trainer -rtsopts
 
@@ -102,11 +103,11 @@ Executable eval
 
    Build-depends:    chatter,
                      filepath,
-                     text,
+                     text >= 0.11.3.0,
                      base       >= 4 && <= 6,
-                     bytestring,
+                     bytestring >= 0.10.0.0,
                      cereal,
-                     containers
+                     containers >= 0.5.3.0
 
    ghc-options:      -Wall -main-is Evaluate -rtsopts
 
@@ -121,7 +122,7 @@ Executable bench
    Build-depends:    chatter,
                      criterion,
                      filepath,
-                     text,
+                     text >= 0.11.3.0,
                      base       >= 4 && <= 6,
                      split,
                      tokenize,
@@ -147,7 +148,7 @@ test-suite tests
 
    Build-depends:    chatter,
                      base       >= 4 && <= 6,
-                     text,
+                     text >= 0.11.3.0,
                      HUnit,
                      test-framework,
                      test-framework-skip,
@@ -157,6 +158,6 @@ test-suite tests
                      filepath,
                      cereal,
                      quickcheck-instances,
-                     containers
+                     containers >= 0.5.3.0
 
    ghc-options:      -Wall
