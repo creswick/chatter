@@ -62,7 +62,7 @@ Library
                      mbox,
                      zlib >= 0.5.4.1,
                      filepath >= 1.3.0.1,
-                     ghc-prim >= 0.3.0.0
+                     ghc-prim
 
    ghc-options:      -Wall
 
