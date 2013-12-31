@@ -51,7 +51,7 @@ import System.FilePath ((</>))
 
 import NLP.Corpora.Parsing (readPOS)
 
-import NLP.Types (TaggedSentence, Tag(..)
+import NLP.Types (TaggedSentence, Tag(..), Sentence
                  , POSTagger(..), tagUNK, stripTags)
 
 import qualified NLP.POS.LiteralTagger as LT
@@ -125,10 +125,14 @@ deserialize table bs = do
 tag :: POSTagger -> Text -> [TaggedSentence]
 tag p txt = let sentences = (posSplitter p) txt
                 tokens    = map (posTokenizer p) sentences
-                priority  = (posTagger p) tokens
-            in case posBackoff p of
-                 Nothing  -> priority
-                 Just tgr -> combine priority (tag tgr txt)
+            in tagTokens p tokens
+
+tagTokens :: POSTagger -> [Sentence] -> [TaggedSentence]
+tagTokens p tokens = let priority = (posTagger p) tokens
+                     in case posBackoff p of
+                          Nothing  -> priority
+                          Just tgr -> combine priority (tagTokens tgr tokens)
+
 
 -- | Combine the results of POS taggers, using the second param to
 -- fill in 'tagUNK' entries, where possible.
