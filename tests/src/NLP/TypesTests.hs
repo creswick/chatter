@@ -1,6 +1,7 @@
 module NLP.TypesTests where
 
 import Test.QuickCheck (Arbitrary, arbitrary)
+import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework ( testGroup, Test )
 
