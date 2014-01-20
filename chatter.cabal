@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.0.0.3
+version:             0.0.0.4
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -143,6 +143,8 @@ test-suite tests
                      NLP.Similarity.VectorSimTests
                      NLP.POSTests
                      NLP.POS.UnambiguousTaggerTests
+                     NLP.TypesTests
+                     Data.DefaultMapTests
                      Corpora
                      TestUtils
 

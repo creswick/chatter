@@ -23,6 +23,8 @@ import qualified BackoffTaggerTests as Backoff
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.POSTests as POS
 import qualified NLP.POS.UnambiguousTaggerTests as UT
+import qualified NLP.TypesTests as TypeTests
+import qualified Data.DefaultMapTests as DefMap
 
 import Corpora
 
@@ -57,6 +59,8 @@ tests = [ testGroup "parseTag" $
         , Vec.tests
         , POS.tests
         , UT.tests
+        , TypeTests.tests
+        , DefMap.tests
         ]
 
 
