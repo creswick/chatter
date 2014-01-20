@@ -3,6 +3,7 @@ where
 
 import Data.Map (Map)
 import qualified Data.Map as Map
+import Data.Serialize
 
 -- | Defaulting Map; a Map that returns a default value when queried
 -- for a key that does not exist.
@@ -37,3 +38,8 @@ keys m = Map.keys (defMap m)
 -- standard `Data.Map.foldl`
 foldl :: (a -> b -> a) -> a -> DefaultMap k b -> a
 foldl fn acc m = Map.foldl fn acc (defMap m)
+
+-- | Serialize instance
+instance (Ord k, Serialize k, Serialize v) => Serialize (DefaultMap k v) where
+  get   = fmap (uncurry DefMap) (getTwoOf get get)
+  put m = (putTwoOf put put) (defDefault m, defMap m)

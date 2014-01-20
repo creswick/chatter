@@ -7,7 +7,7 @@ where
 import Data.ByteString (ByteString)
 import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.Serialize (Serialize, put, get)
+import Data.Serialize (Serialize, put, get, getTwoOf, putTwoOf)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
@@ -98,6 +98,10 @@ data Corpus = Corpus { corpLength     :: Int
                      , corpTermCounts :: Map Text Int
                      -- ^ A count of the number of documents each term occurred in.
                      } deriving (Read, Show, Eq, Ord)
+
+instance Serialize Corpus where
+  get   = fmap (uncurry Corpus) (getTwoOf get get)
+  put c = (putTwoOf put put) (corpLength c, corpTermCounts c)
 
 -- | Get the number of documents that a term occurred in.
 termCounts :: Corpus -> Text -> Int
