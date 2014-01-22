@@ -2,13 +2,14 @@
 module AvgPerceptronTests where
 
 import Control.Applicative ((<$>))
-import Test.QuickCheck ( Arbitrary(..) )
+import Test.QuickCheck ( Arbitrary(..), (==>), Property )
 import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework ( testGroup, Test )
 
 import Data.Serialize (encode, decode)
 import Data.Map (Map)
+import qualified Data.Map as Map
 
 import NLP.POS.AvgPerceptron
 
@@ -19,7 +20,12 @@ tests = testGroup "AvgPerceptron"
           , testProperty "Perceptrons round-trip" prop_perceptronRoundtrips
           , testProperty "Map of features round-trip" prop_mapOfFeaturesRoundTrips
           ]
+          , testProperty "Averaging reaches fixed point" prop_avgWeightsFixedpoint
         ]
+
+prop_avgWeightsFixedpoint :: Perceptron -> Property
+prop_avgWeightsFixedpoint per = instances per > 1 && Map.size (weights per) > 1 ==>
+  (averageWeights per) == ((averageWeights . averageWeights) per)
 
 prop_mapOfFeaturesRoundTrips :: Map Feature Class -> Bool
 prop_mapOfFeaturesRoundTrips aMap =

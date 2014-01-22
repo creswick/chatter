@@ -35,9 +35,7 @@ import NLP.Types ()
 newtype Feature = Feat Text
     deriving (Read, Show, Eq, Ord, Generic)
 
-instance Serialize Feature where
-  put (Feat txt) = put txt
-  get            = fmap Feat get
+instance Serialize Feature
 
 -- | The classes that the perceptron assigns are represnted with a
 -- newtype-wrapped String.
@@ -215,7 +213,10 @@ upd_feat c f w v p = let
 -- >     return None
 --
 averageWeights :: Perceptron -> Perceptron
-averageWeights per = per { weights = Map.mapWithKey avgWeights $ weights per }
+averageWeights per | (instances per) == 0 = per
+                   | otherwise = per { weights = Map.mapWithKey avgWeights $ weights per
+                                     , tstamps = Map.mapWithKey (\_ _->0) (tstamps per)
+                                     , instances = 0 }
   where
     avgWeights :: Feature -> Map Class Weight -> Map Class Weight
     avgWeights feat ws = Map.foldlWithKey (doAvg feat) Map.empty ws
