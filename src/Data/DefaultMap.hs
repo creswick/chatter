@@ -1,16 +1,22 @@
+{-# LANGUAGE DeriveGeneric #-}
 module Data.DefaultMap
 where
 
+import Control.DeepSeq (NFData)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Serialize
+import GHC.Generics
 
 -- | Defaulting Map; a Map that returns a default value when queried
 -- for a key that does not exist.
-data DefaultMap k v = DefMap { defDefault :: v
-                             , defMap :: Map k v
-                             } deriving (Read, Show, Eq, Ord)
+data DefaultMap k v =
+   DefMap { defDefault :: v
+          , defMap :: Map k v
+          } deriving (Read, Show, Eq, Ord, Generic)
 
+instance (Ord k, Serialize k, Serialize v) => Serialize (DefaultMap k v)
+instance (NFData k, NFData v, Ord k) => NFData (DefaultMap k v)
 
 -- | Create an empty `DefaultMap`
 empty :: v -> DefaultMap k v
@@ -39,7 +45,3 @@ keys m = Map.keys (defMap m)
 foldl :: (a -> b -> a) -> a -> DefaultMap k b -> a
 foldl fn acc m = Map.foldl fn acc (defMap m)
 
--- | Serialize instance
-instance (Ord k, Serialize k, Serialize v) => Serialize (DefaultMap k v) where
-  get   = fmap (uncurry DefMap) (getTwoOf get get)
-  put m = (putTwoOf put put) (defDefault m, defMap m)

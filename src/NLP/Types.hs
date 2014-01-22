@@ -4,6 +4,7 @@
 module NLP.Types
 where
 
+import Control.DeepSeq (NFData)
 import Data.ByteString (ByteString)
 import Data.Map (Map)
 import qualified Data.Map as Map
@@ -97,11 +98,10 @@ data Corpus = Corpus { corpLength     :: Int
                      -- ^ The number of documents in the corpus.
                      , corpTermCounts :: Map Text Int
                      -- ^ A count of the number of documents each term occurred in.
-                     } deriving (Read, Show, Eq, Ord)
+                     } deriving (Read, Show, Eq, Ord, Generic)
 
-instance Serialize Corpus where
-  get   = fmap (uncurry Corpus) (getTwoOf get get)
-  put c = (putTwoOf put put) (corpLength c, corpTermCounts c)
+instance NFData Corpus
+instance Serialize Corpus
 
 -- | Get the number of documents that a term occurred in.
 termCounts :: Corpus -> Text -> Int
