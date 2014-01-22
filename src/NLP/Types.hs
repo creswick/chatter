@@ -8,7 +8,7 @@ import Control.DeepSeq (NFData)
 import Data.ByteString (ByteString)
 import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.Serialize (Serialize, put, get, getTwoOf, putTwoOf)
+import Data.Serialize (Serialize, put, get)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)

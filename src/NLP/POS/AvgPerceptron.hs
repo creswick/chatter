@@ -21,6 +21,7 @@ module NLP.POS.AvgPerceptron
   )
 where
 
+import Control.DeepSeq (NFData)
 import Data.List (foldl')
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
@@ -82,6 +83,7 @@ data Perceptron = Perceptron {
     } deriving (Read, Show, Eq, Generic)
 
 instance Serialize Perceptron
+instance NFData Perceptron
 
 incrementInstances :: Perceptron -> Perceptron
 incrementInstances p = p { instances = 1 + (instances p) }
