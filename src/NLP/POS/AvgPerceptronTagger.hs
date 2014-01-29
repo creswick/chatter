@@ -37,7 +37,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize.Text (tokenize)
 import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
 

@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.0.0.4
+version:             0.1.0.4
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -42,7 +42,6 @@ Library
                      NLP.POS.LiteralTagger
                      NLP.POS.UnambiguousTagger
                      NLP.Types
-                     NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Similarity.VectorSim
@@ -63,7 +62,8 @@ Library
                      zlib >= 0.5.4.1,
                      filepath >= 1.3.0.1,
                      ghc-prim,
-                     deepseq
+                     deepseq,
+                     tokenize >= 0.2.0
 
    ghc-options:      -Wall
 
@@ -125,7 +125,6 @@ Executable bench
                      filepath >= 1.3.0.1,
                      text >= 0.11.3.0,
                      base       >= 4 && <= 6,
-                     tokenize,
                      deepseq,
                      split >= 0.1.2.3
 

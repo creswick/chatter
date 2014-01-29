@@ -15,7 +15,7 @@ import Data.MBox
 import System.Directory (getDirectoryContents)
 import System.FilePath ((</>))
 
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize.Text (tokenize)
 
 -- | Path to the directory containing all the PLUG archives.
 plugDataPath :: FilePath

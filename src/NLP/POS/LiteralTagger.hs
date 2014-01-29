@@ -15,7 +15,7 @@ import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
 
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize.Text (tokenize)
 import NLP.FullStop (segment)
 import NLP.Types ( tagUNK, Sentence, TaggedSentence
                  , Tag, POSTagger(..))

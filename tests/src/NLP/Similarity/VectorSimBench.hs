@@ -8,7 +8,7 @@ import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import Criterion (bench, whnf, Benchmark)
 
-import "chatter" NLP.Tokenize (tokenize)
+import NLP.Tokenize.Text (tokenize)
 import NLP.Similarity.VectorSim
 import NLP.Types (mkCorpus, Corpus)
 

@@ -11,8 +11,6 @@ import Criterion.Main
 import Criterion.Config (defaultConfig, Config(..), ljust)
 import Criterion (bench, bgroup, Benchmark)
 
-import qualified "tokenize" NLP.Tokenize as StrTok
-import qualified "chatter" NLP.Tokenize as TextTok
 import NLP.POS (tagText)
 import NLP.POS.AvgPerceptronTagger (trainNew, mkTagger)
 import Corpora
@@ -37,18 +35,10 @@ main = do
       plugTxt = take (len `div` 4) pTxt
       plugStr = map T.unpack plugTxt
   deepseq plugStr $ defaultMainWith myConfig (return ())
-       [ bgroup "tokenizing"
-                    [ bench "String Tokenizer" $ nf (map StrTok.tokenize) plugStr
-                    , bench "Text Tokenizer" $ nf (map TextTok.tokenize) plugTxt
-                    , bench "String Tokenizer" $ nf (map strTokenizer) plugTxt
-                    ]
-
+       [ 
        --  bgroup "POS Tagging" [] -- postagBench
        -- , bgroup "Similarity" $ VS.benchmarks (muc3_1++muc3_2) muc3_3
        ]
-
-strTokenizer :: Text -> [Text]
-strTokenizer txt = map T.pack (StrTok.tokenize $ T.unpack txt)
 
 -- posTagging :: IO [Benchmark]
 -- posTagging = do
