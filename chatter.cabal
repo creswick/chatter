@@ -126,7 +126,8 @@ Executable bench
                      text >= 0.11.3.0,
                      base       >= 4 && <= 6,
                      deepseq,
-                     split >= 0.1.2.3
+                     split >= 0.1.2.3,
+                     tokenize >= 0.2.0
 
    ghc-options:      -Wall -main-is Bench
 
