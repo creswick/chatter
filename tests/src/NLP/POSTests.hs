@@ -32,10 +32,10 @@ tests = testGroup "NLP.POS"
         ]
 
 animalTagger :: POSTagger
-animalTagger = LT.mkTagger (Map.fromList [("owl", Tag "NN"), ("flea", Tag "NN")]) (Just mamalTagger)
+animalTagger = LT.mkTagger (Map.fromList [("owl", Tag "NN"), ("flea", Tag "NN")]) LT.Sensitive (Just mamalTagger)
 
 mamalTagger :: POSTagger
-mamalTagger = LT.mkTagger (Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]) Nothing
+mamalTagger = LT.mkTagger (Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]) LT.Sensitive Nothing
 
 -- TODO need to make random taggers to really test this...
 prop_taggersRoundTrip :: POSTagger -> String -> Bool

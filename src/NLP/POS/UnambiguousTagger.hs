@@ -33,7 +33,7 @@ readTagger bs backoff = do
 -- source of tags.
 mkTagger :: Map Text Tag -> Maybe POSTagger -> POSTagger
 mkTagger table mTgr = let
-  litTagger = LT.mkTagger table mTgr
+  litTagger = LT.mkTagger table LT.Sensitive mTgr
 
   trainer :: [TaggedSentence] -> IO POSTagger
   trainer exs = do

@@ -27,7 +27,7 @@ tagAnimals = Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]
 
 testLiteralBackoff :: Assertion
 testLiteralBackoff = let
-  tgr = LT.mkTagger tagCat (Just $ LT.mkTagger tagAnimals Nothing)
+  tgr = LT.mkTagger tagCat LT.Sensitive (Just $ LT.mkTagger tagAnimals LT.Sensitive Nothing)
   actual = tag tgr "cat dog"
   oracle = [[("cat", Tag "CAT"), ("dog", Tag "NN")]]
   in oracle @=? actual
