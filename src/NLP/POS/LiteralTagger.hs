@@ -1,16 +1,14 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE CPP #-}
 module NLP.POS.LiteralTagger
-#ifndef __TEST__
-    -- ( tag
-    -- , tagSentence
-    -- , mkTagger
-    -- , taggerID
-    -- , readTagger
-    -- , CaseSensitive(..)
-    -- )
-#endif
+    ( tag
+    , tagSentence
+    , mkTagger
+    , taggerID
+    , readTagger
+    , CaseSensitive(..)
+    , protectTerms
+    )
 where
 
 
