@@ -41,6 +41,18 @@ posTok tag = token showTok posFromTok testTok
     posFromTok (_,_)    = newPos "unknown" 0 0
     testTok tok@(_,t) = if tag == t then Just tok else Nothing
 
+-- | Consume a token with the specified POS prefix.
+--
+-- > parse (posPrefix "n") "ghci" [("Bob", Tag "np")]
+-- Right [("Bob", Tag "np")]
+--
+posPrefix :: Text -> Extractor (Text, Tag)
+posPrefix str = token showTok posFromTok testTok
+  where
+    showTok (_,t)       = show t
+    posFromTok (_,_)    = newPos "unknown" 0 0
+    testTok tok@(_,Tag t) = if str `T.isPrefixOf` t then Just tok else Nothing
+
 -- | Consume a token with the given lexical representation.
 txtTok :: Text -> Extractor (Text, Tag)
 txtTok txt = token showTok posFromTok testTok
