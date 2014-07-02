@@ -38,6 +38,9 @@ mkTagger table mTgr = let
   trainer :: [TaggedSentence] -> IO POSTagger
   trainer exs = do
     let newTable = train table exs
+    putStrLn ("exs: "++show exs)
+    putStrLn ("table: "++show table)
+    putStrLn ("new table: "++show newTable)
     return $ mkTagger newTable mTgr
 
   in litTagger { posTrainer = trainer
@@ -57,7 +60,7 @@ train table exs = let
   incorporate :: Tag -> Maybe Tag -> Maybe Tag
   incorporate new Nothing                 = Just new
   incorporate new (Just old) | new == old = Just old
-                             | otherwise  = Nothing
+                             | otherwise  = Just tagUNK -- Forget the tag.
 
   in foldl trainOnPair table pairs
 

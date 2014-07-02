@@ -50,7 +50,7 @@ import Codec.Compression.GZip (decompress)
 import System.FilePath ((</>))
 
 import NLP.Corpora.Parsing (readPOS)
-
+import NLP.Tokenize.Text (tokenize)
 import NLP.Types (TaggedSentence, Tag(..), Sentence
                  , POSTagger(..), tagUNK, stripTags)
 
@@ -179,7 +179,7 @@ trainStr tgr = trainText tgr . T.pack
 
 -- | The `Text` version of `trainStr`
 trainText :: POSTagger -> Text -> IO POSTagger
-trainText p exs = train p (map readPOS $ (posTokenizer p) exs)
+trainText p exs = train p (map readPOS $ tokenize exs)
 
 -- | Train a 'POSTagger' on a corpus of sentences.
 --
@@ -206,6 +206,7 @@ train p exs = do
                      Just b  -> do tgr <- train b exs
                                    return $ Just tgr
     trainer = posTrainer p
+  putStrLn ("train - exs: "++show exs)
   newTgr <- trainer exs
   newBackoff <- trainBackoff
   return (newTgr { posBackoff = newBackoff })

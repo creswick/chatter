@@ -1,18 +1,20 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes, FlexibleContexts #-}
 module NLP.Extraction.Extractor
-  ( parse
-  , txtTok
-  , posTok
-  , Noun(..)
-  , simpleNP
-  , nps
-  )
+  -- ( parse
+  -- , txtTok
+  -- , posTok
+  -- , Noun(..)
+  -- , simpleNP
+  -- , nps
+  -- , Extractor
+  -- )
 where
 
 -- See this SO q/a for some possibly useful combinators:
 --  http://stackoverflow.com/questions/2473615/parsec-3-1-0-with-custom-token-datatype
 
 import Data.Text (Text)
+import qualified Data.Text as T
 import Data.Maybe (catMaybes)
 import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
 import Text.Parsec.Prim (parse, token, Parsec, (<|>), many, try)
@@ -21,6 +23,14 @@ import Text.Parsec.Pos  (newPos)
 
 import NLP.Types (TaggedSentence, Tag(..))
 
+
+-- | A Parsec parser.
+--
+-- Example usage:
+-- > set -XOverloadedStrings
+-- > import Text.Parsec.Prim
+-- > parse myParser "interactive repl" someTaggedSentence
+--
 type Extractor = Parsec TaggedSentence ()
 
 -- | Consume a token with the given POS Tag

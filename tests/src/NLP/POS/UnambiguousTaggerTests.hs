@@ -23,12 +23,16 @@ tests :: Test
 tests = testGroup "NLP.POS.UnambiguousTagger"
         [ testProperty "basic tag parsing" prop_emptyAlwaysUnk
         , testGroup "Initial training" $ map (trainAndTagTest emptyTagger)
-          [ ("the/dt dog/nn jumped/vb", "a dog", "a/Unk dog/nn")
-          , ("the/dt dog/nn jumped/vb jumped/vbx", "a dog jumped", "a/Unk dog/nn jumped/Unk")
+          [ ("the/dt dog/nn jumped/vb", "a dog"
+            , "a/Unk dog/nn")
+          , ("the/dt dog/nn jumped/vb jumped/vbx", "a dog jumped"
+            , "a/Unk dog/nn jumped/Unk")
           ]
         , testGroup "Retraining" $ map (trainAndTagTest trainedTagger)
-          [ ("the/dt dog/nn jumped/vb", "the dog", "the/dt dog/Unk")
-          , ("the/dt dog/nn jumped/vb jumped/vbx", "the dog jumped", "the/dt dog/Unk jumped/Unk")
+          [ ("the/dt dog/nn jumped/vb", "the dog"
+            , "the/dt dog/Unk")
+          , ("the/dt dog/nn jumped/vb jumped/vbx", "the dog jumped"
+            , "the/dt dog/Unk jumped/Unk")
           ]
         ]
 

@@ -66,7 +66,12 @@ Library
                      deepseq,
                      tokenize >= 0.2.0,
                      parsec >= 3.1.5,
-                     transformers
+                     transformers,
+                     regex-base,
+                     regex-tdfa >= 1.2.0,
+                     regex-tdfa-text,
+                     array
+
 
    ghc-options:      -Wall
 
@@ -142,6 +147,7 @@ test-suite tests
 
    Main-Is:          Main.hs
    hs-source-dirs:   tests/src
+   cpp-options:      -D__TEST__
 
    Other-modules:    AvgPerceptronTests
                      BackoffTaggerTests
@@ -161,6 +167,7 @@ test-suite tests
                      test-framework-skip,
                      test-framework-quickcheck2,
                      test-framework-hunit,
+                     tokenize,
                      QuickCheck < 2.6,
                      filepath,
                      cereal,
