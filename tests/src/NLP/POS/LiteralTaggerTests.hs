@@ -66,42 +66,48 @@ tests = testGroup "NLP.POS.LiteralTagger"
             , "The President of the United States", "The/dt President of the United States/pn")
           ]
         , testGroup "protectTerms tests" $ map protectTests
-          [ ( [], "The United States"
+          [ ( [], LT.Sensitive, "The United States"
             , ["The United States"])
-          , ( ["The"], "The United States"
+          , ( ["The"], LT.Sensitive, "The United States"
             , ["The", " United States"])
-          , ( ["United States"], "The United States"
+          , ( ["United States"], LT.Sensitive, "The United States"
             , ["The ", "United States"])
-          , ( ["RPM Gauge", "rotor shaft"], "The RPM Gauge on the rotor shaft"
+          , ( ["RPM Gauge", "rotor shaft"], LT.Sensitive, "The RPM Gauge on the rotor shaft"
             , ["The ", "RPM Gauge", " on the ", "rotor shaft"])
-          , ( ["President of the United States", "United States"]
+          , ( ["President of the United States", "United States"], LT.Sensitive
             , "The President of the United States"
             , ["The ", "President of the United States"])
-          , ( ["quick", "brown"], "The quick brown fox jumped"
+          , ( ["quick", "brown"], LT.Sensitive, "The quick brown fox jumped"
             , ["The ", "quick", " ", "brown", " fox jumped"])
-          , ( ["brown", "quick"], "The quick brown fox jumped"
+          , ( ["brown", "quick"], LT.Sensitive, "The quick brown fox jumped"
             , ["The ", "quick", " ", "brown", " fox jumped"])
-          , ( ["brown", "fox"], "The quick brown fox jumped"
+          , ( ["brown", "fox"], LT.Sensitive, "The quick brown fox jumped"
             , ["The quick ", "brown", " ", "fox", " jumped"])
           ]
         , testGroup "protectTerms tests" $ map protectTestsWDefault
-          [ ( [], "The United States"
+          [ ( [], LT.Sensitive, "The United States"
             , ["The", "United", "States"])
-          , ( ["The"], "The United States"
+          , ( ["The"], LT.Sensitive, "The United States"
             , ["The", "United", "States"])
-          , ( ["United States"], "The United States"
+          , ( ["United States"], LT.Sensitive, "The United States"
             , ["The", "United States"])
-          , ( ["RPM Gauge", "rotor shaft"], "The RPM Gauge on the rotor shaft"
+          , ( ["RPM Gauge", "rotor shaft"], LT.Sensitive, "The RPM Gauge on the rotor shaft"
             , ["The", "RPM Gauge", "on", "the", "rotor shaft"])
-          , ( ["President of the United States", "United States"]
+          , ( ["President of the United States", "United States"], LT.Sensitive
             , "The President of the United States"
             , ["The", "President of the United States"])
-          , ( ["quick", "brown"], "The quick brown fox jumped"
+          , ( ["quick", "brown"], LT.Sensitive
+            , "The quick brown fox jumped"
             , ["The", "quick", "brown", "fox", "jumped"])
-          , ( ["brown", "quick"], "The quick brown fox jumped"
+          , ( ["brown", "quick"], LT.Sensitive
+            , "The quick brown fox jumped"
             , ["The", "quick", "brown", "fox", "jumped"])
-          , ( ["brown", "fox"], "The quick brown fox jumped"
+          , ( ["brown", "fox"], LT.Sensitive
+            , "The quick brown fox jumped"
             , ["The", "quick", "brown", "fox", "jumped"])
+          , ( ["Rotor RPM"], LT.Insensitive
+            , "The rotor rpm increased."
+            , ["The", "rotor rpm", "increased", "."])
           ]
         ]
 
@@ -118,18 +124,20 @@ trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack
                     in oracle @=? tagText trained input
 
 
-protectTests :: ([Text], Text, [Text]) -- ^ Protected terms, input text, oracle
+protectTests :: ([Text], LT.CaseSensitive, Text, [Text])
+             -- ^ Protected terms, sensitivity, input text, oracle
              -> Test
-protectTests (terms, input, oracle) = testCase description runTest
+protectTests (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["Just Protect[", (T.intercalate "; " terms), "] ", input])
 
-    runTest = run (LT.protectTerms terms) input @?= oracle
+    runTest = run (LT.protectTerms terms sensitive) input @?= oracle
 
-protectTestsWDefault :: ([Text], Text, [Text]) -- ^ Protected terms, input text, oracle
+protectTestsWDefault :: ([Text], LT.CaseSensitive, Text, [Text])
+             -- ^ Protected terms, sensitivity, input text, oracle
              -> Test
-protectTestsWDefault (terms, input, oracle) = testCase description runTest
+protectTestsWDefault (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["w/Default [", (T.intercalate "; " terms), "] ", input])
 
-    runTest = run (LT.protectTerms terms >=> defaultTokenizer) input @?= oracle
+    runTest = run (LT.protectTerms terms sensitive >=> defaultTokenizer) input @?= oracle

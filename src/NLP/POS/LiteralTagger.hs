@@ -52,7 +52,7 @@ mkTagger table sensitive mTgr = POSTagger
   { posTagger  = tag (canonicalize table) sensitive
   , posTrainer = \_ -> return $ mkTagger table sensitive mTgr
   , posBackoff = mTgr
-  , posTokenizer = run (protectTerms (Map.keys table) >=> defaultTokenizer)
+  , posTokenizer = run (protectTerms (Map.keys table) sensitive >=> defaultTokenizer)
   , posSplitter = (map T.pack) . segment . T.unpack
   , posSerialize = encode (table, sensitive)
   , posID = taggerID
@@ -66,12 +66,16 @@ mkTagger table sensitive mTgr = POSTagger
 
 -- | Create a tokenizer that protects the provided terms (to tokenize
 -- multi-word terms)
-protectTerms :: [Text] -> Tokenizer
-protectTerms terms =
+protectTerms :: [Text] -> CaseSensitive -> Tokenizer
+protectTerms terms sensitive =
   let sorted = sortBy (compare `on` T.length) terms
 
+      sensitivity = case sensitive of
+                      Insensitive -> False
+                      Sensitive   -> True
+
       compOption = CompOption
-        { caseSensitive = True
+        { caseSensitive = sensitivity
         , multiline = False
         , rightAssoc = True
         , newSyntax = True
