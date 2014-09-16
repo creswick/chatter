@@ -11,7 +11,7 @@ import Test.QuickCheck ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework ( buildTest, testGroup, Test, defaultMain )
-import Test.Framework.Skip (skip)
+-- import Test.Framework.Skip (skip)
 
 import NLP.Types (Tag(..), parseTag)
 import NLP.POS (tagText, train)

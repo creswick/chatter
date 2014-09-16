@@ -4,10 +4,7 @@ module NLP.Corpora.Email where
 
 import qualified Data.ByteString as BS
 import Data.List (isSuffixOf)
-import Data.List.Split (splitWhen)
 import Data.Text (Text)
-import qualified Data.Text as T
-import qualified Data.Text.IO as T
 import qualified Data.Text.Encoding as TE
 
 import Data.MBox

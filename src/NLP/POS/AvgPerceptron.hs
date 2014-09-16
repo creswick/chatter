@@ -26,7 +26,7 @@ import Data.List (foldl')
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
 import Data.Maybe (fromMaybe)
-import Data.Serialize (Serialize, put, get)
+import Data.Serialize (Serialize)
 import Data.Text (Text)
 import System.Random.Shuffle (shuffleM)
 import GHC.Generics

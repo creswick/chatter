@@ -18,6 +18,11 @@ import GHC.Generics
 type Sentence = [Text]
 type TaggedSentence = [(Text, Tag)]
 
+-- | Boolean type to indicate case sensitivity for textual
+-- comparisons.
+data CaseSensitive = Sensitive | Insensitive
+  deriving (Read, Show, Generic)
+
 
 -- | Part of Speech tagger, with back-off tagger.
 --

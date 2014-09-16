@@ -1,15 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POSTests where
 
-import Test.HUnit      ( (@=?), Assertion )
 import Test.Framework ( testGroup, Test )
-import Test.Framework.Providers.HUnit (testCase)
 import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 
-import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.Text (Text)
 
 import NLP.Types
 import NLP.POS

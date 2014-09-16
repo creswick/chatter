@@ -13,6 +13,8 @@ description:         chatter is a collection of simple Natural Language
                      .
                      * Document similarity; A cosine-based similarity measure, and TF-IDF calculations,
                        are available in the 'NLP.Similarity.VectorSim' module.
+                     .
+                     * Information Extraction patterns via (http://www.haskell.org/haskellwiki/Parsec) Parsec
 homepage:            http://github.com/creswick/chatter
 Bug-Reports:         http://github.com/creswick/chatter/issues
 category:            Natural language processing
@@ -45,7 +47,7 @@ Library
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Similarity.VectorSim
-                     NLP.Extraction.Extractor
+                     NLP.Extraction.Parsec
                      Data.DefaultMap
 
    Build-depends:    base >= 4 && <= 6,

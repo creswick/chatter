@@ -1,23 +1,19 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POS.UnambiguousTaggerTests where
 
-import Test.HUnit      ( (@=?), Assertion )
+import Test.HUnit      ( (@=?) )
 import Test.Framework ( testGroup, Test )
 import Test.Framework.Providers.HUnit (testCase)
 import Test.QuickCheck ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 
-import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Types
 import NLP.POS
-import qualified NLP.POS.LiteralTagger as LT
 import qualified NLP.POS.UnambiguousTagger as UT
-
-import TestUtils
 
 tests :: Test
 tests = testGroup "NLP.POS.UnambiguousTagger"

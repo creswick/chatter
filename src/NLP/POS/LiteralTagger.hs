@@ -26,18 +26,15 @@ import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
 
-import NLP.Tokenize.Text (tokenize, Tokenizer, EitherList(..), defaultTokenizer, run)
+import NLP.Tokenize.Text (Tokenizer, EitherList(..), defaultTokenizer, run)
 import NLP.FullStop (segment)
 import NLP.Types ( tagUNK, Sentence, TaggedSentence
-                 , Tag, POSTagger(..))
+                 , Tag, POSTagger(..), CaseSensitive(..))
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Text (compile)
 
 taggerID :: ByteString
 taggerID = pack "NLP.POS.LiteralTagger"
-
-data CaseSensitive = Sensitive | Insensitive
-  deriving (Read, Show, Generic)
 
 instance Serialize CaseSensitive
 
@@ -89,10 +86,10 @@ protectTerms terms sensitive =
       toEithers :: [(Int, Int)] -> Text -> [Either Text Text]
       toEithers []                str = [Right str]
       toEithers ((idx, len):rest) str =
-        let (head, tail)      = T.splitAt idx str
-            (token, realTail) = T.splitAt len tail
+        let (first, theTail)      = T.splitAt idx str
+            (token, realTail) = T.splitAt len theTail
             scaledRest        = map (\(x,y)->((x-(idx+len)), y)) rest
-        in filterEmpty ([Right head, Left token] ++ (toEithers scaledRest realTail))
+        in filterEmpty ([Right first, Left token] ++ (toEithers scaledRest realTail))
 
       filterEmpty :: [Either Text Text] -> [Either Text Text]
       filterEmpty []            = []

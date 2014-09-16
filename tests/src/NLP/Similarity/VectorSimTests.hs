@@ -1,16 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.Similarity.VectorSimTests where
 
-import Control.Monad (unless)
-import Test.HUnit      ( (@=?), Assertion, assertBool, assertFailure )
-import Test.QuickCheck ( Arbitrary(..), Property, (==>), elements )
+import Test.QuickCheck ( Property, (==>) )
 import Test.QuickCheck.Property ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework ( testGroup, Test)
 -- import Test.Framework.Skip (skip)
 
-import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Similarity.VectorSim

@@ -37,28 +37,29 @@ module NLP.POS
 where
 
 
-import Data.ByteString (ByteString)
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Lazy as LBS
-import Data.List (isSuffixOf)
-import Data.Map (Map)
-import qualified Data.Map as Map
-import Data.Text (Text)
-import qualified Data.Text as T
-import Data.Serialize (encode, decode)
-import Codec.Compression.GZip (decompress)
-import System.FilePath ((</>))
+import           Codec.Compression.GZip      (decompress)
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString             as BS
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.List                   (isSuffixOf)
+import           Data.Map                    (Map)
+import qualified Data.Map                    as Map
+import           Data.Serialize              (decode, encode)
+import           Data.Text                   (Text)
+import qualified Data.Text                   as T
+import           System.FilePath             ((</>))
 
-import NLP.Corpora.Parsing (readPOS)
-import NLP.Tokenize.Text (tokenize)
-import NLP.Types (TaggedSentence, Tag(..), Sentence
-                 , POSTagger(..), tagUNK, stripTags)
+import           NLP.Corpora.Parsing         (readPOS)
+import           NLP.Tokenize.Text           (tokenize)
+import           NLP.Types                   (POSTagger (..), Sentence,
+                                              Tag (..), TaggedSentence,
+                                              stripTags, tagUNK)
 
-import qualified NLP.POS.LiteralTagger as LT
-import qualified NLP.POS.UnambiguousTagger as UT
 import qualified NLP.POS.AvgPerceptronTagger as Avg
+import qualified NLP.POS.LiteralTagger       as LT
+import qualified NLP.POS.UnambiguousTagger   as UT
 
-import Paths_chatter
+import           Paths_chatter
 
 defaultTagger :: IO POSTagger
 defaultTagger = do

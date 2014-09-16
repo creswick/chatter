@@ -1,13 +1,6 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes, FlexibleContexts #-}
-module NLP.Extraction.Extractor
-  -- ( parse
-  -- , txtTok
-  -- , posTok
-  -- , Noun(..)
-  -- , simpleNP
-  -- , nps
-  -- , Extractor
-  -- )
+module NLP.Extraction.Parsec
+
 where
 
 -- See this SO q/a for some possibly useful combinators:
@@ -16,20 +9,19 @@ where
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Maybe (catMaybes)
-import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
-import Text.Parsec.Prim (parse, token, Parsec, (<|>), many, try)
--- import Text.Parsec.Combinator ( option )
+-- import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
+import Text.Parsec.Prim (lookAhead, token, Parsec, try)
+import qualified Text.Parsec.Combinator as PC
 import Text.Parsec.Pos  (newPos)
 
-import NLP.Types (TaggedSentence, Tag(..))
-
+import NLP.Types (TaggedSentence, Tag(..), CaseSensitive(..))
 
 -- | A Parsec parser.
 --
 -- Example usage:
 -- > set -XOverloadedStrings
 -- > import Text.Parsec.Prim
--- > parse myParser "interactive repl" someTaggedSentence
+-- > parse myExtractor "interactive repl" someTaggedSentence
 --
 type Extractor = Parsec TaggedSentence ()
 
@@ -53,13 +45,19 @@ posPrefix str = token showTok posFromTok testTok
     posFromTok (_,_)    = newPos "unknown" 0 0
     testTok tok@(_,Tag t) = if str `T.isPrefixOf` t then Just tok else Nothing
 
+-- | Text equality matching with optional case sensitivity.
+matches :: CaseSensitive -> Text -> Text -> Bool
+matches Sensitive   x y = x == y
+matches Insensitive x y = (T.toLower x) == (T.toLower y)
+
 -- | Consume a token with the given lexical representation.
-txtTok :: Text -> Extractor (Text, Tag)
-txtTok txt = token showTok posFromTok testTok
+txtTok :: CaseSensitive -> Text -> Extractor (Text, Tag)
+txtTok sensitive txt = token showTok posFromTok testTok
   where
     showTok (t,_)     = show t
     posFromTok (_,_)  = newPos "unknown" 0 0
-    testTok tok@(t,_) = if txt == t then Just tok else Nothing
+    testTok tok@(t,_) | matches sensitive txt t = Just tok
+                      | otherwise               = Nothing
 
 -- | Consume any one non-empty token.
 anyToken :: Extractor (Text, Tag)
@@ -70,31 +68,15 @@ anyToken = token showTok posFromTok testTok
     testTok tok@(txt,_) | txt == "" = Nothing
                         | otherwise  = Just tok
 
-data Noun = N Text
-  deriving (Read, Show, Eq, Ord)
+oneOf :: CaseSensitive -> [Text] -> Extractor (Text, Tag)
+oneOf sensitive terms = PC.choice (map (\t -> try (txtTok sensitive t)) terms)
 
--- | Parse a noun ('nn') that immediately follows an article,
--- returning the Noun
-simpleNP :: Extractor Noun
-simpleNP = do
-  _ <- posTok $ Tag "at"
-  (n, _) <- someNN
-  return $ N n
-
-someNN :: Extractor (Text, Tag)
-someNN = (try (posTok $ Tag "nn")) <|> (posTok $ Tag "nns")
-
-nps :: Extractor [Noun]
-nps = do
-  mNouns <- many (mnp <|> anyTok)
-  return $ catMaybes mNouns
-
-mnp :: Extractor (Maybe Noun)
-mnp =  try (do { n <- simpleNP
-               ; return $ Just n
-               })
-
-anyTok :: Extractor (Maybe Noun)
-anyTok = do
-  _ <- anyToken
-  return Nothing
+-- | Skips any number of fill tokens, ending with the end parser, and
+-- returning the last parsed result.
+--
+-- This is useful when you know what you're looking for and (for
+-- instance) don't care what comes first.
+followedBy :: Extractor b -> Extractor a -> Extractor a
+followedBy fill end = do
+  _ <- PC.manyTill fill (lookAhead end)
+  end
