@@ -36,10 +36,12 @@ import NLP.Types (TaggedSentence, Tag(..), CaseSensitive(..))
 -- | A Parsec parser.
 --
 -- Example usage:
+--
+-- @
 -- > set -XOverloadedStrings
 -- > import Text.Parsec.Prim
 -- > parse myExtractor "interactive repl" someTaggedSentence
---
+-- @
 type Extractor = Parsec TaggedSentence ()
 
 -- | Consume a token with the given POS Tag
