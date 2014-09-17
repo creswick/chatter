@@ -11,7 +11,6 @@ import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework ( testGroup, Test )
 ----------------------------------------------------------------------
-import Data.Either (isRight)
 import qualified Data.Text as T
 import Data.Text (Text)
 import Text.Parsec.Prim (parse, (<|>), try)

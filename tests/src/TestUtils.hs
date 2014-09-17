@@ -6,6 +6,11 @@ import Test.HUnit      ( (@=?), Assertion, assertFailure )
 import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework (Test)
 
+-- | Not available until Base 4.7 or greater:
+isRight :: Either a b -> Bool
+isRight (Left  _) = False
+isRight (Right _) = True
+
 genTestF2 :: (Show a, Show b) => (a -> b -> Double) -> (String, a, b, Double) -> Test
 genTestF2 fn (descr, in1, in2, oracle) =
     testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
