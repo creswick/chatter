@@ -26,6 +26,7 @@ module NLP.POS
   , train
   , trainStr
   , trainText
+  , tagTokens
   , eval
   , serialize
   , deserialize

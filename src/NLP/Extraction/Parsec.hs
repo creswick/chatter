@@ -1,4 +1,22 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes, FlexibleContexts #-}
+
+-- | This is a very simple wrapper around Parsec for writing
+-- Information Extraction patterns.
+--
+-- Because the particular tags/tokens to parse depends on the training
+-- corpus (for POS tagging) and the domain, this module only provides
+-- basic extractors.  You can, for example, create an extractor to
+-- find noun phrases by combining the components provided here:
+--
+-- @
+--   nounPhrase :: Extractor (Text, Tag)
+--   nounPhrase = do
+--     nlist <- many1 (try (posTok $ Tag "NN")
+--                 <|> try (posTok $ Tag "DT")
+--                     <|> (posTok $ Tag "JJ"))
+--     let term = T.intercalate " " (map fst nlist)
+--     return (term, Tag "n-phr")
+-- @
 module NLP.Extraction.Parsec
 
 where
@@ -8,8 +26,7 @@ where
 
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Maybe (catMaybes)
--- import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
+import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
 import Text.Parsec.Prim (lookAhead, token, Parsec, try)
 import qualified Text.Parsec.Combinator as PC
 import Text.Parsec.Pos  (newPos)

@@ -12,11 +12,26 @@ import Data.Serialize (Serialize, put, get)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
+import qualified Data.Text as T
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
 
 type Sentence = [Text]
 type TaggedSentence = [(Text, Tag)]
+
+flattenText :: TaggedSentence -> Text
+flattenText ts = T.unwords $ map fst ts
+
+-- | True if the input sentence contains the given text token.  Does
+-- not do partial or approximate matching, and compares details in a
+-- fully case-sensitive manner.
+contains :: TaggedSentence -> Text -> Bool
+contains ts tok = tok `elem` map fst ts
+
+-- | True if the input sentence contains the given POS tag.
+-- Does not do partial matching (such as prefix matching)
+containsTag :: TaggedSentence -> Tag -> Bool
+containsTag ts tag = tag `elem` map snd ts
 
 -- | Boolean type to indicate case sensitivity for textual
 -- comparisons.

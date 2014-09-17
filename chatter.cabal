@@ -155,6 +155,7 @@ test-suite tests
                      NLP.Similarity.VectorSimTests
                      NLP.POSTests
                      NLP.POS.UnambiguousTaggerTests
+                     NLP.Extraction.ParsecTests
                      NLP.TypesTests
                      Data.DefaultMapTests
                      Corpora
@@ -164,6 +165,7 @@ test-suite tests
                      base       >= 4 && <= 6,
                      text,
                      HUnit,
+                     parsec >= 3.1.5,
                      test-framework,
                      test-framework-skip,
                      test-framework-quickcheck2,
