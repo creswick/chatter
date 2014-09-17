@@ -11,9 +11,9 @@
 -- @
 --   nounPhrase :: Extractor (Text, Tag)
 --   nounPhrase = do
---     nlist <- many1 (try (posTok $ Tag "NN")
---                 <|> try (posTok $ Tag "DT")
---                     <|> (posTok $ Tag "JJ"))
+--     nlist <- many1 (try (posTok $ Tag \"NN\")
+--                 \<|\> try (posTok $ Tag \"DT\")
+--                     \<|\> (posTok $ Tag \"JJ\"))
 --     let term = T.intercalate " " (map fst nlist)
 --     return (term, Tag "n-phr")
 -- @
