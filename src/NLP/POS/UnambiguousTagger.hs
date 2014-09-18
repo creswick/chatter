@@ -17,6 +17,7 @@ import qualified Data.Map as Map
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
 
+import NLP.Tokenize.Text (defaultTokenizer, run)
 import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT
@@ -38,14 +39,12 @@ mkTagger table mTgr = let
   trainer :: [TaggedSentence] -> IO POSTagger
   trainer exs = do
     let newTable = train table exs
-    putStrLn ("exs: "++show exs)
-    putStrLn ("table: "++show table)
-    putStrLn ("new table: "++show newTable)
     return $ mkTagger newTable mTgr
 
   in litTagger { posTrainer = trainer
                , posSerialize = encode table
                , posID = taggerID
+               , posTokenizer = run defaultTokenizer
                }
 
 -- | Trainer method for unambiguous taggers.

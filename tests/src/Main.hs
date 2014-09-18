@@ -27,6 +27,7 @@ import qualified NLP.POS.LiteralTaggerTests as LT
 import qualified NLP.TypesTests as TypeTests
 import qualified Data.DefaultMapTests as DefMap
 import qualified NLP.Extraction.ParsecTests as Parsec
+import qualified IntegrationTests as IT
 
 import Corpora
 
@@ -65,6 +66,7 @@ tests = [ testGroup "parseTag" $
         , TypeTests.tests
         , DefMap.tests
         , Parsec.tests
+        , IT.tests
         ]
 
 

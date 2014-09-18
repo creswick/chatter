@@ -208,7 +208,6 @@ train p exs = do
                      Just b  -> do tgr <- train b exs
                                    return $ Just tgr
     trainer = posTrainer p
-  putStrLn ("train - exs: "++show exs)
   newTgr <- trainer exs
   newBackoff <- trainBackoff
   return (newTgr { posBackoff = newBackoff })

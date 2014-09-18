@@ -4,10 +4,13 @@ module NLP.POS.LiteralTaggerTests where
 import Test.HUnit      ( (@?=), (@=?) )
 import Test.Framework ( testGroup, Test )
 import Test.Framework.Providers.HUnit (testCase)
-import Test.QuickCheck ()
+import Test.QuickCheck (Property, Arbitrary, arbitrary, (==>))
+import Test.QuickCheck.Gen (elements)
 import Test.Framework.Providers.QuickCheck2 (testProperty)
+import Test.Framework.Skip
 
 import Control.Monad ((>=>))
+import Data.List (intersperse)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Text (Text)
@@ -82,7 +85,7 @@ tests = testGroup "NLP.POS.LiteralTagger"
           , ( ["brown", "fox"], Sensitive, "The quick brown fox jumped"
             , ["The quick ", "brown", " ", "fox", " jumped"])
           ]
-        , testGroup "protectTerms tests" $ map protectTestsWDefault
+        , testGroup "protectTerms tests - default tokenizer" $ map protectTestsWDefault
           [ ( [], Sensitive, "The United States"
             , ["The", "United", "States"])
           , ( ["The"], Sensitive, "The United States"
@@ -106,7 +109,26 @@ tests = testGroup "NLP.POS.LiteralTagger"
           , ( ["Rotor RPM"], Insensitive
             , "The rotor rpm increased."
             , ["The", "rotor rpm", "increased", "."])
+          , ( ["$2,000,000"], Insensitive
+            , "I paid $2,000,000."
+            , ["I", "paid", "$2,000,000", "."])
+          -- , ( ["<html>"], Insensitive
+          --   , "have some <html>"
+          --   , ["have", "some", "<html>"])
+          , ( ["<|>"], Insensitive
+            , "foo <|> bar"
+            , ["foo", "<|>", "bar"])
+          , ( [], Insensitive
+            , "foo< >bar"
+            , ["foo<", ">bar"])
+          -- , ( ["A-*"], Insensitive
+          --   , "Use A-*"
+          --   , ["Use", "A-*"])
+          -- , ( ["A*"], Insensitive
+          --   , "Use A*"
+          --   , ["Use", "A*"])
           ]
+        , skipTestProperty "Protect Terms" prop_protectTerms
         ]
 
 emptyTagger :: POSTagger
@@ -121,13 +143,25 @@ trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack
   where mkAndTest = let trained = LT.mkTagger table sensitive tgr
                     in oracle @=? tagText trained input
 
+instance Arbitrary LT.CaseSensitive where
+  arbitrary = elements [Sensitive, Insensitive]
+
+validTerm :: Text -> Bool
+validTerm term | T.null term = False
+               | otherwise   = T.strip term == term
+
+prop_protectTerms :: [Text] -> LT.CaseSensitive -> Text -> Property
+prop_protectTerms terms sensitive noise = all validTerm terms ==>
+  let input = T.unwords $ intersperse noise terms
+      result = run (LT.protectTerms terms sensitive >=> defaultTokenizer) input
+  in and $ map (`elem` result) terms
 
 protectTests :: ([Text], LT.CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
              -> Test
 protectTests (terms, sensitive, input, oracle) = testCase description runTest
   where
-    description = T.unpack (T.concat ["Just Protect[", (T.intercalate "; " terms), "] ", input])
+    description = T.unpack (T.concat ["Just Protect [", (T.intercalate "; " terms), "] ", input])
 
     runTest = run (LT.protectTerms terms sensitive) input @?= oracle
 

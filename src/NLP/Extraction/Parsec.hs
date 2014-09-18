@@ -54,9 +54,10 @@ posTok tag = token showTok posFromTok testTok
 
 -- | Consume a token with the specified POS prefix.
 --
+-- @
 -- > parse (posPrefix "n") "ghci" [("Bob", Tag "np")]
 -- Right [("Bob", Tag "np")]
---
+-- @
 posPrefix :: Text -> Extractor (Text, Tag)
 posPrefix str = token showTok posFromTok testTok
   where

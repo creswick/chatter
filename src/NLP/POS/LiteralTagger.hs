@@ -60,12 +60,25 @@ mkTagger table sensitive mTgr = POSTagger
             Sensitive   -> id
             Insensitive -> Map.mapKeys T.toLower
 
+escapeRegexChars :: Text -> Text
+escapeRegexChars input = helper [ "\\", ".", "+", "*", "?", "[", "^", "]", "$"
+                                , "(", ")", "{", "}", "=", "!", "<", ">", "|"
+                                , ":", "-"
+                                ] input
+
+  where
+    helper :: [Text] -> Text -> Text
+    helper []     term = term
+    helper (x:xs) term = helper xs $ escapeChar x term
+
+    escapeChar :: Text -> Text -> Text
+    escapeChar char term = T.replace char (T.append "\\" char) term
 
 -- | Create a tokenizer that protects the provided terms (to tokenize
 -- multi-word terms)
 protectTerms :: [Text] -> CaseSensitive -> Tokenizer
 protectTerms terms sensitive =
-  let sorted = sortBy (compare `on` T.length) terms
+  let sorted = sortBy (compare `on` T.length) $ map escapeRegexChars terms
 
       sensitivity = case sensitive of
                       Insensitive -> False
@@ -81,7 +94,8 @@ protectTerms terms sensitive =
 
       execOption = ExecOption { captureGroups = False }
 
-      eRegex = compile compOption execOption (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
+      eRegex = compile compOption execOption
+                 (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
 
       toEithers :: [(Int, Int)] -> Text -> [Either Text Text]
       toEithers []                str = [Right str]

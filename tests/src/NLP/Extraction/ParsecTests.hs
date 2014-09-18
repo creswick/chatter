@@ -19,6 +19,7 @@ import qualified Text.Parsec.Combinator as PC
 ----------------------------------------------------------------------
 import NLP.Types
 import NLP.Extraction.Parsec
+import NLP.Extraction.Examples.ParsecExamples
 
 import TestUtils
 
@@ -73,14 +74,6 @@ prop_followedBy taggedSent = taggedSent /= []
                              (taggedSent ++ [(theToken, theTag)])
   in (theToken, theTag) == actual
 
-
-nounPhrase :: Extractor (Text, Tag)
-nounPhrase = do
-  nlist <- PC.many1 (try (posTok $ Tag "NN")
-              <|> try (posTok $ Tag "DT")
-                  <|> (posTok $ Tag "JJ"))
-  let term = T.intercalate " " (map fst nlist)
-  return (term, Tag "n-phr")
 
 parseNounPhrase :: TaggedSentence -> Maybe (Text, Tag)
 parseNounPhrase sent =

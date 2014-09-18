@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.2.0.0
+version:             0.2.0.1
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -48,6 +48,7 @@ Library
                      NLP.Corpora.Email
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
+                     NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
 
    Build-depends:    base >= 4 && <= 6,
@@ -160,6 +161,7 @@ test-suite tests
                      Data.DefaultMapTests
                      Corpora
                      TestUtils
+                     IntegrationTests
 
    Build-depends:    chatter,
                      base       >= 4 && <= 6,
