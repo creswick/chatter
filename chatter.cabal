@@ -24,6 +24,7 @@ author:              Rogan Creswick
 maintainer:          creswick@gmail.com
 Cabal-Version:       >=1.10
 build-type:          Simple
+Extra-Source-Files:  changelog.md
 
 data-files:          ./data/models/README
                      ./data/models/brown-train.model.gz
