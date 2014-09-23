@@ -18,15 +18,20 @@ import NLP.Extraction.Parsec
 --   CLAUSE: {<NP><VP>}           # Chunk NP, VP
 --   """
 -- cp = nltk.RegexpParser(grammar)
--- sentence = [("Mary", "NN"), ("saw", "VBD"), ("the", "DT"), ("cat", "NN"),
---     ("sit", "VB"), ("on", "IN"), ("the", "DT"), ("mat", "NN")]
+-- sentence = [("Mary", Tag "NN"), ("saw", Tag "VBD"), ("the", Tag "DT"), ("cat", Tag "NN"), ("sit", Tag "VB"), ("on", Tag "IN"), ("the", Tag "DT"), ("mat", Tag "NN")]
 
+-- | Find a clause in a larger collection of text.
+--
+-- findClause skips over leading tokens, if needed, to locate a
+-- clause.
+findClause :: Extractor (Text, Tag)
+findClause = followedBy anyToken clause
 
--- | Create a chunked tag from a set of incomming tagged tokens.
-chunk :: [(Text, Tag)] -- ^ The incomming tokens to create a chunk from.
-      -> Tag           -- ^ The tag for the chunk.
-      -> (Text, Tag)
-chunk tss tg = (T.unwords (map fst tss), tg)
+clause :: Extractor (Text, Tag)
+clause = do
+  np <- nounPhrase
+  vp <- verbPhrase
+  return $ chunk [np, vp] $ Tag "clause"
 
 prepPhrase :: Extractor (Text, Tag)
 prepPhrase = do
@@ -42,18 +47,19 @@ nounPhrase = do
   let term = T.intercalate " " (map fst nlist)
   return (term, Tag "n-phr")
 
-clause :: Extractor (Text, Tag)
-clause = do
-  np <- nounPhrase
-  vp <- verbPhrase
-  return $ chunk [np, vp] $ Tag "clause"
-
 --  VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
 --  CLAUSE: {<NP><VP>}
 verbPhrase :: Extractor (Text, Tag)
 verbPhrase = do
   vp <- posPrefix "V"
-  obj <- PC.many1 $ ((try nounPhrase)
-                  <|> (try prepPhrase)
-                  <|> clause)
+  obj <- PC.many1 $ ((try clause)
+                  <|> (try nounPhrase)
+                  <|> prepPhrase)
   return $ chunk (vp:obj) $ Tag "v-phr"
+
+
+-- | Create a chunked tag from a set of incomming tagged tokens.
+chunk :: [(Text, Tag)] -- ^ The incomming tokens to create a chunk from.
+      -> Tag           -- ^ The tag for the chunk.
+      -> (Text, Tag)
+chunk tss tg = (T.unwords (map fst tss), tg)
