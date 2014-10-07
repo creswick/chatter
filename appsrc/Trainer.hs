@@ -10,13 +10,17 @@ import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.UnambiguousTagger as UT
 import NLP.POS (saveTagger, train)
 import NLP.Corpora.Parsing
+import NLP.Types (POSTagger, RawTag)
 
 main :: IO ()
 main = do
   args <- getArgs
   let output = last args
       corpora = init args
+      avgPerTagger :: POSTagger RawTag
       avgPerTagger = Avg.mkTagger Avg.emptyPerceptron Nothing
+
+      initTagger :: POSTagger RawTag
       initTagger   = UT.mkTagger Map.empty (Just avgPerTagger)
   rawCorpus <- mapM T.readFile corpora
   let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus

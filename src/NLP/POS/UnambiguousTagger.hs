@@ -25,18 +25,18 @@ import qualified NLP.POS.LiteralTagger as LT
 taggerID :: ByteString
 taggerID = pack "NLP.POS.UnambiguousTagger"
 
-readTagger :: ByteString -> Maybe POSTagger -> Either String POSTagger
+readTagger :: Tag t => ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t)
 readTagger bs backoff = do
   model <- decode bs
   return $ mkTagger model backoff
 
 -- | Create an unambiguous tagger, using the supplied 'Map' as a
 -- source of tags.
-mkTagger :: Map Text Tag -> Maybe POSTagger -> POSTagger
+mkTagger :: Tag t => Map Text t -> Maybe (POSTagger t) -> POSTagger t
 mkTagger table mTgr = let
   litTagger = LT.mkTagger table LT.Sensitive mTgr
 
-  trainer :: [TaggedSentence] -> IO POSTagger
+--  trainer :: Tag t => [TaggedSentence t] -> IO (POSTagger t)
   trainer exs = do
     let newTable = train table exs
     return $ mkTagger newTable mTgr
@@ -48,19 +48,18 @@ mkTagger table mTgr = let
                }
 
 -- | Trainer method for unambiguous taggers.
-train :: Map Text Tag -> [TaggedSentence] -> Map Text Tag
+train :: Tag t => Map Text t -> [TaggedSentence t] -> Map Text t
 train table exs = let
-  pairs :: [(Text, Tag)]
-  pairs = concat exs
+--   pairs :: Tag t => [(Text, t)]
+  pairs = concatMap unTS exs
 
-  trainOnPair :: Map Text Tag -> (Text, Tag) -> Map Text Tag
+  trainOnPair :: Tag t => Map Text t -> (Text, t) -> Map Text t
   trainOnPair t (txt, tag) = Map.alter (incorporate tag) txt t
 
-  incorporate :: Tag -> Maybe Tag -> Maybe Tag
+  incorporate :: Tag t => t -> Maybe t -> Maybe t
   incorporate new Nothing                 = Just new
   incorporate new (Just old) | new == old = Just old
                              | otherwise  = Just tagUNK -- Forget the tag.
 
   in foldl trainOnPair table pairs
-
 

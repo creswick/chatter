@@ -19,15 +19,15 @@ tests = testGroup "Backoff Tagging"
         [ testCase "Simple back-off tagging" testLiteralBackoff
         ]
 
-tagCat :: Map Text Tag
-tagCat = Map.fromList [("cat", Tag "CAT")]
+tagCat :: Map Text RawTag
+tagCat = Map.fromList [("cat", RawTag "CAT")]
 
-tagAnimals :: Map Text Tag
-tagAnimals = Map.fromList [("cat", Tag "NN"), ("dog", Tag "NN")]
+tagAnimals :: Map Text RawTag
+tagAnimals = Map.fromList [("cat", RawTag "NN"), ("dog", RawTag "NN")]
 
 testLiteralBackoff :: Assertion
 testLiteralBackoff = let
   tgr = LT.mkTagger tagCat LT.Sensitive (Just $ LT.mkTagger tagAnimals LT.Sensitive Nothing)
   actual = tag tgr "cat dog"
-  oracle = [[("cat", Tag "CAT"), ("dog", Tag "NN")]]
+  oracle = [TS [("cat", RawTag "CAT"), ("dog", RawTag "NN")]]
   in oracle @=? actual

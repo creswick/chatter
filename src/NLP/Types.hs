@@ -17,27 +17,42 @@ import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
 
 type Sentence = [Text]
-type TaggedSentence = [(Text, Tag)]
 
-flattenText :: TaggedSentence -> Text
-flattenText ts = T.unwords $ map fst ts
+data Tag t => TaggedSentence t = TS [(Text, t)]
+  deriving (Eq, Ord, Read, Show)
+
+-- instance Functor TaggedSentence where
+--   fmap fn (TS ts) = TS $ map (\(x,y) -> (x, fn y)) ts
+
+unTS :: Tag t => TaggedSentence t -> [(Text, t)]
+unTS (TS ts) = ts
+
+tsLength :: Tag t => TaggedSentence t -> Int
+tsLength (TS ts) = length ts
+
+tsConcat :: Tag t => [TaggedSentence t] -> TaggedSentence t
+tsConcat tss = TS (concatMap unTS tss)
+
+flattenText :: Tag t => TaggedSentence t -> Text
+flattenText (TS ts) = T.unwords $ map fst ts
 
 -- | True if the input sentence contains the given text token.  Does
 -- not do partial or approximate matching, and compares details in a
 -- fully case-sensitive manner.
-contains :: TaggedSentence -> Text -> Bool
-contains ts tok = tok `elem` map fst ts
+contains :: Tag t => TaggedSentence t -> Text -> Bool
+contains (TS ts) tok = tok `elem` map fst ts
 
 -- | True if the input sentence contains the given POS tag.
 -- Does not do partial matching (such as prefix matching)
-containsTag :: TaggedSentence -> Tag -> Bool
-containsTag ts tag = tag `elem` map snd ts
+containsTag :: Tag t => TaggedSentence t -> t -> Bool
+containsTag (TS ts) tag = tag `elem` map snd ts
 
 -- | Boolean type to indicate case sensitivity for textual
 -- comparisons.
 data CaseSensitive = Sensitive | Insensitive
   deriving (Read, Show, Generic)
 
+instance Serialize CaseSensitive
 
 -- | Part of Speech tagger, with back-off tagger.
 --
@@ -72,10 +87,10 @@ data CaseSensitive = Sensitive | Insensitive
 -- etc.) Look at the source for `NLP.POS.taggerTable` and
 -- `NLP.POS.UnambiguousTagger.readTagger` for examples.
 --
-data POSTagger = POSTagger
-    { posTagger  :: [Sentence] -> [TaggedSentence] -- ^ The initial part-of-speech tagger.
-    , posTrainer :: [TaggedSentence] -> IO POSTagger -- ^ Training function to train the immediate POS tagger.
-    , posBackoff :: Maybe POSTagger    -- ^ A tagger to invoke on unknown tokens.
+data Tag t => POSTagger t = POSTagger
+    { posTagger  :: [Sentence] -> [TaggedSentence t] -- ^ The initial part-of-speech tagger.
+    , posTrainer :: [TaggedSentence t] -> IO (POSTagger t) -- ^ Training function to train the immediate POS tagger.
+    , posBackoff :: Maybe (POSTagger t)   -- ^ A tagger to invoke on unknown tokens.
     , posTokenizer :: Text -> Sentence -- ^ A tokenizer; (`Data.Text.words` will work.)
     , posSplitter :: Text -> [Text] -- ^ A sentence splitter.  If your input is formatted as
                                     -- one sentence per line, then use `Data.Text.lines`,
@@ -89,23 +104,31 @@ data POSTagger = POSTagger
     }
 
 -- | Remove the tags from a tagged sentence
-stripTags :: TaggedSentence -> Sentence
-stripTags = map fst
+stripTags :: Tag t => TaggedSentence t -> Sentence
+stripTags (TS t) = map fst t
 
-newtype Tag = Tag Text
+class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => Tag a where
+  fromTag :: a -> Text
+  parseTag :: Text -> a
+  tagUNK :: a
+  tagTerm :: a -> Text
+
+newtype RawTag = RawTag Text
   deriving (Ord, Eq, Read, Show, Generic)
 
-instance Serialize Tag
+instance Serialize RawTag
 
-fromTag :: Tag -> Text
-fromTag (Tag t) = t
 
-parseTag :: Text -> Tag
-parseTag t = Tag t
+-- | Tag instance for unknown tagsets.
+instance Tag RawTag where
+  fromTag (RawTag t) = t
 
--- | Constant tag for "unknown"
-tagUNK :: Tag
-tagUNK = Tag "Unk"
+  parseTag t = RawTag t
+
+  -- | Constant tag for "unknown"
+  tagUNK = RawTag "Unk"
+
+  tagTerm (RawTag t) = t
 
 instance Serialize Text where
   put txt = put $ encodeUtf8 txt

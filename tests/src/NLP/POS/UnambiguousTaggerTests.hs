@@ -32,17 +32,17 @@ tests = testGroup "NLP.POS.UnambiguousTagger"
           ]
         ]
 
-emptyTagger :: POSTagger
+emptyTagger :: POSTagger RawTag
 emptyTagger = UT.mkTagger Map.empty Nothing
 
-trainedTagger :: POSTagger
-trainedTagger = UT.mkTagger (Map.fromList [("the", Tag "dt"), ("dog", Tag "vb")]) Nothing
+trainedTagger :: POSTagger RawTag
+trainedTagger = UT.mkTagger (Map.fromList [("the", RawTag "dt"), ("dog", RawTag "vb")]) Nothing
 
 prop_emptyAlwaysUnk :: String -> Bool
-prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concat $ tag emptyTagger inputTxt)
+prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
-trainAndTagTest :: POSTagger -> (Text, Text, Text) -> Test
+trainAndTagTest :: Tag t => POSTagger t -> (Text, Text, Text) -> Test
 trainAndTagTest tgr (exs, input, oracle) = testCase (T.unpack (T.intercalate ": " [exs, input])) $ do
   trained <- trainText tgr exs
   oracle @=? tagText trained input

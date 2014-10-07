@@ -23,45 +23,45 @@ import NLP.Tokenize.Text (defaultTokenizer, run)
 
 tests :: Test
 tests = testGroup "NLP.POS.LiteralTagger"
-        [ testProperty ("Empty tagger always tags as "++ show tagUNK) prop_emptyAlwaysUnk
+        [ testProperty ("Empty tagger always tags as UNK") prop_emptyAlwaysUnk
         , testGroup "Initial training" $ map (trainAndTagTest Nothing)
           [ ( "Simple training test"
-            , Map.fromList [ ("the", Tag "dt")
-                          , ("dog", Tag "nn")
-                          , ("jumped", Tag "vb") ]
+            , Map.fromList [ ("the", RawTag "dt")
+                          , ("dog", RawTag "nn")
+                          , ("jumped", RawTag "vb") ]
             , Sensitive
             , "a dog", "a/Unk dog/nn")
           , ( "Duplicate entries -- use the last value."
-            , Map.fromList [ ("the", Tag "dt")
-                           , ("dog", Tag "nn")
-                           , ("jumped", Tag "vb")
-                           , ("jumped", Tag "vbx") ]
+            , Map.fromList [ ("the", RawTag "dt")
+                           , ("dog", RawTag "nn")
+                           , ("jumped", RawTag "vb")
+                           , ("jumped", RawTag "vbx") ]
             , Sensitive
             , "a dog jumped", "a/Unk dog/nn jumped/vbx")
           , ( "Case insensitivity"
-            , Map.fromList [ ("the", Tag "dt")
-                           , ("dog", Tag "nn")
-                           , ("Jumped", Tag "vb")
+            , Map.fromList [ ("the", RawTag "dt")
+                           , ("dog", RawTag "nn")
+                           , ("Jumped", RawTag "vb")
                            ]
             , Insensitive
             , "a dog jumped", "a/Unk dog/nn jumped/vb")
           ]
         , testGroup "Multi-token inputs" $ map (trainAndTagTest Nothing)
           [ ( "Multi-tokens 1: basic use"
-            , Map.fromList [ ("the", Tag "dt")
-                           , ("United States", Tag "pn")
+            , Map.fromList [ ("the", RawTag "dt")
+                           , ("United States", RawTag "pn")
                            ]
             , Insensitive
             , "The United States", "The/dt United States/pn")
           , ( "Case insensitivity with multiple tokens"
-            , Map.fromList [ ("the", Tag "dt")
-                           , ("united states", Tag "pn")]
+            , Map.fromList [ ("the", RawTag "dt")
+                           , ("united states", RawTag "pn")]
             , Insensitive
             , "The united states", "The/dt united states/pn")
           , ( "Overlapping tokens: preffer the longest match"
-            , Map.fromList [ ("the", Tag "dt")
-                           , ("United States", Tag "pn")
-                           , ("President of the United States", Tag "pn")
+            , Map.fromList [ ("the", RawTag "dt")
+                           , ("United States", RawTag "pn")
+                           , ("President of the United States", RawTag "pn")
                            ]
             , Insensitive
             , "The President of the United States", "The/dt President of the United States/pn")
@@ -131,14 +131,15 @@ tests = testGroup "NLP.POS.LiteralTagger"
         , skipTestProperty "Protect Terms" prop_protectTerms
         ]
 
-emptyTagger :: POSTagger
+emptyTagger :: POSTagger RawTag
 emptyTagger = LT.mkTagger Map.empty Sensitive Nothing
 
 prop_emptyAlwaysUnk :: String -> Bool
-prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concat $ tag emptyTagger inputTxt)
+prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
-trainAndTagTest :: Maybe POSTagger -> (Text, Map Text Tag, LT.CaseSensitive, Text, Text) -> Test
+trainAndTagTest :: Tag t => Maybe (POSTagger t)
+                -> (Text, Map Text t, LT.CaseSensitive, Text, Text) -> Test
 trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack name) mkAndTest
   where mkAndTest = let trained = LT.mkTagger table sensitive tgr
                     in oracle @=? tagText trained input

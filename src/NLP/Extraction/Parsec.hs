@@ -1,4 +1,6 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes, FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 -- | This is a very simple wrapper around Parsec for writing
 -- Information Extraction patterns.
@@ -27,11 +29,19 @@ where
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
-import Text.Parsec.Prim (lookAhead, token, Parsec, try)
+import Text.Parsec.Prim (lookAhead, token, Parsec, try, Stream(..))
 import qualified Text.Parsec.Combinator as PC
 import Text.Parsec.Pos  (newPos)
 
-import NLP.Types (TaggedSentence, Tag(..), CaseSensitive(..))
+import NLP.Types (TaggedSentence(..), Tag(..), CaseSensitive(..))
+
+instance (Monad m, Tag t) => Stream (TaggedSentence t) m (Text, t) where
+  uncons (TS ts) = do
+    mRes <- uncons ts
+    case mRes of
+      Nothing           -> return $ Nothing
+      Just (mTok, rest) -> return $ Just (mTok, TS rest)
+  {-# INLINE uncons #-}
 
 -- | A Parsec parser.
 --
@@ -42,10 +52,10 @@ import NLP.Types (TaggedSentence, Tag(..), CaseSensitive(..))
 -- > import Text.Parsec.Prim
 -- > parse myExtractor "interactive repl" someTaggedSentence
 -- @
-type Extractor = Parsec TaggedSentence ()
+type Extractor t = Parsec (TaggedSentence t) ()
 
 -- | Consume a token with the given POS Tag
-posTok :: Tag -> Extractor (Text, Tag)
+posTok :: Tag t => t -> Extractor t (Text, t)
 posTok tag = token showTok posFromTok testTok
   where
     showTok (_,t)       = show t
@@ -58,12 +68,12 @@ posTok tag = token showTok posFromTok testTok
 -- > parse (posPrefix "n") "ghci" [("Bob", Tag "np")]
 -- Right [("Bob", Tag "np")]
 -- @
-posPrefix :: Text -> Extractor (Text, Tag)
+posPrefix :: Tag t => Text -> Extractor t (Text, t)
 posPrefix str = token showTok posFromTok testTok
   where
-    showTok (_,t)       = show t
-    posFromTok (_,_)    = newPos "unknown" 0 0
-    testTok tok@(_,Tag t) = if str `T.isPrefixOf` t then Just tok else Nothing
+    showTok (_,t)     = show t
+    posFromTok (_,_)  = newPos "unknown" 0 0
+    testTok tok@(_,t) = if str `T.isPrefixOf` (tagTerm t) then Just tok else Nothing
 
 -- | Text equality matching with optional case sensitivity.
 matches :: CaseSensitive -> Text -> Text -> Bool
@@ -71,7 +81,7 @@ matches Sensitive   x y = x == y
 matches Insensitive x y = (T.toLower x) == (T.toLower y)
 
 -- | Consume a token with the given lexical representation.
-txtTok :: CaseSensitive -> Text -> Extractor (Text, Tag)
+txtTok :: Tag t => CaseSensitive -> Text -> Extractor t (Text, t)
 txtTok sensitive txt = token showTok posFromTok testTok
   where
     showTok (t,_)     = show t
@@ -80,7 +90,7 @@ txtTok sensitive txt = token showTok posFromTok testTok
                       | otherwise               = Nothing
 
 -- | Consume any one non-empty token.
-anyToken :: Extractor (Text, Tag)
+anyToken :: Tag t => Extractor t (Text, t)
 anyToken = token showTok posFromTok testTok
   where
     showTok (txt,_)     = show txt
@@ -88,7 +98,7 @@ anyToken = token showTok posFromTok testTok
     testTok tok@(txt,_) | txt == "" = Nothing
                         | otherwise  = Just tok
 
-oneOf :: CaseSensitive -> [Text] -> Extractor (Text, Tag)
+oneOf :: Tag t => CaseSensitive -> [Text] -> Extractor t (Text, t)
 oneOf sensitive terms = PC.choice (map (\t -> try (txtTok sensitive t)) terms)
 
 -- | Skips any number of fill tokens, ending with the end parser, and
@@ -96,7 +106,7 @@ oneOf sensitive terms = PC.choice (map (\t -> try (txtTok sensitive t)) terms)
 --
 -- This is useful when you know what you're looking for and (for
 -- instance) don't care what comes first.
-followedBy :: Extractor b -> Extractor a -> Extractor a
+followedBy :: Tag t => Extractor t b -> Extractor t a -> Extractor t a
 followedBy fill end = do
   _ <- PC.manyTill fill (lookAhead end)
   end

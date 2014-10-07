@@ -33,7 +33,7 @@ import TestUtils
 
 tests :: Test
 tests = buildTest $ do
-  tagger <- defaultTagger
+  tagger <- defaultTagger :: IO (POSTagger RawTag)
   return $ testGroup "Integration Tests"
         [ testGroup "Default Tagger" $
             map (genTest $ tagText tagger)
@@ -59,7 +59,7 @@ examples = [ "This/dt is/bez a/at test/nn ./."
 
 testSerialization :: [Text]  -- ^ A training corpus.  One sentence per entry.
                   -> ( String    -- ^ The name of the POS tagger.
-                     , POSTagger) -- ^ An empty (untrained) POS tagger.
+                     , POSTagger RawTag) -- ^ An empty (untrained) POS tagger.
                   -> Test
 testSerialization training (name, newTagger) = testCase name doTest
   where
@@ -67,7 +67,8 @@ testSerialization training (name, newTagger) = testCase name doTest
     doTest = do
       preTagger <- train newTagger $ map readPOS training
 
-      let ePostTagger = deserialize taggerTable (serialize preTagger)
+      let ePostTagger :: Either String (POSTagger RawTag)
+          ePostTagger = deserialize taggerTable (serialize preTagger)
       case ePostTagger of
         Left err -> assertFailure ("Tagger did not deserialize: "++err)
         Right postTagger -> do

@@ -4,7 +4,7 @@ module NLP.Corpora.Parsing where
 import qualified Data.Text as T
 import Data.Text (Text)
 
-import NLP.Types (Tag(..), parseTag, tagUNK, TaggedSentence)
+import NLP.Types (Tag(..), parseTag, tagUNK, TaggedSentence(..))
 
 -- | Read a POS-tagged corpus out of a Text string of the form:
 -- "token\/tag token\/tag..."
@@ -12,13 +12,16 @@ import NLP.Types (Tag(..), parseTag, tagUNK, TaggedSentence)
 -- >>> readPOS "Dear/jj Sirs/nns :/: Let/vb"
 -- [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)]
 --
-readPOS :: Text -> TaggedSentence
-readPOS str = map toTagged $ T.words str
+readPOS :: Tag t => Text -> TaggedSentence t
+readPOS str = readPOSWith parseTag str
+
+readPOSWith :: Tag t => (Text -> t) -> Text -> TaggedSentence t
+readPOSWith parser str = TS $ map toTagged $ T.words str
     where
-      toTagged :: Text -> (Text, Tag)
+--      toTagged :: Tag t => Text -> (Text, t)
       toTagged txt | "/" `T.isInfixOf` txt = let
           (tok, tagStr) = T.breakOnEnd "/" (T.strip txt)
-          in (safeInit tok, parseTag tagStr)
+          in (safeInit tok, parser tagStr)
                    | otherwise = (txt, tagUNK)
 
 -- | Returns all but the last element of a string, unless the string

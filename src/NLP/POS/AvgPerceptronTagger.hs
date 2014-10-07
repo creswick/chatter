@@ -19,7 +19,7 @@ module NLP.POS.AvgPerceptronTagger
   )
 where
 
-import NLP.Corpora.Parsing (readPOS)
+import NLP.Corpora.Parsing (readPOSWith)
 import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
                              , Class(..), predict, update
                              , emptyPerceptron, averageWeights)
@@ -44,7 +44,7 @@ import System.Random.Shuffle (shuffleM)
 taggerID :: ByteString
 taggerID = pack "NLP.POS.AvgPerceptronTagger"
 
-readTagger :: ByteString -> Maybe POSTagger -> Either String POSTagger
+readTagger :: Tag t => ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t)
 readTagger bs backoff = do
   model <- decode bs
   return $ mkTagger model backoff
@@ -56,7 +56,7 @@ readTagger bs backoff = do
 -- tokenizer, and Erik Kow's fullstop sentence segmenter
 -- (<http://hackage.haskell.org/package/fullstop>) as a sentence
 -- splitter.
-mkTagger :: Perceptron -> Maybe POSTagger -> POSTagger
+mkTagger :: Tag t => Perceptron -> Maybe (POSTagger t) -> POSTagger t
 mkTagger per mTgr = POSTagger { posTagger  = tag per
                               , posTrainer = \exs -> do
                                   newPer <- trainInt itterations per exs
@@ -87,17 +87,17 @@ itterations = 5
 -- >>> tag tagger $ map T.words $ T.lines "Dear sir"
 -- "Dear/jj Sirs/nns :/: Let/vb"
 --
-trainNew :: Text -> IO Perceptron
-trainNew rawCorpus = train emptyPerceptron rawCorpus
+trainNew :: Tag t => (Text -> t) -> Text -> IO Perceptron
+trainNew parser rawCorpus = train parser emptyPerceptron rawCorpus
 
 -- | Train a new 'Perceptron' on a corpus of files.
-trainOnFiles :: [FilePath] -> IO Perceptron
-trainOnFiles corpora = foldM step emptyPerceptron corpora
+trainOnFiles :: Tag t => (Text -> t) -> [FilePath] -> IO Perceptron
+trainOnFiles parser corpora = foldM step emptyPerceptron corpora
   where
     step :: Perceptron -> FilePath -> IO Perceptron
     step per path = do
       content <- T.readFile path
-      train per content
+      train parser per content
 
 -- | Add training examples to a perceptron.
 --
@@ -108,13 +108,14 @@ trainOnFiles corpora = foldM step emptyPerceptron corpora
 -- If you're using multiple input files, this can be useful to improve
 -- performance (by folding over the files).  For example, see `trainOnFiles`
 --
-train :: Perceptron -- ^ The inital model.
+train :: Tag t => (Text -> t) -- ^ The POS tag parser.
+      -> Perceptron -- ^ The inital model.
       -> Text       -- ^ Training data; formatted with one sentence
                     -- per line, and standard POS tags after each
                     -- space-delimeted token.
       -> IO Perceptron
-train per rawCorpus = do
-  let corpora = map readPOS $ T.lines rawCorpus
+train parse per rawCorpus = do
+  let corpora = map (readPOSWith parse) $ T.lines rawCorpus
   trainInt itterations per corpora
 
 -- | start markers to ensure all features in context are valid,
@@ -154,11 +155,11 @@ endToks = ["-END-", "-END2-"]
 -- >             prev = tag
 -- >     return tokens
 --
-tag :: Perceptron -> [Sentence] -> [TaggedSentence]
+tag :: Tag t => Perceptron -> [Sentence] -> [TaggedSentence t]
 tag per corpus = map (tagSentence per) corpus
 
 -- | Tag a single sentence.
-tagSentence :: Perceptron -> Sentence -> TaggedSentence
+tagSentence :: Tag t => Perceptron -> Sentence -> TaggedSentence t
 tagSentence per sent = let
 
   tags = (map (Class . T.unpack) startToks) ++ map (predictPos per) features
@@ -169,7 +170,7 @@ tagSentence per sent = let
              (tail tags)
              tags
 
-  in zip sent (map (\(Class c) ->Tag $ T.pack c) $ drop 2 tags)
+  in TS $ zip sent (map (\(Class c) -> parseTag $ T.pack c) $ drop 2 tags)
 
 -- | Train a model from sentences.
 --
@@ -202,16 +203,16 @@ tagSentence per sent = let
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
 --
-trainInt :: Int -- ^ The number of times to iterate over the training
+trainInt :: Tag t => Int -- ^ The number of times to iterate over the training
                 -- data, randomly shuffling after each iteration. (@5@
                 -- is a reasonable choice.)
          -> Perceptron -- ^ The 'Perceptron' to train.
-         -> [TaggedSentence] -- ^ The training data. (A list of @[(Text, Tag)]@'s)
+         -> [TaggedSentence t] -- ^ The training data. (A list of @[(Text, Tag)]@'s)
          -> IO Perceptron    -- ^ A trained perceptron.  IO is needed
                              -- for randomization.
-trainInt itr per examples = trainCls itr per $ toClassLst $ map unzip examples
+trainInt itr per examples = trainCls itr per $ toClassLst $ map (unzip . unTS) examples
 
-toClassLst ::  [(Sentence, [Tag])] -> [(Sentence, [Class])]
+toClassLst ::  Tag t => [(Sentence, [t])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged
 
 trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> IO Perceptron

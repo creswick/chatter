@@ -24,42 +24,42 @@ import NLP.Extraction.Parsec
 --
 -- findClause skips over leading tokens, if needed, to locate a
 -- clause.
-findClause :: Extractor (Text, Tag)
+findClause :: Extractor RawTag (Text, RawTag)
 findClause = followedBy anyToken clause
 
-clause :: Extractor (Text, Tag)
+clause :: Extractor RawTag (Text, RawTag)
 clause = do
   np <- nounPhrase
   vp <- verbPhrase
-  return $ chunk [np, vp] $ Tag "clause"
+  return $ chunk [np, vp] $ RawTag "clause"
 
-prepPhrase :: Extractor (Text, Tag)
+prepPhrase :: Extractor RawTag (Text, RawTag)
 prepPhrase = do
-  prep <- posTok $ Tag "IN"
+  prep <- posTok $ RawTag "IN"
   np <- nounPhrase
-  return $ chunk [prep, np] (Tag "p-phr")
+  return $ chunk [prep, np] (RawTag "p-phr")
 
-nounPhrase :: Extractor (Text, Tag)
+nounPhrase :: Extractor RawTag (Text, RawTag)
 nounPhrase = do
-  nlist <- PC.many1 (try (posTok $ Tag "NN")
-              <|> try (posTok $ Tag "DT")
-                  <|> (posTok $ Tag "JJ"))
+  nlist <- PC.many1 (try (posTok $ RawTag "NN")
+              <|> try (posTok $ RawTag "DT")
+                  <|> (posTok $ RawTag "JJ"))
   let term = T.intercalate " " (map fst nlist)
-  return (term, Tag "n-phr")
+  return (term, RawTag "n-phr")
 
 --  VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
 --  CLAUSE: {<NP><VP>}
-verbPhrase :: Extractor (Text, Tag)
+verbPhrase :: Extractor RawTag (Text, RawTag)
 verbPhrase = do
   vp <- posPrefix "V"
   obj <- PC.many1 $ ((try clause)
                   <|> (try nounPhrase)
                   <|> prepPhrase)
-  return $ chunk (vp:obj) $ Tag "v-phr"
+  return $ chunk (vp:obj) $ RawTag "v-phr"
 
 
 -- | Create a chunked tag from a set of incomming tagged tokens.
-chunk :: [(Text, Tag)] -- ^ The incomming tokens to create a chunk from.
-      -> Tag           -- ^ The tag for the chunk.
-      -> (Text, Tag)
+chunk :: [(Text, RawTag)] -- ^ The incomming tokens to create a chunk from.
+      -> RawTag           -- ^ The tag for the chunk.
+      -> (Text, RawTag)
 chunk tss tg = (T.unwords (map fst tss), tg)

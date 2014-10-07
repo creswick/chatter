@@ -13,7 +13,7 @@ import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework ( buildTest, testGroup, Test, defaultMain )
 -- import Test.Framework.Skip (skip)
 
-import NLP.Types (Tag(..), parseTag)
+import NLP.Types (Tag(..), parseTag, RawTag(..), POSTagger(..))
 import NLP.POS (tagText, train)
 import NLP.Corpora.Parsing (readPOS)
 
@@ -77,24 +77,33 @@ trainAndTagTestFileCorpus file args = buildTest $ do
 
 trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
 trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
-  tagger <- APT.trainNew =<< corpora
-  oracle @=? tagText (APT.mkTagger tagger Nothing) input
+  let parser :: Text -> RawTag
+      parser = parseTag
+  perceptron <- APT.trainNew parser =<< corpora
+  let tagger :: POSTagger RawTag
+      tagger = (APT.mkTagger perceptron Nothing)
+  oracle @=? tagText tagger input
 
 trainAndTagTest :: Text -> (Text, Text) -> Test
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
-  tagger <- APT.trainNew corpora
-  oracle @=? tagText (APT.mkTagger tagger Nothing) input
+  let parser :: Text -> RawTag
+      parser = parseTag
+  perceptron <- APT.trainNew parser corpora
+  let tagger :: POSTagger RawTag
+      tagger = (APT.mkTagger perceptron Nothing)
+  oracle @=? tagText tagger input
 
 trainAndTagTestVTrainer :: Text -> (Text, Text) -> Test
 trainAndTagTestVTrainer corpora (input, oracle) = testCase (T.unpack input) $ do
-  let newTagger = APT.mkTagger APT.emptyPerceptron Nothing
+  let newTagger :: POSTagger RawTag
+      newTagger = APT.mkTagger APT.emptyPerceptron Nothing
       examples = map readPOS $ T.lines corpora
   posTgr <- train newTagger examples
 
   oracle @=? tagText posTgr input
 
 prop_parseTag :: Text -> Bool
-prop_parseTag txt = parseTag txt == Tag txt
+prop_parseTag txt = parseTag txt == RawTag txt
 
 genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> Test
 genTest fn (descr, input, oracle) =

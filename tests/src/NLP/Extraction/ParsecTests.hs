@@ -30,52 +30,53 @@ tests = testGroup "NLP.Extraction.Parsec"
         , testProperty "followedBy" prop_followedBy
         , testGroup "Noun Phrase extractor" $
             map (genTest parseNounPhrase)
-             [ ("Just NN", [("Dog", Tag "NN")]
-                         , Just ("Dog", Tag "n-phr"))
-             , ("DT NN", [("The", Tag "DT"), ("dog", Tag "NN")]
-                       , Just ("The dog", Tag "n-phr"))
-             , ("NN NN", [("Sunday", Tag "NN"), ("night", Tag "NN")]
-                       , Just ("Sunday night", Tag "n-phr"))
-             , ("JJ NN", [("beautiful", Tag "JJ"), ("game", Tag "NN")]
-                       , Just ("beautiful game", Tag "n-phr"))
-             , ("None - VB", [("jump", Tag "VB")]
+             [ ("Just NN", TS [("Dog", RawTag "NN")]
+                         , Just ("Dog", RawTag "n-phr"))
+             , ("DT NN", TS [("The", RawTag "DT"), ("dog", RawTag "NN")]
+                       , Just ("The dog", RawTag "n-phr"))
+             , ("NN NN", TS [("Sunday", RawTag "NN"), ("night", RawTag "NN")]
+                       , Just ("Sunday night", RawTag "n-phr"))
+             , ("JJ NN", TS [("beautiful", RawTag "JJ"), ("game", RawTag "NN")]
+                       , Just ("beautiful game", RawTag "n-phr"))
+             , ("None - VB", TS [("jump", RawTag "VB")]
                            , Nothing)
              ]
         ]
 
-instance Arbitrary Tag where
+instance Arbitrary RawTag where
   arbitrary = do
     NonEmpty str <- arbitrary
-    return $ Tag $ T.pack str
+    return $ RawTag $ T.pack str
 
-instance Arbitrary TaggedSentence where
-  arbitrary = listOf $ do
-    NonEmpty tok <- arbitrary
-    tag <- arbitrary
-    return (T.pack tok, tag)
+instance (Arbitrary t, Tag t) => Arbitrary (TaggedSentence t) where
+  arbitrary = do toks <-  listOf $ do
+                            NonEmpty tok <- arbitrary
+                            tag <- arbitrary
+                            return (T.pack tok, tag)
+                 return $ TS toks
 
-prop_posTok :: TaggedSentence -> Property
-prop_posTok taggedSent = taggedSent /= [] ==>
-  let (firstTok, firstTag) = head taggedSent
+prop_posTok :: TaggedSentence RawTag -> Property
+prop_posTok taggedSent = taggedSent /= TS [] ==>
+  let (firstTok, firstTag) = head (unTS taggedSent)
       Right actual = parse (posTok firstTag) "prop_posTag" taggedSent
   in (firstTok, firstTag) == actual
 
-prop_anyToken :: TaggedSentence -> Property
-prop_anyToken taggedSent = taggedSent /= [] ==>
+prop_anyToken :: TaggedSentence RawTag -> Property
+prop_anyToken taggedSent = taggedSent /= TS [] ==>
   let actual = parse anyToken "prop_anyToken" taggedSent
   in isRight actual
 
-prop_followedBy :: TaggedSentence -> Property
-prop_followedBy taggedSent = taggedSent /= []
+prop_followedBy :: TaggedSentence RawTag -> Property
+prop_followedBy taggedSent = taggedSent /= TS []
                           && not (contains taggedSent ".") ==>
-  let (theToken, theTag) = (".", Tag ".")
+  let (theToken, theTag) = (".", RawTag ".")
       extractor          = followedBy anyToken $ txtTok Insensitive theToken
       Right actual       = parse extractor "prop_followedBy"
-                             (taggedSent ++ [(theToken, theTag)])
+                             (tsConcat [taggedSent, TS [(theToken, theTag)]])
   in (theToken, theTag) == actual
 
 
-parseNounPhrase :: TaggedSentence -> Maybe (Text, Tag)
+parseNounPhrase :: TaggedSentence RawTag -> Maybe (Text, RawTag)
 parseNounPhrase sent =
   case parse nounPhrase "parseNounPhrase Test" sent of
     Left  _ -> Nothing
