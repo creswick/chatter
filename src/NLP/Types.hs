@@ -21,6 +21,9 @@ type Sentence = [Text]
 data Tag t => TaggedSentence t = TS [(Text, t)]
   deriving (Eq, Ord, Read, Show)
 
+-- | Just a handy alias for Text
+type Error = Text
+
 -- instance Functor TaggedSentence where
 --   fmap fn (TS ts) = TS $ map (\(x,y) -> (x, fn y)) ts
 
@@ -107,17 +110,27 @@ data Tag t => POSTagger t = POSTagger
 stripTags :: Tag t => TaggedSentence t -> Sentence
 stripTags (TS t) = map fst t
 
+class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => ChunkTag a where
+  fromChunk :: a -> Text
+
 class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => Tag a where
   fromTag :: a -> Text
   parseTag :: Text -> a
   tagUNK :: a
   tagTerm :: a -> Text
 
+newtype RawChunk = RawChunk Text
+  deriving (Ord, Eq, Read, Show, Generic)
+
+instance Serialize RawChunk
+
+instance ChunkTag RawChunk where
+  fromChunk (RawChunk ch) = ch
+
 newtype RawTag = RawTag Text
   deriving (Ord, Eq, Read, Show, Generic)
 
 instance Serialize RawTag
-
 
 -- | Tag instance for unknown tagsets.
 instance Tag RawTag where

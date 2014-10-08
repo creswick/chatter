@@ -45,8 +45,10 @@ Library
                      NLP.POS.LiteralTagger
                      NLP.POS.UnambiguousTagger
                      NLP.Types
+                     NLP.Types.Tree
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
+                     NLP.Corpora.Brown
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
                      NLP.Extraction.Examples.ParsecExamples
@@ -74,7 +76,8 @@ Library
                      regex-base,
                      regex-tdfa >= 1.2.0,
                      regex-tdfa-text,
-                     array
+                     array,
+                     QuickCheck < 2.6
 
 
    ghc-options:      -Wall
