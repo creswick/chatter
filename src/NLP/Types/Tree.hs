@@ -33,6 +33,13 @@ data ChunkOr chunk tag = Chunk_CN (Chunk chunk tag)
                        | POS_CN   (POS tag)
                          deriving (Read, Show, Eq)
 
+-- mkChunk :: (Chunk chunk, Tag tag) => tag -> ChunkOr chunk tag
+mkChunk tag children = Chunk_CN (Chunk tag children)
+
+-- mkChink :: (Chunk chunk, Tag tag) => tag -> ChunkOr chunk tag
+mkChink tag token    = POS_CN   (POS tag token)
+
+
 data Chunk chunk tag = Chunk chunk [ChunkOr chunk tag]
   deriving (Read, Show, Eq)
 
@@ -61,11 +68,10 @@ t2 = TaggedSent
 
 t3 :: ChunkedSentence B.Chunk B.Tag
 t3 = ChunkedSent
-     [ Chunk_CN (Chunk B.C_NP [ POS_CN (POS B.NN (Token "I"))])
-     , Chunk_CN (Chunk B.C_VP [ POS_CN (POS B.VB (Token "saw"))
-                              , POS_CN (POS B.NN (Token "him"))
-                              ]
-                 )
-     , POS_CN (POS B.Term (Token "."))
+     [ mkChunk B.C_NP [ POS_CN (POS B.NN (Token "I"))]
+     , mkChunk B.C_VP [ POS_CN (POS B.VB (Token "saw"))
+                      , POS_CN (POS B.NN (Token "him"))
+                      ]
+     , mkChink B.Term (Token ".")
      ]
 

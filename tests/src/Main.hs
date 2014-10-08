@@ -17,17 +17,18 @@ import NLP.Types (Tag(..), parseTag, RawTag(..), POSTagger(..))
 import NLP.POS (tagText, train)
 import NLP.Corpora.Parsing (readPOS)
 
-import qualified NLP.POS.AvgPerceptronTagger as APT
 import qualified AvgPerceptronTests as APT
 import qualified BackoffTaggerTests as Backoff
-import qualified NLP.Similarity.VectorSimTests as Vec
-import qualified NLP.POSTests as POS
+import qualified Data.DefaultMapTests as DefMap
+import qualified IntegrationTests as IT
+import qualified NLP.Corpora.BrownTests as Brown
+import qualified NLP.Extraction.ParsecTests as Parsec
+import qualified NLP.POS.AvgPerceptronTagger as APT
 import qualified NLP.POS.UnambiguousTaggerTests as UT
 import qualified NLP.POS.LiteralTaggerTests as LT
+import qualified NLP.POSTests as POS
+import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
-import qualified Data.DefaultMapTests as DefMap
-import qualified NLP.Extraction.ParsecTests as Parsec
-import qualified IntegrationTests as IT
 
 import Corpora
 
@@ -67,6 +68,7 @@ tests = [ testGroup "parseTag" $
         , DefMap.tests
         , Parsec.tests
         , IT.tests
+        , Brown.tests
         ]
 
 
