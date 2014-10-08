@@ -9,12 +9,14 @@ import System.Environment (getArgs)
 import NLP.POS (tagText, loadTagger)
 import NLP.Types (RawTag, POSTagger)
 
+import qualified NLP.Corpora.Brown as B
+
 main :: IO ()
 main = do
   args <- getArgs
   let modelFile = args!!0
       sentence  = args!!1
   putStrLn "Loading model..."
-  tagger <- (loadTagger modelFile:: IO (POSTagger RawTag))
+  tagger <- (loadTagger modelFile:: IO (POSTagger B.Tag))
   putStrLn "...model loaded."
   T.putStrLn $ tagText tagger (T.pack sentence)

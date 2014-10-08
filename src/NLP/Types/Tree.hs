@@ -2,7 +2,10 @@
 module NLP.Types.Tree where
 
 import Prelude hiding (print)
+import Data.Text (Text)
+import qualified Data.Text as T
 import Data.List (intercalate)
+
 
 import qualified NLP.Corpora.Brown as B
 import NLP.Types hiding (Sentence, TaggedSentence)
@@ -46,8 +49,45 @@ data Chunk chunk tag = Chunk chunk [ChunkOr chunk tag]
 data POS tag = POS tag Token
   deriving (Read, Show, Eq)
 
-data Token = Token String
+data Token = Token Text
   deriving (Read, Show, Eq)
+
+-- unTS :: Tag t => TaggedSentence t -> [(Text, t)]
+-- unTS (TS ts) = ts
+
+tsLength :: Tag t => TaggedSentence t -> Int
+tsLength (TaggedSent ts) = length ts
+
+-- tsConcat :: Tag t => [TaggedSentence t] -> TaggedSentence t
+-- tsConcat tss = TS (concatMap unTS tss)
+
+-- flattenText :: Tag t => TaggedSentence t -> Text
+-- flattenText (TS ts) = T.unwords $ map fst ts
+
+-- | True if the input sentence contains the given text token.  Does
+-- not do partial or approximate matching, and compares details in a
+-- fully case-sensitive manner.
+contains :: Tag t => TaggedSentence t -> Text -> Bool
+contains (TaggedSent ts) tok = any (posTokMatches tok) ts
+
+-- | True if the input sentence contains the given POS tag.
+-- Does not do partial matching (such as prefix matching)
+containsTag :: Tag t => TaggedSentence t -> t -> Bool
+containsTag (TaggedSent ts) tag = any (posTagMatches tag) ts
+
+-- | Compare the POS-tag token with a supplied tag string.
+posTagMatches :: Tag t => t -> POS t -> Bool
+posTagMatches t1 (POS t2 _) = t1 == t2
+
+-- | Compare the POS-tagged token with a text string.
+posTokMatches :: Tag t => Text -> POS t -> Bool
+posTokMatches txt (POS _ tok) = tokenMatches txt tok
+
+-- | Compare a token with a text string.
+tokenMatches :: Text -> Token -> Bool
+tokenMatches txt (Token tok) = txt == tok
+
+
 
 -- (S (NP (NN I)) (VP (V saw) (NP (NN him))))
 t1 :: Sentence

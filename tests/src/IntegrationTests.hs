@@ -29,15 +29,17 @@ import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
 
+import qualified NLP.Corpora.Brown as B
+
 import TestUtils
 
 tests :: Test
 tests = buildTest $ do
-  tagger <- defaultTagger :: IO (POSTagger RawTag)
+  tagger <- defaultTagger :: IO (POSTagger B.Tag)
   return $ testGroup "Integration Tests"
         [ testGroup "Default Tagger" $
             map (genTest $ tagText tagger)
-              [ ("Simple 1", "The dog jumped.", "The/at dog/nn jumped/vbd ./.")
+              [ ("Simple 1", "The dog jumped.", "The/AT dog/NN jumped/VBD ./.")
               ]
         , testGroup "POS Serialization" $
             map (testSerialization examples)
@@ -59,7 +61,7 @@ examples = [ "This/dt is/bez a/at test/nn ./."
 
 testSerialization :: [Text]  -- ^ A training corpus.  One sentence per entry.
                   -> ( String    -- ^ The name of the POS tagger.
-                     , POSTagger RawTag) -- ^ An empty (untrained) POS tagger.
+                     , POSTagger B.Tag) -- ^ An empty (untrained) POS tagger.
                   -> Test
 testSerialization training (name, newTagger) = testCase name doTest
   where
@@ -67,7 +69,7 @@ testSerialization training (name, newTagger) = testCase name doTest
     doTest = do
       preTagger <- train newTagger $ map readPOS training
 
-      let ePostTagger :: Either String (POSTagger RawTag)
+      let ePostTagger :: Either String (POSTagger B.Tag)
           ePostTagger = deserialize taggerTable (serialize preTagger)
       case ePostTagger of
         Left err -> assertFailure ("Tagger did not deserialize: "++err)

@@ -12,15 +12,18 @@ import NLP.POS (saveTagger, train)
 import NLP.Corpora.Parsing
 import NLP.Types (POSTagger, RawTag)
 
+import qualified NLP.Corpora.Brown as B
+
 main :: IO ()
 main = do
   args <- getArgs
   let output = last args
       corpora = init args
-      avgPerTagger :: POSTagger RawTag
+
+      avgPerTagger :: POSTagger B.Tag
       avgPerTagger = Avg.mkTagger Avg.emptyPerceptron Nothing
 
-      initTagger :: POSTagger RawTag
+      initTagger :: POSTagger B.Tag
       initTagger   = UT.mkTagger Map.empty (Just avgPerTagger)
   rawCorpus <- mapM T.readFile corpora
   let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus

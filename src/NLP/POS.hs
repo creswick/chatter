@@ -60,9 +60,11 @@ import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
 
+import qualified NLP.Corpora.Brown as B
+
 import           Paths_chatter
 
-defaultTagger :: Tag t => IO (POSTagger t)
+defaultTagger :: IO (POSTagger B.Tag)
 defaultTagger = do
   dir <- getDataDir
   loadTagger (dir </> "data" </> "models" </> "brown-train.model.gz")

@@ -45,11 +45,12 @@ Library
                      NLP.POS.LiteralTagger
                      NLP.POS.UnambiguousTagger
                      NLP.Types
+                     NLP.Types.General
+                     NLP.Types.Tags
                      NLP.Types.Tree
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
-                     NLP.Corpora.Brown.Internal
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
                      NLP.Extraction.Examples.ParsecExamples

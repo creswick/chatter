@@ -1,7 +1,10 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.Types
+ ( module NLP.Types
+ , module NLP.Types.Tags
+ , module NLP.Types.General
+ )
 where
 
 import Control.DeepSeq (NFData)
@@ -13,16 +16,16 @@ import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Text.Encoding (encodeUtf8, decodeUtf8)
+
 import GHC.Generics
+
+import NLP.Types.General
+import NLP.Types.Tags
 
 type Sentence = [Text]
 
 data Tag t => TaggedSentence t = TS [(Text, t)]
   deriving (Eq, Ord, Read, Show)
-
--- | Just a handy alias for Text
-type Error = Text
 
 -- instance Functor TaggedSentence where
 --   fmap fn (TS ts) = TS $ map (\(x,y) -> (x, fn y)) ts
@@ -49,13 +52,6 @@ contains (TS ts) tok = tok `elem` map fst ts
 -- Does not do partial matching (such as prefix matching)
 containsTag :: Tag t => TaggedSentence t -> t -> Bool
 containsTag (TS ts) tag = tag `elem` map snd ts
-
--- | Boolean type to indicate case sensitivity for textual
--- comparisons.
-data CaseSensitive = Sensitive | Insensitive
-  deriving (Read, Show, Generic)
-
-instance Serialize CaseSensitive
 
 -- | Part of Speech tagger, with back-off tagger.
 --
@@ -90,7 +86,7 @@ instance Serialize CaseSensitive
 -- etc.) Look at the source for `NLP.POS.taggerTable` and
 -- `NLP.POS.UnambiguousTagger.readTagger` for examples.
 --
-data Tag t => POSTagger t = POSTagger
+data POSTagger t = POSTagger
     { posTagger  :: [Sentence] -> [TaggedSentence t] -- ^ The initial part-of-speech tagger.
     , posTrainer :: [TaggedSentence t] -> IO (POSTagger t) -- ^ Training function to train the immediate POS tagger.
     , posBackoff :: Maybe (POSTagger t)   -- ^ A tagger to invoke on unknown tokens.
@@ -109,43 +105,6 @@ data Tag t => POSTagger t = POSTagger
 -- | Remove the tags from a tagged sentence
 stripTags :: Tag t => TaggedSentence t -> Sentence
 stripTags (TS t) = map fst t
-
-class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => ChunkTag a where
-  fromChunk :: a -> Text
-
-class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => Tag a where
-  fromTag :: a -> Text
-  parseTag :: Text -> a
-  tagUNK :: a
-  tagTerm :: a -> Text
-
-newtype RawChunk = RawChunk Text
-  deriving (Ord, Eq, Read, Show, Generic)
-
-instance Serialize RawChunk
-
-instance ChunkTag RawChunk where
-  fromChunk (RawChunk ch) = ch
-
-newtype RawTag = RawTag Text
-  deriving (Ord, Eq, Read, Show, Generic)
-
-instance Serialize RawTag
-
--- | Tag instance for unknown tagsets.
-instance Tag RawTag where
-  fromTag (RawTag t) = t
-
-  parseTag t = RawTag t
-
-  -- | Constant tag for "unknown"
-  tagUNK = RawTag "Unk"
-
-  tagTerm (RawTag t) = t
-
-instance Serialize Text where
-  put txt = put $ encodeUtf8 txt
-  get     = fmap decodeUtf8 get
 
 -- | Document corpus.
 --

@@ -9,6 +9,7 @@ import System.Environment (getArgs)
 import NLP.Corpora.Parsing
 import NLP.POS (eval, loadTagger)
 import NLP.Types (POSTagger, RawTag, unTS)
+import qualified NLP.Corpora.Brown as B
 
 main :: IO ()
 main = do
@@ -16,7 +17,7 @@ main = do
   let modelFile = args!!0
       corpora = tail args
   putStrLn "Loading model..."
-  tagger <- (loadTagger modelFile:: IO (POSTagger RawTag))
+  tagger <- (loadTagger modelFile:: IO (POSTagger B.Tag))
   putStrLn "...model loaded."
   rawCorpus <- mapM T.readFile corpora
   let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
