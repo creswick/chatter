@@ -20,9 +20,10 @@ import GHC.Generics
 import qualified NLP.Types.Tags as T
 import NLP.Types.General
 
-data Chunk = C_NP
-           | C_VP
-           | C_PP
+data Chunk = C_NP -- ^ Noun Phrase.
+           | C_VP -- ^ Verb Phrase.
+           | C_PP -- ^ Prepositional Phrase.
+           | C_CL -- ^ Clause.
   deriving (Read, Show, Ord, Eq, Generic, Enum)
 
 instance Arbitrary Chunk where

@@ -9,6 +9,8 @@ import qualified Text.Parsec.Combinator as PC
 import NLP.Types
 import NLP.Extraction.Parsec
 
+import qualified NLP.Corpora.Brown as B
+
 -- grammar = r"""
 --   NP: {<DT|JJ|NN.*>+}          # Chunk sequences of DT, JJ, NN
 --   PP: {<IN><NP>}               # Chunk prepositions followed by NP
@@ -17,47 +19,47 @@ import NLP.Extraction.Parsec
 --   """
 -- cp = nltk.RegexpParser(grammar)
 -- sentence = [("Mary", Tag "NN"), ("saw", Tag "VBD"), ("the", Tag "DT"), ("cat", Tag "NN"), ("sit", Tag "VB"), ("on", Tag "IN"), ("the", Tag "DT"), ("mat", Tag "NN")]
-
+-- sentence = [TaggedSent [POS NP (Token "Mary"),POS VBD (Token "saw"),POS DT (Token "the"),POS NN (Token "cat"),POS VB (Token "sit"),POS IN (Token "on"),POS DT (Token "the"),POS NN (Token "mat"),POS Term (Token ".")]]
 -- | Find a clause in a larger collection of text.
 --
 -- findClause skips over leading tokens, if needed, to locate a
 -- clause.
-findClause :: Extractor RawTag (POS RawTag)
+findClause :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 findClause = followedBy anyToken clause
 
-clause :: Extractor RawTag (POS RawTag)
+clause :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 clause = do
   np <- nounPhrase
   vp <- verbPhrase
-  return $ chunk [np, vp] $ RawTag "clause"
+  return $ mkChunk B.C_CL [np, vp]
 
-prepPhrase :: Extractor RawTag (POS RawTag)
+prepPhrase :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 prepPhrase = do
-  prep <- posTok $ RawTag "IN"
+  prep <- posTok B.IN
   np <- nounPhrase
-  return $ chunk [prep, np] (RawTag "p-phr")
+  return $ mkChunk B.C_PP [POS_CN prep, np]
 
-nounPhrase :: Extractor RawTag (POS RawTag)
+nounPhrase :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 nounPhrase = do
-  nlist <- PC.many1 (try (posTok $ RawTag "NN")
-              <|> try (posTok $ RawTag "DT")
-                  <|> (posTok $ RawTag "JJ"))
-  let term = Token $ T.intercalate " " (map showPOS nlist)
-  return (POS (RawTag "n-phr") term)
+  nlist <- PC.many1 (try (posTok $ B.NN)
+              <|> try (posTok $ B.DT)
+                      <|> try (posTok $ B.AT) -- tagger often gets 'the' wrong.
+                              <|> (posTok $ B.JJ))
+  return (mkChunk B.C_NP $ map POS_CN nlist)
 
 --  VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
 --  CLAUSE: {<NP><VP>}
-verbPhrase :: Extractor RawTag (POS RawTag)
+verbPhrase :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 verbPhrase = do
   vp <- posPrefix "V"
   obj <- PC.many1 $ ((try clause)
                   <|> (try nounPhrase)
                   <|> prepPhrase)
-  return $ chunk (vp:obj) $ RawTag "v-phr"
+  return $ mkChunk B.C_VP $ ((POS_CN vp):obj)
 
 
--- | Create a chunked tag from a set of incomming tagged tokens.
-chunk :: [(POS RawTag)] -- ^ The incomming tokens to create a chunk from.
-      -> RawTag           -- ^ The tag for the chunk.
-      -> (POS RawTag)
-chunk tss tg = POS tg $ Token (T.unwords (map showPOS tss))
+-- -- | Create a chunked tag from a set of incomming tagged tokens.
+-- chunk :: [(POS B.Tag)] -- ^ The incomming tokens to create a chunk from.
+--       -> B.Tag           -- ^ The tag for the chunk.
+--       -> (POS B.Tag)
+-- chunk tss tg = POS tg $ Token (T.unwords (map showPOS tss))
