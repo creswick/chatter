@@ -2,6 +2,7 @@
 module Data.DefaultMap
 where
 
+import Test.QuickCheck (Arbitrary(..))
 import Control.DeepSeq (NFData)
 import Data.Map (Map)
 import qualified Data.Map as Map
@@ -45,3 +46,8 @@ keys m = Map.keys (defMap m)
 foldl :: (a -> b -> a) -> a -> DefaultMap k b -> a
 foldl fn acc m = Map.foldl fn acc (defMap m)
 
+instance (Arbitrary k, Arbitrary v, Ord k) => Arbitrary (DefaultMap k v) where
+  arbitrary = do
+      def <- arbitrary
+      entries <- arbitrary
+      return $ fromList def entries

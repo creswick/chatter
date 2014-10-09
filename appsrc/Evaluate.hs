@@ -8,7 +8,7 @@ import System.Environment (getArgs)
 
 import NLP.Corpora.Parsing
 import NLP.POS (eval, loadTagger)
-import NLP.Types (POSTagger, RawTag, unTS)
+import NLP.Types (POSTagger, unTS)
 import qualified NLP.Corpora.Brown as B
 
 main :: IO ()

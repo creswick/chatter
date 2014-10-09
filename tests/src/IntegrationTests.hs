@@ -4,26 +4,17 @@ module IntegrationTests
 where
 
 ----------------------------------------------------------------------
-import Test.QuickCheck ( Arbitrary, arbitrary, (==>), Property
-                       , NonEmptyList(..), listOf)
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Providers.HUnit (testCase)
 import Test.Framework ( testGroup, Test, buildTest )
-import Test.HUnit      ( (@=?), Assertion, assertFailure, assertEqual )
+import Test.HUnit      (Assertion, assertFailure, assertEqual )
 ----------------------------------------------------------------------
-import qualified Data.Text as T
 import Data.Text (Text)
 import qualified Data.Map as Map
-import Text.Parsec.Prim (parse, (<|>), try)
-import Text.Parsec.Pos
-import qualified Text.Parsec.Combinator as PC
 ----------------------------------------------------------------------
 import NLP.Types
 import NLP.POS
 import NLP.Corpora.Parsing
-import NLP.Extraction.Parsec
-import NLP.Extraction.Examples.ParsecExamples
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT

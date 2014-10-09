@@ -1,7 +1,24 @@
 {-# LANGUAGE OverloadedStrings    #-}
+-- | Example parsing with Parsec.
+--
+-- This example shows how the following grammar, from NLTK, can be
+-- implemented in Chatter, using Parsec-based Information Extraction
+-- patterns:
+--
+-- > grammar = r"""
+-- >  NP: {<DT|JJ|NN.*>+}          # Chunk sequences of DT, JJ, NN
+-- >  PP: {<IN><NP>}               # Chunk prepositions followed by NP
+-- >  VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
+-- >  CLAUSE: {<NP><VP>}           # Chunk NP, VP
+-- >  """
+--
+-- > > import NLP.Extraction.Examples.ParsecExamples
+-- > > import Text.Parsec.Prim
+-- > > tgr <- defaultTagger
+-- > > map (parse findClause "interactive") $ tag tgr "Mary saw the cat sit on the mat."
+-- > [Right (Chunk_CN (Chunk C_CL [Chunk_CN (Chunk C_NP [POS_CN (POS AT (Token "the")),POS_CN (POS NN (Token "cat"))]),Chunk_CN (Chunk C_VP [POS_CN (POS VB (Token "sit")),Chunk_CN (Chunk C_PP [POS_CN (POS IN (Token "on")),Chunk_CN (Chunk C_NP [POS_CN (POS AT (Token "the")),POS_CN (POS NN (Token "mat"))])])])]))]
+--
 module NLP.Extraction.Examples.ParsecExamples where
-
-import qualified Data.Text as T
 
 import Text.Parsec.Prim ( (<|>), try)
 import qualified Text.Parsec.Combinator as PC
@@ -11,15 +28,8 @@ import NLP.Extraction.Parsec
 
 import qualified NLP.Corpora.Brown as B
 
--- grammar = r"""
---   NP: {<DT|JJ|NN.*>+}          # Chunk sequences of DT, JJ, NN
---   PP: {<IN><NP>}               # Chunk prepositions followed by NP
---   VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
---   CLAUSE: {<NP><VP>}           # Chunk NP, VP
---   """
--- cp = nltk.RegexpParser(grammar)
--- sentence = [("Mary", Tag "NN"), ("saw", Tag "VBD"), ("the", Tag "DT"), ("cat", Tag "NN"), ("sit", Tag "VB"), ("on", Tag "IN"), ("the", Tag "DT"), ("mat", Tag "NN")]
--- sentence = [TaggedSent [POS NP (Token "Mary"),POS VBD (Token "saw"),POS DT (Token "the"),POS NN (Token "cat"),POS VB (Token "sit"),POS IN (Token "on"),POS DT (Token "the"),POS NN (Token "mat"),POS Term (Token ".")]]
+
+
 -- | Find a clause in a larger collection of text.
 --
 -- findClause skips over leading tokens, if needed, to locate a

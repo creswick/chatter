@@ -12,20 +12,18 @@ import Control.DeepSeq (NFData)
 import Data.ByteString (ByteString)
 import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.Serialize (Serialize, put, get)
+import Data.Serialize (Serialize)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
-import qualified Data.Text as T
 
 import GHC.Generics
+
+import Test.QuickCheck.Arbitrary (Arbitrary(..))
 
 import NLP.Types.General
 import NLP.Types.Tags
 import NLP.Types.Tree
-
--- data Tag t => TaggedSentence t = TS [(Text, t)]
---   deriving (Eq, Ord, Read, Show)
 
 -- | Part of Speech tagger, with back-off tagger.
 --
@@ -87,6 +85,11 @@ data Corpus = Corpus { corpLength     :: Int
 
 instance NFData Corpus
 instance Serialize Corpus
+
+instance Arbitrary Corpus where
+  arbitrary = do
+      docs <- arbitrary
+      return $ mkCorpus docs
 
 -- | Get the number of documents that a term occurred in.
 termCounts :: Corpus -> Text -> Int

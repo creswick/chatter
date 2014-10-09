@@ -24,7 +24,7 @@ import qualified Data.Text as T
 import NLP.Tokenize.Text (Tokenizer, EitherList(..), defaultTokenizer)
 import NLP.Tokenize.Chatter (runTokenizer)
 import NLP.FullStop (segment)
-import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), POS(..), applyTags
+import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), applyTags
                  , Tag, POSTagger(..), CaseSensitive(..), tokens, showTok)
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Text (compile)

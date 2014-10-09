@@ -5,21 +5,17 @@
 module NLP.Extraction.ParsecTests where
 
 ----------------------------------------------------------------------
-import Test.QuickCheck ( Arbitrary, arbitrary, (==>), Property
-                       , NonEmptyList(..), listOf)
+import Test.QuickCheck ((==>), Property)
 import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework ( testGroup, Test )
 ----------------------------------------------------------------------
-import qualified Data.Text as T
-import Data.Text (Text)
-import Text.Parsec.Prim (parse, (<|>), try)
-import Text.Parsec.Pos
-import qualified Text.Parsec.Combinator as PC
+import Text.Parsec.Prim (parse)
 ----------------------------------------------------------------------
 import NLP.Types
 import NLP.Extraction.Parsec
 import NLP.Extraction.Examples.ParsecExamples
+import qualified NLP.Corpora.Brown as B
 
 import TestUtils
 
@@ -30,15 +26,18 @@ tests = testGroup "NLP.Extraction.Parsec"
         , testProperty "followedBy" prop_followedBy
         , testGroup "Noun Phrase extractor" $
             map (genTest parseNounPhrase)
-             [ ("Just NN", TaggedSent [(POS (RawTag "NN") "Dog")]
-                         , Just (POS (RawTag "n-phr") "Dog"))
-             , ("DT NN", TaggedSent [(POS (RawTag "DT") "The"), (POS (RawTag "NN") "dog")]
-                       , Just (POS (RawTag "n-phr") "The dog"))
-             , ("NN NN", TaggedSent [(POS (RawTag "NN") "Sunday"), (POS (RawTag "NN") "night")]
-                       , Just (POS (RawTag "n-phr") "Sunday night"))
-             , ("JJ NN", TaggedSent [(POS (RawTag "JJ") "beautiful"), (POS (RawTag "NN") "game")]
-                       , Just (POS (RawTag "n-phr") "beautiful game"))
-             , ("None - VB", TaggedSent [(POS (RawTag "VB") "jump")]
+             [ ("Just NN", TaggedSent [POS B.NN "Dog"]
+                         , Just (mkChunk B.C_NP [mkChink B.NN "Dog"]))
+             , ("DT NN", TaggedSent [POS B.DT "The", POS B.NN "dog"]
+                       , Just (mkChunk B.C_NP [ mkChink B.DT "The"
+                                              , mkChink B.NN "dog"]))
+             , ("NN NN", TaggedSent [POS B.NN "Sunday", POS B.NN "night"]
+                       , Just (mkChunk B.C_NP [ mkChink B.NN "Sunday"
+                                              , mkChink B.NN "night"]))
+             , ("JJ NN", TaggedSent [POS B.JJ "beautiful", POS B.NN "game"]
+                       , Just (mkChunk B.C_NP [ mkChink B.JJ "beautiful"
+                                              , mkChink B.NN"game"]))
+             , ("None - VB", TaggedSent [POS B.VB "jump"]
                            , Nothing)
              ]
         ]
@@ -64,7 +63,7 @@ prop_followedBy taggedSent = taggedSent /= TaggedSent []
   in (POS theTag theToken) == actual
 
 
-parseNounPhrase :: TaggedSentence RawTag -> Maybe (POS RawTag)
+parseNounPhrase :: TaggedSentence B.Tag -> Maybe (ChunkOr B.Chunk B.Tag)
 parseNounPhrase sent =
   case parse nounPhrase "parseNounPhrase Test" sent of
     Left  _ -> Nothing

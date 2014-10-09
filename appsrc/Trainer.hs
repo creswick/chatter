@@ -10,7 +10,7 @@ import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.UnambiguousTagger as UT
 import NLP.POS (saveTagger, train)
 import NLP.Corpora.Parsing
-import NLP.Types (POSTagger, RawTag)
+import NLP.Types (POSTagger)
 
 import qualified NLP.Corpora.Brown as B
 

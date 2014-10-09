@@ -1,3 +1,10 @@
+= 0.3.0.1 =
+
+ - Bumped dependency on base to >= 4.6 (from >= 4) because of
+   Text.Read.readMaybe.
+
+ - fixed lots of warnings and added documentation.
+
 = 0.3.0.0 =
 
  - Changed the Sentence and TaggedSentence data types to be actual

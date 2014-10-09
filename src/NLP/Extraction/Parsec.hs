@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes, FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- | This is a very simple wrapper around Parsec for writing
 -- Information Extraction patterns.

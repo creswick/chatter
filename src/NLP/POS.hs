@@ -55,7 +55,7 @@ import           NLP.Tokenize.Text           (tokenize)
 import           NLP.Types                   ( POSTagger(..), Sentence, POS(..)
                                              , combine, Tag (..), unTS, tsLength
                                              , TaggedSentence(..), stripTags
-                                             , tagUNK, printTS)
+                                             , printTS)
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT

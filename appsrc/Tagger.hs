@@ -7,7 +7,7 @@ import qualified Data.Text.IO as T
 import System.Environment (getArgs)
 
 import NLP.POS (tagText, loadTagger)
-import NLP.Types (RawTag, POSTagger)
+import NLP.Types (POSTagger)
 
 import qualified NLP.Corpora.Brown as B
 

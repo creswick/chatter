@@ -4,8 +4,7 @@ module NLP.POS.LiteralTaggerTests where
 import Test.HUnit      ( (@?=), (@=?) )
 import Test.Framework ( testGroup, Test )
 import Test.Framework.Providers.HUnit (testCase)
-import Test.QuickCheck (Property, Arbitrary, arbitrary, (==>))
-import Test.QuickCheck.Gen (elements)
+import Test.QuickCheck (Property, (==>))
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Skip
 
@@ -143,9 +142,6 @@ trainAndTagTest :: Tag t => Maybe (POSTagger t)
 trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack name) mkAndTest
   where mkAndTest = let trained = LT.mkTagger table sensitive tgr
                     in oracle @=? tagText trained input
-
-instance Arbitrary LT.CaseSensitive where
-  arbitrary = elements [Sensitive, Insensitive]
 
 validTerm :: Text -> Bool
 validTerm term | T.null term = False
