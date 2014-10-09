@@ -1,15 +1,32 @@
+= 0.3.0.0 =
+
+ - Changed the Sentence and TaggedSentence data types to be actual
+   tree structures with real types at the respective
+   layers. ChunkedSentence and ChunkOr were also added to facilitate
+   phrase and clause chunking.
+
+ - Added a POS Tag data type for Brown corpus tags, and a Chunk type for
+   Chunks as well (in the Brown module, but that's probably not the best
+   place, given that the chunks have nothing to do with the actual Brown
+   corpus.)
+
+ - Updated the Parsec Examples to use the typed tags/chunks.
+
+ - Regenerated the defaultTager, it uses the Brown tags now instead of
+   RawTag.
+
 = 0.2.0.1 =
 
  - I realized immediately after the 0.2.0.0 release that I broke the
-	defaultTagger by adding the protectTerms function to the
-	LiteralTagger.  Things broke because (i) there are bugs in that
-	functionality, which uses run-time assembled regexes, and (ii) the
-	UnambiguousTagger used in the defaultTagger delegates to an instance
-	of the LiteralTagger, which pulled in the (semi-broken) protectTerms
-	function.  This has been fixed by replacing the tokenizer when the
-	LiteralTagger is used as an UnambiguousTagger -- the later tager
-	doesn't need the functionality, and it should never have been used
-	there anyway.
+   defaultTagger by adding the protectTerms function to the
+   LiteralTagger.  Things broke because (i) there are bugs in that
+   functionality, which uses run-time assembled regexes, and (ii) the
+   UnambiguousTagger used in the defaultTagger delegates to an instance
+   of the LiteralTagger, which pulled in the (semi-broken) protectTerms
+   function.  This has been fixed by replacing the tokenizer when the
+   LiteralTagger is used as an UnambiguousTagger -- the later tager
+   doesn't need the functionality, and it should never have been used
+   there anyway.
 
  - Added a bevy of tests to cover the above fix.
 

@@ -56,10 +56,3 @@ verbPhrase = do
                   <|> (try nounPhrase)
                   <|> prepPhrase)
   return $ mkChunk B.C_VP $ ((POS_CN vp):obj)
-
-
--- -- | Create a chunked tag from a set of incomming tagged tokens.
--- chunk :: [(POS B.Tag)] -- ^ The incomming tokens to create a chunk from.
---       -> B.Tag           -- ^ The tag for the chunk.
---       -> (POS B.Tag)
--- chunk tss tg = POS tg $ Token (T.unwords (map showPOS tss))
