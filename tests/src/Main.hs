@@ -22,6 +22,7 @@ import qualified BackoffTaggerTests as Backoff
 import qualified Data.DefaultMapTests as DefMap
 import qualified IntegrationTests as IT
 import qualified NLP.Corpora.BrownTests as Brown
+import qualified NLP.Corpora.ConllTests as Conll
 import qualified NLP.Extraction.ParsecTests as Parsec
 import qualified NLP.POS.AvgPerceptronTagger as APT
 import qualified NLP.POS.UnambiguousTaggerTests as UT
@@ -69,6 +70,7 @@ tests = [ testGroup "parseTag" $
         , Parsec.tests
         , IT.tests
         , Brown.tests
+        , Conll.tests
         ]
 
 

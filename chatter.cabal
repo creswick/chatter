@@ -52,6 +52,7 @@ Library
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
+                     NLP.Corpora.Conll
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
                      NLP.Extraction.Examples.ParsecExamples

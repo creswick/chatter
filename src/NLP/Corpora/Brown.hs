@@ -24,10 +24,10 @@ data Chunk = C_NP -- ^ Noun Phrase.
            | C_VP -- ^ Verb Phrase.
            | C_PP -- ^ Prepositional Phrase.
            | C_CL -- ^ Clause.
-  deriving (Read, Show, Ord, Eq, Generic, Enum)
+  deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
 instance Arbitrary Chunk where
-  arbitrary = elements [C_NP ..]
+  arbitrary = elements [minBound ..]
 
 instance Serialize Chunk
 
@@ -46,7 +46,7 @@ instance T.Tag Tag where
   tagTerm = showBrownTag
 
 instance Arbitrary Tag where
-  arbitrary = elements [Op_Paren ..]
+  arbitrary = elements [minBound ..]
 
 parseBrownTag :: Text -> Either Error Tag
 parseBrownTag "(" = Right Op_Paren
@@ -670,4 +670,4 @@ data Tag = Op_Paren -- ^ (
          | WRB_pl_IN -- ^ WH-adverb + preposition e.g.; why'n
          | WRB_pl_MD -- ^ WH-adverb + modal auxillary e.g.; where'd
          | Unk       -- ^ Unknown.
-  deriving (Read, Show, Ord, Eq, Generic, Enum)
+  deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
