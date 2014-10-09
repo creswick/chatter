@@ -37,7 +37,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-import NLP.Tokenize.Text (tokenize)
+import NLP.Tokenize.Chatter (tokenize)
 import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
 
@@ -120,13 +120,13 @@ train parse per rawCorpus = do
 
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.
-startToks :: [Text]
-startToks = ["-START-", "-START2-"]
+startToks :: [Token]
+startToks = [Token "-START-", Token "-START2-"]
 
 -- | end markers to ensure all features are valid, even for
 -- the last "real" tokens.
-endToks :: [Text]
-endToks = ["-END-", "-END2-"]
+endToks :: [Token]
+endToks = [Token "-END-", Token "-END2-"]
 
 -- | Tag a document (represented as a list of 'Sentence's) with a
 -- trained 'Perceptron'
@@ -162,15 +162,15 @@ tag per corpus = map (tagSentence per) corpus
 tagSentence :: Tag t => Perceptron -> Sentence -> TaggedSentence t
 tagSentence per sent = let
 
-  tags = (map (Class . T.unpack) startToks) ++ map (predictPos per) features
+  tags = (map tokenToClass startToks) ++ map (predictPos per) features
 
   features = zipWith4 (getFeatures sent)
              [0..]
-             sent
+             (tokens sent)
              (tail tags)
              tags
 
-  in TS $ zip sent (map (\(Class c) -> parseTag $ T.pack c) $ drop 2 tags)
+  in applyTags sent (map (\(Class c) -> parseTag $ T.pack c) $ drop 2 tags)
 
 -- | Train a model from sentences.
 --
@@ -203,16 +203,19 @@ tagSentence per sent = let
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
 --
-trainInt :: Tag t => Int -- ^ The number of times to iterate over the training
+trainInt :: Tag t =>
+            Int -- ^ The number of times to iterate over the training
                 -- data, randomly shuffling after each iteration. (@5@
                 -- is a reasonable choice.)
          -> Perceptron -- ^ The 'Perceptron' to train.
          -> [TaggedSentence t] -- ^ The training data. (A list of @[(Text, Tag)]@'s)
          -> IO Perceptron    -- ^ A trained perceptron.  IO is needed
                              -- for randomization.
-trainInt itr per examples = trainCls itr per $ toClassLst $ map (unzip . unTS) examples
+trainInt itr per examples = trainCls itr per $ toClassLst $ map unzipTags examples
+  -- where
+  --   toSentPair (xs, ts) = (Sent $ map Token xs, ts)
 
-toClassLst ::  Tag t => [(Sentence, [t])] -> [(Sentence, [Class])]
+toClassLst :: Tag t => [(Sentence, [t])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged
 
 trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> IO Perceptron
@@ -220,6 +223,8 @@ trainCls itr per examples = do
   trainingSet <- shuffleM $ concat $ take itr $ repeat examples
   return $ averageWeights $ foldl' trainSentence per trainingSet
 
+tokenToClass :: Token -> Class
+tokenToClass = Class . T.unpack . showTok
 
 -- | Train on one sentence.
 --
@@ -238,11 +243,11 @@ trainCls itr per examples = do
 trainSentence :: Perceptron -> (Sentence, [Class]) -> Perceptron
 trainSentence per (sent, ts) = let
 
-  tags = (map (Class . T.unpack) startToks) ++ ts ++ (map (Class . T.unpack) endToks)
+  tags = (map tokenToClass startToks) ++ ts ++ (map tokenToClass endToks)
 
   features = zipWith4 (getFeatures sent)
                          [0..] -- index
-                         sent  -- words
+                         (tokens sent)  -- words
                          (tail tags) -- prev1
                          tags  -- prev2
 
@@ -286,9 +291,9 @@ predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
 -- >     add('i+2 word', context[i+2])
 -- >     return features
 --
-getFeatures :: [Text] -> Int -> Text -> Class -> Class -> Map Feature Int
+getFeatures :: Sentence -> Int -> Token -> Class -> Class -> Map Feature Int
 getFeatures ctx idx word prev prev2 = let
-  context = startToks ++ ctx ++ endToks
+  context = startToks ++ tokens ctx ++ endToks
 
   i = idx + length startToks
 
@@ -302,25 +307,21 @@ getFeatures ctx idx word prev prev2 = let
   features :: [[Text]]
   features = [ ["bias", ""]
              , ["i suffix", suffix word ]
-             , ["i pref1", T.take 1 word ]
+             , ["i pref1", T.take 1 $ showTok word ]
              , ["i-1 tag", T.pack $ show prev ]
              , ["i-2 tag", T.pack $ show prev2 ]
              , ["i tag+i-2 tag", T.pack $ show prev, T.pack $ show prev2 ]
-             , ["i word", context!!i ]
-             , ["i-1 tag+i word", T.pack $ show prev, context!!i ]
-             , ["i-1 word", context!!(i-1) ]
-             , ["i-1 suffix", suffix (context!!(i-1)) ]
-             , ["i-2 word", context!!(i-2) ]
-             , ["i+1 word", context!!(i+1) ]
-             , ["i+1 suffix", suffix (context!!(i+1)) ]
-             , ["i+2 word", context!!(i+2) ]
+             , ["i word",     showTok (context!!i) ]
+             , ["i-1 tag+i word", T.pack $ show prev, showTok (context!!i) ]
+             , ["i-1 word",   showTok (context!!(i-1)) ]
+             , ["i-1 suffix",  suffix (context!!(i-1)) ]
+             , ["i-2 word",   showTok (context!!(i-2)) ]
+             , ["i+1 word",   showTok (context!!(i+1)) ]
+             , ["i+1 suffix",  suffix (context!!(i+1)) ]
+             , ["i+2 word",   showTok (context!!(i+2)) ]
              ]
   -- in trace ("getFeatures: "++show (ctx, idx, word, prev, prev2)) $
   in foldl' add Map.empty features
 
 mkFeature :: Text -> Feature
 mkFeature txt = Feat $ T.copy txt
-
-suffix :: Text -> Text
-suffix str | T.length str <= 3 = str
-           | otherwise       = T.drop (T.length str - 3) str

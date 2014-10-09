@@ -2,10 +2,8 @@
 module NLP.Extraction.Examples.ParsecExamples where
 
 import qualified Data.Text as T
-import Data.Text (Text)
 
-import Text.Parsec.Prim (parse, (<|>), try)
-import Text.Parsec.Pos
+import Text.Parsec.Prim ( (<|>), try)
 import qualified Text.Parsec.Combinator as PC
 
 import NLP.Types
@@ -24,32 +22,32 @@ import NLP.Extraction.Parsec
 --
 -- findClause skips over leading tokens, if needed, to locate a
 -- clause.
-findClause :: Extractor RawTag (Text, RawTag)
+findClause :: Extractor RawTag (POS RawTag)
 findClause = followedBy anyToken clause
 
-clause :: Extractor RawTag (Text, RawTag)
+clause :: Extractor RawTag (POS RawTag)
 clause = do
   np <- nounPhrase
   vp <- verbPhrase
   return $ chunk [np, vp] $ RawTag "clause"
 
-prepPhrase :: Extractor RawTag (Text, RawTag)
+prepPhrase :: Extractor RawTag (POS RawTag)
 prepPhrase = do
   prep <- posTok $ RawTag "IN"
   np <- nounPhrase
   return $ chunk [prep, np] (RawTag "p-phr")
 
-nounPhrase :: Extractor RawTag (Text, RawTag)
+nounPhrase :: Extractor RawTag (POS RawTag)
 nounPhrase = do
   nlist <- PC.many1 (try (posTok $ RawTag "NN")
               <|> try (posTok $ RawTag "DT")
                   <|> (posTok $ RawTag "JJ"))
-  let term = T.intercalate " " (map fst nlist)
-  return (term, RawTag "n-phr")
+  let term = Token $ T.intercalate " " (map showPOS nlist)
+  return (POS (RawTag "n-phr") term)
 
 --  VP: {<VB.*><NP|PP|CLAUSE>+$} # Chunk verbs and their arguments
 --  CLAUSE: {<NP><VP>}
-verbPhrase :: Extractor RawTag (Text, RawTag)
+verbPhrase :: Extractor RawTag (POS RawTag)
 verbPhrase = do
   vp <- posPrefix "V"
   obj <- PC.many1 $ ((try clause)
@@ -59,7 +57,7 @@ verbPhrase = do
 
 
 -- | Create a chunked tag from a set of incomming tagged tokens.
-chunk :: [(Text, RawTag)] -- ^ The incomming tokens to create a chunk from.
+chunk :: [(POS RawTag)] -- ^ The incomming tokens to create a chunk from.
       -> RawTag           -- ^ The tag for the chunk.
-      -> (Text, RawTag)
-chunk tss tg = (T.unwords (map fst tss), tg)
+      -> (POS RawTag)
+chunk tss tg = POS tg $ Token (T.unwords (map showPOS tss))

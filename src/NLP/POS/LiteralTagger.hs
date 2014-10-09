@@ -21,11 +21,11 @@ import Data.Serialize (encode, decode)
 import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
-
-import NLP.Tokenize.Text (Tokenizer, EitherList(..), defaultTokenizer, run)
+import NLP.Tokenize.Text (Tokenizer, EitherList(..), defaultTokenizer)
+import NLP.Tokenize.Chatter (runTokenizer)
 import NLP.FullStop (segment)
-import NLP.Types ( tagUNK, Sentence, TaggedSentence(..)
-                 , Tag, POSTagger(..), CaseSensitive(..))
+import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), POS(..), applyTags
+                 , Tag, POSTagger(..), CaseSensitive(..), tokens, showTok)
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Text (compile)
 
@@ -44,7 +44,7 @@ mkTagger table sensitive mTgr = POSTagger
   { posTagger  = tag (canonicalize table) sensitive
   , posTrainer = \_ -> return $ mkTagger table sensitive mTgr
   , posBackoff = mTgr
-  , posTokenizer = run (protectTerms (Map.keys table) sensitive >=> defaultTokenizer)
+  , posTokenizer = runTokenizer (protectTerms (Map.keys table) sensitive >=> defaultTokenizer)
   , posSplitter = (map T.pack) . segment . T.unpack
   , posSerialize = encode (table, sensitive)
   , posID = taggerID
@@ -121,10 +121,10 @@ tag :: Tag t => Map Text t -> CaseSensitive -> [Sentence] -> [TaggedSentence t]
 tag table sensitive ss = map (tagSentence table sensitive) ss
 
 tagSentence :: Tag t => Map Text t -> CaseSensitive -> Sentence -> TaggedSentence t
-tagSentence table sensitive toks = TS (map findTag toks)
+tagSentence table sensitive sent = applyTags sent (map findTag $ tokens sent)
   where
---    findTag :: Tag t => Text -> (Text, t)
-    findTag txt = (txt, Map.findWithDefault tagUNK (canonicalize txt) table)
+--    findTag :: Tag t => Token -> t
+    findTag txt = Map.findWithDefault tagUNK (canonicalize $ showTok txt) table
 
     canonicalize :: Text -> Text
     canonicalize =

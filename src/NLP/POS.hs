@@ -13,7 +13,7 @@
 -- people don't (yet!) use "Data.Text" by default, so there is a
 -- wrapper around 'tag' that packs and unpacks the 'String'.  This is
 -- innefficient, but it's just to get you started, and 'tagStr' can be
--- very handy when you're debugging an tagger in ghci (or cabal repl).
+-- very handy when you're debugging a tagger in ghci (or cabal repl).
 --
 -- 'tag' exposes more details of the tokenization and tagging, since
 -- it returns a list of `TaggedSentence`s, but it doesn't print
@@ -52,9 +52,10 @@ import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
 import           NLP.Tokenize.Text           (tokenize)
-import           NLP.Types                   (POSTagger (..), Sentence,
-                                              Tag (..), TaggedSentence(..),
-                                              stripTags, tagUNK, unTS, tsLength)
+import           NLP.Types                   ( POSTagger(..), Sentence, POS(..)
+                                             , combine, Tag (..), unTS, tsLength
+                                             , TaggedSentence(..), stripTags
+                                             , tagUNK, printTS)
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
@@ -141,21 +142,6 @@ tagTokens p tokens = let priority = (posTagger p) tokens
                           Just tgr -> combine priority (tagTokens tgr tokens)
 
 
--- | Combine the results of POS taggers, using the second param to
--- fill in 'tagUNK' entries, where possible.
-combine :: Tag t => [TaggedSentence t] -> [TaggedSentence t] -> [TaggedSentence t]
-combine xs ys = zipWith combineSentences xs ys
-
-combineSentences :: Tag t => TaggedSentence t -> TaggedSentence t -> TaggedSentence t
-combineSentences (TS xs) (TS ys) = TS $ zipWith pickTag xs ys
-
--- | Returns the first param, unless it is tagged 'tagUNK'.
--- Throws an error if the text does not match.
-pickTag :: Tag t => (Text, t) -> (Text, t) -> (Text, t)
-pickTag a@(txt1, t1) b@(txt2, t2) | txt1 /= txt2 = error ("Text does not match: "++ show a ++ " " ++ show b)
-                                  | t1 /= tagUNK = (txt1, t1)
-                                  | otherwise    = (txt1, t2)
-
 -- | Tag the tokens in a string.
 --
 -- Returns a space-separated string of tokens, each token suffixed
@@ -169,12 +155,7 @@ tagStr tgr = T.unpack . tagText tgr . T.pack
 
 -- | Text version of tagStr
 tagText :: Tag t => POSTagger t -> Text -> Text
-tagText tgr str = T.intercalate " " $ map toTaggedTok taggedSents
-  where
-    taggedSents = concatMap unTS $ tag tgr str
-
-    toTaggedTok :: Tag t => (Text, t) -> Text
-    toTaggedTok (tok, t) = tok `T.append` (T.cons '/' (tagTerm t))
+tagText tgr txt = T.intercalate " " $ map printTS $ tag tgr txt
 
 -- | Train a tagger on string input in the standard form for POS
 -- tagged corpora:
@@ -231,7 +212,7 @@ eval tgr oracle = let
   results = (posTagger tgr) sentences
   totalTokens = fromIntegral $ sum $ map tsLength oracle
 
-  isMatch :: Tag t => (Text, t) -> (Text, t) -> Double
-  isMatch (_, rTag) (_, oTag) | rTag == oTag = 1
-                              | otherwise    = 0
+  isMatch :: Tag t => POS t -> POS t -> Double
+  isMatch (POS rTag _) (POS oTag _) | rTag == oTag = 1
+                                    | otherwise    = 0
   in (sum $ zipWith isMatch (concatMap unTS results) (concatMap unTS oracle)) / totalTokens

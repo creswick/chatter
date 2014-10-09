@@ -17,7 +17,8 @@ import Test.QuickCheck.Gen (elements)
 
 import GHC.Generics
 
-import qualified NLP.Types as T
+import qualified NLP.Types.Tags as T
+import NLP.Types.General
 
 data Chunk = C_NP
            | C_VP
@@ -46,7 +47,7 @@ instance T.Tag Tag where
 instance Arbitrary Tag where
   arbitrary = elements [Op_Paren ..]
 
-parseBrownTag :: Text -> Either T.Error Tag
+parseBrownTag :: Text -> Either Error Tag
 parseBrownTag "(" = Right Op_Paren
 parseBrownTag ")" = Right Cl_Paren
 parseBrownTag "*" = Right Negator

@@ -135,7 +135,7 @@ emptyTagger :: POSTagger RawTag
 emptyTagger = LT.mkTagger Map.empty Sensitive Nothing
 
 prop_emptyAlwaysUnk :: String -> Bool
-prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
+prop_emptyAlwaysUnk input = all (\(POS y _) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
 trainAndTagTest :: Tag t => Maybe (POSTagger t)

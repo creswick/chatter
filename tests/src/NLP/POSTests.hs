@@ -16,10 +16,10 @@ import TestUtils
 tests :: Test
 tests = testGroup "NLP.POS"
         [ testGroup "Evaluation" $ map (genTestF $ eval mamalTagger)
-             [ ("Half", [ TS [ ("the", RawTag "DT"), ("cat", RawTag "NN")]
-                        , TS [ ("the", RawTag "DT"), ("dog", RawTag "NN")] ], 0.5)
-             , ("All ", [ TS [ ("dog", RawTag "NN"), ("cat", RawTag "NN")] ], 1.0)
-             , ("None", [ TS [ ("the", RawTag "DT"), ("couch", RawTag "NN")] ], 0)
+             [ ("Half", [ TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "cat")]
+                        , TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "dog")] ], 0.5)
+             , ("All ", [ TaggedSent [ (POS (RawTag "NN") "dog"), (POS (RawTag "NN") "cat")] ], 1.0)
+             , ("None", [ TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "couch")] ], 0)
              ]
         , testGroup "Serialization"
              [ testProperty "1 LiteralTagger" (prop_taggersRoundTrip mamalTagger)

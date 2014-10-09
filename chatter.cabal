@@ -48,6 +48,7 @@ Library
                      NLP.Types.General
                      NLP.Types.Tags
                      NLP.Types.Tree
+                     NLP.Tokenize.Chatter
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
@@ -79,7 +80,9 @@ Library
                      regex-tdfa >= 1.2.0,
                      regex-tdfa-text,
                      array,
-                     QuickCheck < 2.6
+                     QuickCheck < 2.6,
+                     quickcheck-instances
+
 
 
    ghc-options:      -Wall

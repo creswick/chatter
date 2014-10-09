@@ -4,6 +4,7 @@ module NLP.Types
  ( module NLP.Types
  , module NLP.Types.Tags
  , module NLP.Types.General
+ , module NLP.Types.Tree
  )
 where
 
@@ -21,37 +22,10 @@ import GHC.Generics
 
 import NLP.Types.General
 import NLP.Types.Tags
+import NLP.Types.Tree
 
-type Sentence = [Text]
-
-data Tag t => TaggedSentence t = TS [(Text, t)]
-  deriving (Eq, Ord, Read, Show)
-
--- instance Functor TaggedSentence where
---   fmap fn (TS ts) = TS $ map (\(x,y) -> (x, fn y)) ts
-
-unTS :: Tag t => TaggedSentence t -> [(Text, t)]
-unTS (TS ts) = ts
-
-tsLength :: Tag t => TaggedSentence t -> Int
-tsLength (TS ts) = length ts
-
-tsConcat :: Tag t => [TaggedSentence t] -> TaggedSentence t
-tsConcat tss = TS (concatMap unTS tss)
-
-flattenText :: Tag t => TaggedSentence t -> Text
-flattenText (TS ts) = T.unwords $ map fst ts
-
--- | True if the input sentence contains the given text token.  Does
--- not do partial or approximate matching, and compares details in a
--- fully case-sensitive manner.
-contains :: Tag t => TaggedSentence t -> Text -> Bool
-contains (TS ts) tok = tok `elem` map fst ts
-
--- | True if the input sentence contains the given POS tag.
--- Does not do partial matching (such as prefix matching)
-containsTag :: Tag t => TaggedSentence t -> t -> Bool
-containsTag (TS ts) tag = tag `elem` map snd ts
+-- data Tag t => TaggedSentence t = TS [(Text, t)]
+--   deriving (Eq, Ord, Read, Show)
 
 -- | Part of Speech tagger, with back-off tagger.
 --
@@ -101,10 +75,6 @@ data POSTagger t = POSTagger
                           -- algorithm used for this POS Tagger.  This
                           -- is used in deserialization
     }
-
--- | Remove the tags from a tagged sentence
-stripTags :: Tag t => TaggedSentence t -> Sentence
-stripTags (TS t) = map fst t
 
 -- | Document corpus.
 --

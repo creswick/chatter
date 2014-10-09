@@ -39,7 +39,7 @@ trainedTagger :: POSTagger RawTag
 trainedTagger = UT.mkTagger (Map.fromList [("the", RawTag "dt"), ("dog", RawTag "vb")]) Nothing
 
 prop_emptyAlwaysUnk :: String -> Bool
-prop_emptyAlwaysUnk input = all (\(_, y) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
+prop_emptyAlwaysUnk input = all (\(POS y _) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
 trainAndTagTest :: Tag t => POSTagger t -> (Text, Text, Text) -> Test

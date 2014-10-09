@@ -29,5 +29,5 @@ testLiteralBackoff :: Assertion
 testLiteralBackoff = let
   tgr = LT.mkTagger tagCat LT.Sensitive (Just $ LT.mkTagger tagAnimals LT.Sensitive Nothing)
   actual = tag tgr "cat dog"
-  oracle = [TS [("cat", RawTag "CAT"), ("dog", RawTag "NN")]]
+  oracle = [TaggedSent [(POS (RawTag "CAT") "cat"), (POS (RawTag "NN") "dog")]]
   in oracle @=? actual

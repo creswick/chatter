@@ -17,7 +17,7 @@ import qualified Data.Map as Map
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
 
-import NLP.Tokenize.Text (defaultTokenizer, run)
+import NLP.Tokenize.Chatter (tokenize)
 import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT
@@ -44,19 +44,20 @@ mkTagger table mTgr = let
   in litTagger { posTrainer = trainer
                , posSerialize = encode table
                , posID = taggerID
-               , posTokenizer = run defaultTokenizer
+               , posTokenizer = tokenize
                }
 
 -- | Trainer method for unambiguous taggers.
 train :: Tag t => Map Text t -> [TaggedSentence t] -> Map Text t
 train table exs = let
---   pairs :: Tag t => [(Text, t)]
+
+--  pairs :: POS t
   pairs = concatMap unTS exs
 
-  trainOnPair :: Tag t => Map Text t -> (Text, t) -> Map Text t
-  trainOnPair t (txt, tag) = Map.alter (incorporate tag) txt t
+--  trainOnPair :: Map Text t -> POS t -> Map Text t
+  trainOnPair t (POS tag (Token txt)) = Map.alter (incorporate tag) txt t
 
-  incorporate :: Tag t => t -> Maybe t -> Maybe t
+--  incorporate :: t -> Maybe t -> Maybe t
   incorporate new Nothing                 = Just new
   incorporate new (Just old) | new == old = Just old
                              | otherwise  = Just tagUNK -- Forget the tag.
