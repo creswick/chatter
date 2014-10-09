@@ -1,7 +1,8 @@
 = 0.3.0.1 =
 
  - Bumped dependency on base to >= 4.6 (from >= 4) because of
-   Text.Read.readMaybe.
+   Text.Read.readMaybe.  This drops support for HP2012, and requires
+   GHC 7.6 or newer.
 
  - fixed lots of warnings and added documentation.
 
