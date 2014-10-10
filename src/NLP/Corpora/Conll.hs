@@ -7,7 +7,7 @@ module NLP.Corpora.Conll where
 import Data.Serialize (Serialize)
 import qualified Data.Text as T
 import Data.Text (Text)
-import Text.Read (readMaybe)
+import Text.Read (readEither)
 import Test.QuickCheck.Arbitrary (Arbitrary(..))
 import Test.QuickCheck.Gen (elements)
 
@@ -63,9 +63,7 @@ readTag "." = Right Term
 readTag ":" = Right Colon
 readTag txt =
   let normalized = replaceAll tagTxtPatterns (T.toUpper txt)
-  in case readMaybe $ T.unpack normalized of
-       Nothing -> Left (T.append "Could not parse: " txt)
-       Just  t -> Right t
+  in toEitherErr (readEither $ T.unpack normalized)
 
 -- | Order matters here: The patterns are replaced in reverse order
 -- when generating tags, and in top-to-bottom when generating tags.
@@ -93,6 +91,7 @@ replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
 instance T.ChunkTag Chunk where
   fromChunk = T.pack . show
+  parseChunk txt = toEitherErr $ readEither $ T.unpack txt
 
 data Tag = Hash -- ^ #
          | Dollar -- ^ $

@@ -30,6 +30,7 @@ import qualified NLP.POS.LiteralTaggerTests as LT
 import qualified NLP.POSTests as POS
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
+import qualified NLP.Types.IOBTests as IOB
 
 import Corpora
 
@@ -52,12 +53,6 @@ tests = [ testGroup "parseTag" $
           , testGroup "miniCorpora2 - POSTagger train" $
             map (trainAndTagTestVTrainer miniCorpora1)
              [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          -- , skip $ testGroup "brown CA01" $
-          --   map (trainAndTagTestFileCorpus brownCA01)
-          --    [ ("the dog jumped .", "the/at dog/nn jumped/Unk ./.") ]
-          -- , skip $ testGroup "brown CA" $
-          --   map (trainAndTagTestIO brownCA)
-          --    [ ("the dog jumped .", "the/at dog/nn jumped/vbd ./.") ]
           ]
         , APT.tests
         , Backoff.tests
@@ -71,6 +66,7 @@ tests = [ testGroup "parseTag" $
         , IT.tests
         , Brown.tests
         , Conll.tests
+        , IOB.tests
         ]
 
 

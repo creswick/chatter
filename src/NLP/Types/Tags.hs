@@ -13,12 +13,15 @@ import GHC.Generics
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
+import NLP.Types.General (Error(..))
+
 -- | The class of things that can be regarded as 'chunks'; Chunk tags
 -- are much like POS tags, but should not be confused. Generally,
 -- chunks distinguish between different phrasal categories (e.g.; Noun
 -- Phrases, Verb Phrases, Prepositional Phrases, etc..)
 class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => ChunkTag a where
   fromChunk :: a -> Text
+  parseChunk :: Text -> Either Error a
 
 -- | The class of POS Tags.
 --
@@ -50,6 +53,7 @@ instance Serialize RawChunk
 
 instance ChunkTag RawChunk where
   fromChunk (RawChunk ch) = ch
+  parseChunk txt = Right (RawChunk txt)
 
 -- | A fallback POS tag instance.
 newtype RawTag = RawTag Text

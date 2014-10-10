@@ -46,6 +46,7 @@ Library
                      NLP.POS.UnambiguousTagger
                      NLP.Types
                      NLP.Types.General
+                     NLP.Types.IOB
                      NLP.Types.Tags
                      NLP.Types.Tree
                      NLP.Tokenize.Chatter
