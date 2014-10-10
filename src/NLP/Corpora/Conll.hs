@@ -27,6 +27,7 @@ data Chunk = ADJP
            | SBAR
            | UCP
            | VP -- ^ Verb Phrase.
+           | O -- ^ "out"; not a chunk.
   deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
 instance Arbitrary Chunk where
@@ -47,6 +48,9 @@ instance T.Tag Tag where
   tagUNK = Unk
 
   tagTerm = showTag
+
+  startTag = START
+  endTag = END
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
@@ -92,8 +96,11 @@ replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 instance T.ChunkTag Chunk where
   fromChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither $ T.unpack txt
+  notChunk = O
 
-data Tag = Hash -- ^ #
+data Tag = START -- ^ START tag, used in training.
+         | END -- ^ END tag, used in training.
+         | Hash -- ^ #
          | Dollar -- ^ $
          | CloseDQuote -- ^ ''
          | OpenDQuote -- ^ ``

@@ -50,7 +50,7 @@ prop_tagsParse iob (stripTok -> Token txt) chunk tag =
       input = T.intercalate " " [ txt, fromTag tag
                     , T.intercalate "" [(T.pack $ show iob), "-", fromChunk chunk]]
       result :: Either Error (IOBChunk C.Chunk C.Tag)
-      result = parseIOBChunk input
+      result = parseIOBLine input
 
       constr = case iob of
                  I -> IChunk (POS tag tok) chunk

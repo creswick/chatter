@@ -212,8 +212,6 @@ trainInt :: Tag t =>
          -> IO Perceptron    -- ^ A trained perceptron.  IO is needed
                              -- for randomization.
 trainInt itr per examples = trainCls itr per $ toClassLst $ map unzipTags examples
-  -- where
-  --   toSentPair (xs, ts) = (Sent $ map Token xs, ts)
 
 toClassLst :: Tag t => [(Sentence, [t])] -> [(Sentence, [Class])]
 toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged

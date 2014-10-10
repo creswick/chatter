@@ -3,16 +3,15 @@ module NLP.Types.IOB where
 
 import Prelude hiding (print)
 import Control.Applicative ((<$>), (<*>))
-import Control.Monad (liftM)
 import Data.Text (Text)
 import qualified Data.Text as T
 
-import Test.QuickCheck (Arbitrary(..), listOf, elements, NonEmptyList(..))
+import Test.QuickCheck (Arbitrary(..), elements)
 import Test.QuickCheck.Instances ()
 
 import NLP.Types.Tags
 import NLP.Types.Tree
-import NLP.Types.General (Error(..))
+import NLP.Types.General (Error)
 
 -- | Data type to indicate IOB tags for chunking
 data IOBChunk chunk tag = BChunk (POS tag) chunk -- ^ Beging marker.
@@ -32,19 +31,22 @@ instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) => Arbitrary (IOBChunk c 
 -- Assumes that the line has three space-delimeted entries, in the format:
 -- > token POSTag IOBChunk
 -- For example:
--- > > parseIOBChunk "We PRP B-NP" :: IOBChunk B.Chunk B.Tag
+-- > > parseIOBLine "We PRP B-NP" :: IOBChunk B.Chunk B.Tag
 -- > BChunk (POS B.PRP (Token "We")) B.C_NP
 --
-parseIOBChunk :: (ChunkTag chunk, Tag tag) => Text -> Either Error (IOBChunk chunk tag)
-parseIOBChunk txt =
+parseIOBLine :: (ChunkTag chunk, Tag tag) => Text -> Either Error (IOBChunk chunk tag)
+parseIOBLine txt =
   let (tokTxt:tagTxt:iobTxt:_) = T.words txt
       token = Token tokTxt
       tag   = POS (parseTag tagTxt) token
-      chunk = parseChunk (T.drop 2 iobTxt)
-      iobChunk | "I-" `T.isPrefixOf` iobTxt = (IChunk tag) <$> chunk
-               | "B-" `T.isPrefixOf` iobTxt = (BChunk tag) <$> chunk
-               | otherwise                  = Right (OChunk tag)
-  in iobChunk
+  in iobBuilder iobTxt tag
+
+iobBuilder :: (ChunkTag c, Tag t) => Text -> (POS t -> Either Error (IOBChunk c t))
+iobBuilder iobTxt | "I-" `T.isPrefixOf` iobTxt = \tag -> (IChunk tag) <$> chunk
+                  | "B-" `T.isPrefixOf` iobTxt = \tag -> (BChunk tag) <$> chunk
+                  | otherwise                  = \tag -> Right (OChunk tag)
+  where
+    chunk = parseChunk (T.drop 2 iobTxt)
 
 -- | Parse an IOB-encoded corpus.
 parseIOB :: (ChunkTag chunk, Tag tag) => Text -> Either Error [[IOBChunk chunk tag]]
@@ -53,7 +55,7 @@ parseIOB corpora =
   in sequence $ map parseSentence sentences
 
 parseSentence :: (ChunkTag chunk, Tag tag) => [Text] -> Either Error [IOBChunk chunk tag]
-parseSentence input = sequence (map parseIOBChunk input)
+parseSentence input = sequence (map parseIOBLine input)
 
 -- | Just split a body of text into lines, and then into "paragraphs".
 -- Each resulting sub list is separated by empty lines in the original text.

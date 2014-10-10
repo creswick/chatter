@@ -35,6 +35,17 @@ applyTags (Sent ts) tags = TaggedSent $ zipWith POS tags ts
 data ChunkedSentence chunk tag = ChunkedSent [ChunkOr chunk tag]
   deriving (Read, Show, Eq)
 
+-- | A data type to represent the portions of a parse tree for Chunks.
+-- Note that this part of the parse tree could be a POS tag with no
+-- chunk.
+data ChunkOr chunk tag = Chunk_CN (Chunk chunk tag)
+                       | POS_CN   (POS tag)
+                         deriving (Read, Show, Eq)
+
+-- | A Chunk that strictly contains chunks or POS tags.
+data Chunk chunk tag = Chunk chunk [ChunkOr chunk tag]
+  deriving (Read, Show, Eq)
+
 instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) =>
   Arbitrary (ChunkedSentence c t) where
   arbitrary = ChunkedSent <$> arbitrary
@@ -67,6 +78,20 @@ unzipTags (TaggedSent ts) =
       topair (POS tag tok) = (tag, tok)
   in (Sent toks, tags)
 
+unzipChunks :: (ChunkTag c, Tag t) => ChunkedSentence c t -> (TaggedSentence t, [c])
+unzipChunks (ChunkedSent cs) = (TaggedSent poss, chunks)
+  where
+    (poss, chunks) = unzip (concatMap f cs)
+
+--    f :: ChunkOr chunk tag -> [(POS tag, chunk)]
+    f (POS_CN                  postag) = [(postag, notChunk)]
+    f (Chunk_CN (Chunk chTag subTree)) = map (updateChunk chTag) (concatMap f subTree)
+
+--    updateChunk :: c -> (POS t, c) -> (POS t, c)
+    updateChunk chunk (ptag, oldChunk) | oldChunk == notChunk = (ptag, chunk)
+                                       | otherwise            = (ptag, oldChunk)
+
+
 -- | Combine the results of POS taggers, using the second param to
 -- fill in 'tagUNK' entries, where possible.
 combine :: Tag t => [TaggedSentence t] -> [TaggedSentence t] -> [TaggedSentence t]
@@ -85,12 +110,6 @@ pickTag a@(POS t1 txt1) b@(POS t2 txt2)
   | t1 /= tagUNK = POS t1 txt1
   | otherwise    = POS t2 txt1
 
--- | A data type to represent the portions of a parse tree for Chunks.
--- Note that this part of the parse tree could be a POS tag with no
--- chunk.
-data ChunkOr chunk tag = Chunk_CN (Chunk chunk tag)
-                       | POS_CN   (POS tag)
-                         deriving (Read, Show, Eq)
 
 instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) => Arbitrary (ChunkOr c t) where
   arbitrary = elements =<< do
@@ -106,23 +125,24 @@ mkChunk chunk children = Chunk_CN (Chunk chunk children)
 mkChink :: (ChunkTag chunk, Tag tag) => tag -> Token -> ChunkOr chunk tag
 mkChink tag token      = POS_CN (POS tag token)
 
--- | A Chunk that strictly contains chunks or POS tags.
-data Chunk chunk tag = Chunk chunk [ChunkOr chunk tag]
-  deriving (Read, Show, Eq)
 
 instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) => Arbitrary (Chunk c t) where
   arbitrary = Chunk <$> arbitrary <*> arbitrary
 
 -- | A POS-tagged token.
-data POS tag = POS tag Token
-  deriving (Read, Show, Eq)
+data POS tag = POS { posTag :: tag
+                   , posToken :: Token
+                   } deriving (Read, Show, Eq)
 
 instance (Arbitrary t, Tag t) => Arbitrary (POS t) where
   arbitrary = POS <$> arbitrary <*> arbitrary
 
 -- | Show the underlying text token only.
-showPOS :: Tag tag => POS tag -> Text
-showPOS (POS _ (Token txt)) = txt
+showPOStok :: Tag tag => POS tag -> Text
+showPOStok (POS _ (Token txt)) = txt
+
+showPOStag :: Tag tag => POS tag -> Text
+showPOStag = tagTerm . posTag
 
 -- | Show the text and tag.
 printPOS :: Tag tag => POS tag -> Text

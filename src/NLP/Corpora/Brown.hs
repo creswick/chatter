@@ -24,6 +24,7 @@ data Chunk = C_NP -- ^ Noun Phrase.
            | C_VP -- ^ Verb Phrase.
            | C_PP -- ^ Prepositional Phrase.
            | C_CL -- ^ Clause.
+           | C_O  -- ^ "Out" not a chunk.
   deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
 instance Arbitrary Chunk where
@@ -44,6 +45,9 @@ instance T.Tag Tag where
   tagUNK = Unk
 
   tagTerm = showBrownTag
+
+  startTag = START
+  endTag = END
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
@@ -89,8 +93,11 @@ replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 instance T.ChunkTag Chunk where
   fromChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither (T.unpack $ T.append "C_" txt)
+  notChunk = C_O
 
-data Tag = Op_Paren -- ^ (
+data Tag = START -- ^ START tag, used in training.
+         | END -- ^ END tag, used in training.
+         | Op_Paren -- ^ (
          | Cl_Paren -- ^ )
          | Negator -- ^ *, not n't
          | Comma -- ^ ,
