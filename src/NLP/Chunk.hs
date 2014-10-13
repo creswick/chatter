@@ -31,6 +31,10 @@ chunkerTable = Map.fromList
   [ (Avg.chunkerID, Avg.readChunker)
   ]
 
+-- tag :: Tag t => POSTagger t -> Text -> [TaggedSentence t]
+-- tag p txt = let sentences = (posSplitter p) txt
+--                 tokens    = map (posTokenizer p) sentences
+--             in tagTokens p tokens
 
 saveChunker :: (ChunkTag c, Tag t) => Chunker c t -> FilePath -> IO ()
 saveChunker chunker file = BS.writeFile file (serialize chunker)

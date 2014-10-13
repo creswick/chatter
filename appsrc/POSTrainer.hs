@@ -10,7 +10,8 @@ import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.UnambiguousTagger as UT
 import NLP.POS (saveTagger, train)
 import NLP.Corpora.Parsing
-import NLP.Types (POSTagger)
+import NLP.Types (POSTagger, Error)
+import NLP.Types.IOB
 
 import qualified NLP.Corpora.Conll as C
 
@@ -26,7 +27,12 @@ main = do
       initTagger :: POSTagger C.Tag
       initTagger   = UT.mkTagger Map.empty (Just avgPerTagger)
   rawCorpus <- mapM T.readFile corpora
-  let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
-  tagger <- train initTagger taggedCorpora
-  saveTagger tagger output
+  let eCorpora :: Either Error [[IOBChunk C.Chunk C.Tag]]
+      eCorpora = parseIOB $ T.concat rawCorpus
+  case eCorpora of
+    Left err -> T.putStrLn err
+    Right taggedCorpora -> do
+     let taggedSentences = map toTaggedSentence taggedCorpora
+     tagger <- train initTagger taggedSentences
+     saveTagger tagger output
 

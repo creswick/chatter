@@ -89,7 +89,7 @@ Library
 
 
 
-   ghc-options:      -Wall
+   ghc-options:      -Wall -auto-all -caf-all
 
 
 Executable tagPOS
@@ -207,4 +207,4 @@ test-suite tests
                      quickcheck-instances,
                      containers
 
-   ghc-options:      -Wall
+   ghc-options:      -Wall -auto-all -caf-all

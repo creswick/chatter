@@ -31,6 +31,7 @@ import qualified NLP.POSTests as POS
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
 import qualified NLP.Types.IOBTests as IOB
+import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 
 import Corpora
 
@@ -38,35 +39,36 @@ main :: IO ()
 main = defaultMain tests
 
 tests :: [Test]
-tests = [ testGroup "parseTag" $
-          [ testProperty "basic tag parsing" prop_parseTag]
-        , testGroup "Train and tag"
-          [ testGroup "miniCorpora1" $
-            map (trainAndTagTest miniCorpora1)
-             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          , testGroup "miniCorpora2" $
-            map (trainAndTagTest miniCorpora1)
-             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          , testGroup "miniCorpora1 - POSTagger train" $
-            map (trainAndTagTestVTrainer miniCorpora1)
-             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          , testGroup "miniCorpora2 - POSTagger train" $
-            map (trainAndTagTestVTrainer miniCorpora1)
-             [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
-          ]
-        , APT.tests
-        , Backoff.tests
-        , Vec.tests
-        , POS.tests
-        , UT.tests
-        , LT.tests
-        , TypeTests.tests
-        , DefMap.tests
-        , Parsec.tests
-        , IT.tests
-        , Brown.tests
-        , Conll.tests
-        , IOB.tests
+tests = [ -- testGroup "parseTag" $
+        --   [ testProperty "basic tag parsing" prop_parseTag]
+        -- , testGroup "Train and tag"
+        --   [ testGroup "miniCorpora1" $
+        --     map (trainAndTagTest miniCorpora1)
+        --      [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+        --   , testGroup "miniCorpora2" $
+        --     map (trainAndTagTest miniCorpora1)
+        --      [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+        --   , testGroup "miniCorpora1 - POSTagger train" $
+        --     map (trainAndTagTestVTrainer miniCorpora1)
+        --      [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+        --   , testGroup "miniCorpora2 - POSTagger train" $
+        --     map (trainAndTagTestVTrainer miniCorpora1)
+        --      [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+        --   ]
+        -- , APT.tests
+        -- , Backoff.tests
+        -- , Vec.tests
+        -- , POS.tests
+        -- , UT.tests
+        -- , LT.tests
+        -- , TypeTests.tests
+        -- , DefMap.tests
+        -- , Parsec.tests
+        -- , IT.tests
+        -- , Brown.tests
+        -- , Conll.tests
+        -- , IOB.tests
+        APC.tests
         ]
 
 

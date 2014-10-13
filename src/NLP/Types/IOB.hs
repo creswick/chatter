@@ -19,12 +19,21 @@ data IOBChunk chunk tag = BChunk (POS tag) chunk -- ^ Beging marker.
                         | OChunk (POS tag) -- ^ Not in a chunk.
   deriving (Read, Show, Eq)
 
+getPOS :: (ChunkTag c, Tag t) => IOBChunk c t -> POS t
+getPOS (BChunk pos _) = pos
+getPOS (IChunk pos _) = pos
+getPOS (OChunk pos)   = pos
+
 instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) => Arbitrary (IOBChunk c t) where
   arbitrary = elements =<< do
                 ic <- IChunk <$> arbitrary <*> arbitrary
                 bc <- BChunk <$> arbitrary <*> arbitrary
                 oc <- OChunk <$> arbitrary
                 return [ic, bc, oc]
+
+toTaggedSentence :: (ChunkTag c, Tag t) => [IOBChunk c t] -> TaggedSentence t
+toTaggedSentence iobChunks = TaggedSent $ map getPOS iobChunks
+
 
 -- | Parse an IOB-chunk encoded line of text.
 --

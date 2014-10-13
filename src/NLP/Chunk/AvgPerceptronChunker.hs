@@ -52,6 +52,8 @@ mkChunker per = Chunker { chChunker = chunk per
                         , chId = chunkerID
                         }
 
+
+-- debug with profiling, run with -xc
 chunk :: (ChunkTag c, Tag t) => Perceptron -> [TaggedSentence t] -> [ChunkedSentence c t]
 chunk per corpus = map (chunkSentence per) corpus
 
@@ -63,7 +65,7 @@ chunkSentence per (TaggedSent sent) = let
   features = zipWith3 (getFeatures sent)
              [0..]
              sent
-             (tail chunks) -- only works if startToks is of length 1
+             chunks
 
   chunkBuilders = map (\(Class c) -> iobBuilder $ T.pack c) $ drop 1 chunks
 
@@ -77,8 +79,11 @@ toTree :: (ChunkTag c, Tag t) => [IOBChunk c t] -> ChunkedSentence c t
 toTree chunks = ChunkedSent $ toChunkOr chunks
 
 toChunkOr :: (ChunkTag c, Tag t) => [IOBChunk c t] -> [ChunkOr c t]
+toChunkOr [] = []
 toChunkOr ((OChunk pos):rest)       = POS_CN pos : toChunkOr rest
-toChunkOr ((BChunk pos chunk):rest) = (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
+toChunkOr (ch:rest) = case ch of
+  (BChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
+  (IChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
   where
     (ichunks, theTail) = span isIChunk rest
 
@@ -132,7 +137,7 @@ trainSentence per (TaggedSent sent, ts) = let
   features = zipWith3 (getFeatures sent)
                          [0..] -- index
                          sent  -- words (well, POS values)
-                         (tail tags) -- prev1, only works if startToks is of length 1
+                         tags  -- predicted class of previous word.
 
   fn :: Perceptron -> (Map Feature Int, Class) -> Perceptron
   fn model (feats, truth) = let
