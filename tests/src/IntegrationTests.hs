@@ -21,15 +21,21 @@ import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
 
 import qualified NLP.Corpora.Brown as B
+import qualified NLP.Corpora.Conll as C
 
 import TestUtils
 
 tests :: Test
 tests = buildTest $ do
-  tagger <- defaultTagger :: IO (POSTagger B.Tag)
+  brown <- brownTagger :: IO (POSTagger B.Tag)
+  def <- defaultTagger :: IO (POSTagger C.Tag)
   return $ testGroup "Integration Tests"
         [ testGroup "Default Tagger" $
-            map (genTest $ tagText tagger)
+            map (genTest $ tagText def)
+              [ ("Simple 1", "The dog jumped.", "The/DT dog/NN jumped/VBD ./.")
+              ]
+        , testGroup "Brown Tagger" $
+            map (genTest $ tagText brown)
               [ ("Simple 1", "The dog jumped.", "The/AT dog/NN jumped/VBD ./.")
               ]
         , testGroup "POS Serialization" $

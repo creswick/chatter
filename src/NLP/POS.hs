@@ -34,6 +34,8 @@ module NLP.POS
   , saveTagger
   , loadTagger
   , defaultTagger
+  , conllTagger
+  , brownTagger
   )
 where
 
@@ -62,13 +64,22 @@ import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
 
 import qualified NLP.Corpora.Brown as B
+import qualified NLP.Corpora.Conll as C
 
 import           Paths_chatter
 
-defaultTagger :: IO (POSTagger B.Tag)
-defaultTagger = do
+defaultTagger :: IO (POSTagger C.Tag)
+defaultTagger = conllTagger
+
+conllTagger :: IO (POSTagger C.Tag)
+conllTagger = do
   dir <- getDataDir
-  loadTagger (dir </> "data" </> "models" </> "brown-train.model.gz")
+  loadTagger (dir </> "data" </> "models" </> "conll2000.pos.model.gz")
+
+brownTagger :: IO (POSTagger B.Tag)
+brownTagger = do
+  dir <- getDataDir
+  loadTagger (dir </> "data" </> "models" </> "brown.pos.model.gz")
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By

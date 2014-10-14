@@ -29,14 +29,37 @@ tests = buildTest $ do
 
   return $ testGroup "NLP.Chunk.AvgPerceptronChunker"
         [ testGroup "AvgPerceptronChunker - conll" $ map (test_chunk def)
-          [ "The dog jumped."
-          , "A chair."
-          , "Confidence in the pound is widely expected to take another sharp dive."
+          [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
+                                               [ mkChink C.DT "The"
+                                               , mkChink C.NN "dog"
+                                               ]
+                                             , mkChunk C.VP [mkChink C.VBD "jumped"]
+                                             , mkChink C.Term "."
+                                             ]]
+            )
+          , ("A chair.",  [ChunkedSent [mkChunk C.NP
+                                        [ mkChink C.DT "A"
+                                        , mkChink C.NN "chair"
+                                        ]
+                                       , mkChink C.Term "."
+                                       ]])
+          -- , ("Confidence in the pound is widely expected to take another sharp dive."
+          --   , [ChunkedSent []])
           ]
         , testGroup "AvgPerceptionChunker - naive" $ map (test_chunk naive)
-          [ "The dog jumped."
-          , "A chair."
-          , "Confidence in the pound is widely expected to take another sharp dive."
+          [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
+                                               [ mkChink C.DT "The"
+                                               , mkChink C.NN "dog"
+                                               ]
+                                             , mkChunk C.VP [mkChink C.VBD "jumped"]
+                                             , mkChink C.Term "."
+                                             ]]
+            )
+          , ("A chair",  [ChunkedSent [mkChunk C.NP
+                                        [ mkChink C.DT "A"
+                                        , mkChink C.NN "chair"
+                                        ]
+                                       ]])
           ]
         ]
 
@@ -66,18 +89,11 @@ uniformChunker = do
                       ]
          ]
 
-conllChunker :: IO (Chunker C.Chunk C.Tag)
-conllChunker = loadChunker "conll2000.chunk.model"
-
-conllTagger :: IO (POSTagger C.Tag)
-conllTagger = loadTagger "conll2000.pos.model"
-
-test_chunk :: Chunker C.Chunk C.Tag -> Text -> Test
-test_chunk chk txt = testCase (T.unpack txt) $ do
+test_chunk :: Chunker C.Chunk C.Tag -> (Text, [ChunkedSentence C.Chunk C.Tag]) -> Test
+test_chunk chk (txt, oracle) = testCase (T.unpack txt) $ do
   tgr <- conllTagger
   let tagged = tag tgr txt
       chunked = chChunker chk tagged
-      oracle = [ChunkedSent []] -- TODO obviously wrong.
   oracle @=? chunked
 
 

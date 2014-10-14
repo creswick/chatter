@@ -27,7 +27,9 @@ build-type:          Simple
 Extra-Source-Files:  changelog.md
 
 data-files:          ./data/models/README
-                     ./data/models/brown-train.model.gz
+                     ./data/models/brown.pos.model.gz
+                     ./data/models/conll2000.pos.model.gz
+                     ./data/models/conll2000.chunk.model.gz
 
 source-repository head
   type:     git

@@ -41,7 +41,7 @@ readChunker bs = do
   return $ mkChunker model
 
 itterations :: Int
-itterations = 1
+itterations = 5
 
 mkChunker :: (ChunkTag c, Tag t) => Perceptron -> Chunker c t
 mkChunker per = Chunker { chChunker = chunk per

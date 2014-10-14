@@ -1,6 +1,5 @@
-
-
-brown-train.model.gz
+---------------------------------------------------------------------
+brown.pos.model.gz
 ---------------------------------------------------------------------
 
 Averaged Perceptron tagger and Unambiguous Tagger trained on most of
@@ -12,3 +11,18 @@ the Brown corpus; the following files were held out for testing:
   cp01 cp03 cr02
 
 The remainder of the Brown corpus was used to train this model.
+
+
+---------------------------------------------------------------------
+conll2000.pos.model.gz
+---------------------------------------------------------------------
+
+Averaged Perceptron tagger and Unambiguous Tagger trained on the Conll
+2000 training set.
+
+
+---------------------------------------------------------------------
+conll2000.chunk.model.gz
+---------------------------------------------------------------------
+
+Averaged Perceptron Chunker trained on the Conll 2000 training set.

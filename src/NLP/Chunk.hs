@@ -18,6 +18,18 @@ import           NLP.Types
 import           NLP.Chunk.AvgPerceptronChunker
 import qualified NLP.Chunk.AvgPerceptronChunker as Avg
 
+import qualified NLP.Corpora.Conll as C
+
+import           Paths_chatter
+
+defaultChunker :: IO (Chunker C.Chunk C.Tag)
+defaultChunker = conllChunker
+
+conllChunker :: IO (Chunker C.Chunk C.Tag)
+conllChunker = do
+  dir <- getDataDir
+  loadChunker (dir </> "data" </> "models" </> "conll2000.chunk.model.gz")
+
 train :: (ChunkTag c, Tag t) => Chunker c t -> [ChunkedSentence c t] -> IO (Chunker c t)
 train ch exs = chTrainer ch exs
 
