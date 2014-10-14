@@ -29,6 +29,6 @@ main = do
   case eChunkedCorpora of
     Left err -> T.putStrLn err
     Right chunkedCorpora -> do
-      chunker <- train avgPerChunker $ map Avg.toTree chunkedCorpora
+      chunker <- train avgPerChunker $ map toChunkTree chunkedCorpora
       saveChunker chunker output
 

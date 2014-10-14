@@ -3,6 +3,7 @@ module NLP.Types.IOB where
 
 import Prelude hiding (print)
 import Control.Applicative ((<$>), (<*>))
+import Data.Maybe (mapMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 
@@ -56,6 +57,30 @@ iobBuilder iobTxt | "I-" `T.isPrefixOf` iobTxt = \tag -> (IChunk tag) <$> chunk
                   | otherwise                  = \tag -> Right (OChunk tag)
   where
     chunk = parseChunk (T.drop 2 iobTxt)
+
+
+-- | Turn an IOB result into a tree.
+toChunkTree :: (ChunkTag c, Tag t) => [IOBChunk c t] -> ChunkedSentence c t
+toChunkTree chunks = ChunkedSent $ toChunkOr chunks
+
+  where
+    toChunkOr :: (ChunkTag c, Tag t) => [IOBChunk c t] -> [ChunkOr c t]
+    toChunkOr [] = []
+    toChunkOr ((OChunk pos):rest)       = POS_CN pos : toChunkOr rest
+    toChunkOr (ch:rest) = case ch of
+      (BChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
+      (IChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
+      where
+        (ichunks, theTail) = span isIChunk rest
+
+        toPOScn (IChunk pos _) = Just $ POS_CN pos
+        toPOScn _              = Nothing
+
+    --    children :: [ChunkOr c t]
+        children = mapMaybe toPOScn ichunks
+
+        isIChunk (IChunk _ _) = True
+        isIChunk _            = False
 
 -- | Parse an IOB-encoded corpus.
 parseIOB :: (ChunkTag chunk, Tag tag) => Text -> Either Error [[IOBChunk chunk tag]]

@@ -13,7 +13,7 @@ import NLP.Types.IOB
 import Control.Monad (foldM)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 (pack)
-import Data.List (zipWith4, foldl')
+import Data.List (zipWith4, foldl', group)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import Data.Either (rights)
@@ -41,7 +41,7 @@ readChunker bs = do
   return $ mkChunker model
 
 itterations :: Int
-itterations = 5
+itterations = 1
 
 mkChunker :: (ChunkTag c, Tag t) => Perceptron -> Chunker c t
 mkChunker per = Chunker { chChunker = chunk per
@@ -67,33 +67,30 @@ chunkSentence per (TaggedSent sent) = let
              sent
              chunks
 
-  chunkBuilders = map (\(Class c) -> iobBuilder $ T.pack c) $ drop 1 chunks
+  chunkTags = map (\(Class c) -> parseChunk $ T.pack c) $ drop 1 chunks
 
-  in toTree $ rights $ zipWith ($) chunkBuilders sent -- possible hidden failures.
+  in toTree (rights $ chunkTags) sent -- possible hidden failures.
 
 predictChunk :: Perceptron -> Map Feature Int -> Class
-predictChunk model feats = fromMaybe (Class "O") $ predict model feats
+predictChunk model feats =
+  let predicted = predict model feats
+      theClass = fromMaybe (Class "O") predicted
+  in theClass
 
 -- | Turn an IOB result into a tree.
-toTree :: (ChunkTag c, Tag t) => [IOBChunk c t] -> ChunkedSentence c t
-toTree chunks = ChunkedSent $ toChunkOr chunks
+toTree :: (ChunkTag c, Tag t) => [c] -> [POS t] -> ChunkedSentence c t
+toTree chunks tags =
+  let groups = map (\g -> (head g, length g)) $ group chunks
 
-toChunkOr :: (ChunkTag c, Tag t) => [IOBChunk c t] -> [ChunkOr c t]
-toChunkOr [] = []
-toChunkOr ((OChunk pos):rest)       = POS_CN pos : toChunkOr rest
-toChunkOr (ch:rest) = case ch of
-  (BChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
-  (IChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
-  where
-    (ichunks, theTail) = span isIChunk rest
+      groupTags []     _    = []
+      groupTags ((g, c):gs) tags = (g, take c tags):(groupTags gs $ drop c tags)
 
-    toPOScn (IChunk pos _) = Just $ POS_CN pos
-    toPOScn _              = Nothing
+  in ChunkedSent $ concatMap toChunkOr (groupTags groups tags)
 
-    children = mapMaybe toPOScn ichunks
+toChunkOr :: (ChunkTag c, Tag t) => (c, [POS t]) -> [ChunkOr c t]
+toChunkOr (c, tags) | c == notChunk = map POS_CN tags
+                    | otherwise     = [Chunk_CN (Chunk c $ map POS_CN tags)]
 
-    isIChunk (IChunk _ _) = True
-    isIChunk _            = False
 
 trainInt :: (ChunkTag c, Tag t) =>
             Int -- ^ The number of times to iterate over the training
