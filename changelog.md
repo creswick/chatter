@@ -1,3 +1,16 @@
+= 0.4.0.0 =
+
+ - Added phrasal chunking via an Averaged Perceptron Chunker,
+   trained on the Conll 2000 corpus.
+
+ - Added a POS tagger trained on the Conll 2000 corpus, because the
+   Conll chunker relies on that tagset.
+
+ - Set the Conll 2000 POS tagger to the defaultTagger. Note that
+   the tagset is much smaller than the Brown tagset used by the
+   previous defaultTagger.  The Brown tagger is still available from
+   NLP.POS.brownTagger.
+
 = 0.3.0.1 =
 
  - Bumped dependency on base to >= 4.6 (from >= 4) because of
