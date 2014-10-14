@@ -9,7 +9,6 @@ import System.Environment (getArgs)
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.UnambiguousTagger as UT
 import NLP.POS (saveTagger, train)
-import NLP.Corpora.Parsing
 import NLP.Types (POSTagger, Error)
 import NLP.Types.IOB
 

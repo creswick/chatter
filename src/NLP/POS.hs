@@ -68,14 +68,17 @@ import qualified NLP.Corpora.Conll as C
 
 import           Paths_chatter
 
+-- | A basic POS tagger.
 defaultTagger :: IO (POSTagger C.Tag)
 defaultTagger = conllTagger
 
+-- | A POS tagger that has been trained on the Conll 2000 POS tags.
 conllTagger :: IO (POSTagger C.Tag)
 conllTagger = do
   dir <- getDataDir
   loadTagger (dir </> "data" </> "models" </> "conll2000.pos.model.gz")
 
+-- | A POS tagger trained on a subset of the Brown corpus.
 brownTagger :: IO (POSTagger B.Tag)
 brownTagger = do
   dir <- getDataDir

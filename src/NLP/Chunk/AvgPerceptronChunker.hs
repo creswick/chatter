@@ -2,29 +2,35 @@
 -- | Avegeraged Perceptron Chunker
 --
 module NLP.Chunk.AvgPerceptronChunker
+  ( mkChunker
+  , trainInt
+  , chunk
+  , chunkSentence
+  , Chunker(..)
+  , chunkerID
+  , readChunker
+  )
 where
 
 import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
                              , Class(..), predict, update
-                             , emptyPerceptron, averageWeights)
+                             , averageWeights)
 import NLP.Types
-import NLP.Types.IOB
 
-import Control.Monad (foldM)
 import Data.ByteString (ByteString)
-import Data.ByteString.Char8 (pack)
-import Data.List (zipWith4, foldl', group)
+import Data.List (foldl', group)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import Data.Either (rights)
-import Data.Maybe (fromMaybe, mapMaybe)
+import Data.Maybe (fromMaybe)
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
 
 import System.Random.Shuffle (shuffleM)
 
+-- | The type of Chunkers, incorporates chunking, training,
+-- serilazitaion and unique IDs for deserialization.
 data Chunker c t = Chunker
   { chChunker :: [TaggedSentence t] -> [ChunkedSentence c t]
   , chTrainer :: [ChunkedSentence c t] -> IO (Chunker c t)
@@ -32,9 +38,11 @@ data Chunker c t = Chunker
   , chId :: ByteString
   }
 
+-- | The unique ID for this implementation of a 'Chunker'
 chunkerID :: ByteString
 chunkerID = "NLP.Chunk.AvgPerceptronChunker"
 
+-- | deserialize an 'AvgPerceptronChunker' from a 'ByteString'.
 readChunker :: (ChunkTag c, Tag t) => ByteString -> Either String (Chunker c t)
 readChunker bs = do
   model <- decode bs
@@ -43,6 +51,7 @@ readChunker bs = do
 itterations :: Int
 itterations = 5
 
+-- | Create a chunker from a 'Perceptron'.
 mkChunker :: (ChunkTag c, Tag t) => Perceptron -> Chunker c t
 mkChunker per = Chunker { chChunker = chunk per
                         , chTrainer = \exs -> do
@@ -53,10 +62,11 @@ mkChunker per = Chunker { chChunker = chunk per
                         }
 
 
--- debug with profiling, run with -xc
+-- | Chunk a list of POS-tagged sentence, generating a parse tree.
 chunk :: (ChunkTag c, Tag t) => Perceptron -> [TaggedSentence t] -> [ChunkedSentence c t]
 chunk per corpus = map (chunkSentence per) corpus
 
+-- | Chunk a single POS-tagged sentence.
 chunkSentence :: (ChunkTag c, Tag t) => Perceptron -> TaggedSentence t -> ChunkedSentence c t
 chunkSentence per (TaggedSent sent) = let
 
@@ -110,9 +120,6 @@ trainCls :: Tag t => Int -> Perceptron -> [(TaggedSentence t, [Class])] -> IO Pe
 trainCls itr per examples = do
   trainingSet <- shuffleM $ concat $ take itr $ repeat examples
   return $ averageWeights $ foldl' trainSentence per trainingSet
-
-posToClass :: Tag t => POS t -> Class
-posToClass = Class . T.unpack . showPOStok
 
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.

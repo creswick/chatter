@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 module ChunkTrainer where
 
-import qualified Data.Map as Map
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import System.Environment (getArgs)
@@ -9,8 +8,6 @@ import System.Environment (getArgs)
 import NLP.POS.AvgPerceptron (emptyPerceptron)
 import qualified NLP.Chunk.AvgPerceptronChunker as Avg
 import NLP.Chunk (train, saveChunker)
-import NLP.Corpora.Parsing
-import NLP.Types
 import NLP.Types.IOB
 
 import qualified NLP.Corpora.Conll as C

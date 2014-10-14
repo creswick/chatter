@@ -5,7 +5,7 @@ module NLP.Types.IOBTests where
 import Test.HUnit      ( (@=?), Assertion )
 
 import Test.Framework ( testGroup, Test )
-import Test.QuickCheck (Arbitrary(..), listOf, elements, NonEmptyList(..), (==>), Property)
+import Test.QuickCheck (Arbitrary(..), elements, (==>), Property)
 import Test.QuickCheck.Instances ()
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 import Test.Framework.Providers.HUnit (testCase)

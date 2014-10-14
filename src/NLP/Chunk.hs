@@ -9,11 +9,8 @@ import           Data.List                   (isSuffixOf)
 import           Data.Map                    (Map)
 import qualified Data.Map                    as Map
 import           Data.Serialize              (decode, encode)
-import           Data.Text                   (Text)
-import qualified Data.Text                   as T
 import           System.FilePath             ((</>))
 
-import           NLP.Tokenize.Text           (tokenize)
 import           NLP.Types
 import           NLP.Chunk.AvgPerceptronChunker
 import qualified NLP.Chunk.AvgPerceptronChunker as Avg
@@ -43,14 +40,12 @@ chunkerTable = Map.fromList
   [ (Avg.chunkerID, Avg.readChunker)
   ]
 
--- tag :: Tag t => POSTagger t -> Text -> [TaggedSentence t]
--- tag p txt = let sentences = (posSplitter p) txt
---                 tokens    = map (posTokenizer p) sentences
---             in tagTokens p tokens
-
+-- | Store a 'Chunker' to disk.
 saveChunker :: (ChunkTag c, Tag t) => Chunker c t -> FilePath -> IO ()
 saveChunker chunker file = BS.writeFile file (serialize chunker)
 
+-- | Load a 'Chunker' from disk, optionally gunzipping if
+-- needed. (based on file extension)
 loadChunker :: (ChunkTag c, Tag t) => FilePath -> IO (Chunker c t)
 loadChunker file = do
   content <- getContent file
