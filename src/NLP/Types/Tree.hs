@@ -46,6 +46,16 @@ data ChunkOr chunk tag = Chunk_CN (Chunk chunk tag)
 data Chunk chunk tag = Chunk chunk [ChunkOr chunk tag]
   deriving (Read, Show, Eq)
 
+showChunkedSent :: (ChunkTag c, Tag t) => ChunkedSentence c t -> Text
+showChunkedSent (ChunkedSent cs) = T.intercalate " " (map showChunkOr cs)
+  where
+    showChunkOr (POS_CN    pos)         = printPOS pos
+    showChunkOr (Chunk_CN (Chunk chunk cors)) =
+      let front = T.concat ["[", fromChunk chunk]
+          back = "]"
+          bits = map showChunkOr cors
+      in T.append (T.intercalate " " (front:bits)) back
+
 instance (ChunkTag c, Arbitrary c, Arbitrary t, Tag t) =>
   Arbitrary (ChunkedSentence c t) where
   arbitrary = ChunkedSent <$> arbitrary

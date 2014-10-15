@@ -1,3 +1,16 @@
+= 0.4.0.1 =
+
+ - Added chunk, chunkText, and chunkStr functions to NLP.Chunk to
+   make it easier to experiment with the chunker.
+
+ - Added a formatting function to show ChunkedSententences
+   (NLP.Types.Tree.showChunkedSent) that formats chunks in bracket notation, eg:
+
+   > chunkText tgr chk "The dog jumped over the reluctant cat."
+   "[NP The/DT dog/NN] [VP jumped/VBD] [NP over/IN the/DT reluctant/JJ cat/NN] ./."
+
+   Notice that the features still need some tuning for the chunker.
+
 = 0.4.0.0 =
 
  - Added phrasal chunking via an Averaged Perceptron Chunker,

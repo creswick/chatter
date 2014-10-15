@@ -1,3 +1,4 @@
+{-# LANGUAGE OverloadedStrings #-}
 module NLP.Chunk
 where
 
@@ -9,10 +10,13 @@ import           Data.List                   (isSuffixOf)
 import           Data.Map                    (Map)
 import qualified Data.Map                    as Map
 import           Data.Serialize              (decode, encode)
+import           Data.Text                   (Text)
+import qualified Data.Text                   as T
 import           System.FilePath             ((</>))
 
+import           NLP.POS                     (tag)
 import           NLP.Types
-import           NLP.Chunk.AvgPerceptronChunker
+import           NLP.Chunk.AvgPerceptronChunker (Chunker(..))
 import qualified NLP.Chunk.AvgPerceptronChunker as Avg
 
 import qualified NLP.Corpora.Conll as C
@@ -29,6 +33,15 @@ conllChunker = do
 
 train :: (ChunkTag c, Tag t) => Chunker c t -> [ChunkedSentence c t] -> IO (Chunker c t)
 train ch exs = chTrainer ch exs
+
+chunk :: (ChunkTag c, Tag t) => Chunker c t -> [TaggedSentence t] -> [ChunkedSentence c t]
+chunk chk input = chChunker chk input
+
+chunkText :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> Text -> Text
+chunkText tgr chk input = T.intercalate " " $ map showChunkedSent $ chunk chk $ tag tgr input
+
+chunkStr :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> String -> Text
+chunkStr tgr chk str = chunkText tgr chk $ T.pack str
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By
