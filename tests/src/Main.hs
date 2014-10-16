@@ -31,6 +31,7 @@ import qualified NLP.POSTests as POS
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
 import qualified NLP.Types.IOBTests as IOB
+import qualified NLP.Types.TreeTests as Tree
 import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 
 import Corpora
@@ -69,6 +70,7 @@ tests = [ testGroup "parseTag" $
         , Conll.tests
         , IOB.tests
         , APC.tests
+        , Tree.tests
         ]
 
 
