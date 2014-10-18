@@ -35,7 +35,7 @@ import qualified Text.Parsec.Combinator as PC
 import Text.Parsec.Pos  (newPos)
 
 import NLP.Types (TaggedSentence(..), Tag(..), CaseSensitive(..),
-                                POS(..), Token(..))
+                  POS(..), Token(..), ChunkedSentence(..), ChunkOr(..), ChunkTag)
 
 instance (Monad m, Tag t) => Stream (TaggedSentence t) m (POS t) where
   uncons (TaggedSent ts) = do
@@ -43,6 +43,14 @@ instance (Monad m, Tag t) => Stream (TaggedSentence t) m (POS t) where
     case mRes of
       Nothing           -> return $ Nothing
       Just (mTok, rest) -> return $ Just (mTok, TaggedSent rest)
+  {-# INLINE uncons #-}
+
+instance (Monad m, ChunkTag c, Tag t) => Stream (ChunkedSentence c t) m (ChunkOr c t) where
+  uncons (ChunkedSent ts) = do
+    mRes <- uncons ts
+    case mRes of
+      Nothing           -> return $ Nothing
+      Just (mTok, rest) -> return $ Just (mTok, ChunkedSent rest)
   {-# INLINE uncons #-}
 
 -- | A Parsec parser.
