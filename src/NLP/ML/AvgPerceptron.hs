@@ -8,7 +8,7 @@
 --
 --  * <https://github.com/sloria/TextBlob/blob/dev/text/_perceptron.py>
 --
-module NLP.POS.AvgPerceptron
+module NLP.ML.AvgPerceptron
   ( Perceptron(..)
   , Class(..)
   , Weight

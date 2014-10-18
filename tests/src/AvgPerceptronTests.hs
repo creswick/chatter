@@ -11,7 +11,7 @@ import Data.Serialize (encode, decode)
 import Data.Map (Map)
 import qualified Data.Map as Map
 
-import NLP.POS.AvgPerceptron
+import NLP.ML.AvgPerceptron
 
 tests :: Test
 tests = testGroup "AvgPerceptron"

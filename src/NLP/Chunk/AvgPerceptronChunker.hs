@@ -12,9 +12,9 @@ module NLP.Chunk.AvgPerceptronChunker
   )
 where
 
-import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
-                             , Class(..), predict, update
-                             , averageWeights)
+import NLP.ML.AvgPerceptron ( Perceptron, Feature(..)
+                            , Class(..), predict, update
+                            , averageWeights)
 import NLP.Types
 
 import Data.ByteString (ByteString)

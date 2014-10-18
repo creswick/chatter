@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.4.0.1
+version:             0.5.0.0
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -11,10 +11,17 @@ description:         chatter is a collection of simple Natural Language
                        by Matthew Honnibal:
                        (<http://honnibal.wordpress.com/2013/09/11/a-good-part-of-speechpos-tagger-in-about-200-lines-of-python/>) See 'NLP.POS' for the details of part-of-speech tagging with chatter.
                      .
+                     * Phrasal Chunking (also with an Averaged Perceptron) to identify arbitrary chunks based on training data.
+                     .
                      * Document similarity; A cosine-based similarity measure, and TF-IDF calculations,
                        are available in the 'NLP.Similarity.VectorSim' module.
                      .
                      * Information Extraction patterns via (<http://www.haskell.org/haskellwiki/Parsec/>) Parsec
+                     .
+                     Chatter comes with models for POS tagging and
+                     Phrasal Chunking that have been trained on the
+                     Brown corpus (POS only) and the Conll2000 corpus
+                     (POS and Chunking)
 homepage:            http://github.com/creswick/chatter
 Bug-Reports:         http://github.com/creswick/chatter/issues
 category:            Natural language processing
@@ -42,12 +49,12 @@ Library
    Other-modules:    Paths_chatter
 
    Exposed-modules:  NLP.POS
-                     NLP.POS.AvgPerceptron
                      NLP.POS.AvgPerceptronTagger
                      NLP.POS.LiteralTagger
                      NLP.POS.UnambiguousTagger
                      NLP.Chunk
                      NLP.Chunk.AvgPerceptronChunker
+                     NLP.ML.AvgPerceptron
                      NLP.Types
                      NLP.Types.General
                      NLP.Types.IOB

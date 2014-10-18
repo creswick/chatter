@@ -13,7 +13,7 @@ import Data.Text (Text)
 import qualified NLP.Corpora.Conll as C
 import NLP.Types
 
-import NLP.POS.AvgPerceptron hiding (train)
+import NLP.ML.AvgPerceptron hiding (train)
 import NLP.Chunk.AvgPerceptronChunker
 import NLP.Chunk
 import NLP.POS hiding (train)

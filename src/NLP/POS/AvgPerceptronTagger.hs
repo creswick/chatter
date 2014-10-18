@@ -20,9 +20,9 @@ module NLP.POS.AvgPerceptronTagger
 where
 
 import NLP.Corpora.Parsing (readPOSWith)
-import NLP.POS.AvgPerceptron ( Perceptron, Feature(..)
-                             , Class(..), predict, update
-                             , emptyPerceptron, averageWeights)
+import NLP.ML.AvgPerceptron ( Perceptron, Feature(..)
+                            , Class(..), predict, update
+                            , emptyPerceptron, averageWeights)
 import NLP.Types
 
 import Control.Monad (foldM)

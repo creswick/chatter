@@ -5,7 +5,7 @@ import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import System.Environment (getArgs)
 
-import NLP.POS.AvgPerceptron (emptyPerceptron)
+import NLP.ML.AvgPerceptron (emptyPerceptron)
 import qualified NLP.Chunk.AvgPerceptronChunker as Avg
 import NLP.Chunk (train, saveChunker)
 import NLP.Types.IOB
