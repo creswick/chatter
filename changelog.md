@@ -11,6 +11,9 @@
 
    Notice that the features still need some tuning for the chunker.
 
+
+ - Moved the AveragePerceptron module into a NLP.ML (Machine Learning) module.
+
 = 0.4.0.0 =
 
  - Added phrasal chunking via an Averaged Perceptron Chunker,
