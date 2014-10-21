@@ -1,4 +1,4 @@
-= 0.4.0.1 =
+= 0.5.0.0 =
 
  - Added chunk, chunkText, and chunkStr functions to NLP.Chunk to
    make it easier to experiment with the chunker.
@@ -11,8 +11,10 @@
 
    Notice that the features still need some tuning for the chunker.
 
-
  - Moved the AveragePerceptron module into a NLP.ML (Machine Learning) module.
+
+ - Added the 'tags-since-dt' feature to the AveragePerceptronChunker features
+   and retrained the Conll2000 models.
 
 = 0.4.0.0 =
 

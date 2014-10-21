@@ -46,6 +46,8 @@ class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => Tag a where
   tagTerm :: a -> Text
   startTag :: a
   endTag :: a
+  -- | Check if a tag is a determiner tag.
+  isDt :: a -> Bool
 
 -- | A fall-back 'ChunkTag' instance, analogous to 'RawTag'
 newtype RawChunk = RawChunk Text
@@ -77,6 +79,8 @@ instance Tag RawTag where
 
   startTag = RawTag "-START-"
   endTag = RawTag "-END-"
+
+  isDt (RawTag tg) = tg == "DT"
 
 instance Arbitrary RawTag where
   arbitrary = do

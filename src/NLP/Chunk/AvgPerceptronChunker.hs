@@ -196,9 +196,21 @@ getFeatures tagged idx word prev = let
              , ["pos+nextpos", T.intercalate "+" $ map showPOStag
                                  [word, context!!(i+1) ]
                ]
---             , ["tags-since-dt", ""]
+             , ["tags-since-dt", tagsSinceDt $ take idx tagged]
              ]
+
   in foldl' add Map.empty features
+
+tagsSinceDt :: Tag t => [POS t] -> Text
+tagsSinceDt posToks =
+  T.intercalate "-" $ tagsSinceHelper $ reverse posToks
+
+tagsSinceHelper :: Tag t => [POS t] -> [Text]
+tagsSinceHelper []      = []
+tagsSinceHelper (pt@(POS t _):ts)
+    | isDt t    = []
+    | otherwise = [ (showPOStag pt) ] ++ (tagsSinceHelper ts)
+
 
 mkFeature :: Text -> Feature
 mkFeature txt = Feat $ T.copy txt

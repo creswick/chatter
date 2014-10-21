@@ -1,2 +1,3 @@
 :set -XOverloadedStrings
 import qualified Data.Text as T
+import NLP.Chunk

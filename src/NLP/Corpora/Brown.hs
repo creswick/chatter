@@ -49,6 +49,8 @@ instance T.Tag Tag where
   startTag = START
   endTag = END
 
+  isDt tag = tag `elem` [DT, DTdollar, DT_pl_BEZ, DT_pl_MD, DTI, DTS, DTS_pl_BEZ, DTX]
+
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
 

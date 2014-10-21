@@ -23,25 +23,45 @@ import qualified NLP.Corpora.Conll as C
 
 import           Paths_chatter
 
+-- | A basic Phrasal chunker.
 defaultChunker :: IO (Chunker C.Chunk C.Tag)
 defaultChunker = conllChunker
 
+-- | Convenient function to load the Conll2000 Chunker.
 conllChunker :: IO (Chunker C.Chunk C.Tag)
 conllChunker = do
   dir <- getDataDir
   loadChunker (dir </> "data" </> "models" </> "conll2000.chunk.model.gz")
 
+-- | Train a chunker on a set of additional examples.
 train :: (ChunkTag c, Tag t) => Chunker c t -> [ChunkedSentence c t] -> IO (Chunker c t)
 train ch exs = chTrainer ch exs
 
+-- | Chunk a 'TaggedSentence' that has been produced by a Chatter
+-- tagger, producing a rich representation of the Chunks and the Tags
+-- detected.
+--
+-- If you just want to see chunked output from standard text, you
+-- probably want 'chunkText' or 'chunkStr'.
 chunk :: (ChunkTag c, Tag t) => Chunker c t -> [TaggedSentence t] -> [ChunkedSentence c t]
 chunk chk input = chChunker chk input
 
+
+-- | Convenience funciton to Tokenize, POS-tag, then Chunk the
+-- provided text, and format the result in an easy-to-read format.
+--
+-- > > tgr <- defaultTagger
+-- > > chk <- defaultChunker
+-- > > chunkText tgr chk "The brown dog jumped over the lazy cat."
+-- > "[NP The/DT brown/NN dog/NN] [VP jumped/VBD] [NP over/IN the/DT lazy/JJ cat/NN] ./."
+--
 chunkText :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> Text -> Text
 chunkText tgr chk input = T.intercalate " " $ map showChunkedSent $ chunk chk $ tag tgr input
 
-chunkStr :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> String -> Text
-chunkStr tgr chk str = chunkText tgr chk $ T.pack str
+
+-- | A wrapper around 'chunkText' that packs strings.
+chunkStr :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> String -> String
+chunkStr tgr chk str = T.unpack $ chunkText tgr chk $ T.pack str
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By

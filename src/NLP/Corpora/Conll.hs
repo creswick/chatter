@@ -52,6 +52,8 @@ instance T.Tag Tag where
   startTag = START
   endTag = END
 
+  isDt tag = tag `elem` [DT]
+
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
 
@@ -98,6 +100,15 @@ instance T.ChunkTag Chunk where
   parseChunk txt = toEitherErr $ readEither $ T.unpack txt
   notChunk = O
 
+-- | These tags may actually be the Penn Treebank tags.  But I have
+-- not (yet?) seen the punctuation tags added to the Penn set.
+--
+-- This particular list was complied from the union of:
+--
+--   * All tags used on the Conll2000 training corpus. (contributing the punctuation tags)
+--   * The PennTreebank tags, listed here: <https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html> (which contributed LS over the items in the corpus).
+--   * The tags: START, END, and Unk, which are used by Chatter.
+--
 data Tag = START -- ^ START tag, used in training.
          | END -- ^ END tag, used in training.
          | Hash -- ^ #
@@ -109,40 +120,42 @@ data Tag = START -- ^ START tag, used in training.
          | Comma -- ^ ,
          | Term -- ^ . Sentence Terminator
          | Colon -- ^ :
-         | CC
-         | CD
-         | DT
-         | EX
-         | FW
-         | IN
-         | JJ
-         | JJR
-         | JJS
-         | MD
-         | NN
-         | NNP
-         | NNPS
-         | NNS
-         | PDT
-         | POS
-         | PRP
-         | PRPdollar
-         | RB
-         | RBR
-         | RBS
-         | RP
-         | SYM
-         | TO
-         | UH
-         | VB
-         | VBD
-         | VBG
-         | VBN
-         | VBP
-         | VBZ
-         | WDT
-         | WP
-         | WPdollar
-         | WRB
+         | CC -- ^ Coordinating conjunction
+         | CD -- ^ Cardinal number
+         | DT -- ^ Determiner
+         | EX -- ^ Existential there
+         | FW -- ^ Foreign word
+         | IN -- ^ Preposition or subordinating conjunction
+         | JJ -- ^ Adjective
+         | JJR -- ^ Adjective, comparative
+         | JJS -- ^ Adjective, superlative
+         | LS -- ^ List item marker
+         | MD -- ^ Modal
+         | NN -- ^ Noun, singular or mass
+         | NNS -- ^ Noun, plural
+         | NNP -- ^ Proper noun, singular
+         | NNPS -- ^ Proper noun, plural
+         | PDT -- ^ Predeterminer
+         | POS -- ^ Possessive ending
+         | PRP -- ^ Personal pronoun
+         | PRPdollar -- ^ Possessive pronoun
+         | RB -- ^ Adverb
+         | RBR -- ^ Adverb, comparative
+         | RBS -- ^ Adverb, superlative
+         | RP -- ^ Particle
+         | SYM -- ^ Symbol
+         | TO -- ^ to
+         | UH -- ^ Interjection
+         | VB -- ^ Verb, base form
+         | VBD -- ^ Verb, past tense
+         | VBG -- ^ Verb, gerund or present participle
+         | VBN -- ^ Verb, past participle
+         | VBP -- ^ Verb, non-3rd person singular present
+         | VBZ -- ^ Verb, 3rd person singular present
+         | WDT -- ^ Wh-determiner
+         | WP -- ^ Wh-pronoun
+         | WPdollar -- ^ Possessive wh-pronoun
+         | WRB -- ^ Wh-adverb
          | Unk
   deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
+
