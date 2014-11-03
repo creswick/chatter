@@ -1,4 +1,31 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-|
+Module      : NLP.Chunk
+Description : Phrase Chunking facilities.
+Copyright   : Rogan Creswick, 2014
+Maintainer  : creswick@gmail.com
+Stability   : experimental
+
+NLP.Chunk aims to make phrasal chunking trivially easy -- it is the
+corolary to NLP.POS.
+
+The simplest way to try out chunking with Chatter is to open a repl
+after installing chatter and try this:
+
+>> import NLP.POS
+>> import NLP.Chunk
+>> tgr <- defaultTagger
+>> chk <- defaultChunker
+>> chunkText tgr chk "Monads are monoids in the category of endofunctors."
+> "[NP Monads/NNS are/VBP monoids/NNS] [PP in/IN] [NP the/DT category/NN] [PP of/IN] [NP endofunctors/NNS] ./."
+
+Note that it isn't perfect--phrase chunking is tricky, and the
+'defaultTagger' and 'defaultChunker' aren't trained on the largest
+training set (they use Conll 2000).  You can easily train more taggers
+and chunkers using the APIs exposed here if you have the training data
+to do so.
+
+-}
 module NLP.Chunk
 where
 

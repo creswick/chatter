@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{--}
 -- | Avegeraged Perceptron Chunker
 --
 module NLP.Chunk.AvgPerceptronChunker

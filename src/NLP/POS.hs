@@ -1,24 +1,31 @@
 {-# LANGUAGE OverloadedStrings #-}
--- | This module aims to make tagging text with parts of speech
--- trivially easy.
---
--- If you're new to 'chatter' and POS-tagging, then I
--- suggest you simply try:
---
--- >>> tagger <- defaultTagger
--- >>> tagStr tagger "This is a sample sentence."
--- "This/dt is/bez a/at sample/nn sentence/nn ./."
---
--- Note that we used 'tagStr', instead of 'tag', or 'tagText'.  Many
--- people don't (yet!) use "Data.Text" by default, so there is a
--- wrapper around 'tag' that packs and unpacks the 'String'.  This is
--- innefficient, but it's just to get you started, and 'tagStr' can be
--- very handy when you're debugging a tagger in ghci (or cabal repl).
---
--- 'tag' exposes more details of the tokenization and tagging, since
--- it returns a list of `TaggedSentence`s, but it doesn't print
--- results as nicely.
---
+{-|
+Module      : NLP.POS
+Description : Part-of-Speech tagging facilities.
+Copyright   : Rogan Creswick, 2014
+Maintainer  : creswick@gmail.com
+Stability   : experimental
+
+This module aims to make tagging text with parts of speech
+trivially easy.
+
+If you're new to 'chatter' and POS-tagging, then I
+suggest you simply try:
+
+>>> tagger <- defaultTagger
+>>> tagStr tagger "This is a sample sentence."
+"This/dt is/bez a/at sample/nn sentence/nn ./."
+
+Note that we used 'tagStr', instead of 'tag', or 'tagText'.  Many
+people don't (yet!) use "Data.Text" by default, so there is a
+wrapper around 'tag' that packs and unpacks the 'String'.  This is
+innefficient, but it's just to get you started, and 'tagStr' can be
+very handy when you're debugging a tagger in ghci (or cabal repl).
+
+'tag' exposes more details of the tokenization and tagging, since
+it returns a list of `TaggedSentence`s, but it doesn't print
+results as nicely.
+-}
 module NLP.POS
   ( tag
   , tagStr
