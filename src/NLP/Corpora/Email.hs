@@ -6,8 +6,9 @@ import qualified Data.ByteString as BS
 import Data.List (isSuffixOf)
 import Data.Text (Text)
 import qualified Data.Text.Encoding as TE
+import qualified Data.Text.Lazy as LT
 
-import Data.MBox
+import Data.MBox (body, Message, parseMBox)
 
 import System.Directory (getDirectoryContents)
 import System.FilePath ((</>))
@@ -21,12 +22,12 @@ plugDataPath = "./data/corpora/PLUG/"
 plugArchiveText :: IO [Text]
 plugArchiveText = do
   archive <- fullPlugArchive
-  return $ map body archive
+  return $ map (LT.toStrict . body) archive
 
 plugArchiveTokens :: IO [[Text]]
 plugArchiveTokens = do
   archive <- fullPlugArchive
-  return $ map (tokenize . body) archive
+  return $ map (tokenize . LT.toStrict . body) archive
 
 fullPlugArchive :: IO [Message]
 fullPlugArchive = do
@@ -35,7 +36,7 @@ fullPlugArchive = do
   contents <- mapM (\f->readF (plugDataPath </> f)) archiveFiles
   return $ concatMap parseMBox contents
 
-readF :: FilePath -> IO Text
+readF :: FilePath -> IO LT.Text
 readF file = do
   bs <- BS.readFile file
-  return $ TE.decodeLatin1 bs
+  return $ LT.fromStrict $ TE.decodeLatin1 bs
