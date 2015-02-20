@@ -81,7 +81,7 @@ Library
                      split >= 0.1.2.3,
                      bytestring >= 0.10.0.0,
                      directory,
-                     mbox,
+                     mbox >= 0.3,
                      zlib >= 0.5.4.1,
                      filepath >= 1.3.0.1,
                      ghc-prim,

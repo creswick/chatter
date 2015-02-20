@@ -1,3 +1,7 @@
+= 0.5.0.1 =
+
+ - Updates for mobx-0.3's changes to use Lazy Text.
+
 = 0.5.0.0 =
 
  - Added chunk, chunkText, and chunkStr functions to NLP.Chunk to
