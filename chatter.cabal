@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.5.0.1
+version:             0.5.0.2
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.

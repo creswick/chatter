@@ -1,3 +1,6 @@
+= 0.5.0.2 =
+ - removed upper vesion bounds on many dependencies.
+
 = 0.5.0.1 =
 
  - Updates for mobx-0.3's changes to use Lazy Text.
