@@ -29,14 +29,17 @@ import NLP.Extraction.Parsec
 import qualified NLP.Corpora.Brown as B
 
 
-
 -- | Find a clause in a larger collection of text.
+--
+-- A clause is defined by the 'clause' extractor, and is a Noun Phrase
+-- followed (immediately) by a Verb Phrase
 --
 -- findClause skips over leading tokens, if needed, to locate a
 -- clause.
 findClause :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 findClause = followedBy anyToken clause
 
+-- | Find a Noun Phrase followed by a Verb Phrase
 clause :: Extractor B.Tag (ChunkOr B.Chunk B.Tag)
 clause = do
   np <- nounPhrase
