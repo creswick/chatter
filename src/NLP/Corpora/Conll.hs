@@ -16,6 +16,20 @@ import GHC.Generics
 import qualified NLP.Types.Tags as T
 import NLP.Types.General
 
+-- | Named entity categories defined for the Conll 2003 task.
+data NERTag = PER
+            | ORG
+            | LOC
+            | MISC
+  deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
+
+instance Arbitrary NERTag where
+  arbitrary = elements [minBound..]
+
+instance Serialize NERTag
+instance T.NERTag NERTag
+
+-- | Phrase chunk tags defined for the Conll task.
 data Chunk = ADJP
            | ADVP
            | CONJP
@@ -35,7 +49,6 @@ instance Arbitrary Chunk where
 
 instance Serialize Chunk
 
-instance Serialize Tag
 
 instance T.Tag Tag where
   fromTag = showTag
@@ -56,6 +69,7 @@ instance T.Tag Tag where
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
+instance Serialize Tag
 
 readTag :: Text -> Either Error Tag
 readTag "#" = Right Hash
