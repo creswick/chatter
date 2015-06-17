@@ -2,10 +2,9 @@
 module NLP.Chunk.AvgPerceptronChunkerTests where
 
 import Test.HUnit      ( (@=?) )
-
-import Test.Framework ( testGroup, Test, buildTest )
+import Test.Tasty ( testGroup, TestTree, withResource )
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.HUnit (testCase)
+import Test.Tasty.HUnit (testCase)
 
 import qualified Data.Text as T
 import Data.Text (Text)
@@ -18,13 +17,10 @@ import NLP.Chunk.AvgPerceptronChunker
 import NLP.Chunk
 import NLP.POS hiding (train)
 
-tests :: Test
-tests = buildTest $ do
-  def <- conllChunker
-  naive <- naiveChunker
-
-  return $ testGroup "NLP.Chunk.AvgPerceptronChunker"
-        [ testGroup "AvgPerceptronChunker - conll" $ map (test_chunk def)
+tests :: TestTree
+tests = withResource loadChunkers (\_ -> return ()) $ \getChunkers ->
+  testGroup "NLP.Chunk.AvgPerceptronChunker"
+        [ testGroup "AvgPerceptronChunker - conll" $ map (test_chunk (fst `fmap` getChunkers))
           [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
                                                [ mkChink C.DT "The"
                                                , mkChink C.NN "dog"
@@ -42,7 +38,7 @@ tests = buildTest $ do
           -- , ("Confidence in the pound is widely expected to take another sharp dive."
           --   , [ChunkedSent []])
           ]
-        , testGroup "AvgPerceptionChunker - naive" $ map (test_chunk naive)
+        , testGroup "AvgPerceptionChunker - naive" $ map (test_chunk (snd `fmap` getChunkers))
           [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
                                                [ mkChink C.DT "The"
                                                , mkChink C.NN "dog"
@@ -59,6 +55,13 @@ tests = buildTest $ do
           ]
         ]
 
+  where
+    loadChunkers = do
+      def <- conllChunker
+      naive <- naiveChunker
+      return (def, naive)
+
+
 naiveChunker :: IO (Chunker C.Chunk C.Tag)
 naiveChunker = do
   let chunker :: Chunker C.Chunk C.Tag
@@ -73,8 +76,9 @@ naiveChunker = do
                         ]
          ]
 
-test_chunk :: Chunker C.Chunk C.Tag -> (Text, [ChunkedSentence C.Chunk C.Tag]) -> Test
-test_chunk chk (txt, oracle) = testCase (T.unpack txt) $ do
+test_chunk :: IO (Chunker C.Chunk C.Tag) -> (Text, [ChunkedSentence C.Chunk C.Tag]) -> TestTree
+test_chunk genChunker (txt, oracle) = testCase (T.unpack txt) $ do
+  chk <- genChunker
   tgr <- conllTagger
   let tagged = tag tgr txt
       chunked = chChunker chk tagged

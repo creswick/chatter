@@ -2,8 +2,8 @@
 module BackoffTaggerTests where
 
 import Test.HUnit      ( (@=?), Assertion )
-import Test.Framework ( testGroup, Test )
-import Test.Framework.Providers.HUnit (testCase)
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.HUnit (testCase)
 
 import Data.Map (Map)
 import qualified Data.Map as Map
@@ -14,7 +14,7 @@ import NLP.POS
 
 import qualified NLP.POS.LiteralTagger as LT
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "Backoff Tagging"
         [ testCase "Simple back-off tagging" testLiteralBackoff
         ]

@@ -5,9 +5,10 @@ where
 
 ----------------------------------------------------------------------
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.HUnit (testCase)
-import Test.Framework ( testGroup, Test, buildTest )
 import Test.HUnit      (Assertion, assertFailure, assertEqual )
+import Test.Tasty (TestTree, testGroup, withResource)
+import Test.Tasty.HUnit (testCase)
+import Test.HUnit      ( (@=?) )
 ----------------------------------------------------------------------
 import Data.Text (Text)
 import qualified Data.Map as Map
@@ -23,32 +24,39 @@ import qualified NLP.POS.UnambiguousTagger   as UT
 import qualified NLP.Corpora.Brown as B
 import qualified NLP.Corpora.Conll as C
 
-import TestUtils
+genTestM :: (Show b, Show c, Eq c) => IO tgr -> (tgr -> b -> c) -> (String, b, c) -> TestTree
+genTestM genTgr fn (descr, input, oracle) =
+    testCase (descr++" [input: "++show input++"]") $ do
+      tgr <- genTgr
+      assert tgr
+    where assert tgr = oracle @=? fn tgr input
 
-tests :: Test
-tests = buildTest $ do
-  brown <- brownTagger :: IO (POSTagger B.Tag)
-  def <- defaultTagger :: IO (POSTagger C.Tag)
-  return $ testGroup "Integration Tests"
-        [ testGroup "Default Tagger" $
-            map (genTest $ tagText def)
-              [ ("Simple 1", "The dog jumped.", "The/DT dog/NN jumped/VBD ./.")
-              ]
-        , testGroup "Brown Tagger" $
-            map (genTest $ tagText brown)
-              [ ("Simple 1", "The dog jumped.", "The/AT dog/NN jumped/VBD ./.")
-              ]
-        , testGroup "POS Serialization" $
-            map (testSerialization examples)
-              [ ("Average Perceptron", Avg.mkTagger Avg.emptyPerceptron Nothing)
-              , ("Unambiguous",  UT.mkTagger Map.empty Nothing)
-              , ("Literal",  LT.mkTagger Map.empty Sensitive Nothing)
-              , ("Unambiguous -> Avg"
-                , UT.mkTagger Map.empty
-                    (Just $ Avg.mkTagger Avg.emptyPerceptron Nothing))
-              ]
-        ]
-
+tests :: TestTree
+tests = withResource loadTaggers (\_ -> return ()) $ \getTaggers ->
+          testGroup "Integration Tests"
+                   [ testGroup "Default Tagger" $
+                     map (genTestM (snd `fmap` getTaggers) tagText)
+                     [ ("Simple 1", "The dog jumped.", "The/DT dog/NN jumped/VBD ./.")
+                     ]
+                   , testGroup "Brown Tagger" $
+                     map (genTestM (fst `fmap` getTaggers) tagText)
+                     [ ("Simple 1", "The dog jumped.", "The/AT dog/NN jumped/VBD ./.")
+                     ]
+                   , testGroup "POS Serialization" $
+                     map (testSerialization examples)
+                     [ ("Average Perceptron", Avg.mkTagger Avg.emptyPerceptron Nothing)
+                     , ("Unambiguous",  UT.mkTagger Map.empty Nothing)
+                     , ("Literal",  LT.mkTagger Map.empty Sensitive Nothing)
+                     , ("Unambiguous -> Avg"
+                       , UT.mkTagger Map.empty
+                        (Just $ Avg.mkTagger Avg.emptyPerceptron Nothing))
+                     ]
+                   ]
+  where
+    loadTaggers = do
+      brown <- brownTagger :: IO (POSTagger B.Tag)
+      def <- defaultTagger :: IO (POSTagger C.Tag)
+      return (brown, def)
 
 examples :: [Text]
 examples = [ "This/dt is/bez a/at test/nn ./."
@@ -59,7 +67,7 @@ examples = [ "This/dt is/bez a/at test/nn ./."
 testSerialization :: [Text]  -- ^ A training corpus.  One sentence per entry.
                   -> ( String    -- ^ The name of the POS tagger.
                      , POSTagger B.Tag) -- ^ An empty (untrained) POS tagger.
-                  -> Test
+                  -> TestTree
 testSerialization training (name, newTagger) = testCase name doTest
   where
     doTest :: Assertion

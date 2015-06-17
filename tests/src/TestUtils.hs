@@ -3,15 +3,15 @@ module TestUtils where
 
 import Control.Monad (unless)
 import Test.HUnit      ( (@=?), Assertion, assertFailure )
-import Test.Framework.Providers.HUnit (testCase)
-import Test.Framework (Test)
+import Test.Tasty.HUnit (testCase)
+import Test.Tasty (TestTree)
 
 -- | Not available until Base 4.7 or greater:
 isRight :: Either a b -> Bool
 isRight (Left  _) = False
 isRight (Right _) = True
 
-genTestF2 :: (Show a, Show b) => (a -> b -> Double) -> (String, a, b, Double) -> Test
+genTestF2 :: (Show a, Show b) => (a -> b -> Double) -> (String, a, b, Double) -> TestTree
 genTestF2 fn (descr, in1, in2, oracle) =
     testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
         where assert = assertApproxEquals "" 0.001 oracle $ fn in1 in2
@@ -19,7 +19,7 @@ genTestF2 fn (descr, in1, in2, oracle) =
 genTest3 :: (Show a, Show b, Show c, Show d, Eq d)
          => (a -> b -> c -> d)
          -> (String, a, b, c, d)
-         -> Test
+         -> TestTree
 genTest3 fn (descr, in1, in2, in3, oracle) =
     testCase (descr++" [input: "++show in1++"," ++show in2++"," ++show in3++"]") assert
         where assert = oracle @=? fn in1 in2 in3
@@ -27,22 +27,22 @@ genTest3 fn (descr, in1, in2, in3, oracle) =
 genTestF3 :: (Show a, Show b, Show c)
          => (a -> b -> c -> Double)
          -> (String, a, b, c, Double)
-         -> Test
+         -> TestTree
 genTestF3 fn (descr, in1, in2, in3, oracle) =
     testCase (descr++" [input: "++show in1++"," ++show in2++"," ++show in3++"]") assert
         where assert = assertApproxEquals "" 0.001 oracle $ fn in1 in2 in3
 
-genTest2 :: (Show a, Show b, Show c, Eq c) => (a -> b -> c) -> (String, a, b, c) -> Test
+genTest2 :: (Show a, Show b, Show c, Eq c) => (a -> b -> c) -> (String, a, b, c) -> TestTree
 genTest2 fn (descr, in1, in2, oracle) =
     testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
         where assert = oracle @=? fn in1 in2
 
-genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> Test
+genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> TestTree
 genTest fn (descr, input, oracle) =
     testCase (descr++" [input: "++show input++"]") assert
         where assert = oracle @=? fn input
 
-genTestF :: Show a => (a -> Double) -> (String, a, Double) -> Test
+genTestF :: Show a => (a -> Double) -> (String, a, Double) -> TestTree
 genTestF fn (descr, input, oracle) =
     testCase (descr++" [input: "++show input++"]") assert
         where assert = assertApproxEquals "" 0.001 oracle $ fn input

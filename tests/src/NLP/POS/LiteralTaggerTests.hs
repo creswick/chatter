@@ -2,11 +2,10 @@
 module NLP.POS.LiteralTaggerTests where
 
 import Test.HUnit      ( (@?=), (@=?) )
-import Test.Framework ( testGroup, Test )
-import Test.Framework.Providers.HUnit (testCase)
 import Test.QuickCheck (Property, (==>))
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Skip
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.HUnit (testCase)
+import Test.Tasty.QuickCheck (testProperty)
 
 import Control.Monad ((>=>))
 import Data.List (intersperse)
@@ -20,7 +19,7 @@ import NLP.POS
 import qualified NLP.POS.LiteralTagger as LT
 import NLP.Tokenize.Text (defaultTokenizer, run)
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.POS.LiteralTagger"
         [ testProperty ("Empty tagger always tags as UNK") prop_emptyAlwaysUnk
         , testGroup "Initial training" $ map (trainAndTagTest Nothing)
@@ -127,7 +126,7 @@ tests = testGroup "NLP.POS.LiteralTagger"
           --   , "Use A*"
           --   , ["Use", "A*"])
           ]
-        , skipTestProperty "Protect Terms" prop_protectTerms
+--        , skipTestProperty "Protect Terms" prop_protectTerms
         ]
 
 emptyTagger :: POSTagger RawTag
@@ -138,7 +137,7 @@ prop_emptyAlwaysUnk input = all (\(POS y _) -> y == tagUNK) (concatMap unTS $ ta
   where inputTxt = T.pack input
 
 trainAndTagTest :: Tag t => Maybe (POSTagger t)
-                -> (Text, Map Text t, LT.CaseSensitive, Text, Text) -> Test
+                -> (Text, Map Text t, LT.CaseSensitive, Text, Text) -> TestTree
 trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack name) mkAndTest
   where mkAndTest = let trained = LT.mkTagger table sensitive tgr
                     in oracle @=? tagText trained input
@@ -155,7 +154,7 @@ prop_protectTerms terms sensitive noise = all validTerm terms ==>
 
 protectTests :: ([Text], LT.CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
-             -> Test
+             -> TestTree
 protectTests (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["Just Protect [", (T.intercalate "; " terms), "] ", input])
@@ -164,7 +163,7 @@ protectTests (terms, sensitive, input, oracle) = testCase description runTest
 
 protectTestsWDefault :: ([Text], LT.CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
-             -> Test
+             -> TestTree
 protectTestsWDefault (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["w/Default [", (T.intercalate "; " terms), "] ", input])

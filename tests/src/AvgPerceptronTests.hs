@@ -4,8 +4,8 @@ module AvgPerceptronTests where
 import Control.Applicative ((<$>))
 import Test.QuickCheck ( Arbitrary(..), (==>), Property )
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework ( testGroup, Test )
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.QuickCheck (testProperty)
 
 import Data.Serialize (encode, decode)
 import Data.Map (Map)
@@ -13,7 +13,7 @@ import qualified Data.Map as Map
 
 import NLP.ML.AvgPerceptron
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "AvgPerceptron"
         [ testGroup "Encoding tests"
           [ testProperty "Features round-trip" prop_featureRoundtrips

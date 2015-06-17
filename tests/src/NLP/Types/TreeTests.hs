@@ -2,13 +2,10 @@
 {-# LANGUAGE ViewPatterns      #-}
 module NLP.Types.TreeTests where
 
-import Test.HUnit      ( (@=?), Assertion )
-
-import Test.Framework ( testGroup, Test )
-import Test.QuickCheck (Arbitrary(..), elements, (==>), Property)
+import Test.HUnit      ( (@=?) )
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Providers.HUnit (testCase)
+import Test.Tasty.HUnit (testCase)
+import Test.Tasty ( testGroup, TestTree )
 
 import qualified Data.Text as T
 import Data.Text (Text)
@@ -16,7 +13,7 @@ import Data.Text (Text)
 import qualified NLP.Corpora.Conll as C
 import NLP.Types
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.Types.Tree"
         [ testGroup "showChunkedSent" $ map mkShowChunkedSentTest
           [ ( ChunkedSent [ mkChunk C.NP
@@ -51,5 +48,5 @@ tests = testGroup "NLP.Types.Tree"
           ]
         ]
 
-mkShowChunkedSentTest :: (ChunkTag c, Tag t) => (ChunkedSentence c t, Text) -> Test
+mkShowChunkedSentTest :: (ChunkTag c, Tag t) => (ChunkedSentence c t, Text) -> TestTree
 mkShowChunkedSentTest (sent, oracle) = testCase (T.unpack oracle) (oracle @=? showChunkedSent sent)

@@ -3,9 +3,8 @@ module NLP.Similarity.VectorSimTests where
 
 import Test.QuickCheck ( Property, (==>) )
 import Test.QuickCheck.Property ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework ( testGroup, Test)
--- import Test.Framework.Skip (skip)
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Text as T
 
@@ -14,7 +13,7 @@ import NLP.Types (mkCorpus)
 
 import TestUtils
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "Vector Sim"
         [ -- testGroup "Dot Products" $ map (genTestF2 dotProd)
         --   [ ("3-4-5", [1,3,-5], [4, -2, -1], 3)

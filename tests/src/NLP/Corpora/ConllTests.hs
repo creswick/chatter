@@ -1,13 +1,13 @@
 module NLP.Corpora.ConllTests where
 
-import Test.Framework ( testGroup, Test )
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
+import Test.Tasty.QuickCheck (testProperty)
+import Test.Tasty (TestTree, testGroup)
 
 import qualified NLP.Corpora.Conll as C
 import NLP.Types
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.Corpora.Conll"
         [ testProperty "POS Tags round-trip" prop_tagsRoundTrip
         ]

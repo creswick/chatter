@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.5.0.2
+version:             0.5.1.0
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -201,15 +201,15 @@ test-suite tests
                      text,
                      HUnit,
                      parsec >= 3.1.5,
-                     test-framework,
-                     test-framework-skip,
-                     test-framework-quickcheck2,
-                     test-framework-hunit,
                      tokenize,
                      QuickCheck,
                      filepath,
                      cereal,
                      quickcheck-instances,
-                     containers
+                     containers,
+                     tasty,
+                     tasty-quickcheck,
+                     tasty-hunit,
+                     tasty-ant-xml
 
    ghc-options:      -Wall -auto-all -caf-all

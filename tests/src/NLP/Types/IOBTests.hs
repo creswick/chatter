@@ -4,11 +4,11 @@ module NLP.Types.IOBTests where
 
 import Test.HUnit      ( (@=?), Assertion )
 
-import Test.Framework ( testGroup, Test )
+import Test.Tasty ( testGroup, TestTree )
 import Test.QuickCheck (Arbitrary(..), elements, (==>), Property)
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Providers.HUnit (testCase)
+import Test.Tasty.QuickCheck (testProperty)
+import Test.Tasty.HUnit (testCase)
 
 import Data.Char (isSpace)
 import qualified Data.Text as T
@@ -18,7 +18,7 @@ import qualified NLP.Corpora.Conll as C
 import NLP.Types
 import NLP.Types.IOB
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.Types.IOB"
         [ testProperty "IOB Tags parse" prop_tagsParse
         , testGroup "getSentences" $ map mkGetSentencesTest
@@ -90,6 +90,6 @@ iobExample = (T.unlines [ "Confidence NN B-NP "
                ])
 
 
-mkGetSentencesTest :: (String, Text, [[Text]]) -> Test
+mkGetSentencesTest :: (String, Text, [[Text]]) -> TestTree
 mkGetSentencesTest (name, input, oracle) =
   testCase name (oracle @=? getSentences input)

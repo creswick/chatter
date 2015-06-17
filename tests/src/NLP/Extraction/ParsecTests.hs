@@ -7,8 +7,8 @@ module NLP.Extraction.ParsecTests where
 ----------------------------------------------------------------------
 import Test.QuickCheck ((==>), Property)
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework ( testGroup, Test )
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.QuickCheck (testProperty)
 ----------------------------------------------------------------------
 import Text.Parsec.Prim (parse)
 ----------------------------------------------------------------------
@@ -19,7 +19,7 @@ import qualified NLP.Corpora.Brown as B
 
 import TestUtils
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.Extraction.Parsec"
         [ testProperty "posTok extraction" prop_posTok
         , testProperty "anyToken" prop_anyToken

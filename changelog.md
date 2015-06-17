@@ -1,3 +1,9 @@
+= 0.5.1.0 =
+
+ - Moved to Tasty from test-framework. I'm treating this as a
+   c-level patch because it may have siginficant impact on the
+   transitive dependencies.
+
 = 0.5.0.2 =
  - removed upper vesion bounds on many dependencies.
 

@@ -4,14 +4,14 @@ module Main where
 
 import Data.Text (Text)
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
 
 import Test.HUnit      ( (@=?) )
-import Test.QuickCheck ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework.Providers.HUnit (testCase)
-import Test.Framework ( buildTest, testGroup, Test, defaultMain )
--- import Test.Framework.Skip (skip)
+import Test.Tasty.QuickCheck (testProperty)
+import Test.Tasty.HUnit (testCase)
+import Test.Tasty ( TestTree, defaultIngredients, defaultMainWithIngredients
+                  , testGroup )
+import Test.Tasty.Ingredients (Ingredient )
+import Test.Tasty.Runners.AntXML ( antXMLRunner )
 
 import NLP.Types (Tag(..), parseTag, RawTag(..), POSTagger(..))
 import NLP.POS (tagText, train)
@@ -37,10 +37,15 @@ import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 import Corpora
 
 main :: IO ()
-main = defaultMain tests
+main = defaultMainWithIngredients ingredients tests
 
-tests :: [Test]
-tests = [ testGroup "parseTag" $
+ingredients :: [Ingredient]
+ingredients = antXMLRunner : defaultIngredients
+
+
+tests :: TestTree
+tests = testGroup "Tests"
+        [ testGroup "parseTag" $
           [ testProperty "basic tag parsing" prop_parseTag]
         , testGroup "Train and tag"
           [ testGroup "miniCorpora1" $
@@ -73,13 +78,7 @@ tests = [ testGroup "parseTag" $
         , Tree.tests
         ]
 
-
-trainAndTagTestFileCorpus :: FilePath -> (Text, Text) -> Test
-trainAndTagTestFileCorpus file args = buildTest $ do
-  corpus <- T.readFile file
-  return $ trainAndTagTest corpus args
-
-trainAndTagTestIO :: IO Text -> (Text, Text) -> Test
+trainAndTagTestIO :: IO Text -> (Text, Text) -> TestTree
 trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
   let parser :: Text -> RawTag
       parser = parseTag
@@ -88,7 +87,7 @@ trainAndTagTestIO corpora (input, oracle) = testCase (T.unpack input) $ do
       tagger = (APT.mkTagger perceptron Nothing)
   oracle @=? tagText tagger input
 
-trainAndTagTest :: Text -> (Text, Text) -> Test
+trainAndTagTest :: Text -> (Text, Text) -> TestTree
 trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
   let parser :: Text -> RawTag
       parser = parseTag
@@ -97,7 +96,7 @@ trainAndTagTest corpora (input, oracle) = testCase (T.unpack input) $ do
       tagger = (APT.mkTagger perceptron Nothing)
   oracle @=? tagText tagger input
 
-trainAndTagTestVTrainer :: Text -> (Text, Text) -> Test
+trainAndTagTestVTrainer :: Text -> (Text, Text) -> TestTree
 trainAndTagTestVTrainer corpora (input, oracle) = testCase (T.unpack input) $ do
   let newTagger :: POSTagger RawTag
       newTagger = APT.mkTagger APT.emptyPerceptron Nothing
@@ -109,7 +108,7 @@ trainAndTagTestVTrainer corpora (input, oracle) = testCase (T.unpack input) $ do
 prop_parseTag :: Text -> Bool
 prop_parseTag txt = parseTag txt == RawTag txt
 
-genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> Test
+genTest :: (Show a, Show b, Eq b) => (a -> b) -> (String, a, b) -> TestTree
 genTest fn (descr, input, oracle) =
     testCase (descr++" input: "++show input) assert
         where assert = oracle @=? fn input

@@ -2,10 +2,10 @@
 module NLP.POS.UnambiguousTaggerTests where
 
 import Test.HUnit      ( (@=?) )
-import Test.Framework ( testGroup, Test )
-import Test.Framework.Providers.HUnit (testCase)
 import Test.QuickCheck ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.HUnit (testCase)
+import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Map as Map
 import Data.Text (Text)
@@ -15,7 +15,7 @@ import NLP.Types
 import NLP.POS
 import qualified NLP.POS.UnambiguousTagger as UT
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.POS.UnambiguousTagger"
         [ testProperty "basic tag parsing" prop_emptyAlwaysUnk
         , testGroup "Initial training" $ map (trainAndTagTest emptyTagger)
@@ -42,7 +42,7 @@ prop_emptyAlwaysUnk :: String -> Bool
 prop_emptyAlwaysUnk input = all (\(POS y _) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
-trainAndTagTest :: Tag t => POSTagger t -> (Text, Text, Text) -> Test
+trainAndTagTest :: Tag t => POSTagger t -> (Text, Text, Text) -> TestTree
 trainAndTagTest tgr (exs, input, oracle) = testCase (T.unpack (T.intercalate ": " [exs, input])) $ do
   trained <- trainText tgr exs
   oracle @=? tagText trained input

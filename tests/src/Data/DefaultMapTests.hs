@@ -1,14 +1,14 @@
 module Data.DefaultMapTests where
 
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
-import Test.Framework ( testGroup, Test )
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.QuickCheck (testProperty)
 
 import Data.Serialize (decode, encode)
 
 import Data.DefaultMap (DefaultMap(..))
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.Data.DefaultMapTests"
         [ testGroup "Serialize / Deserialize Tests"
           [ testProperty "DefaultMap round-trips" prop_defMapSerialize

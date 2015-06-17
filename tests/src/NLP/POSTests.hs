@@ -1,9 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.POSTests where
 
-import Test.Framework ( testGroup, Test )
 import Test.QuickCheck.Instances ()
-import Test.Framework.Providers.QuickCheck2 (testProperty)
+import Test.Tasty (TestTree, testGroup)
+import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Map as Map
 
@@ -13,7 +13,7 @@ import qualified NLP.POS.LiteralTagger as LT
 
 import TestUtils
 
-tests :: Test
+tests :: TestTree
 tests = testGroup "NLP.POS"
         [ testGroup "Evaluation" $ map (genTestF $ eval mamalTagger)
              [ ("Half", [ TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "cat")]
