@@ -14,6 +14,18 @@ import NLP.Types.Tags
 import NLP.Types.Tree
 import NLP.Types.General (Error)
 
+
+-- TODO: This module needs to be rewritten to parse IOB represented
+-- data as a tree, then once that tree is created, establish the
+-- semantic types at the proper levels.
+--
+-- I think the levels should look something like this:
+--
+--  0: Tokens
+--  1: POS Tags
+--  2/3: Chunks
+--  3/2: NER tags
+
 -- | Data type to indicate IOB tags for chunking
 data IOBChunk chunk tag = BChunk (POS tag) chunk -- ^ Beging marker.
                         | IChunk (POS tag) chunk -- ^ In chunk tag
