@@ -2,5 +2,5 @@ language: haskell
 ghc:
   - 7.8
   - 7.6
-notofications:
+notifications:
   email: true
