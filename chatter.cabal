@@ -65,6 +65,7 @@ Library
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
                      NLP.Corpora.Conll
+                     NLP.Corpora.WikiNer
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
                      NLP.Extraction.Examples.ParsecExamples
@@ -156,25 +157,26 @@ Executable eval
 
    ghc-options:      -Wall -main-is Evaluate -rtsopts
 
-benchmark bench
-   type:             exitcode-stdio-1.0
-   default-language: Haskell2010
-   Main-Is:          Bench.hs
-   hs-source-dirs:   tests/src
+-- disabled because we aren't using it, and it's causing issues with `stack ghci`
+-- benchmark bench
+--    type:             exitcode-stdio-1.0
+--    default-language: Haskell2010
+--    Main-Is:          Bench.hs
+--    hs-source-dirs:   tests/src
 
-   Other-modules:    NLP.Similarity.VectorSimBench
-                     Corpora
+--    Other-modules:    NLP.Similarity.VectorSimBench
+--                      Corpora
 
-   Build-depends:    chatter,
-                     criterion >= 0.8.0.1,
-                     filepath >= 1.3.0.1,
-                     text >= 0.11.3.0,
-                     base       >= 4.6 && <= 6,
-                     deepseq,
-                     split >= 0.1.2.3,
-                     tokenize >= 0.2.0
+--    Build-depends:    chatter,
+--                      criterion >= 0.8.0.1,
+--                      filepath >= 1.3.0.1,
+--                      text >= 0.11.3.0,
+--                      base       >= 4.6 && <= 6,
+--                      deepseq,
+--                      split >= 0.1.2.3,
+--                      tokenize >= 0.2.0
 
-   ghc-options:      -Wall -main-is Bench
+--    ghc-options:      -Wall -main-is Bench
 
 
 test-suite tests
