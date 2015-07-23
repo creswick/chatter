@@ -4,6 +4,7 @@ module NLP.Types.IOB where
 import Prelude hiding (print)
 import Control.Applicative ((<$>), (<*>))
 import Data.Maybe (mapMaybe)
+import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 
@@ -58,10 +59,12 @@ toTaggedSentence iobChunks = TaggedSent $ map getPOS iobChunks
 --
 parseIOBLine :: (ChunkTag chunk, Tag tag) => Text -> Either Error (IOBChunk chunk tag)
 parseIOBLine txt =
-  let (tokTxt:tagTxt:iobTxt:_) = T.words txt
-      token = Token tokTxt
-      tag   = POS (parseTag tagTxt) token
-  in iobBuilder iobTxt tag
+  case T.words txt of
+    (tokTxt:tagTxt:iobTxt:_) ->
+      let token = Token tokTxt
+          tag   = POS (parseTag tagTxt) token
+      in iobBuilder iobTxt tag
+    _ -> Left ("not enough words in IOB line: \"" <> txt <> "\"")
 
 iobBuilder :: (ChunkTag c, Tag t) => Text -> (POS t -> Either Error (IOBChunk c t))
 iobBuilder iobTxt | "I-" `T.isPrefixOf` iobTxt = \tag -> (IChunk tag) <$> chunk

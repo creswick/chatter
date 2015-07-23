@@ -32,29 +32,49 @@
 --
 -- Is rendered as:
 --  The|DT|I-MISC Oxford|NNP|I-MISC Companion|NNP|I-MISC to|TO|I-MISC Philosophy|NNP|I-MISC says|VBZ|O ,|,|O "|LQU|O there|EX|O is|VBZ|O no|DT|O single|JJ|O defining|VBG|O position|NN|O that|IN|O all|DT|O anarchists|NNS|O hold|VBP|O ,|,|O and|CC|O those|DT|O considered|VBN|O anarchists|NNS|O at|IN|O best|JJS|O share|NN|O a|DT|O certain|JJ|O family|NN|O resemblance|NN|O .|.|O "|RQU|O
+--
+--
+--  This module also provides a trained model for NER via the averaged
+--  perceptron chunker.  This actually kindof works, which is a bit
+--  amazing.  For example:
+--
+-- > import NLP.Corpora.WikiNer
+-- > import NLP.POS
+-- > import NLP.Chunk
+-- > tgr <- defaultTagger
+-- > chk <- wikiNerChunker
+-- > chunkText tgr chk "Real World Haskell is a book created by Don Stewart, Bryan O'Sullivan, and Jon Goerzen."
+-- > "[ORG Real/NNP] [MISC World/NNP] [PER Haskell/NNP] is/VBZ a/DT book/NN created/VBN by/IN [PER Don/NNP Stewart/NNP] ,/, [PER Bryan/NNP O'Sullivan/NNP] ,/, and/CC [PER Jon/NNP Goerzen/NNP] ./."
+--
+--
 module NLP.Corpora.WikiNer
   ( parseWikiNer
+  , trainChunker
+  , wikiNerChunker
   , Chunk(..)
   )
 where
 
-import Data.Text (Text)
+import           Data.Text                      (Text)
 import qualified Data.Text as T
-import qualified Data.Set as Set
-import Data.Set (Set)
+import qualified Data.Text.IO as T
+import           Data.Serialize                 (Serialize)
+import           GHC.Generics
+import           System.FilePath                ((</>))
+import           Text.Read                      (readEither)
+import           Test.QuickCheck.Arbitrary      (Arbitrary(..))
+import           Test.QuickCheck.Gen            (elements)
 
-import Data.Serialize (Serialize)
-import Text.Read (readEither)
-import Test.QuickCheck.Arbitrary (Arbitrary(..))
-import Test.QuickCheck.Gen (elements)
 
-import GHC.Generics
-
-import NLP.Types.IOB hiding (parseIOB)
-import NLP.Types.General (Error, toEitherErr)
-import NLP.Types.Tags
-
+import           NLP.Chunk                      (train, loadChunker)
+import           NLP.Chunk.AvgPerceptronChunker (Chunker(..), mkChunker)
 import qualified NLP.Corpora.Conll as Conll
+import           NLP.ML.AvgPerceptron           ( emptyPerceptron )
+import           NLP.Types.IOB hiding           (parseIOB)
+import           NLP.Types.General              (Error, toEitherErr)
+import           NLP.Types.Tags
+
+import           Paths_chatter
 
 parseWikiNer :: Text -> Either Error [[IOBChunk Chunk Conll.Tag]]
 parseWikiNer = parseIOB
@@ -83,7 +103,34 @@ instance ChunkTag Chunk where
   parseChunk txt = toEitherErr $ readEither (T.unpack txt)
   notChunk = C_O
 
+wikiNerChunker :: IO (Chunker Chunk Conll.Tag)
+wikiNerChunker = do
+  dir <- getDataDir
+  loadChunker (dir </> "data" </> "models" </> "wikiner.ner.model.gz")
+
 -- | Tranlsate a WikiNER sentence into a list of IOB-lines, for
 -- parsing with `parseIOBLine`
 toIOBLines :: Text -> [Text]
 toIOBLines sent = map (T.replace "|" " ") (T.words sent)
+
+-- | Train a chunker on a provided corpus.
+trainChunker :: [FilePath] -> IO (Chunker Chunk Conll.Tag)
+trainChunker corpora = do
+  content <- mapM T.readFile corpora
+
+  let trainingText = T.intercalate "\n" content
+
+      eiobs = parseWikiNer trainingText
+
+      chunker :: Chunker Chunk Conll.Tag
+      chunker = mkChunker emptyPerceptron
+
+  case eiobs of
+    Left   err -> do
+      T.putStrLn err
+      error (T.unpack err)
+    Right iobs -> do
+      print (take 1 iobs)
+      let chunkSents = map toChunkTree iobs
+      train chunker chunkSents
+

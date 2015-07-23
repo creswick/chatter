@@ -1,3 +1,11 @@
+= 0.5.2.0 =
+
+ - Unceremoniously forced the Chunking model to do basic Named
+   Entity Recognition, and added a simple NER model based on Nothman
+   et al's WikiNER data set -- which is provided under a very
+   permissive CC license.
+   (http://schwa.org/projects/resources/wiki/Wikiner)
+
 = 0.5.1.0 =
 
  - Moved to Tasty from test-framework. I'm treating this as a
