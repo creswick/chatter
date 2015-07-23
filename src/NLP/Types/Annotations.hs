@@ -1,23 +1,112 @@
-module NLP.Types.Annotations
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE DeriveGeneric #-}
+module NLP.Types.Annotations where
 
-where
-
+import GHC.Generics
 import Data.Hashable (Hashable)
+import Data.Serialize (Serialize)
+import Data.Text (Text)
+import qualified Data.Text as T
+import Text.Read (readEither)
+
+import NLP.Types.General (toEitherErr, Error)
+
+-- | Safe index type, uses a phantom type to prevent us from indexing
+-- into the wrong thing.
+newtype Index a = Index Int
+  deriving (Read, Show, Eq, Ord, Generic)
+
+instance Hashable (Index a)
 
 -- | Annotations are the base of all tags (POS tags, Chunks, marked
 -- entities, etc.)
 --
 -- The semantics of the particular annotation depend on the type of
 -- the value, and these can be wrapped up in a newtype for easier use.
-data Annotation a =
-  Annotation { startIdx :: Int
-             -- ^ The starting index of the annotation.
-             , endIdx :: Int
-             -- ^ The end index of the annotation. The length of an
-             -- annotation is therefore: (endIdx a - startIdx a).
-             , value :: a
+data Annotation dat tag =
+  Annotation { startIdx :: {-# UNPACK #-} !(Index dat)
+             -- ^ The starting index of the annotation (a character
+             -- offset into the underlying data).
+             , endIdx :: {-# UNPACK #-} !(Index dat)
+             -- ^ The end index of the annotation.
+             , value :: tag
              -- ^ The value, such as a POS tag.
-             } deriving (Read, Show, Eq, Hashable, Ord)
+             , payload :: dat
+             -- ^ The underlying thing that is being annotated (such
+             -- as a text string, or a list of other annotations)
+             } deriving (Read, Show, Eq, Ord, Generic)
+
+instance (Hashable dat, Hashable tag) => Hashable (Annotation dat tag)
+
+-- | Wrapper around both the underlying text and the tokenizer results.
+data TokenizedSentence =
+  TokSentence { tokText :: Text
+              , tokAnnotations :: [Annotation Text Token]
+              } deriving (Read, Show, Eq, Generic, Ord)
+
+instance Hashable TokenizedSentence
+instance AnnotatedText TokenizedSentence where
+  getText = tokText
+
+-- | Results of the POS tagger, which encompases a 'TokenizedSentence'
+data TaggedSentence pos =
+  TaggedSentence { tagTokSentence :: TokenizedSentence
+                 , tagAnnotations :: [Annotation TokenizedSentence pos]
+                 } deriving (Read, Show, Eq, Generic, Ord)
+
+instance Hashable pos => Hashable (TaggedSentence pos)
+
+instance AnnotatedText (TaggedSentence pos) where
+  getText = getText . tagTokSentence
+
+-- | A 'Chunked' sentence, with underlying Part-of-Speech tags and tokens.
+-- Note: This is not a deep tree, a separate parse tree is needed.
+data ChunkedSentence pos chunk =
+  ChunkedSentence { chunkTagSentence :: TaggedSentence pos
+                  , chunkAnnotations :: [Annotation (TaggedSentence pos) chunk]
+                  } deriving (Read, Show, Eq, Generic, Ord)
+
+instance (Hashable pos, Hashable chunk) => Hashable (ChunkedSentence pos chunk)
+
+instance AnnotatedText (ChunkedSentence pos chunk) where
+  getText = getText . chunkTagSentence
+
+-- | A sentence that has been marked with named entities.
+data NERedSentence pos chunk ne =
+  NERedSentence { neChunkSentence :: ChunkedSentence pos chunk
+                , neAnnotations :: [Annotation (TaggedSentence pos) ne]
+                -- ^ These annotations are annotating the
+                -- 'TaggedSentence' contained in the 'ChunkedSentence'
+                } deriving (Read, Show, Eq, Generic, Ord)
+
+instance (Hashable pos, Hashable chunk, Hashable ne) => Hashable (NERedSentence pos chunk ne)
+
+instance AnnotatedText (NERedSentence pos chunk ne) where
+  getText = getText . neChunkSentence
+
+-- | Typeclass of things that have underlying text, so it's easy to
+-- get the annotated document out of a tagged, tokenized, or chunked
+-- result.
+class AnnotatedText sentence where
+  getText :: sentence -> Text
+
+-- | Tokenization takes in text, produces annotations.
+type Tokenizer = Text -> TokenizedSentence
+
+-- | POS tagging requires tokenization and produces annotations on the tokens.
+type POSTagger pos = TokenizedSentence -> TaggedSentence pos
+
+-- | Chunking requires POS-tags (and tokenization) and generates annotations on the tokens.
+type Chunker pos chunk = TaggedSentence pos -> ChunkedSentence pos chunk
+
+-- | Named Entity recognition requires POS tags and tokens, and
+-- produces annotations with Named Entities marked.
+type NERer pos chunk ne = ChunkedSentence pos chunk -> NERedSentence pos chunk ne
+
+-- | Sentinel value for tokens.
+newtype Token = Token Text
+  deriving (Read, Show, Eq, Hashable, Ord)
 
 -- | The class of POS Tags.
 --
