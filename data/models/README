@@ -40,3 +40,9 @@ Averaged Perceptron Chunker trained on the Conll 2000 training set.
 real	0m20.730s
 user	0m20.298s
 sys	0m0.290s
+
+---------------------------------------------------------------------
+wikiner.ner.model.gz
+---------------------------------------------------------------------
+
+A Chunker that chunks to NER tags; trained on aij-wikiner-en-wp2

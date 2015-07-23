@@ -9,11 +9,22 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
+import Text.Read (readEither)
+
 
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
-import NLP.Types.General (Error)
+import NLP.Types.General (Error, toEitherErr)
+
+-- | The class of named entity sets.  This typeclass can be defined
+-- entirely in terms of the required class constraints.
+class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a) => NERTag a where
+  fromNERTag :: a -> Text
+  fromNERTag = T.pack . show
+
+  parseNERTag :: Text -> Either Error a
+  parseNERTag txt = toEitherErr $ readEither $ T.unpack txt
 
 -- | The class of things that can be regarded as 'chunks'; Chunk tags
 -- are much like POS tags, but should not be confused. Generally,
