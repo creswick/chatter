@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
-module NLP.Tokenize where
+{-# LANGUAGE PackageImports #-}
+module NLP.TokenizeTests where
 
 import Test.Tasty.HUnit
 import Test.Tasty (TestTree, testGroup)
@@ -9,7 +10,7 @@ import qualified Data.Map as Map
 import Data.Text (Text)
 import qualified Data.Text as T
 
-import NLP.Tokenize.TextNew
+import "chatter" NLP.Tokenize
 
 import NLP.Types.Annotations
 import NLP.POS
@@ -30,6 +31,14 @@ tests = testGroup "NLP.Tokenze" $ map mkTokTest
             , (2, "url")
             , (5, ":")
             , (7, "http://google.com")
+            ])
+        , ("we'll don't."
+        --  012345678901
+          , [ (0, "we")
+            , (2, "'ll")
+            , (6, "do")
+            , (8, "n't")
+            , (11, ".")
             ])
         ]
 

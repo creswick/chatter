@@ -63,6 +63,8 @@ Library
                      NLP.Types.Tags
                      NLP.Types.Tree
                      NLP.Tokenize.Chatter
+                     NLP.Tokenize.Annotations
+                     NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
@@ -212,6 +214,7 @@ test-suite tests
                      NLP.POS.UnambiguousTaggerTests
                      NLP.Extraction.ParsecTests
                      NLP.TypesTests
+                     NLP.TokenizeTests
                      Data.DefaultMapTests
                      Corpora
                      TestUtils

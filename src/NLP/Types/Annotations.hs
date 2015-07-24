@@ -28,7 +28,7 @@ data Annotation dat tag =
   Annotation { startIdx :: {-# UNPACK #-} !(Index dat)
              -- ^ The starting index of the annotation (a character
              -- offset into the underlying data).
-             , endIdx :: {-# UNPACK #-} !(Index dat)
+             , len :: {-# UNPACK #-} !Int
              -- ^ The end index of the annotation.
              , value :: tag
              -- ^ The value, such as a POS tag.

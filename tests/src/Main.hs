@@ -33,6 +33,7 @@ import qualified NLP.TypesTests as TypeTests
 import qualified NLP.Types.IOBTests as IOB
 import qualified NLP.Types.TreeTests as Tree
 import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
+import qualified NLP.TokenizeTests as Tok
 
 import Corpora
 
@@ -76,6 +77,7 @@ tests = testGroup "Tests"
         , IOB.tests
         , APC.tests
         , Tree.tests
+        , Tok.tests
         ]
 
 trainAndTagTestIO :: IO Text -> (Text, Text) -> TestTree
