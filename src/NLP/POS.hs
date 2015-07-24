@@ -60,7 +60,7 @@ import qualified Data.Text                   as T
 import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
-import           NLP.Tokenize.Text           (tokenize)
+import           NLP.Tokenize                (tokenize)
 import           NLP.Types                   ( POSTagger(..), Sentence, POS(..)
                                              , combine, Tag (..), unTS, tsLength
                                              , TaggedSentence(..), stripTags
@@ -69,10 +69,10 @@ import           NLP.Types                   ( POSTagger(..), Sentence, POS(..)
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
-
+import qualified NLP.Types.Annotations       as AN
 import qualified NLP.Corpora.Brown as B
 import qualified NLP.Corpora.Conll as C
-
+import NLP.Types.Tree (tokens, showTok)
 import           Paths_chatter
 
 -- | A basic POS tagger.
@@ -153,7 +153,7 @@ deserialize table bs = do
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: Tag t => POSTagger t -> Text -> [TaggedSentence t]
 tag p txt = let sentences = (posSplitter p) txt
-                tokens    = map (posTokenizer p) sentences
+                tokens    = map (AN.toSentence . posTokenizer p) sentences
             in tagTokens p tokens
 
 tagTokens :: Tag t => POSTagger t -> [Sentence] -> [TaggedSentence t]
@@ -188,7 +188,8 @@ trainStr tgr = trainText tgr . T.pack
 
 -- | The `Text` version of `trainStr`
 trainText :: Tag t => POSTagger t -> Text -> IO (POSTagger t)
-trainText p exs = train p (map readPOS $ tokenize exs)
+trainText p exs = train p (map readPOS $ map AN.getText $ AN.tokAnnotations $ tokenize exs)
+                  -- ^^^ TODO simplify this chain.
 
 -- | Train a 'POSTagger' on a corpus of sentences.
 --

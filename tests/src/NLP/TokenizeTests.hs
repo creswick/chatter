@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
 module NLP.TokenizeTests where
 
 import Test.Tasty.HUnit
@@ -10,7 +9,7 @@ import qualified Data.Map as Map
 import Data.Text (Text)
 import qualified Data.Text as T
 
-import "chatter" NLP.Tokenize
+import NLP.Tokenize
 
 import NLP.Types.Annotations
 import NLP.POS
@@ -41,6 +40,8 @@ tests = testGroup "NLP.Tokenze" $ map mkTokTest
             , (11, ".")
             ])
         ]
+
+-- TODO: Test 'protectTerms'
 
 mkTokSentence :: Text -> [(Int, Text)] -> TokenizedSentence
 mkTokSentence dat toks = TokSentence { tokText = dat

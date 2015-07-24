@@ -24,6 +24,7 @@ import Test.QuickCheck.Arbitrary (Arbitrary(..))
 import NLP.Types.General
 import NLP.Types.Tags
 import NLP.Types.Tree
+import qualified NLP.Types.Annotations as AN
 
 -- | Part of Speech tagger, with back-off tagger.
 --
@@ -62,7 +63,7 @@ data POSTagger t = POSTagger
     { posTagger  :: [Sentence] -> [TaggedSentence t] -- ^ The initial part-of-speech tagger.
     , posTrainer :: [TaggedSentence t] -> IO (POSTagger t) -- ^ Training function to train the immediate POS tagger.
     , posBackoff :: Maybe (POSTagger t)   -- ^ A tagger to invoke on unknown tokens.
-    , posTokenizer :: Text -> Sentence -- ^ A tokenizer; (`Data.Text.words` will work.)
+    , posTokenizer :: AN.Tokenizer -- ^ A tokenizer
     , posSplitter :: Text -> [Text] -- ^ A sentence splitter.  If your input is formatted as
                                     -- one sentence per line, then use `Data.Text.lines`,
                                     -- otherwise try Erik Kow's fullstop library.

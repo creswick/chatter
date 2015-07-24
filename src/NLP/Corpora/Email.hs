@@ -13,7 +13,8 @@ import Data.MBox (body, Message, parseMBox)
 import System.Directory (getDirectoryContents)
 import System.FilePath ((</>))
 
-import NLP.Tokenize.Text (tokenize)
+import NLP.Tokenize (tokenize)
+import NLP.Types.Annotations (TokenizedSentence)
 
 -- | Path to the directory containing all the PLUG archives.
 plugDataPath :: FilePath
@@ -24,7 +25,7 @@ plugArchiveText = do
   archive <- fullPlugArchive
   return $ map (LT.toStrict . body) archive
 
-plugArchiveTokens :: IO [[Text]]
+plugArchiveTokens :: IO [TokenizedSentence]
 plugArchiveTokens = do
   archive <- fullPlugArchive
   return $ map (tokenize . LT.toStrict . body) archive

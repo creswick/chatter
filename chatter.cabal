@@ -62,8 +62,8 @@ Library
                      NLP.Types.IOB
                      NLP.Types.Tags
                      NLP.Types.Tree
-                     NLP.Tokenize.Chatter
                      NLP.Tokenize.Annotations
+                     NLP.Tokenize.TextTrie
                      NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
@@ -89,14 +89,14 @@ Library
                      zlib           >= 0.5.4.1,
                      filepath       >= 1.3.0.1,
                      deepseq,
-                     tokenize       >= 0.2.0,
                      parsec         >= 3.1.5,
                      transformers,
                      regex-tdfa     >= 1.2.0,
                      regex-tdfa-text,
                      array,
                      QuickCheck,
-                     quickcheck-instances
+                     quickcheck-instances,
+                     list-tries
 
 
 
@@ -225,7 +225,6 @@ test-suite tests
                      text,
                      HUnit,
                      parsec >= 3.1.5,
-                     tokenize,
                      QuickCheck,
                      filepath,
                      cereal,

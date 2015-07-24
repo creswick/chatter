@@ -1,8 +1,16 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.Tokenize.Annotations
+  ( tokenize
+  , defaultTokenizer
+  , runTokenizer
+  , protectTerms
+  )
 where
 
+import Data.Array
 import Data.Char
+import Data.Function (on)
+import Data.List (sortBy)
 import Data.Maybe
 import Control.Monad.Instances ()
 import Control.Applicative
@@ -11,7 +19,11 @@ import Control.Monad
 import Data.Text (Text)
 import qualified Data.Text as T
 
+import Text.Regex.TDFA
+import Text.Regex.TDFA.Text (compile)
+
 import NLP.Types.Annotations
+import NLP.Types (CaseSensitive(..))
 
 data RawToken = FixedToken { start :: Int
                            , text :: Text
@@ -36,12 +48,16 @@ data Accumulator = Acc { curIdx :: !Int
                        }
 
 tokenize :: Tokenizer
-tokenize txt = TokSentence { tokText = txt
-                           , tokAnnotations = map (toToken txt) (tokenPipeline (OpenToken 0 txt))
-                           }
+tokenize txt = runTokenizer defaultTokenizer txt
 
-tokenPipeline :: RawToken -> [RawToken]
-tokenPipeline = whitespace >=> uris >=> punctuation >=> contractions
+runTokenizer :: (RawToken -> [RawToken]) -> Tokenizer
+runTokenizer tokenizer txt =
+  TokSentence { tokText = txt
+              , tokAnnotations = map (toToken txt) (tokenizer (OpenToken 0 txt))
+              }
+
+defaultTokenizer :: RawToken -> [RawToken]
+defaultTokenizer = whitespace >=> uris >=> punctuation >=> contractions
 
 -- | Split common contractions off and freeze them.
 -- Currently deals with: 'm, 's, 'd, 've, 'll, and negations (n't)
@@ -137,3 +153,51 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
             , curText = char:curText acc
             }
 
+-- | Create a tokenizer that protects the provided terms (to tokenize
+-- multi-word terms)
+protectTerms :: [Text] -> CaseSensitive -> (RawToken -> [RawToken])
+protectTerms terms sensitive = undefined
+--   let sorted = sortBy (compare `on` T.length) $ map escapeRegexChars terms
+
+--       sensitivity = case sensitive of
+--                       Insensitive -> False
+--                       Sensitive   -> True
+
+--       compOption = CompOption
+--         { caseSensitive = sensitivity
+--         , multiline = False
+--         , rightAssoc = True
+--         , newSyntax = True
+--         , lastStarGreedy = True
+--         }
+
+--       execOption = ExecOption { captureGroups = False }
+
+--       eRegex = compile compOption execOption
+--                  (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
+
+--       tokenizeMatches :: Regex -> (RawToken -> [RawToken])
+--       tokenizeMatches     _ f@(FixedToken    _   _) = [f]
+--       tokenizeMatches regex o@(OpenToken start txt) =
+--         case concatMap elems $ matchAll regex tok of
+--           [] -> [o]
+--           xs -> 
+
+
+--   in case eRegex of
+--        Left err -> error ("Regex could not be built: "++err)
+--        Right rx -> tokenizeMatches rx
+
+-- escapeRegexChars :: Text -> Text
+-- escapeRegexChars input = helper [ "\\", ".", "+", "*", "?", "[", "^", "]", "$"
+--                                 , "(", ")", "{", "}", "=", "!", "<", ">", "|"
+--                                 , ":", "-"
+--                                 ] input
+
+--   where
+--     helper :: [Text] -> Text -> Text
+--     helper []     term = term
+--     helper (x:xs) term = helper xs $ escapeChar x term
+
+--     escapeChar :: Text -> Text -> Text
+--     escapeChar char term = T.replace char (T.append "\\" char) term

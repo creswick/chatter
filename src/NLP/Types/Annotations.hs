@@ -1,6 +1,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE FlexibleInstances #-}
 module NLP.Types.Annotations where
 
 import GHC.Generics
@@ -11,6 +12,7 @@ import qualified Data.Text as T
 import Text.Read (readEither)
 
 import NLP.Types.General (toEitherErr, Error)
+import qualified NLP.Types.Tree as Old
 
 -- | Safe index type, uses a phantom type to prevent us from indexing
 -- into the wrong thing.
@@ -39,11 +41,18 @@ data Annotation dat tag =
 
 instance (Hashable dat, Hashable tag) => Hashable (Annotation dat tag)
 
+instance AnnotatedText (Annotation Text Token) where
+  getText ann = case value ann of
+                  Token txt -> txt
+
 -- | Wrapper around both the underlying text and the tokenizer results.
 data TokenizedSentence =
   TokSentence { tokText :: Text
               , tokAnnotations :: [Annotation Text Token]
               } deriving (Read, Show, Eq, Generic, Ord)
+
+toSentence :: TokenizedSentence -> Old.Sentence
+toSentence ts = Old.Sent (map (Old.Token . getText) $ tokAnnotations ts)
 
 instance Hashable TokenizedSentence
 instance AnnotatedText TokenizedSentence where

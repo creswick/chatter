@@ -17,7 +17,7 @@ import qualified Data.Map as Map
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
 
-import NLP.Tokenize.Chatter (tokenize)
+import NLP.Tokenize (tokenize)
 import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT

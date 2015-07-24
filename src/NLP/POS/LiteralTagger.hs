@@ -11,18 +11,14 @@ module NLP.POS.LiteralTagger
 where
 
 import Control.Monad ((>=>))
-import Data.Array
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 (pack)
-import Data.Function (on)
-import Data.List (sortBy)
 import qualified Data.Map.Strict as Map
 import Data.Serialize (encode, decode)
 import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
-import NLP.Tokenize.Text (Tokenizer, EitherList(..), defaultTokenizer)
-import NLP.Tokenize.Chatter (runTokenizer)
+import NLP.Tokenize.Annotations (runTokenizer, protectTerms, defaultTokenizer)
 import NLP.FullStop (segment)
 import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), applyTags
                  , Tag, POSTagger(..), CaseSensitive(..), tokens, showTok)
@@ -54,68 +50,6 @@ mkTagger table sensitive mTgr = POSTagger
           case sensitive of
             Sensitive   -> id
             Insensitive -> Map.mapKeys T.toLower
-
-escapeRegexChars :: Text -> Text
-escapeRegexChars input = helper [ "\\", ".", "+", "*", "?", "[", "^", "]", "$"
-                                , "(", ")", "{", "}", "=", "!", "<", ">", "|"
-                                , ":", "-"
-                                ] input
-
-  where
-    helper :: [Text] -> Text -> Text
-    helper []     term = term
-    helper (x:xs) term = helper xs $ escapeChar x term
-
-    escapeChar :: Text -> Text -> Text
-    escapeChar char term = T.replace char (T.append "\\" char) term
-
--- | Create a tokenizer that protects the provided terms (to tokenize
--- multi-word terms)
-protectTerms :: [Text] -> CaseSensitive -> Tokenizer
-protectTerms terms sensitive =
-  let sorted = sortBy (compare `on` T.length) $ map escapeRegexChars terms
-
-      sensitivity = case sensitive of
-                      Insensitive -> False
-                      Sensitive   -> True
-
-      compOption = CompOption
-        { caseSensitive = sensitivity
-        , multiline = False
-        , rightAssoc = True
-        , newSyntax = True
-        , lastStarGreedy = True
-        }
-
-      execOption = ExecOption { captureGroups = False }
-
-      eRegex = compile compOption execOption
-                 (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
-
-      toEithers :: [(Int, Int)] -> Text -> [Either Text Text]
-      toEithers []                str = [Right str]
-      toEithers ((idx, len):rest) str =
-        let (first, theTail)      = T.splitAt idx str
-            (token, realTail) = T.splitAt len theTail
-            scaledRest        = map (\(x,y)->((x-(idx+len)), y)) rest
-        in filterEmpty ([Right first, Left token] ++ (toEithers scaledRest realTail))
-
-      filterEmpty :: [Either Text Text] -> [Either Text Text]
-      filterEmpty []            = []
-      filterEmpty (Left "":xs)  = filterEmpty xs
-      filterEmpty (Right "":xs) = filterEmpty xs
-      filterEmpty (x:xs)        = x:filterEmpty xs
-
-      tokenizeMatches :: Regex -> Tokenizer
-      tokenizeMatches regex tok =
-        E (toEithers (concatMap elems $ matchAll regex tok) tok)
-  in case eRegex of
-       Left err -> error ("Regex could not be built: "++err)
-       Right rx -> tokenizeMatches rx
-
- -- x | isUri x = E [Left x]
- --       | True    = E [Right x]
- --    where isUri u = any (`T.isPrefixOf` u) ["http://","ftp://","mailto:"]
 
 tag :: Tag t => Map Text t -> CaseSensitive -> [Sentence] -> [TaggedSentence t]
 tag table sensitive ss = map (tagSentence table sensitive) ss

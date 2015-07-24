@@ -70,4 +70,5 @@ extra-deps:
 - monad-par-extras-0.3.3
 - parallel-3.2.0.6
 - vector-th-unbox-0.2.1.2
+- list-tries-0.6.1
 resolver: ghc-7.8
