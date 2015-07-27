@@ -8,7 +8,7 @@ module NLP.Tokenize.Annotations
 where
 
 import Data.Array
-import Data.Char
+import qualified Data.Char as Char
 import Data.Function (on)
 import Data.List (sortBy)
 import Data.Maybe
@@ -82,17 +82,19 @@ punctuation = leadingPunctuation >=> trailingPunctuation
 trailingPunctuation :: RawToken -> [RawToken]
 trailingPunctuation f@(FixedToken _ _) = [f]
 trailingPunctuation t@(OpenToken start txt) =
-  case T.span isPunctuation $ T.reverse txt of
+  case T.span Char.isPunctuation $ T.reverse txt of
     (ps,w) | T.null ps -> [ t ]
+           | T.null  w -> [ FixedToken start $ T.reverse ps ]
            | otherwise -> [ OpenToken start $ T.reverse w
-                          , OpenToken (start + T.length w) (T.reverse ps) ]
+                          , FixedToken (start + T.length w) (T.reverse ps) ]
 
 leadingPunctuation :: RawToken -> [RawToken]
 leadingPunctuation f@(FixedToken _ _) = [f]
 leadingPunctuation t@(OpenToken start txt) =
-  case T.span isPunctuation txt of
+  case T.span Char.isPunctuation txt of
     (ps,w) | T.null ps -> [ t ]
-           | otherwise -> [ OpenToken start ps
+           | T.null  w -> [ FixedToken start ps ]
+           | otherwise -> [ FixedToken start ps
                           , OpenToken (start + T.length ps) w ]
 
 
@@ -145,6 +147,9 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
             , inToken = True
             , curText = char:curText acc
             }
+
+isSeparator :: Char -> Bool
+isSeparator ch = (Char.isSeparator ch || Char.isSpace ch)
 
 -- | Create a tokenizer that protects the provided terms (to tokenize
 -- multi-word terms)

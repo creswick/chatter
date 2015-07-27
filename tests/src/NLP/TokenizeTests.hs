@@ -6,6 +6,7 @@ import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Map as Map
+import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 
@@ -39,6 +40,26 @@ tests = testGroup "NLP.Tokenze" $ map mkTokTest
             , (8, "n't")
             , (11, ".")
             ])
+        , ("jumped ."
+        --  0123456789
+          , [ (0, "jumped")
+            , (7, ".")
+            ])
+        , ("jumped."
+        --  0123456789
+          , [ (0, "jumped")
+            , (6, ".")
+            ])
+        , (" ., "
+          , [(1, ".,")])
+        , (" . "
+          , [(1, ".")])
+        , (" "
+          , [])
+        , ("  "
+          , [])
+        , (" \t "
+          , [])
         ]
 
 -- TODO: Test 'protectTerms'
@@ -54,5 +75,5 @@ mkTxtAnnotation dat (idx, tok) = Annotation (Index idx) (T.length tok) (Token to
 mkTokTest :: (Text, [(Int, Text)]) -> TestTree
 mkTokTest (dat, toks) = let actual = tokenize dat
                             expected = mkTokSentence dat toks
-                        in testCase (T.unpack dat) (actual @?= expected)
+                        in testCase (T.unpack ("\"" <> dat <> "\"")) (actual @?= expected)
 

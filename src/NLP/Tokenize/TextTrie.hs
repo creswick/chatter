@@ -51,6 +51,8 @@ protectedTokenizer terms = protectedTokens $ buildTrie terms
 
 -- | The incomming trie contains all strings that need to be tokenized
 -- specially.
+--
+-- TODO: Fails on the trie above [(test, testing)] and an input like "this is a testin thing"
 protectedTokens :: PS.TrieSet M.Map Char -> RawToken -> [RawToken]
 protectedTokens trie rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
 
@@ -68,6 +70,20 @@ protectedTokens trie rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ te
     addLastToken acc = ((tokBuilder acc) (curStart acc) (T.pack $ reverse $ curText acc))
                        : accTokens acc
 
+    -- | Accumulator to track and change states.
+    --
+    -- States:
+    --  * Starting state.
+    --  * In a special token
+    --    * Cur char matches one of the the next Trie chars
+    --      * Cur char finishes a special token.
+    --      * Cur char is in the middle of a special token.
+    --    * Cur char does *not* match one of the next trie chars
+    --    * Trie is empty.
+    --  * Not in a special token.
+    --    * Cur char matches one of the the next Trie char
+    --    * Cur char does *not* match one of the next trie chars
+    --  * No more tokens.
     fn :: Accumulator -> Char -> Accumulator
     fn acc char = case M.lookup char $ trieChildren1 (curTrie acc) of
       Nothing | inToken acc ->
@@ -123,6 +139,7 @@ data Accumulator = Acc { curIdx :: !Int
                        , curText :: [Char]
                        , accTokens :: [RawToken]
                        , curTrie :: PS.TrieSet M.Map Char
+--                       , longestToken :: [Char]
                        }
 
 
