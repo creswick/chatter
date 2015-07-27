@@ -17,6 +17,7 @@ import NLP.ML.AvgPerceptron ( Perceptron, Feature(..)
                             , Class(..), predict, update
                             , averageWeights)
 import NLP.Types
+import NLP.Types.Tree
 
 import Data.ByteString (ByteString)
 import Data.List (foldl', group)

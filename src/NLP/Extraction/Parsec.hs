@@ -34,8 +34,10 @@ import Text.Parsec.Prim (lookAhead, token, Parsec, try, Stream(..))
 import qualified Text.Parsec.Combinator as PC
 import Text.Parsec.Pos  (newPos)
 
-import NLP.Types (TaggedSentence(..), Tag(..), CaseSensitive(..),
-                  POS(..), Token(..), ChunkedSentence(..), ChunkOr(..), ChunkTag)
+import NLP.Types.Tree (TaggedSentence(..), 
+                  POS(..), Token(..), ChunkedSentence(..), ChunkOr(..))
+import NLP.Types (Tag(..), CaseSensitive(..),
+                   ChunkTag)
 
 instance (Monad m, Tag t) => Stream (TaggedSentence t) m (POS t) where
   uncons (TaggedSent ts) = do

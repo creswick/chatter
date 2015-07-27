@@ -8,6 +8,7 @@ module NLP.Corpora.Brown
  )
 where
 
+import Data.Hashable (Hashable)
 import Data.Serialize (Serialize)
 import qualified Data.Text as T
 import Data.Text (Text)
@@ -17,7 +18,7 @@ import Test.QuickCheck.Gen (elements)
 
 import GHC.Generics
 
-import qualified NLP.Types.Tags as T
+import qualified NLP.Types.Annotations as A
 import NLP.Types.General
 
 data Chunk = C_NP -- ^ Noun Phrase.
@@ -27,27 +28,25 @@ data Chunk = C_NP -- ^ Noun Phrase.
            | C_O  -- ^ "Out" not a chunk.
   deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
+instance Hashable Chunk
 instance Arbitrary Chunk where
   arbitrary = elements [minBound ..]
 
 instance Serialize Chunk
 
 instance Serialize Tag
+instance Hashable Tag
 
-instance T.Tag Tag where
-  fromTag = showBrownTag
+instance A.POS Tag where
+  serializePOS = showBrownTag
 
-  parseTag txt = case parseBrownTag txt of
-                   Left  _ -> Unk
-                   Right t -> t
+  parsePOS = parseBrownTag
 
-  -- | Constant tag for "unknown"
+  -- | tag for "unknown"
   tagUNK = Unk
 
-  tagTerm = showBrownTag
-
-  startTag = START
-  endTag = END
+  startPOS = START
+  endPOS = END
 
   isDt tag = tag `elem` [DT, DTdollar, DT_pl_BEZ, DT_pl_MD, DTI, DTS, DTS_pl_BEZ, DTX]
 
@@ -92,8 +91,8 @@ showBrownTag tag = replaceAll reversePatterns (T.pack $ show tag)
 replaceAll :: [(Text, Text)] -> (Text -> Text)
 replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
-instance T.ChunkTag Chunk where
-  fromChunk = T.pack . show
+instance A.Chunk Chunk where
+  serializeChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither (T.unpack $ T.append "C_" txt)
   notChunk = C_O
 

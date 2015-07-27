@@ -153,10 +153,10 @@ deserialize table bs = do
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: Tag t => POSTagger t -> Text -> [TaggedSentence t]
 tag p txt = let sentences = (posSplitter p) txt
-                tokens    = map (AN.toSentence . posTokenizer p) sentences
+                tokens    = map (posTokenizer p) sentences
             in tagTokens p tokens
 
-tagTokens :: Tag t => POSTagger t -> [Sentence] -> [TaggedSentence t]
+tagTokens :: Tag pos => POSTagger pos -> [TokenizedSentence] -> [TaggedSentence pos]
 tagTokens p tokens = let priority = (posTagger p) tokens
                      in case posBackoff p of
                           Nothing  -> priority

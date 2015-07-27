@@ -41,10 +41,10 @@ data Accumulator = Acc { curIdx :: !Int
                        , accTokens :: [RawToken]
                        }
 
-tokenize :: Tokenizer
+tokenize :: Text -> TokenizedSentence
 tokenize txt = runTokenizer defaultTokenizer txt
 
-runTokenizer :: (RawToken -> [RawToken]) -> Tokenizer
+runTokenizer :: (RawToken -> [RawToken]) -> Text -> TokenizedSentence
 runTokenizer tokenizer txt =
   TokSentence { tokText = txt
               , tokAnnotations = map (toToken txt) (tokenizer (OpenToken 0 txt))

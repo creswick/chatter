@@ -4,7 +4,7 @@ module NLP.Corpora.Parsing where
 import qualified Data.Text as T
 import Data.Text (Text)
 
-import NLP.Types (Tag(..), parseTag, tagUNK, TaggedSentence(..)
+import NLP.Types.Tree (Tag(..), parseTag, tagUNK, TaggedSentence(..)
                  , POS(..), Token(..))
 
 -- | Read a POS-tagged corpus out of a Text string of the form:

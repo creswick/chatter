@@ -30,7 +30,7 @@ import qualified NLP.POS.LiteralTaggerTests as LT
 import qualified NLP.POSTests as POS
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
-import qualified NLP.Types.IOBTests as IOB
+-- import qualified NLP.Types.IOBTests as IOB
 import qualified NLP.Types.TreeTests as Tree
 import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 import qualified NLP.TokenizeTests as Tok
@@ -70,13 +70,13 @@ tests = testGroup "Tests"
         , LT.tests
         , TypeTests.tests
         , DefMap.tests
-        , Parsec.tests
+--        , Parsec.tests
         , IT.tests
         , Brown.tests
         , Conll.tests
-        , IOB.tests
-        , APC.tests
-        , Tree.tests
+--        , IOB.tests
+--        , APC.tests
+--        , Tree.tests
         , Tok.tests
         ]
 

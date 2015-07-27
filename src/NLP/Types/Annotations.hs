@@ -7,12 +7,15 @@ module NLP.Types.Annotations where
 import GHC.Generics
 import Data.Hashable (Hashable)
 import Data.Serialize (Serialize)
+import Data.String (IsString(..))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Read (readEither)
 
+import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
+import Test.QuickCheck.Instances ()
+
 import NLP.Types.General (toEitherErr, Error)
-import qualified NLP.Types.Tree as Old
 
 -- | Safe index type, uses a phantom type to prevent us from indexing
 -- into the wrong thing.
@@ -51,8 +54,8 @@ data TokenizedSentence =
               , tokAnnotations :: [Annotation Text Token]
               } deriving (Read, Show, Eq, Generic, Ord)
 
-toSentence :: TokenizedSentence -> Old.Sentence
-toSentence ts = Old.Sent (map (Old.Token . getText) $ tokAnnotations ts)
+-- toSentence :: TokenizedSentence -> Old.Sentence
+-- toSentence ts = Old.Sent (map (Old.Token . getText) $ tokAnnotations ts)
 
 toTextToks :: TokenizedSentence -> [Text]
 toTextToks ts = map getText $ tokAnnotations ts
@@ -84,6 +87,7 @@ instance (Hashable pos, Hashable chunk) => Hashable (ChunkedSentence pos chunk)
 instance AnnotatedText (ChunkedSentence pos chunk) where
   getText = getText . chunkTagSentence
 
+
 -- | A sentence that has been marked with named entities.
 data NERedSentence pos chunk ne =
   NERedSentence { neChunkSentence :: ChunkedSentence pos chunk
@@ -104,21 +108,25 @@ class AnnotatedText sentence where
   getText :: sentence -> Text
 
 -- | Tokenization takes in text, produces annotations.
-type Tokenizer = Text -> TokenizedSentence
-
--- | POS tagging requires tokenization and produces annotations on the tokens.
-type POSTagger pos = TokenizedSentence -> TaggedSentence pos
+-- type Tokenizer = Text -> TokenizedSentence
 
 -- | Chunking requires POS-tags (and tokenization) and generates annotations on the tokens.
-type Chunker pos chunk = TaggedSentence pos -> ChunkedSentence pos chunk
+-- type Chunker pos chunk = TaggedSentence pos -> ChunkedSentence pos chunk
 
 -- | Named Entity recognition requires POS tags and tokens, and
 -- produces annotations with Named Entities marked.
-type NERer pos chunk ne = ChunkedSentence pos chunk -> NERedSentence pos chunk ne
+-- type NERer pos chunk ne = ChunkedSentence pos chunk -> NERedSentence pos chunk ne
 
 -- | Sentinel value for tokens.
 newtype Token = Token Text
   deriving (Read, Show, Eq, Hashable, Ord)
+
+instance Arbitrary Token where
+  arbitrary = do NonEmpty txt <- arbitrary
+                 return $ Token (T.pack txt)
+
+instance IsString Token where
+  fromString = Token . T.pack
 
 -- | The class of POS Tags.
 --

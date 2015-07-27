@@ -53,13 +53,13 @@ Library
                      NLP.POS.AvgPerceptronTagger
                      NLP.POS.LiteralTagger
                      NLP.POS.UnambiguousTagger
-                     NLP.Chunk
-                     NLP.Chunk.AvgPerceptronChunker
+--                     NLP.Chunk
+--                     NLP.Chunk.AvgPerceptronChunker
                      NLP.ML.AvgPerceptron
                      NLP.Types
                      NLP.Types.Annotations
                      NLP.Types.General
-                     NLP.Types.IOB
+--                     NLP.Types.IOB
                      NLP.Types.Tags
                      NLP.Types.Tree
                      NLP.Tokenize.Annotations
@@ -69,10 +69,10 @@ Library
                      NLP.Corpora.Email
                      NLP.Corpora.Brown
                      NLP.Corpora.Conll
-                     NLP.Corpora.WikiNer
+--                     NLP.Corpora.WikiNer
                      NLP.Similarity.VectorSim
-                     NLP.Extraction.Parsec
-                     NLP.Extraction.Examples.ParsecExamples
+                     -- NLP.Extraction.Parsec
+                     -- NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
 
    Build-depends:    base           >= 4.6 && <= 6,
@@ -118,6 +118,7 @@ Executable tagPOS
    ghc-options:      -Wall -main-is Tagger -rtsopts
 
 Executable trainPOS
+   enaled: False
    default-language: Haskell2010
    Main-Is:          POSTrainer.hs
    hs-source-dirs:   appsrc

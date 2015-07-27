@@ -4,6 +4,7 @@
 -- the Conll2000 training corpus.
 module NLP.Corpora.Conll where
 
+import Data.Hashable (Hashable)
 import Data.Serialize (Serialize)
 import qualified Data.Text as T
 import Data.Text (Text)
@@ -13,7 +14,7 @@ import Test.QuickCheck.Gen (elements)
 
 import GHC.Generics
 
-import qualified NLP.Types.Tags as T
+import qualified NLP.Types.Annotations as A
 import NLP.Types.General
 
 -- | Named entity categories defined for the Conll 2003 task.
@@ -27,7 +28,8 @@ instance Arbitrary NERTag where
   arbitrary = elements [minBound..]
 
 instance Serialize NERTag
-instance T.NERTag NERTag
+instance A.NamedEntity NERTag
+instance Hashable NERTag
 
 -- | Phrase chunk tags defined for the Conll task.
 data Chunk = ADJP
@@ -44,32 +46,32 @@ data Chunk = ADJP
            | O -- ^ "out"; not a chunk.
   deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
+instance Hashable Chunk
+
 instance Arbitrary Chunk where
   arbitrary = elements [minBound..]
 
 instance Serialize Chunk
 
 
-instance T.Tag Tag where
-  fromTag = showTag
+instance A.POS Tag where
+  serializePOS = showTag
 
-  parseTag txt = case readTag txt of
-                   Left  _ -> Unk
-                   Right t -> t
+  parsePOS txt = readTag txt
 
   -- | Constant tag for "unknown"
   tagUNK = Unk
 
-  tagTerm = showTag
 
-  startTag = START
-  endTag = END
+  startPOS = START
+  endPOS = END
 
   isDt tag = tag `elem` [DT]
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
 instance Serialize Tag
+instance Hashable Tag
 
 readTag :: Text -> Either Error Tag
 readTag "#" = Right Hash
@@ -109,8 +111,8 @@ showTag tag = replaceAll reversePatterns (T.pack $ show tag)
 replaceAll :: [(Text, Text)] -> (Text -> Text)
 replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
-instance T.ChunkTag Chunk where
-  fromChunk = T.pack . show
+instance A.Chunk Chunk where
+  serializeChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither $ T.unpack txt
   notChunk = O
 

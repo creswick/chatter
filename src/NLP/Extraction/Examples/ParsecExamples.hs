@@ -24,6 +24,7 @@ import Text.Parsec.Prim ( (<|>), try)
 import qualified Text.Parsec.Combinator as PC
 
 import NLP.Types
+import NLP.Types.Tree
 import NLP.Extraction.Parsec
 
 import qualified NLP.Corpora.Brown as B

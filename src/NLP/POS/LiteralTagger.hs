@@ -19,8 +19,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import NLP.Tokenize.Annotations (runTokenizer, protectTerms,  defaultTokenizer)
 import NLP.FullStop (segment)
-import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), applyTags
-                 , Tag, POSTagger(..), CaseSensitive(..), tokens, showTok)
+import NLP.Types ( tagUNK, Tag, POSTagger(..), CaseSensitive(..))
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Text (compile)
 
@@ -50,12 +49,24 @@ mkTagger table sensitive mTgr = POSTagger
             Sensitive   -> id
             Insensitive -> Map.mapKeys T.toLower
 
-tag :: Tag t => Map Text t -> CaseSensitive -> [Sentence] -> [TaggedSentence t]
+tag :: Tag t => Map Text t -> CaseSensitive -> [TokenizedSentence] -> [TaggedSentence t]
 tag table sensitive ss = map (tagSentence table sensitive) ss
 
-tagSentence :: Tag t => Map Text t -> CaseSensitive -> Sentence -> TaggedSentence t
-tagSentence table sensitive sent = applyTags sent (map findTag $ tokens sent)
+tagSentence :: Tag pos =>
+               Map Text pos -> CaseSensitive -> TokenizedSentence -> TaggedSentence pos
+tagSentence table sensitive sent =
+  TaggedSentence { tagTokSentence = sent
+                 , tagAnnotations = map tagToken $ zip (tokAnnotations sent) [0..]
+                 }
   where
+
+    tagToken :: (Annotation Text Token, Int) -> (Annotation TokenizedSentence pos)
+    tagToken (ann, idx) = Annotation { startIdx = Index idx
+                                     , len = 1
+                                     , value = findTag (getText ann)
+                                     , payload = sent
+                                     }
+
 --    findTag :: Tag t => Token -> t
     findTag txt = Map.findWithDefault tagUNK (canonicalize $ showTok txt) table
 
