@@ -15,6 +15,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Types
+import NLP.Types.Annotations (toTextToks)
 import NLP.POS
 import qualified NLP.POS.LiteralTagger as LT
 import NLP.Tokenize.Annotations (defaultTokenizer, runTokenizer)
@@ -149,7 +150,7 @@ validTerm term | T.null term = False
 prop_protectTerms :: [Text] -> LT.CaseSensitive -> Text -> Property
 prop_protectTerms terms sensitive noise = all validTerm terms ==>
   let input = T.unwords $ intersperse noise terms
-      result = runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input
+      result = toTextToks $ runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input
   in and $ map (`elem` result) terms
 
 protectTests :: ([Text], LT.CaseSensitive, Text, [Text])
@@ -159,7 +160,7 @@ protectTests (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["Just Protect [", (T.intercalate "; " terms), "] ", input])
 
-    runTest = runTokenizer (LT.protectTerms terms sensitive) input @?= oracle
+    runTest = (toTextToks $ runTokenizer (LT.protectTerms terms sensitive) input) @?= oracle
 
 protectTestsWDefault :: ([Text], LT.CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
@@ -168,4 +169,4 @@ protectTestsWDefault (terms, sensitive, input, oracle) = testCase description ru
   where
     description = T.unpack (T.concat ["w/Default [", (T.intercalate "; " terms), "] ", input])
 
-    runTest = runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input @?= oracle
+    runTest = (toTextToks $ runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input) @?= oracle

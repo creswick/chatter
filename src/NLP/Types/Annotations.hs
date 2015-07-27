@@ -54,6 +54,9 @@ data TokenizedSentence =
 toSentence :: TokenizedSentence -> Old.Sentence
 toSentence ts = Old.Sent (map (Old.Token . getText) $ tokAnnotations ts)
 
+toTextToks :: TokenizedSentence -> [Text]
+toTextToks ts = map getText $ tokAnnotations ts
+
 instance Hashable TokenizedSentence
 instance AnnotatedText TokenizedSentence where
   getText = tokText
