@@ -7,14 +7,15 @@ module NLP.Tokenize.Annotations
   )
 where
 
+-- import Control.Monad.Instances ()
+import Control.Monad
+
 import Data.Array
 import qualified Data.Char as Char
 import Data.Function (on)
-import Data.List (sortBy)
+import Data.List (sortBy, foldl')
 import Data.Maybe
-import Control.Monad.Instances ()
-import Control.Applicative
-import Control.Monad
+import Data.Monoid ((<>))
 
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -25,7 +26,6 @@ import Text.Regex.TDFA.Text (compile)
 import NLP.Types.Annotations
 import NLP.Types (CaseSensitive(..))
 import NLP.Tokenize.Types
-import NLP.Tokenize.TextTrie (protectTerms)
 
 toToken :: Text -> RawToken -> Annotation Text Token
 toToken doc tok = Annotation { startIdx = Index $ start tok
@@ -57,11 +57,11 @@ defaultTokenizer = whitespace >=> uris >=> punctuation >=> contractions
 -- Currently deals with: 'm, 's, 'd, 've, 'll, and negations (n't)
 contractions :: RawToken -> [RawToken]
 contractions f@(FixedToken _ _) = [f]
-contractions t@(OpenToken start txt) =
+contractions t@(OpenToken st txt) =
   case catMaybes . map (splitSuffix txt) $ cts of
     [] -> return t -- no suffix.
-    ((w,s):_) -> [ OpenToken start w  -- leave the term open
-                 , FixedToken (start + T.length w) s -- fix the suffix
+    ((w,s):_) -> [ OpenToken st w  -- leave the term open
+                 , FixedToken (st + T.length w) s -- fix the suffix
                  ]
   where
     cts = ["'m","'s","'d","'ve","'ll", "n't"]
@@ -71,9 +71,9 @@ contractions t@(OpenToken start txt) =
     splitSuffix :: Text -> Text -> Maybe (Text, Text)
     splitSuffix w sfx =
       let w' = T.reverse w
-          len = T.length sfx
+          tlen = T.length sfx
       in if sfx `T.isSuffixOf` w
-         then Just (T.take (T.length w - len) w, T.reverse . T.take len $ w')
+         then Just (T.take (T.length w - tlen) w, T.reverse . T.take tlen $ w')
          else Nothing
 
 
@@ -82,21 +82,21 @@ punctuation = leadingPunctuation >=> trailingPunctuation
 
 trailingPunctuation :: RawToken -> [RawToken]
 trailingPunctuation f@(FixedToken _ _) = [f]
-trailingPunctuation t@(OpenToken start txt) =
+trailingPunctuation t@(OpenToken st txt) =
   case T.span Char.isPunctuation $ T.reverse txt of
     (ps,w) | T.null ps -> [ t ]
-           | T.null  w -> [ FixedToken start $ T.reverse ps ]
-           | otherwise -> [ OpenToken start $ T.reverse w
-                          , FixedToken (start + T.length w) (T.reverse ps) ]
+           | T.null  w -> [ FixedToken st $ T.reverse ps ]
+           | otherwise -> [ OpenToken st $ T.reverse w
+                          , FixedToken (st + T.length w) (T.reverse ps) ]
 
 leadingPunctuation :: RawToken -> [RawToken]
 leadingPunctuation f@(FixedToken _ _) = [f]
-leadingPunctuation t@(OpenToken start txt) =
+leadingPunctuation t@(OpenToken st txt) =
   case T.span Char.isPunctuation txt of
     (ps,w) | T.null ps -> [ t ]
-           | T.null  w -> [ FixedToken start ps ]
-           | otherwise -> [ FixedToken start ps
-                          , OpenToken (start + T.length ps) w ]
+           | T.null  w -> [ FixedToken st ps ]
+           | otherwise -> [ FixedToken st ps
+                          , OpenToken (st + T.length ps) w ]
 
 
 uris :: RawToken -> [RawToken]
@@ -152,3 +152,66 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
 isSeparator :: Char -> Bool
 isSeparator ch = (Char.isSeparator ch || Char.isSpace ch)
 
+-- | Create a tokenizer that protects the provided terms (to tokenize
+-- multi-word terms)
+protectTerms :: [Text] -> CaseSensitive -> RawToken -> [RawToken]
+protectTerms _ _   f@(FixedToken _ _) = [f]
+protectTerms terms sensitive rawToken =
+  let sorted = sortBy (compare `on` T.length) $ map escapeRegexChars terms
+
+      sensitivity = case sensitive of
+                      Insensitive -> False
+                      Sensitive   -> True
+
+      compOption = CompOption
+        { caseSensitive = sensitivity
+        , multiline = False
+        , rightAssoc = True
+        , newSyntax = True
+        , lastStarGreedy = True
+        }
+
+      execOption = ExecOption { captureGroups = False }
+
+      -- The angle brackets here are used to set word boundairies.
+      eRegex = compile compOption execOption
+                 (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
+
+      tokenizeMatches :: Regex -> (RawToken -> [RawToken])
+      tokenizeMatches regex tok = case concatMap elems $ matchAllText regex (text tok) of
+        [] -> [OpenToken 0 (text tok)]
+        xs -> let (anchor, acc) = foldl' foldFn (0, []) xs
+                  txtLen = T.length $ text tok
+                  lastToken | anchor == txtLen = []
+                            | otherwise        = [OpenToken anchor (subStr (text tok) anchor txtLen)]
+              in acc <> lastToken
+
+      foldFn ::(Int, [RawToken]) -> (Text, (Int, Int)) -> (Int, [RawToken])
+      foldFn (anchor, acc) (tok, (mStart, mLen)) =
+        let fixedTokens | mLen == 0 = []
+                        | otherwise = [FixedToken mStart tok]
+            openTokens | mStart == anchor = []
+                       | otherwise = [OpenToken anchor (subStr (text rawToken) anchor mStart)]
+
+        in (mStart + mLen, acc <> openTokens <> fixedTokens)
+
+  in case eRegex of
+       Left err -> error ("Regex could not be built: "++err)
+       Right rx -> tokenizeMatches rx rawToken
+
+subStr :: Text -> Int -> Int -> Text
+subStr txt st end = T.take (end - st) $ T.drop st txt
+
+escapeRegexChars :: Text -> Text
+escapeRegexChars input = helper [ "\\", ".", "+", "*", "?", "[", "^", "]", "$"
+                                , "(", ")", "{", "}", "=", "!", "<", ">", "|"
+                                , ":", "-"
+                                ] input
+
+  where
+    helper :: [Text] -> Text -> Text
+    helper []     term = term
+    helper (x:xs) term = helper xs $ escapeChar x term
+
+    escapeChar :: Text -> Text -> Text
+    escapeChar char term = T.replace char (T.append "\\" char) term

@@ -3,7 +3,6 @@ module NLP.TokenizeTests where
 
 import Test.Tasty.HUnit
 import Test.Tasty (TestTree, testGroup)
-import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Map as Map
 import Data.Monoid ((<>))
@@ -16,7 +15,6 @@ import NLP.Types (CaseSensitive(..))
 import NLP.Types.Annotations
 import NLP.POS
 
-import TestUtils
 
 tests :: TestTree
 tests = testGroup "NLP.Tokenze"
@@ -62,7 +60,7 @@ tests = testGroup "NLP.Tokenze"
           , (" \t "
             , [])
           ]
-        , testGroup "Protect Terms" $ map (mkProtectTermsTokTest basicTerms)
+        , testGroup "Protect Terms: basic terms" $ map (mkProtectTermsTokTest basicTerms)
           [ ("We use Apache."
             , Sensitive
             , [ (0, "We use ")
@@ -78,19 +76,49 @@ tests = testGroup "NLP.Tokenze"
           , ("use Apache Hadoop here"
           --  0123456789012345678901
             , Sensitive
-            , [ (0, "We use ")
+            , [ (0, "use ")
               , (4, "Apache Hadoop")
-              , (18, "here")
+              , (17, " here")
+              ])
+          , ("use \"Apache Hadoop\" here"
+          --  0123 45678901234567 890123
+            , Sensitive
+            , [ (0, "use \"")
+              , (5, "Apache Hadoop")
+              , (18, "\" here")
               ])
           ,  ("We use apache."
              , Sensitive
              , [ (0, "We use apache.")
                ])
+          -- ,  ("testinthing"
+          --    , Sensitive
+          --    , [ (0, "test")
+          --      , (5, "inthing")
+          --      ])
+          -- ,  ("testing thing"
+          --   -- 0123456789012
+          --    , Sensitive
+          --    , [ (0, "test")
+          --      , (4, "ing thing")
+          --      ])
+          ]
+        , testGroup "Protect Terms: simple terms" $
+                    map (mkProtectTermsTokTest ["quick", "brown"])
+          [ ("The quick brown fox jumped"
+          --  01234567890123456789012345
+            , Sensitive
+            , [ (0, "The ")
+              , (4, "quick")
+              , (9, " ")
+              , (10, "brown")
+              , (15, " fox jumped")
+              ])
           ]
         ]
 
 basicTerms :: [Text]
-basicTerms = ["Apache Hadoop", "Apache", "Apache Tomcat"]
+basicTerms = ["Apache Hadoop", "Apache", "Apache Tomcat", "test", "testing"]
 
 mkTokSentence :: Text -> [(Int, Text)] -> TokenizedSentence
 mkTokSentence dat toks = TokSentence { tokText = dat
