@@ -8,6 +8,7 @@ import qualified Data.Text as T
 import qualified Data.ListTrie.Patricia.Set as PS
 
 import NLP.Tokenize.Types (RawToken(..))
+import NLP.Types (CaseSensitive(..))
 
 testTrie :: PS.TrieSet M.Map Char
 testTrie = let t1 = PS.singleton "Test"
@@ -46,8 +47,8 @@ trieChildren1 trie = let m = PS.children1 trie
                  _ -> M.empty
 
 -- | Build a tokenizer that tokenizes the supplied tokens, preffering longer matches where possible.
-protectedTokenizer :: [Text] -> RawToken -> [RawToken]
-protectedTokenizer terms = protectedTokens $ buildTrie terms
+protectTerms :: [Text] -> CaseSensitive -> RawToken -> [RawToken]
+protectTerms terms cs = protectedTokens $ buildTrie terms
 
 -- | The incomming trie contains all strings that need to be tokenized
 -- specially.

@@ -18,7 +18,7 @@ import NLP.Types
 import NLP.Types.Annotations (toTextToks)
 import NLP.POS
 import qualified NLP.POS.LiteralTagger as LT
-import NLP.Tokenize.Annotations (defaultTokenizer, runTokenizer)
+import NLP.Tokenize.Annotations (defaultTokenizer, runTokenizer, protectTerms)
 
 tests :: TestTree
 tests = testGroup "NLP.POS.LiteralTagger"
@@ -147,26 +147,26 @@ validTerm :: Text -> Bool
 validTerm term | T.null term = False
                | otherwise   = T.strip term == term
 
-prop_protectTerms :: [Text] -> LT.CaseSensitive -> Text -> Property
+prop_protectTerms :: [Text] -> CaseSensitive -> Text -> Property
 prop_protectTerms terms sensitive noise = all validTerm terms ==>
   let input = T.unwords $ intersperse noise terms
-      result = toTextToks $ runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input
+      result = toTextToks $ runTokenizer (protectTerms terms sensitive >=> defaultTokenizer) input
   in and $ map (`elem` result) terms
 
-protectTests :: ([Text], LT.CaseSensitive, Text, [Text])
+protectTests :: ([Text], CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
              -> TestTree
 protectTests (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["Just Protect [", (T.intercalate "; " terms), "] ", input])
 
-    runTest = (toTextToks $ runTokenizer (LT.protectTerms terms sensitive) input) @?= oracle
+    runTest = (toTextToks $ runTokenizer (protectTerms terms sensitive) input) @?= oracle
 
-protectTestsWDefault :: ([Text], LT.CaseSensitive, Text, [Text])
+protectTestsWDefault :: ([Text], CaseSensitive, Text, [Text])
              -- ^ Protected terms, sensitivity, input text, oracle
              -> TestTree
 protectTestsWDefault (terms, sensitive, input, oracle) = testCase description runTest
   where
     description = T.unpack (T.concat ["w/Default [", (T.intercalate "; " terms), "] ", input])
 
-    runTest = (toTextToks $ runTokenizer (LT.protectTerms terms sensitive >=> defaultTokenizer) input) @?= oracle
+    runTest = (toTextToks $ runTokenizer (protectTerms terms sensitive >=> defaultTokenizer) input) @?= oracle

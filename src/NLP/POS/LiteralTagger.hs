@@ -6,7 +6,6 @@ module NLP.POS.LiteralTagger
     , taggerID
     , readTagger
     , CaseSensitive(..)
-    , protectTerms
     )
 where
 
@@ -18,7 +17,7 @@ import Data.Serialize (encode, decode)
 import Data.Map.Strict (Map)
 import Data.Text (Text)
 import qualified Data.Text as T
-import NLP.Tokenize.Annotations (runTokenizer, protectTerms, defaultTokenizer)
+import NLP.Tokenize.Annotations (runTokenizer, protectTerms,  defaultTokenizer)
 import NLP.FullStop (segment)
 import NLP.Types ( tagUNK, Sentence, TaggedSentence(..), applyTags
                  , Tag, POSTagger(..), CaseSensitive(..), tokens, showTok)

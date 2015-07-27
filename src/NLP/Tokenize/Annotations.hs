@@ -25,6 +25,7 @@ import Text.Regex.TDFA.Text (compile)
 import NLP.Types.Annotations
 import NLP.Types (CaseSensitive(..))
 import NLP.Tokenize.Types
+import NLP.Tokenize.TextTrie (protectTerms)
 
 toToken :: Text -> RawToken -> Annotation Text Token
 toToken doc tok = Annotation { startIdx = Index $ start tok
@@ -151,51 +152,3 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
 isSeparator :: Char -> Bool
 isSeparator ch = (Char.isSeparator ch || Char.isSpace ch)
 
--- | Create a tokenizer that protects the provided terms (to tokenize
--- multi-word terms)
-protectTerms :: [Text] -> CaseSensitive -> (RawToken -> [RawToken])
-protectTerms terms sensitive = undefined
---   let sorted = sortBy (compare `on` T.length) $ map escapeRegexChars terms
-
---       sensitivity = case sensitive of
---                       Insensitive -> False
---                       Sensitive   -> True
-
---       compOption = CompOption
---         { caseSensitive = sensitivity
---         , multiline = False
---         , rightAssoc = True
---         , newSyntax = True
---         , lastStarGreedy = True
---         }
-
---       execOption = ExecOption { captureGroups = False }
-
---       eRegex = compile compOption execOption
---                  (T.concat ["\\<", (T.intercalate "\\>|\\<" sorted), "\\>"])
-
---       tokenizeMatches :: Regex -> (RawToken -> [RawToken])
---       tokenizeMatches     _ f@(FixedToken    _   _) = [f]
---       tokenizeMatches regex o@(OpenToken start txt) =
---         case concatMap elems $ matchAll regex tok of
---           [] -> [o]
---           xs -> 
-
-
---   in case eRegex of
---        Left err -> error ("Regex could not be built: "++err)
---        Right rx -> tokenizeMatches rx
-
--- escapeRegexChars :: Text -> Text
--- escapeRegexChars input = helper [ "\\", ".", "+", "*", "?", "[", "^", "]", "$"
---                                 , "(", ")", "{", "}", "=", "!", "<", ">", "|"
---                                 , ":", "-"
---                                 ] input
-
---   where
---     helper :: [Text] -> Text -> Text
---     helper []     term = term
---     helper (x:xs) term = helper xs $ escapeChar x term
-
---     escapeChar :: Text -> Text -> Text
---     escapeChar char term = T.replace char (T.append "\\" char) term
