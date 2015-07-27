@@ -64,6 +64,7 @@ Library
                      NLP.Types.Tree
                      NLP.Tokenize.Annotations
                      NLP.Tokenize.TextTrie
+                     NLP.Tokenize.Types
                      NLP.Tokenize
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email

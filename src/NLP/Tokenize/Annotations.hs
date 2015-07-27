@@ -24,14 +24,7 @@ import Text.Regex.TDFA.Text (compile)
 
 import NLP.Types.Annotations
 import NLP.Types (CaseSensitive(..))
-
-data RawToken = FixedToken { start :: Int
-                           , text :: Text
-                           }
-              | OpenToken  { start :: Int
-                           , text :: Text
-                           }
-                deriving (Read, Show)
+import NLP.Tokenize.Types
 
 toToken :: Text -> RawToken -> Annotation Text Token
 toToken doc tok = Annotation { startIdx = Index $ start tok
