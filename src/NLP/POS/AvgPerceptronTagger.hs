@@ -19,7 +19,6 @@ module NLP.POS.AvgPerceptronTagger
   )
 where
 
-import NLP.Corpora.Parsing (readPOSWith)
 import NLP.ML.AvgPerceptron ( Perceptron, Feature(..)
                             , Class(..), predict, update
                             , emptyPerceptron, averageWeights)
@@ -44,7 +43,7 @@ import System.Random.Shuffle (shuffleM)
 taggerID :: ByteString
 taggerID = pack "NLP.POS.AvgPerceptronTagger"
 
-readTagger :: Tag t => ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t)
+readTagger :: POS t => ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t)
 readTagger bs backoff = do
   model <- decode bs
   return $ mkTagger model backoff
@@ -56,7 +55,7 @@ readTagger bs backoff = do
 -- tokenizer, and Erik Kow's fullstop sentence segmenter
 -- (<http://hackage.haskell.org/package/fullstop>) as a sentence
 -- splitter.
-mkTagger :: Tag t => Perceptron -> Maybe (POSTagger t) -> POSTagger t
+mkTagger :: POS t => Perceptron -> Maybe (POSTagger t) -> POSTagger t
 mkTagger per mTgr = POSTagger { posTagger  = tag per
                               , posTrainer = \exs -> do
                                   newPer <- trainInt itterations per exs
@@ -87,17 +86,17 @@ itterations = 5
 -- >>> tag tagger $ map T.words $ T.lines "Dear sir"
 -- "Dear/jj Sirs/nns :/: Let/vb"
 --
-trainNew :: Tag t => (Text -> t) -> Text -> IO Perceptron
-trainNew parser rawCorpus = train parser emptyPerceptron rawCorpus
+trainNew :: POS pos => (Text -> [TaggedSentence pos]) -> Text -> IO Perceptron
+trainNew parser corpus = train emptyPerceptron parser corpus
 
 -- | Train a new 'Perceptron' on a corpus of files.
-trainOnFiles :: Tag t => (Text -> t) -> [FilePath] -> IO Perceptron
+trainOnFiles :: POS pos => (Text -> [TaggedSentence pos]) -> [FilePath] -> IO Perceptron
 trainOnFiles parser corpora = foldM step emptyPerceptron corpora
   where
     step :: Perceptron -> FilePath -> IO Perceptron
     step per path = do
       content <- T.readFile path
-      train parser per content
+      train per parser content
 
 -- | Add training examples to a perceptron.
 --
@@ -108,15 +107,14 @@ trainOnFiles parser corpora = foldM step emptyPerceptron corpora
 -- If you're using multiple input files, this can be useful to improve
 -- performance (by folding over the files).  For example, see `trainOnFiles`
 --
-train :: Tag t => (Text -> t) -- ^ The POS tag parser.
-      -> Perceptron -- ^ The inital model.
-      -> Text       -- ^ Training data; formatted with one sentence
-                    -- per line, and standard POS tags after each
-                    -- space-delimeted token.
+train :: POS pos
+      => Perceptron -- ^ The inital model.
+      -> (Text -> [TaggedSentence pos]) -- ^ Parser from raw annotated
+                                      -- text. See
+                                      -- 'NLP.Corpora.Parsing'
+      -> Text -- ^ Training data in the standard POS-tagged format.
       -> IO Perceptron
-train parse per rawCorpus = do
-  let corpora = map (readPOSWith parse) $ T.lines rawCorpus
-  trainInt itterations per corpora
+train per parse corpora = trainInt itterations per $ parse corpora
 
 -- | start markers to ensure all features in context are valid,
 -- even for the first "real" tokens.
@@ -155,11 +153,11 @@ endToks = [Token "-END-", Token "-END2-"]
 -- >             prev = tag
 -- >     return tokens
 --
-tag :: Tag t => Perceptron -> [Sentence] -> [TaggedSentence t]
+tag :: POS t => Perceptron -> [TokenizedSentence] -> [TaggedSentence t]
 tag per corpus = map (tagSentence per) corpus
 
 -- | Tag a single sentence.
-tagSentence :: Tag t => Perceptron -> Sentence -> TaggedSentence t
+tagSentence :: POS t => Perceptron -> TokenizedSentence -> TaggedSentence t
 tagSentence per sent = let
 
   tags = (map tokenToClass startToks) ++ map (predictPos per) features
@@ -170,7 +168,7 @@ tagSentence per sent = let
              (tail tags)
              tags
 
-  in applyTags sent (map (\(Class c) -> parseTag $ T.pack c) $ drop 2 tags)
+  in applyTags sent (map (\(Class c) -> safeParsePOS $ T.pack c) $ drop 2 tags)
 
 -- | Train a model from sentences.
 --
@@ -203,20 +201,20 @@ tagSentence per sent = let
 -- >                      open(save_loc, 'wb'), -1)
 -- >     return None
 --
-trainInt :: Tag t =>
+trainInt :: POS t =>
             Int -- ^ The number of times to iterate over the training
                 -- data, randomly shuffling after each iteration. (@5@
                 -- is a reasonable choice.)
          -> Perceptron -- ^ The 'Perceptron' to train.
-         -> [TaggedSentence t] -- ^ The training data. (A list of @[(Text, Tag)]@'s)
+         -> [TaggedSentence t] -- ^ The training data.
          -> IO Perceptron    -- ^ A trained perceptron.  IO is needed
                              -- for randomization.
-trainInt itr per examples = trainCls itr per $ toClassLst $ map unzipTags examples
+trainInt itr per examples = trainCls itr per $ toClassLst $ map unapplyTags examples
 
-toClassLst :: Tag t => [(Sentence, [t])] -> [(Sentence, [Class])]
-toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . fromTag) y)) tagged
+toClassLst :: POS t => [(TokenizedSentence, [t])] -> [(TokenizedSentence, [Class])]
+toClassLst tagged = map (\(x, y)->(x, map (Class . T.unpack . serializePOS) y)) tagged
 
-trainCls :: Int -> Perceptron -> [(Sentence, [Class])] -> IO Perceptron
+trainCls :: Int -> Perceptron -> [(TokenizedSentence, [Class])] -> IO Perceptron
 trainCls itr per examples = do
   trainingSet <- shuffleM $ concat $ take itr $ repeat examples
   return $ averageWeights $ foldl' trainSentence per trainingSet
@@ -238,7 +236,7 @@ tokenToClass = Class . T.unpack . showTok
 -- >                 prev2 = prev; prev = guess
 -- >                 c += guess == tags[i]
 -- >                 n += 1
-trainSentence :: Perceptron -> (Sentence, [Class]) -> Perceptron
+trainSentence :: Perceptron -> (TokenizedSentence, [Class]) -> Perceptron
 trainSentence per (sent, ts) = let
 
   tags = (map tokenToClass startToks) ++ ts ++ (map tokenToClass endToks)
@@ -289,7 +287,7 @@ predictPos model feats = fromMaybe (Class "Unk") $ predict model feats
 -- >     add('i+2 word', context[i+2])
 -- >     return features
 --
-getFeatures :: Sentence -> Int -> Token -> Class -> Class -> Map Feature Int
+getFeatures :: TokenizedSentence -> Int -> Token -> Class -> Class -> Map Feature Int
 getFeatures ctx idx word prev prev2 = let
   context = startToks ++ tokens ctx ++ endToks
 

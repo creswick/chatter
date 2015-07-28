@@ -61,7 +61,7 @@ import NLP.Types.Annotations
 -- `NLP.POS.UnambiguousTagger.readTagger` for examples.
 --
 data POSTagger pos = POSTagger
-    { posTagger  :: TokenizedSentence -> TaggedSentence pos
+    { posTagger  :: [TokenizedSentence] -> [TaggedSentence pos]
     -- ^ The initial part-of-speech tagger.
     , posTrainer :: [TaggedSentence pos] -> IO (POSTagger pos)
     -- ^ Training function to train the immediate POS tagger.

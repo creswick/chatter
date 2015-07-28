@@ -4,6 +4,10 @@ module NLP.Tokenize.Annotations
   , defaultTokenizer
   , runTokenizer
   , protectTerms
+  , whitespace
+  , uris
+  , punctuation
+  , contractions
   )
 where
 

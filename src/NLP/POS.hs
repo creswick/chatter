@@ -61,10 +61,8 @@ import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
 import           NLP.Tokenize                (tokenize)
-import           NLP.Types                   ( POSTagger(..), Sentence, POS(..)
-                                             , combine, Tag (..), unTS, tsLength
-                                             , TaggedSentence(..), stripTags
-                                             , printTS)
+import           NLP.Types                   ( POSTagger(..), POS(..)
+                                             , TaggedSentence(..))
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
@@ -95,7 +93,7 @@ brownTagger = do
 -- tagger packaged with Chatter should have an entry here.  By
 -- convention, the IDs use are the fully qualified module name of the
 -- tagger package.
-taggerTable :: Tag t => Map ByteString
+taggerTable :: POS t => Map ByteString
                (ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t))
 taggerTable = Map.fromList
   [ (LT.taggerID, LT.readTagger)
@@ -104,7 +102,7 @@ taggerTable = Map.fromList
   ]
 
 -- | Store a `POSTager' to a file.
-saveTagger :: Tag t => POSTagger t -> FilePath -> IO ()
+saveTagger :: POS t => POSTagger t -> FilePath -> IO ()
 saveTagger tagger file = BS.writeFile file (serialize tagger)
 
 -- | Load a tagger, using the interal `taggerTable`.  If you need to
@@ -114,7 +112,7 @@ saveTagger tagger file = BS.writeFile file (serialize tagger)
 -- This function checks the filename to determine if the content
 -- should be decompressed.  If the file ends with ".gz", then we
 -- assume it is a gziped model.
-loadTagger :: Tag t => FilePath -> IO (POSTagger t)
+loadTagger :: POS t => FilePath -> IO (POSTagger t)
 loadTagger file = do
   content <- getContent file
   case deserialize taggerTable content of
@@ -125,7 +123,7 @@ loadTagger file = do
     getContent f | ".gz" `isSuffixOf` file = fmap (LBS.toStrict . decompress) $ LBS.readFile f
                  | otherwise               = BS.readFile f
 
-serialize :: Tag t => POSTagger t -> ByteString
+serialize :: POS t => POSTagger t -> ByteString
 serialize tagger =
   let backoff = case posBackoff tagger of
                   Nothing -> Nothing
@@ -135,7 +133,7 @@ serialize tagger =
             , backoff
             )
 
-deserialize :: Tag t =>
+deserialize :: POS t =>
                Map ByteString
                   (ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t))
             -> ByteString
@@ -151,7 +149,7 @@ deserialize table bs = do
 
 -- | Tag a chunk of input text with part-of-speech tags, using the
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
-tag :: Tag t => POSTagger t -> Text -> [TaggedSentence t]
+tag :: POS t => POSTagger t -> Text -> [TaggedSentence t]
 tag p txt = let sentences = (posSplitter p) txt
                 tokens    = map (posTokenizer p) sentences
             in tagTokens p tokens
@@ -171,11 +169,11 @@ tagTokens p tokens = let priority = (posTagger p) tokens
 -- >>> tag tagger "the dog jumped ."
 -- "the/at dog/nn jumped/vbd ./."
 --
-tagStr :: Tag t => POSTagger t -> String -> String
+tagStr :: POS t => POSTagger t -> String -> String
 tagStr tgr = T.unpack . tagText tgr . T.pack
 
 -- | Text version of tagStr
-tagText :: Tag t => POSTagger t -> Text -> Text
+tagText :: POS t => POSTagger t -> Text -> Text
 tagText tgr txt = T.intercalate " " $ map printTS $ tag tgr txt
 
 -- | Train a tagger on string input in the standard form for POS
@@ -183,11 +181,11 @@ tagText tgr txt = T.intercalate " " $ map printTS $ tag tgr txt
 --
 -- > trainStr tagger "the/at dog/nn jumped/vbd ./."
 --
-trainStr :: Tag t => POSTagger t -> String -> IO (POSTagger t)
+trainStr :: POS t => POSTagger t -> String -> IO (POSTagger t)
 trainStr tgr = trainText tgr . T.pack
 
 -- | The `Text` version of `trainStr`
-trainText :: Tag t => POSTagger t -> Text -> IO (POSTagger t)
+trainText :: POS t => POSTagger t -> Text -> IO (POSTagger t)
 trainText p exs = train p (map readPOS $ map AN.getText $ AN.tokAnnotations $ tokenize exs)
                   -- ^^^ TODO simplify this chain.
 
@@ -208,7 +206,7 @@ trainText p exs = train p (map readPOS $ map AN.getText $ AN.tokAnnotations $ to
 -- > let newTagger = APT.mkTagger APT.emptyPerceptron Nothing
 -- > posTgr <- train newTagger trainingExamples
 --
-train :: Tag t => POSTagger t -> [TaggedSentence t] -> IO (POSTagger t)
+train :: POS t => POSTagger t -> [TaggedSentence t] -> IO (POSTagger t)
 train p exs = do
   let
     trainBackoff = case posBackoff p of
@@ -228,13 +226,20 @@ train p exs = do
 --
 -- > |tokens tagged correctly| / |all tokens|
 --
-eval :: Tag t => POSTagger t -> [TaggedSentence t] -> Double
+eval :: POS t => POSTagger t -> [TaggedSentence t] -> Double
 eval tgr oracle = let
   sentences = map stripTags oracle
   results = (posTagger tgr) sentences
   totalTokens = fromIntegral $ sum $ map tsLength oracle
 
-  isMatch :: Tag t => POS t -> POS t -> Double
-  isMatch (POS rTag _) (POS oTag _) | rTag == oTag = 1
-                                    | otherwise    = 0
+  isMatch :: POS pos
+          => Annotation TokenizedSentence pos
+          -> Annotation TokenizedSentence pos
+          -> Double
+  isMatch r o = let rTag = value r
+                    oTag = value o
+                    matchCount | rTag == oTag = 1
+                               | otherwise    = 0
+                in matchCount
+
   in (sum $ zipWith isMatch (concatMap unTS results) (concatMap unTS oracle)) / totalTokens

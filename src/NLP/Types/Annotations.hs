@@ -6,10 +6,12 @@ module NLP.Types.Annotations where
 
 import GHC.Generics
 import Data.Hashable (Hashable)
+import Data.Maybe (mapMaybe)
 import Data.Serialize (Serialize)
 import Data.String (IsString(..))
 import Data.Text (Text)
 import qualified Data.Text as T
+import Safe (headMay, lastMay)
 import Text.Read (readEither)
 
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
@@ -23,6 +25,9 @@ newtype Index a = Index Int
   deriving (Read, Show, Eq, Ord, Generic)
 
 instance Hashable (Index a)
+
+fromIndex :: Index a -> Int
+fromIndex (Index x) = x
 
 -- | Annotations are the base of all tags (POS tags, Chunks, marked
 -- entities, etc.)
@@ -54,8 +59,9 @@ data TokenizedSentence =
               , tokAnnotations :: [Annotation Text Token]
               } deriving (Read, Show, Eq, Generic, Ord)
 
--- toSentence :: TokenizedSentence -> Old.Sentence
--- toSentence ts = Old.Sent (map (Old.Token . getText) $ tokAnnotations ts)
+-- | Get the raw tokens out of a 'TokenizedSentence'
+tokens :: TokenizedSentence -> [Token]
+tokens ts = map value $ tokAnnotations ts
 
 toTextToks :: TokenizedSentence -> [Text]
 toTextToks ts = map getText $ tokAnnotations ts
@@ -74,6 +80,41 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
+
+-- | Generate a list of Tokens and their corresponding POS tags.
+-- Creates a token for each POS tag, just in case any POS tags are
+-- annotated over multiple tokens.
+tsToPairs :: POS pos => TaggedSentence pos -> [(Token, pos)]
+tsToPairs ts = mapMaybe (getToken $ tagTokSentence ts) (tagAnnotations ts)
+  where
+    getToken :: TokenizedSentence -> Annotation TokenizedSentence pos -> Maybe (Token, pos)
+    getToken toksent ann = do
+      let sIdx = fromIndex $ startIdx ann
+          l = len ann
+          toks = take l $ drop sIdx $ tokAnnotations toksent
+      firstTok <- headMay toks
+      let firstTokIdx = fromIndex $ startIdx firstTok
+      lastToken <- lastMay toks
+      let lastTokenEndIdx = (fromIndex $ startIdx lastToken) + (len lastToken)
+          theTokenText = T.drop firstTokIdx $ T.take lastTokenEndIdx $ (getText toksent)
+      return (Token theTokenText, value ann)
+
+-- | Apply a parallel list of POS tags to a 'TokenizedSentence'
+applyTags :: POS pos => TokenizedSentence -> [pos] -> TaggedSentence pos
+applyTags ts tags = TaggedSentence { tagTokSentence = ts
+                                   , tagAnnotations = zipWith mkAnnotation [1..] tags
+                                   }
+  where
+    mkAnnotation idx tag = Annotation { startIdx = Index idx
+                                      , len = 1
+                                      , value = tag
+                                      , payload = ts
+                                      }
+
+-- | Extract the POS tags from a tagged sentence, returning the
+-- tokenized sentence that they applied to.
+unapplyTags :: POS pos => TaggedSentence pos -> (TokenizedSentence, [pos])
+unapplyTags ts = (tagTokSentence ts, map value $ tagAnnotations ts)
 
 -- | A 'Chunked' sentence, with underlying Part-of-Speech tags and tokens.
 -- Note: This is not a deep tree, a separate parse tree is needed.
@@ -121,12 +162,23 @@ class AnnotatedText sentence where
 newtype Token = Token Text
   deriving (Read, Show, Eq, Hashable, Ord)
 
+-- | Unwrap the text of a 'Token'
+showTok :: Token -> Text
+showTok (Token t) = t
+
+-- | Extract the last three characters of a 'Token', if the token is
+-- long enough, otherwise returns the full token text.
+suffix :: Token -> Text
+suffix (Token str) | T.length str <= 3 = str
+                   | otherwise         = T.drop (T.length str - 3) str
+
 instance Arbitrary Token where
   arbitrary = do NonEmpty txt <- arbitrary
                  return $ Token (T.pack txt)
 
 instance IsString Token where
   fromString = Token . T.pack
+
 
 -- | The class of POS Tags.
 --
@@ -151,6 +203,11 @@ class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => POS a
   -- | Parse a POS tag into a structured POS value. (eg: "NN", "VB", etc..)
   -- This is the dual of `serializePOS`
   parsePOS :: Text -> Either Error a
+
+  safeParsePOS :: Text -> a
+  safeParsePOS txt = case parsePOS txt of
+                       Left _ -> tagUNK
+                       Right pos -> pos
 
   -- | The value used to represent "unknown".
   tagUNK :: a

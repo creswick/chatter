@@ -142,11 +142,6 @@ instance (AN.Chunk c, Arbitrary c, Arbitrary t, POS t) => Arbitrary (Chunk c t) 
 showTok :: Token -> Text
 showTok (Token txt) = txt
 
--- | Extract the last three characters of a 'Token', if the token is
--- long enough, otherwise returns the full token text.
-suffix :: Token -> Text
-suffix (Token str) | T.length str <= 3 = str
-                   | otherwise         = T.drop (T.length str - 3) str
 
 -- | Calculate the length of a 'TaggedSentence' (in terms of the
 -- number of tokens).

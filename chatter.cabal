@@ -96,7 +96,8 @@ Library
                      array,
                      QuickCheck,
                      quickcheck-instances,
-                     list-tries
+                     list-tries,
+                     safe
 
 
 
