@@ -96,8 +96,8 @@ Library
                      array,
                      QuickCheck,
                      quickcheck-instances,
-                     list-tries,
-                     safe
+                     safe,
+                     pretty         >= 1.1.3.2
 
 
 

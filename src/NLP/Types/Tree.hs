@@ -112,11 +112,6 @@ printTS ts = getText ts
 --                    -> Annotation TokenizedSentence t
 --     pickAnnotation a1 a2 = 
 
--- | Returns the first param, unless it is tagged 'tagUNK'.
--- Throws an error if the text does not match.
-pickTag :: POS pos => pos -> pos -> pos
-pickTag p1 p2 | p1 == tagUNK = p2
-              | otherwise    = p1
 
 instance (AN.Chunk c, Arbitrary c, Arbitrary t, POS t) => Arbitrary (ChunkOr c t) where
   arbitrary = elements =<< do

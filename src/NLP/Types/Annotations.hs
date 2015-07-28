@@ -2,11 +2,13 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
 module NLP.Types.Annotations where
 
 import GHC.Generics
 import Data.Hashable (Hashable)
 import Data.Maybe (mapMaybe)
+import Data.Monoid ((<>))
 import Data.Serialize (Serialize)
 import Data.String (IsString(..))
 import Data.Text (Text)
@@ -14,6 +16,8 @@ import qualified Data.Text as T
 import Safe (headMay, lastMay)
 import Text.Read (readEither)
 
+import Text.PrettyPrint (hsep, text)
+import Text.PrettyPrint.HughesPJClass (Pretty(..))
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
@@ -81,6 +85,18 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
+instance POS pos => Pretty (TaggedSentence pos) where
+  pPrint ts = hsep $ map toDoc $ tsToPairs ts
+    where
+      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
+
+-- | Count the length of the tokens of a 'TaggedSentence'.
+--
+-- Note that this is *probably* the number of annotations also, but it
+-- is not necessarily the same.
+tsLength :: POS pos => TaggedSentence pos -> Int
+tsLength = length . tagAnnotations
+
 -- | Generate a list of Tokens and their corresponding POS tags.
 -- Creates a token for each POS tag, just in case any POS tags are
 -- annotated over multiple tokens.
@@ -110,6 +126,10 @@ applyTags ts tags = TaggedSentence { tagTokSentence = ts
                                       , value = tag
                                       , payload = ts
                                       }
+
+-- | Extract the POS tags from a tagged sentence.
+getTags :: POS pos => TaggedSentence pos -> [pos]
+getTags = snd . unapplyTags
 
 -- | Extract the POS tags from a tagged sentence, returning the
 -- tokenized sentence that they applied to.
@@ -161,6 +181,9 @@ class AnnotatedText sentence where
 -- | Sentinel value for tokens.
 newtype Token = Token Text
   deriving (Read, Show, Eq, Hashable, Ord)
+
+instance Pretty Token where
+  pPrint (Token t) = text (T.unpack t)
 
 -- | Unwrap the text of a 'Token'
 showTok :: Token -> Text

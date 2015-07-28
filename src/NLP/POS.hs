@@ -57,20 +57,17 @@ import qualified Data.Map                    as Map
 import           Data.Serialize              (decode, encode)
 import           Data.Text                   (Text)
 import qualified Data.Text                   as T
+import           Text.PrettyPrint.HughesPJClass (prettyShow)
 import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
-import           NLP.Tokenize                (tokenize)
-import           NLP.Types                   ( POSTagger(..), POS(..)
-                                             , TaggedSentence(..))
+import           NLP.Types                   
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
-import qualified NLP.Types.Annotations       as AN
 import qualified NLP.Corpora.Brown as B
 import qualified NLP.Corpora.Conll as C
-import NLP.Types.Tree (tokens, showTok)
 import           Paths_chatter
 
 -- | A basic POS tagger.
@@ -151,14 +148,26 @@ deserialize table bs = do
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: POS t => POSTagger t -> Text -> [TaggedSentence t]
 tag p txt = let sentences = (posSplitter p) txt
-                tokens    = map (posTokenizer p) sentences
-            in tagTokens p tokens
+                toks    = map (posTokenizer p) sentences
+            in tagTokens p toks
 
-tagTokens :: Tag pos => POSTagger pos -> [TokenizedSentence] -> [TaggedSentence pos]
-tagTokens p tokens = let priority = (posTagger p) tokens
-                     in case posBackoff p of
-                          Nothing  -> priority
-                          Just tgr -> combine priority (tagTokens tgr tokens)
+tagTokens :: POS pos => POSTagger pos -> [TokenizedSentence] -> [TaggedSentence pos]
+tagTokens p toks = let priority = (posTagger p) toks
+                   in case posBackoff p of
+                        Nothing  -> priority
+                        Just tgr -> zipWith combine priority (tagTokens tgr toks)
+
+-- | Combine the POS Tags from two 'TaggedSentences', filling in
+-- 'tagUNK' values in the first with corresponding values in the second.
+-- Used to apply a backup tagger to a previously tagged sentence.
+combine :: POS pos => TaggedSentence pos -> TaggedSentence pos -> TaggedSentence pos
+combine ts1 ts2 = ts1 { tagAnnotations = zipWith pickTag (tagAnnotations ts1) (tagAnnotations ts2) }
+
+-- | Returns the first param, unless it is tagged 'tagUNK'.
+-- Throws an error if the text does not match.
+pickTag :: POS pos => Annotation x pos -> Annotation x pos -> Annotation x pos
+pickTag p1 p2 | (value p1) == tagUNK = p2
+              | otherwise            = p1
 
 
 -- | Tag the tokens in a string.
@@ -174,10 +183,10 @@ tagStr tgr = T.unpack . tagText tgr . T.pack
 
 -- | Text version of tagStr
 tagText :: POS t => POSTagger t -> Text -> Text
-tagText tgr txt = T.intercalate " " $ map printTS $ tag tgr txt
+tagText tgr txt = T.intercalate " " $ map (T.pack . prettyShow) $ tag tgr txt
 
 -- | Train a tagger on string input in the standard form for POS
--- tagged corpora:
+-- tagged corpora.  This assumes one sentence per line.
 --
 -- > trainStr tagger "the/at dog/nn jumped/vbd ./."
 --
@@ -186,8 +195,7 @@ trainStr tgr = trainText tgr . T.pack
 
 -- | The `Text` version of `trainStr`
 trainText :: POS t => POSTagger t -> Text -> IO (POSTagger t)
-trainText p exs = train p (map readPOS $ map AN.getText $ AN.tokAnnotations $ tokenize exs)
-                  -- ^^^ TODO simplify this chain.
+trainText p exs = train p (map readPOS $ T.lines exs)
 
 -- | Train a 'POSTagger' on a corpus of sentences.
 --
@@ -228,18 +236,15 @@ train p exs = do
 --
 eval :: POS t => POSTagger t -> [TaggedSentence t] -> Double
 eval tgr oracle = let
-  sentences = map stripTags oracle
+  sentences = map tagTokSentence oracle
   results = (posTagger tgr) sentences
   totalTokens = fromIntegral $ sum $ map tsLength oracle
 
   isMatch :: POS pos
-          => Annotation TokenizedSentence pos
-          -> Annotation TokenizedSentence pos
+          => pos
+          -> pos
           -> Double
-  isMatch r o = let rTag = value r
-                    oTag = value o
-                    matchCount | rTag == oTag = 1
-                               | otherwise    = 0
-                in matchCount
+  isMatch r o | r == o    = 1
+              | otherwise = 0
 
-  in (sum $ zipWith isMatch (concatMap unTS results) (concatMap unTS oracle)) / totalTokens
+  in (sum $ zipWith isMatch (concatMap getTags results) (concatMap getTags oracle)) / totalTokens
