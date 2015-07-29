@@ -8,6 +8,7 @@ module NLP.Tokenize.Annotations
   , uris
   , punctuation
   , contractions
+  , tokenizeOn
   )
 where
 
@@ -50,9 +51,9 @@ tokenize txt = runTokenizer defaultTokenizer txt
 
 runTokenizer :: (RawToken -> [RawToken]) -> Text -> TokenizedSentence
 runTokenizer tokenizer txt =
-  TokSentence { tokText = txt
-              , tokAnnotations = map (toToken txt) (tokenizer (OpenToken 0 txt))
-              }
+  TokenizedSentence { tokText = txt
+                    , tokAnnotations = map (toToken txt) (tokenizer (OpenToken 0 txt))
+                    }
 
 defaultTokenizer :: RawToken -> [RawToken]
 defaultTokenizer = whitespace >=> uris >=> punctuation >=> contractions
@@ -110,9 +111,15 @@ uris rawTok | isUri (text rawTok) = [FixedToken (start rawTok) (text rawTok)]
   where
     isUri txt = any (`T.isPrefixOf` txt) ["https://", "http://","ftp://","mailto:"]
 
+-- | Tokenize on whitespace, as defined by '\ch -> Char.isSeparator ch || Char.isSpace ch'
 whitespace :: RawToken -> [RawToken]
 whitespace f@(FixedToken _ _) = [f]
-whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
+whitespace rawTok = tokenizeOn isSeparator rawTok
+
+-- | Tokenize on characters that satisfy the provided predicate.
+tokenizeOn :: (Char -> Bool) -> RawToken -> [RawToken]
+tokenizeOn _ f@(FixedToken _ _) = [f]
+tokenizeOn isSep rawTok =  reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
   where
     emptyAcc = Acc { curIdx = start rawTok
                    , curStart = 0
@@ -130,7 +137,7 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
 
     fn :: Accumulator -> Char -> Accumulator
     fn acc char
-      | isSeparator char && inToken acc =
+      | isSep char && inToken acc =
         acc { curIdx = curIdx acc + 1
             , curStart = 0
             , inToken = False
@@ -139,7 +146,7 @@ whitespace rawTok = reverse $ addLastToken $ T.foldl' fn emptyAcc $ text rawTok
                                     , text = T.pack $ reverse $ curText acc }
                           : accTokens acc
             }
-      | isSeparator char && not (inToken acc) =
+      | isSep char && not (inToken acc) =
         acc { curIdx = curIdx acc + 1 }
       | not (isSeparator char) && not (inToken acc) =
         acc { curIdx = curIdx acc + 1

@@ -59,9 +59,9 @@ instance AnnotatedText (Annotation Text Token) where
 
 -- | Wrapper around both the underlying text and the tokenizer results.
 data TokenizedSentence =
-  TokSentence { tokText :: Text
-              , tokAnnotations :: [Annotation Text Token]
-              } deriving (Read, Show, Eq, Generic, Ord)
+  TokenizedSentence { tokText :: Text
+                    , tokAnnotations :: [Annotation Text Token]
+                    } deriving (Read, Show, Eq, Generic, Ord)
 
 -- | Get the raw tokens out of a 'TokenizedSentence'
 tokens :: TokenizedSentence -> [Token]
