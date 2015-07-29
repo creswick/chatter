@@ -11,6 +11,7 @@ import Data.Text (Text)
 
 import NLP.Types
 import NLP.POS
+import NLP.Corpora.Parsing (readCorpus)
 
 import qualified NLP.POS.LiteralTagger as LT
 
@@ -29,5 +30,6 @@ testLiteralBackoff :: Assertion
 testLiteralBackoff = let
   tgr = LT.mkTagger tagCat LT.Sensitive (Just $ LT.mkTagger tagAnimals LT.Sensitive Nothing)
   actual = tag tgr "cat dog"
-  oracle = [TaggedSent [(POS (RawTag "CAT") "cat"), (POS (RawTag "NN") "dog")]]
+  oracle :: [TaggedSentence RawTag]
+  oracle = readCorpus "cat/CAT dog/NN"
   in oracle @=? actual

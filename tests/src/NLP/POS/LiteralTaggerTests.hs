@@ -15,7 +15,6 @@ import Data.Text (Text)
 import qualified Data.Text as T
 
 import NLP.Types
-import NLP.Types.Annotations (toTextToks)
 import NLP.POS
 import qualified NLP.POS.LiteralTagger as LT
 import NLP.Tokenize.Annotations (defaultTokenizer, runTokenizer, protectTerms)
@@ -134,10 +133,10 @@ emptyTagger :: POSTagger RawTag
 emptyTagger = LT.mkTagger Map.empty Sensitive Nothing
 
 prop_emptyAlwaysUnk :: String -> Bool
-prop_emptyAlwaysUnk input = all (\(POS y _) -> y == tagUNK) (concatMap unTS $ tag emptyTagger inputTxt)
+prop_emptyAlwaysUnk input = all (\y->y == tagUNK) (concatMap getTags $ tag emptyTagger inputTxt)
   where inputTxt = T.pack input
 
-trainAndTagTest :: Tag t => Maybe (POSTagger t)
+trainAndTagTest :: POS t => Maybe (POSTagger t)
                 -> (Text, Map Text t, LT.CaseSensitive, Text, Text) -> TestTree
 trainAndTagTest tgr (name, table, sensitive, input, oracle) = testCase (T.unpack name) mkAndTest
   where mkAndTest = let trained = LT.mkTagger table sensitive tgr

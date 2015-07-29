@@ -4,7 +4,6 @@ module NLP.TokenizeTests where
 import Test.Tasty.HUnit
 import Test.Tasty (TestTree, testGroup)
 
-import qualified Data.Map as Map
 import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -13,8 +12,6 @@ import NLP.Tokenize (runTokenizer, protectTerms, tokenize)
 
 import NLP.Types (CaseSensitive(..))
 import NLP.Types.Annotations
-import NLP.POS
-
 
 tests :: TestTree
 tests = testGroup "NLP.Tokenze"
@@ -121,9 +118,9 @@ basicTerms :: [Text]
 basicTerms = ["Apache Hadoop", "Apache", "Apache Tomcat", "test", "testing"]
 
 mkTokSentence :: Text -> [(Int, Text)] -> TokenizedSentence
-mkTokSentence dat toks = TokSentence { tokText = dat
-                                     , tokAnnotations = map (mkTxtAnnotation dat) toks
-                                     }
+mkTokSentence dat toks = TokenizedSentence { tokText = dat
+                                           , tokAnnotations = map (mkTxtAnnotation dat) toks
+                                           }
 
 mkTxtAnnotation :: Text -> (Int, Text) -> Annotation Text Token
 mkTxtAnnotation dat (idx, tok) = Annotation (Index idx) (T.length tok) (Token tok) dat

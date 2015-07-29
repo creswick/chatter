@@ -6,20 +6,25 @@ import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Map as Map
+import Data.Text (Text)
 
 import NLP.Types
 import NLP.POS
+import NLP.Corpora.Parsing (readPOS)
 import qualified NLP.POS.LiteralTagger as LT
 
 import TestUtils
 
+readRawPOS :: Text -> TaggedSentence RawTag
+readRawPOS = readPOS
+
 tests :: TestTree
 tests = testGroup "NLP.POS"
         [ testGroup "Evaluation" $ map (genTestF $ eval mamalTagger)
-             [ ("Half", [ TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "cat")]
-                        , TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "dog")] ], 0.5)
-             , ("All ", [ TaggedSent [ (POS (RawTag "NN") "dog"), (POS (RawTag "NN") "cat")] ], 1.0)
-             , ("None", [ TaggedSent [ (POS (RawTag "DT") "the"), (POS (RawTag "NN") "couch")] ], 0)
+             [ ("Half", [ readRawPOS "the/DT cat/NN"
+                        , readRawPOS "the/DT dog/NN" ], 0.5)
+             , ("All ", [ readRawPOS "dog/NN cat/NN" ], 1.0)
+             , ("None", [ readRawPOS "the/DT couch/NN" ], 0)
              ]
         , testGroup "Serialization"
              [ testProperty "1 LiteralTagger" (prop_taggersRoundTrip mamalTagger)

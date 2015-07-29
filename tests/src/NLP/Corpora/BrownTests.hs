@@ -13,5 +13,5 @@ tests = testGroup "NLP.Corpora.Brown"
         ]
 
 prop_tagsRoundTrip :: B.Tag -> Bool
-prop_tagsRoundTrip tag = tag == (parseTag . fromTag) tag
+prop_tagsRoundTrip tag = tag == (safeParsePOS . serializePOS) tag
 

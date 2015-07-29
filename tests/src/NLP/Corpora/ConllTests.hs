@@ -15,13 +15,13 @@ tests = testGroup "NLP.Corpora.Conll"
         ]
 
 prop_tagsRoundTrip :: C.Tag -> Bool
-prop_tagsRoundTrip tag = tag == (parseTag . fromTag) tag
+prop_tagsRoundTrip tag = tag == (safeParsePOS . serializePOS) tag
 
 prop_nerTagsRoundTrip :: C.NERTag -> Bool
-prop_nerTagsRoundTrip tag = tag == (fromRight . parseNERTag . fromNERTag) tag
+prop_nerTagsRoundTrip tag = tag == (fromRight . parseNETag . serializeNETag) tag
 
 prop_chunkTagsRoundTrip :: C.Chunk -> Bool
-prop_chunkTagsRoundTrip tag = tag == (fromRight . parseChunk . fromChunk) tag
+prop_chunkTagsRoundTrip tag = tag == (fromRight . parseChunk . serializeChunk) tag
 
 fromRight :: Either a b -> b
 fromRight (Left  _) = error "Expected a 'Right' value"
