@@ -57,11 +57,10 @@ import qualified Data.Map                    as Map
 import           Data.Serialize              (decode, encode)
 import           Data.Text                   (Text)
 import qualified Data.Text                   as T
-import           Text.PrettyPrint.HughesPJClass (prettyShow)
 import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
-import           NLP.Types                   
+import           NLP.Types
 
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
@@ -183,7 +182,7 @@ tagStr tgr = T.unpack . tagText tgr . T.pack
 
 -- | Text version of tagStr
 tagText :: POS t => POSTagger t -> Text -> Text
-tagText tgr txt = T.intercalate " " $ map (T.pack . prettyShow) $ tag tgr txt
+tagText tgr txt = T.intercalate " " $ map prettyShow $ tag tgr txt
 
 -- | Train a tagger on string input in the standard form for POS
 -- tagged corpora.  This assumes one sentence per line.

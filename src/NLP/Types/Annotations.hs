@@ -18,10 +18,15 @@ import Text.Read (readEither)
 
 import Text.PrettyPrint (hsep, text)
 import Text.PrettyPrint.HughesPJClass (Pretty(..))
+import qualified Text.PrettyPrint.HughesPJClass as HPJ
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
 import NLP.Types.General (toEitherErr, Error)
+
+-- | Convert a pretty-printable value into a text string.
+prettyShow :: Pretty p => p -> Text
+prettyShow = T.pack . HPJ.prettyShow
 
 -- | Safe index type, uses a phantom type to prevent us from indexing
 -- into the wrong thing.

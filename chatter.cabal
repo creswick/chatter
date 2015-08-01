@@ -57,6 +57,7 @@ Library
 --                     NLP.Chunk.AvgPerceptronChunker
                      NLP.ML.AvgPerceptron
                      NLP.Types
+                     NLP.Types.Arbitrary
                      NLP.Types.Annotations
                      NLP.Types.General
                      NLP.Types.IOB
@@ -96,6 +97,7 @@ Library
                      array,
                      QuickCheck,
                      quickcheck-instances,
+--                     checkers,
                      safe,
                      pretty         >= 1.1.3.2
 
@@ -215,6 +217,7 @@ test-suite tests
                      NLP.POS.UnambiguousTaggerTests
                      NLP.Extraction.ParsecTests
                      NLP.TypesTests
+                     NLP.Types.AnnotationTests
                      NLP.TokenizeTests
                      Data.DefaultMapTests
                      Corpora
@@ -234,6 +237,7 @@ test-suite tests
                      tasty,
                      tasty-quickcheck,
                      tasty-hunit,
-                     tasty-ant-xml
+                     tasty-ant-xml,
+                     pretty
 
    ghc-options:      -Wall -auto-all -caf-all
