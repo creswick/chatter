@@ -7,7 +7,7 @@ import Test.QuickCheck (Arbitrary(..))
 import Test.QuickCheck.Gen (Gen(..), infiniteListOf, elements, suchThat)
 
 import NLP.Types
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize (runTokenizer, whitespace)
 
 
 arbitraryText :: Gen Text
@@ -26,7 +26,7 @@ instance Arbitrary RawTag where
 instance Arbitrary TokenizedSentence where
   arbitrary = do
     txt <- arbitraryText
-    return $ tokenize txt
+    return $ runTokenizer whitespace txt
 
 instance Arbitrary pos => Arbitrary (TaggedSentence pos) where
   arbitrary = do
@@ -34,8 +34,8 @@ instance Arbitrary pos => Arbitrary (TaggedSentence pos) where
     posTags <- infiniteListOf arbitrary
     let tokCount = length $ tokAnnotations tsent
         annotations = zipWith mkAnnotation
-                        [0..(tokCount - 1)]
-                        posTags
+                        [0..]
+                        (take tokCount posTags)
         mkAnnotation idx pos = Annotation { startIdx = Index idx
                                           , len = 1
                                           , value = pos
@@ -43,3 +43,4 @@ instance Arbitrary pos => Arbitrary (TaggedSentence pos) where
                                           }
     return TaggedSentence { tagTokSentence = tsent
                           , tagAnnotations = annotations }
+
