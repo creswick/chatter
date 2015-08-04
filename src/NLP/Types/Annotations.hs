@@ -123,7 +123,7 @@ tsToPairs ts = mapMaybe (getToken $ tagTokSentence ts) (tagAnnotations ts)
 -- | Apply a parallel list of POS tags to a 'TokenizedSentence'
 applyTags :: POS pos => TokenizedSentence -> [pos] -> TaggedSentence pos
 applyTags ts tags = TaggedSentence { tagTokSentence = ts
-                                   , tagAnnotations = zipWith mkAnnotation [1..] tags
+                                   , tagAnnotations = zipWith mkAnnotation [0..] tags
                                    }
   where
     mkAnnotation idx tag = Annotation { startIdx = Index idx

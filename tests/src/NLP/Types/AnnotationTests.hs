@@ -34,23 +34,64 @@ tests = testGroup "NLP.Types.Annotations"
         , testGroup "Manual tests of TaggedSentence" $
           map mkReadPOSTest
           [ readPOSTest1 ]
+        , testGroup "tsToPairs" $
+          map mkTsToPairsTest
+          [ ( "the/DT dog/NN jumped/VB ./."
+            , [ (Token "the", RawTag "DT")
+              , (Token "dog", RawTag "NN")
+              , (Token "jumped", RawTag "VB")
+              , (Token ".", RawTag ".")
+              ])
+          ]
+        , testGroup "Direct tsToPairs" $
+          map mkDirectTsToPairsTest
+          [ ( "h"
+            , TaggedSentence
+              { tagTokSentence =
+                  TokenizedSentence {tokText = "h"
+                                    , tokAnnotations = [Annotation {startIdx = Index 0
+                                                                   , len = 1
+                                                                   , value = Token "h"
+                                                                   , payload = "h"}]}
+              , tagAnnotations =
+                [ Annotation { startIdx = Index 0
+                             , len = 1
+                             , value = B.PPO
+                             , payload =
+                              TokenizedSentence {tokText = "h"
+                                                , tokAnnotations = [Annotation {startIdx = Index 0
+                                                                               , len = 1
+                                                                               , value = Token "h"
+                                                                               , payload = "h"}]}}]}
+            , [ (Token "h", B.PPO)
+              ])
+          ]
         ]
+
+mkDirectTsToPairsTest :: POS pos => (Text, TaggedSentence pos, [(Token, pos)]) -> TestTree
+mkDirectTsToPairsTest (txt, sent, expected) = testCase (T.unpack txt) $
+   expected @=? tsToPairs sent
+
+mkTsToPairsTest :: POS pos => (Text, [(Token, pos)]) -> TestTree
+mkTsToPairsTest (txt, expected) = mkDirectTsToPairsTest (txt, readPOS txt, expected)
 
 readPOSTest1 :: (Text, TaggedSentence RawTag)
 readPOSTest1 =
   let readPOSTestTxt1 = "the/DT dog/NN"
+                      -- 012   3456
+      plainText = "the dog"
       tokSent = TokenizedSentence
-                { tokText = readPOSTestTxt1
+                { tokText = plainText
                 , tokAnnotations =
                   [ Annotation { startIdx = Index 0
                                , len = 3
                                , value = Token "the"
-                               , payload = readPOSTestTxt1
+                               , payload = plainText
                                }
-                  , Annotation { startIdx = Index 7
+                  , Annotation { startIdx = Index 4
                                , len = 3
                                , value = Token "dog"
-                               , payload = readPOSTestTxt1
+                               , payload = plainText
                                }
                   ]
                 }

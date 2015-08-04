@@ -7,11 +7,9 @@ where
 import Data.Hashable (Hashable)
 import Data.Serialize (Serialize, get, put)
 import Data.Text (Text)
-import qualified Data.Text as T
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
 
-import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
 import NLP.Types.Annotations (POS(..), Chunk(..))
@@ -48,11 +46,6 @@ instance POS RawTag where
   endPOS = RawTag "-END-"
 
   isDt (RawTag tg) = tg == "DT"
-
-instance Arbitrary RawTag where
-  arbitrary = do
-    NonEmpty str <- arbitrary
-    return $ RawTag $ T.pack str
 
 instance Serialize Text where
   put txt = put $ encodeUtf8 txt
