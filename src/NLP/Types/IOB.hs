@@ -119,10 +119,10 @@ offsetAnnotations offset ann =
 parseIOBSentences :: Text -> [Annotation Text Token]
 parseIOBSentences input = reverse $ addLast $ T.foldl' fn emptyAcc input
   where
-    emptyAcc :: ( Int -- ^ Index
-                , Char -- ^ Last char
-                , [Char] -- ^ Accumulated tokens.
-                , [Annotation Text Token] -- ^ Accumulated annotations
+    emptyAcc :: ( Int -- Index
+                , Char -- Last char
+                , [Char] -- Accumulated tokens.
+                , [Annotation Text Token] -- Accumulated annotations
                 )
     emptyAcc = (0, '\n', [], [])
 

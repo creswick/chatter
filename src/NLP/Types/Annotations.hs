@@ -3,6 +3,67 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+-- | Chatter uses Annotations to represent marked portions of text, or
+-- of underlying structures.
+--
+-- Annotations both add structure and provide commentary on elements
+-- in that structure.  More concretely, consider the following text
+-- string:
+--
+-- > "The blue boat sank in Lake Tahoe."
+-- >  012345678901234567890123456789012
+--
+-- Imagine that we're trying to answer a simple question like "Where
+-- did the boat sink?" There are a series of steps we need to take to
+-- build sufficient structure to determine the answer.  The sentence
+-- needs to be tokenized, tagged with parts-of-speech, chunked into
+-- phrases, and (possibly) named entities located.
+--
+-- Each of these steps results in an 'Annotation' on the sentence.
+--
+-- 'Tokenizer's annotate tokens, marking where whitespace (or other
+-- delimeters) separate interesting parts of the text. In this
+-- example, the first token is:
+--
+-- > Annotation { startIdx = Index 0
+-- >            , len = 3
+-- >            , value = Token "The"
+-- >            , payload = "The blue boat sank in Lake Tahoe."
+-- >            }
+--
+-- Notice that annotations store the start and length of the regions
+-- of the underlying payload that they annotate.  A sequence of these
+-- 'Annotation's creates a 'TokenizedSentence'.
+--
+-- Annotations at a higher level, such as POS tags, are expressed over
+-- 'TokenizedSentence's (or even higher-level structures).  For
+-- example, POS-tagging this sentence results in (shown in plain-text for readibility):
+--
+-- > "The/DT blue/JJ boat/NN sank/VBD in/IN Lake/NNP Tahoe/NNP ./."
+--
+-- Each POS tag is represented as another annotation.  Here's the
+-- first one:
+--
+-- > Annotation { startIdx = Index 0
+-- >            , len = 1
+-- >            , value = DT
+-- >            , payload = TokenizedSentence {..}
+-- >            }
+--
+-- In this case, the POS tags are not annotations on the input text,
+-- instead, they are annotations on the 'TokenizedSentence'.  It's
+-- still possible to get back to the underlying text, and POS tags
+-- (and other annotations) can be linked back to the underlying input
+-- data (so the initial input can be marked up visually, for example,
+-- without loosing the delimeters or whitespace that is often taken
+-- out during tokenization).
+--
+-- Annotations are polymorphic in the type of annotation used (eg:
+-- 'Token' or a class of POS tag), as well as the underlying data that
+-- is being annotated. (We do assume that the data is one-dimensional.)
+--
+-- This approach was inspired by the Apache UIMA use of Annotations
+-- and Annotators for adding structure to unstructured data.
 module NLP.Types.Annotations where
 
 import GHC.Generics
