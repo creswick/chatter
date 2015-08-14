@@ -68,6 +68,7 @@ module NLP.Types.Annotations where
 
 import GHC.Generics
 import Data.Hashable (Hashable)
+import Data.List (foldl', group)
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
 import Data.Serialize (Serialize)
@@ -151,6 +152,7 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
+
 instance POS pos => Pretty (TaggedSentence pos) where
   pPrint ts = hsep $ map toDoc $ tsToPairs ts
     where
@@ -214,6 +216,46 @@ instance (Hashable pos, Hashable chunk) => Hashable (ChunkedSentence pos chunk)
 instance AnnotatedText (ChunkedSentence pos chunk) where
   getText = getText . chunkTagSentence
 
+instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
+  pPrint ts = undefined -- hsep $ map toDoc $ tsToPairs ts
+    where
+      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
+
+-- | Build a ChunkedSentence from a list of chunks and a corresponding
+-- TaggedSentence.  This is not quite like the TaggedSentence version
+-- ('applyTags') because consequetive equal chunks denote branching in the tree.
+toChunkedSentence :: (Chunk chunk, POS tag) => TaggedSentence tag -> [chunk] -> ChunkedSentence tag chunk
+toChunkedSentence taggedSentence chunks =
+  let groups = map (\g -> (head g, length g)) $ group chunks
+
+      mkAnnotation (idx, acc) (chunk, chunkLen) =
+        ( idx + chunkLen
+        , (Annotation { startIdx = Index idx
+                      , len = chunkLen
+                      , value = chunk
+                      , payload = taggedSentence
+                      })
+          :acc )
+
+  in ChunkedSentence
+       { chunkTagSentence = taggedSentence
+       , chunkAnnotations = reverse $ snd $ foldl' mkAnnotation (0,[]) groups
+       }
+
+-- | The dual of 'toChunkedSentence'.
+--
+-- This takes a 'ChunkedSentence' and removes the chunks, returning
+-- the underlying tagged sentence paired with a list of parallel chunk
+-- tags that apply to each POS tag in the 'TaggedSentence'.
+fromChunkedSentence :: (Chunk chunk, POS pos)
+                    => ChunkedSentence pos chunk
+                    -> (TaggedSentence pos, [chunk])
+fromChunkedSentence chunkedSent =
+  let taggedSent = chunkTagSentence chunkedSent
+      chunks = concatMap expandChunks $ chunkAnnotations chunkedSent
+
+      expandChunks annot = replicate (len annot) (value annot)
+  in (taggedSent, chunks)
 
 -- | A sentence that has been marked with named entities.
 data NERedSentence pos chunk ne =

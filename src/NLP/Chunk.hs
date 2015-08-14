@@ -51,17 +51,17 @@ import qualified NLP.Corpora.Conll as C
 import           Paths_chatter
 
 -- | A basic Phrasal chunker.
-defaultChunker :: IO (Chunker C.Chunk C.Tag)
+defaultChunker :: IO (Chunker C.Tag C.Chunk)
 defaultChunker = conllChunker
 
 -- | Convenient function to load the Conll2000 Chunker.
-conllChunker :: IO (Chunker C.Chunk C.Tag)
+conllChunker :: IO (Chunker C.Tag C.Chunk)
 conllChunker = do
   dir <- getDataDir
   loadChunker (dir </> "data" </> "models" </> "conll2000.chunk.model.gz")
 
 -- | Train a chunker on a set of additional examples.
-train :: (ChunkTag c, Tag t) => Chunker c t -> [ChunkedSentence c t] -> IO (Chunker c t)
+train :: (Chunk c, POS t) => Chunker t c -> [ChunkedSentence t c] -> IO (Chunker t c)
 train ch exs = chTrainer ch exs
 
 -- | Chunk a 'TaggedSentence' that has been produced by a Chatter
@@ -70,7 +70,7 @@ train ch exs = chTrainer ch exs
 --
 -- If you just want to see chunked output from standard text, you
 -- probably want 'chunkText' or 'chunkStr'.
-chunk :: (ChunkTag c, Tag t) => Chunker c t -> [TaggedSentence t] -> [ChunkedSentence c t]
+chunk :: (Chunk c, POS t) => Chunker t c -> [TaggedSentence t] -> [ChunkedSentence t c]
 chunk chk input = chChunker chk input
 
 
@@ -82,31 +82,31 @@ chunk chk input = chChunker chk input
 -- > > chunkText tgr chk "The brown dog jumped over the lazy cat."
 -- > "[NP The/DT brown/NN dog/NN] [VP jumped/VBD] [NP over/IN the/DT lazy/JJ cat/NN] ./."
 --
-chunkText :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> Text -> Text
-chunkText tgr chk input = T.intercalate " " $ map showChunkedSent $ chunk chk $ tag tgr input
+chunkText :: (Chunk c, POS t) => POSTagger t -> Chunker t c -> Text -> Text
+chunkText tgr chk input = T.intercalate " " $ map prettyShow $ chunk chk $ tag tgr input
 
 
 -- | A wrapper around 'chunkText' that packs strings.
-chunkStr :: (ChunkTag c, Tag t) => POSTagger t -> Chunker c t -> String -> String
+chunkStr :: (Chunk c, POS t) => POSTagger t -> Chunker t c -> String -> String
 chunkStr tgr chk str = T.unpack $ chunkText tgr chk $ T.pack str
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By
 -- convention, the IDs use are the fully qualified module name of the
 -- tagger package.
-chunkerTable :: (ChunkTag c, Tag t) => Map ByteString
-               (ByteString -> Either String (Chunker c t))
+chunkerTable :: (Chunk c, POS t) => Map ByteString
+               (ByteString -> Either String (Chunker t c))
 chunkerTable = Map.fromList
   [ (Avg.chunkerID, Avg.readChunker)
   ]
 
 -- | Store a 'Chunker' to disk.
-saveChunker :: (ChunkTag c, Tag t) => Chunker c t -> FilePath -> IO ()
+saveChunker :: (Chunk c, POS t) => Chunker t c -> FilePath -> IO ()
 saveChunker chunker file = BS.writeFile file (serialize chunker)
 
 -- | Load a 'Chunker' from disk, optionally gunzipping if
 -- needed. (based on file extension)
-loadChunker :: (ChunkTag c, Tag t) => FilePath -> IO (Chunker c t)
+loadChunker :: (Chunk c, POS t) => FilePath -> IO (Chunker t c)
 loadChunker file = do
   content <- getContent file
   case deserialize chunkerTable content of
@@ -118,16 +118,16 @@ loadChunker file = do
                  | otherwise               = BS.readFile f
 
 
-serialize :: (ChunkTag c, Tag t) => Chunker c t -> ByteString
+serialize :: (Chunk c, POS t) => Chunker t c -> ByteString
 serialize chunker = encode ( chId chunker, chSerialize chunker)
 
-deserialize :: (ChunkTag c, Tag t) =>
+deserialize :: (Chunk c, POS t) =>
                Map ByteString
-                  (ByteString -> Either String (Chunker c t))
+                  (ByteString -> Either String (Chunker t c))
             -> ByteString
-            -> Either String (Chunker c t)
+            -> Either String (Chunker t c)
 deserialize table bs = do
-  (theID, payload) <- decode bs
+  (theID, thePayload) <- decode bs
   case Map.lookup theID table of
     Nothing -> Left ("Could not find ID in Chunker function map: " ++ show theID)
-    Just fn -> fn payload
+    Just fn -> fn thePayload

@@ -66,7 +66,22 @@ tests = testGroup "NLP.Types.Annotations"
             , [ (Token "h", B.PPO)
               ])
           ]
+        , testGroup "ChunkedSentence helpers"
+          [ testGroup "toChunkedSentence" $
+            map mkToChunkedSenteneceTest
+            [ ( "The/DT brown/ADJ dog/NN jumped/VB ./."
+              , [B.C_O, B.C_NP, B.C_NP, B.C_VP]
+              , "The/DT [NP brown/ADJ dog/NN] [VP jumped/VB] ./.")
+            ]
+          ]
         ]
+
+mkToChunkedSentenceTest :: (Chunk chunk) => (Text, [chunk], Text) -> TestTree
+mkToChunkedSentenceTest (input, chunks, expected) = testCase (T.unpack input) $
+  expected @=? actual
+  where
+    taggedSentence = readPOS input
+    actual = toChunkedSentence chunks taggedSentence
 
 mkDirectTsToPairsTest :: POS pos => (Text, TaggedSentence pos, [(Token, pos)]) -> TestTree
 mkDirectTsToPairsTest (txt, sent, expected) = testCase (T.unpack txt) $
