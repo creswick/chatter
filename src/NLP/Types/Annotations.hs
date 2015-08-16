@@ -152,7 +152,7 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
-
+-- | TODO this should use the underlying text, not stitching together.
 instance POS pos => Pretty (TaggedSentence pos) where
   pPrint ts = hsep $ map toDoc $ tsToPairs ts
     where
@@ -228,14 +228,14 @@ toChunkedSentence :: (Chunk chunk, POS tag) => TaggedSentence tag -> [chunk] -> 
 toChunkedSentence taggedSentence chunks =
   let groups = map (\g -> (head g, length g)) $ group chunks
 
-      mkAnnotation (idx, acc) (chunk, chunkLen) =
-        ( idx + chunkLen
-        , (Annotation { startIdx = Index idx
-                      , len = chunkLen
-                      , value = chunk
-                      , payload = taggedSentence
-                      })
-          :acc )
+      mkAnnotation (idx, acc) (chunk, chunkLen) | chunk == notChunk = (idx + chunkLen, acc)
+                                                | otherwise         =
+        let ann = Annotation { startIdx = Index idx
+                             , len = chunkLen
+                             , value = chunk
+                             , payload = taggedSentence
+                             }
+        in ( idx + chunkLen, ann:acc )
 
   in ChunkedSentence
        { chunkTagSentence = taggedSentence
@@ -252,9 +252,20 @@ fromChunkedSentence :: (Chunk chunk, POS pos)
                     -> (TaggedSentence pos, [chunk])
 fromChunkedSentence chunkedSent =
   let taggedSent = chunkTagSentence chunkedSent
-      chunks = concatMap expandChunks $ chunkAnnotations chunkedSent
 
-      expandChunks annot = replicate (len annot) (value annot)
+      chunks = let (lastIdx, anns) = foldl fn (0,[]) (chunkAnnotations chunkedSent)
+                   missingOs = (tsLength taggedSent) - 1 - lastIdx
+                   lastOs = replicate missingOs notChunk
+               in reverse (lastOs ++ anns)
+
+      fn :: (Chunk chunk, POS pos) => (Int, [chunk]) -> Annotation (TaggedSentence pos) chunk -> (Int, [chunk])
+      fn (idx, acc) ann =
+        let outChunks = replicate ((fromIndex $ startIdx ann) - idx) notChunk
+            newChunks = replicate (len ann) (value ann)
+            newIdx = (fromIndex $ startIdx ann) + len ann
+
+        in (newIdx, newChunks ++ outChunks ++ acc)
+
   in (taggedSent, chunks)
 
 -- | A sentence that has been marked with named entities.

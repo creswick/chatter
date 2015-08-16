@@ -3,9 +3,11 @@ module NLP.Types.AnnotationTests where
 
 import Test.QuickCheck.Instances ()
 import Test.Tasty (TestTree, testGroup)
-import Test.Tasty.QuickCheck (testProperty)
+import Test.Tasty.QuickCheck (testProperty, Property, (==>), generate)
 import Test.HUnit      ( (@=?) )
 import Test.Tasty.HUnit (testCase)
+import Test.QuickCheck.Monadic
+import Test.QuickCheck.Modifiers
 
 import Data.Serialize (decode, encode)
 import Data.Text (Text)
@@ -46,42 +48,39 @@ tests = testGroup "NLP.Types.Annotations"
         , testGroup "Direct tsToPairs" $
           map mkDirectTsToPairsTest
           [ ( "h"
-            , TaggedSentence
-              { tagTokSentence =
-                  TokenizedSentence {tokText = "h"
-                                    , tokAnnotations = [Annotation {startIdx = Index 0
-                                                                   , len = 1
-                                                                   , value = Token "h"
-                                                                   , payload = "h"}]}
-              , tagAnnotations =
-                [ Annotation { startIdx = Index 0
-                             , len = 1
-                             , value = B.PPO
-                             , payload =
-                              TokenizedSentence {tokText = "h"
-                                                , tokAnnotations = [Annotation {startIdx = Index 0
-                                                                               , len = 1
-                                                                               , value = Token "h"
-                                                                               , payload = "h"}]}}]}
-            , [ (Token "h", B.PPO)
-              ])
+            , let pld = TokenizedSentence {tokText = "h"
+                                          , tokAnnotations = [Annotation {startIdx = Index 0
+                                                                         , len = 1
+                                                                         , value = Token "h"
+                                                                         , payload = "h"}]}
+              in TaggedSentence
+                   { tagTokSentence = pld
+                   , tagAnnotations =
+                     [ Annotation { startIdx = Index 0
+                                  , len = 1
+                                  , value = B.PPO
+                                  , payload = pld }
+                     ]
+                   }
+            , [ (Token "h", B.PPO) ])
           ]
         , testGroup "ChunkedSentence helpers"
-          [ testGroup "toChunkedSentence" $
-            map mkToChunkedSenteneceTest
-            [ ( "The/DT brown/ADJ dog/NN jumped/VB ./."
-              , [B.C_O, B.C_NP, B.C_NP, B.C_VP]
-              , "The/DT [NP brown/ADJ dog/NN] [VP jumped/VB] ./.")
-            ]
+          [ testProperty "To/FromChunkedSentence are duals of eachother"
+              prop_toFromChunkedSentence
+          , testProperty "mkTokenizedSent is the right length"
+             prop_mkTokSentLength
           ]
         ]
 
-mkToChunkedSentenceTest :: (Chunk chunk) => (Text, [chunk], Text) -> TestTree
-mkToChunkedSentenceTest (input, chunks, expected) = testCase (T.unpack input) $
-  expected @=? actual
-  where
-    taggedSentence = readPOS input
-    actual = toChunkedSentence chunks taggedSentence
+prop_mkTokSentLength :: Positive Int -> Property
+prop_mkTokSentLength (Positive x) = monadicIO $ do
+  tsent <- run $ generate $ mkTokenizedSent x
+  assert (x == (length $ tokAnnotations tsent))
+
+prop_toFromChunkedSentence :: ChunkedSentence B.Tag B.Chunk -> Bool
+prop_toFromChunkedSentence expected =
+  let actual = (uncurry toChunkedSentence) $ fromChunkedSentence expected
+  in actual == expected
 
 mkDirectTsToPairsTest :: POS pos => (Text, TaggedSentence pos, [(Token, pos)]) -> TestTree
 mkDirectTsToPairsTest (txt, sent, expected) = testCase (T.unpack txt) $

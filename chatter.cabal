@@ -75,6 +75,7 @@ Library
                      -- NLP.Extraction.Parsec
                      -- NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
+                     Data.TagTree
 
    Build-depends:    base           >= 4.6 && <= 6,
                      text           >= 0.11.3.0,
@@ -86,6 +87,7 @@ Library
                      bytestring     >= 0.10.0.0,
                      directory,
                      hashable,
+                     ListLike,
                      mbox           >= 0.3,
                      zlib           >= 0.5.4.1,
                      filepath       >= 1.3.0.1,
