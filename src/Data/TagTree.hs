@@ -5,18 +5,15 @@
 module Data.TagTree
 
 where
-import           Prelude hiding (reverse, length)
-import           Data.ListLike hiding (toString)
+-- import           Prelude
+import qualified Data.ListLike as LL
 import qualified Data.List as DL (foldl')
 import           Data.Monoid ((<>))
 import           Data.Map (Map)
 import qualified Data.Map as Map
-import           Data.Text hiding (reverse, length, foldl')
+import           Data.Text (Text)
+import qualified Data.Text as T  
 
--- | Safe index type, uses a phantom type to prevent us from indexing
--- into the wrong thing.
-newtype Index a = Index Int
-  deriving (Read, Show, Eq, Ord)
 
 -- | Annotations are the base of all tags (POS tags, Chunks, marked
 -- entities, etc.)
@@ -24,7 +21,7 @@ newtype Index a = Index Int
 -- The semantics of the particular annotation depend on the type of
 -- the value, and these can be wrapped up in a newtype for easier use.
 data Annotation dat tag =
-  Annotation { startIdx :: {-# UNPACK #-} !(Index dat)
+  Annotation { startIdx :: {-# UNPACK #-} !Int
              -- ^ The starting index of the annotation (a character
              -- offset into the underlying data).
              , len :: {-# UNPACK #-} !Int
@@ -44,31 +41,26 @@ instance HasMarkup (Annotation dat tag) where
 
 data TagTree dat ann where
   Leaf :: dat -> [Annotation dat ann] -> TagTree dat ann
-  Tree :: (TagTree dat2 ann2) -> [Annotation (TagTree dat2 ann2) ann] -> TagTree (TagTree dat2 ann2) ann
+  Tree :: ( ToString item2, LL.ListLike dat2 item2, LL.FoldableLL dat2 item2)
+       => (TagTree dat2 ann2) -> [Annotation (TagTree dat2 ann2) ann] -> TagTree (TagTree dat2 ann2) ann
 
-class ToString a where
-  toString :: a -> String
+getAnnotations :: TagTree dat ann -> [Annotation dat ann]
+getAnnotations (Leaf _ anns) = anns
+getAnnotations (Tree _ anns) = anns
 
-instance ToString elt => ToString [elt] where
-  toString = foldl' (\acc elt -> acc <> toString elt)  ""
+getData :: TagTree dat ann -> dat
+getData (Leaf dat _) = dat
+getData (Tree dat _) = dat
 
-instance ToString String where
-  toString = id
-
-instance ToString Char where
-  toString c = c:""
-
-instance ToString Text where
-  toString = unpack
-
-display :: (ListLike dat item, FoldableLL dat item, Show dat, ToString item)
-        => TagTree dat ann
+displayHelper :: (LL.ListLike dat item, LL.FoldableLL dat item, ToString item)
+        => Map Int String
+        -> TagTree dat ann
         -> String
--- display (Tree dat anns) = 
-display (Leaf dat anns) = let (_, folded) = foldl' fn (0,"") dat
-                          in case Map.lookup (length dat) insertions of
-                               Nothing -> reverse folded
-                               Just  m -> reverse ((reverse m) <> folded)
+displayHelper insertions (Tree dat anns) = displayHelper (makeInsertionMap anns) dat
+displayHelper insertions (Leaf dat anns) = let (_, folded) = LL.foldl' fn (0,"") dat
+                                           in case Map.lookup (LL.length dat) insertions of
+                                                Nothing -> reverse folded
+                                                Just  m -> reverse ((reverse m) <> folded)
   where
     fn :: (ToString item) => (Int, String) -> item -> (Int, String)
     fn (idx, acc) ch = let newIdx = idx + 1
@@ -77,23 +69,53 @@ display (Leaf dat anns) = let (_, folded) = foldl' fn (0,"") dat
                                       Just m  -> (reverse m) <>acc
                        in (newIdx, (reverse $ toString ch) <> markedAcc)
 
-    insertions :: Map Int String
-    insertions = DL.foldl' mkInsertions (Map.empty) anns
 
-    mkInsertions :: Map Int String -> Annotation dat ann -> Map Int String
-    mkInsertions theMap ann = let (pfx, sfx) = getMarkup ann
-                                  Index sidx = startIdx ann
-                                  eidx = sidx + len ann
-                              in Map.insertWith (<>) eidx sfx (Map.insertWith (<>) sidx pfx theMap)
+display :: (LL.ListLike dat item, LL.FoldableLL dat item, Show dat, ToString item)
+        => TagTree dat ann
+        -> String
+display (Tree dat anns) = displayHelper (makeInsertionMap anns) dat
+display (Leaf dat anns) = displayHelper Map.empty (Leaf dat anns)
+
+makeInsertionMap :: [Annotation dat ann] -> Map Int String
+makeInsertionMap anns = LL.foldl' mkInsertions Map.empty $ map project anns
+
+mkInsertions :: Map Int String -> Annotation dat ann -> Map Int String
+mkInsertions theMap ann = let (pfx, sfx) = getMarkup ann
+                              sidx = startIdx ann
+                              eidx = sidx + len ann
+                          in Map.insertWith (\new old -> new <> old) eidx sfx
+                               (Map.insertWith (\new old -> old <> new) sidx pfx theMap)
+
+-- | Project an annotation all the way onto the underlying data.
+project :: Annotation dat val -> Annotation dat2 val
+project an@(Annotation _ _ _ (Leaf _ _)) = project1 an
+project an@(Annotation _ _ _ (Tree _ _)) = project (project1 an)
+project an = an
+
+-- | Adjust an annotation such that it is in terms of the next level of annotation.
+project1 :: Annotation (TagTree dat tag) val -> Annotation dat2 val
+project1 (Annotation s l tag tree) = let anns = getAnnotations tree
+                                         newDat = getData tree
+                                         newS = startIdx (anns!!s)
+
+                                         getEndIndex :: Annotation a b -> Int
+                                         getEndIndex a = (startIdx a) + (len a)
+
+                                         newL = (getEndIndex (anns!!(s+l))) - newS
+                                     in Annotation newS newL newDat tag
 
 
--- | Project the annotations on something that contains annotations
--- onto the next layer of annotated thing.
---
--- For example: projecting an `Annotation TokenizedSentence RawTag` to
--- be an `Annotation Text RawTag`.
---
--- Project adjusts the index, length, and the payload of an annotation
--- to reflect the lower-level data.
--- project :: Tree dat => Annotation dat tag -> Annotation dat2 tag
--- project ann = undefined
+class ToString a where
+  toString :: a -> String
+
+instance ToString elt => ToString [elt] where
+  toString = LL.foldl' (\acc elt -> acc <> toString elt)  ""
+
+instance ToString String where
+  toString = id
+
+instance ToString Char where
+  toString c = c:""
+
+instance ToString Text where
+  toString = T.unpack
