@@ -40,9 +40,18 @@ instance HasMarkup (Annotation dat tag) where
   getMarkup ann = ("[","]")
 
 data TagTree dat ann where
+  Raw :: dat -> TagTree dat ()
   Leaf :: dat -> [Annotation dat ann] -> TagTree dat ann
   Tree :: ( ToString item2, LL.ListLike dat2 item2, LL.FoldableLL dat2 item2)
        => (TagTree dat2 ann2) -> [Annotation (TagTree dat2 ann2) ann] -> TagTree (TagTree dat2 ann2) ann
+
+-- data TagTree dat ann = Leaf dat [Annotation dat ann]
+--                      | Tree (TagTree dat ann2) [Annotation (TagTree dat ann2) ann]
+
+type TokenizedSentence = TagTree Text Token
+type TaggedSentence = TagTree (TagTree Text Token) POS
+type ChunkedSentence = TagTree (TagTree (TagTree Text Token) POS) Chunk
+
 
 getAnnotations :: TagTree dat ann -> [Annotation dat ann]
 getAnnotations (Leaf _ anns) = anns
@@ -51,6 +60,12 @@ getAnnotations (Tree _ anns) = anns
 getData :: TagTree dat ann -> dat
 getData (Leaf dat _) = dat
 getData (Tree dat _) = dat
+
+display :: (LL.ListLike dat item, LL.FoldableLL dat item, ToString item)
+        => TagTree dat ann
+        -> String
+display (Tree dat anns) = displayHelper (makeInsertionMap anns) dat
+display (Leaf dat anns) = displayHelper Map.empty (Leaf dat anns)
 
 displayHelper :: (LL.ListLike dat item, LL.FoldableLL dat item, ToString item)
         => Map Int String
@@ -69,13 +84,6 @@ displayHelper insertions (Leaf dat anns) = let (_, folded) = LL.foldl' fn (0,"")
                                       Just m  -> (reverse m) <>acc
                        in (newIdx, (reverse $ toString ch) <> markedAcc)
 
-
-display :: (LL.ListLike dat item, LL.FoldableLL dat item, Show dat, ToString item)
-        => TagTree dat ann
-        -> String
-display (Tree dat anns) = displayHelper (makeInsertionMap anns) dat
-display (Leaf dat anns) = displayHelper Map.empty (Leaf dat anns)
-
 makeInsertionMap :: [Annotation dat ann] -> Map Int String
 makeInsertionMap anns = LL.foldl' mkInsertions Map.empty $ map project anns
 
@@ -87,13 +95,12 @@ mkInsertions theMap ann = let (pfx, sfx) = getMarkup ann
                                (Map.insertWith (\new old -> old <> new) sidx pfx theMap)
 
 -- | Project an annotation all the way onto the underlying data.
-project :: Annotation dat val -> Annotation dat2 val
+project :: Annotation (TagTree dat tag) val -> Annotation dat tag
 project an@(Annotation _ _ _ (Leaf _ _)) = project1 an
 project an@(Annotation _ _ _ (Tree _ _)) = project (project1 an)
-project an = an
 
 -- | Adjust an annotation such that it is in terms of the next level of annotation.
-project1 :: Annotation (TagTree dat tag) val -> Annotation dat2 val
+project1 :: Annotation (TagTree dat tag) val -> Annotation dat val
 project1 (Annotation s l tag tree) = let anns = getAnnotations tree
                                          newDat = getData tree
                                          newS = startIdx (anns!!s)
@@ -102,7 +109,7 @@ project1 (Annotation s l tag tree) = let anns = getAnnotations tree
                                          getEndIndex a = (startIdx a) + (len a)
 
                                          newL = (getEndIndex (anns!!(s+l))) - newS
-                                     in Annotation newS newL newDat tag
+                                     in Annotation newS newL tag newDat
 
 
 class ToString a where

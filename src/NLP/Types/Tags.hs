@@ -12,7 +12,7 @@ import GHC.Generics
 
 import Test.QuickCheck.Instances ()
 
-import NLP.Types.Annotations (POS(..), Chunk(..))
+import NLP.Types.Annotations (POS(..), Chunk(..), HasMarkup(..), chunkMarkup, posMarkup)
 
 -- | A fall-back 'Chunk' instance, analogous to 'RawTag'
 newtype RawChunk = RawChunk Text
@@ -26,12 +26,18 @@ instance Chunk RawChunk where
   parseChunk txt = Right (RawChunk txt)
   notChunk = RawChunk "O"
 
+instance HasMarkup RawChunk where
+  getMarkup = chunkMarkup
+
 -- | A fallback POS tag instance.
 newtype RawTag = RawTag Text
   deriving (Ord, Eq, Read, Show, Generic)
 
 instance Serialize RawTag
 instance Hashable RawTag
+
+instance HasMarkup RawTag where
+  getMarkup = posMarkup
 
 -- | Tag instance for unknown tagsets.
 instance POS RawTag where

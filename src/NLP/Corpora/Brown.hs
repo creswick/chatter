@@ -32,6 +32,9 @@ instance Hashable Chunk
 instance Arbitrary Chunk where
   arbitrary = elements [minBound ..]
 
+instance A.HasMarkup Chunk where
+  getMarkup = A.chunkMarkup
+
 instance Serialize Chunk
 
 instance Serialize Tag
@@ -52,6 +55,9 @@ instance A.POS Tag where
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
+
+instance A.HasMarkup Tag where
+  getMarkup = A.posMarkup
 
 parseBrownTag :: Text -> Either Error Tag
 parseBrownTag "(" = Right Op_Paren

@@ -12,7 +12,7 @@ import Test.QuickCheck.Gen (Gen(..), infiniteListOf, elements, suchThat)
 import NLP.Types
 import NLP.Tokenize (runTokenizer, whitespace)
 
-import Debug.Trace
+-- import Debug.Trace
 
 arbitraryPosInt :: Gen Int
 arbitraryPosInt = do
@@ -30,7 +30,7 @@ arbitraryText = do
 
 arbitraryWS :: Gen Text
 arbitraryWS = do
-  let chars = " \n\n\r\t"
+  let chars = " \n\r\t"
   str <- infiniteListOf $ elements chars
   size <- arbitraryPosInt
   return $ T.pack $ take size str
@@ -65,7 +65,7 @@ instance Arbitrary pos => Arbitrary (TaggedSentence pos) where
 
 mkTaggedSent :: Arbitrary pos => Int -> Gen (TaggedSentence pos)
 mkTaggedSent tokCount = do
-  tsent <- mkTokenizedSent $ traceShowId tokCount
+  tsent <- mkTokenizedSent tokCount
   posTags <- infiniteListOf arbitrary
 
   let annotations = zipWith mkAnnotation

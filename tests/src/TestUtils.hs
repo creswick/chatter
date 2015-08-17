@@ -1,9 +1,18 @@
-module TestUtils where
+module TestUtils
+  ( genTestF2
+  , genTest3
+  , genTestF3
+  , genTest2
+  , genTest
+  , genTestF
+  , assertApproxEquals
+  )
+where
 
 
 import Control.Monad (unless)
 import Test.HUnit      ( (@=?), Assertion, assertFailure )
-import Test.Tasty.HUnit (testCase)
+import qualified Test.Tasty.HUnit as TH
 import Test.Tasty (TestTree)
 
 -- | Not available until Base 4.7 or greater:
@@ -11,9 +20,19 @@ isRight :: Either a b -> Bool
 isRight (Left  _) = False
 isRight (Right _) = True
 
+testDescrLen :: Int
+testDescrLen = 50
+
+truncateDescr :: String -> String
+truncateDescr str | length str > 20 = (take testDescrLen str) ++ "..."
+                  | otherwise = str
+
+testCase :: String -> TH.Assertion -> TestTree
+testCase str = TH.testCase (truncateDescr str)
+
 genTestF2 :: (Show a, Show b) => (a -> b -> Double) -> (String, a, b, Double) -> TestTree
 genTestF2 fn (descr, in1, in2, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"]") assert
+    testCase (descr++" [input: "++ show in1++"," ++show in2++"]") assert
         where assert = assertApproxEquals "" 0.001 oracle $ fn in1 in2
 
 genTest3 :: (Show a, Show b, Show c, Show d, Eq d)
@@ -21,7 +40,7 @@ genTest3 :: (Show a, Show b, Show c, Show d, Eq d)
          -> (String, a, b, c, d)
          -> TestTree
 genTest3 fn (descr, in1, in2, in3, oracle) =
-    testCase (descr++" [input: "++show in1++"," ++show in2++"," ++show in3++"]") assert
+    testCase (descr++" [input: "++ show in1++"," ++show in2++"," ++show in3++"]") assert
         where assert = oracle @=? fn in1 in2 in3
 
 genTestF3 :: (Show a, Show b, Show c)

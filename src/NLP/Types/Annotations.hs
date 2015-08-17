@@ -3,6 +3,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE UndecidableInstances #-}
 -- | Chatter uses Annotations to represent marked portions of text, or
 -- of underlying structures.
 --
@@ -69,6 +70,8 @@ module NLP.Types.Annotations where
 import GHC.Generics
 import Data.Hashable (Hashable)
 import Data.List (foldl', group)
+import Data.Map (Map)
+import qualified Data.Map as Map
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
 import Data.Serialize (Serialize)
@@ -124,6 +127,22 @@ instance AnnotatedText (Annotation Text Token) where
   getText ann = case value ann of
                   Token txt -> txt
 
+getAnnotationMarkup :: HasMarkup tag => Annotation dat tag -> (String,String)
+getAnnotationMarkup ann = getMarkup (value ann)
+
+class Show a => HasMarkup a where
+  getMarkup :: a -> (String, String)
+  getMarkup a = ("["<> show a, "]")
+
+posMarkup :: POS pos => pos -> (String, String)
+posMarkup t = ("","/" <> (T.unpack $ serializePOS t))
+
+chunkMarkup :: Chunk chunk => chunk -> (String, String)
+chunkMarkup t = ("[" <> (T.unpack $ serializeChunk t), "]")
+
+instance HasMarkup Token where
+  getMarkup ann = ("","")
+
 -- | Wrapper around both the underlying text and the tokenizer results.
 data TokenizedSentence =
   TokenizedSentence { tokText :: Text
@@ -153,10 +172,33 @@ instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
 -- | TODO this should use the underlying text, not stitching together.
-instance POS pos => Pretty (TaggedSentence pos) where
-  pPrint ts = hsep $ map toDoc $ tsToPairs ts
+instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
+  pPrint (TaggedSentence (TokenizedSentence ts toks) anns) = text toStr
     where
-      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
+--      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
+      toStr = let (_, folded) = T.foldl' fn (0,"") ts
+              in case Map.lookup (T.length ts) insertions of
+                   Nothing -> reverse folded
+                   Just  m -> reverse ((reverse m) <> folded)
+
+      fn :: (Int, String) -> Char -> (Int, String)
+      fn (idx, acc) ch = let newIdx = idx + 1
+                             markedAcc = case Map.lookup idx insertions of
+                                           Nothing -> acc
+                                           Just m  -> (reverse m) <>acc
+                         in (newIdx, ch:markedAcc)
+
+
+      insertions = foldl' mkInsertions Map.empty anns
+
+      mkInsertions :: HasMarkup ann => Map Int String -> Annotation dat ann -> Map Int String
+      mkInsertions theMap ann = let (pfx, sfx) = getAnnotationMarkup ann
+                                    sIdx = fromIndex $ startIdx ann
+                                    sTxtIdx = fromIndex $ startIdx (toks!!sIdx)
+                                    eTok = toks!!(sIdx + len ann - 1) -- -1 to account for length.
+                                    eTxtIdx = (fromIndex $ startIdx eTok) + len eTok
+                                in Map.insertWith (\new old -> new <> old) eTxtIdx sfx
+                                     (Map.insertWith (\new old -> old <> new) sTxtIdx pfx theMap)
 
 -- | Count the length of the tokens of a 'TaggedSentence'.
 --
@@ -336,7 +378,7 @@ instance IsString Token where
 -- and mappings into that set, you can use the type system to ensure
 -- that that is done correctly.
 --
-class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => POS a where
+class (HasMarkup a, Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => POS a where
 
   -- | Serialize a POS to a text representation.  eg: "NN", "VB", etc..
   -- This is the dual of `parsePOS`
@@ -367,7 +409,7 @@ class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => POS a
 -- are much like POS tags, but should not be confused. Generally,
 -- chunks distinguish between different phrasal categories (e.g.; Noun
 -- Phrases, Verb Phrases, Prepositional Phrases, etc..)
-class (Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => Chunk a where
+class (HasMarkup a, Ord a, Eq a, Read a, Show a, Generic a, Serialize a, Hashable a) => Chunk a where
   -- | Serialize a chunk to a text representation (such as "NP", "VP", etc.)
   -- This is the dual of `parseChunk`.
   serializeChunk :: a -> Text

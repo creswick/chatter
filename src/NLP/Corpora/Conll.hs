@@ -52,7 +52,8 @@ instance Arbitrary Chunk where
   arbitrary = elements [minBound..]
 
 instance Serialize Chunk
-
+instance A.HasMarkup Chunk where
+  getMarkup = A.chunkMarkup
 
 instance A.POS Tag where
   serializePOS = showTag
@@ -67,6 +68,9 @@ instance A.POS Tag where
   endPOS = END
 
   isDt tag = tag `elem` [DT]
+
+instance A.HasMarkup Tag where
+  getMarkup = A.posMarkup
 
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
