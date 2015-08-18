@@ -2,13 +2,14 @@
 module NLP.Types.AnnotationTests where
 
 import Test.QuickCheck.Instances ()
-import Test.Tasty (TestTree, testGroup)
-import Test.Tasty.QuickCheck (testProperty, Property, (==>), generate)
+import Test.Tasty (TestTree, testGroup, localOption)
+import Test.Tasty.QuickCheck (testProperty, Property, (==>), generate, QuickCheckTests(..), QuickCheckMaxSize(..))
 import Test.HUnit      ( (@=?) )
 import Test.Tasty.HUnit (testCase)
 import Test.QuickCheck.Monadic
 import Test.QuickCheck.Modifiers
 
+import Data.List (group)
 import Data.Serialize (decode, encode)
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -64,12 +65,14 @@ tests = testGroup "NLP.Types.Annotations"
                    }
             , [ (Token "h", B.PPO) ])
           ]
-        -- , testGroup "ChunkedSentence helpers"
-        --   [ testProperty "To/FromChunkedSentence are duals of eachother"
-        --       prop_toFromChunkedSentence
-        --   , testProperty "mkTokenizedSent is the right length"
-        --      prop_mkTokSentLength
-        --   ]
+        , testGroup "ChunkedSentence helpers"
+          [ localOption (QuickCheckMaxSize 15) $
+              localOption (QuickCheckTests 15) $
+                testProperty "To/FromChunkedSentence are duals of eachother"
+                  prop_toFromChunkedSentence
+          , testProperty "mkTokenizedSent is the right length"
+            prop_mkTokSentLength
+          ]
         ]
 
 prop_mkTokSentLength :: Positive Int -> Property
@@ -77,8 +80,9 @@ prop_mkTokSentLength (Positive x) = monadicIO $ do
   tsent <- run $ generate $ mkTokenizedSent x
   assert (x == (length $ tokAnnotations tsent))
 
-prop_toFromChunkedSentence :: ChunkedSentence B.Tag B.Chunk -> Bool
+prop_toFromChunkedSentence :: ChunkedSentence B.Tag B.Chunk -> Property
 prop_toFromChunkedSentence expected =
+  length (group $ map value $ chunkAnnotations expected) == (length $ map value $ chunkAnnotations expected) ==>
   let actual = (uncurry toChunkedSentence) $ fromChunkedSentence expected
   in actual == expected
 

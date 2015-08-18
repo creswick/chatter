@@ -265,7 +265,9 @@ instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
 
 -- | Build a ChunkedSentence from a list of chunks and a corresponding
 -- TaggedSentence.  This is not quite like the TaggedSentence version
--- ('applyTags') because consequetive equal chunks denote branching in the tree.
+-- ('applyTags') because consequetive equal chunks denote branching in
+-- the tree.  Also, note that this is lossy; consecutive chunk tags
+-- *will* be collapsed when creating a 'ChunkedSentence' this way.
 toChunkedSentence :: (Chunk chunk, POS tag) => TaggedSentence tag -> [chunk] -> ChunkedSentence tag chunk
 toChunkedSentence taggedSentence chunks =
   let groups = map (\g -> (head g, length g)) $ group chunks

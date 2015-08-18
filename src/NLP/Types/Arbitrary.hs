@@ -2,10 +2,13 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 module NLP.Types.Arbitrary where
 
-import Data.List (foldl')
+import Data.List (foldl', group)
 import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
+
+import Data.Set (Set)
+import qualified Data.Set as Set
 import Test.QuickCheck (Arbitrary(..))
 import Test.QuickCheck.Gen (Gen(..), infiniteListOf, elements, suchThat)
 
@@ -39,6 +42,11 @@ instance Arbitrary RawTag where
   arbitrary = do
     str <- suchThat arbitraryText (\x-> T.length x > 0)
     return $ RawTag str
+
+instance Arbitrary RawChunk where
+  arbitrary = do
+    str <- suchThat arbitraryText (\x-> T.length x > 0)
+    return $ RawChunk str
 
 instance Arbitrary TokenizedSentence where
   arbitrary = do
@@ -79,11 +87,26 @@ mkTaggedSent tokCount = do
   return TaggedSentence { tagTokSentence = tsent
                         , tagAnnotations = annotations }
 
+getArbitaryNonRepChunks :: (Arbitrary chunk, Bounded chunk, Enum chunk, Chunk chunk) => Gen [chunk]
+getArbitaryNonRepChunks = do
+  chunk <- arbitrary
+  mkChunks chunk
 
-instance (Chunk chunk, POS pos, Arbitrary pos, Arbitrary chunk) => Arbitrary (ChunkedSentence pos chunk) where
+  where
+    allchunks :: (Bounded chunk, Enum chunk, Chunk chunk) => Set chunk
+    allchunks = Set.fromList [minBound..]
+
+    mkChunks :: (Arbitrary chunk, Bounded chunk, Enum chunk, Chunk chunk) => chunk -> Gen [chunk]
+    mkChunks last = do
+      next <- elements (Set.toList (Set.delete last allchunks))
+      rest <- mkChunks next
+      return (last:rest)
+
+instance (Enum chunk, Bounded chunk, Chunk chunk, POS pos, Arbitrary pos, Arbitrary chunk)
+  => Arbitrary (ChunkedSentence pos chunk) where
   arbitrary = do
     indexes <- mkIndexes 0
-    chunks <- infiniteListOf arbitrary
+    chunks <- getArbitaryNonRepChunks
     dataCount <- arbitraryPosInt
 
     let rawData = take dataCount $ filter (\(_,c)->c /= notChunk) (zip indexes chunks)

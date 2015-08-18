@@ -41,13 +41,13 @@ tests :: TestTree
 tests = testGroup "Tests"
         [ testGroup "parseTag" $
           [ testProperty "basic tag parsing" prop_parseTag]
-        -- , APT.tests
-        -- , Backoff.tests
-        -- , Vec.tests
+        , APT.tests
+        , Backoff.tests
+        , Vec.tests
         , POS.tests
         , AnnT.tests
-        -- , UT.tests
-        -- , LT.tests
+        , UT.tests
+        , LT.tests
         -- , TypeTests.tests
         -- , DefMap.tests
 -- todo        , Parsec.tests
