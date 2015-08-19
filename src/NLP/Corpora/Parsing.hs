@@ -20,6 +20,12 @@ readPOS str = applyTags tokenizedSentence (map snd tagPairs)
 
       tagPairs = map toTagged $ T.words str
 
+-- | Read a 'ChunkedSentence' from a pretty-printed variant.
+--
+-- The dual of 'prettyShow chunkedSentence'
+readChunk :: (Chunk chunk, POS pos) => Text -> ChunkedSentence pos chunk
+readChunk str = undefined
+
 -- | Read a standard POS-tagged corpus with one sentence per line, and
 -- one POS tag after each token.
 readCorpus :: POS pos => Text -> [TaggedSentence pos]

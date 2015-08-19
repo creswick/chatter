@@ -175,7 +175,6 @@ instance AnnotatedText (TaggedSentence pos) where
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
   pPrint (TaggedSentence (TokenizedSentence ts toks) anns) = text toStr
     where
---      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
       toStr = let (_, folded) = T.foldl' fn (0,"") ts
               in case Map.lookup (T.length ts) insertions of
                    Nothing -> reverse folded
@@ -188,17 +187,50 @@ instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
                                            Just m  -> (reverse m) <>acc
                          in (newIdx, ch:markedAcc)
 
+      insertions = tagInsertions Map.empty anns
 
-      insertions = foldl' mkInsertions Map.empty anns
+tagInsertions :: (POS pos, HasMarkup pos)
+              => Map Int String -> [Annotation TokenizedSentence pos] -> Map Int String
+tagInsertions initMap anns = foldl mkInsertions initMap anns
+  where
+    mkInsertions :: (POS pos, HasMarkup pos)
+                 => Map Int String -> Annotation TokenizedSentence pos -> Map Int String
+    mkInsertions theMap ann@(Annotation (Index sIdx) annLen pos (TokenizedSentence txt toks)) =
+      let (pfx, sfx) = getAnnotationMarkup ann
+          sTxtIdx = fromIndex $ startIdx (toks!!sIdx)
+          eTok = toks!!(sIdx + annLen - 1) -- -1 to account for length.
+          eTxtIdx = (fromIndex $ startIdx eTok) + len eTok
+      in Map.insertWith (\new old -> new <> old) eTxtIdx sfx
+           (Map.insertWith (\new old -> old <> new) sTxtIdx pfx theMap)
 
-      mkInsertions :: HasMarkup ann => Map Int String -> Annotation dat ann -> Map Int String
-      mkInsertions theMap ann = let (pfx, sfx) = getAnnotationMarkup ann
-                                    sIdx = fromIndex $ startIdx ann
-                                    sTxtIdx = fromIndex $ startIdx (toks!!sIdx)
-                                    eTok = toks!!(sIdx + len ann - 1) -- -1 to account for length.
-                                    eTxtIdx = (fromIndex $ startIdx eTok) + len eTok
-                                in Map.insertWith (\new old -> new <> old) eTxtIdx sfx
-                                     (Map.insertWith (\new old -> old <> new) sTxtIdx pfx theMap)
+chunkInsertions :: (Chunk chunk, HasMarkup chunk, POS pos, HasMarkup pos)
+                => Map Int String -> [Annotation (TaggedSentence pos) chunk] -> Map Int String
+chunkInsertions initMap anns = foldl' mkInsertions initMap anns
+  where
+    mkInsertions :: (HasMarkup pos, HasMarkup chunk)
+                 => Map Int String -> Annotation (TaggedSentence pos) chunk -> Map Int String
+    mkInsertions theMap ann@(Annotation (Index sIdx) l chunk dat) =
+      let (pfx, sfx) = getAnnotationMarkup ann
+
+          -- POS annotations:
+          tags = tagAnnotations dat
+
+          -- starting index of the tag annotation that marks this chunk:
+          sTagIdx = fromIndex $ startIdx (tags!!sIdx)
+          eTag = tags!!(sIdx + len ann - 1) -- -1 to account for length.
+          eTagIdx = (fromIndex $ startIdx eTag) + len eTag
+
+          -- Token annotations
+          toks :: [Annotation Text Token]
+          toks = tokAnnotations $ tagTokSentence dat
+
+          -- starting index of the token.  This is the index into the text string:
+          sTokIdx = fromIndex $ startIdx (toks!!sTagIdx)
+          eTok = toks!!(sTagIdx + len ann - 1) -- -1 to account for length.
+          eTokIdx = (fromIndex $ startIdx eTok) + len eTok
+
+      in Map.insertWith (\new old -> new <> old) eTokIdx sfx
+           (Map.insertWith (\new old -> old <> new) sTokIdx pfx theMap)
 
 -- | Count the length of the tokens of a 'TaggedSentence'.
 --
@@ -259,9 +291,23 @@ instance AnnotatedText (ChunkedSentence pos chunk) where
   getText = getText . chunkTagSentence
 
 instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
-  pPrint ts = undefined -- hsep $ map toDoc $ tsToPairs ts
+  pPrint cs = text toStr
     where
-      toDoc (Token t, pos) = text $ T.unpack (t <> "/" <> serializePOS pos)
+      ts = tokText $ tagTokSentence $ chunkTagSentence cs
+      toStr = let (_, folded) = T.foldl' fn (0,"") ts
+              in case Map.lookup (T.length ts) insertions of
+                   Nothing -> reverse folded
+                   Just  m -> reverse ((reverse m) <> folded)
+
+      fn :: (Int, String) -> Char -> (Int, String)
+      fn (idx, acc) ch = let newIdx = idx + 1
+                             markedAcc = case Map.lookup idx insertions of
+                                           Nothing -> acc
+                                           Just m  -> (reverse m) <>acc
+                         in (newIdx, ch:markedAcc)
+
+      insertions = tagInsertions chunkMap (tagAnnotations $ chunkTagSentence cs)
+      chunkMap = chunkInsertions Map.empty $ chunkAnnotations cs
 
 -- | Build a ChunkedSentence from a list of chunks and a corresponding
 -- TaggedSentence.  This is not quite like the TaggedSentence version
