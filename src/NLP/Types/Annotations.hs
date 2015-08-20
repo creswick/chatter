@@ -138,7 +138,7 @@ posMarkup :: POS pos => pos -> (String, String)
 posMarkup t = ("","/" <> (T.unpack $ serializePOS t))
 
 chunkMarkup :: Chunk chunk => chunk -> (String, String)
-chunkMarkup t = ("[" <> (T.unpack $ serializeChunk t), "]")
+chunkMarkup t = ("[" <> (T.unpack $ serializeChunk t) <> " ", "]")
 
 instance HasMarkup Token where
   getMarkup ann = ("","")

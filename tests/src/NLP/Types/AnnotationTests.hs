@@ -29,6 +29,8 @@ tests = testGroup "NLP.Types.Annotations"
             (prop_taggedSentence_roundtrip_connl :: TaggedSentence C.Tag -> Bool)
           , testProperty "TaggedSentence: Brown Tag"
             (prop_taggedSentence_roundtrip_brown :: TaggedSentence B.Tag -> Bool)
+          , testProperty "ChunkedSentence: Brown Tag"
+            (prop_chunkedSentence_roundtrip_brown :: ChunkedSentence B.Tag B.Chunk -> Bool)
           ]
         , testGroup "prettyShow round-trip fixed tests" $
           map mkPrettyShowRTTest
@@ -175,6 +177,19 @@ prop_taggedSentence_roundtrip_connl ts = let expected = normalizeWS $ prettyShow
                                              actual = prettyShow structured
 
                                          in expected == actual
+
+prop_chunkedSentence_roundtrip_brown :: ChunkedSentence B.Tag B.Chunk -> Bool
+prop_chunkedSentence_roundtrip_brown ts = let expected = normalizeWS $ prettyShow ts
+
+
+                                              -- also will need to remove [ and ] characters...
+                                              normalizeWS :: Text -> Text
+                                              normalizeWS = T.unwords . T.words
+
+                                              structured :: ChunkedSentence B.Tag B.Chunk
+                                              structured = readChunk expected
+                                              actual = prettyShow structured
+                                          in expected == actual
 
 prop_corpusSerialize :: Corpus -> Bool
 prop_corpusSerialize c = case (decode . encode) c of

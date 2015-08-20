@@ -26,7 +26,7 @@ arbitraryPosInt = do
 arbitraryText :: Gen Text
 arbitraryText = do
   let chars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++
-              "!@#$%^&*()}{][-`~',.\"<>?+|;:"
+              "!@#$%^&*()}{-`~',.\"<>?+|;:"
   str <- infiniteListOf $ elements chars
   size <- arbitrary
   return $ T.pack $ take size str

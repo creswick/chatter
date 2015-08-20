@@ -13,6 +13,7 @@ import NLP.Types
 -- >>> readPOS "Dear/jj Sirs/nns :/: Let/vb"
 -- [("Dear",JJ),("Sirs",NNS),(":",Other ":"),("Let",VB)]
 --
+-- TODO update haddock
 readPOS :: POS t => Text -> TaggedSentence t
 readPOS str = applyTags tokenizedSentence (map snd tagPairs)
     where
@@ -23,6 +24,29 @@ readPOS str = applyTags tokenizedSentence (map snd tagPairs)
 -- | Read a 'ChunkedSentence' from a pretty-printed variant.
 --
 -- The dual of 'prettyShow chunkedSentence'
+--
+-- >>> readChunk "[NP The/DT dog/NN] and/CC [NP the/DT fox/NN] [VP jumped/VBD]./." :: ChunkedSentence B.Tag B.Chunk
+-- ChunkedSentence ...
+--
+-- Grammar:
+--
+-- S          ::= Token | ChunkStart | Nothing
+-- Token      ::= CharSeq "/" POSTag
+-- CharSeq    ::= Char MChar
+-- Char       ::= [any character not in {'[',']','/', whitespace}]
+-- MChar      ::= Char | Nothing
+-- POSTag     ::= CharSeq
+-- ChunkStart ::= "[" CharSeq " "
+-- ChunkEnd   ::= "]"
+--
+-- Lexemes:
+--  - CharSeq    (someChar+)
+--  - ChunkStart ("[" someChar+)
+--  - ChunkEnd ("]")
+--  - Token  (someChar+)
+--  - POSTag ("/"someChar+)
+--  - ignore whitespace
+--
 readChunk :: (Chunk chunk, POS pos) => Text -> ChunkedSentence pos chunk
 readChunk str = undefined
 
