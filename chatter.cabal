@@ -50,7 +50,6 @@ Library
 
    Build-Tools:      alex
    Other-modules:    Paths_chatter
-                     NLP.Parsing.ChunkedSentenceScanner
 
    Exposed-modules:  NLP.POS
                      NLP.POS.AvgPerceptronTagger
@@ -69,6 +68,7 @@ Library
                      NLP.Tokenize.Annotations
                      NLP.Tokenize.Types
                      NLP.Tokenize
+                     NLP.Parsing.ChunkedSentenceScanner
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown

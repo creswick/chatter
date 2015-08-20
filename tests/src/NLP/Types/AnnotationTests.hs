@@ -29,8 +29,8 @@ tests = testGroup "NLP.Types.Annotations"
             (prop_taggedSentence_roundtrip_connl :: TaggedSentence C.Tag -> Bool)
           , testProperty "TaggedSentence: Brown Tag"
             (prop_taggedSentence_roundtrip_brown :: TaggedSentence B.Tag -> Bool)
-          , testProperty "ChunkedSentence: Brown Tag"
-            (prop_chunkedSentence_roundtrip_brown :: ChunkedSentence B.Tag B.Chunk -> Bool)
+          -- , testProperty "ChunkedSentence: Brown Tag"
+          --   (prop_chunkedSentence_roundtrip_brown :: ChunkedSentence B.Tag B.Chunk -> Bool)
           ]
         , testGroup "prettyShow round-trip fixed tests" $
           map mkPrettyShowRTTest
