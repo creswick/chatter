@@ -10,8 +10,7 @@ import qualified Data.Text as T
 
 import NLP.Tokenize (runTokenizer, protectTerms, tokenize)
 
-import NLP.Types (CaseSensitive(..))
-import NLP.Types.Annotations
+import NLP.Types
 
 tests :: TestTree
 tests = testGroup "NLP.Tokenze"

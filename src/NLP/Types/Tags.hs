@@ -11,8 +11,13 @@ import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
 
 import Test.QuickCheck.Instances ()
-
-import NLP.Types.Annotations (POS(..), Chunk(..), HasMarkup(..), chunkMarkup, posMarkup)
+import NLP.Types.General
+import NLP.Types.Annotations
+import NLP.Types.TokenizedSentence
+import NLP.Types.TaggedSentence
+import NLP.Types.ChunkedSentence
+import NLP.Types.NERedSentence
+import NLP.Types.Classes
 
 -- | A fall-back 'Chunk' instance, analogous to 'RawTag'
 newtype RawChunk = RawChunk Text

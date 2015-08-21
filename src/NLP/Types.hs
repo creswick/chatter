@@ -2,15 +2,19 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.Types
  ( module NLP.Types
+ , module NLP.Types.Classes
  , module NLP.Types.POSTagger
  , module NLP.Types.Tags
  , module NLP.Types.General
  , module NLP.Types.Annotations
+ , module NLP.Types.TokenizedSentence
+ , module NLP.Types.TaggedSentence
+ , module NLP.Types.ChunkedSentence
+ , module NLP.Types.NERedSentence
  )
 where
 
 import Control.DeepSeq (NFData)
-import Data.ByteString (ByteString)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Serialize (Serialize)
@@ -25,9 +29,12 @@ import Test.QuickCheck.Arbitrary (Arbitrary(..))
 import NLP.Types.General
 import NLP.Types.Tags
 import NLP.Types.POSTagger
--- import NLP.Types.Tree
-
+import NLP.Types.Classes
 import NLP.Types.Annotations
+import NLP.Types.TokenizedSentence
+import NLP.Types.TaggedSentence
+import NLP.Types.ChunkedSentence
+import NLP.Types.NERedSentence
 
 -- | Document corpus.
 --

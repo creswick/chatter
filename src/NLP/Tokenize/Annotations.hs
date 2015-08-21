@@ -31,7 +31,8 @@ import Text.Regex.TDFA.Text (compile)
 
 import NLP.Types.Annotations
 import NLP.Types.General (CaseSensitive(..))
-import NLP.Tokenize.Types
+import NLP.Tokenize.Types (RawToken(..))
+import NLP.Types (TokenizedSentence(..), Index(..), Token(..))
 
 toToken :: Text -> RawToken -> Annotation Text Token
 toToken doc tok = Annotation { startIdx = Index $ start tok

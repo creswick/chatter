@@ -14,7 +14,7 @@ import System.Directory (getDirectoryContents)
 import System.FilePath ((</>))
 
 import NLP.Tokenize (tokenize)
-import NLP.Types.Annotations (TokenizedSentence)
+import NLP.Types (TokenizedSentence)
 
 -- | Path to the directory containing all the PLUG archives.
 plugDataPath :: FilePath

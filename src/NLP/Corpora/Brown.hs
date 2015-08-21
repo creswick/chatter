@@ -18,7 +18,7 @@ import Test.QuickCheck.Gen (elements)
 
 import GHC.Generics
 
-import qualified NLP.Types.Annotations as A
+import qualified NLP.Types as T
 import NLP.Types.General
 
 data Chunk = C_NP -- ^ Noun Phrase.
@@ -32,15 +32,15 @@ instance Hashable Chunk
 instance Arbitrary Chunk where
   arbitrary = elements [minBound ..]
 
-instance A.HasMarkup Chunk where
-  getMarkup = A.chunkMarkup
+instance T.HasMarkup Chunk where
+  getMarkup = T.chunkMarkup
 
 instance Serialize Chunk
 
 instance Serialize Tag
 instance Hashable Tag
 
-instance A.POS Tag where
+instance T.POS Tag where
   serializePOS = showBrownTag
 
   parsePOS = parseBrownTag
@@ -56,8 +56,8 @@ instance A.POS Tag where
 instance Arbitrary Tag where
   arbitrary = elements [minBound ..]
 
-instance A.HasMarkup Tag where
-  getMarkup = A.posMarkup
+instance T.HasMarkup Tag where
+  getMarkup = T.posMarkup
 
 parseBrownTag :: Text -> Either Error Tag
 parseBrownTag "(" = Right Op_Paren
@@ -97,7 +97,7 @@ showBrownTag tag = replaceAll reversePatterns (T.pack $ show tag)
 replaceAll :: [(Text, Text)] -> (Text -> Text)
 replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
-instance A.Chunk Chunk where
+instance T.Chunk Chunk where
   serializeChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither (T.unpack $ T.append "C_" txt)
   notChunk = C_O

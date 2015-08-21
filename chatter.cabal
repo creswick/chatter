@@ -63,10 +63,15 @@ Library
                      NLP.Types.POSTagger
                      NLP.Types.Arbitrary
                      NLP.Types.Annotations
+                     NLP.Types.TokenizedSentence
+                     NLP.Types.TaggedSentence
+                     NLP.Types.ChunkedSentence
+                     NLP.Types.NERedSentence
+                     NLP.Types.Classes
                      NLP.Types.General
                      NLP.Types.IOB
                      NLP.Types.Tags
-                     NLP.Types.Tree
+--                     NLP.Types.Tree
                      NLP.Tokenize.Annotations
                      NLP.Tokenize.Types
                      NLP.Tokenize

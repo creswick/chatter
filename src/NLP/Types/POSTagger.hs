@@ -4,8 +4,10 @@ where
 
 import Data.ByteString (ByteString)
 import Data.Text
-import NLP.Types.Annotations
-import NLP.Tokenize.Annotations (RawToken)
+import NLP.Tokenize.Types (RawToken)
+
+import NLP.Types.TaggedSentence
+import NLP.Types.TokenizedSentence
 
 -- | Part of Speech tagger, with back-off tagger.
 --

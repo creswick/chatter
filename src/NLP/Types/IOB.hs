@@ -27,8 +27,14 @@ import GHC.Generics
 import Text.PrettyPrint.HughesPJClass (Pretty(..))
 import Text.PrettyPrint.HughesPJClass (text)
 
-import NLP.Types.Annotations
+
 import NLP.Types.General (Error)
+import NLP.Types.Annotations
+import NLP.Types.Classes
+import NLP.Types.TokenizedSentence
+import NLP.Types.TaggedSentence
+import NLP.Types.ChunkedSentence
+
 import NLP.Tokenize (runTokenizer, whitespace)
 
 -- | Data type to indicate IOB tags for multi-token annotations.

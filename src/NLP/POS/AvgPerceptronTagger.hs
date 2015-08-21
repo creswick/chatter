@@ -220,7 +220,7 @@ trainCls itr per examples = do
   return $ averageWeights $ foldl' trainSentence per trainingSet
 
 tokenToClass :: Token -> Class
-tokenToClass = Class . T.unpack . showTok
+tokenToClass = Class . T.unpack . getText
 
 -- | Train on one sentence.
 --
@@ -303,18 +303,18 @@ getFeatures ctx idx word prev prev2 = let
   features :: [[Text]]
   features = [ ["bias", ""]
              , ["i suffix", suffix word ]
-             , ["i pref1", T.take 1 $ showTok word ]
+             , ["i pref1", T.take 1 $ getText word ]
              , ["i-1 tag", T.pack $ show prev ]
              , ["i-2 tag", T.pack $ show prev2 ]
              , ["i tag+i-2 tag", T.pack $ show prev, T.pack $ show prev2 ]
-             , ["i word",     showTok (context!!i) ]
-             , ["i-1 tag+i word", T.pack $ show prev, showTok (context!!i) ]
-             , ["i-1 word",   showTok (context!!(i-1)) ]
+             , ["i word",     getText (context!!i) ]
+             , ["i-1 tag+i word", T.pack $ show prev, getText (context!!i) ]
+             , ["i-1 word",   getText (context!!(i-1)) ]
              , ["i-1 suffix",  suffix (context!!(i-1)) ]
-             , ["i-2 word",   showTok (context!!(i-2)) ]
-             , ["i+1 word",   showTok (context!!(i+1)) ]
+             , ["i-2 word",   getText (context!!(i-2)) ]
+             , ["i+1 word",   getText (context!!(i+1)) ]
              , ["i+1 suffix",  suffix (context!!(i+1)) ]
-             , ["i+2 word",   showTok (context!!(i+2)) ]
+             , ["i+2 word",   getText (context!!(i+2)) ]
              ]
   -- in trace ("getFeatures: "++show (ctx, idx, word, prev, prev2)) $
   in foldl' add Map.empty features

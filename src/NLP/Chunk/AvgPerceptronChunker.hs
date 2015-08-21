@@ -186,7 +186,7 @@ getFeatures tagged idx (word, postag) _prev = let
 
   features :: [[Text]]
   features = [ ["pos",         serializePOS postag]
-             , ["word",        showTok word]
+             , ["word",        getText word]
              , ["prevpos",     serializePOS $ snd (context!!(i-1))]
              , ["prevpos+pos", T.intercalate "+"
                                [ serializePOS $ snd (context!!(i-1))
