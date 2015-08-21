@@ -57,8 +57,10 @@ Library
                      NLP.POS.UnambiguousTagger
                      NLP.Chunk
                      NLP.Chunk.AvgPerceptronChunker
+                     NLP.NER.LiteralNER
                      NLP.ML.AvgPerceptron
                      NLP.Types
+                     NLP.Types.POSTagger
                      NLP.Types.Arbitrary
                      NLP.Types.Annotations
                      NLP.Types.General

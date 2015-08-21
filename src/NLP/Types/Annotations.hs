@@ -127,6 +127,14 @@ instance AnnotatedText (Annotation Text Token) where
   getText ann = case value ann of
                   Token txt -> txt
 
+instance AnnotatedText (Annotation TokenizedSentence pos) where
+  getText ann = let tokens = tokAnnotations (payload ann)
+                    text = tokText (payload ann)
+                    startTok = tokens !! (fromIndex $ startIdx ann)
+                    endTok = tokens !! (len ann + (fromIndex $ startIdx ann) - 1)
+                    start = fromIndex $ startIdx startTok
+                in T.take (len endTok) (T.drop start $ text)
+
 getAnnotationMarkup :: HasMarkup tag => Annotation dat tag -> (String,String)
 getAnnotationMarkup ann = getMarkup (value ann)
 

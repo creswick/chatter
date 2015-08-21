@@ -36,7 +36,7 @@ mkTagger table sensitive mTgr = POSTagger
   { posTagger  = tag (canonicalize table) sensitive
   , posTrainer = \_ -> return $ mkTagger table sensitive mTgr
   , posBackoff = mTgr
-  , posTokenizer = runTokenizer (protectTerms (Map.keys table) sensitive >=> defaultTokenizer)
+  , posTokenizer = protectTerms (Map.keys table) sensitive >=> defaultTokenizer
   , posSplitter = (map T.pack) . segment . T.unpack
   , posSerialize = encode (table, sensitive)
   , posID = taggerID

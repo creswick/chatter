@@ -17,7 +17,7 @@ import qualified Data.Map as Map
 import Data.Serialize (encode, decode)
 import Data.Text (Text)
 
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize (defaultTokenizer)
 import NLP.Types
 
 import qualified NLP.POS.LiteralTagger as LT
@@ -44,7 +44,7 @@ mkTagger table mTgr = let
   in litTagger { posTrainer = trainer
                , posSerialize = encode table
                , posID = taggerID
-               , posTokenizer = tokenize
+               , posTokenizer = defaultTokenizer
                }
 
 -- | Trainer method for unambiguous taggers.

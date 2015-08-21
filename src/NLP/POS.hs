@@ -61,7 +61,7 @@ import           System.FilePath             ((</>))
 
 import           NLP.Corpora.Parsing         (readPOS)
 import           NLP.Types
-
+import           NLP.Tokenize.Annotations    (runTokenizer)
 import qualified NLP.POS.AvgPerceptronTagger as Avg
 import qualified NLP.POS.LiteralTagger       as LT
 import qualified NLP.POS.UnambiguousTagger   as UT
@@ -147,7 +147,7 @@ deserialize table bs = do
 -- sentence splitter, tokenizer, and tagger contained in the 'POSTager'.
 tag :: POS t => POSTagger t -> Text -> [TaggedSentence t]
 tag p txt = let sentences = (posSplitter p) txt
-                toks    = map (posTokenizer p) sentences
+                toks    = map (runTokenizer $ posTokenizer p) sentences
             in tagTokens p toks
 
 tagTokens :: POS pos => POSTagger pos -> [TokenizedSentence] -> [TaggedSentence pos]

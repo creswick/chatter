@@ -9,6 +9,7 @@ module NLP.Tokenize.Annotations
   , punctuation
   , contractions
   , tokenizeOn
+  , RawToken(..)
   )
 where
 
@@ -29,7 +30,7 @@ import Text.Regex.TDFA
 import Text.Regex.TDFA.Text (compile)
 
 import NLP.Types.Annotations
-import NLP.Types (CaseSensitive(..))
+import NLP.Types.General (CaseSensitive(..))
 import NLP.Tokenize.Types
 
 toToken :: Text -> RawToken -> Annotation Text Token

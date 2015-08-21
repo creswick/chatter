@@ -36,7 +36,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-import NLP.Tokenize (tokenize)
+import NLP.Tokenize (defaultTokenizer)
 import NLP.FullStop (segment)
 import System.Random.Shuffle (shuffleM)
 
@@ -61,7 +61,7 @@ mkTagger per mTgr = POSTagger { posTagger  = tag per
                                   newPer <- trainInt itterations per exs
                                   return $ mkTagger newPer mTgr
                               , posBackoff = mTgr
-                              , posTokenizer = tokenize
+                              , posTokenizer = defaultTokenizer
                               , posSplitter = (map T.pack) . segment . T.unpack
                               , posSerialize = encode per
                               , posID = taggerID
