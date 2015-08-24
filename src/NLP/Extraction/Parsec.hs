@@ -39,7 +39,7 @@ import NLP.Types.Tree (TaggedSentence(..),
 import NLP.Types (Tag(..), CaseSensitive(..),
                    ChunkTag)
 
-instance (Monad m, Tag t) => Stream (TaggedSentence t) m (POS t) where
+instance (Monad m, POS pos) => Stream (TaggedSentence pos) m pos) where
   uncons (TaggedSent ts) = do
     mRes <- uncons ts
     case mRes of

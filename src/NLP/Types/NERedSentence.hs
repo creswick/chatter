@@ -45,3 +45,53 @@ instance (Hashable pos, Hashable chunk, Hashable ne) => Hashable (NERedSentence 
 
 instance AnnotatedText (NERedSentence pos chunk ne) where
   getText = getText . neChunkSentence
+
+instance (POS pos, Chunk chunk, NamedEntity ne) => Pretty (NERedSentence pos chunk ne) where
+  pPrint ns = text toStr
+    where
+      baseTxt = getText ns
+      toStr = let (lastIdx, folded) = T.foldl' fn (0,"") baseTxt
+              in case Map.lookup lastIdx insertions of
+                   Nothing -> reverse folded
+                   Just m  -> reverse ((reverse m) <> folded)
+
+      fn :: (Int, String) -> Char -> (Int, String)
+      fn (idx, acc) ch = let newIdx = idx + 1
+                             markedAcc = case Map.lookup idx insertions of
+                                           Nothing -> acc
+                                           Just m  -> (reverse m) <> acc
+                         in (newIdx, ch:markedAcc)
+
+      insertions = tagInsertions neMap (tagAnnotations $ chunkTagSentence $ neChunkSentence ns)
+      neMap = neInsertions Map.empty $ neAnnotations ns
+
+
+neInsertions :: (NamedEntity ne, HasMarkup ne, POS pos, HasMarkup pos)
+                => Map Int String -> [Annotation (TaggedSentence pos) ne] -> Map Int String
+neInsertions initMap anns = foldl' mkInsertions initMap anns
+  where
+    mkInsertions :: (HasMarkup pos, HasMarkup ne)
+                 => Map Int String -> Annotation (TaggedSentence pos) ne -> Map Int String
+    mkInsertions theMap ann@(Annotation (Index sIdx) l ne dat) =
+      let (pfx, sfx) = getAnnotationMarkup ann
+
+          -- POS annotations:
+          tags = tagAnnotations dat
+
+          -- starting index of the tag annotation that marks this chunk:
+          sTagIdx = fromIndex $ startIdx (tags!!sIdx)
+          eTag = tags!!(sIdx + len ann - 1) -- -1 to account for length.
+          eTagIdx = (fromIndex $ startIdx eTag) + len eTag
+
+          -- Token annotations
+          toks :: [Annotation Text Token]
+          toks = tokAnnotations $ tagTokSentence dat
+
+          -- starting index of the token.  This is the index into the text string:
+          sTokIdx = fromIndex $ startIdx (toks!!sTagIdx)
+          eTok = toks!!(sTagIdx + len ann - 1) -- -1 to account for length.
+          eTokIdx = (fromIndex $ startIdx eTok) + len eTok
+
+      in Map.insertWith (\new old -> new <> old) eTokIdx sfx
+           (Map.insertWith (\new old -> old <> new) sTokIdx pfx theMap)
+

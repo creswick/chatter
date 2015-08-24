@@ -6,6 +6,7 @@ module NLP.NER.LiteralNER
   , taggerID
   , readTagger
   , CaseSensitive(..)
+  , NERTagger(..)
   )
 where
 

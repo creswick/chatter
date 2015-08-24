@@ -12,7 +12,7 @@ import           Data.Monoid ((<>))
 import           Data.Map (Map)
 import qualified Data.Map as Map
 import           Data.Text (Text)
-import qualified Data.Text as T  
+import qualified Data.Text as T
 
 
 -- | Annotations are the base of all tags (POS tags, Chunks, marked

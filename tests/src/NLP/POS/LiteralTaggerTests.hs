@@ -73,6 +73,8 @@ tests = testGroup "NLP.POS.LiteralTagger"
             , ["The ", "United States"])
           , ( ["RPM Gauge", "rotor shaft"], Sensitive, "The RPM Gauge on the rotor shaft"
             , ["The ", "RPM Gauge", " on the ", "rotor shaft"])
+          , ( ["The RPM Gauge", "rotor shaft"], Sensitive, "The RPM Gauge on the rotor shaft"
+            , ["The RPM Gauge", " on the ", "rotor shaft"])
           , ( ["President of the United States", "United States"], Sensitive
             , "The President of the United States"
             , ["The ", "President of the United States"])
@@ -82,6 +84,10 @@ tests = testGroup "NLP.POS.LiteralTagger"
             , ["The ", "quick", " ", "brown", " fox jumped"])
           , ( ["brown", "fox"], Sensitive, "The quick brown fox jumped"
             , ["The quick ", "brown", " ", "fox", " jumped"])
+          , ( ["Galois, Inc."], Sensitive, "Galois, Inc. is a company in Portland"
+            , ["Galois, Inc.", " is a company in Portland"])
+          , ( ["This."], Sensitive, "This. Is a company in Portland"
+            , ["This.", " Is a company in Portland"])
           ]
         , testGroup "protectTerms tests - default tokenizer" $ map protectTestsWDefault
           [ ( [], Sensitive, "The United States"

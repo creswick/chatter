@@ -58,7 +58,7 @@ tests = testGroup "Tests"
 -- todo       , IOB.tests
 -- todo        , APC.tests
 -- todo       , Tree.tests
---        , Tok.tests
+        , Tok.tests
         , CLEX.tests
         ]
 

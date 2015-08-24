@@ -111,6 +111,21 @@ tests = testGroup "NLP.Tokenze"
               , (15, " fox jumped")
               ])
           ]
+        , testGroup "Protect Terms: punctuation" $
+                    map (mkProtectTermsTokTest ["This.", "Galois, Inc."])
+          [ ("This. Is a test"
+          --  01234567890123456789012345
+            , Sensitive
+            , [ (0, "This.")
+              , (6, " Is a test")
+              ])
+          , ("Galois, Inc. is a company in Portland"
+          --  01234567890123456789012345
+            , Sensitive
+            , [ (0, "Galois, Inc.")
+              , (13, " is a company in Portland")
+              ])
+          ]
         ]
 
 basicTerms :: [Text]
