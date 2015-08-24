@@ -121,3 +121,12 @@ readTagger bs backoff = do
   (model, sensitive, pTaggerBS) <- decode bs
   pTagger <- POS.deserialize POS.taggerTable pTaggerBS
   return $ mkNER model sensitive pTagger backoff
+
+
+
+----------------------------------------------------------------------
+--
+--  [a] -- ^ needles
+--  [a] -- ^ haystack
+--  [(Int, Int)] -- ^ Instances
+--
