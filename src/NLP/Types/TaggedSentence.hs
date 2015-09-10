@@ -42,6 +42,29 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
+instance AnnotatedText (Annotation TokenizedSentence tag) where
+  getText = getText . project
+
+-- | Create an annotation that is over a lower-level version of a sequence of annotations.
+project :: Annotation TokenizedSentence ann -> Annotation Text ann
+project ann = let tokens = tokAnnotations $ payload ann
+
+                  -- The index of the first (Annotation Text ann):
+                  startTokIdx = fromIndex $ startIdx ann
+
+                  -- The first (Annotation Text ann):
+                  startTok = tokens !! startTokIdx
+                  endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
+                  endTok = tokens !! endTokIdx
+
+                  startix = fromIndex $ startIdx startTok
+                  endix = (fromIndex $ startIdx endTok) + (len endTok)
+              in Annotation { startIdx = startIdx startTok
+                            , len = endix - startix
+                            , value = value ann
+                            , payload = tokText $ payload ann
+                            }
+
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
   pPrint (TaggedSentence (TokenizedSentence ts toks) anns) = text toStr
     where

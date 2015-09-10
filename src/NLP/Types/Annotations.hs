@@ -123,6 +123,12 @@ posMarkup t = ("","/" <> (T.unpack $ serializePOS t))
 chunkMarkup :: Chunk chunk => chunk -> (String, String)
 chunkMarkup t = ("[" <> (T.unpack $ serializeChunk t) <> " ", "]")
 
--- | Get the underlying text out of an annotation
-instance AnnotatedText sentence => AnnotatedText (Annotation sentence tag) where
-  getText (Annotation start count _ sent) = getSubText sent start count
+-- -- | Get the underlying text out of an annotation
+-- instance AnnotatedText sentence => AnnotatedText (Annotation sentence tag) where
+--   getText (Annotation start count _ sent) =
+--     -- TODO this is broken.  start and count need to be projected into the payload's terms.
+--     getSubText sent start count
+
+instance AnnotatedText (Annotation Text tag) where
+  getText (Annotation start count _ sent) =
+    getSubText sent start count

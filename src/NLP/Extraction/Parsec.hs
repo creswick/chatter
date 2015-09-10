@@ -26,7 +26,8 @@ where
 
 -- See this SO q/a for some possibly useful combinators:
 --  http://stackoverflow.com/questions/2473615/parsec-3-1-0-with-custom-token-datatype
-
+import Control.Applicative ((<$>))
+import Data.Maybe (catMaybes)
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Parsec.String () -- required for the `Stream [t] Identity t` instance.
@@ -34,6 +35,7 @@ import Text.Parsec.Prim (lookAhead, tokenPrim, token, Parsec, try, Stream(..), P
 import Text.Parsec.Pos (incSourceColumn)
 import qualified Text.Parsec.Combinator as PC
 import qualified Text.Parsec.Prim as PC
+import qualified Text.Parsec as PC
 import Text.Parsec.Pos  (newPos)
 
 -- import NLP.Types.Tree (TaggedSentence(..), 
@@ -56,9 +58,35 @@ instance (Monad m) => Stream TokenizedSentence m (Annotation Text Token) where
 -- > import Text.Parsec.Prim
 -- > parse myExtractor "interactive repl" someTaggedSentence
 -- @
-type Extractor = Parsec TokenizedSentence ()
+type Extractor = Parsec TokenizedSentence TokenizedSentence
 
--- | Consume any one non-empty token.
+doParse :: Extractor a -> TokenizedSentence -> Either PC.ParseError a
+doParse parser input = PC.runParser parser input "parse input" input
+
+fullInput :: Extractor TokenizedSentence
+fullInput = PC.getState
+
+oneOfT :: (Eq t, Show t, Stream s m t) => [t] -> ParsecT s u m t
+oneOfT ts = satisfy (`elem` ts)
+
+noneOfT :: (Eq t, Show t, Stream s m t) => [t] -> ParsecT s u m t
+noneOfT ts = satisfy (not . (`elem` ts))
+
+-- | Consume any one token and advance the column count by one.
+anyToken :: (Show t, Stream s m t) => ParsecT s u m t
+anyToken = satisfy (const True)
+
+satisfy :: (Show t, Stream s m t) => (t -> Bool) -> ParsecT s u m t
+satisfy p = tokenPrim showTok nextPos testTok
+    where
+      showTok t         = show t
+      testTok t         = if p t then Just t else Nothing
+      nextPos pos _t _s = incSourceColumn pos 1
+
+eof :: (Stream s m t, Show t) => ParsecT s u m ()
+eof                 = PC.notFollowedBy anyToken PC.<?> "end of input"
+
+
 -- anyToken :: Extractor (Annotation Text Token)
 -- anyToken = tokenPrim showTok nextPos testTok
 --   where
@@ -68,23 +96,55 @@ type Extractor = Parsec TokenizedSentence ()
 
 -- | Consume one token that matches the supplied token.
 matchToken :: Token -> Extractor (Annotation Text Token)
-matchToken tok = tokenPrim showTok nextPos testTok
-  where
-    showTok          = show
-    nextPos pos _ _  = incSourceColumn pos 1
-    testTok ann | value ann == tok = Just ann
-                | otherwise        = Nothing
+matchToken tok = satisfy (\x -> value x == tok)
 
 -- | Matches a sequence of tokens.
 matchTokens :: [Token] -> Extractor [Annotation Text Token]
 matchTokens toks = mapM matchToken toks
 
--- | Find all instances of the specified seuqence of tokens.
+-- | Find all instances of the specified sequence of tokens.
+--
+-- Each sublist in the result is an instance of a match.
 findAll :: [Token] -> Extractor [[Annotation Text Token]]
 findAll toks = do
-  res <- PC.many $ (PC.try $ followedBy PC.anyToken (matchTokens toks))
-  _ <- PC.manyTill PC.anyToken PC.eof
+  res <- PC.many $ (PC.try $ followedBy anyToken (matchTokens toks))  -- TODO remove that PC.try?
+  _ <- PC.manyTill anyToken eof
   return res
+
+findNeedles :: [[Token]] -> Extractor [[Annotation Text Token]]
+findNeedles items =  do
+  let isInteresting = PC.choice $ map (PC.try . matchTokens) items
+  res <- PC.many $ (PC.try $ followedBy anyToken isInteresting) -- TODO remove that PC.try?
+  _ <- PC.manyTill anyToken PC.eof
+  return res
+
+annotateAllTokens :: [([Token], ann)] -> Extractor [Annotation TokenizedSentence ann]
+annotateAllTokens toks = do
+  let isInteresting = PC.choice $ map (PC.try . annotateToken) toks
+  res <- PC.many $ (PC.try $ followedBy anyToken isInteresting) -- TODO remove that PC.try?
+  _ <- PC.manyTill anyToken eof
+  return $ catMaybes res
+
+annotateTokens :: ([Token], ann) -> Extractor [Annotation TokenizedSentence ann]
+annotateTokens tokTags = do
+  res <- PC.many $ PC.try $ followedBy anyToken $ annotateToken tokTags  -- TODO remove that PC.try?
+  return $ catMaybes res
+
+annotateToken :: ([Token], ann) -> Extractor (Maybe (Annotation TokenizedSentence ann))
+annotateToken (toks, ann) = do
+  input <- fullInput
+  anns <- matchTokens toks
+  spos <- PC.getPosition
+  return $ case anns of
+    []         -> Nothing
+    (start:xs) -> let endIdx = (PC.sourceColumn spos) - 1 --- PAAAAARRRRSEEEEC!!!!!!!
+                      newStart = (endIdx - (length anns))
+                  in Just $ Annotation
+                       { startIdx = Index newStart
+                       , len = length anns
+                       , value = ann
+                       , payload = input
+                       }
 
 -- instance (Monad m, POS pos) => Stream (TaggedSentence pos) m pos) where
 --   uncons (TaggedSent ts) = do
