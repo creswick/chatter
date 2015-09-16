@@ -24,6 +24,7 @@ import           NLP.Tokenize.Annotations ( runTokenizer, RawToken(..)
                                           , protectTerms,  defaultTokenizer)
 import           NLP.Types
 import qualified NLP.POS as POS
+import           NLP.Extraction.Parsec
 
 taggerID :: ByteString
 taggerID = "NLP.NER.LiteralNER"
@@ -54,62 +55,74 @@ mkNER :: (POS pos, Chunk chunk, NamedEntity ner)
       -- map.
       -> NERTagger pos chunk ner
 mkNER table sensitive pTagger mTgr = NERTagger
-  { nerTagger = \txt -> tag (canonicalize table) sensitive (POS.tag newPosTagger txt)
+  { nerTagger = \txt -> tag (preprocess table) sensitive (POS.tag pTagger txt)
   , nerTrainer = \_ -> return $ mkNER table sensitive pTagger mTgr
   , nerBackoff = mTgr
-  , nerPosTagger = newPosTagger
-  , nerSerialize = encode (table, sensitive, posSerialize newPosTagger)
+  , nerPosTagger = pTagger
+  , nerSerialize = encode (table, sensitive, posSerialize pTagger)
   , nerID = taggerID
   }
   where
-    newPosTagger = pTagger {
-                     posTokenizer = protectedTokenizer
-                   }
+    preprocess :: NamedEntity ner
+               => Map Text ner
+               -> Map [Token] ner
+    preprocess theTable =
+      let tokenizer = posTokenizer pTagger
+      in Map.mapKeys (tokens . runTokenizer tokenizer . canonicalize) theTable
 
-    protectedTokenizer :: RawToken -> [RawToken]
-    protectedTokenizer =
-      protectTerms (Map.keys table) sensitive >=> posTokenizer pTagger
-
-    canonicalize =
-      case sensitive of
-        Sensitive   -> id
-        Insensitive -> Map.mapKeys T.toLower
-
-tag :: (POS pos, Chunk chunk, NamedEntity ner)
-    => Map Text ner
-    -> CaseSensitive
-    -> [TaggedSentence pos]
-    -> [NERedSentence pos chunk ner]
-tag table sensitive ss = map (tagSentence table sensitive) ss
-
-tagSentence :: (POS pos, Chunk chunk, NamedEntity ner)
-            => Map Text ner
-            -> CaseSensitive
-            -> TaggedSentence pos
-            -> NERedSentence pos chunk ner
-tagSentence table sensitive sent =
-  NERedSentence { neChunkSentence = ChunkedSentence
-                                    { chunkTagSentence = sent
-                                    , chunkAnnotations = []
-                                    }
-                , neAnnotations = mapMaybe tagToken $ zip (tagAnnotations sent) [0..]
-                }
-  where
-
---    tagToken :: (Annotation Text Token, Int) -> (Annotation TokenizedSentence pos)
-    tagToken (ann, idx) = do
-      nerTag <- Map.lookup (canonicalize $ getText ann) table
-      return $ Annotation { startIdx = Index idx
-                          , len = 1
-                          , value = nerTag
-                          , payload = sent
-                          }
-
-    canonicalize :: Text -> Text
     canonicalize =
       case sensitive of
         Sensitive   -> id
         Insensitive -> T.toLower
+
+tag :: (POS pos, Chunk chunk, NamedEntity ner)
+    => Map [Token] ner
+    -> CaseSensitive  -- ^ Currently ignored.
+    -> [TaggedSentence pos]
+    -> [NERedSentence pos chunk ner]
+tag table sensitive ss = map (tagSentence table) ss
+
+tagSentence :: (POS pos, Chunk chunk, NamedEntity ner)
+            => Map [Token] ner
+            -> TaggedSentence pos
+            -> NERedSentence pos chunk ner
+tagSentence table sent =
+  NERedSentence { neChunkSentence = ChunkedSentence
+                                    { chunkTagSentence = sent
+                                    , chunkAnnotations = []
+                                    }
+                , neAnnotations = unproject sent tokAnnotations
+                }
+  where
+    -- tokAnnotations :: (NamedEntity ner)
+    --                => [Annotation TokenizedSentence ner]
+    tokAnnotations =
+      case doParse (annotateAllTokens (Map.toList table)) (tagTokSentence sent) of
+        Left  err -> []
+        Right res -> res
+
+    unproject :: (POS pos, NamedEntity ner)
+              => TaggedSentence pos
+              -> [Annotation TokenizedSentence ner]
+              -> [Annotation (TaggedSentence pos) ner]
+    unproject tagSent anns = map (setPayload tagSent) anns
+
+    setPayload ::(POS pos, NamedEntity ner)
+               => TaggedSentence pos
+               -> Annotation TokenizedSentence ner
+               -> Annotation (TaggedSentence pos) ner
+    setPayload ts ann = Annotation {
+                          startIdx = Index (fromIndex $ startIdx ann)
+                        , len = len ann
+                        , value = value ann
+                        , payload = ts
+                        }
+
+    -- canonicalize :: Text -> Text
+    -- canonicalize =
+    --   case sensitive of
+    --     Sensitive   -> id
+    --     Insensitive -> T.toLower
 
 -- | deserialization for Literal Taggers.  The serialization logic is
 -- in the posSerialize record of the POSTagger created in mkTagger.

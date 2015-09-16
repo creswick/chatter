@@ -86,14 +86,6 @@ satisfy p = tokenPrim showTok nextPos testTok
 eof :: (Stream s m t, Show t) => ParsecT s u m ()
 eof                 = PC.notFollowedBy anyToken PC.<?> "end of input"
 
-
--- anyToken :: Extractor (Annotation Text Token)
--- anyToken = tokenPrim showTok nextPos testTok
---   where
---     showTok          = show
---     nextPos pos _ _  = incSourceColumn pos 1
---     testTok ann      = Just ann
-
 -- | Consume one token that matches the supplied token.
 matchToken :: Token -> Extractor (Annotation Text Token)
 matchToken tok = satisfy (\x -> value x == tok)
@@ -118,6 +110,8 @@ findNeedles items =  do
   _ <- PC.manyTill anyToken PC.eof
   return res
 
+-- | Given a lookup table with multi-token items and their corresponding annotations,
+-- Find the things, and annotate them all accordingly.
 annotateAllTokens :: [([Token], ann)] -> Extractor [Annotation TokenizedSentence ann]
 annotateAllTokens toks = do
   let isInteresting = PC.choice $ map (PC.try . annotateToken) toks
