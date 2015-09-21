@@ -1,13 +1,12 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.Types.Tags
 where
 
-import Data.Serialize (Serialize, get, put)
+import Data.Serialize (Serialize)
+import Data.Serialize.Text ()
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import GHC.Generics
 import Text.Read (readEither)
 
@@ -97,8 +96,3 @@ instance Arbitrary RawTag where
   arbitrary = do
     NonEmpty str <- arbitrary
     return $ RawTag $ T.pack str
-
-instance Serialize Text where
-  put txt = put $ encodeUtf8 txt
-  get     = fmap decodeUtf8 get
-
