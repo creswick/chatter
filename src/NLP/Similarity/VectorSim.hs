@@ -20,7 +20,8 @@ mkVector corpus doc = DM.fromList 0 $ Set.toList $
 
 
 -- | Invokes similarity on full strings, using `T.words` for
--- tokenization, and no stemming.
+-- tokenization, and no stemming. The return value will be in the
+-- range [0, 1]
 --
 -- There *must* be at least one document in the corpus.
 sim :: Corpus -> Text -> Text -> Double
@@ -35,6 +36,8 @@ sim corpus doc1 doc2 = similarity corpus (T.words doc1) (T.words doc2)
 -- implementation.  If you need to run similarity against any single
 -- document more than once, then you should create `TermVector`s for
 -- each of your documents and use `tvSim` instead of `similarity`.
+-- 
+-- The return value will be in the range [0, 1].
 --
 -- There *must* be at least one document in the corpus.
 similarity :: Corpus -> [Text] -> [Text] -> Double
@@ -46,7 +49,8 @@ similarity corpus doc1 doc2 = let
 -- | Determine how similar two documents are.
 --
 -- Calculates the similarity between two documents, represented as
--- `TermVectors`
+-- `TermVectors`, returning a double in the range [0, 1] where 1 represents
+-- "most similar".
 tvSim :: TermVector -> TermVector -> Double
 tvSim doc1 doc2 = let
   theCos = cosVec doc1 doc2
