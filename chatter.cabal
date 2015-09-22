@@ -78,6 +78,7 @@ Library
                      random-shuffle >= 0.0.4,
                      MonadRandom    >= 0.1.2,
                      cereal         >= 0.4.0.1,
+                     cereal-text    >= 0.1 && < 0.2,
                      fullstop       >= 0.1.3.1,
                      bytestring     >= 0.10.0.0,
                      directory,
