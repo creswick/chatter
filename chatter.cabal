@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.5.2.0
+version:             0.6.0.0
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -92,7 +92,9 @@ Library
                      regex-tdfa-text,
                      array,
                      QuickCheck,
-                     quickcheck-instances
+                     quickcheck-instances,
+                     unordered-containers,
+                     hashable
 
 
 

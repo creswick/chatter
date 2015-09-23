@@ -1,3 +1,12 @@
+= 0.6.0.0 =
+
+ - Switched to using Hashmap for the DefaultMap implementation;
+   this *may* break compatibility with old binary stores.
+
+= 0.5.2.1 =
+
+ - Removed an orphan instance for Text.
+
 = 0.5.2.0 =
 
  - Unceremoniously forced the Chunking model to do basic Named
