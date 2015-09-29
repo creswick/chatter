@@ -232,6 +232,7 @@ test-suite tests
                      tasty,
                      tasty-quickcheck,
                      tasty-hunit,
-                     tasty-ant-xml
+                     tasty-ant-xml,
+                     unordered-containers
 
    ghc-options:      -Wall -auto-all -caf-all

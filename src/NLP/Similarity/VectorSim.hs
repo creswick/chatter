@@ -89,6 +89,25 @@ cosVec vec1 vec2 = let
   mag = (magnitude vec1 * magnitude vec2)
   in dp / mag
 
+-- | Add two term vectors. When a term is added, its value in each
+-- vector is used (or that vector's default value is used if the term
+-- is absent from the vector). The new term vector resulting from the
+-- addition always uses a default value of zero.
+addVectors :: TermVector -> TermVector -> TermVector
+addVectors = DM.unionWith (+) 0
+
+-- | A "zero vector" term vector (i.e. @addVector v zeroVector = v@).
+zeroVector :: TermVector
+zeroVector = DM.empty 0
+
+-- | Negate a term vector.
+negate :: TermVector -> TermVector
+negate = DM.map ((-1) *)
+
+-- | Add a list of term vectors.
+sum :: [TermVector] -> TermVector
+sum = foldr addVectors zeroVector
+
 -- | Calculate the magnitude of a vector.
 magnitude :: TermVector -> Double
 magnitude v = sqrt $ DM.foldl acc 0 v

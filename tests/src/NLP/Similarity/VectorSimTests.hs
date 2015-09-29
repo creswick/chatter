@@ -1,12 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 module NLP.Similarity.VectorSimTests where
 
+import Prelude hiding (negate, sum)
 import Test.QuickCheck ( Property, (==>) )
 import Test.QuickCheck.Property ()
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Text as T
+import qualified Data.DefaultMap as DM
 
 import NLP.Similarity.VectorSim
 import NLP.Types (mkCorpus)
@@ -71,7 +73,27 @@ tests = testGroup "Vector Sim"
         , testProperty "idf /= NaN" prop_idfIsANum
         , testProperty "tf_idf /= NaN" prop_tf_idfIsANum
         , testProperty "similarity /= NaN" prop_similarity_isANum
+        , testProperty "v + 0 = v" prop_addVectorZero
+        , testProperty "v - v = 0" prop_negateVector
         ]
+
+prop_addVectorZero :: TermVector -> Bool
+prop_addVectorZero v' =
+    let v = v' { DM.defDefault = 0 }
+    in addVectors v zeroVector == v &&
+       addVectors zeroVector v == v
+
+prop_negateVector :: TermVector -> Bool
+prop_negateVector v' =
+    let v = v' { DM.defDefault = 0 }
+        theSum = addVectors v (negate v)
+    in and [ DM.lookup k theSum == 0
+           | k <- DM.keys v
+           ]
+
+prop_sum :: [TermVector] -> Bool
+prop_sum vs =
+    foldr addVectors zeroVector vs == sum vs
 
 prop_idfIsANum :: String -> [[String]] -> Bool
 prop_idfIsANum term docs = not (isNaN (idf termTxt $ mkCorpus docsTxt))
