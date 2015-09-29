@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module NLP.Similarity.VectorSim where
 
 import Prelude hiding (lookup)
@@ -11,11 +12,12 @@ import qualified Data.Text as T
 import Data.List (elemIndices)
 import GHC.Generics
 import NLP.Types
+import Control.DeepSeq (NFData)
 
 -- | An efficient (ish) representation for documents in the "bag of
 -- words" sense.
 newtype TermVector = TermVector (DefaultMap Text Double)
-  deriving (Read, Show, Eq, Generic)
+  deriving (Read, Show, Eq, Generic, NFData)
 
 instance Arbitrary TermVector where
   arbitrary = do
