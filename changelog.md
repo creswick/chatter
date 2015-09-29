@@ -1,3 +1,15 @@
+= 0.7.0.0 =
+ - B-level version bump because we added test dependency on
+   unordered-containers, which could cause downstream issues.
+
+ - TermVector: is a newtype now, and has its own arbitrary instance.
+
+ - TermVector: adds addVectors, zeroVector, negate, and sum
+
+ - DefaultMap: adds elems, map, and unionWith
+
+ - Adds quickcheck properties for all of the above
+
 = 0.6.0.0 =
 
  - Switched to using Hashmap for the DefaultMap implementation;
