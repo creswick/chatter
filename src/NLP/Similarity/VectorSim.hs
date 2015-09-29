@@ -1,23 +1,31 @@
+{-# LANGUAGE DeriveGeneric #-}
 module NLP.Similarity.VectorSim where
 
 import Prelude hiding (lookup)
 import Data.DefaultMap (DefaultMap)
+import Test.QuickCheck (Arbitrary(..))
 import qualified Data.DefaultMap as DM
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.List (elemIndices)
-
+import GHC.Generics
 import NLP.Types
 
 -- | An efficient (ish) representation for documents in the "bag of
 -- words" sense.
 newtype TermVector = TermVector (DefaultMap Text Double)
+  deriving (Read, Show, Eq, Generic)
 
+instance Arbitrary TermVector where
+  arbitrary = do
+    theMap <- arbitrary
+    let zeroMap = theMap { DM.defDefault = 0 }
+    return $ TermVector zeroMap
+
+-- | Access the underlying DefaultMap used to store term vector details.
 fromTV :: TermVector -> DefaultMap Text Double
 fromTV (TermVector dm) = dm
-
-
 
 -- | Generate a `TermVector` from a tokenized document.
 mkVector :: Corpus -> [Text] -> TermVector
@@ -100,15 +108,15 @@ cosVec vec1 vec2 = let
 -- is absent from the vector). The new term vector resulting from the
 -- addition always uses a default value of zero.
 addVectors :: TermVector -> TermVector -> TermVector
-addVectors = DM.unionWith (+) 0
+addVectors vec1 vec2 = TermVector (DM.unionWith (+) 0 (fromTV vec1) (fromTV vec2))
 
 -- | A "zero vector" term vector (i.e. @addVector v zeroVector = v@).
 zeroVector :: TermVector
-zeroVector = DM.empty 0
+zeroVector = TermVector (DM.empty 0)
 
 -- | Negate a term vector.
 negate :: TermVector -> TermVector
-negate = DM.map ((-1) *)
+negate vec = TermVector (DM.map ((-1) *) $ fromTV vec)
 
 -- | Add a list of term vectors.
 sum :: [TermVector] -> TermVector

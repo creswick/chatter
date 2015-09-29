@@ -8,7 +8,7 @@ import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (testProperty)
 
 import qualified Data.Text as T
-import qualified Data.DefaultMap as DM
+import qualified NLP.Similarity.VectorSim as TV
 
 import NLP.Similarity.VectorSim
 import NLP.Types (mkCorpus)
@@ -78,17 +78,14 @@ tests = testGroup "Vector Sim"
         ]
 
 prop_addVectorZero :: TermVector -> Bool
-prop_addVectorZero v' =
-    let v = v' { DM.defDefault = 0 }
-    in addVectors v zeroVector == v &&
-       addVectors zeroVector v == v
+prop_addVectorZero v = addVectors v zeroVector == v &&
+                       addVectors zeroVector v == v
 
 prop_negateVector :: TermVector -> Bool
-prop_negateVector v' =
-    let v = v' { DM.defDefault = 0 }
-        theSum = addVectors v (negate v)
-    in and [ DM.lookup k theSum == 0
-           | k <- DM.keys v
+prop_negateVector v =
+    let theSum = addVectors v (negate v)
+    in and [ TV.lookup k theSum == 0
+           | k <- TV.keys v
            ]
 
 prop_sum :: [TermVector] -> Bool
