@@ -1,5 +1,6 @@
 module NLP.Similarity.VectorSim where
 
+import Prelude hiding (lookup)
 import Data.DefaultMap (DefaultMap)
 import qualified Data.DefaultMap as DM
 import qualified Data.Set as Set
@@ -11,11 +12,16 @@ import NLP.Types
 
 -- | An efficient (ish) representation for documents in the "bag of
 -- words" sense.
-type TermVector = DefaultMap Text Double
+newtype TermVector = TermVector (DefaultMap Text Double)
+
+fromTV :: TermVector -> DefaultMap Text Double
+fromTV (TermVector dm) = dm
+
+
 
 -- | Generate a `TermVector` from a tokenized document.
 mkVector :: Corpus -> [Text] -> TermVector
-mkVector corpus doc = DM.fromList 0 $ Set.toList $
+mkVector corpus doc = TermVector $ DM.fromList 0 $ Set.toList $
                         Set.map (\t->(t, tf_idf t doc corpus)) (Set.fromList doc)
 
 
@@ -91,7 +97,7 @@ cosVec vec1 vec2 = let
 
 -- | Calculate the magnitude of a vector.
 magnitude :: TermVector -> Double
-magnitude v = sqrt $ DM.foldl acc 0 v
+magnitude v = sqrt $ DM.foldl acc 0 $ fromTV v
   where
     acc :: Double -> Double -> Double
     acc cur new = cur + (new ** 2)
@@ -99,5 +105,12 @@ magnitude v = sqrt $ DM.foldl acc 0 v
 -- | find the dot product of two vectors.
 dotProd :: TermVector -> TermVector -> Double
 dotProd xs ys = let
-  terms = Set.fromList (DM.keys xs) `Set.union` Set.fromList (DM.keys ys)
-  in Set.foldl (+) 0 (Set.map (\t -> (DM.lookup t xs) * (DM.lookup t ys)) terms)
+  terms = Set.fromList (keys xs) `Set.union` Set.fromList (keys ys)
+  in Set.foldl (+) 0 (Set.map (\t -> (lookup t xs) * (lookup t ys)) terms)
+
+keys :: TermVector -> [Text]
+keys tv = DM.keys $ fromTV tv
+
+lookup :: Text -> TermVector -> Double
+lookup key tv = DM.lookup key $ fromTV tv
+
