@@ -85,15 +85,14 @@ tf term doc = length $ elemIndices term doc
 -- The IDF is, roughly speaking, a measure of how popular a term is.
 idf :: Text -> Corpus -> Double
 idf term corpus = let
-  docCount = corpLength corpus
-  containedInCount = 1 + termCounts corpus term
+  docCount         = 1 + corpLength corpus
+  containedInCount = 2 + termCounts corpus term
   in log (fromIntegral docCount / fromIntegral containedInCount)
 
 -- | Calculate the tf*idf measure for a term given a document and a
 -- corpus.
 tf_idf :: Text -> [Text] -> Corpus -> Double
-tf_idf term doc corp = let
-  corpus = addDocument corp doc
+tf_idf term doc corpus = let
   freq = tf term doc
   result | freq == 0 = 0
          | otherwise = (fromIntegral freq) * idf term corpus

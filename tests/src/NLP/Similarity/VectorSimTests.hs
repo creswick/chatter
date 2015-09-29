@@ -39,7 +39,7 @@ tests = testGroup "Vector Sim"
           , ("", "a", ["test"], 0)
           ]
         , testGroup "idf tests" $ map (genTestF2 idf)
-          [ ("", "test", mkCorpus [["test"]], log(1/2))
+          [ ("", "test", mkCorpus [["test"]], log(2/3))
           , ("", "a", mkCorpus [["test"]], log(1))
           , ("", "a", mkCorpus [["a", "test"],["test"]], log(2/2))
           ]
