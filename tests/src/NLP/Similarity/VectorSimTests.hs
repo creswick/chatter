@@ -34,7 +34,7 @@ tests = testGroup "Vector Sim"
         --   , ("single", [1], 1)
         --   ]
          testGroup "tf tests" $ map (genTest2 tf)
-          [ ("", "test", ["test"], 1)
+          [ ("", "test"::String, ["test"], 1)
           , ("", "a", ["a", "test"], 1)
           , ("", "a", ["test"], 0)
           ]
