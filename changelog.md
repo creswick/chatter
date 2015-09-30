@@ -1,3 +1,13 @@
+= 0.8.0.0 =
+
+ - Added a Document type to better store term count indexes
+   (essentially TermVectors with integer values).
+
+ - Used the Document type for tf_idf; this changed the API, and is the
+   reason for the B-level version bump. (also done for performance)
+
+ - A number of non-breaking performance improvements (e.g., not using foldl in a few places.)
+
 = 0.7.0.0 =
  - B-level version bump because we added test dependency on
    unordered-containers, which could cause downstream issues.
