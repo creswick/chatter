@@ -6,7 +6,7 @@ where
 import Prelude hiding (lookup)
 import Control.Applicative ((<$>), (<*>))
 import Test.QuickCheck (Arbitrary(..))
-import Control.DeepSeq (NFData)
+import Control.DeepSeq (NFData(..), deepseq)
 import qualified Data.HashSet as S
 import Data.Hashable
 import Data.HashMap.Strict (HashMap)
@@ -25,7 +25,8 @@ instance (Eq k, Hashable k, Serialize k, Serialize v) => Serialize (DefaultMap k
   put (DefMap d theMap) = put d >> put (Map.toList theMap)
   get = DefMap <$> get <*> (Map.fromList <$> get)
 
-instance (NFData k, NFData v, Hashable k) => NFData (DefaultMap k v)
+instance (NFData k, NFData v, Hashable k) => NFData (DefaultMap k v) where
+    rnf (DefMap d m) = d `deepseq` m `deepseq` ()
 
 -- | Create an empty `DefaultMap`
 empty :: v -> DefaultMap k v

@@ -16,6 +16,7 @@ import Data.Serialize (Serialize)
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text (Text)
+import Data.List (foldl')
 
 import GHC.Generics
 
@@ -102,7 +103,7 @@ termCounts corpus term = Map.findWithDefault 0 term $ corpTermCounts corpus
 -- documents have all been tokenized and the tokens normalized, in the
 -- same way.
 addDocument :: Corpus -> [Text] -> Corpus
-addDocument (Corpus count m) doc = Corpus (count + 1) (foldl addTerm m doc)
+addDocument (Corpus count m) doc = Corpus (count + 1) (foldl' addTerm m doc)
 
 -- | Create a corpus from a list of documents, represented by
 -- normalized tokens.
@@ -110,11 +111,11 @@ mkCorpus :: [[Text]] -> Corpus
 mkCorpus docs =
   let docSets = map Set.fromList docs
   in Corpus { corpLength     = length docs
-            , corpTermCounts = foldl addTerms Map.empty docSets
+            , corpTermCounts = foldl' addTerms Map.empty docSets
             }
 
 addTerms :: Map Text Int -> Set Text -> Map Text Int
-addTerms m terms = Set.foldl addTerm m terms
+addTerms m terms = Set.foldl' addTerm m terms
 
 addTerm :: Map Text Int -> Text -> Map Text Int
 addTerm m term = Map.alter increment term m
