@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass #-}
 -- | Average Perceptron implementation of Part of speech tagging,
 -- adapted for Haskell from this python implementation, which is described on the blog post:
 --
@@ -34,7 +35,7 @@ import GHC.Generics
 import NLP.Types ()
 
 newtype Feature = Feat Text
-    deriving (Read, Show, Eq, Ord, Generic)
+    deriving (Read, Show, Eq, Ord, Generic, NFData)
 
 instance Serialize Feature
 
@@ -45,7 +46,7 @@ instance Serialize Feature
 -- can be defined by the users of the Perceptron (such as custom POS
 -- tag ADTs, or more complex classes).
 newtype Class = Class String
-    deriving (Read, Show, Eq, Ord, Generic)
+    deriving (Read, Show, Eq, Ord, Generic, NFData)
 
 instance Serialize Class
 
