@@ -1,3 +1,7 @@
+= HEAD =
+ - Added deriving clauses for Class and Feature to support GHC 7.10;
+   based on Rick Dzekman's pull request.
+
 = 0.8.0.0 =
 
  - Added a Document type to better store term count indexes
@@ -7,6 +11,8 @@
    reason for the B-level version bump. (also done for performance)
 
  - A number of non-breaking performance improvements (e.g., not using foldl in a few places.)
+
+ - These changes, and much of 0.7.0.0 are due to work by Tristan Ravitch & Jonathan Daugherty.
 
 = 0.7.0.0 =
  - B-level version bump because we added test dependency on
