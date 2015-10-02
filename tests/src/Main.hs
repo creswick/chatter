@@ -50,7 +50,7 @@ tests = testGroup "Tests"
         , UT.tests
         , LT.tests
         -- , TypeTests.tests
-        -- , DefMap.tests
+        , DefMap.tests
 -- todo        , Parsec.tests
 -- todo       , IT.tests
         -- , Brown.tests
