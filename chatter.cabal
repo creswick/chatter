@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.5.2.0
+version:             0.8.0.0
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -93,6 +93,7 @@ Library
                      random-shuffle >= 0.0.4,
                      MonadRandom    >= 0.1.2,
                      cereal         >= 0.4.0.1,
+                     cereal-text    >= 0.1 && < 0.2,
                      fullstop       >= 0.1.3.1,
                      bytestring     >= 0.10.0.0,
                      directory,
@@ -111,9 +112,9 @@ Library
                      QuickCheck,
                      quickcheck-instances,
                      safe,
-                     pretty         >= 1.1.3.2
-
-
+                     pretty         >= 1.1.3.2,
+                     unordered-containers,
+                     hashable
 
    ghc-options:      -Wall -auto-all -caf-all
 
@@ -250,6 +251,7 @@ test-suite tests
                      tasty-quickcheck,
                      tasty-hunit,
                      tasty-ant-xml,
-                     pretty
+                     pretty,
+                     unordered-containers
 
    ghc-options:      -Wall -auto-all -caf-all

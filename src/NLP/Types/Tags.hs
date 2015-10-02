@@ -1,13 +1,14 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.Types.Tags
 where
 
 import Data.Hashable (Hashable)
 import Data.Serialize (Serialize, get, put)
-import Data.Text (Text)
+import Data.Serialize.Text ()
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
+import Data.Text (Text)
+import qualified Data.Text as T
 import GHC.Generics
 
 import Test.QuickCheck.Instances ()
@@ -57,8 +58,3 @@ instance POS RawTag where
   endPOS = RawTag "-END-"
 
   isDt (RawTag tg) = tg == "DT"
-
-instance Serialize Text where
-  put txt = put $ encodeUtf8 txt
-  get     = fmap decodeUtf8 get
-
