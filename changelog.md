@@ -1,5 +1,10 @@
 = HEAD =
 
+= 0.8.0.2 =
+
+ - Bounded the version of cereal to < 0.5 because of breaking changes
+   with cereal's default instances.
+
 = 0.8.0.1 =
 
  - Added deriving clauses for Class and Feature to support GHC 7.10;
