@@ -1,6 +1,10 @@
 = HEAD =
+
+= 0.8.0.1 =
+
  - Added deriving clauses for Class and Feature to support GHC 7.10;
-   based on Rick Dzekman's pull request.
+   based on Rick Dzekman's pull request.  Adds an explicit NFData
+   instance for Perceptron.
 
 = 0.8.0.0 =
 
