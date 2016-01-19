@@ -1,5 +1,5 @@
 name:                chatter
-version:             0.8.0.0
+version:             0.8.0.2
 synopsis:            A library of simple NLP algorithms.
 description:         chatter is a collection of simple Natural Language
                      Processing algorithms.
@@ -92,7 +92,7 @@ Library
                      containers     >= 0.5.0.0,
                      random-shuffle >= 0.0.4,
                      MonadRandom    >= 0.1.2,
-                     cereal         >= 0.4.0.1,
+                     cereal         >= 0.4.0.1 && < 0.5,
                      cereal-text    >= 0.1 && < 0.2,
                      fullstop       >= 0.1.3.1,
                      bytestring     >= 0.10.0.0,
@@ -129,7 +129,7 @@ Executable tagPOS
                      text >= 0.11.3.0,
                      base >= 4.6 && <= 6,
                      bytestring >= 0.10.0.0,
-                     cereal >= 0.4.0.1
+                     cereal >= 0.4.0.1 && < 0.5
 
    ghc-options:      -Wall -main-is Tagger -rtsopts
 
@@ -143,7 +143,7 @@ Executable trainPOS
                      text >= 0.11.3.0,
                      base >= 4.6 && <= 6,
                      bytestring >= 0.10.0.0,
-                     cereal >= 0.4.0.1,
+                     cereal >= 0.4.0.1 && < 0.5,
                      containers >= 0.5.0.0
 
    ghc-options:      -Wall -main-is POSTrainer -rtsopts
@@ -152,7 +152,6 @@ Executable trainPOS
 --    default-language: Haskell2010
 --    Main-Is:          ChunkTrainer.hs
 --    hs-source-dirs:   appsrc
-
 --    Build-depends:    chatter,
 --                      filepath >= 1.3.0.1,
 --                      text >= 0.11.3.0,
@@ -160,14 +159,12 @@ Executable trainPOS
 --                      bytestring >= 0.10.0.0,
 --                      cereal >= 0.4.0.1,
 --                      containers >= 0.5.0.0
-
 --    ghc-options:      -Wall -main-is ChunkTrainer -rtsopts
 
 -- Executable trainNER
 --    default-language: Haskell2010
 --    Main-Is:          NERTrainer.hs
 --    hs-source-dirs:   appsrc
-
 --    Build-depends:    chatter,
 --                      filepath >= 1.3.0.1,
 --                      text >= 0.11.3.0,
@@ -175,7 +172,6 @@ Executable trainPOS
 --                      bytestring >= 0.10.0.0,
 --                      cereal >= 0.4.0.1,
 --                      containers >= 0.5.0.0
-
 --    ghc-options:      -Wall -main-is NERTrainer -rtsopts
 
 
@@ -183,15 +179,12 @@ Executable trainPOS
 --    default-language: Haskell2010
 --    Main-Is:          Evaluate.hs
 --    hs-source-dirs:   appsrc
-
 --    Build-depends:    chatter,
 --                      filepath >= 1.3.0.1,
 --                      text >= 0.11.3.0,
 --                      base >= 4.6 && <= 6,
 --                      bytestring >= 0.10.0.0,
 --                      cereal >= 0.4.0.1,
---                      containers >= 0.5.0.0
-
 --    ghc-options:      -Wall -main-is Evaluate -rtsopts
 
 -- disabled because we aren't using it, and it's causing issues with `stack ghci`
@@ -244,7 +237,7 @@ test-suite tests
                      parsec >= 3.1.5,
                      QuickCheck,
                      filepath,
-                     cereal,
+                     cereal >= 0.4.0.1 && < 0.5,
                      quickcheck-instances,
                      containers,
                      tasty,
