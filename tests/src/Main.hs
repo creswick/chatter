@@ -27,7 +27,7 @@ import qualified NLP.TypesTests as TypeTests
 import qualified NLP.Types.AnnotationTests as AnnT
 -- import qualified NLP.Types.IOBTests as IOB
 -- import qualified NLP.Types.TreeTests as Tree
-import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
+-- import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 import qualified NLP.TokenizeTests as Tok
 import qualified NLP.Parsing.ChunkedSentenceScannerTests as CLEX
 
@@ -56,7 +56,7 @@ tests = testGroup "Tests"
         -- , Brown.tests
         -- , Conll.tests
 -- todo       , IOB.tests
-        , APC.tests
+-- todo        , APC.tests
 -- todo       , Tree.tests
         , Tok.tests
         , CLEX.tests
