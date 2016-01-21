@@ -76,6 +76,7 @@ Library
                      NLP.Tokenize.Types
                      NLP.Tokenize
                      NLP.Parsing.ChunkedSentenceScanner
+                     NLP.Parsing.ChunkedSentenceParser
                      NLP.Corpora.Parsing
                      NLP.Corpora.Email
                      NLP.Corpora.Brown

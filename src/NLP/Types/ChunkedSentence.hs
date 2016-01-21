@@ -2,6 +2,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE RecordWildCards #-}
 module NLP.Types.ChunkedSentence
 
 where
@@ -31,6 +32,71 @@ import NLP.Types.Annotations
 import NLP.Types.TokenizedSentence
 import NLP.Types.TaggedSentence
 import NLP.Types.Classes
+import NLP.Parsing.ChunkedSentenceParser
+import NLP.Parsing.ChunkedSentenceScanner
+
+parseChunkedSentence :: (POS pos, Chunk chunk) => Text -> Either Error (ChunkedSentence pos chunk)
+parseChunkedSentence txt = let cs = parse $ alexScanTokens $ T.unpack txt
+                           in parseCS txt cs
+
+parseCS :: (POS pos, Chunk chunk) => Text -> CS -> Either Error (ChunkedSentence pos chunk)
+parseCS inText sent@(CS csCOCs) = do
+  taggedSent <- parseTS inText sent
+  return $ ChunkedSentence { chunkTagSentence = taggedSent
+                           , chunkAnnotations = []
+                           }
+
+parseTS :: (POS pos) => Text -> CS -> Either Error (TaggedSentence pos)
+parseTS inText cs = do
+  let ptoks = getPOSToks cs
+  theTokAnnotations <- sequence (map toTokAnnotation ptoks)
+  let tokSent = TokenizedSentence { tokText = inText
+                                  , tokAnnotations = theTokAnnotations
+                                  }
+  tAnnotations <- taggedAnnotations tokSent ptoks
+  return TaggedSentence { tagTokSentence = tokSent
+                        , tagAnnotations = tAnnotations
+                        }
+  where
+    toTokAnnotation :: PosTok -> Either Error (Annotation Text Token)
+    toTokAnnotation pt@(PosTok {..}) = do
+      theValue <- ptTokText pt
+      return Annotation { startIdx = Index ptLoc
+                        , len = T.length theValue
+                        , value = Token theValue
+                        , payload = inText
+                        }
+
+    taggedAnnotations :: POS pos
+                         => TokenizedSentence
+                         -> [PosTok]
+                         -> Either Error [Annotation TokenizedSentence pos]
+    taggedAnnotations tokSent ptoks = let (_, result) = foldl (foldFn tokSent) (0, Right []) ptoks
+                                      in reverse `fmap` result
+
+    foldFn :: POS pos
+           => TokenizedSentence
+           -> (Int, Either Error ([Annotation TokenizedSentence pos]))
+           -> PosTok
+           -> (Int, Either Error ([Annotation TokenizedSentence pos]))
+    foldFn       _ (idx , Left err)     _ = (idx + 1, Left err)
+    foldFn tokSent (idx, Right anns) ptok = case (toTagAnnotation tokSent idx ptok) of
+      Left  err -> (idx + 1, Left err)
+      Right ann -> (idx + 1, Right (ann:anns))
+
+    -- Need the token position
+    toTagAnnotation :: POS pos
+                       => TokenizedSentence
+                       -> Int
+                       -> PosTok
+                       -> Either Error (Annotation TokenizedSentence pos)
+    toTagAnnotation tokSent tokIdx pt@(PosTok {..}) = do
+      thePos <- parsePOS =<< (ptPosText pt)
+      return Annotation { startIdx = Index tokIdx
+                        , len = 1
+                        , value = thePos
+                        , payload = tokSent
+                        }
 
 -- | A 'Chunked' sentence, with underlying Part-of-Speech tags and tokens.
 -- Note: This is not a deep tree, a separate parse tree is needed.

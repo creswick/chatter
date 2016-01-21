@@ -1,7 +1,11 @@
 {
+{-# LANGUAGE RecordWildCards #-}
 module NLP.Parsing.ChunkedSentenceParser where
 
 import NLP.Parsing.ChunkedSentenceScanner
+import NLP.Types.General (Error)
+
+import qualified Data.Text as T
 }
 
 
@@ -18,19 +22,19 @@ import NLP.Parsing.ChunkedSentenceScanner
 %%
 
 CS           :: { CS }
-             : CS ChunkOrChink { appendCS $1 $2            }
-             | ChunkOrChink    { CS [ $1 ] (cocLoc $1)     }
+             : CS ChunkOrChink { appendCS $1 $2 }
+             | ChunkOrChink    { CS [ $1 ]      }
 
 PosTok       :: { PosTok }
              : tok pos         { PosTok $1 $2 (lexPos $1)  }
 
 PosToks      :: { PosToks }
              : PosToks PosTok  { appendPosToks $1 $2 }
-             | PosTok          { PosToks [ $1 ] (ptLoc $1) }
+             | PosTok          { PosToks [ $1 ] }
 
 ChunkOrChink :: { ChunkOrChink }
-ChunkOrChink : '[' PosToks ']' { Chunk $1 $2 (lexPos $1)   }
-             | PosToks         { Chink $1 (ptsLoc $1)      }
+ChunkOrChink : '[' PosToks ']' { Chunk $1 $2 }
+             | PosToks         { Chink $1    }
 
 {
 
@@ -42,28 +46,37 @@ data PosTok = PosTok { ptTok :: Lexeme
                      , ptLoc :: Int
                      } deriving Show
 
+ptPosText :: PosTok -> Either Error T.Text
+ptPosText PosTok {..} = case ptPos of
+                          (Pos _ txt) -> Right (T.pack txt)
+                          _           -> Left "Not a POS lexeme"
+
+ptTokText :: PosTok -> Either Error T.Text
+ptTokText PosTok {..} = case ptTok of
+                          (Tok _ txt) -> Right (T.pack txt)
+                          _           -> Left "Not a Tok lexeme"
+
 data PosToks = PosToks { ptsToks :: [PosTok]
-                       , ptsLoc :: Int
                        } deriving Show
 
 appendPosToks :: PosToks -> PosTok -> PosToks
-appendPosToks (PosToks ts x) t = PosToks (ts++[t]) x
+appendPosToks (PosToks ts) t = PosToks (ts++[t])
 
 data ChunkOrChink = Chunk { cocStr :: Lexeme
                           , cocPTS :: PosToks
-                          , cocLoc :: Int
                           }
                   | Chink { cocPTS :: PosToks
-                          , cocLoc :: Int
                           }
                    deriving Show
 
 data CS = CS { csCOCs :: [ChunkOrChink]
-             , csLoc :: Int
-} deriving Show
+             } deriving Show
 
 appendCS :: CS -> ChunkOrChink -> CS
-appendCS (CS cs x) coc = CS (cs ++ [coc]) x
+appendCS (CS cs) coc = CS (cs ++ [coc])
+
+getPOSToks :: CS -> [PosTok]
+getPOSToks cs = concatMap (ptsToks . cocPTS) (csCOCs cs)
 
 testParser = print . parse . alexScanTokens
 }
