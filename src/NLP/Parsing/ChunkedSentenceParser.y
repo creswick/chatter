@@ -1,5 +1,6 @@
 {
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
 module NLP.Parsing.ChunkedSentenceParser where
 
 import NLP.Parsing.ChunkedSentenceScanner
@@ -68,6 +69,10 @@ data ChunkOrChink = Chunk { cocStr :: Lexeme
                   | Chink { cocPTS :: PosToks
                           }
                    deriving Show
+
+-- | Count the number of PosToks in a `ChunkOrChink`
+tokLength :: ChunkOrChink -> Int
+tokLength coc = length $ ptsToks $ cocPTS coc
 
 data CS = CS { csCOCs :: [ChunkOrChink]
              } deriving Show

@@ -1,5 +1,10 @@
 {
+{-# LANGUAGE OverloadedStrings #-}
 module NLP.Parsing.ChunkedSentenceScanner where
+
+import qualified Data.Text as T
+import Data.Text (Text)
+import NLP.Types.General (Error)
 }
 
 %wrapper "posn"
@@ -30,6 +35,10 @@ lexPos (ChunkStart x _) = x
 lexPos (ChunkEnd x)     = x
 lexPos (Pos x _)        = x
 lexPos (Tok x _)        = x
+
+lexChunkTag :: Lexeme -> Either Error Text
+lexChunkTag (ChunkStart _ txt) = Right $ T.pack txt
+lexChunkTag _                  = Left "Not a ChunkStart lexeme"
 
 main = do
   putStr "Hi > "

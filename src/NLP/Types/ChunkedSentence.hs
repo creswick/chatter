@@ -40,11 +40,43 @@ parseChunkedSentence txt = let cs = parse $ alexScanTokens $ T.unpack txt
                            in parseCS txt cs
 
 parseCS :: (POS pos, Chunk chunk) => Text -> CS -> Either Error (ChunkedSentence pos chunk)
-parseCS inText sent@(CS csCOCs) = do
+parseCS inText sent@(CS cocs) = do
   taggedSent <- parseTS inText sent
+  theChunkAnnotations <- chunkedAnnotations taggedSent cocs
   return $ ChunkedSentence { chunkTagSentence = taggedSent
-                           , chunkAnnotations = []
+                           , chunkAnnotations = theChunkAnnotations
                            }
+
+  where
+    chunkedAnnotations :: (POS pos, Chunk chunk)
+                          => TaggedSentence pos
+                          -> [ChunkOrChink]
+                          -> Either Error [Annotation (TaggedSentence pos) chunk]
+    chunkedAnnotations tagSent cocs = let (_, result) = foldl' (foldFn tagSent) (0, Right []) cocs
+                                      in reverse `fmap` result
+
+    foldFn :: (POS pos, Chunk chunk)
+              => TaggedSentence pos
+              -> (Int, Either Error [Annotation (TaggedSentence pos) chunk])
+              -> ChunkOrChink
+              -> (Int, Either Error [Annotation (TaggedSentence pos) chunk])
+    foldFn       _ (idx, Left err)     _ = (idx, Left err)
+    foldFn tagSent (idx, Right anns) coc =
+      let nextIdx = idx + tokLength coc
+          annLength = tokLength coc
+          result = case coc of
+                     (Chink     _) -> Right anns
+                     (Chunk lex _) -> (\a -> Right (a:anns)) =<< annotation lex
+
+          annotation lex = do
+            theChunk <- parseChunk =<< lexChunkTag lex
+            return Annotation { startIdx = Index idx
+                              , len = annLength
+                              , value = theChunk
+                              , payload = tagSent
+                              }
+
+      in (nextIdx, result)
 
 parseTS :: (POS pos) => Text -> CS -> Either Error (TaggedSentence pos)
 parseTS inText cs = do
@@ -71,7 +103,7 @@ parseTS inText cs = do
                          => TokenizedSentence
                          -> [PosTok]
                          -> Either Error [Annotation TokenizedSentence pos]
-    taggedAnnotations tokSent ptoks = let (_, result) = foldl (foldFn tokSent) (0, Right []) ptoks
+    taggedAnnotations tokSent ptoks = let (_, result) = foldl' (foldFn tokSent) (0, Right []) ptoks
                                       in reverse `fmap` result
 
     foldFn :: POS pos
