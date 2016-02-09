@@ -43,37 +43,23 @@ instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
 instance AnnotatedText (Annotation TokenizedSentence tag) where
-  getText = getText . project
+  getText theAnn = T.intercalate " " $ map getText $ project theAnn
+    where
+      -- | Create an annotation that is over a lower-level version of a sequence of annotations.
+      project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
+      project ann = let -- The index of the first (Annotation Text ann):
+                        startTokIdx = fromIndex $ startIdx ann
+                        endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
 
--- | Create an annotation that is over a lower-level version of a sequence of annotations.
-project :: Annotation TokenizedSentence ann -> Annotation Text ann
-project ann = let tokens = tokAnnotations $ payload ann
+                        -- the list of tokens that this annotation ranges over.
+                        tokens = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
 
-                  -- The index of the first (Annotation Text ann):
-                  startTokIdx = fromIndex $ startIdx ann
-
-                  -- The first (Annotation Text ann):
-                  startTok = tokens !! startTokIdx
-                  endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
-                  endTok = tokens !! endTokIdx
-
-                  startix = fromIndex $ startIdx startTok
-                  endix = (fromIndex $ startIdx endTok) + (len endTok)
-              in Annotation { startIdx = startIdx startTok
-                            , len = endix - startix
-                            , value = value ann
-                            , payload = tokText $ payload ann
-                            }
+                        newAnnotation tokAnn = tokAnn { value = value ann }
+                    in map newAnnotation tokens
 
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
   pPrint (TaggedSentence toSent@(TokenizedSentence ts toks) anns) = text (T.unpack toStr)
     where
-      -- toStr :: Text
-      -- toStr = let (_, folded) = T.foldl' fn (0,"") (prettyShow toSent)
-      --         in case Map.lookup (T.length ts) insertions of
-      --              Nothing -> T.reverse folded
-      --              Just  m -> T.reverse ((T.reverse m) <> folded)
-
       toStr :: Text
       toStr = T.intercalate " " $ zipWith pickEntry (map getText toks) [0..]
 

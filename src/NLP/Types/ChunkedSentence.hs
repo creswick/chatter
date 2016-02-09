@@ -140,34 +140,27 @@ data ChunkedSentence pos chunk =
 
 instance (Hashable pos, Hashable chunk) => Hashable (ChunkedSentence pos chunk)
 
+-- TODO rewrite per. tagInsertions.
 chunkInsertions :: (Chunk chunk, HasMarkup chunk, POS pos, HasMarkup pos)
                 => Map Int Text -> [Annotation (TaggedSentence pos) chunk] -> Map Int Text
 chunkInsertions initMap anns = foldl' mkInsertions initMap anns
   where
     mkInsertions :: (HasMarkup pos, HasMarkup chunk)
                  => Map Int Text -> Annotation (TaggedSentence pos) chunk -> Map Int Text
-    mkInsertions theMap ann@(Annotation (Index sIdx) l chunk dat) =
+    mkInsertions theMap ann@(Annotation (Index startIdx) annLen chunk (TaggedSentence tokSent tags)) =
       let (pfx, sfx) = getAnnotationMarkup ann
+          -- Get the text for the first token. (TODO: do we need the pretty text here?)
+          startTok = getText (tags !! startIdx)
 
-          -- POS annotations:
-          tags = tagAnnotations dat
+          endIdx = (startIdx + annLen) - 1
+          endTok = getText (tags !! endIdx)
 
-          -- starting index of the tag annotation that marks this chunk:
-          sTagIdx = fromIndex $ startIdx (tags!!sIdx)
-          eTag = tags!!(sIdx + len ann - 1) -- -1 to account for length.
-          eTagIdx = (fromIndex $ startIdx eTag) + len eTag
-
-          -- Token annotations
-          toks :: [Annotation Text Token]
-          toks = tokAnnotations $ tagTokSentence dat
-
-          -- starting index of the token.  This is the index into the text string:
-          sTokIdx = fromIndex $ startIdx (toks!!sTagIdx)
-          eTok = toks!!(sTagIdx + len ann - 1) -- -1 to account for length.
-          eTokIdx = (fromIndex $ startIdx eTok) + len eTok
-
-      in Map.insertWith (\new old -> new <> old) eTokIdx (T.pack sfx)
-           (Map.insertWith (\new old -> old <> new) sTokIdx (T.pack pfx) theMap)
+      -- These insertWith's bear a bit of explaining:
+      --   They insert a full token (prefix + token) or (token + suffix), if nothing
+      -- is in the map at that index yet.  If there *is* something there, then the token
+      -- part doesn't need repeating, so we just prepend or append the prefix or suffix.
+      in Map.insertWith (\_ old -> (T.pack pfx) <> old) startIdx (T.pack pfx <> startTok)
+           (Map.insertWith (\_ old -> old <> (T.pack sfx)) endIdx (endTok <> T.pack sfx) theMap)
 
 
 -- | Build a ChunkedSentence from a list of chunks and a corresponding
@@ -222,16 +215,37 @@ fromChunkedSentence chunkedSent =
 instance AnnotatedText (ChunkedSentence pos chunk) where
   getText = getText . chunkTagSentence
 
+instance AnnotatedText (Annotation (TaggedSentence pos) chunk) where
+  getText = getText . project
+    where
+      -- | Create an annotation that is over a lower-level version of a sequence of annotations.
+            -- TODO This notion of projecting is flawed, because this isn't a one-to-one mapping.  It's
+      -- at best a one-to-many, so the type should be:
+      -- >>>  project :: Annotation TaggedSentence ann -> [Annotation TokenizedSentence ann]
+      project :: Annotation (TaggedSentence pos) ann -> Annotation TokenizedSentence ann
+      project ann = let tokens = tagAnnotations $ payload ann
+
+                        -- The index of the first (Annotation TokenizedSentence ann):
+                        startTokIdx = fromIndex $ startIdx ann
+
+                        -- The first (Annotation TokenizedSentence ann):
+                        startTok = tokens !! startTokIdx
+                        endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
+                        endTok = tokens !! endTokIdx
+
+                        startix = fromIndex $ startIdx startTok
+                        endix = (fromIndex $ startIdx endTok) + (len endTok)
+                    in Annotation { startIdx = startIdx startTok
+                                  , len = endix - startix
+                                  , value = value ann
+                                  , payload = tagTokSentence $ payload ann
+                                  }
+
 
 instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
   pPrint cs = text (T.unpack toStr)
     where
       tokenAnnotations = tokAnnotations $ tagTokSentence $ chunkTagSentence cs
-
-      -- toStr = let (_, folded) = T.foldl' fn (0,"") ts
-      --         in case Map.lookup (T.length ts) insertions of
-      --              Nothing -> reverse folded
-      --              Just  m -> reverse ((reverse m) <> folded)
 
       toStr :: Text
       toStr = T.intercalate " " $ zipWith pickEntry (map getText tokenAnnotations) [0..]
@@ -241,12 +255,5 @@ instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
                             Nothing -> txt
                             Just  t -> t
 
-      -- fn :: (Int, String) -> Char -> (Int, String)
-      -- fn (idx, acc) ch = let newIdx = idx + 1
-      --                        markedAcc = case Map.lookup idx insertions of
-      --                                      Nothing -> acc
-      --                                      Just m  -> (reverse m) <>acc
-      --                    in (newIdx, ch:markedAcc)
-
-      insertions = tagInsertions chunkMap (tagAnnotations $ chunkTagSentence cs)
-      chunkMap = chunkInsertions Map.empty $ chunkAnnotations cs
+      tagMap = tagInsertions Map.empty (tagAnnotations $ chunkTagSentence cs)
+      insertions = chunkInsertions tagMap $ chunkAnnotations cs
