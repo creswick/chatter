@@ -47,31 +47,31 @@ instance AnnotatedText (NERedSentence pos chunk ne) where
   getText = getText . neChunkSentence
 
 instance (POS pos, Chunk chunk, NamedEntity ne) => Pretty (NERedSentence pos chunk ne) where
-  pPrint ns = text toStr
+  pPrint ns = text (T.unpack toStr)
     where
       baseTxt = getText ns
       toStr = let (lastIdx, folded) = T.foldl' fn (0,"") baseTxt
               in case Map.lookup lastIdx insertions of
-                   Nothing -> reverse folded
-                   Just m  -> reverse ((reverse m) <> folded)
+                   Nothing -> T.reverse folded
+                   Just m  -> T.reverse ((T.reverse m) <> folded)
 
-      fn :: (Int, String) -> Char -> (Int, String)
+      fn :: (Int, Text) -> Char -> (Int, Text)
       fn (idx, acc) ch = let newIdx = idx + 1
                              markedAcc = case Map.lookup idx insertions of
                                            Nothing -> acc
-                                           Just m  -> (reverse m) <> acc
-                         in (newIdx, ch:markedAcc)
+                                           Just m  -> (T.reverse m) <> acc
+                         in (newIdx, T.append (T.pack [ch]) markedAcc)
 
       insertions = tagInsertions neMap (tagAnnotations $ chunkTagSentence $ neChunkSentence ns)
       neMap = neInsertions Map.empty $ neAnnotations ns
 
 
 neInsertions :: (NamedEntity ne, HasMarkup ne, POS pos, HasMarkup pos)
-                => Map Int String -> [Annotation (TaggedSentence pos) ne] -> Map Int String
+                => Map Int Text -> [Annotation (TaggedSentence pos) ne] -> Map Int Text
 neInsertions initMap anns = foldl' mkInsertions initMap anns
   where
     mkInsertions :: (HasMarkup pos, HasMarkup ne)
-                 => Map Int String -> Annotation (TaggedSentence pos) ne -> Map Int String
+                 => Map Int Text -> Annotation (TaggedSentence pos) ne -> Map Int Text
     mkInsertions theMap ann@(Annotation (Index sIdx) l ne dat) =
       let (pfx, sfx) = getAnnotationMarkup ann
 
@@ -92,6 +92,6 @@ neInsertions initMap anns = foldl' mkInsertions initMap anns
           eTok = toks!!(sTagIdx + len ann - 1) -- -1 to account for length.
           eTokIdx = (fromIndex $ startIdx eTok) + len eTok
 
-      in Map.insertWith (\new old -> new <> old) eTokIdx sfx
-           (Map.insertWith (\new old -> old <> new) sTokIdx pfx theMap)
+      in Map.insertWith (\new old -> new <> old) eTokIdx (T.pack sfx)
+           (Map.insertWith (\new old -> old <> new) sTokIdx (T.pack pfx) theMap)
 

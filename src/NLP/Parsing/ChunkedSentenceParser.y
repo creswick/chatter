@@ -6,7 +6,9 @@ module NLP.Parsing.ChunkedSentenceParser where
 import NLP.Parsing.ChunkedSentenceScanner
 import NLP.Types.General (Error)
 
+import           Data.Either (rights)
 import qualified Data.Text as T
+
 }
 
 
@@ -82,6 +84,10 @@ appendCS (CS cs) coc = CS (cs ++ [coc])
 
 getPOSToks :: CS -> [PosTok]
 getPOSToks cs = concatMap (ptsToks . cocPTS) (csCOCs cs)
+
+-- | Get the underlying text tokens, devoid of the tagging / chunking markup.
+getNaturalText :: CS -> [T.Text]
+getNaturalText cs = rights $ map ptTokText $ getPOSToks cs
 
 testParser = print . parse . alexScanTokens
 }

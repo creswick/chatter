@@ -48,6 +48,9 @@ tests = testGroup "NLP.POS"
           , testGroup "miniCorpora2 - POSTagger train" $
             map (trainAndTagTextTestVTrainer miniCorpora2)
              [ ("the dog jumped .", "the/DT dog/NN jumped/VB ./.") ]
+          , testGroup "miniCorpora2 - POSTagger train, no space punct." $
+            map (trainAndTagTextTestVTrainer miniCorpora2)
+             [ ("the dog jumped.", "the/DT dog/NN jumped/VB ./.") ]
           ]
         , testGroup "Train and tag; Text -> TaggedSentence"
           [ testGroup "miniCorpora1" $

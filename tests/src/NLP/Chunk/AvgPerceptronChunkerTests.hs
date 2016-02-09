@@ -20,39 +20,41 @@ import NLP.POS hiding (train)
 tests :: TestTree
 tests = withResource loadChunkers (\_ -> return ()) $ \getChunkers ->
   testGroup "NLP.Chunk.AvgPerceptronChunker"
-        [ testGroup "AvgPerceptronChunker - conll" $ map (test_chunk (fst `fmap` getChunkers))
-          [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
-                                               [ mkChink C.DT "The"
-                                               , mkChink C.NN "dog"
-                                               ]
-                                             , mkChunk C.VP [mkChink C.VBD "jumped"]
-                                             , mkChink C.Term "."
-                                             ]]
-            )
-          , ("A chair.",  [ChunkedSent [mkChunk C.NP
-                                        [ mkChink C.DT "A"
-                                        , mkChink C.NN "chair"
-                                        ]
-                                       , mkChink C.Term "."
-                                       ]])
-          -- , ("Confidence in the pound is widely expected to take another sharp dive."
-          --   , [ChunkedSent []])
-          ]
-        , testGroup "AvgPerceptionChunker - naive" $ map (test_chunk (snd `fmap` getChunkers))
-          [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
-                                               [ mkChink C.DT "The"
-                                               , mkChink C.NN "dog"
-                                               ]
-                                             , mkChunk C.VP [mkChink C.VBD "jumped"]
-                                             , mkChink C.Term "."
-                                             ]]
-            )
-          , ("A chair",  [ChunkedSent [mkChunk C.NP
-                                        [ mkChink C.DT "A"
-                                        , mkChink C.NN "chair"
-                                        ]
-                                       ]])
-          ]
+        [ testGroup "chunk parse/serializaiton round-trip"
+
+        --   testGroup "AvgPerceptronChunker - conll" $ map (test_chunk (fst `fmap` getChunkers))
+        --   [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
+        --                                        [ mkChink C.DT "The"
+        --                                        , mkChink C.NN "dog"
+        --                                        ]
+        --                                      , mkChunk C.VP [mkChink C.VBD "jumped"]
+        --                                      , mkChink C.Term "."
+        --                                      ]]
+        --     )
+        --   , ("A chair.",  [ChunkedSent [mkChunk C.NP
+        --                                 [ mkChink C.DT "A"
+        --                                 , mkChink C.NN "chair"
+        --                                 ]
+        --                                , mkChink C.Term "."
+        --                                ]])
+        --   -- , ("Confidence in the pound is widely expected to take another sharp dive."
+        --   --   , [ChunkedSent []])
+        --   ]
+        -- , testGroup "AvgPerceptionChunker - naive" $ map (test_chunk (snd `fmap` getChunkers))
+        --   [ ("The dog jumped.", [ChunkedSent [ mkChunk C.NP
+        --                                        [ mkChink C.DT "The"
+        --                                        , mkChink C.NN "dog"
+        --                                        ]
+        --                                      , mkChunk C.VP [mkChink C.VBD "jumped"]
+        --                                      , mkChink C.Term "."
+        --                                      ]]
+        --     )
+        --   , ("A chair",  [ChunkedSent [mkChunk C.NP
+        --                                 [ mkChink C.DT "A"
+        --                                 , mkChink C.NN "chair"
+        --                                 ]
+        --                                ]])
+        --   ]
         ]
 
   where

@@ -8,6 +8,7 @@ where
 
 import GHC.Generics
 import Data.Hashable (Hashable)
+import Data.List (foldl')
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Maybe (mapMaybe)
@@ -46,6 +47,16 @@ instance Hashable TokenizedSentence
 
 instance AnnotatedText TokenizedSentence where
   getText = tokText
+
+instance Pretty TokenizedSentence where
+  -- TODO shouldn't need the unpack here:
+  pPrint tokSent = text (T.unpack $ foldl' fn "" (tokAnnotations tokSent))
+    where
+      fn :: Text -> Annotation Text Token-> Text
+      fn acc ann = let acc' | T.length acc == 0 = acc
+                            | otherwise         = T.append acc " "
+                   in T.append acc' (getText ann)
+
 
 -- | TODO see if we can get rid of this..
 -- instance AnnotatedText (Annotation TokenizedSentence pos) where

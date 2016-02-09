@@ -56,7 +56,7 @@ tests = testGroup "Tests"
         -- , Brown.tests
         -- , Conll.tests
 -- todo       , IOB.tests
--- todo        , APC.tests
+--        , APC.tests
 -- todo       , Tree.tests
         , Tok.tests
         , CLEX.tests

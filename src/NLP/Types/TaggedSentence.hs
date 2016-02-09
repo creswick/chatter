@@ -66,35 +66,43 @@ project ann = let tokens = tokAnnotations $ payload ann
                             }
 
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
-  pPrint (TaggedSentence (TokenizedSentence ts toks) anns) = text toStr
+  pPrint (TaggedSentence toSent@(TokenizedSentence ts toks) anns) = text (T.unpack toStr)
     where
-      toStr = let (_, folded) = T.foldl' fn (0,"") ts
-              in case Map.lookup (T.length ts) insertions of
-                   Nothing -> reverse folded
-                   Just  m -> reverse ((reverse m) <> folded)
+      -- toStr :: Text
+      -- toStr = let (_, folded) = T.foldl' fn (0,"") (prettyShow toSent)
+      --         in case Map.lookup (T.length ts) insertions of
+      --              Nothing -> T.reverse folded
+      --              Just  m -> T.reverse ((T.reverse m) <> folded)
 
-      fn :: (Int, String) -> Char -> (Int, String)
-      fn (idx, acc) ch = let newIdx = idx + 1
-                             markedAcc = case Map.lookup idx insertions of
-                                           Nothing -> acc
-                                           Just m  -> (reverse m) <>acc
-                         in (newIdx, ch:markedAcc)
+      toStr :: Text
+      toStr = T.intercalate " " $ zipWith pickEntry (map getText toks) [0..]
+
+      pickEntry :: Text -> Int -> Text
+      pickEntry txt idx = case Map.lookup idx insertions of
+                            Nothing -> txt
+                            Just  t -> t
 
       insertions = tagInsertions Map.empty anns
 
 tagInsertions :: (POS pos, HasMarkup pos)
-              => Map Int String -> [Annotation TokenizedSentence pos] -> Map Int String
+              => Map Int Text -> [Annotation TokenizedSentence pos] -> Map Int Text
 tagInsertions initMap anns = foldl' mkInsertions initMap anns
   where
     mkInsertions :: (POS pos, HasMarkup pos)
-                 => Map Int String -> Annotation TokenizedSentence pos -> Map Int String
-    mkInsertions theMap ann@(Annotation (Index sIdx) annLen pos (TokenizedSentence txt toks)) =
+                 => Map Int Text -> Annotation TokenizedSentence pos -> Map Int Text
+    mkInsertions theMap ann@(Annotation (Index startIdx) annLen pos (TokenizedSentence txt toks)) =
       let (pfx, sfx) = getAnnotationMarkup ann
-          sTxtIdx = fromIndex $ startIdx (toks!!sIdx)
-          eTok = toks!!(sIdx + annLen - 1) -- -1 to account for length.
-          eTxtIdx = (fromIndex $ startIdx eTok) + len eTok
-      in Map.insertWith (\new old -> new <> old) eTxtIdx sfx
-           (Map.insertWith (\new old -> old <> new) sTxtIdx pfx theMap)
+          startTok = getText (toks !! startIdx)
+
+          endIdx = (startIdx + annLen) - 1
+          endTok = getText (toks !! endIdx)
+
+      -- These insertWith's bear a bit of explaining:
+      --   They insert a full token (prefix + token) or (token + suffix), if nothing
+      -- is in the map at that index yet.  If there *is* something there, then the token
+      -- part doesn't need repeating, so we just prepend or append the prefix or suffix.
+      in Map.insertWith (\_ old -> (T.pack pfx) <> old) startIdx (T.pack pfx <> startTok)
+           (Map.insertWith (\_ old -> old <> (T.pack sfx)) endIdx (endTok <> T.pack sfx) theMap)
 
 -- | Count the length of the tokens of a 'TaggedSentence'.
 --

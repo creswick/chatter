@@ -37,6 +37,7 @@ import NLP.Parsing.ChunkedSentenceScanner
 
 parseChunkedSentence :: (POS pos, Chunk chunk) => Text -> Either Error (ChunkedSentence pos chunk)
 parseChunkedSentence txt = let cs = parse $ alexScanTokens $ T.unpack txt
+--                                naturalText = T.intercalate (" ") (getNaturalText cs)
                            in parseCS txt cs
 
 parseCS :: (POS pos, Chunk chunk) => Text -> CS -> Either Error (ChunkedSentence pos chunk)
@@ -93,7 +94,7 @@ parseTS inText cs = do
     toTokAnnotation :: PosTok -> Either Error (Annotation Text Token)
     toTokAnnotation pt@(PosTok {..}) = do
       theValue <- ptTokText pt
-      return Annotation { startIdx = Index ptLoc
+      return Annotation { startIdx = Index ptLoc -- wrong! counts the raw input, with tag & chunk markings.
                         , len = T.length theValue
                         , value = Token theValue
                         , payload = inText
@@ -140,11 +141,11 @@ data ChunkedSentence pos chunk =
 instance (Hashable pos, Hashable chunk) => Hashable (ChunkedSentence pos chunk)
 
 chunkInsertions :: (Chunk chunk, HasMarkup chunk, POS pos, HasMarkup pos)
-                => Map Int String -> [Annotation (TaggedSentence pos) chunk] -> Map Int String
+                => Map Int Text -> [Annotation (TaggedSentence pos) chunk] -> Map Int Text
 chunkInsertions initMap anns = foldl' mkInsertions initMap anns
   where
     mkInsertions :: (HasMarkup pos, HasMarkup chunk)
-                 => Map Int String -> Annotation (TaggedSentence pos) chunk -> Map Int String
+                 => Map Int Text -> Annotation (TaggedSentence pos) chunk -> Map Int Text
     mkInsertions theMap ann@(Annotation (Index sIdx) l chunk dat) =
       let (pfx, sfx) = getAnnotationMarkup ann
 
@@ -165,8 +166,8 @@ chunkInsertions initMap anns = foldl' mkInsertions initMap anns
           eTok = toks!!(sTagIdx + len ann - 1) -- -1 to account for length.
           eTokIdx = (fromIndex $ startIdx eTok) + len eTok
 
-      in Map.insertWith (\new old -> new <> old) eTokIdx sfx
-           (Map.insertWith (\new old -> old <> new) sTokIdx pfx theMap)
+      in Map.insertWith (\new old -> new <> old) eTokIdx (T.pack sfx)
+           (Map.insertWith (\new old -> old <> new) sTokIdx (T.pack pfx) theMap)
 
 
 -- | Build a ChunkedSentence from a list of chunks and a corresponding
@@ -223,20 +224,29 @@ instance AnnotatedText (ChunkedSentence pos chunk) where
 
 
 instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
-  pPrint cs = text toStr
+  pPrint cs = text (T.unpack toStr)
     where
-      ts = tokText $ tagTokSentence $ chunkTagSentence cs
-      toStr = let (_, folded) = T.foldl' fn (0,"") ts
-              in case Map.lookup (T.length ts) insertions of
-                   Nothing -> reverse folded
-                   Just  m -> reverse ((reverse m) <> folded)
+      tokenAnnotations = tokAnnotations $ tagTokSentence $ chunkTagSentence cs
 
-      fn :: (Int, String) -> Char -> (Int, String)
-      fn (idx, acc) ch = let newIdx = idx + 1
-                             markedAcc = case Map.lookup idx insertions of
-                                           Nothing -> acc
-                                           Just m  -> (reverse m) <>acc
-                         in (newIdx, ch:markedAcc)
+      -- toStr = let (_, folded) = T.foldl' fn (0,"") ts
+      --         in case Map.lookup (T.length ts) insertions of
+      --              Nothing -> reverse folded
+      --              Just  m -> reverse ((reverse m) <> folded)
+
+      toStr :: Text
+      toStr = T.intercalate " " $ zipWith pickEntry (map getText tokenAnnotations) [0..]
+
+      pickEntry :: Text -> Int -> Text
+      pickEntry txt idx = case Map.lookup idx insertions of
+                            Nothing -> txt
+                            Just  t -> t
+
+      -- fn :: (Int, String) -> Char -> (Int, String)
+      -- fn (idx, acc) ch = let newIdx = idx + 1
+      --                        markedAcc = case Map.lookup idx insertions of
+      --                                      Nothing -> acc
+      --                                      Just m  -> (reverse m) <>acc
+      --                    in (newIdx, ch:markedAcc)
 
       insertions = tagInsertions chunkMap (tagAnnotations $ chunkTagSentence cs)
       chunkMap = chunkInsertions Map.empty $ chunkAnnotations cs
