@@ -6,7 +6,7 @@ notifications:
   email: true
 
 before_install:
- - cabal sandbox delete
+ - cabal sandbox delete || true
  - cabal sandbox init
 
 install:
