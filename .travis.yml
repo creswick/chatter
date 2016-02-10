@@ -1,11 +1,13 @@
 language: haskell
 ghc:
-  - '7.10'
   - 7.8
+
 notifications:
   email: true
 
 before_install:
+ - cabal update
+ - cabal clean
  - cabal sandbox delete || true
  - cabal sandbox init
 
