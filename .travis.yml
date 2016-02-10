@@ -1,18 +1,14 @@
-language: haskell
-ghc:
-  - '7.10'
-  - 7.8
-notifications:
-  email: true
+language: sh
 
 before_install:
- - cabal sandbox delete || true
- - cabal sandbox init
+  - sudo mkdir -p /app
+  - sudo chown $USER /app
+  - git clone https://github.com/mietek/halcyon.git /app/halcyon
 
 install:
- - cabal install --only-dep --enable-tests
- - cabal configure --enable-tests
+  - /app/halcyon/halcyon build
+  - /app/halcyon/halcyon paths > halcyon-env
+  - ln -sf /app/sandbox/cabal.sandbox.config cabal.sandbox.config
 
 script:
- - cabal build
- - cabal test
+  - source halcyon-env && cabal configure --enable-tests && cabal test
