@@ -16,5 +16,7 @@ install:
  - cabal configure --enable-tests
 
 script:
+ - alex --version
+ - happy --version
  - cabal build
  - cabal test
