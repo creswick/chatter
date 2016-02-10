@@ -1,14 +1,26 @@
-language: sh
+language: haskell
+
+
+
+notifications:
+  email: true
 
 before_install:
-  - sudo mkdir -p /app
-  - sudo chown $USER /app
-  - git clone https://github.com/mietek/halcyon.git /app/halcyon
+ - cabal update
+ - cabal install alex
+ - cabal install happy
+ - export PATH=$HOME/.cabal/bin:$PATH
+ - echo $PATH
+ - cabal clean
+ - cabal sandbox delete || true
+ - cabal sandbox init
 
 install:
-  - /app/halcyon/halcyon build
-  - /app/halcyon/halcyon paths > halcyon-env
-  - ln -sf /app/sandbox/cabal.sandbox.config cabal.sandbox.config
+ - cabal install --only-dep --enable-tests --force-reinstalls
+ - cabal configure --enable-tests
 
 script:
-  - source halcyon-env && cabal configure --enable-tests && cabal test
+ - alex --version
+ - happy --version
+ - cabal build
+ - cabal test
