@@ -12,7 +12,7 @@ before_install:
  - cabal sandbox init
 
 install:
- - cabal install --only-dep --enable-tests
+ - cabal install --only-dep --enable-tests --force-reinstalls
  - cabal configure --enable-tests
 
 script:
