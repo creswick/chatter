@@ -2,6 +2,8 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE RecordWildCards #-}
 module NLP.Types.TokenizedSentence
 
 where
@@ -56,17 +58,6 @@ instance Pretty TokenizedSentence where
       fn acc ann = let acc' | T.length acc == 0 = acc
                             | otherwise         = T.append acc " "
                    in T.append acc' (getText ann)
-
-
--- | TODO see if we can get rid of this..
--- instance AnnotatedText (Annotation TokenizedSentence pos) where
---   getText ann = let tokens = tokAnnotations (payload ann)
---                     text = tokText (payload ann)
---                     startTok = tokens !! (fromIndex $ startIdx ann)
---                     endTok = tokens !! (len ann + (fromIndex $ startIdx ann) - 1)
---                     start = fromIndex $ startIdx startTok
---                 in T.take (len endTok) (T.drop start $ text)
-
 
 -- | Sentinel value for tokens.
 newtype Token = Token Text
