@@ -18,6 +18,7 @@ module NLP.Types.IOB where
 
 import Prelude hiding (print)
 import Data.Hashable (Hashable(..))
+import Data.List (findIndices)
 import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -61,6 +62,56 @@ instance Pretty pos => Pretty (IOBTaggedSentence pos) where
   -- TODO: Write this instance.
   pPrint _ts = text "IOBTaggedSentence - instance needs written"
 
+-- | Parse an IOB-represented corpus into a list of '[ChunkedSentence]'
+parseToChunkedSentences :: (POS pos, Chunk chunk) => Text -> Either Error [ChunkedSentence pos chunk]
+parseToChunkedSentences txt = do
+  iobSentences <- parse txt
+  mapM parseToChunkedSentence iobSentences
+
+parseToChunkedSentence :: (POS pos, Chunk chunk) => IOBTaggedSentence pos -> Either Error (ChunkedSentence pos chunk)
+parseToChunkedSentence (IOBTaggedSentence tSent iobAnns) = do
+  let startIndexes = findIndices isBTag iobAnns
+  annotations <- mapM (mkChunkAnnotation tSent iobAnns) startIndexes
+  return ChunkedSentence { chunkTagSentence = tSent
+                         , chunkAnnotations = annotations
+                         }
+
+mkChunkAnnotation :: (Chunk chunk, POS pos)
+                  => TaggedSentence pos
+                  -> [Annotation (TaggedSentence pos) IOB]
+                  -> Int
+                  -> Either Error (Annotation (TaggedSentence pos) chunk)
+mkChunkAnnotation tSent iobAnns idx = do
+  let (ann:anns) = drop idx iobAnns
+
+  theChunk <- iobAnn2Chunk ann
+  return Annotation { startIdx = Index idx
+                  , len = 1 + (length $ takeWhile isITag anns)
+                  , value = theChunk
+                  , payload = tSent }
+
+
+-- | True if the annotation contains a Beginning ('B-') IOB tag.
+isBTag :: POS pos => Annotation (TaggedSentence pos) IOB -> Bool
+isBTag ann = case value ann of
+               B _ -> True
+               _   -> False
+
+-- | True if the annotation is an inner ('I-') IOB tag.
+isITag :: POS pos => Annotation (TaggedSentence pos) IOB -> Bool
+isITag ann = case value ann of
+               I _ -> True
+               _   -> False
+
+-- | Convert an IOB annotation into a Chunk
+iobAnn2Chunk :: (POS pos, Chunk chunk) => Annotation (TaggedSentence pos) IOB -> Either Error chunk
+iobAnn2Chunk ann = do
+  iobTxt <- case value ann of
+              B txt -> Right txt
+              I txt -> Right txt
+              O     -> Left "Outside of a chunk"
+  parseChunk iobTxt
+
 -- | Parse an IOB-tagged corpus into intermediate tagged sentences
 -- that are ready for additional parsing into 'ChunkedSentences'
 -- or 'NERedSentences'
@@ -91,7 +142,7 @@ parseIOB ann = do
                                              , payload = realTokSent }) [1..] posTags
                                }
       iobSent = IOBTaggedSentence { iobTagSentence = tagSent
-                                  , iobAnnotations =  zipWith
+                                  , iobAnnotations = zipWith
                                     (\x iob -> Annotation {
                                                startIdx = Index x
                                              , len = 1
@@ -133,7 +184,7 @@ parseIOBSentences input = reverse $ addLast $ T.foldl' fn emptyAcc input
     emptyAcc = (0, '\n', [], [])
 
     addLast :: (Int, Char, [Char], [Annotation Text Token]) -> [Annotation Text Token]
-    addLast (idx, _, _, acc) = (mkAnnotation idx (T.unpack $ T.drop idx input)):acc
+    addLast (idx, _, tok, acc) = (mkAnnotation (idx - length tok) (reverse tok)):acc
 
     fn :: (Int, Char, [Char], [Annotation Text Token])
        -> Char
@@ -141,7 +192,7 @@ parseIOBSentences input = reverse $ addLast $ T.foldl' fn emptyAcc input
     fn (idx, lChar, tok, acc) char | char == '\n' && lChar == '\n' =
                                      case tok of -- end of a token; if we have characters, create new one.
                                        [] -> (idx + 1, char, [], acc)
-                                       cs -> (idx + 1, char, [], (mkAnnotation (idx - length cs) $ reverse tok):acc)
+                                       cs -> (idx + 1, char, [], (mkAnnotation (idx - length cs) $ reverse cs):acc)
                                    | otherwise = (idx + 1, char, char:tok, acc)
 
     mkAnnotation :: Int -> [Char] -> Annotation Text Token
@@ -188,8 +239,6 @@ iobBuilder iobTxt | "I-" `T.isPrefixOf` iobTxt = Right (I $ T.drop 2 iobTxt)
 
 -- parseSentence :: (ChunkTag chunk, Tag tag) => [Text] -> Either Error [IOBChunk chunk tag]
 -- parseSentence input = sequence (map parseIOBLine input)
-
-
 
 -- -- | Just split a body of text into lines, and then into "paragraphs".
 -- -- Each resulting sub list is separated by empty lines in the original text.

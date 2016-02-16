@@ -13,6 +13,7 @@ import Test.QuickCheck (Arbitrary(..))
 import Test.QuickCheck.Gen (Gen(..), infiniteListOf, elements, suchThat)
 
 import NLP.Types
+import NLP.Types.IOB
 import NLP.Tokenize (runTokenizer, whitespace)
 
 -- import Debug.Trace
@@ -131,3 +132,9 @@ mkIndexes start = do
   l <- arbitrary `suchThat` (0 <)
   rest <- mkIndexes (start + l)
   return ((start, l):rest)
+
+instance Arbitrary IOB where
+  arbitrary = do
+    constructor <- elements [I, B, \_-> O ]
+    tok <- arbitraryText
+    return $ constructor tok

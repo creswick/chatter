@@ -69,29 +69,18 @@ module NLP.Types.Annotations where
 
 import GHC.Generics
 import Data.Hashable (Hashable)
-import Data.List (foldl', group)
-import Data.Map (Map)
-import qualified Data.Map as Map
-import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
-import Data.Serialize (Serialize)
-import Data.String (IsString(..))
 import Data.Text (Text)
 import qualified Data.Text as T
-import Safe (headMay, lastMay)
-import Text.Read (readEither)
 
-import Text.PrettyPrint (hsep, text)
-import Text.PrettyPrint.HughesPJClass (Pretty(..))
 import qualified Text.PrettyPrint.HughesPJClass as HPJ
-import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
-import Test.QuickCheck.Instances ()
+-- import Test.QuickCheck.Instances ()
 
-import NLP.Types.General (toEitherErr, Error)
+-- import NLP.Types.General (toEitherErr, Error)
 import NLP.Types.Classes
 
 -- | Convert a pretty-printable value into a text string.
-prettyShow :: Pretty p => p -> Text
+prettyShow :: HPJ.Pretty p => p -> Text
 prettyShow = T.pack . HPJ.prettyShow
 
 -- | Annotations are the base of all tags (POS tags, Chunks, marked

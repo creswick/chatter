@@ -11,24 +11,15 @@ where
 import GHC.Generics
 import Data.Hashable (Hashable)
 import Data.List (foldl')
-import Data.Map (Map)
-import qualified Data.Map as Map
-import Data.Maybe (mapMaybe)
-import Data.Monoid ((<>))
-import Data.Serialize (Serialize)
 import Data.String (IsString(..))
 import Data.Text (Text)
 import qualified Data.Text as T
-import Safe (headMay, lastMay)
-import Text.Read (readEither)
 
-import Text.PrettyPrint (hsep, text)
+import Text.PrettyPrint (text)
 import Text.PrettyPrint.HughesPJClass (Pretty(..))
-import qualified Text.PrettyPrint.HughesPJClass as HPJ
 import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
 import Test.QuickCheck.Instances ()
 
-import NLP.Types.General
 import NLP.Types.Annotations
 import NLP.Types.Classes
 
@@ -77,7 +68,7 @@ instance IsString Token where
   fromString = Token . T.pack
 
 instance HasMarkup Token where
-  getMarkup ann = ("","")
+  getMarkup _ = ("","")
 
 -- | Extract the last three characters of a 'Token', if the token is
 -- long enough, otherwise returns the full token text.

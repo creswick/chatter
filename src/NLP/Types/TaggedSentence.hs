@@ -13,20 +13,14 @@ import Data.List (foldl')
 import qualified Data.Map as Map
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
-import Data.Serialize (Serialize)
-import Data.String (IsString(..))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Safe (headMay, lastMay)
-import Text.Read (readEither)
 
-import Text.PrettyPrint (hsep, text)
+import Text.PrettyPrint (text)
 import Text.PrettyPrint.HughesPJClass (Pretty(..))
-import qualified Text.PrettyPrint.HughesPJClass as HPJ
-import Test.QuickCheck (Arbitrary(..), NonEmptyList(..))
-import Test.QuickCheck.Instances ()
+-- import Test.QuickCheck.Instances ()
 
-import NLP.Types.General
 import NLP.Types.Annotations
 import NLP.Types.TokenizedSentence
 import NLP.Types.Classes
@@ -46,16 +40,18 @@ instance AnnotatedText (Annotation TokenizedSentence tag) where
   getText theAnn = T.intercalate " " $ map getText $ project theAnn
     where
       -- | Create an annotation that is over a lower-level version of a sequence of annotations.
+      -- TODO This notion of projecting is flawed, because this isn't a one-to-one mapping.  It's
+      -- at best a one-to-many, so the type should be:
+      -- >>>  project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
       project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
       project ann = let -- The index of the first (Annotation Text ann):
                         startTokIdx = fromIndex $ startIdx ann
-                        endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
 
                         -- the list of tokens that this annotation ranges over.
-                        tokens = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
+                        toks = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
 
                         newAnnotation tokAnn = tokAnn { value = value ann }
-                    in map newAnnotation tokens
+                    in map newAnnotation toks
 
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
   pPrint (TaggedSentence toSent@(TokenizedSentence ts toks) anns) = text (T.unpack toStr)

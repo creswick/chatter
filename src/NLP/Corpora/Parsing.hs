@@ -47,8 +47,8 @@ readPOS str = applyTags tokenizedSentence (map snd tagPairs)
 --  - POSTag ("/"someChar+)
 --  - ignore whitespace
 --
-readChunk :: (Chunk chunk, POS pos) => Text -> ChunkedSentence pos chunk
-readChunk str = undefined
+readChunk :: (Chunk chunk, POS pos) => Text -> Either Error (ChunkedSentence pos chunk)
+readChunk str = parseChunkedSentence str
 
 -- | Read a standard POS-tagged corpus with one sentence per line, and
 -- one POS tag after each token.

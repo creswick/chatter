@@ -219,17 +219,22 @@ test-suite tests
 
    Other-modules:    AvgPerceptronTests
                      BackoffTaggerTests
-                     NLP.Similarity.VectorSimTests
-                     NLP.POSTests
-                     NLP.POS.UnambiguousTaggerTests
-                     NLP.Extraction.ParsecTests
-                     NLP.TypesTests
-                     NLP.Types.AnnotationTests
-                     NLP.TokenizeTests
-                     Data.DefaultMapTests
                      Corpora
-                     TestUtils
+                     Data.DefaultMapTests
                      IntegrationTests
+                     NLP.Chunk.AvgPerceptronChunkerTests
+                     NLP.Corpora.BrownTests
+                     NLP.Corpora.ConllTests
+                     NLP.Extraction.ParsecTests
+                     NLP.Parsing.ChunkedSentenceScannerTests
+                     NLP.POS.LiteralTaggerTests
+                     NLP.POS.UnambiguousTaggerTests
+                     NLP.POSTests
+                     NLP.Similarity.VectorSimTests
+                     NLP.TokenizeTests
+                     NLP.Types.AnnotationTests
+                     NLP.TypesTests
+                     TestUtils
 
    Build-depends:    chatter,
                      base       >= 4.6 && <= 6,

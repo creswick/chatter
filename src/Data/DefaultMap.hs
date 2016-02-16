@@ -4,7 +4,6 @@ module Data.DefaultMap
 where
 
 import Prelude hiding (lookup)
-import Control.Applicative ((<$>), (<*>))
 import Test.QuickCheck (Arbitrary(..))
 import Control.DeepSeq (NFData(..), deepseq)
 import qualified Data.HashSet as S

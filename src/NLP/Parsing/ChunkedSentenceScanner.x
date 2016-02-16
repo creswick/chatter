@@ -27,7 +27,7 @@ data Lexeme = ChunkStart Int String
             | ChunkEnd Int
             | Pos Int String
             | Tok Int String
-	deriving (Eq,Show)
+  deriving (Eq,Show)
 
 -- | Extract the absolute character offset from a 'Lexeme'.
 lexPos :: Lexeme -> Int

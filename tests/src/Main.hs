@@ -15,7 +15,7 @@ import NLP.Types (safeParsePOS, RawTag(..))
 import qualified AvgPerceptronTests as APT
 import qualified BackoffTaggerTests as Backoff
 import qualified Data.DefaultMapTests as DefMap
--- import qualified IntegrationTests as IT
+import qualified IntegrationTests as IT
 import qualified NLP.Corpora.BrownTests as Brown
 import qualified NLP.Corpora.ConllTests as Conll
 -- import qualified NLP.Extraction.ParsecTests as Parsec
@@ -25,9 +25,9 @@ import qualified NLP.POSTests as POS
 import qualified NLP.Similarity.VectorSimTests as Vec
 import qualified NLP.TypesTests as TypeTests
 import qualified NLP.Types.AnnotationTests as AnnT
--- import qualified NLP.Types.IOBTests as IOB
+import qualified NLP.Types.IOBTests as IOB
 -- import qualified NLP.Types.TreeTests as Tree
--- import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
+import qualified NLP.Chunk.AvgPerceptronChunkerTests as APC
 import qualified NLP.TokenizeTests as Tok
 import qualified NLP.Parsing.ChunkedSentenceScannerTests as CLEX
 
@@ -49,14 +49,14 @@ tests = testGroup "Tests"
         , AnnT.tests
         , UT.tests
         , LT.tests
-        -- , TypeTests.tests
+        , TypeTests.tests
         , DefMap.tests
 -- todo        , Parsec.tests
--- todo       , IT.tests
-        -- , Brown.tests
-        -- , Conll.tests
--- todo       , IOB.tests
---        , APC.tests
+        , IT.tests
+        , Brown.tests
+        , Conll.tests
+        , IOB.tests
+        , APC.tests
 -- todo       , Tree.tests
         , Tok.tests
         , CLEX.tests

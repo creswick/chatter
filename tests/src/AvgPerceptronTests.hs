@@ -1,7 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 module AvgPerceptronTests where
 
-import Control.Applicative ((<$>))
 import Test.QuickCheck ( Arbitrary(..), (==>), Property )
 import Test.QuickCheck.Instances ()
 import Test.Tasty (TestTree, testGroup)

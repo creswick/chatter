@@ -186,10 +186,10 @@ prop_chunkedSentence_roundtrip_brown ts = let expected = normalizeWS $ prettySho
                                               normalizeWS :: Text -> Text
                                               normalizeWS = T.unwords . T.words
 
-                                              structured :: ChunkedSentence B.Tag B.Chunk
+                                              structured :: Either Error (ChunkedSentence B.Tag B.Chunk)
                                               structured = readChunk expected
-                                              actual = prettyShow structured
-                                          in expected == actual
+                                              actual = prettyShow `fmap` structured
+                                          in (Right expected) == actual
 
 prop_corpusSerialize :: Corpus -> Bool
 prop_corpusSerialize c = case (decode . encode) c of
