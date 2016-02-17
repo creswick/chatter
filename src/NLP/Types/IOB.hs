@@ -123,8 +123,6 @@ parseIOB :: POS pos => Annotation Text Token -> Either Error (IOBTaggedSentence 
 parseIOB ann = do
   -- Get the tokens: This should result in a TokenizedSentence with 3*n annotations.
   let tokSent = runTokenizer whitespace $ getText ann -- was rawTokSent
-      -- tokSent = rawTokSent { tokAnnotations = map (offsetAnnotations (fromIndex $ startIdx ann)) (tokAnnotations rawTokSent)
-      --                      }
   triples <- resolveTriples (tokAnnotations tokSent) []
   let realTokens = [x | (x,_,_) <- triples]
       posTags = [y | (_,y,_) <- triples]
@@ -138,7 +136,7 @@ parseIOB ann = do
                                                startIdx = Index x
                                              , len = 1
                                              , value = pos
-                                             , payload = realTokSent }) [1..] posTags
+                                             , payload = realTokSent }) [0..] posTags
                                }
       iobSent = IOBTaggedSentence { iobTagSentence = tagSent
                                   , iobAnnotations = zipWith
@@ -206,54 +204,3 @@ iobBuilder iobTxt | "I-" `T.isPrefixOf` iobTxt = Right (I $ T.drop 2 iobTxt)
                   | "B-" `T.isPrefixOf` iobTxt = Right (B $ T.drop 2 iobTxt)
                   | "O"  `T.isPrefixOf` iobTxt = Right O
                   | otherwise                  = Left ("Could not parse IOB text: \""<>iobTxt<>"\"")
-
--- -- | Turn an IOB result into a tree.
--- toChunkTree :: (ChunkTag c, Tag t) => [IOBChunk c t] -> ChunkedSentence c t
--- toChunkTree chunks = ChunkedSent $ toChunkOr chunks
-
---   where
---     toChunkOr :: (ChunkTag c, Tag t) => [IOBChunk c t] -> [ChunkOr c t]
---     toChunkOr [] = []
---     toChunkOr ((OChunk pos):rest)       = POS_CN pos : toChunkOr rest
---     toChunkOr (ch:rest) = case ch of
---       (BChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
---       (IChunk pos chunk) -> (Chunk_CN (Chunk chunk children)) : toChunkOr theTail
---       where
---         (ichunks, theTail) = span isIChunk rest
-
---         toPOScn (IChunk pos _) = Just $ POS_CN pos
---         toPOScn _              = Nothing
-
---     --    children :: [ChunkOr c t]
---         children = mapMaybe toPOScn ichunks
-
---         isIChunk (IChunk _ _) = True
---         isIChunk _            = False
-
--- -- | Parse an IOB-encoded corpus.
--- parseIOB :: (ChunkTag chunk, Tag tag) => Text -> Either Error [[IOBChunk chunk tag]]
--- parseIOB corpora =
---   let sentences = getSentences corpora
---   in sequence $ map parseSentence sentences
-
--- parseSentence :: (ChunkTag chunk, Tag tag) => [Text] -> Either Error [IOBChunk chunk tag]
--- parseSentence input = sequence (map parseIOBLine input)
-
--- -- | Just split a body of text into lines, and then into "paragraphs".
--- -- Each resulting sub list is separated by empty lines in the original text.
--- --
--- -- e.g.;
--- -- > > getSentences "He\njumped\n.\n\nShe\njumped\n."
--- -- > [["He", "jumped", "."], ["She","jumped", "."]]
--- --
--- getSentences :: Text -> [[Text]]
--- getSentences corpora =
---   let theLines = map T.strip $ T.lines corpora
-
---       sentences :: [Text] -> [[Text]]
---       sentences []      = []
---       sentences ("":xs) = sentences xs
---       sentences input   = let (sent, rest) = break (== T.empty) input
---                           in (sent:sentences rest)
-
---   in sentences theLines
