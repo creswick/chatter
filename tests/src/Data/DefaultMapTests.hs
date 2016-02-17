@@ -1,5 +1,6 @@
 module Data.DefaultMapTests where
 
+import Control.Applicative ((<$>), (<*>))
 import qualified Data.HashSet as S
 import qualified Data.Text as T
 import Test.QuickCheck.Instances ()
