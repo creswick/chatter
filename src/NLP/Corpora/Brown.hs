@@ -12,7 +12,6 @@ import Data.Hashable (Hashable)
 import Data.Serialize (Serialize)
 import qualified Data.Text as T
 import Data.Text (Text)
-import Text.Read (readEither)
 import Test.QuickCheck.Arbitrary (Arbitrary(..))
 import Test.QuickCheck.Gen (elements)
 
@@ -69,7 +68,7 @@ parseBrownTag "." = Right Term
 parseBrownTag ":" = Right Colon
 parseBrownTag txt =
   let normalized = replaceAll tagTxtPatterns (T.toUpper txt)
-  in toEitherErr (readEither $ T.unpack normalized)
+  in readEitherVerb normalized
 
 
 -- | Order matters here: The patterns are replaced in reverse order
@@ -99,7 +98,7 @@ replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
 instance T.Chunk Chunk where
   serializeChunk = T.pack . show
-  parseChunk txt = toEitherErr $ readEither (T.unpack $ T.append "C_" txt)
+  parseChunk txt = readEitherVerb (T.append "C_" txt)
   notChunk = C_O
 
 data Tag = START -- ^ START tag, used in training.

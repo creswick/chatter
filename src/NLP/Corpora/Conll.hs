@@ -9,7 +9,6 @@ import Data.Hashable (Hashable)
 import Data.Serialize (Serialize)
 import qualified Data.Text as T
 import Data.Text (Text)
-import Text.Read (readEither)
 import Test.QuickCheck.Arbitrary (Arbitrary(..))
 import Test.QuickCheck.Gen (elements)
 
@@ -93,7 +92,8 @@ readTag "." = Right Term
 readTag ":" = Right Colon
 readTag txt =
   let normalized = replaceAll tagTxtPatterns (T.toUpper txt)
-  in toEitherErr (readEither $ T.unpack normalized)
+  in readEitherVerb normalized
+
 
 -- | Order matters here: The patterns are replaced in reverse order
 -- when generating tags, and in top-to-bottom when generating tags.
@@ -121,7 +121,7 @@ replaceAll patterns = foldl (.) id (map (uncurry T.replace) patterns)
 
 instance T.Chunk Chunk where
   serializeChunk = T.pack . show
-  parseChunk txt = toEitherErr $ readEither $ T.unpack txt
+  parseChunk txt = readEitherVerb txt
   notChunk = O
 
 -- | These tags may actually be the Penn Treebank tags.  But I have

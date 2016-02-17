@@ -7,6 +7,7 @@ import Data.Serialize (Serialize)
 import Data.Text (Text)
 import qualified Data.Text as T
 import GHC.Generics
+import Text.Read (readEither)
 
 import Test.QuickCheck (Arbitrary(..), elements)
 
@@ -25,3 +26,8 @@ data CaseSensitive = Sensitive | Insensitive
 instance Serialize CaseSensitive
 instance Arbitrary CaseSensitive where
   arbitrary = elements [Sensitive, Insensitive]
+
+readEitherVerb :: Read a => Text -> Either Error a
+readEitherVerb txt = case readEither $ T.unpack txt of
+                       Right val -> Right val
+                       Left  err -> Left (T.pack ("Could not parse '"++T.unpack txt++"': "++err))

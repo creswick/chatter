@@ -122,10 +122,9 @@ parse input = mapM parseIOB $ parseIOBSentences input
 parseIOB :: POS pos => Annotation Text Token -> Either Error (IOBTaggedSentence pos)
 parseIOB ann = do
   -- Get the tokens: This should result in a TokenizedSentence with 3*n annotations.
-  let rawTokSent = runTokenizer whitespace $ getText ann
-      tokSent = rawTokSent {
-                  tokAnnotations = map (offsetAnnotations (fromIndex $ startIdx ann)) (tokAnnotations rawTokSent)
-                }
+  let tokSent = runTokenizer whitespace $ getText ann -- was rawTokSent
+      -- tokSent = rawTokSent { tokAnnotations = map (offsetAnnotations (fromIndex $ startIdx ann)) (tokAnnotations rawTokSent)
+      --                      }
   triples <- resolveTriples (tokAnnotations tokSent) []
   let realTokens = [x | (x,_,_) <- triples]
       posTags = [y | (_,y,_) <- triples]
@@ -161,11 +160,11 @@ resolveTriples (tok:rawPos:rawIOB:rest) acc = do
   iob <- iobBuilder $ getText rawIOB
   recurse <- resolveTriples rest acc
   return ((tok, pos, iob):recurse)
-resolveTriples cruft _ = Left ("Could not parse IOB tripple from: \"" <> (T.pack $ show cruft) <> "\"")
+resolveTriples cruft _ = Left ("Could not parse IOB triple from: \"" <> (T.pack $ show cruft) <> "\"")
 
 
 -- | Shift an annotation by a given distance.
-offsetAnnotations :: Int -> Annotation a b -> Annotation a b
+offsetAnnotations :: Int -> Annotation Text b -> Annotation Text b
 offsetAnnotations offset ann =
   ann { startIdx = Index (offset + (fromIndex $ startIdx ann))
       }
