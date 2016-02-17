@@ -68,7 +68,7 @@ import           Test.QuickCheck.Gen            (elements)
 
 import           NLP.Chunk                      (train, loadChunker)
 import           NLP.Chunk.AvgPerceptronChunker (Chunker(..), mkChunker)
-import qualified NLP.Corpora.Conll as Conll
+import qualified NLP.Corpora.Conll as C
 import           NLP.ML.AvgPerceptron           ( emptyPerceptron )
 import           NLP.Types.IOB hiding           (parseIOB)
 import           NLP.Types.General              (Error, toEitherErr)
@@ -76,7 +76,7 @@ import           NLP.Types.Tags
 
 import           Paths_chatter
 
-parseWikiNer :: Text -> Either Error [[IOBChunk Chunk Conll.Tag]]
+parseWikiNer :: Text -> Either Error [[IOBChunk Chunk C.Tag]]
 parseWikiNer = parseIOB
 
 -- | Convert wikiNer format to basic IOB (one token perline, space
@@ -103,7 +103,7 @@ instance ChunkTag Chunk where
   parseChunk txt = toEitherErr $ readEither (T.unpack txt)
   notChunk = C_O
 
-wikiNerChunker :: IO (Chunker Chunk Conll.Tag)
+wikiNerChunker :: IO (Chunker Chunk C.Tag)
 wikiNerChunker = do
   dir <- getDataDir
   loadChunker (dir </> "data" </> "models" </> "wikiner.ner.model.gz")
@@ -114,7 +114,7 @@ toIOBLines :: Text -> [Text]
 toIOBLines sent = map (T.replace "|" " ") (T.words sent)
 
 -- | Train a chunker on a provided corpus.
-trainChunker :: [FilePath] -> IO (Chunker Chunk Conll.Tag)
+trainChunker :: [FilePath] -> IO (Chunker Chunk C.Tag)
 trainChunker corpora = do
   content <- mapM T.readFile corpora
 
@@ -122,7 +122,7 @@ trainChunker corpora = do
 
       eiobs = parseWikiNer trainingText
 
-      chunker :: Chunker Chunk Conll.Tag
+      chunker :: Chunker Chunk C.Tag
       chunker = mkChunker emptyPerceptron
 
   case eiobs of

@@ -5,6 +5,7 @@ where
 
 import Prelude hiding (lookup)
 import Test.QuickCheck (Arbitrary(..))
+import Control.Applicative ((<$>), (<*>))
 import Control.DeepSeq (NFData(..), deepseq)
 import qualified Data.HashSet as S
 import Data.Hashable

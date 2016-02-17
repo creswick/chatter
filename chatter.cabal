@@ -86,6 +86,7 @@ Library
                      NLP.Extraction.Parsec
                      -- NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
+--   Experiments:
 --                     Data.TagTree
 
    Build-depends:    base           >= 4.6 && <= 6,
