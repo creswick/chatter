@@ -8,7 +8,7 @@ import System.Environment (getArgs)
 
 import NLP.Corpora.Parsing
 import NLP.POS (eval, loadTagger)
-import NLP.Types (POSTagger, unTS)
+import NLP.Types (POSTagger, tsLength)
 import qualified NLP.Corpora.Brown as B
 
 main :: IO ()
@@ -23,4 +23,4 @@ main = do
   let taggedCorpora = map readPOS $ concatMap T.lines $ rawCorpus
       result = eval tagger taggedCorpora
   putStrLn ("Result: " ++ show result)
-  putStrLn ("Tokens tagged: "++(show $ length $ concatMap unTS taggedCorpora))
+  putStrLn ("Tokens tagged: "++(show $ sum $ map tsLength taggedCorpora))

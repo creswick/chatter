@@ -111,4 +111,3 @@ class AnnotatedText sentence where
 
 instance AnnotatedText Text where
   getText = id
-

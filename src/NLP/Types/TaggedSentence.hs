@@ -2,8 +2,16 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 module NLP.Types.TaggedSentence
-
+  ( TaggedSentence(..)
+  , tsLength
+  , tsToPairs
+  , applyTags
+  , getTags
+  , unapplyTags
+  , tagInsertions
+  )
 where
 
 import GHC.Generics
@@ -36,25 +44,8 @@ instance Hashable pos => Hashable (TaggedSentence pos)
 instance AnnotatedText (TaggedSentence pos) where
   getText = getText . tagTokSentence
 
-instance AnnotatedText (Annotation TokenizedSentence tag) where
-  getText theAnn = T.intercalate " " $ map getText $ project theAnn
-    where
-      -- | Create an annotation that is over a lower-level version of a sequence of annotations.
-      -- TODO This notion of projecting is flawed, because this isn't a one-to-one mapping.  It's
-      -- at best a one-to-many, so the type should be:
-      -- >>>  project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
-      project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
-      project ann = let -- The index of the first (Annotation Text ann):
-                        startTokIdx = fromIndex $ startIdx ann
-
-                        -- the list of tokens that this annotation ranges over.
-                        toks = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
-
-                        newAnnotation tokAnn = tokAnn { value = value ann }
-                    in map newAnnotation toks
-
 instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
-  pPrint (TaggedSentence toSent@(TokenizedSentence ts toks) anns) = text (T.unpack toStr)
+  pPrint (TaggedSentence (TokenizedSentence _ toks) anns) = text (T.unpack toStr)
     where
       toStr :: Text
       toStr = T.intercalate " " $ zipWith pickEntry (map getText toks) [0..]
@@ -66,24 +57,44 @@ instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
 
       insertions = tagInsertions Map.empty anns
 
+instance AnnotatedText (Annotation TokenizedSentence tag) where
+  getText theAnn = T.intercalate " " $ map getText $ project theAnn
+    where
+      -- | Create an annotation that is over a lower-level version of a sequence of annotations.
+      project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
+      project ann = let -- The index of the first (Annotation Text ann):
+                        startTokIdx = fromIndex $ startIdx ann
+
+                        -- the list of tokens that this annotation ranges over.
+                        toks = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
+
+                        newAnnotation tokAnn = tokAnn { value = value ann }
+                    in map newAnnotation toks
+
+-- | INTERNAL
+--
+-- This is used by the ChunkedSentence pretty printer, so it's exposed.
+--
+-- It generates the list of offsets where something needs to be
+-- inserted to mark out POS tags when serializing for pretty printing.
 tagInsertions :: (POS pos, HasMarkup pos)
               => Map Int Text -> [Annotation TokenizedSentence pos] -> Map Int Text
 tagInsertions initMap anns = foldl' mkInsertions initMap anns
   where
     mkInsertions :: (POS pos, HasMarkup pos)
                  => Map Int Text -> Annotation TokenizedSentence pos -> Map Int Text
-    mkInsertions theMap ann@(Annotation (Index startIdx) annLen pos (TokenizedSentence txt toks)) =
+    mkInsertions theMap ann@(Annotation (Index sIdx) annLen _pos (TokenizedSentence _txt toks)) =
       let (pfx, sfx) = getAnnotationMarkup ann
-          startTok = getText (toks !! startIdx)
+          startTok = getText (toks !! sIdx)
 
-          endIdx = (startIdx + annLen) - 1
+          endIdx = (sIdx + annLen) - 1
           endTok = getText (toks !! endIdx)
 
       -- These insertWith's bear a bit of explaining:
       --   They insert a full token (prefix + token) or (token + suffix), if nothing
       -- is in the map at that index yet.  If there *is* something there, then the token
       -- part doesn't need repeating, so we just prepend or append the prefix or suffix.
-      in Map.insertWith (\_ old -> (T.pack pfx) <> old) startIdx (T.pack pfx <> startTok)
+      in Map.insertWith (\_ old -> (T.pack pfx) <> old) sIdx (T.pack pfx <> startTok)
            (Map.insertWith (\_ old -> old <> (T.pack sfx)) endIdx (endTok <> T.pack sfx) theMap)
 
 -- | Count the length of the tokens of a 'TaggedSentence'.
