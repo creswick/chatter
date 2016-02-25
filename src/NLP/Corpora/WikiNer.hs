@@ -70,9 +70,8 @@ import           NLP.Chunk                      (train, loadChunker)
 import           NLP.Chunk.AvgPerceptronChunker (Chunker(..), mkChunker)
 import qualified NLP.Corpora.Conll as C
 import           NLP.ML.AvgPerceptron           ( emptyPerceptron )
-import           NLP.Types.IOB hiding           (parseIOB)
-import           NLP.Types.General              (Error, toEitherErr)
-import           NLP.Types.Tags
+
+import qualified NLP.Types as T
 
 import           Paths_chatter
 
@@ -81,29 +80,29 @@ parseWikiNer = parseIOB
 
 -- | Convert wikiNer format to basic IOB (one token perline, space
 -- separated tags, and a blank line between each sentence)
-parseIOB :: (ChunkTag chunk, Tag tag) => Text -> Either Error [[IOBChunk chunk tag]]
+parseIOB :: (T.Chunk chunk, Tag tag) => Text -> Either Error [[IOBChunk chunk tag]]
 parseIOB input = sequence $ map (parseSentence . toIOBLines) (filter (/="") $ T.lines input)
 
 -- | Different classes of Named Entity used in the WikiNER data set.
-data Chunk = LOC
-           | MISC
-           | ORG
-           | PER
-           | C_O -- ^ "out" not a chunk.
-             deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
+data NERTag = LOC
+            | MISC
+            | ORG
+            | PER
+            | C_O -- ^ "out" not a chunk.
+              deriving (Read, Show, Ord, Eq, Generic, Enum, Bounded)
 
 
-instance Arbitrary Chunk where
+instance Arbitrary NERTag where
   arbitrary = elements [minBound ..]
 
-instance Serialize Chunk
+instance Serialize NERTag
 
-instance ChunkTag Chunk where
+instance Chunk NERTag where
   fromChunk = T.pack . show
   parseChunk txt = toEitherErr $ readEither (T.unpack txt)
   notChunk = C_O
 
-wikiNerChunker :: IO (Chunker Chunk C.Tag)
+wikiNerChunker :: IO (Chunker C.Tag NERTag)
 wikiNerChunker = do
   dir <- getDataDir
   loadChunker (dir </> "data" </> "models" </> "wikiner.ner.model.gz")
@@ -114,7 +113,7 @@ toIOBLines :: Text -> [Text]
 toIOBLines sent = map (T.replace "|" " ") (T.words sent)
 
 -- | Train a chunker on a provided corpus.
-trainChunker :: [FilePath] -> IO (Chunker Chunk C.Tag)
+trainChunker :: [FilePath] -> IO (Chunker C.Tag NERTag)
 trainChunker corpora = do
   content <- mapM T.readFile corpora
 
@@ -122,7 +121,7 @@ trainChunker corpora = do
 
       eiobs = parseWikiNer trainingText
 
-      chunker :: Chunker Chunk C.Tag
+      chunker :: Chunker C.Tag NERTag
       chunker = mkChunker emptyPerceptron
 
   case eiobs of

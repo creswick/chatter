@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module ChunkTrainer where
 
+import Control.Applicative ((<$>))
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import System.Environment (getArgs)
@@ -18,14 +19,14 @@ main = do
   let output = last args
       corpora = init args
 
-      avgPerChunker :: Avg.Chunker C.Chunk C.Tag
+      avgPerChunker :: Avg.Chunker C.Tag C.Chunk
       avgPerChunker = Avg.mkChunker emptyPerceptron
 
-  rawCorpus <- mapM T.readFile corpora
-  let eChunkedCorpora = parseIOB $ T.concat rawCorpus
-  case eChunkedCorpora of
-    Left err -> T.putStrLn err
+  rawCorpus <- T.concat <$> mapM T.readFile corpora
+  let eChunkedSentences = parseToChunkedSentences rawCorpus
+  case eChunkedSentences of
+    Left             err -> T.putStrLn err
     Right chunkedCorpora -> do
-      chunker <- train avgPerChunker $ map toChunkTree chunkedCorpora
+      chunker <- train avgPerChunker chunkedCorpora
       saveChunker chunker output
 
