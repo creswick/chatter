@@ -71,7 +71,6 @@ Library
                      NLP.Types.General
                      NLP.Types.IOB
                      NLP.Types.Tags
---                     NLP.Types.Tree
                      NLP.Tokenize.Annotations
                      NLP.Tokenize.Types
                      NLP.Tokenize
