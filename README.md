@@ -6,3 +6,4 @@ API Documentation is best viewed on Hackage: http://hackage.haskell.org/package/
 # Stack build on Windows
 
 > stack build --install-ghc
+
