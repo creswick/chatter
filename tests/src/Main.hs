@@ -18,7 +18,7 @@ import qualified Data.DefaultMapTests as DefMap
 import qualified IntegrationTests as IT
 import qualified NLP.Corpora.BrownTests as Brown
 import qualified NLP.Corpora.ConllTests as Conll
--- import qualified NLP.Extraction.ParsecTests as Parsec
+import qualified NLP.Extraction.ParsecTests as Parsec
 import qualified NLP.POS.UnambiguousTaggerTests as UT
 import qualified NLP.POS.LiteralTaggerTests as LT
 import qualified NLP.POSTests as POS
@@ -50,7 +50,7 @@ tests = testGroup "Tests"
         , LT.tests
         , TypeTests.tests
         , DefMap.tests
--- todo        , Parsec.tests
+        , Parsec.tests
         , IT.tests
         , Brown.tests
         , Conll.tests

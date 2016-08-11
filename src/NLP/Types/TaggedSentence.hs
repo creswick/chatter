@@ -57,19 +57,21 @@ instance (POS pos, HasMarkup pos) => Pretty (TaggedSentence pos) where
 
       insertions = tagInsertions Map.empty anns
 
-instance AnnotatedText (Annotation TokenizedSentence tag) where
-  getText theAnn = T.intercalate " " $ map getText $ project theAnn
-    where
       -- | Create an annotation that is over a lower-level version of a sequence of annotations.
-      project :: Annotation TokenizedSentence ann -> [Annotation Text ann]
-      project ann = let -- The index of the first (Annotation Text ann):
-                        startTokIdx = fromIndex $ startIdx ann
+projectTokenized :: Annotation TokenizedSentence ann -> [Annotation Text ann]
+projectTokenized ann =
+  let -- The index of the first (Annotation Text ann):
+      startTokIdx = fromIndex $ startIdx ann
 
-                        -- the list of tokens that this annotation ranges over.
-                        toks = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
+      -- the list of tokens that this annotation ranges over.
+      toks = take (len ann) $ drop startTokIdx $ tokAnnotations $ payload ann
 
-                        newAnnotation tokAnn = tokAnn { value = value ann }
-                    in map newAnnotation toks
+      newAnnotation tokAnn = tokAnn { value = value ann }
+  in map newAnnotation toks
+
+
+instance AnnotatedText (Annotation TokenizedSentence tag) where
+  getText theAnn = T.intercalate " " $ map getText $ projectTokenized theAnn
 
 -- | INTERNAL
 --

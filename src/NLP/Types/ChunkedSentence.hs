@@ -215,32 +215,22 @@ fromChunkedSentence chunkedSent =
 instance AnnotatedText (ChunkedSentence pos chunk) where
   getText = getText . chunkTagSentence
 
+-- | Create an annotation that is over a lower-level version of a sequence of annotations.
+projectTagged :: Annotation (TaggedSentence pos) ann -> [Annotation TokenizedSentence ann]
+projectTagged ann =
+  let tokens = tagAnnotations $ payload ann
+
+      -- The index of the first (Annotation TokenizedSentence ann):
+      startTokIdx = fromIndex $ startIdx ann
+      -- the list of tokens that this annotation ranges over:
+      toks = take (len ann) $ drop startTokIdx $ tagAnnotations $ payload ann
+
+      newAnnotation tokAnn = tokAnn { value = value ann }
+  in map newAnnotation toks
+
+
 instance AnnotatedText (Annotation (TaggedSentence pos) chunk) where
-  getText = getText . project
-    where
-      -- | Create an annotation that is over a lower-level version of a sequence of annotations.
-            -- TODO This notion of projecting is flawed, because this isn't a one-to-one mapping.  It's
-      -- at best a one-to-many, so the type should be:
-      -- >>>  project :: Annotation TaggedSentence ann -> [Annotation TokenizedSentence ann]
-      project :: Annotation (TaggedSentence pos) ann -> Annotation TokenizedSentence ann
-      project ann = let tokens = tagAnnotations $ payload ann
-
-                        -- The index of the first (Annotation TokenizedSentence ann):
-                        startTokIdx = fromIndex $ startIdx ann
-
-                        -- The first (Annotation TokenizedSentence ann):
-                        startTok = tokens !! startTokIdx
-                        endTokIdx = (fromIndex $ startIdx ann) + ((len ann) - 1)
-                        endTok = tokens !! endTokIdx
-
-                        startix = fromIndex $ startIdx startTok
-                        endix = (fromIndex $ startIdx endTok) + (len endTok)
-                    in Annotation { startIdx = startIdx startTok
-                                  , len = endix - startix
-                                  , value = value ann
-                                  , payload = tagTokSentence $ payload ann
-                                  }
-
+  getText theAnn = T.intercalate " " $ map getText $ projectTagged theAnn
 
 instance (Chunk chunk, POS pos) => Pretty (ChunkedSentence pos chunk) where
   pPrint cs = text (T.unpack toStr)

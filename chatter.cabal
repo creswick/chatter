@@ -83,7 +83,7 @@ Library
 --                     NLP.Corpora.WikiNer
                      NLP.Similarity.VectorSim
                      NLP.Extraction.Parsec
-                     -- NLP.Extraction.Examples.ParsecExamples
+--                     NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
 --   Experiments:
 --                     Data.TagTree
