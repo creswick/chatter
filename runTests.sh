@@ -14,4 +14,4 @@ cabal build
 cabal install || true
 
 echo "Running tests"
-./dist/build/tests/tests --jxml=./dist/test-results.xml || true
+./dist/build/tests/tests --xml=./dist/test-results.xml || true

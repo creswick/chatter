@@ -46,7 +46,7 @@ module NLP.POS
   )
 where
 
-
+import qualified Control.Exception           as X
 import           Codec.Compression.GZip      (decompress)
 import           Data.ByteString             (ByteString)
 import qualified Data.ByteString             as BS
@@ -118,7 +118,7 @@ loadTagger :: Tag t => FilePath -> IO (POSTagger t)
 loadTagger file = do
   content <- getContent file
   case deserialize taggerTable content of
-    Left err -> error err
+    Left err -> error ("Could not load tagger from file: "++ file ++" due to error: \n" ++ err)
     Right tgr -> return tgr
   where
     getContent :: FilePath -> IO ByteString

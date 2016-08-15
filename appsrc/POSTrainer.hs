@@ -12,6 +12,7 @@ import NLP.POS (saveTagger, train)
 import NLP.Types (POSTagger, Error)
 import NLP.Types.IOB
 
+import qualified NLP.Corpora.Brown as B
 import qualified NLP.Corpora.Conll as C
 
 main :: IO ()
@@ -20,18 +21,14 @@ main = do
   let output = last args
       corpora = init args
 
-      avgPerTagger :: POSTagger C.Tag
+      avgPerTagger :: POSTagger B.Tag
       avgPerTagger = Avg.mkTagger Avg.emptyPerceptron Nothing
 
-      initTagger :: POSTagger C.Tag
+      initTagger :: POSTagger B.Tag
       initTagger   = UT.mkTagger Map.empty (Just avgPerTagger)
+
   rawCorpus <- mapM T.readFile corpora
-  let eCorpora :: Either Error [[IOBChunk C.Chunk C.Tag]]
-      eCorpora = parseIOB $ T.concat rawCorpus
-  case eCorpora of
-    Left err -> T.putStrLn err
-    Right taggedCorpora -> do
-     let taggedSentences = map toTaggedSentence taggedCorpora
-     tagger <- train initTagger taggedSentences
-     saveTagger tagger output
+  let taggedSentences = B.parseTaggedSentences $ T.concat rawCorpus
+  tagger <- train initTagger taggedSentences
+  saveTagger tagger output
 
