@@ -5,6 +5,8 @@
 module NLP.Corpora.Brown
  ( Tag(..)
  , Chunk(..)
+ , parseTaggedSentences
+   
  )
 where
 
@@ -19,6 +21,12 @@ import GHC.Generics
 
 import qualified NLP.Types as T
 import NLP.Types.General
+import NLP.Types.Tree hiding (Chunk)
+import NLP.Corpora.Parsing (readPOS)
+
+-- | Parse a Brown corpus into TagagedSentences.
+parseTaggedSentences :: Text -> [TaggedSentence Tag]
+parseTaggedSentences rawCorpus = map readPOS $ T.lines rawCorpus
 
 data Chunk = C_NP -- ^ Noun Phrase.
            | C_VP -- ^ Verb Phrase.

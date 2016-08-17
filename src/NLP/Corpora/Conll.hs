@@ -16,6 +16,17 @@ import GHC.Generics
 
 import qualified NLP.Types as T
 import NLP.Types.General
+import NLP.Types.Tree hiding (Chunk)
+import NLP.Types.IOB
+
+-- | Parse an IOB-formatted Conll corpus into TagagedSentences.
+parseTaggedSentences :: Text -> [TaggedSentence Tag]
+parseTaggedSentences rawCorpus =
+  let res :: Either Error [[IOBChunk Chunk Tag]]
+      res = parseIOB rawCorpus
+  in case res of
+       Left            err -> []
+       Right taggedCorpora -> map toTaggedSentence taggedCorpora
 
 -- | Named entity categories defined for the Conll 2003 task.
 data NERTag = PER

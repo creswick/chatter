@@ -1,5 +1,13 @@
 = HEAD =
 
+= 0.9.0.0 =
+
+ - Regenerated the model files; changes to cereal caused the old
+   Average Perceptron models to throw exceptions on load, and as such,
+   are no longer compatible.  The packaged models have been updated.
+
+ - Minor updates to slack build script.
+
 = 0.8.0.2 =
 
  - Bounded the version of cereal to < 0.5 because of breaking changes
