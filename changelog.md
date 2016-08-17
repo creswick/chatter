@@ -1,5 +1,7 @@
 = HEAD =
 
+ - Updated dependency versions (cereal, specifically) to account for ghc-8.0.
+
 = 0.9.0.0 =
 
  - Regenerated the model files; changes to cereal caused the old
