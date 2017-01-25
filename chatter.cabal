@@ -71,6 +71,7 @@ Library
                      NLP.Extraction.Parsec
                      NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
+                     Exp
 
    Build-depends:    base           >= 4.6 && <= 6,
                      text           >= 0.11.3.0,
@@ -95,7 +96,8 @@ Library
                      QuickCheck,
                      quickcheck-instances,
                      unordered-containers,
-                     hashable
+                     hashable,
+                     HList          >= 0.4.2.1
 
 
 
