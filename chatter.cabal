@@ -72,6 +72,7 @@ Library
                      NLP.Extraction.Examples.ParsecExamples
                      Data.DefaultMap
                      Exp
+                     HGraph
 
    Build-depends:    base           >= 4.6 && <= 6,
                      text           >= 0.11.3.0,
