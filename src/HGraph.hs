@@ -2,6 +2,7 @@
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE GADTs #-}
 -- | A simple example of using an HList to store tokens for parsing.
 --
 -- > tokenizeNodes $ T.pack "This is a test."

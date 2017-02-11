@@ -73,6 +73,7 @@ Library
                      Data.DefaultMap
                      Exp
                      HGraph
+                     GADTGraph
 
    Build-depends:    base           >= 4.6 && <= 6,
                      text           >= 0.11.3.0,
