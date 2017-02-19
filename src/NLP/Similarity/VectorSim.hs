@@ -8,7 +8,7 @@ import Data.DefaultMap (DefaultMap)
 import Test.QuickCheck (Arbitrary(..))
 import qualified Data.HashMap.Strict as HM
 import qualified Data.DefaultMap as DM
-import qualified Data.Set as Set
+import qualified Data.HashSet as HSet
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.List (elemIndices)
@@ -72,7 +72,7 @@ sim corpus doc1 doc2 = similarity corpus (T.words doc1) (T.words doc2)
 -- implementation.  If you need to run similarity against any single
 -- document more than once, then you should create `TermVector`s for
 -- each of your documents and use `tvSim` instead of `similarity`.
--- 
+--
 -- The return value will be in the range [0, 1].
 --
 -- There *must* be at least one document in the corpus.
@@ -153,12 +153,16 @@ magnitude v = sqrt $ DM.foldl acc 0 $ fromTV v
 -- | find the dot product of two vectors.
 dotProd :: TermVector -> TermVector -> Double
 dotProd xs ys = let
-  terms = Set.fromList (keys xs) `Set.union` Set.fromList (keys ys)
-  in Set.foldl (+) 0 (Set.map (\t -> (lookup t xs) * (lookup t ys)) terms)
+  -- Perhaps a bit more performance can be had if we ensure the first set
+  -- in the union is the smaller one?
+  -- https://hackage.haskell.org/package/unordered-containers-0.2.7.2/docs/Data-HashSet.html#v:union
+  terms = vectorToSet xs `HSet.union` vectorToSet ys
+  in HSet.foldl' (+) 0 (HSet.map (\t -> (lookup t xs) * (lookup t ys)) terms)
+  where
+    vectorToSet = HSet.fromMap . (HM.map (const ())) . DM.defMap . fromTV
 
 keys :: TermVector -> [Text]
 keys tv = DM.keys $ fromTV tv
 
 lookup :: Text -> TermVector -> Double
 lookup key tv = DM.lookup key $ fromTV tv
-
