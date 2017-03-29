@@ -1,6 +1,9 @@
 = HEAD =
 
+= 0.9.0.1 =
+
  - Updated dependency versions (cereal, specifically) to account for ghc-8.0.
+ - Switched to using HashSet in VectorSim; gaining ~25% performance improvement (Thanks to @dgaw!)
 
 = 0.9.0.0 =
 
