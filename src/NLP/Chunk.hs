@@ -27,6 +27,7 @@ to do so.
 
 -}
 module NLP.Chunk
+  ( defaultTagger )
 where
 
 import           Codec.Compression.GZip      (decompress)
