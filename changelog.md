@@ -1,4 +1,5 @@
 = HEAD =
+ - Slight bump in the dependency on cereal to make it easier to get chatter into stackage.
 
 = 0.9.1.0 =
 
