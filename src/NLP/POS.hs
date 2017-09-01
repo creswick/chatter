@@ -93,7 +93,7 @@ brownTagger = do
 
 -- | The default table of tagger IDs to readTagger functions.  Each
 -- tagger packaged with Chatter should have an entry here.  By
--- convention, the IDs use are the fully qualified module name of the
+-- convention, IDs use fully qualified module name of the
 -- tagger package.
 taggerTable :: Tag t => Map ByteString
                (ByteString -> Maybe (POSTagger t) -> Either String (POSTagger t))
