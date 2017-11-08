@@ -1,6 +1,7 @@
 #!/bin/bash
-# exit on /any/ error:
-set -e
+# 'unofficial bash strict mode'
+set -euo pipefail
+IFS=$'\n\t'
 
 # Path settings for jenkins
 export PATH=${HOME}/.cabal/bin:${HOME}/tools/ghc/ghc-7.6.3/bin:${HOME}/android-sdk-linux/platform-tools/:$PATH
