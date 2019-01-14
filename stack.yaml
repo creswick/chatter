@@ -5,4 +5,4 @@ extra-deps:
 - cereal-text-0.1.0.2
 - fullstop-0.1.4
 - tokenize-0.3.0
-resolver: lts-6.1
+resolver: lts-13.2
