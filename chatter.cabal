@@ -90,7 +90,6 @@ Library
                      parsec         >= 3.1.5,
                      transformers,
                      regex-tdfa     >= 1.2.0,
-                     regex-tdfa-text,
                      array,
                      QuickCheck,
                      quickcheck-instances,
