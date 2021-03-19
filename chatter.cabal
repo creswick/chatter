@@ -207,11 +207,18 @@ test-suite tests
 
    Other-modules:    AvgPerceptronTests
                      BackoffTaggerTests
+                     NLP.Chunk.AvgPerceptronChunkerTests
+                     NLP.Chunk.AvgPerceptronChunkerTests
+                     NLP.Corpora.BrownTests
+                     NLP.Corpora.ConllTests
                      NLP.Similarity.VectorSimTests
                      NLP.POSTests
+                     NLP.POS.LiteralTaggerTests
                      NLP.POS.UnambiguousTaggerTests
                      NLP.Extraction.ParsecTests
                      NLP.TypesTests
+                     NLP.Types.IOBTests
+                     NLP.Types.TreeTests
                      Data.DefaultMapTests
                      Corpora
                      TestUtils
