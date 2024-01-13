@@ -208,7 +208,6 @@ test-suite tests
    Other-modules:    AvgPerceptronTests
                      BackoffTaggerTests
                      NLP.Chunk.AvgPerceptronChunkerTests
-                     NLP.Chunk.AvgPerceptronChunkerTests
                      NLP.Corpora.BrownTests
                      NLP.Corpora.ConllTests
                      NLP.Similarity.VectorSimTests
